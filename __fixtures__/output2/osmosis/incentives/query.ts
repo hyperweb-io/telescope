@@ -8,7 +8,7 @@ import { Long, DeepPartial, isSet, Rpc } from "../../helpers";
 import * as _m0 from "protobufjs/minimal";
 import { JsonSafe } from "../../json-safe";
 export const protobufPackage = "osmosis.incentives";
-export interface ModuleToDistributeCoinsRequest { }
+export interface ModuleToDistributeCoinsRequest {}
 export interface ModuleToDistributeCoinsResponse {
   /** Coins that have yet to be distributed */
   coins: Coin[];
@@ -93,7 +93,7 @@ export interface RewardsEstResponse {
    */
   coins: Coin[];
 }
-export interface QueryLockableDurationsRequest { }
+export interface QueryLockableDurationsRequest {}
 export interface QueryLockableDurationsResponse {
   /** Time durations that users can lock coins for in order to receive rewards */
   lockableDurations: Duration[];

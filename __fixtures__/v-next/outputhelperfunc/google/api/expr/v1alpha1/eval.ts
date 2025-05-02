@@ -520,7 +520,7 @@ export const EvalState_Result = {
       value: EvalState_Result.encode(message).finish()
     };
   },
-  registerTypeUrl() { }
+  registerTypeUrl() {}
 };
 function createBaseExprValue(): ExprValue {
   return {
@@ -889,5 +889,5 @@ export const UnknownSet = {
       value: UnknownSet.encode(message).finish()
     };
   },
-  registerTypeUrl() { }
+  registerTypeUrl() {}
 };

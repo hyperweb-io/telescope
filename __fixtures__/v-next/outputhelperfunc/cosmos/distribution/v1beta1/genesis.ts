@@ -431,7 +431,7 @@ export const DelegatorWithdrawInfo = {
       value: DelegatorWithdrawInfo.encode(message).finish()
     };
   },
-  registerTypeUrl() { }
+  registerTypeUrl() {}
 };
 function createBaseValidatorOutstandingRewardsRecord(): ValidatorOutstandingRewardsRecord {
   return {

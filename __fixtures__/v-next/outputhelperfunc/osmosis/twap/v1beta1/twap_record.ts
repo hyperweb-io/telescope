@@ -367,5 +367,5 @@ export const TwapRecord = {
       value: TwapRecord.encode(message).finish()
     };
   },
-  registerTypeUrl() { }
+  registerTypeUrl() {}
 };
