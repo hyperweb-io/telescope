@@ -106,7 +106,7 @@ export interface DelegatorStartingInfoRecordSDKType {
 export interface ValidatorSlashEventRecord {
   /** validator_address is the address of the validator. */
   validatorAddress: string;
-  /** height defines the block height at which the slash event occured. */
+  /** height defines the block height at which the slash event occurred. */
   height: Long;
   /** period is the period of the slash event. */
   period: Long;
@@ -122,7 +122,7 @@ export interface ValidatorSlashEventRecordSDKType {
 }
 /** GenesisState defines the distribution module's genesis state. */
 export interface GenesisState {
-  /** params defines all the paramaters of the module. */
+  /** params defines all the parameters of the module. */
   params: Params;
   /** fee_pool defines the fee pool at genesis. */
   feePool: FeePool;

@@ -7,7 +7,7 @@ import { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "evmos.recovery.v1";
 /** GenesisState defines the recovery module's genesis state. */
 export interface GenesisState {
-  /** params defines all the paramaters of the module. */
+  /** params defines all the parameters of the module. */
   params: Params;
 }
 /** Params holds parameters for the recovery module */

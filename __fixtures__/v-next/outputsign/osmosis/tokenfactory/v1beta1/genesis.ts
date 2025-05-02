@@ -5,7 +5,7 @@ import { DeepPartial } from "../../../helpers";
 export const protobufPackage = "osmosis.tokenfactory.v1beta1";
 /** GenesisState defines the tokenfactory module's genesis state. */
 export interface GenesisState {
-  /** params defines the paramaters of the module. */
+  /** params defines the parameters of the module. */
   params: Params;
   factoryDenoms: GenesisDenom[];
 }
@@ -15,7 +15,7 @@ export interface GenesisStateProtoMsg {
 }
 /** GenesisState defines the tokenfactory module's genesis state. */
 export interface GenesisStateAmino {
-  /** params defines the paramaters of the module. */
+  /** params defines the parameters of the module. */
   params?: ParamsAmino;
   factory_denoms?: GenesisDenomAmino[];
 }

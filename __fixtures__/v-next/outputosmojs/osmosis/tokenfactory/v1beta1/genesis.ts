@@ -6,7 +6,7 @@ import { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "osmosis.tokenfactory.v1beta1";
 /** GenesisState defines the tokenfactory module's genesis state. */
 export interface GenesisState {
-  /** params defines the paramaters of the module. */
+  /** params defines the parameters of the module. */
   params: Params;
   factoryDenoms: GenesisDenom[];
 }

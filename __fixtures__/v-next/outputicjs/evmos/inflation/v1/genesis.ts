@@ -3,7 +3,7 @@ import { BinaryReader, BinaryWriter } from "../../../binary";
 import { DeepPartial } from "../../../helpers";
 /** GenesisState defines the inflation module's genesis state. */
 export interface GenesisState {
-  /** params defines all the paramaters of the module. */
+  /** params defines all the parameters of the module. */
   params: Params;
   /** amount of past periods, based on the epochs per period param */
   period: bigint;
@@ -20,7 +20,7 @@ export interface GenesisStateProtoMsg {
 }
 /** GenesisState defines the inflation module's genesis state. */
 export interface GenesisStateAmino {
-  /** params defines all the paramaters of the module. */
+  /** params defines all the parameters of the module. */
   params: ParamsAmino;
   /** amount of past periods, based on the epochs per period param */
   period: string;

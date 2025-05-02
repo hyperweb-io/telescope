@@ -5,7 +5,7 @@ import { isSet, DeepPartial } from "../../../helpers";
 export const protobufPackage = "cosmos.bank.v1beta1";
 /** GenesisState defines the bank module's genesis state. */
 export interface GenesisState {
-  /** params defines all the paramaters of the module. */
+  /** params defines all the parameters of the module. */
   params: Params;
   /** balances is an array containing the balances of all the accounts. */
   balances: Balance[];
@@ -23,7 +23,7 @@ export interface GenesisStateProtoMsg {
 }
 /** GenesisState defines the bank module's genesis state. */
 export interface GenesisStateAmino {
-  /** params defines all the paramaters of the module. */
+  /** params defines all the parameters of the module. */
   params?: ParamsAmino;
   /** balances is an array containing the balances of all the accounts. */
   balances?: BalanceAmino[];

@@ -9,7 +9,7 @@ option go_package = "github.com/tharsis/evmos/v4/x/inflation/types";
 
 // GenesisState defines the inflation module's genesis state.
 message GenesisState {
-  // params defines all the paramaters of the module.
+  // params defines all the parameters of the module.
   Params params = 1 [ (gogoproto.nullable) = false ];
   // amount of past periods, based on the epochs per period param
   uint64 period = 2;

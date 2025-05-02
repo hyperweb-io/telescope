@@ -8,7 +8,7 @@ import { Long, DeepPartial, isSet, Rpc } from "../../helpers";
 import * as _m0 from "protobufjs/minimal";
 import { JsonSafe } from "../../json-safe";
 export const protobufPackage = "osmosis.incentives";
-export interface ModuleToDistributeCoinsRequest {}
+export interface ModuleToDistributeCoinsRequest { }
 export interface ModuleToDistributeCoinsResponse {
   /** Coins that have yet to be distributed */
   coins: Coin[];
@@ -88,14 +88,14 @@ export interface RewardsEstRequest {
 }
 export interface RewardsEstResponse {
   /**
-   * Estimated coin rewards that will be recieved at provided address
+   * Estimated coin rewards that will be received at provided address
    * from specified locks between current time and end epoch
    */
   coins: Coin[];
 }
-export interface QueryLockableDurationsRequest {}
+export interface QueryLockableDurationsRequest { }
 export interface QueryLockableDurationsResponse {
-  /** Time durations that users can lock coins for in order to recieve rewards */
+  /** Time durations that users can lock coins for in order to receive rewards */
   lockableDurations: Duration[];
 }
 function createBaseModuleToDistributeCoinsRequest(): ModuleToDistributeCoinsRequest {
@@ -1031,10 +1031,10 @@ export interface Query {
   ActiveGauges(request?: ActiveGaugesRequest): Promise<ActiveGaugesResponse>;
   /** ActiveGaugesPerDenom returns active gauges by denom */
   ActiveGaugesPerDenom(request: ActiveGaugesPerDenomRequest): Promise<ActiveGaugesPerDenomResponse>;
-  /** Returns scheduled gauges that have not yet occured */
+  /** Returns scheduled gauges that have not yet occurred */
   UpcomingGauges(request?: UpcomingGaugesRequest): Promise<UpcomingGaugesResponse>;
   /**
-   * UpcomingGaugesPerDenom returns scheduled gauges that have not yet occured
+   * UpcomingGaugesPerDenom returns scheduled gauges that have not yet occurred
    * by denom
    */
   UpcomingGaugesPerDenom(request: UpcomingGaugesPerDenomRequest): Promise<UpcomingGaugesPerDenomResponse>;

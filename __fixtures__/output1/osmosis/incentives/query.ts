@@ -138,7 +138,7 @@ export interface RewardsEstRequestSDKType {
 }
 export interface RewardsEstResponse {
   /**
-   * Estimated coin rewards that will be recieved at provided address
+   * Estimated coin rewards that will be received at provided address
    * from specified locks between current time and end epoch
    */
   coins: Coin[];
@@ -149,7 +149,7 @@ export interface RewardsEstResponseSDKType {
 export interface QueryLockableDurationsRequest {}
 export interface QueryLockableDurationsRequestSDKType {}
 export interface QueryLockableDurationsResponse {
-  /** Time durations that users can lock coins for in order to recieve rewards */
+  /** Time durations that users can lock coins for in order to receive rewards */
   lockableDurations: Duration[];
 }
 export interface QueryLockableDurationsResponseSDKType {

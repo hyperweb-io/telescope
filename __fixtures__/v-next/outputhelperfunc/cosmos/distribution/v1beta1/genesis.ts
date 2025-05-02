@@ -211,7 +211,7 @@ export interface DelegatorStartingInfoRecordSDKType {
 export interface ValidatorSlashEventRecord {
   /** validator_address is the address of the validator. */
   validatorAddress: string;
-  /** height defines the block height at which the slash event occured. */
+  /** height defines the block height at which the slash event occurred. */
   height: bigint;
   /** period is the period of the slash event. */
   period: bigint;
@@ -226,7 +226,7 @@ export interface ValidatorSlashEventRecordProtoMsg {
 export interface ValidatorSlashEventRecordAmino {
   /** validator_address is the address of the validator. */
   validator_address?: string;
-  /** height defines the block height at which the slash event occured. */
+  /** height defines the block height at which the slash event occurred. */
   height?: string;
   /** period is the period of the slash event. */
   period?: string;
@@ -246,7 +246,7 @@ export interface ValidatorSlashEventRecordSDKType {
 }
 /** GenesisState defines the distribution module's genesis state. */
 export interface GenesisState {
-  /** params defines all the paramaters of the module. */
+  /** params defines all the parameters of the module. */
   params: Params;
   /** fee_pool defines the fee pool at genesis. */
   feePool: FeePool;
@@ -273,7 +273,7 @@ export interface GenesisStateProtoMsg {
 }
 /** GenesisState defines the distribution module's genesis state. */
 export interface GenesisStateAmino {
-  /** params defines all the paramaters of the module. */
+  /** params defines all the parameters of the module. */
   params?: ParamsAmino;
   /** fee_pool defines the fee pool at genesis. */
   fee_pool?: FeePoolAmino;
@@ -431,7 +431,7 @@ export const DelegatorWithdrawInfo = {
       value: DelegatorWithdrawInfo.encode(message).finish()
     };
   },
-  registerTypeUrl() {}
+  registerTypeUrl() { }
 };
 function createBaseValidatorOutstandingRewardsRecord(): ValidatorOutstandingRewardsRecord {
   return {

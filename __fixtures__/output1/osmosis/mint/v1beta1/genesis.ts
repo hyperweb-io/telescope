@@ -7,7 +7,7 @@ export const protobufPackage = "osmosis.mint.v1beta1";
 export interface GenesisState {
   /** minter is an abstraction for holding current rewards information. */
   minter: Minter;
-  /** params defines all the paramaters of the mint module. */
+  /** params defines all the parameters of the mint module. */
   params: Params;
   /**
    * reduction_started_epoch is the first epoch in which the reduction of mint

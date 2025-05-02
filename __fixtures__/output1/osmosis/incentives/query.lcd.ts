@@ -73,7 +73,7 @@ export class LCDQueryClient {
     const endpoint = `osmosis/incentives/v1beta1/active_gauges_per_denom`;
     return await this.req.get<ActiveGaugesPerDenomResponseSDKType>(endpoint, options);
   }
-  /* Returns scheduled gauges that have not yet occured */
+  /* Returns scheduled gauges that have not yet occurred */
   async upcomingGauges(params: UpcomingGaugesRequest = {
     pagination: undefined
   }): Promise<UpcomingGaugesResponseSDKType> {
@@ -86,7 +86,7 @@ export class LCDQueryClient {
     const endpoint = `osmosis/incentives/v1beta1/upcoming_gauges`;
     return await this.req.get<UpcomingGaugesResponseSDKType>(endpoint, options);
   }
-  /* UpcomingGaugesPerDenom returns scheduled gauges that have not yet occured
+  /* UpcomingGaugesPerDenom returns scheduled gauges that have not yet occurred
    by denom */
   async upcomingGaugesPerDenom(params: UpcomingGaugesPerDenomRequest): Promise<UpcomingGaugesPerDenomResponseSDKType> {
     const options: any = {

@@ -25,7 +25,7 @@
                         "options": {
                           "(gogoproto.nullable)": false
                         },
-                        "comment": "params defines all the paramaters of related to deposit."
+                        "comment": "params defines all the parameters of related to deposit."
                       },
                       "signingInfos": {
                         "rule": "repeated",

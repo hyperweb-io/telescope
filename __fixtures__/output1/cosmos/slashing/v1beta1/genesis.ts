@@ -5,7 +5,7 @@ import { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "cosmos.slashing.v1beta1";
 /** GenesisState defines the slashing module's genesis state. */
 export interface GenesisState {
-  /** params defines all the paramaters of related to deposit. */
+  /** params defines all the parameters of related to deposit. */
   params: Params;
   /**
    * signing_infos represents a map between validator addresses and their
