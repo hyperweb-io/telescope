@@ -44,6 +44,9 @@ npm install ${libName}
             - [CosmWasm](#cosmwasm-messages)
             - [IBC](#ibc-messages)
             - [Cosmos](#cosmos-messages)
+    - [Tree-Shakable Hooks](#tree-shakable-hooks)
+        - [React Hooks](#react-hooks)
+        - [Vue Hooks](#vue-hooks)
 - [Wallets and Signers](#connecting-with-wallets-and-signing-messages)
     - [Stargate Client](#initializing-the-stargate-client)
     - [Creating Signers](#creating-signers)
@@ -168,6 +171,96 @@ const {
 } = cosmos.gov.v1beta1.MessageComposer.fromPartial;
 \`\`\`
 
+### Tree-Shakable Hooks
+
+Tree-shakable hooks allow you to import only the specific hooks you need, reducing bundle size and improving application performance. Telescope supports both React and Vue frameworks.
+
+#### React Hooks
+
+To use React hooks, enable them in your Telescope configuration:
+
+\`\`\`js
+module.exports = {
+  helperFunctions: {
+    enabled: true,
+    hooks: {
+      react: true
+    }
+  }
+}
+\`\`\`
+
+Then import the hooks directly from the generated files:
+
+\`\`\`js
+import { useGetBalance } from '@interchainjs/react/cosmos/bank/v1beta1/query.rpc.react';
+import { useSend } from '@interchainjs/react/cosmos/bank/v1beta1/tx.rpc.react';
+
+function BalanceComponent() {
+  const { data, isLoading, error } = useGetBalance({
+    request: {
+      address: '${exampleAddr}'
+    },
+    clientResolver: "https://rpc.cosmos.directory/${baseModule}",
+    options: {
+      enabled: true,
+    }
+  });
+  
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
+  
+  return <div>Balance: {JSON.stringify(data)}</div>;
+}
+\`\`\`
+
+#### Vue Hooks
+
+To use Vue hooks, enable them in your Telescope configuration:
+
+\`\`\`js
+module.exports = {
+  helperFunctions: {
+    enabled: true,
+    hooks: {
+      vue: true
+    }
+  }
+}
+\`\`\`
+
+Then import the hooks in your Vue components:
+
+\`\`\`vue
+<script setup>
+import { ref, computed } from 'vue';
+import { useGetBalance } from '@interchainjs/vue/cosmos/bank/v1beta1/query.rpc.vue';
+
+const address = ref('${exampleAddr}');
+const request = computed(() => ({
+  address: address.value
+}));
+
+const {
+  data,
+  isLoading,
+  error
+} = useGetBalance({
+  request,
+  clientResolver: 'https://rpc.cosmos.directory/${baseModule}',
+  options: {
+    enabled: true,
+  }
+});
+</script>
+
+<template>
+  <div v-if="isLoading">Loading...</div>
+  <div v-else-if="error">Error: {{ error.message }}</div>
+  <div v-else>Balance: {{ JSON.stringify(data) }}</div>
+</template>
+\`\`\`
+
 ## Connecting with Wallets and Signing Messages
 
 ⚡️ For web interfaces, we recommend using [cosmos-kit](https://github.com/hyperweb-io/cosmos-kit). Continue below to see how to manually construct signers and clients.
@@ -271,6 +364,117 @@ Link to a working demo: https://github.com/hoangdv2429/grpc-web-js
 
 ## Advanced Usage
 
+### Complete Message Reference
+
+Below is a comprehensive list of all available messages by module, indicating whether they can be broadcast (Msg) or queried (Query).
+
+#### ${baseModule} Messages
+
+##### Broadcast Messages (Msg)
+
+These messages can be sent to the blockchain:
+
+\`\`\`js
+// Import the MessageComposer
+import { ${baseModule} } from '${libName}';
+
+// Access broadcast messages with withTypeUrl
+const {
+    createSpotLimitOrder,
+    createSpotMarketOrder,
+    deposit
+} = ${baseModule}.exchange.v1beta1.MessageComposer.withTypeUrl;
+
+import { useSend } from '@interchainjs/react/${baseModule}/exchange/v1beta1/tx.rpc.react';
+
+const { mutate } = useSend({
+  clientResolver: signingClient,
+  options: {}
+});
+
+mutate({
+  signerAddress: address,
+  message: {
+  },
+  fee: 'auto',
+  memo: ''
+});
+\`\`\`
+
+##### Query Messages (Query)
+
+These messages query blockchain state without sending transactions:
+
+\`\`\`js
+// Import the client factory
+import { ${baseModule} } from '${libName}';
+
+const { createRPCQueryClient } = ${baseModule}.ClientFactory;
+const client = await createRPCQueryClient({ rpcEndpoint: RPC_ENDPOINT });
+
+const result = await client.${baseModule}.exchange.v1beta1.exchangeBalances();
+
+import { useGetExchangeBalances } from '@interchainjs/react/${baseModule}/exchange/v1beta1/query.rpc.react';
+
+const { data, isLoading } = useGetExchangeBalances({
+  request: {},
+  clientResolver: "https://rpc.cosmos.directory/${baseModule}",
+  options: {
+    enabled: true
+  }
+});
+\`\`\`
+
+#### Cosmos Messages
+
+##### Broadcast Messages (Msg)
+
+\`\`\`js
+import { cosmos } from '${libName}';
+
+const {
+  multiSend,
+  send
+} = cosmos.bank.v1beta1.MessageComposer.withTypeUrl;
+
+const {
+  fundCommunityPool,
+  setWithdrawAddress,
+  withdrawDelegatorReward,
+  withdrawValidatorCommission
+} = cosmos.distribution.v1beta1.MessageComposer.withTypeUrl;
+
+const {
+  beginRedelegate,
+  createValidator,
+  delegate,
+  editValidator,
+  undelegate
+} = cosmos.staking.v1beta1.MessageComposer.withTypeUrl;
+
+const {
+  deposit,
+  submitProposal,
+  vote,
+  voteWeighted
+} = cosmos.gov.v1beta1.MessageComposer.withTypeUrl;
+
+import { useSend } from '@interchainjs/react/cosmos/bank/v1beta1/tx.rpc.react';
+\`\`\`
+
+##### Query Messages (Query)
+
+\`\`\`js
+const client = await createRPCQueryClient({ rpcEndpoint: RPC_ENDPOINT });
+
+const balance = await client.cosmos.bank.v1beta1.balance({ address: '${exampleAddr}', denom: '${denom}' });
+const allBalances = await client.cosmos.bank.v1beta1.allBalances({ address: '${exampleAddr}' });
+
+const validators = await client.cosmos.staking.v1beta1.validators({});
+const delegation = await client.cosmos.staking.v1beta1.delegation({ delegatorAddr: '${exampleAddr}', validatorAddr: 'validatorAddress' });
+
+import { useGetBalance, useGetAllBalances } from '@interchainjs/react/cosmos/bank/v1beta1/query.rpc.react';
+\`\`\`
 
 If you want to manually construct a stargate client
 

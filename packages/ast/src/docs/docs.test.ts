@@ -2,6 +2,7 @@ import { getTestProtoStore, expectCode, defaultTelescopeOptions, printCode } fro
 import { ProtoParseContext } from '../encoding';
 import { documentWithTypeUrl, documentWithTypeUrlReadme } from './with-type-url';
 import { documentRpcClients, documentRpcClientsReadme } from './rpc-clients';
+import { documentTreeShakableHooks, documentTreeShakableHooksReadme } from './tree-shakable-hooks';
 import * as t from '@babel/types';
 import { ServiceMutation } from '@cosmology/types';
 import { readme } from './base-readme';
@@ -45,6 +46,18 @@ it('documentRpcClientsReadme', () => {
     const context = new ProtoParseContext(ref, store, defaultTelescopeOptions);
     const text = documentRpcClientsReadme(context, store.getServices(myBase));
     expect(text).toMatchSnapshot();
+});
+
+it('documentTreeShakableHooks', () => {
+    expectCode(documentTreeShakableHooks(mutations, 'react'))
+});
+
+it('documentTreeShakableHooksReadme', () => {
+    expect(documentTreeShakableHooksReadme(mutations, 'react')).toMatchSnapshot();
+});
+
+it('documentTreeShakableHooksReadmeVue', () => {
+    expect(documentTreeShakableHooksReadme(mutations, 'vue')).toMatchSnapshot();
 });
 
 it('baseReadme', () => {
