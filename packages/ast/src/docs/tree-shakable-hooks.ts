@@ -1,7 +1,7 @@
 import { makeCommentBlock } from "../utils";
 import * as t from '@babel/types';
 import generate from '@babel/generator';
-import { ServiceMutation } from "@cosmology/types";
+import { ServiceMutation, ServiceType } from "@cosmology/types";
 import { camel } from "@cosmology/utils";
 import { pascal } from "case";
 
@@ -9,16 +9,19 @@ import { pascal } from "case";
  * Generates documentation for tree-shakable hooks for a specific module
  * @param mutations Service mutations to document
  * @param framework The framework to generate hooks for ('react' or 'vue')
+ * @param serviceType The type of service ('query' or 'msg')
  */
 export const documentTreeShakableHooks = (
     mutations: ServiceMutation[],
-    framework: 'react' | 'vue' = 'react'
+    framework: 'react' | 'vue' = 'react',
+    serviceType: 'query' | 'msg' = 'query'
 ) => {
     if (mutations.length === 0) return null;
     
     const path = mutations[0].package.split('.');
-    const hookPrefix = framework === 'react' ? 'useGet' : 'useGet';
+    const hookPrefix = serviceType === 'query' ? 'useGet' : 'use';
     const importPath = framework === 'react' ? 'react' : 'vue';
+    const rpcType = serviceType === 'query' ? 'query' : 'tx';
     
     return t.variableDeclaration('const', [
         t.variableDeclarator(
@@ -35,7 +38,7 @@ export const documentTreeShakableHooks = (
             })),
             t.memberExpression(
                 t.identifier(`@interchainjs/${importPath}`),
-                t.identifier(`${path.join('/')}/query.rpc.${importPath}`)
+                t.identifier(`${path.join('/')}/${rpcType}.rpc.${importPath}`)
             )
         )
     ]);
@@ -45,21 +48,24 @@ export const documentTreeShakableHooks = (
  * Generates readme documentation for tree-shakable hooks
  * @param mutations Service mutations to document
  * @param framework The framework to generate hooks for ('react' or 'vue')
+ * @param serviceType The type of service ('query' or 'msg')
  */
 export const documentTreeShakableHooksReadme = (
     mutations: ServiceMutation[],
-    framework: 'react' | 'vue' = 'react'
+    framework: 'react' | 'vue' = 'react',
+    serviceType: 'query' | 'msg' = 'query'
 ) => {
     if (mutations.length === 0) return '';
     
-    const ast = documentTreeShakableHooks(mutations, framework);
+    const ast = documentTreeShakableHooks(mutations, framework, serviceType);
     if (!ast) return '';
     
     const code = generate(ast).code;
     const frameworkName = framework === 'react' ? 'React' : 'Vue';
+    const serviceTypeName = serviceType === 'query' ? 'Query' : 'Broadcast';
     
     return `
-#### \`${mutations[0].package}\` ${frameworkName} Hooks
+#### \`${mutations[0].package}\` ${frameworkName} ${serviceTypeName} Hooks
 
 \`\`\`js
 ${code}
@@ -68,7 +74,7 @@ ${code}
 Example usage:
 
 \`\`\`${framework === 'react' ? 'tsx' : 'vue'}
-${getHookUsageExample(mutations[0], framework)}
+${getHookUsageExample(mutations[0], framework, serviceType)}
 \`\`\`
     `;
 };
@@ -77,16 +83,20 @@ ${getHookUsageExample(mutations[0], framework)}
  * Generates an example of using a hook for a specific mutation
  * @param mutation The service mutation to generate an example for
  * @param framework The framework to generate the example for ('react' or 'vue')
+ * @param serviceType The type of service ('query' or 'msg')
  */
 const getHookUsageExample = (
     mutation: ServiceMutation,
-    framework: 'react' | 'vue' = 'react'
+    framework: 'react' | 'vue' = 'react',
+    serviceType: 'query' | 'msg' = 'query'
 ) => {
-    const hookPrefix = framework === 'react' ? 'useGet' : 'useGet';
+    const hookPrefix = serviceType === 'query' ? 'useGet' : 'use';
     const hookName = `${hookPrefix}${pascal(camel(mutation.methodName))}`;
+    const rpcType = serviceType === 'query' ? 'query' : 'tx';
     
     if (framework === 'react') {
-        return `import { ${hookName} } from '@interchainjs/react/${mutation.package.replace(/\./g, '/')}/query.rpc.react';
+        if (serviceType === 'query') {
+            return `import { ${hookName} } from '@interchainjs/react/${mutation.package.replace(/\./g, '/')}/${rpcType}.rpc.react';
 
 function ${pascal(camel(mutation.methodName))}Component() {
   const { data, isLoading, error } = ${hookName}({
@@ -103,10 +113,36 @@ function ${pascal(camel(mutation.methodName))}Component() {
   
   return <div>Data: {JSON.stringify(data)}</div>;
 }`;
+        } else {
+            return `import { ${hookName} } from '@interchainjs/react/${mutation.package.replace(/\./g, '/')}/${rpcType}.rpc.react';
+
+function ${pascal(camel(mutation.methodName))}Component() {
+  const { mutate, isLoading, error } = ${hookName}({
+    clientResolver: signingClient,
+    options: {}
+  });
+  
+  const handleSubmit = () => {
+    mutate({
+      signerAddress: address,
+      message: {
+      },
+      fee: 'auto',
+      memo: ''
+    });
+  };
+  
+  if (isLoading) return <div>Processing...</div>;
+  if (error) return <div>Error: {error.message}</div>;
+  
+  return <button onClick={handleSubmit}>Submit Transaction</button>;
+}`;
+        }
     } else {
-        return `<script setup>
+        if (serviceType === 'query') {
+            return `<script setup>
 import { ref, computed } from 'vue';
-import { ${hookName} } from '@interchainjs/vue/${mutation.package.replace(/\./g, '/')}/query.rpc.vue';
+import { ${hookName} } from '@interchainjs/vue/${mutation.package.replace(/\./g, '/')}/${rpcType}.rpc.vue';
 
 const request = computed(() => ({
 }));
@@ -129,5 +165,38 @@ const {
   <div v-else-if="error">Error: {{ error.message }}</div>
   <div v-else>Data: {{ JSON.stringify(data) }}</div>
 </template>`;
+        } else {
+            return `<script setup>
+import { ref } from 'vue';
+import { ${hookName} } from '@interchainjs/vue/${mutation.package.replace(/\./g, '/')}/${rpcType}.rpc.vue';
+
+const address = ref('cosmos1...');
+
+const {
+  mutate,
+  isLoading,
+  error
+} = ${hookName}({
+  clientResolver: signingClient,
+  options: {}
+});
+
+const handleSubmit = () => {
+  mutate({
+    signerAddress: address.value,
+    message: {
+    },
+    fee: 'auto',
+    memo: ''
+  });
+};
+</script>
+
+<template>
+  <div v-if="isLoading">Processing...</div>
+  <div v-else-if="error">Error: {{ error.message }}</div>
+  <button @click="handleSubmit">Submit Transaction</button>
+</template>`;
+        }
     }
 };

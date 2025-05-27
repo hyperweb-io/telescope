@@ -48,16 +48,28 @@ it('documentRpcClientsReadme', () => {
     expect(text).toMatchSnapshot();
 });
 
-it('documentTreeShakableHooks', () => {
-    expectCode(documentTreeShakableHooks(mutations, 'react'))
+it('documentTreeShakableHooks query react', () => {
+    expectCode(documentTreeShakableHooks(mutations, 'react', 'query'))
 });
 
-it('documentTreeShakableHooksReadme', () => {
-    expect(documentTreeShakableHooksReadme(mutations, 'react')).toMatchSnapshot();
+it('documentTreeShakableHooks msg react', () => {
+    expectCode(documentTreeShakableHooks(mutations, 'react', 'msg'))
 });
 
-it('documentTreeShakableHooksReadmeVue', () => {
-    expect(documentTreeShakableHooksReadme(mutations, 'vue')).toMatchSnapshot();
+it('documentTreeShakableHooksReadme query react', () => {
+    expect(documentTreeShakableHooksReadme(mutations, 'react', 'query')).toMatchSnapshot();
+});
+
+it('documentTreeShakableHooksReadme msg react', () => {
+    expect(documentTreeShakableHooksReadme(mutations, 'react', 'msg')).toMatchSnapshot();
+});
+
+it('documentTreeShakableHooksReadme query vue', () => {
+    expect(documentTreeShakableHooksReadme(mutations, 'vue', 'query')).toMatchSnapshot();
+});
+
+it('documentTreeShakableHooksReadme msg vue', () => {
+    expect(documentTreeShakableHooksReadme(mutations, 'vue', 'msg')).toMatchSnapshot();
 });
 
 it('baseReadme', () => {
