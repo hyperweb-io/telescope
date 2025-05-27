@@ -3,6 +3,7 @@ import * as t from '@babel/types';
 import generate from '@babel/generator';
 import { ServiceMutation } from "@cosmology/types";
 import { camel } from "@cosmology/utils";
+import { pascal } from "case";
 
 /**
  * Generates documentation for tree-shakable hooks for a specific module
@@ -22,7 +23,7 @@ export const documentTreeShakableHooks = (
     return t.variableDeclaration('const', [
         t.variableDeclarator(
             t.objectPattern(mutations.map(mutation => {
-                const hookName = `${hookPrefix}${camel(mutation.methodName, true)}`;
+                const hookName = `${hookPrefix}${pascal(camel(mutation.methodName))}`;
                 const obj = t.objectProperty(
                     t.identifier(hookName),
                     t.identifier(hookName),
@@ -82,12 +83,12 @@ const getHookUsageExample = (
     framework: 'react' | 'vue' = 'react'
 ) => {
     const hookPrefix = framework === 'react' ? 'useGet' : 'useGet';
-    const hookName = `${hookPrefix}${camel(mutation.methodName, true)}`;
+    const hookName = `${hookPrefix}${pascal(camel(mutation.methodName))}`;
     
     if (framework === 'react') {
         return `import { ${hookName} } from '@interchainjs/react/${mutation.package.replace(/\./g, '/')}/query.rpc.react';
 
-function ${camel(mutation.methodName, true)}Component() {
+function ${pascal(camel(mutation.methodName))}Component() {
   const { data, isLoading, error } = ${hookName}({
     request: {
     },
