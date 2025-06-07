@@ -17,10 +17,10 @@ export interface Query {
   activeGauges(request?: ActiveGaugesRequest): Promise<ActiveGaugesResponse>;
   /** ActiveGaugesPerDenom returns active gauges by denom */
   activeGaugesPerDenom(request: ActiveGaugesPerDenomRequest): Promise<ActiveGaugesPerDenomResponse>;
-  /** Returns scheduled gauges that have not yet occured */
+  /** Returns scheduled gauges that have not yet occurred */
   upcomingGauges(request?: UpcomingGaugesRequest): Promise<UpcomingGaugesResponse>;
   /**
-   * UpcomingGaugesPerDenom returns scheduled gauges that have not yet occured
+   * UpcomingGaugesPerDenom returns scheduled gauges that have not yet occurred
    * by denom
    */
   upcomingGaugesPerDenom(request: UpcomingGaugesPerDenomRequest): Promise<UpcomingGaugesPerDenomResponse>;
@@ -75,7 +75,7 @@ export class QueryClientImpl implements Query {
     const promise = this.rpc.request("osmosis.incentives.Query", "ActiveGaugesPerDenom", data);
     return promise.then(data => ActiveGaugesPerDenomResponse.decode(new BinaryReader(data)));
   };
-  /* Returns scheduled gauges that have not yet occured */
+  /* Returns scheduled gauges that have not yet occurred */
   upcomingGauges = async (request: UpcomingGaugesRequest = {
     pagination: PageRequest.fromPartial({})
   }): Promise<UpcomingGaugesResponse> => {
@@ -83,7 +83,7 @@ export class QueryClientImpl implements Query {
     const promise = this.rpc.request("osmosis.incentives.Query", "UpcomingGauges", data);
     return promise.then(data => UpcomingGaugesResponse.decode(new BinaryReader(data)));
   };
-  /* UpcomingGaugesPerDenom returns scheduled gauges that have not yet occured
+  /* UpcomingGaugesPerDenom returns scheduled gauges that have not yet occurred
    by denom */
   upcomingGaugesPerDenom = async (request: UpcomingGaugesPerDenomRequest): Promise<UpcomingGaugesPerDenomResponse> => {
     const data = UpcomingGaugesPerDenomRequest.encode(request).finish();

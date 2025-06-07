@@ -32,7 +32,7 @@
                         "options": {
                           "(gogoproto.nullable)": false
                         },
-                        "comment": "params defines all the paramaters of the module."
+                        "comment": "params defines all the parameters of the module."
                       }
                     },
                     "comment": "GenesisState defines the mint module's genesis state."

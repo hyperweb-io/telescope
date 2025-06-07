@@ -201,7 +201,7 @@
                       "height": {
                         "type": "uint64",
                         "id": 2,
-                        "comment": "height defines the block height at which the slash event occured."
+                        "comment": "height defines the block height at which the slash event occurred."
                       },
                       "period": {
                         "type": "uint64",
@@ -231,7 +231,7 @@
                         "options": {
                           "(gogoproto.nullable)": false
                         },
-                        "comment": "params defines all the paramaters of the module."
+                        "comment": "params defines all the parameters of the module."
                       },
                       "feePool": {
                         "type": "FeePool",

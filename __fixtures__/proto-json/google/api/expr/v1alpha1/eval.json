@@ -54,7 +54,7 @@
                             "comment": "A single evalution result."
                           }
                         },
-                        "comment": "The state of an evaluation.\n\nCan represent an inital, partial, or completed state of evaluation."
+                        "comment": "The state of an evaluation.\n\nCan represent an initial, partial, or completed state of evaluation."
                       },
                       "ExprValue": {
                         "oneofs": {

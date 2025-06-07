@@ -20,10 +20,10 @@ export interface Query {
   activeGauges(request?: ActiveGaugesRequest): Promise<ActiveGaugesResponse>;
   /** ActiveGaugesPerDenom returns active gauges by denom */
   activeGaugesPerDenom(request: ActiveGaugesPerDenomRequest): Promise<ActiveGaugesPerDenomResponse>;
-  /** Returns scheduled gauges that have not yet occured */
+  /** Returns scheduled gauges that have not yet occurred */
   upcomingGauges(request?: UpcomingGaugesRequest): Promise<UpcomingGaugesResponse>;
   /**
-   * UpcomingGaugesPerDenom returns scheduled gauges that have not yet occured
+   * UpcomingGaugesPerDenom returns scheduled gauges that have not yet occurred
    * by denom
    */
   upcomingGaugesPerDenom(request: UpcomingGaugesPerDenomRequest): Promise<UpcomingGaugesPerDenomResponse>;
@@ -264,9 +264,9 @@ export const createRpcQueryHooks = (rpc: ProtobufRpcClient | undefined) => {
     /** Gauges returns both upcoming and active gauges */useGauges,
     /** ActiveGauges returns active gauges */useActiveGauges,
     /** ActiveGaugesPerDenom returns active gauges by denom */useActiveGaugesPerDenom,
-    /** Returns scheduled gauges that have not yet occured */useUpcomingGauges,
+    /** Returns scheduled gauges that have not yet occurred */useUpcomingGauges,
     /**
-     * UpcomingGaugesPerDenom returns scheduled gauges that have not yet occured
+     * UpcomingGaugesPerDenom returns scheduled gauges that have not yet occurred
      * by denom
      */
     useUpcomingGaugesPerDenom,

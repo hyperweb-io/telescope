@@ -282,7 +282,7 @@ export interface RewardsEstRequestAminoMsg {
 }
 export interface RewardsEstResponse {
   /**
-   * Estimated coin rewards that will be recieved at provided address
+   * Estimated coin rewards that will be received at provided address
    * from specified locks between current time and end epoch
    */
   coins: Coin[];
@@ -293,7 +293,7 @@ export interface RewardsEstResponseProtoMsg {
 }
 export interface RewardsEstResponseAmino {
   /**
-   * Estimated coin rewards that will be recieved at provided address
+   * Estimated coin rewards that will be received at provided address
    * from specified locks between current time and end epoch
    */
   coins: CoinAmino[];
@@ -313,7 +313,7 @@ export interface QueryLockableDurationsRequestAminoMsg {
   value: QueryLockableDurationsRequestAmino;
 }
 export interface QueryLockableDurationsResponse {
-  /** Time durations that users can lock coins for in order to recieve rewards */
+  /** Time durations that users can lock coins for in order to receive rewards */
   lockableDurations: Duration[];
 }
 export interface QueryLockableDurationsResponseProtoMsg {
@@ -321,7 +321,7 @@ export interface QueryLockableDurationsResponseProtoMsg {
   value: Uint8Array;
 }
 export interface QueryLockableDurationsResponseAmino {
-  /** Time durations that users can lock coins for in order to recieve rewards */
+  /** Time durations that users can lock coins for in order to receive rewards */
   lockable_durations: DurationAmino[];
 }
 export interface QueryLockableDurationsResponseAminoMsg {

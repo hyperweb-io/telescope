@@ -7,7 +7,7 @@ export const protobufPackage = "google.api.expr.v1alpha1";
 /**
  * The state of an evaluation.
  * 
- * Can represent an inital, partial, or completed state of evaluation.
+ * Can represent an initial, partial, or completed state of evaluation.
  */
 export interface EvalState {
   /** The unique values referenced in this message. */
@@ -23,7 +23,7 @@ export interface EvalState {
 /**
  * The state of an evaluation.
  * 
- * Can represent an inital, partial, or completed state of evaluation.
+ * Can represent an initial, partial, or completed state of evaluation.
  */
 export interface EvalStateSDKType {
   values: ExprValueSDKType[];

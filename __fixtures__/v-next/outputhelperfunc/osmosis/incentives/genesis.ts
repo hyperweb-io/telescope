@@ -17,7 +17,7 @@ export interface GenesisState {
   gauges: Gauge[];
   /**
    * lockable_durations are all lockup durations that gauges can be locked for
-   * in order to recieve incentives
+   * in order to receive incentives
    */
   lockableDurations: Duration[];
   /**
@@ -41,7 +41,7 @@ export interface GenesisStateAmino {
   gauges?: GaugeAmino[];
   /**
    * lockable_durations are all lockup durations that gauges can be locked for
-   * in order to recieve incentives
+   * in order to receive incentives
    */
   lockable_durations?: DurationAmino[];
   /**

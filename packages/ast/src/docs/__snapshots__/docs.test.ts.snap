@@ -445,11 +445,11 @@ const result = await osmosis.incentives.activeGauges(request);
 /** ActiveGaugesPerDenom returns active gauges by denom */
 const request: ActiveGaugesPerDenomRequest;
 const result = await osmosis.incentives.activeGaugesPerDenom(request);
-/** Returns scheduled gauges that have not yet occured */
+/** Returns scheduled gauges that have not yet occurred */
 const request: UpcomingGaugesRequest;
 const result = await osmosis.incentives.upcomingGauges(request);
 /**
- * UpcomingGaugesPerDenom returns scheduled gauges that have not yet occured
+ * UpcomingGaugesPerDenom returns scheduled gauges that have not yet occurred
  * by denom
  */
 const request: UpcomingGaugesPerDenomRequest;
@@ -1058,7 +1058,7 @@ const result = await osmosis.incentives.activeGaugesPerDenom(request);
 UpcomingGauges
 
 \`\`\`js
-/** Returns scheduled gauges that have not yet occured */
+/** Returns scheduled gauges that have not yet occurred */
 const request: UpcomingGaugesRequest;
 const result = await osmosis.incentives.upcomingGauges(request);
 \`\`\`
@@ -1069,7 +1069,7 @@ UpcomingGaugesPerDenom
 
 \`\`\`js
 /**
- * UpcomingGaugesPerDenom returns scheduled gauges that have not yet occured
+ * UpcomingGaugesPerDenom returns scheduled gauges that have not yet occurred
  * by denom
  */
 const request: UpcomingGaugesPerDenomRequest;

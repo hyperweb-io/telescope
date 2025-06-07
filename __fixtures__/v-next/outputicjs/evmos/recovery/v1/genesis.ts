@@ -3,7 +3,7 @@ import { BinaryReader, BinaryWriter } from "../../../binary";
 import { DeepPartial } from "../../../helpers";
 /** GenesisState defines the recovery module's genesis state. */
 export interface GenesisState {
-  /** params defines all the paramaters of the module. */
+  /** params defines all the parameters of the module. */
   params: Params;
 }
 export interface GenesisStateProtoMsg {
@@ -12,7 +12,7 @@ export interface GenesisStateProtoMsg {
 }
 /** GenesisState defines the recovery module's genesis state. */
 export interface GenesisStateAmino {
-  /** params defines all the paramaters of the module. */
+  /** params defines all the parameters of the module. */
   params: ParamsAmino;
 }
 export interface GenesisStateAminoMsg {

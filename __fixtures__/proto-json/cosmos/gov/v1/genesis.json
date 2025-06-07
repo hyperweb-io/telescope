@@ -43,17 +43,17 @@
                       "depositParams": {
                         "type": "DepositParams",
                         "id": 5,
-                        "comment": "params defines all the paramaters of related to deposit."
+                        "comment": "params defines all the parameters of related to deposit."
                       },
                       "votingParams": {
                         "type": "VotingParams",
                         "id": 6,
-                        "comment": "params defines all the paramaters of related to voting."
+                        "comment": "params defines all the parameters of related to voting."
                       },
                       "tallyParams": {
                         "type": "TallyParams",
                         "id": 7,
-                        "comment": "params defines all the paramaters of related to tally."
+                        "comment": "params defines all the parameters of related to tally."
                       }
                     },
                     "comment": "GenesisState defines the gov module's genesis state."

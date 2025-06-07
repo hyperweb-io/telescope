@@ -34,7 +34,7 @@ export interface TwapRecord {
   p0ArithmeticTwapAccumulator: string;
   p1ArithmeticTwapAccumulator: string;
   /**
-   * This field contains the time in which the last spot price error occured.
+   * This field contains the time in which the last spot price error occurred.
    * It is used to alert the caller if they are getting a potentially erroneous
    * TWAP, due to an unforeseen underlying error.
    */
@@ -75,7 +75,7 @@ export interface TwapRecordAmino {
   p0_arithmetic_twap_accumulator?: string;
   p1_arithmetic_twap_accumulator?: string;
   /**
-   * This field contains the time in which the last spot price error occured.
+   * This field contains the time in which the last spot price error occurred.
    * It is used to alert the caller if they are getting a potentially erroneous
    * TWAP, due to an unforeseen underlying error.
    */

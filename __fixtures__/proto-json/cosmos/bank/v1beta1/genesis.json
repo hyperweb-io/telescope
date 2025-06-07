@@ -26,7 +26,7 @@
                         "options": {
                           "(gogoproto.nullable)": false
                         },
-                        "comment": "params defines all the paramaters of the module."
+                        "comment": "params defines all the parameters of the module."
                       },
                       "balances": {
                         "rule": "repeated",

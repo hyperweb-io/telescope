@@ -7,7 +7,7 @@ import { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "evmos.inflation.v1";
 /** GenesisState defines the inflation module's genesis state. */
 export interface GenesisState {
-  /** params defines all the paramaters of the module. */
+  /** params defines all the parameters of the module. */
   params: Params;
   /** amount of past periods, based on the epochs per period param */
   period: Long;

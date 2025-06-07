@@ -16,10 +16,10 @@ export interface Query {
   activeGauges(request?: DeepPartial<ActiveGaugesRequest>, metadata?: grpc.Metadata): Promise<ActiveGaugesResponse>;
   /** ActiveGaugesPerDenom returns active gauges by denom */
   activeGaugesPerDenom(request: DeepPartial<ActiveGaugesPerDenomRequest>, metadata?: grpc.Metadata): Promise<ActiveGaugesPerDenomResponse>;
-  /** Returns scheduled gauges that have not yet occured */
+  /** Returns scheduled gauges that have not yet occurred */
   upcomingGauges(request?: DeepPartial<UpcomingGaugesRequest>, metadata?: grpc.Metadata): Promise<UpcomingGaugesResponse>;
   /**
-   * UpcomingGaugesPerDenom returns scheduled gauges that have not yet occured
+   * UpcomingGaugesPerDenom returns scheduled gauges that have not yet occurred
    * by denom
    */
   upcomingGaugesPerDenom(request: DeepPartial<UpcomingGaugesPerDenomRequest>, metadata?: grpc.Metadata): Promise<UpcomingGaugesPerDenomResponse>;

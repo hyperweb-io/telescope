@@ -50,7 +50,7 @@ export class Query {
       method: "GET"
     });
   }
-  /** Returns scheduled gauges that have not yet occured */
+  /** Returns scheduled gauges that have not yet occurred */
   static upcomingGauges(request: UpcomingGaugesRequest, initRequest?: fm.InitReq): Promise<UpcomingGaugesResponse> {
     return fm.fetchReq(`/osmosis/incentives/v1beta1/upcoming_gauges?${fm.renderURLSearchParams({
       ...request
@@ -60,7 +60,7 @@ export class Query {
     });
   }
   /**
-   * UpcomingGaugesPerDenom returns scheduled gauges that have not yet occured
+   * UpcomingGaugesPerDenom returns scheduled gauges that have not yet occurred
    * by denom
    */
   static upcomingGaugesPerDenom(request: UpcomingGaugesPerDenomRequest, initRequest?: fm.InitReq): Promise<UpcomingGaugesPerDenomResponse> {
@@ -137,7 +137,7 @@ export class QueryClientImpl {
       pathPrefix: this.url
     });
   }
-  /** Returns scheduled gauges that have not yet occured */
+  /** Returns scheduled gauges that have not yet occurred */
   async upcomingGauges(req: UpcomingGaugesRequest, headers?: HeadersInit): Promise<UpcomingGaugesResponse> {
     return Query.upcomingGauges(req, {
       headers,
@@ -145,7 +145,7 @@ export class QueryClientImpl {
     });
   }
   /**
-   * UpcomingGaugesPerDenom returns scheduled gauges that have not yet occured
+   * UpcomingGaugesPerDenom returns scheduled gauges that have not yet occurred
    * by denom
    */
   async upcomingGaugesPerDenom(req: UpcomingGaugesPerDenomRequest, headers?: HeadersInit): Promise<UpcomingGaugesPerDenomResponse> {
