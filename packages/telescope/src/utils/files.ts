@@ -4,7 +4,7 @@ import { TelescopeOptions } from "@cosmology/types";
 import { mkdirp } from "mkdirp";
 import { writeFileSync } from "fs";
 import { dirname } from "path";
-import minimatch from "minimatch";
+import { minimatch } from "minimatch";
 import generate from "@babel/generator";
 import { unused } from "./unused";
 import traverse from "@babel/traverse";

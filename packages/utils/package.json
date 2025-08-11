@@ -75,6 +75,7 @@
   },
   "dependencies": {
     "@cosmology/types": "^1.13.0",
-    "dotty": "0.1.2"
+    "dotty": "0.1.2",
+    "minimatch": "10.0.3"
   }
 }
