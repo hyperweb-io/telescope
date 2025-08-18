@@ -62,10 +62,11 @@ export const plugin = (builder: TelescopeBuilder) => {
 
   // should be exported
   if (
-    builder.options.stargateClients.addGetTxRpc ||
-    builder.options.includeExternalHelpers ||
-    builder.options.reactQuery?.enabled ||
-    builder.options?.helperFunctions?.enabled
+    !builder.options.isGeneratingCosmosTypes &&
+    (builder.options.stargateClients.addGetTxRpc ||
+      builder.options.includeExternalHelpers ||
+      builder.options.reactQuery?.enabled ||
+      builder.options?.helperFunctions?.enabled)
   ) {
     // also react-query needs these...
     builder.files.push("extern.ts");
@@ -76,17 +77,31 @@ export const plugin = (builder: TelescopeBuilder) => {
       write(
         builder,
         "extern.ts",
-        builder.options.rpcClients?.useConnectComet || builder.options.rpcClients?.useMakeClient ? externalComet : external
+        builder.options.rpcClients?.useConnectComet ||
+          builder.options.rpcClients?.useMakeClient
+          ? externalComet
+          : external
       );
     }
   }
 
   if (builder.options.helperFunctions?.enabled) {
     builder.files.push("helper-func-types.ts");
-    if (builder.options.interfaces?.enabled && builder.options.helperFunctions?.useGlobalDecoderRegistry) {
-      write(builder, "helper-func-types.ts", getHelperFuncTypesForInterface(builder.options));
+    if (
+      builder.options.interfaces?.enabled &&
+      builder.options.helperFunctions?.useGlobalDecoderRegistry
+    ) {
+      write(
+        builder,
+        "helper-func-types.ts",
+        getHelperFuncTypesForInterface(builder.options)
+      );
     } else {
-      write(builder, "helper-func-types.ts", getHelperFuncTypes(builder.options));
+      write(
+        builder,
+        "helper-func-types.ts",
+        getHelperFuncTypes(builder.options)
+      );
     }
   }
 
@@ -121,15 +136,11 @@ export const plugin = (builder: TelescopeBuilder) => {
 
   if (
     builder.options?.helperFunctions?.enabled &&
-      builder.options?.helperFunctions?.hooks?.vue
+    builder.options?.helperFunctions?.hooks?.vue
   ) {
     builder.files.push("vue-query.ts");
 
-    write(
-      builder,
-      "vue-query.ts",
-      getVueQueryHelperHooks(builder.options)
-    );
+    write(builder, "vue-query.ts", getVueQueryHelperHooks(builder.options));
   }
 
   if (builder.options.mobx?.enabled) {
@@ -179,7 +190,8 @@ export const plugin = (builder: TelescopeBuilder) => {
   if (
     builder.options.prototypes?.typingsFormat?.useTelescopeGeneratedType ||
     (builder.options.interfaces?.enabled &&
-      (builder.options.interfaces?.useGlobalDecoderRegistry || builder.options.helperFunctions?.useGlobalDecoderRegistry)) ||
+      (builder.options.interfaces?.useGlobalDecoderRegistry ||
+        builder.options.helperFunctions?.useGlobalDecoderRegistry)) ||
     builder.options.helperFunctions?.enabled
   ) {
     builder.files.push("types.ts");
@@ -188,7 +200,8 @@ export const plugin = (builder: TelescopeBuilder) => {
 
   if (
     builder.options.interfaces?.enabled &&
-    (builder.options.interfaces?.useGlobalDecoderRegistry || builder.options.helperFunctions?.useGlobalDecoderRegistry)
+    (builder.options.interfaces?.useGlobalDecoderRegistry ||
+      builder.options.helperFunctions?.useGlobalDecoderRegistry)
   ) {
     builder.files.push("registry.ts");
     write(builder, "registry.ts", getRegistryHelper(builder.options));

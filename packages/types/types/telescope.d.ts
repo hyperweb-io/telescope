@@ -53,6 +53,11 @@ export interface TelescopeOpts {
      */
     useInterchainJs?: boolean;
     /**
+     * Is generating InterchainJS Cosmos-Types
+     * @default false
+     */
+    isGeneratingCosmosTypes?: boolean;
+    /**
      * Remove unused imports from generated files
      * @default true
      */

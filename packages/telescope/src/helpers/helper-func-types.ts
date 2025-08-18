@@ -3,12 +3,12 @@ import { TelescopeOptions } from "@cosmology/types";
 export const getHelperFuncTypes = (options: TelescopeOptions) => {
   return `
 import { HttpEndpoint } from "@interchainjs/types";
-import { BinaryReader, BinaryWriter } from "./binary${options.restoreImportExtension ?? ""}";
-import { getRpcClient } from "./extern${options.restoreImportExtension ?? ""}";
-import { isRpc, Rpc } from "./helpers${options.restoreImportExtension ?? ""}";
-import { TelescopeGeneratedCodec, DeliverTxResponse, Message, StdFee } from "./types${options.restoreImportExtension ?? ""}";
+import { BinaryReader, BinaryWriter } from "./binary${options.restoreImportExtension ?? ""}";${!options.isGeneratingCosmosTypes ? `
+import { getRpcClient } from "./extern${options.restoreImportExtension ?? ""}";` : ''}
+import { isRpc, Rpc } from "./helpers${options.restoreImportExtension ?? ""}";${!options.isGeneratingCosmosTypes ? `
+import { TelescopeGeneratedCodec, DeliverTxResponse, Message, StdFee } from "./types${options.restoreImportExtension ?? ""}";` : ''}${!options.isGeneratingCosmosTypes ? `
 import { toConverters, toEncoders } from "@interchainjs/cosmos/utils";
-import { ISigningClient } from "@interchainjs/cosmos/types/signing-client${options.restoreImportExtension ?? ""}";
+import { ISigningClient } from "@interchainjs/cosmos/types/signing-client${options.restoreImportExtension ?? ""}";` : ''}
 
 export interface QueryBuilderOptions<TReq, TRes> {
   encode: (request: TReq, writer?: BinaryWriter) => BinaryWriter
@@ -24,7 +24,7 @@ export function buildQuery<TReq, TRes>(opts: QueryBuilderOptions<TReq, TRes>) {
       if(isRpc(client)) {
         rpc = client;
       } else {
-        rpc = client ? await getRpcClient(client) : undefined;
+        rpc = ${options.isGeneratingCosmosTypes ? 'undefined' : 'client ? await getRpcClient(client) : undefined'};
       }
 
       if (!rpc) throw new Error("Query Rpc is not initialized");
@@ -35,7 +35,7 @@ export function buildQuery<TReq, TRes>(opts: QueryBuilderOptions<TReq, TRes>) {
     };
 }
 
-export interface ITxArgs<TMsg> {
+${!options.isGeneratingCosmosTypes ? `export interface ITxArgs<TMsg> {
   signerAddress: string;
   message: TMsg | TMsg[];
   fee: StdFee | 'auto';
@@ -71,7 +71,7 @@ export function buildTx<TMsg>(opts: TxBuilderOptions) {
         }];
     return client.signAndBroadcast!(signerAddress, data, fee, memo);
   };
-}
+}` : ''}
 
 export interface Encoder {
   typeUrl: string;
