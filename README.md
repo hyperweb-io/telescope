@@ -747,7 +747,6 @@ See [Helper Functions Configuration](#helper-functions-configuration) for more i
 | ------------------------------ | --------------------------------------------------------------  | ---------- |
 | `bundle.enabled`               | Bundle all files into a scoped index file                       | `true`     |
 | `bundle.type`                  | Bundle type: "namespace" or "module"                            | `"namespace"` |
-> **Warning:** This option is not recommended. It will generate a bundle file that exports all the types and functions under one namespace. This will make the bundle file very large and hard to maintain. e.g. using `cosmos.bank.v1beta1.MsgSend` might be intuitive, but it will also include `cosmos.gov.v1beta1.*` and other types in the final bundle file. So use this option with caution.
 
 ### MCP Server
 

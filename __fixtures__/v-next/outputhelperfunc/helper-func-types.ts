@@ -10,8 +10,8 @@ import { BinaryReader, BinaryWriter } from "./binary";
 import { getRpcClient } from "./extern";
 import { isRpc, Rpc } from "./helpers";
 import { TelescopeGeneratedCodec, DeliverTxResponse, Message, StdFee } from "./types";
-import { toConverters, toEncoders } from "@interchainjs/cosmos/utils";
-import { ISigningClient } from "@interchainjs/cosmos/types/signing-client";
+import { toConverters, toEncoders } from "@interchainjs/cosmos";
+import { ISigningClient } from "@interchainjs/cosmos";
 
 export interface QueryBuilderOptions<TReq, TRes> {
   encode: (request: TReq, writer?: BinaryWriter) => BinaryWriter

@@ -450,6 +450,18 @@ export interface TelescopeOpts {
      * @default "namespace"
      */
     type?: "namespace" | "module";
+
+    /**
+     * packages and names that should not be aliased
+     * if the package and the name match here, the name will not be aliased
+     * if there're duplicated names in different packages, the first one will not be aliased
+     * and the rest will still be aliased
+     * @default []
+     */
+    noAlias?: {
+      package: string;
+      name: string;
+    }[];
   };
 
   /**
@@ -695,13 +707,13 @@ export interface TelescopeOpts {
      */
     serviceImplement?: {
       [
-      key:
-        | "Msg"
-        | "Query"
-        | "Service"
-        | "ReflectionService"
-        | "ABCIApplication"
-        | string
+        key:
+          | "Msg"
+          | "Query"
+          | "Service"
+          | "ReflectionService"
+          | "ABCIApplication"
+          | string
       ]: {
         include?: {
           patterns?: string[];

@@ -4,7 +4,6 @@
 * and run the transpile command or npm scripts command that is used to regenerate this bundle.
 */
 
-
 declare var self: any | undefined;
 declare var window: any | undefined;
 declare var global: any | undefined;

@@ -1,8 +1,9 @@
 import { TelescopeOptions } from "@cosmology/types";
 
 export const getHelperForBigint = (options: TelescopeOptions) => {
-  return `
-declare var self: any | undefined;
+  return `${options.useInterchainJs ?
+    'export { fromBase64 as bytesFromBase64, toBase64 as base64FromBytes } from \'@interchainjs/encoding\';' :
+    `declare var self: any | undefined;
 declare var window: any | undefined;
 declare var global: any | undefined;
 var globalThis: any = (() => {
@@ -36,6 +37,7 @@ export function base64FromBytes(arr: Uint8Array): string {
     bin.push(String.fromCharCode(byte));
   });
   return btoa(bin.join(''));
+}`
 }
 
 export interface AminoHeight {

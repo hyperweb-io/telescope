@@ -7,8 +7,8 @@ import { BinaryReader, BinaryWriter } from "./binary${options.restoreImportExten
 import { getRpcClient } from "./extern${options.restoreImportExtension ?? ""}";` : ''}
 import { isRpc, Rpc } from "./helpers${options.restoreImportExtension ?? ""}";${!options.isGeneratingCosmosTypes ? `
 import { TelescopeGeneratedCodec, DeliverTxResponse, Message, StdFee } from "./types${options.restoreImportExtension ?? ""}";` : ''}${!options.isGeneratingCosmosTypes ? `
-import { toConverters, toEncoders } from "@interchainjs/cosmos/utils";
-import { ISigningClient } from "@interchainjs/cosmos/types/signing-client${options.restoreImportExtension ?? ""}";` : ''}
+import { toConverters, toEncoders } from "@interchainjs/cosmos";
+import { ISigningClient } from "@interchainjs/cosmos";` : ''}
 
 export interface QueryBuilderOptions<TReq, TRes> {
   encode: (request: TReq, writer?: BinaryWriter) => BinaryWriter

@@ -60,6 +60,11 @@ const options: TelescopeOptions = {
   bundle: {
     enabled: true,
     type: "module",
+    noAlias: [
+      { package: "cosmos.bank.v1beta1", name: "getBalance" },
+      { package: "cosmos.nft.v1beta1", name: "getBalance" }, // Same name, different package
+      { package: "cosmos.gov.v1beta1", name: "Proposal" },
+    ],
   },
   stargateClients: {
     enabled: false,

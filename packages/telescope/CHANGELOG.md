@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.17.4](https://github.com/hyperweb-io/telescope/compare/@hyperweb/telescope@1.17.3...@hyperweb/telescope@1.17.4) (2025-08-21)
+
+**Note:** Version bump only for package @hyperweb/telescope
+
+## [1.17.3](https://github.com/hyperweb-io/telescope/compare/@hyperweb/telescope@1.17.2...@hyperweb/telescope@1.17.3) (2025-08-20)
+
+**Note:** Version bump only for package @hyperweb/telescope
+
+## [1.17.2](https://github.com/hyperweb-io/telescope/compare/@hyperweb/telescope@1.17.1...@hyperweb/telescope@1.17.2) (2025-08-19)
+
+**Note:** Version bump only for package @hyperweb/telescope
+
 ## [1.17.1](https://github.com/hyperweb-io/telescope/compare/@hyperweb/telescope@1.17.0...@hyperweb/telescope@1.17.1) (2025-08-16)
 
 **Note:** Version bump only for package @hyperweb/telescope
