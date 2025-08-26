@@ -1,6 +1,6 @@
 import { ValidatorPreference, ValidatorPreferenceSDKType } from "./state";
 import { Coin, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
-import { Rpc } from "../../../helpers";
+import { TxRpc } from "../../../types";
 import { BinaryReader } from "../../../binary";
 import { MsgSetValidatorSetPreference, MsgSetValidatorSetPreferenceSDKType, MsgSetValidatorSetPreferenceResponse, MsgSetValidatorSetPreferenceResponseSDKType, MsgDelegateToValidatorSet, MsgDelegateToValidatorSetSDKType, MsgDelegateToValidatorSetResponse, MsgDelegateToValidatorSetResponseSDKType, MsgUndelegateFromValidatorSet, MsgUndelegateFromValidatorSetSDKType, MsgUndelegateFromValidatorSetResponse, MsgUndelegateFromValidatorSetResponseSDKType, MsgRedelegateValidatorSet, MsgRedelegateValidatorSetSDKType, MsgRedelegateValidatorSetResponse, MsgRedelegateValidatorSetResponseSDKType, MsgWithdrawDelegationRewards, MsgWithdrawDelegationRewardsSDKType, MsgWithdrawDelegationRewardsResponse, MsgWithdrawDelegationRewardsResponseSDKType, MsgDelegateBondedTokens, MsgDelegateBondedTokensSDKType, MsgDelegateBondedTokensResponse, MsgDelegateBondedTokensResponseSDKType } from "./tx";
 /** Msg defines the valset-pref modules's gRPC message service. */
@@ -38,8 +38,8 @@ export interface Msg {
   delegateBondedTokens(request: MsgDelegateBondedTokens): Promise<MsgDelegateBondedTokensResponse>;
 }
 export class MsgClientImpl implements Msg {
-  private readonly rpc: Rpc;
-  constructor(rpc: Rpc) {
+  private readonly rpc: TxRpc;
+  constructor(rpc: TxRpc) {
     this.rpc = rpc;
     this.setValidatorSetPreference = this.setValidatorSetPreference.bind(this);
     this.delegateToValidatorSet = this.delegateToValidatorSet.bind(this);
@@ -79,6 +79,6 @@ export class MsgClientImpl implements Msg {
     return promise.then(data => MsgDelegateBondedTokensResponse.decode(new BinaryReader(data)));
   }
 }
-export const createClientImpl = (rpc: Rpc) => {
+export const createClientImpl = (rpc: TxRpc) => {
   return new MsgClientImpl(rpc);
 };

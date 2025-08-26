@@ -1,5 +1,6 @@
 import { Params, ParamsAmino, ParamsSDKType } from "./params";
 import { BinaryReader, BinaryWriter } from "../../../binary";
+import { GlobalDecoderRegistry } from "../../../registry";
 import { isSet, DeepPartial } from "../../../helpers";
 import { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "akash.inflation.v1beta2";
@@ -51,6 +52,15 @@ function createBaseGenesisState(): GenesisState {
  */
 export const GenesisState = {
   typeUrl: "/akash.inflation.v1beta2.GenesisState",
+  is(o: any): o is GenesisState {
+    return o && (o.$typeUrl === GenesisState.typeUrl || Params.is(o.params));
+  },
+  isSDK(o: any): o is GenesisStateSDKType {
+    return o && (o.$typeUrl === GenesisState.typeUrl || Params.isSDK(o.params));
+  },
+  isAmino(o: any): o is GenesisStateAmino {
+    return o && (o.$typeUrl === GenesisState.typeUrl || Params.isAmino(o.params));
+  },
   encode(message: GenesisState, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.params !== undefined) {
       Params.encode(message.params, writer.uint32(10).fork()).ldelim();
@@ -127,5 +137,11 @@ export const GenesisState = {
       typeUrl: "/akash.inflation.v1beta2.GenesisState",
       value: GenesisState.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(GenesisState.typeUrl)) {
+      return;
+    }
+    Params.registerTypeUrl();
   }
 };

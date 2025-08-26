@@ -1,8 +1,9 @@
 import { DevFeeInfo, DevFeeInfoAmino, DevFeeInfoSDKType } from "./fees";
 import { BinaryReader, BinaryWriter } from "../../../binary";
+import { GlobalDecoderRegistry } from "../../../registry";
 import { isSet, DeepPartial } from "../../../helpers";
 import { JsonSafe } from "../../../json-safe";
-import { Decimal } from "@cosmjs/math";
+import { Decimal } from "@interchainjs/math";
 export const protobufPackage = "evmos.fees.v1";
 /**
  * GenesisState defines the module's genesis state.
@@ -151,6 +152,15 @@ function createBaseGenesisState(): GenesisState {
  */
 export const GenesisState = {
   typeUrl: "/evmos.fees.v1.GenesisState",
+  is(o: any): o is GenesisState {
+    return o && (o.$typeUrl === GenesisState.typeUrl || Params.is(o.params) && Array.isArray(o.devFeeInfos) && (!o.devFeeInfos.length || DevFeeInfo.is(o.devFeeInfos[0])));
+  },
+  isSDK(o: any): o is GenesisStateSDKType {
+    return o && (o.$typeUrl === GenesisState.typeUrl || Params.isSDK(o.params) && Array.isArray(o.dev_fee_infos) && (!o.dev_fee_infos.length || DevFeeInfo.isSDK(o.dev_fee_infos[0])));
+  },
+  isAmino(o: any): o is GenesisStateAmino {
+    return o && (o.$typeUrl === GenesisState.typeUrl || Params.isAmino(o.params) && Array.isArray(o.dev_fee_infos) && (!o.dev_fee_infos.length || DevFeeInfo.isAmino(o.dev_fee_infos[0])));
+  },
   encode(message: GenesisState, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.params !== undefined) {
       Params.encode(message.params, writer.uint32(10).fork()).ldelim();
@@ -252,6 +262,13 @@ export const GenesisState = {
       typeUrl: "/evmos.fees.v1.GenesisState",
       value: GenesisState.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(GenesisState.typeUrl)) {
+      return;
+    }
+    Params.registerTypeUrl();
+    DevFeeInfo.registerTypeUrl();
   }
 };
 function createBaseParams(): Params {
@@ -271,6 +288,15 @@ function createBaseParams(): Params {
  */
 export const Params = {
   typeUrl: "/evmos.fees.v1.Params",
+  is(o: any): o is Params {
+    return o && (o.$typeUrl === Params.typeUrl || typeof o.enableFees === "boolean" && typeof o.developerShares === "string" && typeof o.validatorShares === "string" && typeof o.addrDerivationCostCreate === "bigint" && typeof o.minGasPrice === "string");
+  },
+  isSDK(o: any): o is ParamsSDKType {
+    return o && (o.$typeUrl === Params.typeUrl || typeof o.enable_fees === "boolean" && typeof o.developer_shares === "string" && typeof o.validator_shares === "string" && typeof o.addr_derivation_cost_create === "bigint" && typeof o.min_gas_price === "string");
+  },
+  isAmino(o: any): o is ParamsAmino {
+    return o && (o.$typeUrl === Params.typeUrl || typeof o.enable_fees === "boolean" && typeof o.developer_shares === "string" && typeof o.validator_shares === "string" && typeof o.addr_derivation_cost_create === "bigint" && typeof o.min_gas_price === "string");
+  },
   encode(message: Params, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.enableFees === true) {
       writer.uint32(8).bool(message.enableFees);
@@ -387,10 +413,10 @@ export const Params = {
   toAmino(message: Params): ParamsAmino {
     const obj: any = {};
     obj.enable_fees = message.enableFees === false ? undefined : message.enableFees;
-    obj.developer_shares = message.developerShares === "" ? undefined : message.developerShares;
-    obj.validator_shares = message.validatorShares === "" ? undefined : message.validatorShares;
+    obj.developer_shares = message.developerShares === "" ? undefined : Decimal.fromUserInput(message.developerShares, 18).atomics;
+    obj.validator_shares = message.validatorShares === "" ? undefined : Decimal.fromUserInput(message.validatorShares, 18).atomics;
     obj.addr_derivation_cost_create = message.addrDerivationCostCreate !== BigInt(0) ? message.addrDerivationCostCreate?.toString() : undefined;
-    obj.min_gas_price = message.minGasPrice === "" ? undefined : message.minGasPrice;
+    obj.min_gas_price = message.minGasPrice === "" ? undefined : Decimal.fromUserInput(message.minGasPrice, 18).atomics;
     return obj;
   },
   fromAminoMsg(object: ParamsAminoMsg): Params {
@@ -407,5 +433,6 @@ export const Params = {
       typeUrl: "/evmos.fees.v1.Params",
       value: Params.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

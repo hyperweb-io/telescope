@@ -1,6 +1,6 @@
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { isSet, DeepPartial } from "../../../helpers";
-import { Decimal } from "@cosmjs/math";
+import { Decimal } from "@interchainjs/math";
 export const protobufPackage = "cosmos.base.v1beta1";
 /**
  * Coin defines a token with a denomination and an amount.
@@ -168,6 +168,15 @@ function createBaseCoin(): Coin {
 export const Coin = {
   typeUrl: "/cosmos.base.v1beta1.Coin",
   aminoType: "cosmos-sdk/Coin",
+  is(o: any): o is Coin {
+    return o && (o.$typeUrl === Coin.typeUrl || typeof o.denom === "string" && typeof o.amount === "string");
+  },
+  isSDK(o: any): o is CoinSDKType {
+    return o && (o.$typeUrl === Coin.typeUrl || typeof o.denom === "string" && typeof o.amount === "string");
+  },
+  isAmino(o: any): o is CoinAmino {
+    return o && (o.$typeUrl === Coin.typeUrl || typeof o.denom === "string" && typeof o.amount === "string");
+  },
   encode(message: Coin, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.denom !== "") {
       writer.uint32(10).string(message.denom);
@@ -248,7 +257,8 @@ export const Coin = {
       typeUrl: "/cosmos.base.v1beta1.Coin",
       value: Coin.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseDecCoin(): DecCoin {
   return {
@@ -268,6 +278,15 @@ function createBaseDecCoin(): DecCoin {
 export const DecCoin = {
   typeUrl: "/cosmos.base.v1beta1.DecCoin",
   aminoType: "cosmos-sdk/DecCoin",
+  is(o: any): o is DecCoin {
+    return o && (o.$typeUrl === DecCoin.typeUrl || typeof o.denom === "string" && typeof o.amount === "string");
+  },
+  isSDK(o: any): o is DecCoinSDKType {
+    return o && (o.$typeUrl === DecCoin.typeUrl || typeof o.denom === "string" && typeof o.amount === "string");
+  },
+  isAmino(o: any): o is DecCoinAmino {
+    return o && (o.$typeUrl === DecCoin.typeUrl || typeof o.denom === "string" && typeof o.amount === "string");
+  },
   encode(message: DecCoin, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.denom !== "") {
       writer.uint32(10).string(message.denom);
@@ -334,7 +353,7 @@ export const DecCoin = {
   toAmino(message: DecCoin, useInterfaces: boolean = true): DecCoinAmino {
     const obj: any = {};
     obj.denom = message.denom === "" ? undefined : message.denom;
-    obj.amount = message.amount === "" ? undefined : message.amount;
+    obj.amount = message.amount === "" ? undefined : Decimal.fromUserInput(message.amount, 18).atomics;
     return obj;
   },
   fromProtoMsg(message: DecCoinProtoMsg, useInterfaces: boolean = true): DecCoin {
@@ -348,7 +367,8 @@ export const DecCoin = {
       typeUrl: "/cosmos.base.v1beta1.DecCoin",
       value: DecCoin.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseIntProto(): IntProto {
   return {
@@ -364,6 +384,15 @@ function createBaseIntProto(): IntProto {
 export const IntProto = {
   typeUrl: "/cosmos.base.v1beta1.IntProto",
   aminoType: "cosmos-sdk/IntProto",
+  is(o: any): o is IntProto {
+    return o && (o.$typeUrl === IntProto.typeUrl || typeof o.int === "string");
+  },
+  isSDK(o: any): o is IntProtoSDKType {
+    return o && (o.$typeUrl === IntProto.typeUrl || typeof o.int === "string");
+  },
+  isAmino(o: any): o is IntProtoAmino {
+    return o && (o.$typeUrl === IntProto.typeUrl || typeof o.int === "string");
+  },
   encode(message: IntProto, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.int !== "") {
       writer.uint32(10).string(message.int);
@@ -430,7 +459,8 @@ export const IntProto = {
       typeUrl: "/cosmos.base.v1beta1.IntProto",
       value: IntProto.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseDecProto(): DecProto {
   return {
@@ -446,6 +476,15 @@ function createBaseDecProto(): DecProto {
 export const DecProto = {
   typeUrl: "/cosmos.base.v1beta1.DecProto",
   aminoType: "cosmos-sdk/DecProto",
+  is(o: any): o is DecProto {
+    return o && (o.$typeUrl === DecProto.typeUrl || typeof o.dec === "string");
+  },
+  isSDK(o: any): o is DecProtoSDKType {
+    return o && (o.$typeUrl === DecProto.typeUrl || typeof o.dec === "string");
+  },
+  isAmino(o: any): o is DecProtoAmino {
+    return o && (o.$typeUrl === DecProto.typeUrl || typeof o.dec === "string");
+  },
   encode(message: DecProto, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.dec !== "") {
       writer.uint32(10).string(Decimal.fromUserInput(message.dec, 18).atomics);
@@ -498,7 +537,7 @@ export const DecProto = {
   },
   toAmino(message: DecProto, useInterfaces: boolean = true): DecProtoAmino {
     const obj: any = {};
-    obj.dec = message.dec === "" ? undefined : message.dec;
+    obj.dec = message.dec === "" ? undefined : Decimal.fromUserInput(message.dec, 18).atomics;
     return obj;
   },
   fromProtoMsg(message: DecProtoProtoMsg, useInterfaces: boolean = true): DecProto {
@@ -512,5 +551,6 @@ export const DecProto = {
       typeUrl: "/cosmos.base.v1beta1.DecProto",
       value: DecProto.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

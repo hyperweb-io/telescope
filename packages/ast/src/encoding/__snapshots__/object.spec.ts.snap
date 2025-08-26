@@ -1,125 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`cosmos/staking/v1beta1 Delegation 1`] = `
-"export const Delegation = {
+"/**
+ * Delegation represents the bond with tokens held by an account. It is
+ * owned by one delegator, and is associated with the voting power of one
+ * validator.
+ * @name Delegation
+ * @package cosmos.staking.v1beta1
+ * @see proto type: cosmos.staking.v1beta1.Delegation
+ */
+export const Delegation = {
   typeUrl: "/cosmos.staking.v1beta1.Delegation",
-  encode(message: Delegation, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.delegatorAddress !== "") {
-      writer.uint32(10).string(message.delegatorAddress);
-    }
-    if (message.validatorAddress !== "") {
-      writer.uint32(18).string(message.validatorAddress);
-    }
-    if (message.shares !== "") {
-      writer.uint32(26).string(Decimal.fromUserInput(message.shares, 18).atomics);
-    }
-    return writer;
+  aminoType: "cosmos-sdk/Delegation",
+  is(o: any): o is Delegation {
+    return o && (o.$typeUrl === Delegation.typeUrl || typeof o.delegatorAddress === "string" && typeof o.validatorAddress === "string" && typeof o.shares === "string");
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): Delegation {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
-    let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseDelegation();
-    while (reader.pos < end) {
-      const tag = reader.uint32();
-      switch (tag >>> 3) {
-        case 1:
-          message.delegatorAddress = reader.string();
-          break;
-        case 2:
-          message.validatorAddress = reader.string();
-          break;
-        case 3:
-          message.shares = Decimal.fromAtomics(reader.string(), 18).toString();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
-      }
-    }
-    return message;
+  isSDK(o: any): o is DelegationSDKType {
+    return o && (o.$typeUrl === Delegation.typeUrl || typeof o.delegator_address === "string" && typeof o.validator_address === "string" && typeof o.shares === "string");
   },
-  fromJSON(object: any): Delegation {
-    return {
-      delegatorAddress: isSet(object.delegatorAddress) ? String(object.delegatorAddress) : "",
-      validatorAddress: isSet(object.validatorAddress) ? String(object.validatorAddress) : "",
-      shares: isSet(object.shares) ? String(object.shares) : ""
-    };
-  },
-  toJSON(message: Delegation): JsonSafe<Delegation> {
-    const obj: any = {};
-    message.delegatorAddress !== undefined && (obj.delegatorAddress = message.delegatorAddress);
-    message.validatorAddress !== undefined && (obj.validatorAddress = message.validatorAddress);
-    message.shares !== undefined && (obj.shares = message.shares);
-    return obj;
-  },
-  fromPartial(object: Partial<Delegation>): Delegation {
-    const message = createBaseDelegation();
-    message.delegatorAddress = object.delegatorAddress ?? "";
-    message.validatorAddress = object.validatorAddress ?? "";
-    message.shares = object.shares ?? "";
-    return message;
-  },
-  fromSDK(object: DelegationSDKType): Delegation {
-    return {
-      delegatorAddress: object?.delegator_address,
-      validatorAddress: object?.validator_address,
-      shares: object?.shares
-    };
-  },
-  toSDK(message: Delegation): DelegationSDKType {
-    const obj: any = {};
-    obj.delegator_address = message.delegatorAddress;
-    obj.validator_address = message.validatorAddress;
-    obj.shares = message.shares;
-    return obj;
-  },
-  fromAmino(object: DelegationAmino): Delegation {
-    const message = createBaseDelegation();
-    if (object.delegator_address !== undefined && object.delegator_address !== null) {
-      message.delegatorAddress = object.delegator_address;
-    }
-    if (object.validator_address !== undefined && object.validator_address !== null) {
-      message.validatorAddress = object.validator_address;
-    }
-    if (object.shares !== undefined && object.shares !== null) {
-      message.shares = object.shares;
-    }
-    return message;
-  },
-  toAmino(message: Delegation): DelegationAmino {
-    const obj: any = {};
-    obj.delegator_address = message.delegatorAddress === "" ? undefined : message.delegatorAddress;
-    obj.validator_address = message.validatorAddress === "" ? undefined : message.validatorAddress;
-    obj.shares = message.shares === "" ? undefined : message.shares;
-    return obj;
-  },
-  fromAminoMsg(object: DelegationAminoMsg): Delegation {
-    return Delegation.fromAmino(object.value);
-  },
-  toAminoMsg(message: Delegation): DelegationAminoMsg {
-    return {
-      type: "cosmos-sdk/Delegation",
-      value: Delegation.toAmino(message)
-    };
-  },
-  fromProtoMsg(message: DelegationProtoMsg): Delegation {
-    return Delegation.decode(message.value);
-  },
-  toProto(message: Delegation): Uint8Array {
-    return Delegation.encode(message).finish();
-  },
-  toProtoMsg(message: Delegation): DelegationProtoMsg {
-    return {
-      typeUrl: "/cosmos.staking.v1beta1.Delegation",
-      value: Delegation.encode(message).finish()
-    };
-  }
-};"
-`;
-
-exports[`cosmos/staking/v1beta1 Delegation useCosmosSDKDec 1`] = `
-"export const Delegation = {
-  typeUrl: "/cosmos.staking.v1beta1.Delegation",
   encode(message: Delegation, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.delegatorAddress !== "") {
       writer.uint32(10).string(message.delegatorAddress);
@@ -230,13 +128,163 @@ exports[`cosmos/staking/v1beta1 Delegation useCosmosSDKDec 1`] = `
       typeUrl: "/cosmos.staking.v1beta1.Delegation",
       value: Delegation.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
+};"
+`;
+
+exports[`cosmos/staking/v1beta1 Delegation useCosmosSDKDec 1`] = `
+"/**
+ * Delegation represents the bond with tokens held by an account. It is
+ * owned by one delegator, and is associated with the voting power of one
+ * validator.
+ * @name Delegation
+ * @package cosmos.staking.v1beta1
+ * @see proto type: cosmos.staking.v1beta1.Delegation
+ */
+export const Delegation = {
+  typeUrl: "/cosmos.staking.v1beta1.Delegation",
+  aminoType: "cosmos-sdk/Delegation",
+  is(o: any): o is Delegation {
+    return o && (o.$typeUrl === Delegation.typeUrl || typeof o.delegatorAddress === "string" && typeof o.validatorAddress === "string" && typeof o.shares === "string");
+  },
+  isSDK(o: any): o is DelegationSDKType {
+    return o && (o.$typeUrl === Delegation.typeUrl || typeof o.delegator_address === "string" && typeof o.validator_address === "string" && typeof o.shares === "string");
+  },
+  encode(message: Delegation, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+    if (message.delegatorAddress !== "") {
+      writer.uint32(10).string(message.delegatorAddress);
+    }
+    if (message.validatorAddress !== "") {
+      writer.uint32(18).string(message.validatorAddress);
+    }
+    if (message.shares !== "") {
+      writer.uint32(26).string(Decimal.fromUserInput(message.shares, 18).atomics);
+    }
+    return writer;
+  },
+  decode(input: BinaryReader | Uint8Array, length?: number): Delegation {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseDelegation();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.delegatorAddress = reader.string();
+          break;
+        case 2:
+          message.validatorAddress = reader.string();
+          break;
+        case 3:
+          message.shares = Decimal.fromAtomics(reader.string(), 18).toString();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+  fromJSON(object: any): Delegation {
+    return {
+      delegatorAddress: isSet(object.delegatorAddress) ? String(object.delegatorAddress) : "",
+      validatorAddress: isSet(object.validatorAddress) ? String(object.validatorAddress) : "",
+      shares: isSet(object.shares) ? String(object.shares) : ""
+    };
+  },
+  toJSON(message: Delegation): JsonSafe<Delegation> {
+    const obj: any = {};
+    message.delegatorAddress !== undefined && (obj.delegatorAddress = message.delegatorAddress);
+    message.validatorAddress !== undefined && (obj.validatorAddress = message.validatorAddress);
+    message.shares !== undefined && (obj.shares = message.shares);
+    return obj;
+  },
+  fromPartial(object: Partial<Delegation>): Delegation {
+    const message = createBaseDelegation();
+    message.delegatorAddress = object.delegatorAddress ?? "";
+    message.validatorAddress = object.validatorAddress ?? "";
+    message.shares = object.shares ?? "";
+    return message;
+  },
+  fromSDK(object: DelegationSDKType): Delegation {
+    return {
+      delegatorAddress: object?.delegator_address,
+      validatorAddress: object?.validator_address,
+      shares: object?.shares
+    };
+  },
+  toSDK(message: Delegation): DelegationSDKType {
+    const obj: any = {};
+    obj.delegator_address = message.delegatorAddress;
+    obj.validator_address = message.validatorAddress;
+    obj.shares = message.shares;
+    return obj;
+  },
+  fromAmino(object: DelegationAmino): Delegation {
+    const message = createBaseDelegation();
+    if (object.delegator_address !== undefined && object.delegator_address !== null) {
+      message.delegatorAddress = object.delegator_address;
+    }
+    if (object.validator_address !== undefined && object.validator_address !== null) {
+      message.validatorAddress = object.validator_address;
+    }
+    if (object.shares !== undefined && object.shares !== null) {
+      message.shares = object.shares;
+    }
+    return message;
+  },
+  toAmino(message: Delegation): DelegationAmino {
+    const obj: any = {};
+    obj.delegator_address = message.delegatorAddress === "" ? undefined : message.delegatorAddress;
+    obj.validator_address = message.validatorAddress === "" ? undefined : message.validatorAddress;
+    obj.shares = message.shares === "" ? undefined : Decimal.fromUserInput(message.shares, 18).atomics;
+    return obj;
+  },
+  fromAminoMsg(object: DelegationAminoMsg): Delegation {
+    return Delegation.fromAmino(object.value);
+  },
+  toAminoMsg(message: Delegation): DelegationAminoMsg {
+    return {
+      type: "cosmos-sdk/Delegation",
+      value: Delegation.toAmino(message)
+    };
+  },
+  fromProtoMsg(message: DelegationProtoMsg): Delegation {
+    return Delegation.decode(message.value);
+  },
+  toProto(message: Delegation): Uint8Array {
+    return Delegation.encode(message).finish();
+  },
+  toProtoMsg(message: Delegation): DelegationProtoMsg {
+    return {
+      typeUrl: "/cosmos.staking.v1beta1.Delegation",
+      value: Delegation.encode(message).finish()
+    };
+  },
+  registerTypeUrl() {}
 };"
 `;
 
 exports[`cosmos/tx/signing/v1beta1/signing SignatureDescriptor 1`] = `
-"export const SignatureDescriptor = {
+"/**
+ * SignatureDescriptor is a convenience type which represents the full data for
+ * a signature including the public key of the signer, signing modes and the
+ * signature itself. It is primarily used for coordinating signatures between
+ * clients.
+ * @name SignatureDescriptor
+ * @package cosmos.tx.signing.v1beta1
+ * @see proto type: cosmos.tx.signing.v1beta1.SignatureDescriptor
+ */
+export const SignatureDescriptor = {
   typeUrl: "/cosmos.tx.signing.v1beta1.SignatureDescriptor",
+  aminoType: "cosmos-sdk/SignatureDescriptor",
+  is(o: any): o is SignatureDescriptor {
+    return o && (o.$typeUrl === SignatureDescriptor.typeUrl || typeof o.sequence === "bigint");
+  },
+  isSDK(o: any): o is SignatureDescriptorSDKType {
+    return o && (o.$typeUrl === SignatureDescriptor.typeUrl || typeof o.sequence === "bigint");
+  },
   encode(message: SignatureDescriptor, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.publicKey !== undefined) {
       Any.encode(message.publicKey, writer.uint32(10).fork()).ldelim();
@@ -347,13 +395,32 @@ exports[`cosmos/tx/signing/v1beta1/signing SignatureDescriptor 1`] = `
       typeUrl: "/cosmos.tx.signing.v1beta1.SignatureDescriptor",
       value: SignatureDescriptor.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(SignatureDescriptor.typeUrl)) {
+      return;
+    }
+    SignatureDescriptor_Data.registerTypeUrl();
   }
 };"
 `;
 
 exports[`cosmos/tx/signing/v1beta1/signing SignatureDescriptors 1`] = `
-"export const SignatureDescriptors = {
+"/**
+ * SignatureDescriptors wraps multiple SignatureDescriptor's.
+ * @name SignatureDescriptors
+ * @package cosmos.tx.signing.v1beta1
+ * @see proto type: cosmos.tx.signing.v1beta1.SignatureDescriptors
+ */
+export const SignatureDescriptors = {
   typeUrl: "/cosmos.tx.signing.v1beta1.SignatureDescriptors",
+  aminoType: "cosmos-sdk/SignatureDescriptors",
+  is(o: any): o is SignatureDescriptors {
+    return o && (o.$typeUrl === SignatureDescriptors.typeUrl || Array.isArray(o.signatures) && (!o.signatures.length || SignatureDescriptor.is(o.signatures[0])));
+  },
+  isSDK(o: any): o is SignatureDescriptorsSDKType {
+    return o && (o.$typeUrl === SignatureDescriptors.typeUrl || Array.isArray(o.signatures) && (!o.signatures.length || SignatureDescriptor.isSDK(o.signatures[0])));
+  },
   encode(message: SignatureDescriptors, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.signatures) {
       SignatureDescriptor.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -444,13 +511,37 @@ exports[`cosmos/tx/signing/v1beta1/signing SignatureDescriptors 1`] = `
       typeUrl: "/cosmos.tx.signing.v1beta1.SignatureDescriptors",
       value: SignatureDescriptors.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(SignatureDescriptors.typeUrl)) {
+      return;
+    }
+    SignatureDescriptor.registerTypeUrl();
   }
 };"
 `;
 
 exports[`cosmos/tx/v1beta1/tx AuxSignerData 1`] = `
-"export const AuxSignerData = {
+"/**
+ * AuxSignerData is the intermediary format that an auxiliary signer (e.g. a
+ * tipper) builds and sends to the fee payer (who will build and broadcast the
+ * actual tx). AuxSignerData is not a valid tx in itself, and will be rejected
+ * by the node if sent directly as-is.
+ * 
+ * Since: cosmos-sdk 0.46
+ * @name AuxSignerData
+ * @package cosmos.tx.v1beta1
+ * @see proto type: cosmos.tx.v1beta1.AuxSignerData
+ */
+export const AuxSignerData = {
   typeUrl: "/cosmos.tx.v1beta1.AuxSignerData",
+  aminoType: "cosmos-sdk/AuxSignerData",
+  is(o: any): o is AuxSignerData {
+    return o && (o.$typeUrl === AuxSignerData.typeUrl || typeof o.address === "string" && isSet(o.mode) && (o.sig instanceof Uint8Array || typeof o.sig === "string"));
+  },
+  isSDK(o: any): o is AuxSignerDataSDKType {
+    return o && (o.$typeUrl === AuxSignerData.typeUrl || typeof o.address === "string" && isSet(o.mode) && (o.sig instanceof Uint8Array || typeof o.sig === "string"));
+  },
   encode(message: AuxSignerData, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.address !== "") {
       writer.uint32(10).string(message.address);
@@ -576,13 +667,32 @@ exports[`cosmos/tx/v1beta1/tx AuxSignerData 1`] = `
       typeUrl: "/cosmos.tx.v1beta1.AuxSignerData",
       value: AuxSignerData.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(AuxSignerData.typeUrl)) {
+      return;
+    }
+    SignDocDirectAux.registerTypeUrl();
   }
 };"
 `;
 
 exports[`cosmos/tx/v1beta1/tx ModeInfo_Multi 1`] = `
-"export const ModeInfo_Multi = {
+"/**
+ * ModeInfo describes the signing mode of a single or nested multisig signer.
+ * @name ModeInfo_Multi
+ * @package cosmos.tx.v1beta1
+ * @see proto type: cosmos.tx.v1beta1.ModeInfo
+ */
+export const ModeInfo_Multi = {
   typeUrl: "/cosmos.tx.v1beta1.ModeInfo",
+  aminoType: "cosmos-sdk/ModeInfo",
+  is(o: any): o is ModeInfo_Multi {
+    return o && o.$typeUrl === ModeInfo_Multi.typeUrl;
+  },
+  isSDK(o: any): o is ModeInfo_MultiSDKType {
+    return o && o.$typeUrl === ModeInfo_Multi.typeUrl;
+  },
   encode(message: ModeInfo_Multi, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.single !== undefined) {
       ModeInfo_Single.encode(message.single, writer.uint32(10).fork()).ldelim();
@@ -678,13 +788,34 @@ exports[`cosmos/tx/v1beta1/tx ModeInfo_Multi 1`] = `
       typeUrl: "/cosmos.tx.v1beta1.ModeInfo",
       value: ModeInfo_Multi.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ModeInfo_Multi.typeUrl)) {
+      return;
+    }
+    ModeInfo_Single.registerTypeUrl();
+    ModeInfo_Multi.registerTypeUrl();
   }
 };"
 `;
 
 exports[`cosmwasm/wasm/v1/proposal 1`] = `
-"export const PinCodesProposal = {
+"/**
+ * PinCodesProposal gov proposal content type to pin a set of code ids in the
+ * wasmvm cache.
+ * @name PinCodesProposal
+ * @package cosmwasm.wasm.v1
+ * @see proto type: cosmwasm.wasm.v1.PinCodesProposal
+ */
+export const PinCodesProposal = {
   typeUrl: "/cosmwasm.wasm.v1.PinCodesProposal",
+  aminoType: "wasm/PinCodesProposal",
+  is(o: any): o is PinCodesProposal {
+    return o && (o.$typeUrl === PinCodesProposal.typeUrl || typeof o.title === "string" && typeof o.description === "string" && Array.isArray(o.codeIds) && (!o.codeIds.length || typeof o.codeIds[0] === "bigint"));
+  },
+  isSDK(o: any): o is PinCodesProposalSDKType {
+    return o && (o.$typeUrl === PinCodesProposal.typeUrl || typeof o.title === "string" && typeof o.description === "string" && Array.isArray(o.code_ids) && (!o.code_ids.length || typeof o.code_ids[0] === "bigint"));
+  },
   encode(message: PinCodesProposal, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.title !== "") {
       writer.uint32(10).string(message.title);
@@ -814,13 +945,28 @@ exports[`cosmwasm/wasm/v1/proposal 1`] = `
       typeUrl: "/cosmwasm.wasm.v1.PinCodesProposal",
       value: PinCodesProposal.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };"
 `;
 
 exports[`cosmwasm/wasm/v1/proposal 2`] = `
-"export const UnpinCodesProposal = {
+"/**
+ * UnpinCodesProposal gov proposal content type to unpin a set of code ids in
+ * the wasmvm cache.
+ * @name UnpinCodesProposal
+ * @package cosmwasm.wasm.v1
+ * @see proto type: cosmwasm.wasm.v1.UnpinCodesProposal
+ */
+export const UnpinCodesProposal = {
   typeUrl: "/cosmwasm.wasm.v1.UnpinCodesProposal",
+  aminoType: "wasm/UnpinCodesProposal",
+  is(o: any): o is UnpinCodesProposal {
+    return o && (o.$typeUrl === UnpinCodesProposal.typeUrl || typeof o.title === "string" && typeof o.description === "string" && Array.isArray(o.codeIds) && (!o.codeIds.length || typeof o.codeIds[0] === "bigint"));
+  },
+  isSDK(o: any): o is UnpinCodesProposalSDKType {
+    return o && (o.$typeUrl === UnpinCodesProposal.typeUrl || typeof o.title === "string" && typeof o.description === "string" && Array.isArray(o.code_ids) && (!o.code_ids.length || typeof o.code_ids[0] === "bigint"));
+  },
   encode(message: UnpinCodesProposal, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.title !== "") {
       writer.uint32(10).string(message.title);
@@ -950,13 +1096,28 @@ exports[`cosmwasm/wasm/v1/proposal 2`] = `
       typeUrl: "/cosmwasm.wasm.v1.UnpinCodesProposal",
       value: UnpinCodesProposal.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };"
 `;
 
 exports[`cosmwasm/wasm/v1/query 1`] = `
-"export const QueryRawContractStateRequest = {
+"/**
+ * QueryRawContractStateRequest is the request type for the
+ * Query/RawContractState RPC method
+ * @name QueryRawContractStateRequest
+ * @package cosmwasm.wasm.v1
+ * @see proto type: cosmwasm.wasm.v1.QueryRawContractStateRequest
+ */
+export const QueryRawContractStateRequest = {
   typeUrl: "/cosmwasm.wasm.v1.QueryRawContractStateRequest",
+  aminoType: "wasm/QueryRawContractStateRequest",
+  is(o: any): o is QueryRawContractStateRequest {
+    return o && (o.$typeUrl === QueryRawContractStateRequest.typeUrl || typeof o.address === "string" && (o.queryData instanceof Uint8Array || typeof o.queryData === "string"));
+  },
+  isSDK(o: any): o is QueryRawContractStateRequestSDKType {
+    return o && (o.$typeUrl === QueryRawContractStateRequest.typeUrl || typeof o.address === "string" && (o.query_data instanceof Uint8Array || typeof o.query_data === "string"));
+  },
   encode(message: QueryRawContractStateRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.address !== "") {
       writer.uint32(10).string(message.address);
@@ -1052,13 +1213,26 @@ exports[`cosmwasm/wasm/v1/query 1`] = `
       typeUrl: "/cosmwasm.wasm.v1.QueryRawContractStateRequest",
       value: QueryRawContractStateRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };"
 `;
 
 exports[`evmos/fees/v1/tx 1`] = `
-"export const MsgRegisterDevFeeInfo = {
+"/**
+ * MsgRegisterFeesContract defines a message that registers a DevFeeInfo
+ * @name MsgRegisterDevFeeInfo
+ * @package evmos.fees.v1
+ * @see proto type: evmos.fees.v1.MsgRegisterDevFeeInfo
+ */
+export const MsgRegisterDevFeeInfo = {
   typeUrl: "/evmos.fees.v1.MsgRegisterDevFeeInfo",
+  is(o: any): o is MsgRegisterDevFeeInfo {
+    return o && (o.$typeUrl === MsgRegisterDevFeeInfo.typeUrl || typeof o.contractAddress === "string" && typeof o.deployerAddress === "string" && typeof o.withdrawAddress === "string" && Array.isArray(o.nonces) && (!o.nonces.length || typeof o.nonces[0] === "bigint"));
+  },
+  isSDK(o: any): o is MsgRegisterDevFeeInfoSDKType {
+    return o && (o.$typeUrl === MsgRegisterDevFeeInfo.typeUrl || typeof o.contract_address === "string" && typeof o.deployer_address === "string" && typeof o.withdraw_address === "string" && Array.isArray(o.nonces) && (!o.nonces.length || typeof o.nonces[0] === "bigint"));
+  },
   encode(message: MsgRegisterDevFeeInfo, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.contractAddress !== "") {
       writer.uint32(10).string(message.contractAddress);
@@ -1197,13 +1371,26 @@ exports[`evmos/fees/v1/tx 1`] = `
       typeUrl: "/evmos.fees.v1.MsgRegisterDevFeeInfo",
       value: MsgRegisterDevFeeInfo.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };"
 `;
 
 exports[`google/api/expr/conformance/v1alpha1/conformance_service ParseRequest 1`] = `
-"export const ParseRequest = {
+"/**
+ * Request message for the Parse method.
+ * @name ParseRequest
+ * @package google.api.expr.conformance.v1alpha1
+ * @see proto type: google.api.expr.conformance.v1alpha1.ParseRequest
+ */
+export const ParseRequest = {
   typeUrl: "/google.api.expr.conformance.v1alpha1.ParseRequest",
+  is(o: any): o is ParseRequest {
+    return o && (o.$typeUrl === ParseRequest.typeUrl || typeof o.celSource === "string" && typeof o.syntaxVersion === "string" && typeof o.sourceLocation === "string" && typeof o.disableMacros === "boolean");
+  },
+  isSDK(o: any): o is ParseRequestSDKType {
+    return o && (o.$typeUrl === ParseRequest.typeUrl || typeof o.cel_source === "string" && typeof o.syntax_version === "string" && typeof o.source_location === "string" && typeof o.disable_macros === "boolean");
+  },
   encode(message: ParseRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.celSource !== "") {
       writer.uint32(10).string(message.celSource);
@@ -1323,13 +1510,35 @@ exports[`google/api/expr/conformance/v1alpha1/conformance_service ParseRequest 1
       typeUrl: "/google.api.expr.conformance.v1alpha1.ParseRequest",
       value: ParseRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };"
 `;
 
 exports[`google/api/expr/v1alpha1/checked Decl_FunctionDecl_Overload MapType 1`] = `
-"export const Decl_FunctionDecl_Overload = {
+"/**
+ * An overload indicates a function's parameter types and return type, and
+ * may optionally include a function body described in terms of [Expr][google.api.expr.v1alpha1.Expr]
+ * values.
+ * 
+ * Functions overloads are declared in either a function or method
+ * call-style. For methods, the \`params[0]\` is the expected type of the
+ * target receiver.
+ * 
+ * Overloads must have non-overlapping argument types after erasure of all
+ * parameterized type variables (similar as type erasure in Java).
+ * @name Decl_FunctionDecl_Overload
+ * @package google.api.expr.v1alpha1
+ * @see proto type: google.api.expr.v1alpha1.Overload
+ */
+export const Decl_FunctionDecl_Overload = {
   typeUrl: "/google.api.expr.v1alpha1.Overload",
+  is(o: any): o is Decl_FunctionDecl_Overload {
+    return o && (o.$typeUrl === Decl_FunctionDecl_Overload.typeUrl || typeof o.overloadId === "string" && Array.isArray(o.params) && (!o.params.length || Type.is(o.params[0])) && Array.isArray(o.typeParams) && (!o.typeParams.length || typeof o.typeParams[0] === "string") && typeof o.isInstanceFunction === "boolean" && typeof o.doc === "string");
+  },
+  isSDK(o: any): o is Decl_FunctionDecl_OverloadSDKType {
+    return o && (o.$typeUrl === Decl_FunctionDecl_Overload.typeUrl || typeof o.overload_id === "string" && Array.isArray(o.params) && (!o.params.length || Type.isSDK(o.params[0])) && Array.isArray(o.type_params) && (!o.type_params.length || typeof o.type_params[0] === "string") && typeof o.is_instance_function === "boolean" && typeof o.doc === "string");
+  },
   encode(message: Decl_FunctionDecl_Overload, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.overloadId !== "") {
       writer.uint32(10).string(message.overloadId);
@@ -1499,13 +1708,31 @@ exports[`google/api/expr/v1alpha1/checked Decl_FunctionDecl_Overload MapType 1`]
       typeUrl: "/google.api.expr.v1alpha1.Overload",
       value: Decl_FunctionDecl_Overload.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Decl_FunctionDecl_Overload.typeUrl)) {
+      return;
+    }
+    Type.registerTypeUrl();
   }
 };"
 `;
 
 exports[`google/api/expr/v1alpha1/checked Type 1`] = `
-"export const Type = {
+"/**
+ * Represents a CEL type.
+ * @name Type
+ * @package google.api.expr.v1alpha1
+ * @see proto type: google.api.expr.v1alpha1.Type
+ */
+export const Type = {
   typeUrl: "/google.api.expr.v1alpha1.Type",
+  is(o: any): o is Type {
+    return o && o.$typeUrl === Type.typeUrl;
+  },
+  isSDK(o: any): o is TypeSDKType {
+    return o && o.$typeUrl === Type.typeUrl;
+  },
   encode(message: Type, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.dyn !== undefined) {
       Empty.encode(message.dyn, writer.uint32(10).fork()).ldelim();
@@ -1760,13 +1987,36 @@ exports[`google/api/expr/v1alpha1/checked Type 1`] = `
       typeUrl: "/google.api.expr.v1alpha1.Type",
       value: Type.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Type.typeUrl)) {
+      return;
+    }
+    Empty.registerTypeUrl();
+    Type_ListType.registerTypeUrl();
+    Type_MapType.registerTypeUrl();
+    Type_FunctionType.registerTypeUrl();
+    Type.registerTypeUrl();
+    Type_AbstractType.registerTypeUrl();
   }
 };"
 `;
 
 exports[`google/api/expr/v1alpha1/checked nested MapType 1`] = `
-"export const Type_MapType = {
+"/**
+ * Map type with parameterized key and value types, e.g. \`map<string, int>\`.
+ * @name Type_MapType
+ * @package google.api.expr.v1alpha1
+ * @see proto type: google.api.expr.v1alpha1.MapType
+ */
+export const Type_MapType = {
   typeUrl: "/google.api.expr.v1alpha1.MapType",
+  is(o: any): o is Type_MapType {
+    return o && o.$typeUrl === Type_MapType.typeUrl;
+  },
+  isSDK(o: any): o is Type_MapTypeSDKType {
+    return o && o.$typeUrl === Type_MapType.typeUrl;
+  },
   encode(message: Type_MapType, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.keyType !== undefined) {
       Type.encode(message.keyType, writer.uint32(10).fork()).ldelim();
@@ -1856,13 +2106,31 @@ exports[`google/api/expr/v1alpha1/checked nested MapType 1`] = `
       typeUrl: "/google.api.expr.v1alpha1.MapType",
       value: Type_MapType.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Type_MapType.typeUrl)) {
+      return;
+    }
+    Type.registerTypeUrl();
   }
 };"
 `;
 
 exports[`google/api/expr/v1alpha1/checked typeHash (Long) CheckedExpr 1`] = `
-"export const CheckedExpr = {
+"/**
+ * A CEL expression which has been successfully type checked.
+ * @name CheckedExpr
+ * @package google.api.expr.v1alpha1
+ * @see proto type: google.api.expr.v1alpha1.CheckedExpr
+ */
+export const CheckedExpr = {
   typeUrl: "/google.api.expr.v1alpha1.CheckedExpr",
+  is(o: any): o is CheckedExpr {
+    return o && (o.$typeUrl === CheckedExpr.typeUrl || isSet(o.referenceMap) && isSet(o.typeMap) && typeof o.exprVersion === "string");
+  },
+  isSDK(o: any): o is CheckedExprSDKType {
+    return o && (o.$typeUrl === CheckedExpr.typeUrl || isSet(o.reference_map) && isSet(o.type_map) && typeof o.expr_version === "string");
+  },
   encode(message: CheckedExpr, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     Object.entries(message.referenceMap).forEach(([key, value]) => {
       CheckedExpr_ReferenceMapEntry.encode({
@@ -2083,13 +2351,46 @@ exports[`google/api/expr/v1alpha1/checked typeHash (Long) CheckedExpr 1`] = `
       typeUrl: "/google.api.expr.v1alpha1.CheckedExpr",
       value: CheckedExpr.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(CheckedExpr.typeUrl)) {
+      return;
+    }
+    Reference.registerTypeUrl();
+    Type.registerTypeUrl();
+    SourceInfo.registerTypeUrl();
+    Expr.registerTypeUrl();
   }
 };"
 `;
 
 exports[`google/api/expr/v1alpha1/syntax Constant 1`] = `
-"export const Constant = {
+"/**
+ * Represents a primitive literal.
+ * 
+ * Named 'Constant' here for backwards compatibility.
+ * 
+ * This is similar as the primitives supported in the well-known type
+ * \`google.protobuf.Value\`, but richer so it can represent CEL's full range of
+ * primitives.
+ * 
+ * Lists and structs are not included as constants as these aggregate types may
+ * contain [Expr][google.api.expr.v1alpha1.Expr] elements which require evaluation and are thus not constant.
+ * 
+ * Examples of literals include: \`"hello"\`, \`b'bytes'\`, \`1u\`, \`4.2\`, \`-2\`,
+ * \`true\`, \`null\`.
+ * @name Constant
+ * @package google.api.expr.v1alpha1
+ * @see proto type: google.api.expr.v1alpha1.Constant
+ */
+export const Constant = {
   typeUrl: "/google.api.expr.v1alpha1.Constant",
+  is(o: any): o is Constant {
+    return o && o.$typeUrl === Constant.typeUrl;
+  },
+  isSDK(o: any): o is ConstantSDKType {
+    return o && o.$typeUrl === Constant.typeUrl;
+  },
   encode(message: Constant, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.nullValue !== undefined) {
       writer.uint32(8).int32(message.nullValue);
@@ -2171,7 +2472,7 @@ exports[`google/api/expr/v1alpha1/syntax Constant 1`] = `
       stringValue: isSet(object.stringValue) ? String(object.stringValue) : undefined,
       bytesValue: isSet(object.bytesValue) ? bytesFromBase64(object.bytesValue) : undefined,
       durationValue: isSet(object.durationValue) ? Duration.fromJSON(object.durationValue) : undefined,
-      timestampValue: isSet(object.timestampValue) ? fromJsonTimestamp(object.timestampValue) : undefined
+      timestampValue: isSet(object.timestampValue) ? new Date(object.timestampValue) : undefined
     };
   },
   toJSON(message: Constant): JsonSafe<Constant> {
@@ -2214,7 +2515,7 @@ exports[`google/api/expr/v1alpha1/syntax Constant 1`] = `
       stringValue: object?.string_value,
       bytesValue: object?.bytes_value,
       durationValue: object.duration_value ? Duration.fromSDK(object.duration_value) : undefined,
-      timestampValue: object.timestamp_value ? Timestamp.fromSDK(object.timestamp_value) : undefined
+      timestampValue: object.timestamp_value ?? undefined
     };
   },
   toSDK(message: Constant): ConstantSDKType {
@@ -2227,7 +2528,7 @@ exports[`google/api/expr/v1alpha1/syntax Constant 1`] = `
     obj.string_value = message.stringValue;
     obj.bytes_value = message.bytesValue;
     message.durationValue !== undefined && (obj.duration_value = message.durationValue ? Duration.toSDK(message.durationValue) : undefined);
-    message.timestampValue !== undefined && (obj.timestamp_value = message.timestampValue ? Timestamp.toSDK(message.timestampValue) : undefined);
+    message.timestampValue !== undefined && (obj.timestamp_value = message.timestampValue ?? undefined);
     return obj;
   },
   fromAmino(object: ConstantAmino): Constant {
@@ -2288,13 +2589,26 @@ exports[`google/api/expr/v1alpha1/syntax Constant 1`] = `
       typeUrl: "/google.api.expr.v1alpha1.Constant",
       value: Constant.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };"
 `;
 
 exports[`google/api/expr/v1alpha1/value Entry 1`] = `
-"export const Entry = {
+"/**
+ * An entry in the map.
+ * @name Entry
+ * @package google.api.expr.v1alpha1
+ * @see proto type: google.api.expr.v1alpha1.Entry
+ */
+export const Entry = {
   typeUrl: "/google.api.expr.v1alpha1.Entry",
+  is(o: any): o is Entry {
+    return o && o.$typeUrl === Entry.typeUrl;
+  },
+  isSDK(o: any): o is EntrySDKType {
+    return o && o.$typeUrl === Entry.typeUrl;
+  },
   encode(message: Entry, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.key !== undefined) {
       Value.encode(message.key, writer.uint32(10).fork()).ldelim();
@@ -2384,6 +2698,12 @@ exports[`google/api/expr/v1alpha1/value Entry 1`] = `
       typeUrl: "/google.api.expr.v1alpha1.Entry",
       value: Entry.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Entry.typeUrl)) {
+      return;
+    }
+    Value.registerTypeUrl();
   }
 };"
 `;
@@ -2391,8 +2711,23 @@ exports[`google/api/expr/v1alpha1/value Entry 1`] = `
 exports[`google/api/expr/v1alpha1/value Entry 2`] = `[]`;
 
 exports[`google/api/expr/v1alpha1/value MapValue 1`] = `
-"export const MapValue = {
+"/**
+ * A map.
+ * 
+ * Wrapped in a message so 'not set' and empty can be differentiated, which is
+ * required for use in a 'oneof'.
+ * @name MapValue
+ * @package google.api.expr.v1alpha1
+ * @see proto type: google.api.expr.v1alpha1.MapValue
+ */
+export const MapValue = {
   typeUrl: "/google.api.expr.v1alpha1.MapValue",
+  is(o: any): o is MapValue {
+    return o && (o.$typeUrl === MapValue.typeUrl || Array.isArray(o.entries) && (!o.entries.length || MapValue_Entry.is(o.entries[0])));
+  },
+  isSDK(o: any): o is MapValueSDKType {
+    return o && (o.$typeUrl === MapValue.typeUrl || Array.isArray(o.entries) && (!o.entries.length || MapValue_Entry.isSDK(o.entries[0])));
+  },
   encode(message: MapValue, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.entries) {
       MapValue_Entry.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -2477,6 +2812,12 @@ exports[`google/api/expr/v1alpha1/value MapValue 1`] = `
       typeUrl: "/google.api.expr.v1alpha1.MapValue",
       value: MapValue.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MapValue.typeUrl)) {
+      return;
+    }
+    MapValue_Entry.registerTypeUrl();
   }
 };"
 `;
@@ -2484,8 +2825,20 @@ exports[`google/api/expr/v1alpha1/value MapValue 1`] = `
 exports[`google/api/expr/v1alpha1/value MapValue 2`] = `[]`;
 
 exports[`google/api/expr/v1beta1/source 1`] = `
-"export const SourceInfo = {
+"/**
+ * Source information collected at parse time.
+ * @name SourceInfo
+ * @package google.api.expr.v1beta1
+ * @see proto type: google.api.expr.v1beta1.SourceInfo
+ */
+export const SourceInfo = {
   typeUrl: "/google.api.expr.v1beta1.SourceInfo",
+  is(o: any): o is SourceInfo {
+    return o && (o.$typeUrl === SourceInfo.typeUrl || typeof o.location === "string" && Array.isArray(o.lineOffsets) && (!o.lineOffsets.length || typeof o.lineOffsets[0] === "number") && isSet(o.positions));
+  },
+  isSDK(o: any): o is SourceInfoSDKType {
+    return o && (o.$typeUrl === SourceInfo.typeUrl || typeof o.location === "string" && Array.isArray(o.line_offsets) && (!o.line_offsets.length || typeof o.line_offsets[0] === "number") && isSet(o.positions));
+  },
   encode(message: SourceInfo, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.location !== "") {
       writer.uint32(18).string(message.location);
@@ -2652,13 +3005,27 @@ exports[`google/api/expr/v1beta1/source 1`] = `
       typeUrl: "/google.api.expr.v1beta1.SourceInfo",
       value: SourceInfo.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };"
 `;
 
 exports[`google/api/quota keyType 1`] = `
-"export const MetricRule = {
+"/**
+ * Bind API methods to metrics. Binding a method to a metric causes that
+ * metric's configured quota behaviors to apply to the method call.
+ * @name MetricRule
+ * @package google.api
+ * @see proto type: google.api.MetricRule
+ */
+export const MetricRule = {
   typeUrl: "/google.api.MetricRule",
+  is(o: any): o is MetricRule {
+    return o && (o.$typeUrl === MetricRule.typeUrl || typeof o.selector === "string" && isSet(o.metricCosts));
+  },
+  isSDK(o: any): o is MetricRuleSDKType {
+    return o && (o.$typeUrl === MetricRule.typeUrl || typeof o.selector === "string" && isSet(o.metric_costs));
+  },
   encode(message: MetricRule, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.selector !== "") {
       writer.uint32(10).string(message.selector);
@@ -2791,15 +3158,28 @@ exports[`google/api/quota keyType 1`] = `
       typeUrl: "/google.api.MetricRule",
       value: MetricRule.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };"
 `;
 
 exports[`google/api/quota keyType 2`] = `[]`;
 
 exports[`google/api/servicecontrol/v1/log_entry LogEntry 1`] = `
-"export const LogEntry = {
+"/**
+ * An individual log entry.
+ * @name LogEntry
+ * @package google.api.servicecontrol.v1
+ * @see proto type: google.api.servicecontrol.v1.LogEntry
+ */
+export const LogEntry = {
   typeUrl: "/google.api.servicecontrol.v1.LogEntry",
+  is(o: any): o is LogEntry {
+    return o && (o.$typeUrl === LogEntry.typeUrl || typeof o.name === "string" && isSet(o.severity) && typeof o.trace === "string" && typeof o.insertId === "string" && isSet(o.labels));
+  },
+  isSDK(o: any): o is LogEntrySDKType {
+    return o && (o.$typeUrl === LogEntry.typeUrl || typeof o.name === "string" && isSet(o.severity) && typeof o.trace === "string" && typeof o.insert_id === "string" && isSet(o.labels));
+  },
   encode(message: LogEntry, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(82).string(message.name);
@@ -2898,7 +3278,7 @@ exports[`google/api/servicecontrol/v1/log_entry LogEntry 1`] = `
   fromJSON(object: any): LogEntry {
     return {
       name: isSet(object.name) ? String(object.name) : "",
-      timestamp: isSet(object.timestamp) ? fromJsonTimestamp(object.timestamp) : undefined,
+      timestamp: isSet(object.timestamp) ? new Date(object.timestamp) : undefined,
       severity: isSet(object.severity) ? logSeverityFromJSON(object.severity) : -1,
       httpRequest: isSet(object.httpRequest) ? HttpRequest.fromJSON(object.httpRequest) : undefined,
       trace: isSet(object.trace) ? String(object.trace) : "",
@@ -2963,7 +3343,7 @@ exports[`google/api/servicecontrol/v1/log_entry LogEntry 1`] = `
   fromSDK(object: LogEntrySDKType): LogEntry {
     return {
       name: object?.name,
-      timestamp: object.timestamp ? Timestamp.fromSDK(object.timestamp) : undefined,
+      timestamp: object.timestamp ?? undefined,
       severity: isSet(object.severity) ? logSeverityFromJSON(object.severity) : -1,
       httpRequest: object.http_request ? HttpRequest.fromSDK(object.http_request) : undefined,
       trace: object?.trace,
@@ -2984,7 +3364,7 @@ exports[`google/api/servicecontrol/v1/log_entry LogEntry 1`] = `
   toSDK(message: LogEntry): LogEntrySDKType {
     const obj: any = {};
     obj.name = message.name;
-    message.timestamp !== undefined && (obj.timestamp = message.timestamp ? Timestamp.toSDK(message.timestamp) : undefined);
+    message.timestamp !== undefined && (obj.timestamp = message.timestamp ?? undefined);
     message.severity !== undefined && (obj.severity = logSeverityToJSON(message.severity));
     message.httpRequest !== undefined && (obj.http_request = message.httpRequest ? HttpRequest.toSDK(message.httpRequest) : undefined);
     obj.trace = message.trace;
@@ -3082,6 +3462,14 @@ exports[`google/api/servicecontrol/v1/log_entry LogEntry 1`] = `
       typeUrl: "/google.api.servicecontrol.v1.LogEntry",
       value: LogEntry.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(LogEntry.typeUrl)) {
+      return;
+    }
+    Struct.registerTypeUrl();
+    LogEntryOperation.registerTypeUrl();
+    LogEntrySourceLocation.registerTypeUrl();
   }
 };"
 `;
@@ -3093,16 +3481,37 @@ exports[`google/rpc/error_details name collisions 1`] = `
  * For example, if an RPC failed because it required the Terms of Service to be
  * acknowledged, it could list the terms of service violation in the
  * PreconditionFailure message.
+ * @name PreconditionFailure
+ * @package google.rpc
+ * @see proto type: google.rpc.PreconditionFailure
  */
 export interface PreconditionFailure {
-  /** Describes all precondition violations. */
+  /**
+   * Describes all precondition violations.
+   */
   violations: PreconditionFailure_Violation[];
 }"
 `;
 
 exports[`google/rpc/error_details name collisions 2`] = `
-"export const PreconditionFailure = {
+"/**
+ * Describes what preconditions have failed.
+ * 
+ * For example, if an RPC failed because it required the Terms of Service to be
+ * acknowledged, it could list the terms of service violation in the
+ * PreconditionFailure message.
+ * @name PreconditionFailure
+ * @package google.rpc
+ * @see proto type: google.rpc.PreconditionFailure
+ */
+export const PreconditionFailure = {
   typeUrl: "/google.rpc.PreconditionFailure",
+  is(o: any): o is PreconditionFailure {
+    return o && (o.$typeUrl === PreconditionFailure.typeUrl || Array.isArray(o.violations) && (!o.violations.length || PreconditionFailure_Violation.is(o.violations[0])));
+  },
+  isSDK(o: any): o is PreconditionFailureSDKType {
+    return o && (o.$typeUrl === PreconditionFailure.typeUrl || Array.isArray(o.violations) && (!o.violations.length || PreconditionFailure_Violation.isSDK(o.violations[0])));
+  },
   encode(message: PreconditionFailure, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.violations) {
       PreconditionFailure_Violation.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -3187,13 +3596,32 @@ exports[`google/rpc/error_details name collisions 2`] = `
       typeUrl: "/google.rpc.PreconditionFailure",
       value: PreconditionFailure.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(PreconditionFailure.typeUrl)) {
+      return;
+    }
+    PreconditionFailure_Violation.registerTypeUrl();
   }
 };"
 `;
 
 exports[`ibc/core/port/v1/query 1`] = `
-"export const QueryAppVersionRequest = {
+"/**
+ * QueryAppVersionRequest is the request type for the Query/AppVersion RPC method
+ * @name QueryAppVersionRequest
+ * @package ibc.core.port.v1
+ * @see proto type: ibc.core.port.v1.QueryAppVersionRequest
+ */
+export const QueryAppVersionRequest = {
   typeUrl: "/ibc.core.port.v1.QueryAppVersionRequest",
+  aminoType: "cosmos-sdk/QueryAppVersionRequest",
+  is(o: any): o is QueryAppVersionRequest {
+    return o && (o.$typeUrl === QueryAppVersionRequest.typeUrl || typeof o.portId === "string" && typeof o.connectionId === "string" && isSet(o.ordering) && typeof o.proposedVersion === "string");
+  },
+  isSDK(o: any): o is QueryAppVersionRequestSDKType {
+    return o && (o.$typeUrl === QueryAppVersionRequest.typeUrl || typeof o.port_id === "string" && typeof o.connection_id === "string" && isSet(o.ordering) && typeof o.proposed_version === "string");
+  },
   encode(message: QueryAppVersionRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.portId !== "") {
       writer.uint32(10).string(message.portId);
@@ -3334,6 +3762,12 @@ exports[`ibc/core/port/v1/query 1`] = `
       typeUrl: "/ibc.core.port.v1.QueryAppVersionRequest",
       value: QueryAppVersionRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryAppVersionRequest.typeUrl)) {
+      return;
+    }
+    Counterparty.registerTypeUrl();
   }
 };"
 `;
@@ -3414,24 +3848,54 @@ exports[`ibc/core/port/v1/query 2`] = `
     "name": "Counterparty",
     "type": "typeImport",
   },
+  {
+    "import": "ibc/core/channel/v1/channel.proto",
+    "importedAs": "Counterparty",
+    "name": "Counterparty",
+    "type": "typeImport",
+  },
 ]
 `;
 
 exports[`ibc/core/types/v1/genesis name collisions 1`] = `
-"/** GenesisState defines the ibc module's genesis state. */
+"/**
+ * GenesisState defines the ibc module's genesis state.
+ * @name GenesisState
+ * @package ibc.core.types.v1
+ * @see proto type: ibc.core.types.v1.GenesisState
+ */
 export interface GenesisState {
-  /** ICS002 - Clients genesis state */
+  /**
+   * ICS002 - Clients genesis state
+   */
   clientGenesis: GenesisState1;
-  /** ICS003 - Connections genesis state */
+  /**
+   * ICS003 - Connections genesis state
+   */
   connectionGenesis: GenesisState2;
-  /** ICS004 - Channel genesis state */
+  /**
+   * ICS004 - Channel genesis state
+   */
   channelGenesis: GenesisState3;
 }"
 `;
 
 exports[`ibc/core/types/v1/genesis name collisions 2`] = `
-"export const GenesisState = {
+"/**
+ * GenesisState defines the ibc module's genesis state.
+ * @name GenesisState
+ * @package ibc.core.types.v1
+ * @see proto type: ibc.core.types.v1.GenesisState
+ */
+export const GenesisState = {
   typeUrl: "/ibc.core.types.v1.GenesisState",
+  aminoType: "cosmos-sdk/GenesisState",
+  is(o: any): o is GenesisState {
+    return o && (o.$typeUrl === GenesisState.typeUrl || GenesisState1.is(o.clientGenesis) && GenesisState2.is(o.connectionGenesis) && GenesisState3.is(o.channelGenesis));
+  },
+  isSDK(o: any): o is GenesisStateSDKType {
+    return o && (o.$typeUrl === GenesisState.typeUrl || GenesisState1.isSDK(o.client_genesis) && GenesisState2.isSDK(o.connection_genesis) && GenesisState3.isSDK(o.channel_genesis));
+  },
   encode(message: GenesisState, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.clientGenesis !== undefined) {
       GenesisState1.encode(message.clientGenesis, writer.uint32(10).fork()).ldelim();
@@ -3542,6 +4006,14 @@ exports[`ibc/core/types/v1/genesis name collisions 2`] = `
       typeUrl: "/ibc.core.types.v1.GenesisState",
       value: GenesisState.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(GenesisState.typeUrl)) {
+      return;
+    }
+    GenesisState1.registerTypeUrl();
+    GenesisState2.registerTypeUrl();
+    GenesisState3.registerTypeUrl();
   }
 };"
 `;
@@ -3728,12 +4200,78 @@ exports[`ibc/core/types/v1/genesis name collisions 3`] = `
     "name": "GenesisState",
     "type": "typeImport",
   },
+  {
+    "import": "ibc/core/client/v1/genesis.proto",
+    "importedAs": "GenesisState1",
+    "name": "GenesisState",
+    "type": "typeImport",
+  },
+  {
+    "import": "ibc/core/connection/v1/genesis.proto",
+    "importedAs": "GenesisState2",
+    "name": "GenesisState",
+    "type": "typeImport",
+  },
+  {
+    "import": "ibc/core/channel/v1/genesis.proto",
+    "importedAs": "GenesisState3",
+    "name": "GenesisState",
+    "type": "typeImport",
+  },
+  {
+    "import": "ibc/core/client/v1/genesis.proto",
+    "importedAs": "GenesisState1",
+    "name": "GenesisState",
+    "type": "typeImport",
+  },
+  {
+    "import": "ibc/core/connection/v1/genesis.proto",
+    "importedAs": "GenesisState2",
+    "name": "GenesisState",
+    "type": "typeImport",
+  },
+  {
+    "import": "ibc/core/channel/v1/genesis.proto",
+    "importedAs": "GenesisState3",
+    "name": "GenesisState",
+    "type": "typeImport",
+  },
+  {
+    "import": "ibc/core/client/v1/genesis.proto",
+    "importedAs": "GenesisState1",
+    "name": "GenesisState",
+    "type": "typeImport",
+  },
+  {
+    "import": "ibc/core/connection/v1/genesis.proto",
+    "importedAs": "GenesisState2",
+    "name": "GenesisState",
+    "type": "typeImport",
+  },
+  {
+    "import": "ibc/core/channel/v1/genesis.proto",
+    "importedAs": "GenesisState3",
+    "name": "GenesisState",
+    "type": "typeImport",
+  },
 ]
 `;
 
 exports[`osmosis/gamm/v1beta1/query 1`] = `
-"export const QueryPoolsResponse = {
+"/**
+ * @name QueryPoolsResponse
+ * @package osmosis.gamm.v1beta1
+ * @see proto type: osmosis.gamm.v1beta1.QueryPoolsResponse
+ */
+export const QueryPoolsResponse = {
   typeUrl: "/osmosis.gamm.v1beta1.QueryPoolsResponse",
+  aminoType: "osmosis/gamm/query-pools-response",
+  is(o: any): o is QueryPoolsResponse {
+    return o && (o.$typeUrl === QueryPoolsResponse.typeUrl || Array.isArray(o.pools) && (!o.pools.length || Pool1.is(o.pools[0]) || Pool2.is(o.pools[0]) || Any.is(o.pools[0])));
+  },
+  isSDK(o: any): o is QueryPoolsResponseSDKType {
+    return o && (o.$typeUrl === QueryPoolsResponse.typeUrl || Array.isArray(o.pools) && (!o.pools.length || Pool1.isSDK(o.pools[0]) || Pool2.isSDK(o.pools[0]) || Any.isSDK(o.pools[0])));
+  },
   encode(message: QueryPoolsResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.pools) {
       Any.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -3839,13 +4377,35 @@ exports[`osmosis/gamm/v1beta1/query 1`] = `
       typeUrl: "/osmosis.gamm.v1beta1.QueryPoolsResponse",
       value: QueryPoolsResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryPoolsResponse.typeUrl)) {
+      return;
+    }
+    Pool1.registerTypeUrl();
+    Pool2.registerTypeUrl();
+    PageResponse.registerTypeUrl();
   }
 };"
 `;
 
 exports[`osmosis/gamm/v1beta1/tx MsgJoinPool 1`] = `
-"export const MsgJoinPool = {
+"/**
+ * ===================== MsgJoinPool
+ * This is really MsgJoinPoolNoSwap
+ * @name MsgJoinPool
+ * @package osmosis.gamm.v1beta1
+ * @see proto type: osmosis.gamm.v1beta1.MsgJoinPool
+ */
+export const MsgJoinPool = {
   typeUrl: "/osmosis.gamm.v1beta1.MsgJoinPool",
+  aminoType: "osmosis/gamm/join-pool",
+  is(o: any): o is MsgJoinPool {
+    return o && (o.$typeUrl === MsgJoinPool.typeUrl || typeof o.sender === "string" && typeof o.poolId === "bigint" && typeof o.shareOutAmount === "string" && Array.isArray(o.tokenInMaxs) && (!o.tokenInMaxs.length || Coin.is(o.tokenInMaxs[0])));
+  },
+  isSDK(o: any): o is MsgJoinPoolSDKType {
+    return o && (o.$typeUrl === MsgJoinPool.typeUrl || typeof o.sender === "string" && typeof o.pool_id === "bigint" && typeof o.share_out_amount === "string" && Array.isArray(o.token_in_maxs) && (!o.token_in_maxs.length || Coin.isSDK(o.token_in_maxs[0])));
+  },
   encode(message: MsgJoinPool, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.sender !== "") {
       writer.uint32(10).string(message.sender);
@@ -3981,13 +4541,31 @@ exports[`osmosis/gamm/v1beta1/tx MsgJoinPool 1`] = `
       typeUrl: "/osmosis.gamm.v1beta1.MsgJoinPool",
       value: MsgJoinPool.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgJoinPool.typeUrl)) {
+      return;
+    }
+    Coin.registerTypeUrl();
   }
 };"
 `;
 
 exports[`osmosis/gamm/v1beta1/tx MsgSwapExactAmountIn 1`] = `
-"export const MsgSwapExactAmountIn = {
+"/**
+ * @name MsgSwapExactAmountIn
+ * @package osmosis.gamm.v1beta1
+ * @see proto type: osmosis.gamm.v1beta1.MsgSwapExactAmountIn
+ */
+export const MsgSwapExactAmountIn = {
   typeUrl: "/osmosis.gamm.v1beta1.MsgSwapExactAmountIn",
+  aminoType: "osmosis/gamm/swap-exact-amount-in",
+  is(o: any): o is MsgSwapExactAmountIn {
+    return o && (o.$typeUrl === MsgSwapExactAmountIn.typeUrl || typeof o.sender === "string" && Array.isArray(o.routes) && (!o.routes.length || SwapAmountInRoute.is(o.routes[0])) && Coin.is(o.tokenIn) && typeof o.tokenOutMinAmount === "string");
+  },
+  isSDK(o: any): o is MsgSwapExactAmountInSDKType {
+    return o && (o.$typeUrl === MsgSwapExactAmountIn.typeUrl || typeof o.sender === "string" && Array.isArray(o.routes) && (!o.routes.length || SwapAmountInRoute.isSDK(o.routes[0])) && Coin.isSDK(o.token_in) && typeof o.token_out_min_amount === "string");
+  },
   encode(message: MsgSwapExactAmountIn, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.sender !== "") {
       writer.uint32(10).string(message.sender);
@@ -4123,13 +4701,32 @@ exports[`osmosis/gamm/v1beta1/tx MsgSwapExactAmountIn 1`] = `
       typeUrl: "/osmosis.gamm.v1beta1.MsgSwapExactAmountIn",
       value: MsgSwapExactAmountIn.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgSwapExactAmountIn.typeUrl)) {
+      return;
+    }
+    SwapAmountInRoute.registerTypeUrl();
+    Coin.registerTypeUrl();
   }
 };"
 `;
 
 exports[`osmosis/gamm/v1beta1/tx MsgSwapExactAmountOut 1`] = `
-"export const MsgSwapExactAmountOut = {
+"/**
+ * @name MsgSwapExactAmountOut
+ * @package osmosis.gamm.v1beta1
+ * @see proto type: osmosis.gamm.v1beta1.MsgSwapExactAmountOut
+ */
+export const MsgSwapExactAmountOut = {
   typeUrl: "/osmosis.gamm.v1beta1.MsgSwapExactAmountOut",
+  aminoType: "osmosis/gamm/swap-exact-amount-out",
+  is(o: any): o is MsgSwapExactAmountOut {
+    return o && (o.$typeUrl === MsgSwapExactAmountOut.typeUrl || typeof o.sender === "string" && Array.isArray(o.routes) && (!o.routes.length || SwapAmountOutRoute.is(o.routes[0])) && typeof o.tokenInMaxAmount === "string" && Coin.is(o.tokenOut));
+  },
+  isSDK(o: any): o is MsgSwapExactAmountOutSDKType {
+    return o && (o.$typeUrl === MsgSwapExactAmountOut.typeUrl || typeof o.sender === "string" && Array.isArray(o.routes) && (!o.routes.length || SwapAmountOutRoute.isSDK(o.routes[0])) && typeof o.token_in_max_amount === "string" && Coin.isSDK(o.token_out));
+  },
   encode(message: MsgSwapExactAmountOut, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.sender !== "") {
       writer.uint32(10).string(message.sender);
@@ -4265,6 +4862,13 @@ exports[`osmosis/gamm/v1beta1/tx MsgSwapExactAmountOut 1`] = `
       typeUrl: "/osmosis.gamm.v1beta1.MsgSwapExactAmountOut",
       value: MsgSwapExactAmountOut.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgSwapExactAmountOut.typeUrl)) {
+      return;
+    }
+    SwapAmountOutRoute.registerTypeUrl();
+    Coin.registerTypeUrl();
   }
 };"
 `;

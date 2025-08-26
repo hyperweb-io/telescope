@@ -3,6 +3,7 @@ import { Input, InputAmino, InputSDKType, Output, OutputAmino, OutputSDKType } f
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { isSet, DeepPartial } from "../../../helpers";
 import { JsonSafe } from "../../../json-safe";
+import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "cosmos.bank.v1beta1";
 /**
  * MsgSend represents a message to send coins from one account to another.
@@ -157,6 +158,15 @@ function createBaseMsgSend(): MsgSend {
 export const MsgSend = {
   typeUrl: "/cosmos.bank.v1beta1.MsgSend",
   aminoType: "cosmos-sdk/MsgSend",
+  is(o: any): o is MsgSend {
+    return o && (o.$typeUrl === MsgSend.typeUrl || typeof o.fromAddress === "string" && typeof o.toAddress === "string" && Array.isArray(o.amount) && (!o.amount.length || Coin.is(o.amount[0])));
+  },
+  isSDK(o: any): o is MsgSendSDKType {
+    return o && (o.$typeUrl === MsgSend.typeUrl || typeof o.from_address === "string" && typeof o.to_address === "string" && Array.isArray(o.amount) && (!o.amount.length || Coin.isSDK(o.amount[0])));
+  },
+  isAmino(o: any): o is MsgSendAmino {
+    return o && (o.$typeUrl === MsgSend.typeUrl || typeof o.from_address === "string" && typeof o.to_address === "string" && Array.isArray(o.amount) && (!o.amount.length || Coin.isAmino(o.amount[0])));
+  },
   encode(message: MsgSend, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.fromAddress !== "") {
       writer.uint32(10).string(message.fromAddress);
@@ -277,6 +287,12 @@ export const MsgSend = {
       typeUrl: "/cosmos.bank.v1beta1.MsgSend",
       value: MsgSend.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgSend.typeUrl)) {
+      return;
+    }
+    Coin.registerTypeUrl();
   }
 };
 function createBaseMsgSendResponse(): MsgSendResponse {
@@ -291,6 +307,15 @@ function createBaseMsgSendResponse(): MsgSendResponse {
 export const MsgSendResponse = {
   typeUrl: "/cosmos.bank.v1beta1.MsgSendResponse",
   aminoType: "cosmos-sdk/MsgSendResponse",
+  is(o: any): o is MsgSendResponse {
+    return o && o.$typeUrl === MsgSendResponse.typeUrl;
+  },
+  isSDK(o: any): o is MsgSendResponseSDKType {
+    return o && o.$typeUrl === MsgSendResponse.typeUrl;
+  },
+  isAmino(o: any): o is MsgSendResponseAmino {
+    return o && o.$typeUrl === MsgSendResponse.typeUrl;
+  },
   encode(_: MsgSendResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -355,7 +380,8 @@ export const MsgSendResponse = {
       typeUrl: "/cosmos.bank.v1beta1.MsgSendResponse",
       value: MsgSendResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseMsgMultiSend(): MsgMultiSend {
   return {
@@ -372,6 +398,15 @@ function createBaseMsgMultiSend(): MsgMultiSend {
 export const MsgMultiSend = {
   typeUrl: "/cosmos.bank.v1beta1.MsgMultiSend",
   aminoType: "cosmos-sdk/MsgMultiSend",
+  is(o: any): o is MsgMultiSend {
+    return o && (o.$typeUrl === MsgMultiSend.typeUrl || Array.isArray(o.inputs) && (!o.inputs.length || Input.is(o.inputs[0])) && Array.isArray(o.outputs) && (!o.outputs.length || Output.is(o.outputs[0])));
+  },
+  isSDK(o: any): o is MsgMultiSendSDKType {
+    return o && (o.$typeUrl === MsgMultiSend.typeUrl || Array.isArray(o.inputs) && (!o.inputs.length || Input.isSDK(o.inputs[0])) && Array.isArray(o.outputs) && (!o.outputs.length || Output.isSDK(o.outputs[0])));
+  },
+  isAmino(o: any): o is MsgMultiSendAmino {
+    return o && (o.$typeUrl === MsgMultiSend.typeUrl || Array.isArray(o.inputs) && (!o.inputs.length || Input.isAmino(o.inputs[0])) && Array.isArray(o.outputs) && (!o.outputs.length || Output.isAmino(o.outputs[0])));
+  },
   encode(message: MsgMultiSend, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.inputs) {
       Input.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -487,6 +522,13 @@ export const MsgMultiSend = {
       typeUrl: "/cosmos.bank.v1beta1.MsgMultiSend",
       value: MsgMultiSend.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgMultiSend.typeUrl)) {
+      return;
+    }
+    Input.registerTypeUrl();
+    Output.registerTypeUrl();
   }
 };
 function createBaseMsgMultiSendResponse(): MsgMultiSendResponse {
@@ -501,6 +543,15 @@ function createBaseMsgMultiSendResponse(): MsgMultiSendResponse {
 export const MsgMultiSendResponse = {
   typeUrl: "/cosmos.bank.v1beta1.MsgMultiSendResponse",
   aminoType: "cosmos-sdk/MsgMultiSendResponse",
+  is(o: any): o is MsgMultiSendResponse {
+    return o && o.$typeUrl === MsgMultiSendResponse.typeUrl;
+  },
+  isSDK(o: any): o is MsgMultiSendResponseSDKType {
+    return o && o.$typeUrl === MsgMultiSendResponse.typeUrl;
+  },
+  isAmino(o: any): o is MsgMultiSendResponseAmino {
+    return o && o.$typeUrl === MsgMultiSendResponse.typeUrl;
+  },
   encode(_: MsgMultiSendResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -565,5 +616,6 @@ export const MsgMultiSendResponse = {
       typeUrl: "/cosmos.bank.v1beta1.MsgMultiSendResponse",
       value: MsgMultiSendResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

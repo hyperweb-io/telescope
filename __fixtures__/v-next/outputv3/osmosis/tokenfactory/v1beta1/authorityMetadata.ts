@@ -60,6 +60,15 @@ function createBaseDenomAuthorityMetadata(): DenomAuthorityMetadata {
 export const DenomAuthorityMetadata = {
   typeUrl: "/osmosis.tokenfactory.v1beta1.DenomAuthorityMetadata",
   aminoType: "osmosis/tokenfactory/denom-authority-metadata",
+  is(o: any): o is DenomAuthorityMetadata {
+    return o && (o.$typeUrl === DenomAuthorityMetadata.typeUrl || typeof o.admin === "string");
+  },
+  isSDK(o: any): o is DenomAuthorityMetadataSDKType {
+    return o && (o.$typeUrl === DenomAuthorityMetadata.typeUrl || typeof o.admin === "string");
+  },
+  isAmino(o: any): o is DenomAuthorityMetadataAmino {
+    return o && (o.$typeUrl === DenomAuthorityMetadata.typeUrl || typeof o.admin === "string");
+  },
   encode(message: DenomAuthorityMetadata, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.admin !== "") {
       writer.uint32(10).string(message.admin);
@@ -126,5 +135,6 @@ export const DenomAuthorityMetadata = {
       typeUrl: "/osmosis.tokenfactory.v1beta1.DenomAuthorityMetadata",
       value: DenomAuthorityMetadata.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

@@ -1,7 +1,7 @@
 import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../base/query/v1beta1/pagination.js";
 import { Any, AnySDKType } from "../../../google/protobuf/any.js";
 import { Params, ParamsSDKType } from "./auth.js";
-import { Rpc } from "../../../helpers.js";
+import { TxRpc } from "../../../types.js";
 import { BinaryReader } from "../../../binary.js";
 import { QueryClient, createProtobufRpcClient, ProtobufRpcClient } from "@cosmjs/stargate";
 import { ReactQueryParams } from "../../../react-query.js";
@@ -29,8 +29,8 @@ export interface Query {
   addressStringToBytes(request: AddressStringToBytesRequest): Promise<AddressStringToBytesResponse>;
 }
 export class QueryClientImpl implements Query {
-  private readonly rpc: Rpc;
-  constructor(rpc: Rpc) {
+  private readonly rpc: TxRpc;
+  constructor(rpc: TxRpc) {
     this.rpc = rpc;
     this.accounts = this.accounts.bind(this);
     this.account = this.account.bind(this);

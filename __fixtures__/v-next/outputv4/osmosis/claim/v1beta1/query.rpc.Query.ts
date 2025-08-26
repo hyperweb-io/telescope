@@ -1,7 +1,7 @@
 import { Action, ActionSDKType, ClaimRecord, ClaimRecordSDKType } from "./claim.js";
 import { Coin, CoinSDKType } from "../../../cosmos/base/v1beta1/coin.js";
 import { Params, ParamsSDKType } from "./params.js";
-import { Rpc } from "../../../helpers.js";
+import { TxRpc } from "../../../types.js";
 import { BinaryReader } from "../../../binary.js";
 import { QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
 import { QueryModuleAccountBalanceRequest, QueryModuleAccountBalanceRequestSDKType, QueryModuleAccountBalanceResponse, QueryModuleAccountBalanceResponseSDKType, QueryParamsRequest, QueryParamsRequestSDKType, QueryParamsResponse, QueryParamsResponseSDKType, QueryClaimRecordRequest, QueryClaimRecordRequestSDKType, QueryClaimRecordResponse, QueryClaimRecordResponseSDKType, QueryClaimableForActionRequest, QueryClaimableForActionRequestSDKType, QueryClaimableForActionResponse, QueryClaimableForActionResponseSDKType, QueryTotalClaimableRequest, QueryTotalClaimableRequestSDKType, QueryTotalClaimableResponse, QueryTotalClaimableResponseSDKType } from "./query.js";
@@ -14,8 +14,8 @@ export interface Query {
   totalClaimable(request: QueryTotalClaimableRequest): Promise<QueryTotalClaimableResponse>;
 }
 export class QueryClientImpl implements Query {
-  private readonly rpc: Rpc;
-  constructor(rpc: Rpc) {
+  private readonly rpc: TxRpc;
+  constructor(rpc: TxRpc) {
     this.rpc = rpc;
     this.moduleAccountBalance = this.moduleAccountBalance.bind(this);
     this.params = this.params.bind(this);

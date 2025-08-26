@@ -1,4 +1,4 @@
-import { Rpc } from "../../../helpers.js";
+import { TxRpc } from "../../../types.js";
 import { BinaryReader } from "../../../binary.js";
 import { QueryClient, createProtobufRpcClient, ProtobufRpcClient } from "@cosmjs/stargate";
 import { ReactQueryParams } from "../../../react-query.js";
@@ -14,8 +14,8 @@ export interface Query {
   spotPrice(request: QuerySpotPriceRequest): Promise<QuerySpotPriceResponse>;
 }
 export class QueryClientImpl implements Query {
-  private readonly rpc: Rpc;
-  constructor(rpc: Rpc) {
+  private readonly rpc: TxRpc;
+  constructor(rpc: TxRpc) {
     this.rpc = rpc;
     this.spotPrice = this.spotPrice.bind(this);
   }

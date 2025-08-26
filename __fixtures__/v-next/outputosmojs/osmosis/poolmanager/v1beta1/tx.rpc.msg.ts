@@ -1,6 +1,6 @@
 import { SwapAmountInRoute, SwapAmountInRouteSDKType, SwapAmountOutRoute, SwapAmountOutRouteSDKType } from "./swap_route";
 import { Coin, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
-import { Rpc } from "../../../helpers";
+import { TxRpc } from "../../../types";
 import { BinaryReader } from "../../../binary";
 import { MsgSwapExactAmountIn, MsgSwapExactAmountInSDKType, MsgSwapExactAmountInResponse, MsgSwapExactAmountInResponseSDKType, MsgSwapExactAmountOut, MsgSwapExactAmountOutSDKType, MsgSwapExactAmountOutResponse, MsgSwapExactAmountOutResponseSDKType } from "./tx";
 export interface Msg {
@@ -8,8 +8,8 @@ export interface Msg {
   swapExactAmountOut(request: MsgSwapExactAmountOut): Promise<MsgSwapExactAmountOutResponse>;
 }
 export class MsgClientImpl implements Msg {
-  private readonly rpc: Rpc;
-  constructor(rpc: Rpc) {
+  private readonly rpc: TxRpc;
+  constructor(rpc: TxRpc) {
     this.rpc = rpc;
     this.swapExactAmountIn = this.swapExactAmountIn.bind(this);
     this.swapExactAmountOut = this.swapExactAmountOut.bind(this);
@@ -25,6 +25,6 @@ export class MsgClientImpl implements Msg {
     return promise.then(data => MsgSwapExactAmountOutResponse.decode(new BinaryReader(data)));
   }
 }
-export const createClientImpl = (rpc: Rpc) => {
+export const createClientImpl = (rpc: TxRpc) => {
   return new MsgClientImpl(rpc);
 };

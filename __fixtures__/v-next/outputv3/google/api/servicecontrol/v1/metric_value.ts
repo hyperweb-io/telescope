@@ -2,6 +2,7 @@ import { Timestamp, TimestampAmino, TimestampSDKType } from "../../../protobuf/t
 import { Distribution, DistributionAmino, DistributionSDKType } from "./distribution";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
 import { isSet, DeepPartial, toTimestamp, fromTimestamp, isObject } from "../../../../helpers";
+import { GlobalDecoderRegistry } from "../../../../registry";
 export const protobufPackage = "google.api.servicecontrol.v1";
 /**
  * @name MetricValue_LabelsEntry
@@ -296,7 +297,8 @@ export const MetricValue_LabelsEntry = {
   },
   toProto(message: MetricValue_LabelsEntry): Uint8Array {
     return MetricValue_LabelsEntry.encode(message).finish();
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseMetricValue(): MetricValue {
   return {
@@ -318,6 +320,15 @@ function createBaseMetricValue(): MetricValue {
  */
 export const MetricValue = {
   typeUrl: "/google.api.servicecontrol.v1.MetricValue",
+  is(o: any): o is MetricValue {
+    return o && (o.$typeUrl === MetricValue.typeUrl || isSet(o.labels));
+  },
+  isSDK(o: any): o is MetricValueSDKType {
+    return o && (o.$typeUrl === MetricValue.typeUrl || isSet(o.labels));
+  },
+  isAmino(o: any): o is MetricValueAmino {
+    return o && (o.$typeUrl === MetricValue.typeUrl || isSet(o.labels));
+  },
   encode(message: MetricValue, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     Object.entries(message.labels).forEach(([key, value]) => {
       MetricValue_LabelsEntry.encode({
@@ -524,6 +535,12 @@ export const MetricValue = {
       typeUrl: "/google.api.servicecontrol.v1.MetricValue",
       value: MetricValue.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MetricValue.typeUrl)) {
+      return;
+    }
+    Distribution.registerTypeUrl();
   }
 };
 function createBaseMetricValueSet(): MetricValueSet {
@@ -542,6 +559,15 @@ function createBaseMetricValueSet(): MetricValueSet {
  */
 export const MetricValueSet = {
   typeUrl: "/google.api.servicecontrol.v1.MetricValueSet",
+  is(o: any): o is MetricValueSet {
+    return o && (o.$typeUrl === MetricValueSet.typeUrl || typeof o.metricName === "string" && Array.isArray(o.metricValues) && (!o.metricValues.length || MetricValue.is(o.metricValues[0])));
+  },
+  isSDK(o: any): o is MetricValueSetSDKType {
+    return o && (o.$typeUrl === MetricValueSet.typeUrl || typeof o.metric_name === "string" && Array.isArray(o.metric_values) && (!o.metric_values.length || MetricValue.isSDK(o.metric_values[0])));
+  },
+  isAmino(o: any): o is MetricValueSetAmino {
+    return o && (o.$typeUrl === MetricValueSet.typeUrl || typeof o.metric_name === "string" && Array.isArray(o.metric_values) && (!o.metric_values.length || MetricValue.isAmino(o.metric_values[0])));
+  },
   encode(message: MetricValueSet, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.metricName !== "") {
       writer.uint32(10).string(message.metricName);
@@ -628,5 +654,11 @@ export const MetricValueSet = {
       typeUrl: "/google.api.servicecontrol.v1.MetricValueSet",
       value: MetricValueSet.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MetricValueSet.typeUrl)) {
+      return;
+    }
+    MetricValue.registerTypeUrl();
   }
 };

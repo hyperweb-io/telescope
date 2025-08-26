@@ -1,7 +1,7 @@
 import { Counterparty, CounterpartySDKType, Version, VersionSDKType } from "./connection.js";
 import { Any, AnySDKType } from "../../../../google/protobuf/any.js";
 import { Height, HeightSDKType } from "../../client/v1/client.js";
-import { Rpc } from "../../../../helpers.js";
+import { TxRpc } from "../../../../types.js";
 import { BinaryReader } from "../../../../binary.js";
 import { MsgConnectionOpenInit, MsgConnectionOpenInitSDKType, MsgConnectionOpenInitResponse, MsgConnectionOpenInitResponseSDKType, MsgConnectionOpenTry, MsgConnectionOpenTrySDKType, MsgConnectionOpenTryResponse, MsgConnectionOpenTryResponseSDKType, MsgConnectionOpenAck, MsgConnectionOpenAckSDKType, MsgConnectionOpenAckResponse, MsgConnectionOpenAckResponseSDKType, MsgConnectionOpenConfirm, MsgConnectionOpenConfirmSDKType, MsgConnectionOpenConfirmResponse, MsgConnectionOpenConfirmResponseSDKType } from "./tx.js";
 /** Msg defines the ibc/connection Msg service. */
@@ -19,8 +19,8 @@ export interface Msg {
   connectionOpenConfirm(request: MsgConnectionOpenConfirm): Promise<MsgConnectionOpenConfirmResponse>;
 }
 export class MsgClientImpl implements Msg {
-  private readonly rpc: Rpc;
-  constructor(rpc: Rpc) {
+  private readonly rpc: TxRpc;
+  constructor(rpc: TxRpc) {
     this.rpc = rpc;
     this.connectionOpenInit = this.connectionOpenInit.bind(this);
     this.connectionOpenTry = this.connectionOpenTry.bind(this);
@@ -48,6 +48,6 @@ export class MsgClientImpl implements Msg {
     return promise.then(data => MsgConnectionOpenConfirmResponse.decode(new BinaryReader(data)));
   }
 }
-export const createClientImpl = (rpc: Rpc) => {
+export const createClientImpl = (rpc: TxRpc) => {
   return new MsgClientImpl(rpc);
 };

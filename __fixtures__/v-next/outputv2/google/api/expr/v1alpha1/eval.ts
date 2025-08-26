@@ -3,6 +3,7 @@ import { Status, StatusAmino, StatusSDKType } from "../../../rpc/status";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
 import { JsonSafe } from "../../../../json-safe";
 import { DeepPartial, isSet } from "../../../../helpers";
+import { GlobalDecoderRegistry } from "../../../../registry";
 export const protobufPackage = "google.api.expr.v1alpha1";
 /**
  * The state of an evaluation.
@@ -361,6 +362,15 @@ function createBaseEvalState(): EvalState {
  */
 export const EvalState = {
   typeUrl: "/google.api.expr.v1alpha1.EvalState",
+  is(o: any): o is EvalState {
+    return o && (o.$typeUrl === EvalState.typeUrl || Array.isArray(o.values) && (!o.values.length || ExprValue.is(o.values[0])) && Array.isArray(o.results) && (!o.results.length || EvalState_Result.is(o.results[0])));
+  },
+  isSDK(o: any): o is EvalStateSDKType {
+    return o && (o.$typeUrl === EvalState.typeUrl || Array.isArray(o.values) && (!o.values.length || ExprValue.isSDK(o.values[0])) && Array.isArray(o.results) && (!o.results.length || EvalState_Result.isSDK(o.results[0])));
+  },
+  isAmino(o: any): o is EvalStateAmino {
+    return o && (o.$typeUrl === EvalState.typeUrl || Array.isArray(o.values) && (!o.values.length || ExprValue.isAmino(o.values[0])) && Array.isArray(o.results) && (!o.results.length || EvalState_Result.isAmino(o.results[0])));
+  },
   encode(message: EvalState, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.values) {
       ExprValue.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -470,6 +480,13 @@ export const EvalState = {
       typeUrl: "/google.api.expr.v1alpha1.EvalState",
       value: EvalState.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(EvalState.typeUrl)) {
+      return;
+    }
+    ExprValue.registerTypeUrl();
+    EvalState_Result.registerTypeUrl();
   }
 };
 function createBaseEvalState_Result(): EvalState_Result {
@@ -486,6 +503,15 @@ function createBaseEvalState_Result(): EvalState_Result {
  */
 export const EvalState_Result = {
   typeUrl: "/google.api.expr.v1alpha1.Result",
+  is(o: any): o is EvalState_Result {
+    return o && (o.$typeUrl === EvalState_Result.typeUrl || typeof o.expr === "bigint" && typeof o.value === "bigint");
+  },
+  isSDK(o: any): o is EvalState_ResultSDKType {
+    return o && (o.$typeUrl === EvalState_Result.typeUrl || typeof o.expr === "bigint" && typeof o.value === "bigint");
+  },
+  isAmino(o: any): o is EvalState_ResultAmino {
+    return o && (o.$typeUrl === EvalState_Result.typeUrl || typeof o.expr === "bigint" && typeof o.value === "bigint");
+  },
   encode(message: EvalState_Result, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.expr !== BigInt(0)) {
       writer.uint32(8).int64(message.expr);
@@ -579,7 +605,8 @@ export const EvalState_Result = {
       typeUrl: "/google.api.expr.v1alpha1.Result",
       value: EvalState_Result.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseExprValue(): ExprValue {
   return {
@@ -596,6 +623,15 @@ function createBaseExprValue(): ExprValue {
  */
 export const ExprValue = {
   typeUrl: "/google.api.expr.v1alpha1.ExprValue",
+  is(o: any): o is ExprValue {
+    return o && o.$typeUrl === ExprValue.typeUrl;
+  },
+  isSDK(o: any): o is ExprValueSDKType {
+    return o && o.$typeUrl === ExprValue.typeUrl;
+  },
+  isAmino(o: any): o is ExprValueAmino {
+    return o && o.$typeUrl === ExprValue.typeUrl;
+  },
   encode(message: ExprValue, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.value !== undefined) {
       Value.encode(message.value, writer.uint32(10).fork()).ldelim();
@@ -706,6 +742,14 @@ export const ExprValue = {
       typeUrl: "/google.api.expr.v1alpha1.ExprValue",
       value: ExprValue.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ExprValue.typeUrl)) {
+      return;
+    }
+    Value.registerTypeUrl();
+    ErrorSet.registerTypeUrl();
+    UnknownSet.registerTypeUrl();
   }
 };
 function createBaseErrorSet(): ErrorSet {
@@ -723,6 +767,15 @@ function createBaseErrorSet(): ErrorSet {
  */
 export const ErrorSet = {
   typeUrl: "/google.api.expr.v1alpha1.ErrorSet",
+  is(o: any): o is ErrorSet {
+    return o && (o.$typeUrl === ErrorSet.typeUrl || Array.isArray(o.errors) && (!o.errors.length || Status.is(o.errors[0])));
+  },
+  isSDK(o: any): o is ErrorSetSDKType {
+    return o && (o.$typeUrl === ErrorSet.typeUrl || Array.isArray(o.errors) && (!o.errors.length || Status.isSDK(o.errors[0])));
+  },
+  isAmino(o: any): o is ErrorSetAmino {
+    return o && (o.$typeUrl === ErrorSet.typeUrl || Array.isArray(o.errors) && (!o.errors.length || Status.isAmino(o.errors[0])));
+  },
   encode(message: ErrorSet, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.errors) {
       Status.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -807,6 +860,12 @@ export const ErrorSet = {
       typeUrl: "/google.api.expr.v1alpha1.ErrorSet",
       value: ErrorSet.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ErrorSet.typeUrl)) {
+      return;
+    }
+    Status.registerTypeUrl();
   }
 };
 function createBaseUnknownSet(): UnknownSet {
@@ -824,6 +883,15 @@ function createBaseUnknownSet(): UnknownSet {
  */
 export const UnknownSet = {
   typeUrl: "/google.api.expr.v1alpha1.UnknownSet",
+  is(o: any): o is UnknownSet {
+    return o && (o.$typeUrl === UnknownSet.typeUrl || Array.isArray(o.exprs) && (!o.exprs.length || typeof o.exprs[0] === "bigint"));
+  },
+  isSDK(o: any): o is UnknownSetSDKType {
+    return o && (o.$typeUrl === UnknownSet.typeUrl || Array.isArray(o.exprs) && (!o.exprs.length || typeof o.exprs[0] === "bigint"));
+  },
+  isAmino(o: any): o is UnknownSetAmino {
+    return o && (o.$typeUrl === UnknownSet.typeUrl || Array.isArray(o.exprs) && (!o.exprs.length || typeof o.exprs[0] === "bigint"));
+  },
   encode(message: UnknownSet, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     writer.uint32(10).fork();
     for (const v of message.exprs) {
@@ -917,5 +985,6 @@ export const UnknownSet = {
       typeUrl: "/google.api.expr.v1alpha1.UnknownSet",
       value: UnknownSet.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

@@ -1,13 +1,13 @@
 import { Attribute, AttributeSDKType } from "../../base/v1beta1/attribute";
-import { DeliverTxResponse, StdFee, TxRpc } from "../../../types";
+import { StdFee, TxRpc } from "../../../types";
 import { BinaryReader } from "../../../binary";
 import { MsgSignProviderAttributes, MsgSignProviderAttributesSDKType, MsgSignProviderAttributesResponse, MsgSignProviderAttributesResponseSDKType, MsgDeleteProviderAttributes, MsgDeleteProviderAttributesSDKType, MsgDeleteProviderAttributesResponse, MsgDeleteProviderAttributesResponseSDKType } from "./audit";
 /** Msg defines the provider Msg service */
 export interface Msg {
   /** SignProviderAttributes defines a method that signs provider attributes */
-  signProviderAttributes(signerAddress: string, message: MsgSignProviderAttributes, fee: number | StdFee | "auto", memo?: string): Promise<DeliverTxResponse>;
+  signProviderAttributes(signerAddress: string, message: MsgSignProviderAttributes, fee: number | StdFee | "auto", memo?: string): Promise<any>;
   /** DeleteProviderAttributes defines a method that deletes provider attributes */
-  deleteProviderAttributes(signerAddress: string, message: MsgDeleteProviderAttributes, fee: number | StdFee | "auto", memo?: string): Promise<DeliverTxResponse>;
+  deleteProviderAttributes(signerAddress: string, message: MsgDeleteProviderAttributes, fee: number | StdFee | "auto", memo?: string): Promise<any>;
 }
 export class MsgClientImpl implements Msg {
   private readonly rpc: TxRpc;
@@ -15,7 +15,7 @@ export class MsgClientImpl implements Msg {
     this.rpc = rpc;
   }
   /* SignProviderAttributes defines a method that signs provider attributes */
-  signProviderAttributes = async (signerAddress: string, message: MsgSignProviderAttributes, fee: number | StdFee | "auto" = "auto", memo: string = ""): Promise<DeliverTxResponse> => {
+  signProviderAttributes = async (signerAddress: string, message: MsgSignProviderAttributes, fee: number | StdFee | "auto" = "auto", memo: string = ""): Promise<any> => {
     const data = [{
       typeUrl: MsgSignProviderAttributes.typeUrl,
       value: message
@@ -23,7 +23,7 @@ export class MsgClientImpl implements Msg {
     return this.rpc.signAndBroadcast!(signerAddress, data, fee, memo);
   };
   /* DeleteProviderAttributes defines a method that deletes provider attributes */
-  deleteProviderAttributes = async (signerAddress: string, message: MsgDeleteProviderAttributes, fee: number | StdFee | "auto" = "auto", memo: string = ""): Promise<DeliverTxResponse> => {
+  deleteProviderAttributes = async (signerAddress: string, message: MsgDeleteProviderAttributes, fee: number | StdFee | "auto" = "auto", memo: string = ""): Promise<any> => {
     const data = [{
       typeUrl: MsgDeleteProviderAttributes.typeUrl,
       value: message

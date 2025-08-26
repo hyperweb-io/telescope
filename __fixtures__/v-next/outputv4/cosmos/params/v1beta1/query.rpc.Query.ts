@@ -1,5 +1,5 @@
 import { ParamChange, ParamChangeSDKType } from "./params.js";
-import { Rpc } from "../../../helpers.js";
+import { TxRpc } from "../../../types.js";
 import { BinaryReader } from "../../../binary.js";
 import { QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
 import { QueryParamsRequest, QueryParamsRequestSDKType, QueryParamsResponse, QueryParamsResponseSDKType, QuerySubspacesRequest, QuerySubspacesRequestSDKType, QuerySubspacesResponse, QuerySubspacesResponseSDKType } from "./query.js";
@@ -14,8 +14,8 @@ export interface Query {
   subspaces(request?: QuerySubspacesRequest): Promise<QuerySubspacesResponse>;
 }
 export class QueryClientImpl implements Query {
-  private readonly rpc: Rpc;
-  constructor(rpc: Rpc) {
+  private readonly rpc: TxRpc;
+  constructor(rpc: TxRpc) {
     this.rpc = rpc;
     this.params = this.params.bind(this);
     this.subspaces = this.subspaces.bind(this);

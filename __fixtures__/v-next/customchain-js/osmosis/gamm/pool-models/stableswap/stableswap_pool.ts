@@ -185,8 +185,8 @@ export const PoolParams = {
   },
   toAmino(message: PoolParams): PoolParamsAmino {
     const obj: any = {};
-    obj.swap_fee = message.swapFee === "" ? undefined : message.swapFee;
-    obj.exit_fee = message.exitFee === "" ? undefined : message.exitFee;
+    obj.swap_fee = message.swapFee === "" ? undefined : Decimal.fromUserInput(message.swapFee, 18).atomics;
+    obj.exit_fee = message.exitFee === "" ? undefined : Decimal.fromUserInput(message.exitFee, 18).atomics;
     return obj;
   },
   fromAminoMsg(object: PoolParamsAminoMsg): PoolParams {

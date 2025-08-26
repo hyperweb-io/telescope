@@ -5,22 +5,20 @@
 */
 
 
-
-
-import { getRpcClient } from './extern'
+  import { getRpcClient } from './extern'
 import {
   isRpc,
   Rpc,
 } from './helpers'
- import {
-  StdFee,
-  DeliverTxResponse,
-} from './types'
 import {
   ITxArgs,
   EndpointOrRpc,
 } from './helper-func-types'
 import { ISigningClient, isISigningClient } from "@interchainjs/cosmos/types/signing-client";
+import {
+  StdFee,
+
+} from './types'
 import {
     useQuery,
     useQueryClient,
@@ -30,8 +28,8 @@ import {
     QueryKey,
 } from '@tanstack/react-query';
 
-import { HttpEndpoint, ProtobufRpcClient } from '@cosmjs/stargate';
-import { CometClient, connectComet, Tendermint34Client, Tendermint37Client } from '@cosmjs/tendermint-rpc';
+import { HttpEndpoint } from "@interchainjs/types";
+import { Rpc as ProtobufRpcClient } from "./helpers";
 
 export const DEFAULT_RPC_CLIENT_QUERY_KEY = 'rpcClient';
 export const DEFAULT_RPC_ENDPOINT_QUERY_KEY = 'rpcEndPoint';
@@ -53,6 +51,7 @@ export interface ReactQueryParams<TResponse, TData = TResponse> {
 export interface UseRpcClientQuery<TData> extends ReactQueryParams<ProtobufRpcClient, TData> {
     clientResolver?: CacheResolver;
 }
+
 
 export interface UseRpcEndpointQuery<TData> extends ReactQueryParams<string | HttpEndpoint, TData> {
     getter: () => Promise<string | HttpEndpoint>;
@@ -97,36 +96,6 @@ export const useRpcClient = <TData = ProtobufRpcClient>({
     }, options);
 };
 
-interface UseTendermintClient extends ReactQueryParams<Tendermint34Client | Tendermint37Client | CometClient> {
-    rpcEndpoint: string | HttpEndpoint;
-}
-
-/**
- * Hook that uses react-query to cache a connected tendermint client.
- */
-export const useTendermintClient = ({
-    rpcEndpoint,
-    options,
-}: UseTendermintClient) => {
-    const { data: client } = useQuery<Tendermint34Client | Tendermint37Client | CometClient, Error, Tendermint34Client | Tendermint37Client | CometClient>(
-        ['client', 'tendermint', rpcEndpoint],
-        () => connectComet(rpcEndpoint),
-        {
-            // allow overriding
-            onError: (e) => {
-                throw new Error(`Failed to connect to ${rpcEndpoint}` + '\n' + e)
-            },
-            ...options,
-        }
-    )
-    return { client }
-};
-
-export interface UseQueryBuilderOptions<TReq, TRes> {
-  builderQueryFn: (clientResolver?: EndpointOrRpc) => (request: TReq) => Promise<TRes>,
-  queryKeyPrefix: string,
-}
-
 const getRpcClientFromCache = (
   queryClient: ReturnType<typeof useQueryClient>,
   key: string,
@@ -135,6 +104,12 @@ const getRpcClientFromCache = (
   const queryKey = rpcEndpoint ? [key, rpcEndpoint] : [key];
   return queryClient.getQueryData<Rpc>(queryKey);
 };
+
+export interface UseQueryBuilderOptions<TReq, TRes> {
+  builderQueryFn: (client: EndpointOrRpc, request: TReq) => Promise<TRes>,
+  queryKeyPrefix: string,
+}
+
 
 export function buildUseQuery<TReq, TRes>(opts: UseQueryBuilderOptions<TReq, TRes>) {
   return <TData = TRes>({
@@ -164,8 +139,7 @@ export function buildUseQuery<TReq, TRes>(opts: UseQueryBuilderOptions<TReq, TRe
           (!isCacheResolver(clientResolver) ? clientResolver : undefined));
     }
 
-    const queryFn = opts.builderQueryFn(rpcResolver);
-    return useQuery<TRes, Error, TData>(customizedQueryKey || [opts.queryKeyPrefix, request], () => queryFn(request), options);
+    return useQuery<TRes, Error, TData>(customizedQueryKey || [opts.queryKeyPrefix, request], () => opts.builderQueryFn(rpcResolver!, request), options);
   };
 }
 
@@ -182,12 +156,13 @@ export interface ReactMutationParams<TData, TError, TVariables, TContext = unkno
 
 
 export interface UseMutationBuilderOptions<TMsg> {
-  builderMutationFn: (clientResolver?: ISigningClient) => (
+  builderMutationFn: (
+    client: ISigningClient,
     signerAddress: string,
     message: TMsg | TMsg[],
     fee: StdFee | 'auto',
     memo: string
-  ) => Promise<DeliverTxResponse>,
+  ) => Promise<any>,
 }
 
 const getSigningClientFromCache = (
@@ -203,7 +178,7 @@ export function buildUseMutation<TMsg, TError>(opts: UseMutationBuilderOptions<T
   return ({
     options,
     clientResolver
-  }: ReactMutationParams<DeliverTxResponse, TError, ITxArgs<TMsg>>) => {
+  }: ReactMutationParams<any, TError, ITxArgs<TMsg>>) => {
     const queryClient = useQueryClient({
       context: options?.context
     });
@@ -223,11 +198,9 @@ export function buildUseMutation<TMsg, TError>(opts: UseMutationBuilderOptions<T
       signingClientResolver = cachedClient || (!isCacheResolver(clientResolver) ? clientResolver : undefined);
     }
 
-    const mutationFn = opts.builderMutationFn(signingClientResolver);
-
-    return useMutation<DeliverTxResponse, Error, ITxArgs<TMsg>>(
-      (reqData: ITxArgs<TMsg>) => mutationFn(reqData.signerAddress, reqData.message, reqData.fee, reqData.memo),
-      options as Omit<UseMutationOptions<DeliverTxResponse, Error, ITxArgs<TMsg>, unknown>, "mutationFn">
+    return useMutation<any, Error, ITxArgs<TMsg>>(
+      (reqData: ITxArgs<TMsg>) => opts.builderMutationFn(signingClientResolver!, reqData.signerAddress, reqData.message, reqData.fee, reqData.memo),
+      options as Omit<UseMutationOptions<any, Error, ITxArgs<TMsg>, unknown>, "mutationFn">
     );
   };
 }

@@ -1,5 +1,5 @@
 import { Any, AnySDKType } from "../../../google/protobuf/any.js";
-import { Rpc } from "../../../helpers.js";
+import { TxRpc } from "../../../types.js";
 import { BinaryReader } from "../../../binary.js";
 import { MsgSubmitEvidence, MsgSubmitEvidenceSDKType, MsgSubmitEvidenceResponse, MsgSubmitEvidenceResponseSDKType } from "./tx.js";
 /** Msg defines the evidence Msg service. */
@@ -11,8 +11,8 @@ export interface Msg {
   submitEvidence(request: MsgSubmitEvidence): Promise<MsgSubmitEvidenceResponse>;
 }
 export class MsgClientImpl implements Msg {
-  private readonly rpc: Rpc;
-  constructor(rpc: Rpc) {
+  private readonly rpc: TxRpc;
+  constructor(rpc: TxRpc) {
     this.rpc = rpc;
     this.submitEvidence = this.submitEvidence.bind(this);
   }
@@ -22,6 +22,6 @@ export class MsgClientImpl implements Msg {
     return promise.then(data => MsgSubmitEvidenceResponse.decode(new BinaryReader(data)));
   }
 }
-export const createClientImpl = (rpc: Rpc) => {
+export const createClientImpl = (rpc: TxRpc) => {
   return new MsgClientImpl(rpc);
 };

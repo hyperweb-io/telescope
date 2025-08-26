@@ -528,7 +528,7 @@ export const OsmoEquivalentMultiplierRecord = {
     const obj: any = {};
     obj.epoch_number = message.epochNumber !== BigInt(0) ? message.epochNumber?.toString() : undefined;
     obj.denom = message.denom === "" ? undefined : message.denom;
-    obj.multiplier = message.multiplier === "" ? undefined : message.multiplier;
+    obj.multiplier = message.multiplier === "" ? undefined : Decimal.fromUserInput(message.multiplier, 18).atomics;
     return obj;
   },
   fromAminoMsg(object: OsmoEquivalentMultiplierRecordAminoMsg): OsmoEquivalentMultiplierRecord {

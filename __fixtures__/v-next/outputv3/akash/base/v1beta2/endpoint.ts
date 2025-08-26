@@ -1,5 +1,5 @@
-import { BinaryReader, BinaryWriter } from "../../../binary";
 import { isSet, DeepPartial } from "../../../helpers";
+import { BinaryReader, BinaryWriter } from "../../../binary";
 export const protobufPackage = "akash.base.v1beta2";
 /** This describes how the endpoint is implemented when the lease is deployed */
 export enum Endpoint_Kind {
@@ -91,6 +91,15 @@ function createBaseEndpoint(): Endpoint {
  */
 export const Endpoint = {
   typeUrl: "/akash.base.v1beta2.Endpoint",
+  is(o: any): o is Endpoint {
+    return o && (o.$typeUrl === Endpoint.typeUrl || isSet(o.kind) && typeof o.sequenceNumber === "number");
+  },
+  isSDK(o: any): o is EndpointSDKType {
+    return o && (o.$typeUrl === Endpoint.typeUrl || isSet(o.kind) && typeof o.sequence_number === "number");
+  },
+  isAmino(o: any): o is EndpointAmino {
+    return o && (o.$typeUrl === Endpoint.typeUrl || isSet(o.kind) && typeof o.sequence_number === "number");
+  },
   encode(message: Endpoint, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.kind !== 0) {
       writer.uint32(8).int32(message.kind);
@@ -171,5 +180,6 @@ export const Endpoint = {
       typeUrl: "/akash.base.v1beta2.Endpoint",
       value: Endpoint.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

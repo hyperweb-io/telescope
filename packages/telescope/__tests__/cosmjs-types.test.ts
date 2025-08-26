@@ -10,6 +10,8 @@ const store = getTestProtoStore2();
 store.traverseAll();
 
 const options: TelescopeOptions = {
+    env: "default",
+    useInterchainJs: false,
     useSDKTypes: false,
     removeUnusedImports: false,
     tsDisable: {
@@ -29,6 +31,7 @@ const options: TelescopeOptions = {
         includePackageVar: true,
         addTypeUrlToDecoders: false,
         addTypeUrlToObjects: false,
+        enableRegistryLoader: true,
         excluded: {
             protos: [
                 'cosmos/authz/v1beta1/event.proto',
@@ -63,12 +66,13 @@ const options: TelescopeOptions = {
         },
         typingsFormat: {
             customTypes: {
-              useCosmosSDKDec: false
+                useCosmosSDKDec: false
             },
             useDeepPartial: true,
             num64: 'long',
             timestamp: 'timestamp',
-            duration: 'duration'
+            duration: 'duration',
+            useTelescopeGeneratedType: false,
         }
     },
     lcdClients: {
@@ -87,10 +91,19 @@ const options: TelescopeOptions = {
             'ABCIApplication'
         ]
     },
+    stargateClients: {
+        enabled: true,
+    },
     aminoEncoding: {
         enabled: false,
-        useLegacyInlineEncoding: true
-    }
+        useLegacyInlineEncoding: true,
+        customTypes: {
+            useCosmosSDKDec: false,
+        },
+    },
+    helperFunctions: {
+        enabled: false,
+    },
 };
 
 const input: TelescopeInput = {

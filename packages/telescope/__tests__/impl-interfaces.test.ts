@@ -7,6 +7,11 @@ import {
 import { Any } from "../../../__fixtures__/misc/output-impl-interfaces-gen/google/protobuf/any";
 import { SendAuthorization } from "../../../__fixtures__/misc/output-impl-interfaces-gen/cosmos/bank/v1beta1/authz";
 
+beforeAll(() => {
+  GenericAuthorization.registerTypeUrl();
+  SendAuthorization.registerTypeUrl();
+});
+
 describe("implements interface works", () => {
   it("encodes and decodes", () => {
     const data = Grant.encode({

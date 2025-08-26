@@ -1,5 +1,6 @@
 import { BinaryReader, BinaryWriter } from "../../binary";
 import { DeepPartial, isSet } from "../../helpers";
+import { GlobalDecoderRegistry } from "../../registry";
 export const protobufPackage = "google.api";
 /**
  * `Context` defines which contexts an API requests.
@@ -279,6 +280,15 @@ function createBaseContext(): Context {
  */
 export const Context = {
   typeUrl: "/google.api.Context",
+  is(o: any): o is Context {
+    return o && (o.$typeUrl === Context.typeUrl || Array.isArray(o.rules) && (!o.rules.length || ContextRule.is(o.rules[0])));
+  },
+  isSDK(o: any): o is ContextSDKType {
+    return o && (o.$typeUrl === Context.typeUrl || Array.isArray(o.rules) && (!o.rules.length || ContextRule.isSDK(o.rules[0])));
+  },
+  isAmino(o: any): o is ContextAmino {
+    return o && (o.$typeUrl === Context.typeUrl || Array.isArray(o.rules) && (!o.rules.length || ContextRule.isAmino(o.rules[0])));
+  },
   encode(message: Context, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.rules) {
       ContextRule.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -351,6 +361,12 @@ export const Context = {
       typeUrl: "/google.api.Context",
       value: Context.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Context.typeUrl)) {
+      return;
+    }
+    ContextRule.registerTypeUrl();
   }
 };
 function createBaseContextRule(): ContextRule {
@@ -371,6 +387,15 @@ function createBaseContextRule(): ContextRule {
  */
 export const ContextRule = {
   typeUrl: "/google.api.ContextRule",
+  is(o: any): o is ContextRule {
+    return o && (o.$typeUrl === ContextRule.typeUrl || typeof o.selector === "string" && Array.isArray(o.requested) && (!o.requested.length || typeof o.requested[0] === "string") && Array.isArray(o.provided) && (!o.provided.length || typeof o.provided[0] === "string") && Array.isArray(o.allowedRequestExtensions) && (!o.allowedRequestExtensions.length || typeof o.allowedRequestExtensions[0] === "string") && Array.isArray(o.allowedResponseExtensions) && (!o.allowedResponseExtensions.length || typeof o.allowedResponseExtensions[0] === "string"));
+  },
+  isSDK(o: any): o is ContextRuleSDKType {
+    return o && (o.$typeUrl === ContextRule.typeUrl || typeof o.selector === "string" && Array.isArray(o.requested) && (!o.requested.length || typeof o.requested[0] === "string") && Array.isArray(o.provided) && (!o.provided.length || typeof o.provided[0] === "string") && Array.isArray(o.allowed_request_extensions) && (!o.allowed_request_extensions.length || typeof o.allowed_request_extensions[0] === "string") && Array.isArray(o.allowed_response_extensions) && (!o.allowed_response_extensions.length || typeof o.allowed_response_extensions[0] === "string"));
+  },
+  isAmino(o: any): o is ContextRuleAmino {
+    return o && (o.$typeUrl === ContextRule.typeUrl || typeof o.selector === "string" && Array.isArray(o.requested) && (!o.requested.length || typeof o.requested[0] === "string") && Array.isArray(o.provided) && (!o.provided.length || typeof o.provided[0] === "string") && Array.isArray(o.allowed_request_extensions) && (!o.allowed_request_extensions.length || typeof o.allowed_request_extensions[0] === "string") && Array.isArray(o.allowed_response_extensions) && (!o.allowed_response_extensions.length || typeof o.allowed_response_extensions[0] === "string"));
+  },
   encode(message: ContextRule, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.selector !== "") {
       writer.uint32(10).string(message.selector);
@@ -517,5 +542,6 @@ export const ContextRule = {
       typeUrl: "/google.api.ContextRule",
       value: ContextRule.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

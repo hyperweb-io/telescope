@@ -1,5 +1,6 @@
 import { BinaryReader, BinaryWriter } from "../../binary";
 import { DeepPartial, isSet } from "../../helpers";
+import { GlobalDecoderRegistry } from "../../registry";
 export const protobufPackage = "google.api";
 /** Supported data type of the property values */
 export enum Property_PropertyType {
@@ -249,6 +250,15 @@ function createBaseProjectProperties(): ProjectProperties {
  */
 export const ProjectProperties = {
   typeUrl: "/google.api.ProjectProperties",
+  is(o: any): o is ProjectProperties {
+    return o && (o.$typeUrl === ProjectProperties.typeUrl || Array.isArray(o.properties) && (!o.properties.length || Property.is(o.properties[0])));
+  },
+  isSDK(o: any): o is ProjectPropertiesSDKType {
+    return o && (o.$typeUrl === ProjectProperties.typeUrl || Array.isArray(o.properties) && (!o.properties.length || Property.isSDK(o.properties[0])));
+  },
+  isAmino(o: any): o is ProjectPropertiesAmino {
+    return o && (o.$typeUrl === ProjectProperties.typeUrl || Array.isArray(o.properties) && (!o.properties.length || Property.isAmino(o.properties[0])));
+  },
   encode(message: ProjectProperties, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.properties) {
       Property.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -321,6 +331,12 @@ export const ProjectProperties = {
       typeUrl: "/google.api.ProjectProperties",
       value: ProjectProperties.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ProjectProperties.typeUrl)) {
+      return;
+    }
+    Property.registerTypeUrl();
   }
 };
 function createBaseProperty(): Property {
@@ -347,6 +363,15 @@ function createBaseProperty(): Property {
  */
 export const Property = {
   typeUrl: "/google.api.Property",
+  is(o: any): o is Property {
+    return o && (o.$typeUrl === Property.typeUrl || typeof o.name === "string" && isSet(o.type) && typeof o.description === "string");
+  },
+  isSDK(o: any): o is PropertySDKType {
+    return o && (o.$typeUrl === Property.typeUrl || typeof o.name === "string" && isSet(o.type) && typeof o.description === "string");
+  },
+  isAmino(o: any): o is PropertyAmino {
+    return o && (o.$typeUrl === Property.typeUrl || typeof o.name === "string" && isSet(o.type) && typeof o.description === "string");
+  },
   encode(message: Property, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -441,5 +466,6 @@ export const Property = {
       typeUrl: "/google.api.Property",
       value: Property.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

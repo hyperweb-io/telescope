@@ -22,9 +22,9 @@ exports[`cosmos/staking/v1beta1/tx AminoConverter 1`] = `
           details: description.details
         },
         commission: {
-          rate: commission.rate,
-          max_rate: commission.maxRate,
-          max_change_rate: commission.maxChangeRate
+          rate: Decimal.fromUserInput(commission.rate, 18).atomics,
+          max_rate: Decimal.fromUserInput(commission.maxRate, 18).atomics,
+          max_change_rate: Decimal.fromUserInput(commission.maxChangeRate, 18).atomics
         },
         min_self_delegation: minSelfDelegation,
         delegator_address: delegatorAddress,
@@ -86,7 +86,7 @@ exports[`cosmos/staking/v1beta1/tx AminoConverter 1`] = `
           details: description.details
         },
         validator_address: validatorAddress,
-        commission_rate: commissionRate,
+        commission_rate: Decimal.fromUserInput(commissionRate, 18).atomics,
         min_self_delegation: minSelfDelegation
       };
     },

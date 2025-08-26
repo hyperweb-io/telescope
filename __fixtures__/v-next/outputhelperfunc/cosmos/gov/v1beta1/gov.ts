@@ -9,7 +9,7 @@ import { SetSuperfluidAssetsProposal, SetSuperfluidAssetsProposalProtoMsg, SetSu
 import { UpdateFeeTokenProposal, UpdateFeeTokenProposalProtoMsg, UpdateFeeTokenProposalSDKType } from "../../../osmosis/txfees/v1beta1/gov";
 import { isSet, DeepPartial, toTimestamp, fromTimestamp, bytesFromBase64, base64FromBytes } from "../../../helpers";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { Decimal } from "@cosmjs/math";
+import { Decimal } from "@interchainjs/math";
 import { JsonSafe } from "../../../json-safe";
 import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "cosmos.gov.v1beta1";
@@ -722,7 +722,7 @@ export const WeightedVoteOption = {
   toAmino(message: WeightedVoteOption): WeightedVoteOptionAmino {
     const obj: any = {};
     obj.option = message.option === 0 ? undefined : message.option;
-    obj.weight = message.weight === "" ? undefined : message.weight;
+    obj.weight = message.weight === "" ? undefined : Decimal.fromUserInput(message.weight, 18).atomics;
     return obj;
   },
   fromAminoMsg(object: WeightedVoteOptionAminoMsg): WeightedVoteOption {

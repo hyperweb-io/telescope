@@ -3,6 +3,7 @@ import { NFT, NFTAmino, NFTSDKType, Class, ClassAmino, ClassSDKType } from "./nf
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { isSet, DeepPartial } from "../../../helpers";
 import { JsonSafe } from "../../../json-safe";
+import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "cosmos.nft.v1beta1";
 /**
  * QueryBalanceRequest is the request type for the Query/Balance RPC method
@@ -536,6 +537,15 @@ function createBaseQueryBalanceRequest(): QueryBalanceRequest {
 export const QueryBalanceRequest = {
   typeUrl: "/cosmos.nft.v1beta1.QueryBalanceRequest",
   aminoType: "cosmos-sdk/QueryBalanceRequest",
+  is(o: any): o is QueryBalanceRequest {
+    return o && (o.$typeUrl === QueryBalanceRequest.typeUrl || typeof o.classId === "string" && typeof o.owner === "string");
+  },
+  isSDK(o: any): o is QueryBalanceRequestSDKType {
+    return o && (o.$typeUrl === QueryBalanceRequest.typeUrl || typeof o.class_id === "string" && typeof o.owner === "string");
+  },
+  isAmino(o: any): o is QueryBalanceRequestAmino {
+    return o && (o.$typeUrl === QueryBalanceRequest.typeUrl || typeof o.class_id === "string" && typeof o.owner === "string");
+  },
   encode(message: QueryBalanceRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.classId !== "") {
       writer.uint32(10).string(message.classId);
@@ -631,7 +641,8 @@ export const QueryBalanceRequest = {
       typeUrl: "/cosmos.nft.v1beta1.QueryBalanceRequest",
       value: QueryBalanceRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseQueryBalanceResponse(): QueryBalanceResponse {
   return {
@@ -647,6 +658,15 @@ function createBaseQueryBalanceResponse(): QueryBalanceResponse {
 export const QueryBalanceResponse = {
   typeUrl: "/cosmos.nft.v1beta1.QueryBalanceResponse",
   aminoType: "cosmos-sdk/QueryBalanceResponse",
+  is(o: any): o is QueryBalanceResponse {
+    return o && (o.$typeUrl === QueryBalanceResponse.typeUrl || typeof o.amount === "bigint");
+  },
+  isSDK(o: any): o is QueryBalanceResponseSDKType {
+    return o && (o.$typeUrl === QueryBalanceResponse.typeUrl || typeof o.amount === "bigint");
+  },
+  isAmino(o: any): o is QueryBalanceResponseAmino {
+    return o && (o.$typeUrl === QueryBalanceResponse.typeUrl || typeof o.amount === "bigint");
+  },
   encode(message: QueryBalanceResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.amount !== BigInt(0)) {
       writer.uint32(8).uint64(message.amount);
@@ -729,7 +749,8 @@ export const QueryBalanceResponse = {
       typeUrl: "/cosmos.nft.v1beta1.QueryBalanceResponse",
       value: QueryBalanceResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseQueryOwnerRequest(): QueryOwnerRequest {
   return {
@@ -746,6 +767,15 @@ function createBaseQueryOwnerRequest(): QueryOwnerRequest {
 export const QueryOwnerRequest = {
   typeUrl: "/cosmos.nft.v1beta1.QueryOwnerRequest",
   aminoType: "cosmos-sdk/QueryOwnerRequest",
+  is(o: any): o is QueryOwnerRequest {
+    return o && (o.$typeUrl === QueryOwnerRequest.typeUrl || typeof o.classId === "string" && typeof o.id === "string");
+  },
+  isSDK(o: any): o is QueryOwnerRequestSDKType {
+    return o && (o.$typeUrl === QueryOwnerRequest.typeUrl || typeof o.class_id === "string" && typeof o.id === "string");
+  },
+  isAmino(o: any): o is QueryOwnerRequestAmino {
+    return o && (o.$typeUrl === QueryOwnerRequest.typeUrl || typeof o.class_id === "string" && typeof o.id === "string");
+  },
   encode(message: QueryOwnerRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.classId !== "") {
       writer.uint32(10).string(message.classId);
@@ -841,7 +871,8 @@ export const QueryOwnerRequest = {
       typeUrl: "/cosmos.nft.v1beta1.QueryOwnerRequest",
       value: QueryOwnerRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseQueryOwnerResponse(): QueryOwnerResponse {
   return {
@@ -857,6 +888,15 @@ function createBaseQueryOwnerResponse(): QueryOwnerResponse {
 export const QueryOwnerResponse = {
   typeUrl: "/cosmos.nft.v1beta1.QueryOwnerResponse",
   aminoType: "cosmos-sdk/QueryOwnerResponse",
+  is(o: any): o is QueryOwnerResponse {
+    return o && (o.$typeUrl === QueryOwnerResponse.typeUrl || typeof o.owner === "string");
+  },
+  isSDK(o: any): o is QueryOwnerResponseSDKType {
+    return o && (o.$typeUrl === QueryOwnerResponse.typeUrl || typeof o.owner === "string");
+  },
+  isAmino(o: any): o is QueryOwnerResponseAmino {
+    return o && (o.$typeUrl === QueryOwnerResponse.typeUrl || typeof o.owner === "string");
+  },
   encode(message: QueryOwnerResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.owner !== "") {
       writer.uint32(10).string(message.owner);
@@ -937,7 +977,8 @@ export const QueryOwnerResponse = {
       typeUrl: "/cosmos.nft.v1beta1.QueryOwnerResponse",
       value: QueryOwnerResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseQuerySupplyRequest(): QuerySupplyRequest {
   return {
@@ -953,6 +994,15 @@ function createBaseQuerySupplyRequest(): QuerySupplyRequest {
 export const QuerySupplyRequest = {
   typeUrl: "/cosmos.nft.v1beta1.QuerySupplyRequest",
   aminoType: "cosmos-sdk/QuerySupplyRequest",
+  is(o: any): o is QuerySupplyRequest {
+    return o && (o.$typeUrl === QuerySupplyRequest.typeUrl || typeof o.classId === "string");
+  },
+  isSDK(o: any): o is QuerySupplyRequestSDKType {
+    return o && (o.$typeUrl === QuerySupplyRequest.typeUrl || typeof o.class_id === "string");
+  },
+  isAmino(o: any): o is QuerySupplyRequestAmino {
+    return o && (o.$typeUrl === QuerySupplyRequest.typeUrl || typeof o.class_id === "string");
+  },
   encode(message: QuerySupplyRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.classId !== "") {
       writer.uint32(10).string(message.classId);
@@ -1033,7 +1083,8 @@ export const QuerySupplyRequest = {
       typeUrl: "/cosmos.nft.v1beta1.QuerySupplyRequest",
       value: QuerySupplyRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseQuerySupplyResponse(): QuerySupplyResponse {
   return {
@@ -1049,6 +1100,15 @@ function createBaseQuerySupplyResponse(): QuerySupplyResponse {
 export const QuerySupplyResponse = {
   typeUrl: "/cosmos.nft.v1beta1.QuerySupplyResponse",
   aminoType: "cosmos-sdk/QuerySupplyResponse",
+  is(o: any): o is QuerySupplyResponse {
+    return o && (o.$typeUrl === QuerySupplyResponse.typeUrl || typeof o.amount === "bigint");
+  },
+  isSDK(o: any): o is QuerySupplyResponseSDKType {
+    return o && (o.$typeUrl === QuerySupplyResponse.typeUrl || typeof o.amount === "bigint");
+  },
+  isAmino(o: any): o is QuerySupplyResponseAmino {
+    return o && (o.$typeUrl === QuerySupplyResponse.typeUrl || typeof o.amount === "bigint");
+  },
   encode(message: QuerySupplyResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.amount !== BigInt(0)) {
       writer.uint32(8).uint64(message.amount);
@@ -1131,7 +1191,8 @@ export const QuerySupplyResponse = {
       typeUrl: "/cosmos.nft.v1beta1.QuerySupplyResponse",
       value: QuerySupplyResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseQueryNFTsRequest(): QueryNFTsRequest {
   return {
@@ -1149,6 +1210,15 @@ function createBaseQueryNFTsRequest(): QueryNFTsRequest {
 export const QueryNFTsRequest = {
   typeUrl: "/cosmos.nft.v1beta1.QueryNFTsRequest",
   aminoType: "cosmos-sdk/QueryNFTsRequest",
+  is(o: any): o is QueryNFTsRequest {
+    return o && (o.$typeUrl === QueryNFTsRequest.typeUrl || typeof o.classId === "string" && typeof o.owner === "string");
+  },
+  isSDK(o: any): o is QueryNFTsRequestSDKType {
+    return o && (o.$typeUrl === QueryNFTsRequest.typeUrl || typeof o.class_id === "string" && typeof o.owner === "string");
+  },
+  isAmino(o: any): o is QueryNFTsRequestAmino {
+    return o && (o.$typeUrl === QueryNFTsRequest.typeUrl || typeof o.class_id === "string" && typeof o.owner === "string");
+  },
   encode(message: QueryNFTsRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.classId !== "") {
       writer.uint32(10).string(message.classId);
@@ -1261,6 +1331,12 @@ export const QueryNFTsRequest = {
       typeUrl: "/cosmos.nft.v1beta1.QueryNFTsRequest",
       value: QueryNFTsRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryNFTsRequest.typeUrl)) {
+      return;
+    }
+    PageRequest.registerTypeUrl();
   }
 };
 function createBaseQueryNFTsResponse(): QueryNFTsResponse {
@@ -1278,6 +1354,15 @@ function createBaseQueryNFTsResponse(): QueryNFTsResponse {
 export const QueryNFTsResponse = {
   typeUrl: "/cosmos.nft.v1beta1.QueryNFTsResponse",
   aminoType: "cosmos-sdk/QueryNFTsResponse",
+  is(o: any): o is QueryNFTsResponse {
+    return o && (o.$typeUrl === QueryNFTsResponse.typeUrl || Array.isArray(o.nfts) && (!o.nfts.length || NFT.is(o.nfts[0])));
+  },
+  isSDK(o: any): o is QueryNFTsResponseSDKType {
+    return o && (o.$typeUrl === QueryNFTsResponse.typeUrl || Array.isArray(o.nfts) && (!o.nfts.length || NFT.isSDK(o.nfts[0])));
+  },
+  isAmino(o: any): o is QueryNFTsResponseAmino {
+    return o && (o.$typeUrl === QueryNFTsResponse.typeUrl || Array.isArray(o.nfts) && (!o.nfts.length || NFT.isAmino(o.nfts[0])));
+  },
   encode(message: QueryNFTsResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.nfts) {
       NFT.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -1385,6 +1470,13 @@ export const QueryNFTsResponse = {
       typeUrl: "/cosmos.nft.v1beta1.QueryNFTsResponse",
       value: QueryNFTsResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryNFTsResponse.typeUrl)) {
+      return;
+    }
+    NFT.registerTypeUrl();
+    PageResponse.registerTypeUrl();
   }
 };
 function createBaseQueryNFTRequest(): QueryNFTRequest {
@@ -1402,6 +1494,15 @@ function createBaseQueryNFTRequest(): QueryNFTRequest {
 export const QueryNFTRequest = {
   typeUrl: "/cosmos.nft.v1beta1.QueryNFTRequest",
   aminoType: "cosmos-sdk/QueryNFTRequest",
+  is(o: any): o is QueryNFTRequest {
+    return o && (o.$typeUrl === QueryNFTRequest.typeUrl || typeof o.classId === "string" && typeof o.id === "string");
+  },
+  isSDK(o: any): o is QueryNFTRequestSDKType {
+    return o && (o.$typeUrl === QueryNFTRequest.typeUrl || typeof o.class_id === "string" && typeof o.id === "string");
+  },
+  isAmino(o: any): o is QueryNFTRequestAmino {
+    return o && (o.$typeUrl === QueryNFTRequest.typeUrl || typeof o.class_id === "string" && typeof o.id === "string");
+  },
   encode(message: QueryNFTRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.classId !== "") {
       writer.uint32(10).string(message.classId);
@@ -1497,7 +1598,8 @@ export const QueryNFTRequest = {
       typeUrl: "/cosmos.nft.v1beta1.QueryNFTRequest",
       value: QueryNFTRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseQueryNFTResponse(): QueryNFTResponse {
   return {
@@ -1513,6 +1615,15 @@ function createBaseQueryNFTResponse(): QueryNFTResponse {
 export const QueryNFTResponse = {
   typeUrl: "/cosmos.nft.v1beta1.QueryNFTResponse",
   aminoType: "cosmos-sdk/QueryNFTResponse",
+  is(o: any): o is QueryNFTResponse {
+    return o && o.$typeUrl === QueryNFTResponse.typeUrl;
+  },
+  isSDK(o: any): o is QueryNFTResponseSDKType {
+    return o && o.$typeUrl === QueryNFTResponse.typeUrl;
+  },
+  isAmino(o: any): o is QueryNFTResponseAmino {
+    return o && o.$typeUrl === QueryNFTResponse.typeUrl;
+  },
   encode(message: QueryNFTResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.nft !== undefined) {
       NFT.encode(message.nft, writer.uint32(10).fork()).ldelim();
@@ -1595,6 +1706,12 @@ export const QueryNFTResponse = {
       typeUrl: "/cosmos.nft.v1beta1.QueryNFTResponse",
       value: QueryNFTResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryNFTResponse.typeUrl)) {
+      return;
+    }
+    NFT.registerTypeUrl();
   }
 };
 function createBaseQueryClassRequest(): QueryClassRequest {
@@ -1611,6 +1728,15 @@ function createBaseQueryClassRequest(): QueryClassRequest {
 export const QueryClassRequest = {
   typeUrl: "/cosmos.nft.v1beta1.QueryClassRequest",
   aminoType: "cosmos-sdk/QueryClassRequest",
+  is(o: any): o is QueryClassRequest {
+    return o && (o.$typeUrl === QueryClassRequest.typeUrl || typeof o.classId === "string");
+  },
+  isSDK(o: any): o is QueryClassRequestSDKType {
+    return o && (o.$typeUrl === QueryClassRequest.typeUrl || typeof o.class_id === "string");
+  },
+  isAmino(o: any): o is QueryClassRequestAmino {
+    return o && (o.$typeUrl === QueryClassRequest.typeUrl || typeof o.class_id === "string");
+  },
   encode(message: QueryClassRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.classId !== "") {
       writer.uint32(10).string(message.classId);
@@ -1691,7 +1817,8 @@ export const QueryClassRequest = {
       typeUrl: "/cosmos.nft.v1beta1.QueryClassRequest",
       value: QueryClassRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseQueryClassResponse(): QueryClassResponse {
   return {
@@ -1707,6 +1834,15 @@ function createBaseQueryClassResponse(): QueryClassResponse {
 export const QueryClassResponse = {
   typeUrl: "/cosmos.nft.v1beta1.QueryClassResponse",
   aminoType: "cosmos-sdk/QueryClassResponse",
+  is(o: any): o is QueryClassResponse {
+    return o && o.$typeUrl === QueryClassResponse.typeUrl;
+  },
+  isSDK(o: any): o is QueryClassResponseSDKType {
+    return o && o.$typeUrl === QueryClassResponse.typeUrl;
+  },
+  isAmino(o: any): o is QueryClassResponseAmino {
+    return o && o.$typeUrl === QueryClassResponse.typeUrl;
+  },
   encode(message: QueryClassResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.class !== undefined) {
       Class.encode(message.class, writer.uint32(10).fork()).ldelim();
@@ -1789,6 +1925,12 @@ export const QueryClassResponse = {
       typeUrl: "/cosmos.nft.v1beta1.QueryClassResponse",
       value: QueryClassResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryClassResponse.typeUrl)) {
+      return;
+    }
+    Class.registerTypeUrl();
   }
 };
 function createBaseQueryClassesRequest(): QueryClassesRequest {
@@ -1805,6 +1947,15 @@ function createBaseQueryClassesRequest(): QueryClassesRequest {
 export const QueryClassesRequest = {
   typeUrl: "/cosmos.nft.v1beta1.QueryClassesRequest",
   aminoType: "cosmos-sdk/QueryClassesRequest",
+  is(o: any): o is QueryClassesRequest {
+    return o && o.$typeUrl === QueryClassesRequest.typeUrl;
+  },
+  isSDK(o: any): o is QueryClassesRequestSDKType {
+    return o && o.$typeUrl === QueryClassesRequest.typeUrl;
+  },
+  isAmino(o: any): o is QueryClassesRequestAmino {
+    return o && o.$typeUrl === QueryClassesRequest.typeUrl;
+  },
   encode(message: QueryClassesRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.pagination !== undefined) {
       PageRequest.encode(message.pagination, writer.uint32(10).fork()).ldelim();
@@ -1887,6 +2038,12 @@ export const QueryClassesRequest = {
       typeUrl: "/cosmos.nft.v1beta1.QueryClassesRequest",
       value: QueryClassesRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryClassesRequest.typeUrl)) {
+      return;
+    }
+    PageRequest.registerTypeUrl();
   }
 };
 function createBaseQueryClassesResponse(): QueryClassesResponse {
@@ -1904,6 +2061,15 @@ function createBaseQueryClassesResponse(): QueryClassesResponse {
 export const QueryClassesResponse = {
   typeUrl: "/cosmos.nft.v1beta1.QueryClassesResponse",
   aminoType: "cosmos-sdk/QueryClassesResponse",
+  is(o: any): o is QueryClassesResponse {
+    return o && (o.$typeUrl === QueryClassesResponse.typeUrl || Array.isArray(o.classes) && (!o.classes.length || Class.is(o.classes[0])));
+  },
+  isSDK(o: any): o is QueryClassesResponseSDKType {
+    return o && (o.$typeUrl === QueryClassesResponse.typeUrl || Array.isArray(o.classes) && (!o.classes.length || Class.isSDK(o.classes[0])));
+  },
+  isAmino(o: any): o is QueryClassesResponseAmino {
+    return o && (o.$typeUrl === QueryClassesResponse.typeUrl || Array.isArray(o.classes) && (!o.classes.length || Class.isAmino(o.classes[0])));
+  },
   encode(message: QueryClassesResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.classes) {
       Class.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -2011,5 +2177,12 @@ export const QueryClassesResponse = {
       typeUrl: "/cosmos.nft.v1beta1.QueryClassesResponse",
       value: QueryClassesResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryClassesResponse.typeUrl)) {
+      return;
+    }
+    Class.registerTypeUrl();
+    PageResponse.registerTypeUrl();
   }
 };

@@ -1,10 +1,10 @@
-import { DeliverTxResponse, StdFee, TxRpc } from "../../../types";
+import { StdFee, TxRpc } from "../../../types";
 import { BinaryReader } from "../../../binary";
 import { MsgVerifyInvariant, MsgVerifyInvariantSDKType, MsgVerifyInvariantResponse, MsgVerifyInvariantResponseSDKType } from "./tx";
 /** Msg defines the bank Msg service. */
 export interface Msg {
   /** VerifyInvariant defines a method to verify a particular invariance. */
-  verifyInvariant(signerAddress: string, message: MsgVerifyInvariant, fee: number | StdFee | "auto", memo?: string): Promise<DeliverTxResponse>;
+  verifyInvariant(signerAddress: string, message: MsgVerifyInvariant, fee: number | StdFee | "auto", memo?: string): Promise<any>;
 }
 export class MsgClientImpl implements Msg {
   private readonly rpc: TxRpc;
@@ -12,7 +12,7 @@ export class MsgClientImpl implements Msg {
     this.rpc = rpc;
   }
   /* VerifyInvariant defines a method to verify a particular invariance. */
-  verifyInvariant = async (signerAddress: string, message: MsgVerifyInvariant, fee: number | StdFee | "auto" = "auto", memo: string = ""): Promise<DeliverTxResponse> => {
+  verifyInvariant = async (signerAddress: string, message: MsgVerifyInvariant, fee: number | StdFee | "auto" = "auto", memo: string = ""): Promise<any> => {
     const data = [{
       typeUrl: MsgVerifyInvariant.typeUrl,
       value: message

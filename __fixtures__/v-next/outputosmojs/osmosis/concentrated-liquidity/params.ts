@@ -1,5 +1,5 @@
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { Decimal } from "@cosmjs/math";
+import { Decimal } from "@interchainjs/math";
 import { JsonSafe } from "../../json-safe";
 import { DeepPartial } from "../../helpers";
 export const protobufPackage = "osmosis.concentratedliquidity";
@@ -148,7 +148,7 @@ export const Params = {
       obj.authorized_tick_spacing = message.authorizedTickSpacing;
     }
     if (message.authorizedSwapFees) {
-      obj.authorized_swap_fees = message.authorizedSwapFees.map(e => e);
+      obj.authorized_swap_fees = message.authorizedSwapFees.map(e => Decimal.fromUserInput(e, 18).atomics);
     } else {
       obj.authorized_swap_fees = message.authorizedSwapFees;
     }

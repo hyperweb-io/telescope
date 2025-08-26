@@ -290,10 +290,10 @@ export const EvmosFeesV1Params = {
   toAmino(message: EvmosFeesV1Params): EvmosFeesV1ParamsAmino {
     const obj: any = {};
     obj.enable_fees = message.enableFees === false ? undefined : message.enableFees;
-    obj.developer_shares = message.developerShares === "" ? undefined : message.developerShares;
-    obj.validator_shares = message.validatorShares === "" ? undefined : message.validatorShares;
+    obj.developer_shares = message.developerShares === "" ? undefined : Decimal.fromUserInput(message.developerShares, 18).atomics;
+    obj.validator_shares = message.validatorShares === "" ? undefined : Decimal.fromUserInput(message.validatorShares, 18).atomics;
     obj.addr_derivation_cost_create = message.addrDerivationCostCreate !== BigInt(0) ? message.addrDerivationCostCreate?.toString() : undefined;
-    obj.min_gas_price = message.minGasPrice === "" ? undefined : message.minGasPrice;
+    obj.min_gas_price = message.minGasPrice === "" ? undefined : Decimal.fromUserInput(message.minGasPrice, 18).atomics;
     return obj;
   },
   fromAminoMsg(object: EvmosFeesV1ParamsAminoMsg): EvmosFeesV1Params {

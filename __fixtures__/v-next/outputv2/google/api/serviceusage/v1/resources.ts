@@ -6,8 +6,9 @@ import { Usage, UsageAmino, UsageSDKType } from "../../usage";
 import { Endpoint, EndpointAmino, EndpointSDKType } from "../../endpoint";
 import { MonitoredResourceDescriptor, MonitoredResourceDescriptorAmino, MonitoredResourceDescriptorSDKType } from "../../monitored_resource";
 import { Monitoring, MonitoringAmino, MonitoringSDKType } from "../../monitoring";
-import { BinaryReader, BinaryWriter } from "../../../../binary";
 import { isSet, DeepPartial } from "../../../../helpers";
+import { BinaryReader, BinaryWriter } from "../../../../binary";
+import { GlobalDecoderRegistry } from "../../../../registry";
 import { JsonSafe } from "../../../../json-safe";
 export const protobufPackage = "google.api.serviceusage.v1";
 /** Whether or not a service has been enabled for use by a consumer. */
@@ -342,6 +343,15 @@ function createBaseService(): Service {
  */
 export const Service = {
   typeUrl: "/google.api.serviceusage.v1.Service",
+  is(o: any): o is Service {
+    return o && (o.$typeUrl === Service.typeUrl || typeof o.name === "string" && typeof o.parent === "string" && isSet(o.state));
+  },
+  isSDK(o: any): o is ServiceSDKType {
+    return o && (o.$typeUrl === Service.typeUrl || typeof o.name === "string" && typeof o.parent === "string" && isSet(o.state));
+  },
+  isAmino(o: any): o is ServiceAmino {
+    return o && (o.$typeUrl === Service.typeUrl || typeof o.name === "string" && typeof o.parent === "string" && isSet(o.state));
+  },
   encode(message: Service, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -463,6 +473,12 @@ export const Service = {
       typeUrl: "/google.api.serviceusage.v1.Service",
       value: Service.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Service.typeUrl)) {
+      return;
+    }
+    ServiceConfig.registerTypeUrl();
   }
 };
 function createBaseServiceConfig(): ServiceConfig {
@@ -487,6 +503,15 @@ function createBaseServiceConfig(): ServiceConfig {
  */
 export const ServiceConfig = {
   typeUrl: "/google.api.serviceusage.v1.ServiceConfig",
+  is(o: any): o is ServiceConfig {
+    return o && (o.$typeUrl === ServiceConfig.typeUrl || typeof o.name === "string" && typeof o.title === "string" && Array.isArray(o.apis) && (!o.apis.length || Api.is(o.apis[0])) && Array.isArray(o.endpoints) && (!o.endpoints.length || Endpoint.is(o.endpoints[0])) && Array.isArray(o.monitoredResources) && (!o.monitoredResources.length || MonitoredResourceDescriptor.is(o.monitoredResources[0])));
+  },
+  isSDK(o: any): o is ServiceConfigSDKType {
+    return o && (o.$typeUrl === ServiceConfig.typeUrl || typeof o.name === "string" && typeof o.title === "string" && Array.isArray(o.apis) && (!o.apis.length || Api.isSDK(o.apis[0])) && Array.isArray(o.endpoints) && (!o.endpoints.length || Endpoint.isSDK(o.endpoints[0])) && Array.isArray(o.monitored_resources) && (!o.monitored_resources.length || MonitoredResourceDescriptor.isSDK(o.monitored_resources[0])));
+  },
+  isAmino(o: any): o is ServiceConfigAmino {
+    return o && (o.$typeUrl === ServiceConfig.typeUrl || typeof o.name === "string" && typeof o.title === "string" && Array.isArray(o.apis) && (!o.apis.length || Api.isAmino(o.apis[0])) && Array.isArray(o.endpoints) && (!o.endpoints.length || Endpoint.isAmino(o.endpoints[0])) && Array.isArray(o.monitored_resources) && (!o.monitored_resources.length || MonitoredResourceDescriptor.isAmino(o.monitored_resources[0])));
+  },
   encode(message: ServiceConfig, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -736,6 +761,19 @@ export const ServiceConfig = {
       typeUrl: "/google.api.serviceusage.v1.ServiceConfig",
       value: ServiceConfig.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ServiceConfig.typeUrl)) {
+      return;
+    }
+    Api.registerTypeUrl();
+    Documentation.registerTypeUrl();
+    Quota.registerTypeUrl();
+    Authentication.registerTypeUrl();
+    Usage.registerTypeUrl();
+    Endpoint.registerTypeUrl();
+    MonitoredResourceDescriptor.registerTypeUrl();
+    Monitoring.registerTypeUrl();
   }
 };
 function createBaseOperationMetadata(): OperationMetadata {
@@ -751,6 +789,15 @@ function createBaseOperationMetadata(): OperationMetadata {
  */
 export const OperationMetadata = {
   typeUrl: "/google.api.serviceusage.v1.OperationMetadata",
+  is(o: any): o is OperationMetadata {
+    return o && (o.$typeUrl === OperationMetadata.typeUrl || Array.isArray(o.resourceNames) && (!o.resourceNames.length || typeof o.resourceNames[0] === "string"));
+  },
+  isSDK(o: any): o is OperationMetadataSDKType {
+    return o && (o.$typeUrl === OperationMetadata.typeUrl || Array.isArray(o.resource_names) && (!o.resource_names.length || typeof o.resource_names[0] === "string"));
+  },
+  isAmino(o: any): o is OperationMetadataAmino {
+    return o && (o.$typeUrl === OperationMetadata.typeUrl || Array.isArray(o.resource_names) && (!o.resource_names.length || typeof o.resource_names[0] === "string"));
+  },
   encode(message: OperationMetadata, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.resourceNames) {
       writer.uint32(18).string(v!);
@@ -835,5 +882,6 @@ export const OperationMetadata = {
       typeUrl: "/google.api.serviceusage.v1.OperationMetadata",
       value: OperationMetadata.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

@@ -1,6 +1,6 @@
 import { PoolParams, PoolParamsSDKType } from "./stableswap_pool.js";
 import { Coin, CoinSDKType } from "../../../../cosmos/base/v1beta1/coin.js";
-import { Rpc } from "../../../../helpers.js";
+import { TxRpc } from "../../../../types.js";
 import { BinaryReader } from "../../../../binary.js";
 import { MsgCreateStableswapPool, MsgCreateStableswapPoolSDKType, MsgCreateStableswapPoolResponse, MsgCreateStableswapPoolResponseSDKType, MsgStableSwapAdjustScalingFactors, MsgStableSwapAdjustScalingFactorsSDKType, MsgStableSwapAdjustScalingFactorsResponse, MsgStableSwapAdjustScalingFactorsResponseSDKType } from "./tx.js";
 export interface Msg {
@@ -8,8 +8,8 @@ export interface Msg {
   stableSwapAdjustScalingFactors(request: MsgStableSwapAdjustScalingFactors): Promise<MsgStableSwapAdjustScalingFactorsResponse>;
 }
 export class MsgClientImpl implements Msg {
-  private readonly rpc: Rpc;
-  constructor(rpc: Rpc) {
+  private readonly rpc: TxRpc;
+  constructor(rpc: TxRpc) {
     this.rpc = rpc;
     this.createStableswapPool = this.createStableswapPool.bind(this);
     this.stableSwapAdjustScalingFactors = this.stableSwapAdjustScalingFactors.bind(this);
@@ -25,6 +25,6 @@ export class MsgClientImpl implements Msg {
     return promise.then(data => MsgStableSwapAdjustScalingFactorsResponse.decode(new BinaryReader(data)));
   }
 }
-export const createClientImpl = (rpc: Rpc) => {
+export const createClientImpl = (rpc: TxRpc) => {
   return new MsgClientImpl(rpc);
 };

@@ -1,5 +1,5 @@
 import { Config, ConfigSDKType } from "./config.js";
-import { Rpc } from "../../../helpers.js";
+import { TxRpc } from "../../../types.js";
 import { BinaryReader } from "../../../binary.js";
 import { QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
 import { QueryConfigRequest, QueryConfigRequestSDKType, QueryConfigResponse, QueryConfigResponseSDKType } from "./query.js";
@@ -9,8 +9,8 @@ export interface Query {
   config(request?: QueryConfigRequest): Promise<QueryConfigResponse>;
 }
 export class QueryClientImpl implements Query {
-  private readonly rpc: Rpc;
-  constructor(rpc: Rpc) {
+  private readonly rpc: TxRpc;
+  constructor(rpc: TxRpc) {
     this.rpc = rpc;
     this.config = this.config.bind(this);
   }

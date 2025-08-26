@@ -2,6 +2,7 @@ import { Duration, DurationAmino, DurationSDKType } from "../protobuf/duration";
 import { Any, AnyProtoMsg, AnyAmino, AnySDKType } from "../protobuf/any";
 import { Status, StatusAmino, StatusSDKType } from "../rpc/status";
 import { BinaryReader, BinaryWriter } from "../../binary";
+import { GlobalDecoderRegistry } from "../../registry";
 import { isSet, DeepPartial } from "../../helpers";
 export const protobufPackage = "google.longrunning";
 /**
@@ -499,6 +500,15 @@ function createBaseOperation(): Operation {
  */
 export const Operation = {
   typeUrl: "/google.longrunning.Operation",
+  is(o: any): o is Operation {
+    return o && (o.$typeUrl === Operation.typeUrl || typeof o.name === "string" && typeof o.done === "boolean");
+  },
+  isSDK(o: any): o is OperationSDKType {
+    return o && (o.$typeUrl === Operation.typeUrl || typeof o.name === "string" && typeof o.done === "boolean");
+  },
+  isAmino(o: any): o is OperationAmino {
+    return o && (o.$typeUrl === Operation.typeUrl || typeof o.name === "string" && typeof o.done === "boolean");
+  },
   encode(message: Operation, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -627,7 +637,8 @@ export const Operation = {
       typeUrl: "/google.longrunning.Operation",
       value: Operation.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseGetOperationRequest(): GetOperationRequest {
   return {
@@ -642,6 +653,15 @@ function createBaseGetOperationRequest(): GetOperationRequest {
  */
 export const GetOperationRequest = {
   typeUrl: "/google.longrunning.GetOperationRequest",
+  is(o: any): o is GetOperationRequest {
+    return o && (o.$typeUrl === GetOperationRequest.typeUrl || typeof o.name === "string");
+  },
+  isSDK(o: any): o is GetOperationRequestSDKType {
+    return o && (o.$typeUrl === GetOperationRequest.typeUrl || typeof o.name === "string");
+  },
+  isAmino(o: any): o is GetOperationRequestAmino {
+    return o && (o.$typeUrl === GetOperationRequest.typeUrl || typeof o.name === "string");
+  },
   encode(message: GetOperationRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -708,7 +728,8 @@ export const GetOperationRequest = {
       typeUrl: "/google.longrunning.GetOperationRequest",
       value: GetOperationRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseListOperationsRequest(): ListOperationsRequest {
   return {
@@ -726,6 +747,15 @@ function createBaseListOperationsRequest(): ListOperationsRequest {
  */
 export const ListOperationsRequest = {
   typeUrl: "/google.longrunning.ListOperationsRequest",
+  is(o: any): o is ListOperationsRequest {
+    return o && (o.$typeUrl === ListOperationsRequest.typeUrl || typeof o.name === "string" && typeof o.filter === "string" && typeof o.pageSize === "number" && typeof o.pageToken === "string");
+  },
+  isSDK(o: any): o is ListOperationsRequestSDKType {
+    return o && (o.$typeUrl === ListOperationsRequest.typeUrl || typeof o.name === "string" && typeof o.filter === "string" && typeof o.page_size === "number" && typeof o.page_token === "string");
+  },
+  isAmino(o: any): o is ListOperationsRequestAmino {
+    return o && (o.$typeUrl === ListOperationsRequest.typeUrl || typeof o.name === "string" && typeof o.filter === "string" && typeof o.page_size === "number" && typeof o.page_token === "string");
+  },
   encode(message: ListOperationsRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(34).string(message.name);
@@ -834,7 +864,8 @@ export const ListOperationsRequest = {
       typeUrl: "/google.longrunning.ListOperationsRequest",
       value: ListOperationsRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseListOperationsResponse(): ListOperationsResponse {
   return {
@@ -850,6 +881,15 @@ function createBaseListOperationsResponse(): ListOperationsResponse {
  */
 export const ListOperationsResponse = {
   typeUrl: "/google.longrunning.ListOperationsResponse",
+  is(o: any): o is ListOperationsResponse {
+    return o && (o.$typeUrl === ListOperationsResponse.typeUrl || Array.isArray(o.operations) && (!o.operations.length || Operation.is(o.operations[0])) && typeof o.nextPageToken === "string");
+  },
+  isSDK(o: any): o is ListOperationsResponseSDKType {
+    return o && (o.$typeUrl === ListOperationsResponse.typeUrl || Array.isArray(o.operations) && (!o.operations.length || Operation.isSDK(o.operations[0])) && typeof o.next_page_token === "string");
+  },
+  isAmino(o: any): o is ListOperationsResponseAmino {
+    return o && (o.$typeUrl === ListOperationsResponse.typeUrl || Array.isArray(o.operations) && (!o.operations.length || Operation.isAmino(o.operations[0])) && typeof o.next_page_token === "string");
+  },
   encode(message: ListOperationsResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.operations) {
       Operation.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -936,6 +976,12 @@ export const ListOperationsResponse = {
       typeUrl: "/google.longrunning.ListOperationsResponse",
       value: ListOperationsResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ListOperationsResponse.typeUrl)) {
+      return;
+    }
+    Operation.registerTypeUrl();
   }
 };
 function createBaseCancelOperationRequest(): CancelOperationRequest {
@@ -951,6 +997,15 @@ function createBaseCancelOperationRequest(): CancelOperationRequest {
  */
 export const CancelOperationRequest = {
   typeUrl: "/google.longrunning.CancelOperationRequest",
+  is(o: any): o is CancelOperationRequest {
+    return o && (o.$typeUrl === CancelOperationRequest.typeUrl || typeof o.name === "string");
+  },
+  isSDK(o: any): o is CancelOperationRequestSDKType {
+    return o && (o.$typeUrl === CancelOperationRequest.typeUrl || typeof o.name === "string");
+  },
+  isAmino(o: any): o is CancelOperationRequestAmino {
+    return o && (o.$typeUrl === CancelOperationRequest.typeUrl || typeof o.name === "string");
+  },
   encode(message: CancelOperationRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -1017,7 +1072,8 @@ export const CancelOperationRequest = {
       typeUrl: "/google.longrunning.CancelOperationRequest",
       value: CancelOperationRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseDeleteOperationRequest(): DeleteOperationRequest {
   return {
@@ -1032,6 +1088,15 @@ function createBaseDeleteOperationRequest(): DeleteOperationRequest {
  */
 export const DeleteOperationRequest = {
   typeUrl: "/google.longrunning.DeleteOperationRequest",
+  is(o: any): o is DeleteOperationRequest {
+    return o && (o.$typeUrl === DeleteOperationRequest.typeUrl || typeof o.name === "string");
+  },
+  isSDK(o: any): o is DeleteOperationRequestSDKType {
+    return o && (o.$typeUrl === DeleteOperationRequest.typeUrl || typeof o.name === "string");
+  },
+  isAmino(o: any): o is DeleteOperationRequestAmino {
+    return o && (o.$typeUrl === DeleteOperationRequest.typeUrl || typeof o.name === "string");
+  },
   encode(message: DeleteOperationRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -1098,7 +1163,8 @@ export const DeleteOperationRequest = {
       typeUrl: "/google.longrunning.DeleteOperationRequest",
       value: DeleteOperationRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseWaitOperationRequest(): WaitOperationRequest {
   return {
@@ -1114,6 +1180,15 @@ function createBaseWaitOperationRequest(): WaitOperationRequest {
  */
 export const WaitOperationRequest = {
   typeUrl: "/google.longrunning.WaitOperationRequest",
+  is(o: any): o is WaitOperationRequest {
+    return o && (o.$typeUrl === WaitOperationRequest.typeUrl || typeof o.name === "string");
+  },
+  isSDK(o: any): o is WaitOperationRequestSDKType {
+    return o && (o.$typeUrl === WaitOperationRequest.typeUrl || typeof o.name === "string");
+  },
+  isAmino(o: any): o is WaitOperationRequestAmino {
+    return o && (o.$typeUrl === WaitOperationRequest.typeUrl || typeof o.name === "string");
+  },
   encode(message: WaitOperationRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -1196,7 +1271,8 @@ export const WaitOperationRequest = {
       typeUrl: "/google.longrunning.WaitOperationRequest",
       value: WaitOperationRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseOperationInfo(): OperationInfo {
   return {
@@ -1222,6 +1298,15 @@ function createBaseOperationInfo(): OperationInfo {
  */
 export const OperationInfo = {
   typeUrl: "/google.longrunning.OperationInfo",
+  is(o: any): o is OperationInfo {
+    return o && (o.$typeUrl === OperationInfo.typeUrl || typeof o.responseType === "string" && typeof o.metadataType === "string");
+  },
+  isSDK(o: any): o is OperationInfoSDKType {
+    return o && (o.$typeUrl === OperationInfo.typeUrl || typeof o.response_type === "string" && typeof o.metadata_type === "string");
+  },
+  isAmino(o: any): o is OperationInfoAmino {
+    return o && (o.$typeUrl === OperationInfo.typeUrl || typeof o.response_type === "string" && typeof o.metadata_type === "string");
+  },
   encode(message: OperationInfo, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.responseType !== "") {
       writer.uint32(10).string(message.responseType);
@@ -1302,5 +1387,6 @@ export const OperationInfo = {
       typeUrl: "/google.longrunning.OperationInfo",
       value: OperationInfo.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

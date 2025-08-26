@@ -1,5 +1,6 @@
 import { FeeToken, FeeTokenAmino, FeeTokenSDKType } from "./feetoken";
 import { BinaryReader, BinaryWriter } from "../../../binary";
+import { GlobalDecoderRegistry } from "../../../registry";
 import { isSet, DeepPartial } from "../../../helpers";
 import { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "osmosis.txfees.v1beta1";
@@ -79,6 +80,15 @@ function createBaseUpdateFeeTokenProposal(): UpdateFeeTokenProposal {
 export const UpdateFeeTokenProposal = {
   typeUrl: "/osmosis.txfees.v1beta1.UpdateFeeTokenProposal",
   aminoType: "osmosis/txfees/update-fee-token-proposal",
+  is(o: any): o is UpdateFeeTokenProposal {
+    return o && (o.$typeUrl === UpdateFeeTokenProposal.typeUrl || typeof o.title === "string" && typeof o.description === "string" && FeeToken.is(o.feetoken));
+  },
+  isSDK(o: any): o is UpdateFeeTokenProposalSDKType {
+    return o && (o.$typeUrl === UpdateFeeTokenProposal.typeUrl || typeof o.title === "string" && typeof o.description === "string" && FeeToken.isSDK(o.feetoken));
+  },
+  isAmino(o: any): o is UpdateFeeTokenProposalAmino {
+    return o && (o.$typeUrl === UpdateFeeTokenProposal.typeUrl || typeof o.title === "string" && typeof o.description === "string" && FeeToken.isAmino(o.feetoken));
+  },
   encode(message: UpdateFeeTokenProposal, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.title !== "") {
       writer.uint32(10).string(message.title);
@@ -191,5 +201,13 @@ export const UpdateFeeTokenProposal = {
       typeUrl: "/osmosis.txfees.v1beta1.UpdateFeeTokenProposal",
       value: UpdateFeeTokenProposal.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(UpdateFeeTokenProposal.typeUrl)) {
+      return;
+    }
+    GlobalDecoderRegistry.register(UpdateFeeTokenProposal.typeUrl, UpdateFeeTokenProposal);
+    GlobalDecoderRegistry.registerAminoProtoMapping(UpdateFeeTokenProposal.aminoType, UpdateFeeTokenProposal.typeUrl);
+    FeeToken.registerTypeUrl();
   }
 };

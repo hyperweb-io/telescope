@@ -1,8 +1,9 @@
 import { Incentive, IncentiveAmino, IncentiveSDKType, GasMeter, GasMeterAmino, GasMeterSDKType } from "./incentives";
 import { BinaryReader, BinaryWriter } from "../../../binary";
+import { GlobalDecoderRegistry } from "../../../registry";
 import { isSet, DeepPartial } from "../../../helpers";
 import { JsonSafe } from "../../../json-safe";
-import { Decimal } from "@cosmjs/math";
+import { Decimal } from "@interchainjs/math";
 export const protobufPackage = "evmos.incentives.v1";
 /**
  * GenesisState defines the module's genesis state.
@@ -146,6 +147,15 @@ function createBaseGenesisState(): GenesisState {
  */
 export const GenesisState = {
   typeUrl: "/evmos.incentives.v1.GenesisState",
+  is(o: any): o is GenesisState {
+    return o && (o.$typeUrl === GenesisState.typeUrl || Params.is(o.params) && Array.isArray(o.incentives) && (!o.incentives.length || Incentive.is(o.incentives[0])) && Array.isArray(o.gasMeters) && (!o.gasMeters.length || GasMeter.is(o.gasMeters[0])));
+  },
+  isSDK(o: any): o is GenesisStateSDKType {
+    return o && (o.$typeUrl === GenesisState.typeUrl || Params.isSDK(o.params) && Array.isArray(o.incentives) && (!o.incentives.length || Incentive.isSDK(o.incentives[0])) && Array.isArray(o.gas_meters) && (!o.gas_meters.length || GasMeter.isSDK(o.gas_meters[0])));
+  },
+  isAmino(o: any): o is GenesisStateAmino {
+    return o && (o.$typeUrl === GenesisState.typeUrl || Params.isAmino(o.params) && Array.isArray(o.incentives) && (!o.incentives.length || Incentive.isAmino(o.incentives[0])) && Array.isArray(o.gas_meters) && (!o.gas_meters.length || GasMeter.isAmino(o.gas_meters[0])));
+  },
   encode(message: GenesisState, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.params !== undefined) {
       Params.encode(message.params, writer.uint32(10).fork()).ldelim();
@@ -272,6 +282,14 @@ export const GenesisState = {
       typeUrl: "/evmos.incentives.v1.GenesisState",
       value: GenesisState.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(GenesisState.typeUrl)) {
+      return;
+    }
+    Params.registerTypeUrl();
+    Incentive.registerTypeUrl();
+    GasMeter.registerTypeUrl();
   }
 };
 function createBaseParams(): Params {
@@ -290,6 +308,15 @@ function createBaseParams(): Params {
  */
 export const Params = {
   typeUrl: "/evmos.incentives.v1.Params",
+  is(o: any): o is Params {
+    return o && (o.$typeUrl === Params.typeUrl || typeof o.enableIncentives === "boolean" && typeof o.allocationLimit === "string" && typeof o.incentivesEpochIdentifier === "string" && typeof o.rewardScaler === "string");
+  },
+  isSDK(o: any): o is ParamsSDKType {
+    return o && (o.$typeUrl === Params.typeUrl || typeof o.enable_incentives === "boolean" && typeof o.allocation_limit === "string" && typeof o.incentives_epoch_identifier === "string" && typeof o.reward_scaler === "string");
+  },
+  isAmino(o: any): o is ParamsAmino {
+    return o && (o.$typeUrl === Params.typeUrl || typeof o.enable_incentives === "boolean" && typeof o.allocation_limit === "string" && typeof o.incentives_epoch_identifier === "string" && typeof o.reward_scaler === "string");
+  },
   encode(message: Params, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.enableIncentives === true) {
       writer.uint32(8).bool(message.enableIncentives);
@@ -390,9 +417,9 @@ export const Params = {
   toAmino(message: Params): ParamsAmino {
     const obj: any = {};
     obj.enable_incentives = message.enableIncentives === false ? undefined : message.enableIncentives;
-    obj.allocation_limit = message.allocationLimit === "" ? undefined : message.allocationLimit;
+    obj.allocation_limit = message.allocationLimit === "" ? undefined : Decimal.fromUserInput(message.allocationLimit, 18).atomics;
     obj.incentives_epoch_identifier = message.incentivesEpochIdentifier === "" ? undefined : message.incentivesEpochIdentifier;
-    obj.reward_scaler = message.rewardScaler === "" ? undefined : message.rewardScaler;
+    obj.reward_scaler = message.rewardScaler === "" ? undefined : Decimal.fromUserInput(message.rewardScaler, 18).atomics;
     return obj;
   },
   fromAminoMsg(object: ParamsAminoMsg): Params {
@@ -409,5 +436,6 @@ export const Params = {
       typeUrl: "/evmos.incentives.v1.Params",
       value: Params.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

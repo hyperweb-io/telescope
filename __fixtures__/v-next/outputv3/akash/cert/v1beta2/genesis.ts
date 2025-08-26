@@ -1,5 +1,6 @@
 import { Certificate, CertificateAmino, CertificateSDKType } from "./cert";
 import { BinaryReader, BinaryWriter } from "../../../binary";
+import { GlobalDecoderRegistry } from "../../../registry";
 import { isSet, DeepPartial } from "../../../helpers";
 export const protobufPackage = "akash.cert.v1beta2";
 /**
@@ -81,6 +82,15 @@ function createBaseGenesisCertificate(): GenesisCertificate {
  */
 export const GenesisCertificate = {
   typeUrl: "/akash.cert.v1beta2.GenesisCertificate",
+  is(o: any): o is GenesisCertificate {
+    return o && (o.$typeUrl === GenesisCertificate.typeUrl || typeof o.owner === "string" && Certificate.is(o.certificate));
+  },
+  isSDK(o: any): o is GenesisCertificateSDKType {
+    return o && (o.$typeUrl === GenesisCertificate.typeUrl || typeof o.owner === "string" && Certificate.isSDK(o.certificate));
+  },
+  isAmino(o: any): o is GenesisCertificateAmino {
+    return o && (o.$typeUrl === GenesisCertificate.typeUrl || typeof o.owner === "string" && Certificate.isAmino(o.certificate));
+  },
   encode(message: GenesisCertificate, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.owner !== "") {
       writer.uint32(10).string(message.owner);
@@ -163,6 +173,12 @@ export const GenesisCertificate = {
       typeUrl: "/akash.cert.v1beta2.GenesisCertificate",
       value: GenesisCertificate.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(GenesisCertificate.typeUrl)) {
+      return;
+    }
+    Certificate.registerTypeUrl();
   }
 };
 function createBaseGenesisState(): GenesisState {
@@ -178,6 +194,15 @@ function createBaseGenesisState(): GenesisState {
  */
 export const GenesisState = {
   typeUrl: "/akash.cert.v1beta2.GenesisState",
+  is(o: any): o is GenesisState {
+    return o && (o.$typeUrl === GenesisState.typeUrl || Array.isArray(o.certificates) && (!o.certificates.length || GenesisCertificate.is(o.certificates[0])));
+  },
+  isSDK(o: any): o is GenesisStateSDKType {
+    return o && (o.$typeUrl === GenesisState.typeUrl || Array.isArray(o.certificates) && (!o.certificates.length || GenesisCertificate.isSDK(o.certificates[0])));
+  },
+  isAmino(o: any): o is GenesisStateAmino {
+    return o && (o.$typeUrl === GenesisState.typeUrl || Array.isArray(o.certificates) && (!o.certificates.length || GenesisCertificate.isAmino(o.certificates[0])));
+  },
   encode(message: GenesisState, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.certificates) {
       GenesisCertificate.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -250,5 +275,11 @@ export const GenesisState = {
       typeUrl: "/akash.cert.v1beta2.GenesisState",
       value: GenesisState.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(GenesisState.typeUrl)) {
+      return;
+    }
+    GenesisCertificate.registerTypeUrl();
   }
 };

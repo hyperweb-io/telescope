@@ -1,6 +1,6 @@
 import { DecCoin, DecCoinSDKType } from "../../../cosmos/base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { Decimal } from "@cosmjs/math";
+import { Decimal } from "@interchainjs/math";
 import { isSet, DeepPartial } from "../../../helpers";
 import { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "osmosis.accum.v1beta1";
@@ -169,7 +169,7 @@ export const AccumulatorContent = {
     } else {
       obj.accum_value = message.accumValue;
     }
-    obj.total_shares = message.totalShares === "" ? undefined : message.totalShares;
+    obj.total_shares = message.totalShares === "" ? undefined : Decimal.fromUserInput(message.totalShares, 18).atomics;
     return obj;
   },
   fromAminoMsg(object: AccumulatorContentAminoMsg): AccumulatorContent {
@@ -406,7 +406,7 @@ export const Record = {
   },
   toAmino(message: Record): RecordAmino {
     const obj: any = {};
-    obj.num_shares = message.numShares === "" ? undefined : message.numShares;
+    obj.num_shares = message.numShares === "" ? undefined : Decimal.fromUserInput(message.numShares, 18).atomics;
     if (message.initAccumValue) {
       obj.init_accum_value = message.initAccumValue.map(e => e ? DecCoin.toAmino(e) : undefined);
     } else {

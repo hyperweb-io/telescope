@@ -2,6 +2,7 @@ import { DecCoin, DecCoinAmino, DecCoinSDKType } from "../../../cosmos/base/v1be
 import { Timestamp, TimestampAmino, TimestampSDKType } from "../../../google/protobuf/timestamp";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { toTimestamp, fromTimestamp, isSet, DeepPartial } from "../../../helpers";
+import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "evmos.incentives.v1";
 /**
  * Incentive defines an instance that organizes distribution conditions for a
@@ -282,6 +283,15 @@ function createBaseIncentive(): Incentive {
  */
 export const Incentive = {
   typeUrl: "/evmos.incentives.v1.Incentive",
+  is(o: any): o is Incentive {
+    return o && (o.$typeUrl === Incentive.typeUrl || typeof o.contract === "string" && Array.isArray(o.allocations) && (!o.allocations.length || DecCoin.is(o.allocations[0])) && typeof o.epochs === "number" && Timestamp.is(o.startTime) && typeof o.totalGas === "bigint");
+  },
+  isSDK(o: any): o is IncentiveSDKType {
+    return o && (o.$typeUrl === Incentive.typeUrl || typeof o.contract === "string" && Array.isArray(o.allocations) && (!o.allocations.length || DecCoin.isSDK(o.allocations[0])) && typeof o.epochs === "number" && Timestamp.isSDK(o.start_time) && typeof o.total_gas === "bigint");
+  },
+  isAmino(o: any): o is IncentiveAmino {
+    return o && (o.$typeUrl === Incentive.typeUrl || typeof o.contract === "string" && Array.isArray(o.allocations) && (!o.allocations.length || DecCoin.isAmino(o.allocations[0])) && typeof o.epochs === "number" && Timestamp.isAmino(o.start_time) && typeof o.total_gas === "bigint");
+  },
   encode(message: Incentive, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.contract !== "") {
       writer.uint32(10).string(message.contract);
@@ -412,6 +422,12 @@ export const Incentive = {
       typeUrl: "/evmos.incentives.v1.Incentive",
       value: Incentive.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Incentive.typeUrl)) {
+      return;
+    }
+    DecCoin.registerTypeUrl();
   }
 };
 function createBaseGasMeter(): GasMeter {
@@ -429,6 +445,15 @@ function createBaseGasMeter(): GasMeter {
  */
 export const GasMeter = {
   typeUrl: "/evmos.incentives.v1.GasMeter",
+  is(o: any): o is GasMeter {
+    return o && (o.$typeUrl === GasMeter.typeUrl || typeof o.contract === "string" && typeof o.participant === "string" && typeof o.cumulativeGas === "bigint");
+  },
+  isSDK(o: any): o is GasMeterSDKType {
+    return o && (o.$typeUrl === GasMeter.typeUrl || typeof o.contract === "string" && typeof o.participant === "string" && typeof o.cumulative_gas === "bigint");
+  },
+  isAmino(o: any): o is GasMeterAmino {
+    return o && (o.$typeUrl === GasMeter.typeUrl || typeof o.contract === "string" && typeof o.participant === "string" && typeof o.cumulative_gas === "bigint");
+  },
   encode(message: GasMeter, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.contract !== "") {
       writer.uint32(10).string(message.contract);
@@ -525,7 +550,8 @@ export const GasMeter = {
       typeUrl: "/evmos.incentives.v1.GasMeter",
       value: GasMeter.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseRegisterIncentiveProposal(): RegisterIncentiveProposal {
   return {
@@ -545,6 +571,15 @@ function createBaseRegisterIncentiveProposal(): RegisterIncentiveProposal {
  */
 export const RegisterIncentiveProposal = {
   typeUrl: "/evmos.incentives.v1.RegisterIncentiveProposal",
+  is(o: any): o is RegisterIncentiveProposal {
+    return o && (o.$typeUrl === RegisterIncentiveProposal.typeUrl || typeof o.title === "string" && typeof o.description === "string" && typeof o.contract === "string" && Array.isArray(o.allocations) && (!o.allocations.length || DecCoin.is(o.allocations[0])) && typeof o.epochs === "number");
+  },
+  isSDK(o: any): o is RegisterIncentiveProposalSDKType {
+    return o && (o.$typeUrl === RegisterIncentiveProposal.typeUrl || typeof o.title === "string" && typeof o.description === "string" && typeof o.contract === "string" && Array.isArray(o.allocations) && (!o.allocations.length || DecCoin.isSDK(o.allocations[0])) && typeof o.epochs === "number");
+  },
+  isAmino(o: any): o is RegisterIncentiveProposalAmino {
+    return o && (o.$typeUrl === RegisterIncentiveProposal.typeUrl || typeof o.title === "string" && typeof o.description === "string" && typeof o.contract === "string" && Array.isArray(o.allocations) && (!o.allocations.length || DecCoin.isAmino(o.allocations[0])) && typeof o.epochs === "number");
+  },
   encode(message: RegisterIncentiveProposal, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.title !== "") {
       writer.uint32(10).string(message.title);
@@ -673,6 +708,13 @@ export const RegisterIncentiveProposal = {
       typeUrl: "/evmos.incentives.v1.RegisterIncentiveProposal",
       value: RegisterIncentiveProposal.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(RegisterIncentiveProposal.typeUrl)) {
+      return;
+    }
+    GlobalDecoderRegistry.register(RegisterIncentiveProposal.typeUrl, RegisterIncentiveProposal);
+    DecCoin.registerTypeUrl();
   }
 };
 function createBaseCancelIncentiveProposal(): CancelIncentiveProposal {
@@ -690,6 +732,15 @@ function createBaseCancelIncentiveProposal(): CancelIncentiveProposal {
  */
 export const CancelIncentiveProposal = {
   typeUrl: "/evmos.incentives.v1.CancelIncentiveProposal",
+  is(o: any): o is CancelIncentiveProposal {
+    return o && (o.$typeUrl === CancelIncentiveProposal.typeUrl || typeof o.title === "string" && typeof o.description === "string" && typeof o.contract === "string");
+  },
+  isSDK(o: any): o is CancelIncentiveProposalSDKType {
+    return o && (o.$typeUrl === CancelIncentiveProposal.typeUrl || typeof o.title === "string" && typeof o.description === "string" && typeof o.contract === "string");
+  },
+  isAmino(o: any): o is CancelIncentiveProposalAmino {
+    return o && (o.$typeUrl === CancelIncentiveProposal.typeUrl || typeof o.title === "string" && typeof o.description === "string" && typeof o.contract === "string");
+  },
   encode(message: CancelIncentiveProposal, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.title !== "") {
       writer.uint32(10).string(message.title);
@@ -784,5 +835,6 @@ export const CancelIncentiveProposal = {
       typeUrl: "/evmos.incentives.v1.CancelIncentiveProposal",
       value: CancelIncentiveProposal.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

@@ -3,7 +3,7 @@ import { isSet, DeepPartial, bytesFromBase64, base64FromBytes } from "../../../h
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { JsonSafe } from "../../../json-safe";
 import { GlobalDecoderRegistry } from "../../../registry";
-import { toUtf8, fromUtf8 } from "@cosmjs/encoding";
+import { toUtf8, fromUtf8 } from "@interchainjs/encoding";
 export const protobufPackage = "cosmwasm.wasm.v1";
 /** AccessType permission types */
 export enum AccessType {

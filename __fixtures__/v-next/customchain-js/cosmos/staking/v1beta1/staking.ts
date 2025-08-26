@@ -1157,9 +1157,9 @@ export const CommissionRates = {
   },
   toAmino(message: CommissionRates): CommissionRatesAmino {
     const obj: any = {};
-    obj.rate = message.rate === "" ? undefined : message.rate;
-    obj.max_rate = message.maxRate === "" ? undefined : message.maxRate;
-    obj.max_change_rate = message.maxChangeRate === "" ? undefined : message.maxChangeRate;
+    obj.rate = message.rate === "" ? undefined : Decimal.fromUserInput(message.rate, 18).atomics;
+    obj.max_rate = message.maxRate === "" ? undefined : Decimal.fromUserInput(message.maxRate, 18).atomics;
+    obj.max_change_rate = message.maxChangeRate === "" ? undefined : Decimal.fromUserInput(message.maxChangeRate, 18).atomics;
     return obj;
   },
   fromAminoMsg(object: CommissionRatesAminoMsg): CommissionRates {
@@ -1569,7 +1569,7 @@ export const Validator = {
     obj.jailed = message.jailed === false ? undefined : message.jailed;
     obj.status = message.status === 0 ? undefined : message.status;
     obj.tokens = message.tokens === "" ? undefined : message.tokens;
-    obj.delegator_shares = message.delegatorShares === "" ? undefined : message.delegatorShares;
+    obj.delegator_shares = message.delegatorShares === "" ? undefined : Decimal.fromUserInput(message.delegatorShares, 18).atomics;
     obj.description = message.description ? Description.toAmino(message.description) : undefined;
     obj.unbonding_height = message.unbondingHeight !== BigInt(0) ? message.unbondingHeight?.toString() : undefined;
     obj.unbonding_time = message.unbondingTime ? Timestamp.toAmino(toTimestamp(message.unbondingTime)) : undefined;
@@ -2103,7 +2103,7 @@ export const Delegation = {
     const obj: any = {};
     obj.delegator_address = message.delegatorAddress === "" ? undefined : message.delegatorAddress;
     obj.validator_address = message.validatorAddress === "" ? undefined : message.validatorAddress;
-    obj.shares = message.shares === "" ? undefined : message.shares;
+    obj.shares = message.shares === "" ? undefined : Decimal.fromUserInput(message.shares, 18).atomics;
     return obj;
   },
   fromAminoMsg(object: DelegationAminoMsg): Delegation {
@@ -2430,7 +2430,7 @@ export const RedelegationEntry = {
     obj.creation_height = message.creationHeight !== BigInt(0) ? message.creationHeight?.toString() : undefined;
     obj.completion_time = message.completionTime ? Timestamp.toAmino(toTimestamp(message.completionTime)) : undefined;
     obj.initial_balance = message.initialBalance === "" ? undefined : message.initialBalance;
-    obj.shares_dst = message.sharesDst === "" ? undefined : message.sharesDst;
+    obj.shares_dst = message.sharesDst === "" ? undefined : Decimal.fromUserInput(message.sharesDst, 18).atomics;
     return obj;
   },
   fromAminoMsg(object: RedelegationEntryAminoMsg): RedelegationEntry {
@@ -2681,7 +2681,7 @@ export const CosmosStakingV1beta1Params = {
     obj.max_entries = message.maxEntries === 0 ? undefined : message.maxEntries;
     obj.historical_entries = message.historicalEntries === 0 ? undefined : message.historicalEntries;
     obj.bond_denom = message.bondDenom === "" ? undefined : message.bondDenom;
-    obj.min_commission_rate = message.minCommissionRate === "" ? undefined : message.minCommissionRate;
+    obj.min_commission_rate = message.minCommissionRate === "" ? undefined : Decimal.fromUserInput(message.minCommissionRate, 18).atomics;
     return obj;
   },
   fromAminoMsg(object: CosmosStakingV1beta1ParamsAminoMsg): CosmosStakingV1beta1Params {

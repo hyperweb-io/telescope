@@ -1,7 +1,8 @@
 import { FeeToken, FeeTokenAmino, FeeTokenSDKType } from "./feetoken";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { DeepPartial, isSet } from "../../../helpers";
-import { Decimal } from "@cosmjs/math";
+import { GlobalDecoderRegistry } from "../../../registry";
+import { Decimal } from "@interchainjs/math";
 export const protobufPackage = "osmosis.txfees.v1beta1";
 /**
  * @name QueryFeeTokensRequest
@@ -241,6 +242,15 @@ function createBaseQueryFeeTokensRequest(): QueryFeeTokensRequest {
 export const QueryFeeTokensRequest = {
   typeUrl: "/osmosis.txfees.v1beta1.QueryFeeTokensRequest",
   aminoType: "osmosis/txfees/query-fee-tokens-request",
+  is(o: any): o is QueryFeeTokensRequest {
+    return o && o.$typeUrl === QueryFeeTokensRequest.typeUrl;
+  },
+  isSDK(o: any): o is QueryFeeTokensRequestSDKType {
+    return o && o.$typeUrl === QueryFeeTokensRequest.typeUrl;
+  },
+  isAmino(o: any): o is QueryFeeTokensRequestAmino {
+    return o && o.$typeUrl === QueryFeeTokensRequest.typeUrl;
+  },
   encode(_: QueryFeeTokensRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -292,7 +302,8 @@ export const QueryFeeTokensRequest = {
       typeUrl: "/osmosis.txfees.v1beta1.QueryFeeTokensRequest",
       value: QueryFeeTokensRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseQueryFeeTokensResponse(): QueryFeeTokensResponse {
   return {
@@ -307,6 +318,15 @@ function createBaseQueryFeeTokensResponse(): QueryFeeTokensResponse {
 export const QueryFeeTokensResponse = {
   typeUrl: "/osmosis.txfees.v1beta1.QueryFeeTokensResponse",
   aminoType: "osmosis/txfees/query-fee-tokens-response",
+  is(o: any): o is QueryFeeTokensResponse {
+    return o && (o.$typeUrl === QueryFeeTokensResponse.typeUrl || Array.isArray(o.feeTokens) && (!o.feeTokens.length || FeeToken.is(o.feeTokens[0])));
+  },
+  isSDK(o: any): o is QueryFeeTokensResponseSDKType {
+    return o && (o.$typeUrl === QueryFeeTokensResponse.typeUrl || Array.isArray(o.fee_tokens) && (!o.fee_tokens.length || FeeToken.isSDK(o.fee_tokens[0])));
+  },
+  isAmino(o: any): o is QueryFeeTokensResponseAmino {
+    return o && (o.$typeUrl === QueryFeeTokensResponse.typeUrl || Array.isArray(o.fee_tokens) && (!o.fee_tokens.length || FeeToken.isAmino(o.fee_tokens[0])));
+  },
   encode(message: QueryFeeTokensResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.feeTokens) {
       FeeToken.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -379,6 +399,12 @@ export const QueryFeeTokensResponse = {
       typeUrl: "/osmosis.txfees.v1beta1.QueryFeeTokensResponse",
       value: QueryFeeTokensResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryFeeTokensResponse.typeUrl)) {
+      return;
+    }
+    FeeToken.registerTypeUrl();
   }
 };
 function createBaseQueryDenomSpotPriceRequest(): QueryDenomSpotPriceRequest {
@@ -396,6 +422,15 @@ function createBaseQueryDenomSpotPriceRequest(): QueryDenomSpotPriceRequest {
 export const QueryDenomSpotPriceRequest = {
   typeUrl: "/osmosis.txfees.v1beta1.QueryDenomSpotPriceRequest",
   aminoType: "osmosis/txfees/query-denom-spot-price-request",
+  is(o: any): o is QueryDenomSpotPriceRequest {
+    return o && (o.$typeUrl === QueryDenomSpotPriceRequest.typeUrl || typeof o.denom === "string");
+  },
+  isSDK(o: any): o is QueryDenomSpotPriceRequestSDKType {
+    return o && (o.$typeUrl === QueryDenomSpotPriceRequest.typeUrl || typeof o.denom === "string");
+  },
+  isAmino(o: any): o is QueryDenomSpotPriceRequestAmino {
+    return o && (o.$typeUrl === QueryDenomSpotPriceRequest.typeUrl || typeof o.denom === "string");
+  },
   encode(message: QueryDenomSpotPriceRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.denom !== "") {
       writer.uint32(10).string(message.denom);
@@ -462,7 +497,8 @@ export const QueryDenomSpotPriceRequest = {
       typeUrl: "/osmosis.txfees.v1beta1.QueryDenomSpotPriceRequest",
       value: QueryDenomSpotPriceRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseQueryDenomSpotPriceResponse(): QueryDenomSpotPriceResponse {
   return {
@@ -480,6 +516,15 @@ function createBaseQueryDenomSpotPriceResponse(): QueryDenomSpotPriceResponse {
 export const QueryDenomSpotPriceResponse = {
   typeUrl: "/osmosis.txfees.v1beta1.QueryDenomSpotPriceResponse",
   aminoType: "osmosis/txfees/query-denom-spot-price-response",
+  is(o: any): o is QueryDenomSpotPriceResponse {
+    return o && (o.$typeUrl === QueryDenomSpotPriceResponse.typeUrl || typeof o.poolID === "bigint" && typeof o.spotPrice === "string");
+  },
+  isSDK(o: any): o is QueryDenomSpotPriceResponseSDKType {
+    return o && (o.$typeUrl === QueryDenomSpotPriceResponse.typeUrl || typeof o.poolID === "bigint" && typeof o.spot_price === "string");
+  },
+  isAmino(o: any): o is QueryDenomSpotPriceResponseAmino {
+    return o && (o.$typeUrl === QueryDenomSpotPriceResponse.typeUrl || typeof o.poolID === "bigint" && typeof o.spot_price === "string");
+  },
   encode(message: QueryDenomSpotPriceResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.poolID !== BigInt(0)) {
       writer.uint32(8).uint64(message.poolID);
@@ -548,7 +593,7 @@ export const QueryDenomSpotPriceResponse = {
   toAmino(message: QueryDenomSpotPriceResponse, useInterfaces: boolean = true): QueryDenomSpotPriceResponseAmino {
     const obj: any = {};
     obj.poolID = message.poolID !== BigInt(0) ? message.poolID?.toString() : undefined;
-    obj.spot_price = message.spotPrice === "" ? undefined : message.spotPrice;
+    obj.spot_price = message.spotPrice === "" ? undefined : Decimal.fromUserInput(message.spotPrice, 18).atomics;
     return obj;
   },
   fromProtoMsg(message: QueryDenomSpotPriceResponseProtoMsg, useInterfaces: boolean = true): QueryDenomSpotPriceResponse {
@@ -562,7 +607,8 @@ export const QueryDenomSpotPriceResponse = {
       typeUrl: "/osmosis.txfees.v1beta1.QueryDenomSpotPriceResponse",
       value: QueryDenomSpotPriceResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseQueryDenomPoolIdRequest(): QueryDenomPoolIdRequest {
   return {
@@ -577,6 +623,15 @@ function createBaseQueryDenomPoolIdRequest(): QueryDenomPoolIdRequest {
 export const QueryDenomPoolIdRequest = {
   typeUrl: "/osmosis.txfees.v1beta1.QueryDenomPoolIdRequest",
   aminoType: "osmosis/txfees/query-denom-pool-id-request",
+  is(o: any): o is QueryDenomPoolIdRequest {
+    return o && (o.$typeUrl === QueryDenomPoolIdRequest.typeUrl || typeof o.denom === "string");
+  },
+  isSDK(o: any): o is QueryDenomPoolIdRequestSDKType {
+    return o && (o.$typeUrl === QueryDenomPoolIdRequest.typeUrl || typeof o.denom === "string");
+  },
+  isAmino(o: any): o is QueryDenomPoolIdRequestAmino {
+    return o && (o.$typeUrl === QueryDenomPoolIdRequest.typeUrl || typeof o.denom === "string");
+  },
   encode(message: QueryDenomPoolIdRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.denom !== "") {
       writer.uint32(10).string(message.denom);
@@ -643,7 +698,8 @@ export const QueryDenomPoolIdRequest = {
       typeUrl: "/osmosis.txfees.v1beta1.QueryDenomPoolIdRequest",
       value: QueryDenomPoolIdRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseQueryDenomPoolIdResponse(): QueryDenomPoolIdResponse {
   return {
@@ -658,6 +714,15 @@ function createBaseQueryDenomPoolIdResponse(): QueryDenomPoolIdResponse {
 export const QueryDenomPoolIdResponse = {
   typeUrl: "/osmosis.txfees.v1beta1.QueryDenomPoolIdResponse",
   aminoType: "osmosis/txfees/query-denom-pool-id-response",
+  is(o: any): o is QueryDenomPoolIdResponse {
+    return o && (o.$typeUrl === QueryDenomPoolIdResponse.typeUrl || typeof o.poolID === "bigint");
+  },
+  isSDK(o: any): o is QueryDenomPoolIdResponseSDKType {
+    return o && (o.$typeUrl === QueryDenomPoolIdResponse.typeUrl || typeof o.poolID === "bigint");
+  },
+  isAmino(o: any): o is QueryDenomPoolIdResponseAmino {
+    return o && (o.$typeUrl === QueryDenomPoolIdResponse.typeUrl || typeof o.poolID === "bigint");
+  },
   encode(message: QueryDenomPoolIdResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.poolID !== BigInt(0)) {
       writer.uint32(8).uint64(message.poolID);
@@ -726,7 +791,8 @@ export const QueryDenomPoolIdResponse = {
       typeUrl: "/osmosis.txfees.v1beta1.QueryDenomPoolIdResponse",
       value: QueryDenomPoolIdResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseQueryBaseDenomRequest(): QueryBaseDenomRequest {
   return {};
@@ -739,6 +805,15 @@ function createBaseQueryBaseDenomRequest(): QueryBaseDenomRequest {
 export const QueryBaseDenomRequest = {
   typeUrl: "/osmosis.txfees.v1beta1.QueryBaseDenomRequest",
   aminoType: "osmosis/txfees/query-base-denom-request",
+  is(o: any): o is QueryBaseDenomRequest {
+    return o && o.$typeUrl === QueryBaseDenomRequest.typeUrl;
+  },
+  isSDK(o: any): o is QueryBaseDenomRequestSDKType {
+    return o && o.$typeUrl === QueryBaseDenomRequest.typeUrl;
+  },
+  isAmino(o: any): o is QueryBaseDenomRequestAmino {
+    return o && o.$typeUrl === QueryBaseDenomRequest.typeUrl;
+  },
   encode(_: QueryBaseDenomRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -790,7 +865,8 @@ export const QueryBaseDenomRequest = {
       typeUrl: "/osmosis.txfees.v1beta1.QueryBaseDenomRequest",
       value: QueryBaseDenomRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseQueryBaseDenomResponse(): QueryBaseDenomResponse {
   return {
@@ -805,6 +881,15 @@ function createBaseQueryBaseDenomResponse(): QueryBaseDenomResponse {
 export const QueryBaseDenomResponse = {
   typeUrl: "/osmosis.txfees.v1beta1.QueryBaseDenomResponse",
   aminoType: "osmosis/txfees/query-base-denom-response",
+  is(o: any): o is QueryBaseDenomResponse {
+    return o && (o.$typeUrl === QueryBaseDenomResponse.typeUrl || typeof o.baseDenom === "string");
+  },
+  isSDK(o: any): o is QueryBaseDenomResponseSDKType {
+    return o && (o.$typeUrl === QueryBaseDenomResponse.typeUrl || typeof o.base_denom === "string");
+  },
+  isAmino(o: any): o is QueryBaseDenomResponseAmino {
+    return o && (o.$typeUrl === QueryBaseDenomResponse.typeUrl || typeof o.base_denom === "string");
+  },
   encode(message: QueryBaseDenomResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.baseDenom !== "") {
       writer.uint32(10).string(message.baseDenom);
@@ -871,5 +956,6 @@ export const QueryBaseDenomResponse = {
       typeUrl: "/osmosis.txfees.v1beta1.QueryBaseDenomResponse",
       value: QueryBaseDenomResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

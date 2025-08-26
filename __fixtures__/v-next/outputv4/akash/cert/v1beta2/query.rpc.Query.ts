@@ -1,6 +1,6 @@
 import { CertificateFilter, CertificateFilterSDKType, Certificate, CertificateSDKType } from "./cert.js";
 import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../../cosmos/base/query/v1beta1/pagination.js";
-import { Rpc } from "../../../helpers.js";
+import { TxRpc } from "../../../types.js";
 import { BinaryReader } from "../../../binary.js";
 import { QueryClient, createProtobufRpcClient, ProtobufRpcClient } from "@cosmjs/stargate";
 import { ReactQueryParams } from "../../../react-query.js";
@@ -14,8 +14,8 @@ export interface Query {
   certificates(request: QueryCertificatesRequest): Promise<QueryCertificatesResponse>;
 }
 export class QueryClientImpl implements Query {
-  private readonly rpc: Rpc;
-  constructor(rpc: Rpc) {
+  private readonly rpc: TxRpc;
+  constructor(rpc: TxRpc) {
     this.rpc = rpc;
   }
   /* Certificates queries certificates */

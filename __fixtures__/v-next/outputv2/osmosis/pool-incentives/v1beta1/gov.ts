@@ -2,6 +2,7 @@ import { DistrRecord, DistrRecordAmino, DistrRecordSDKType } from "./incentives"
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { isSet, DeepPartial } from "../../../helpers";
 import { JsonSafe } from "../../../json-safe";
+import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "osmosis.poolincentives.v1beta1";
 /**
  * ReplacePoolIncentivesProposal is a gov Content type for updating the pool
@@ -148,6 +149,15 @@ function createBaseReplacePoolIncentivesProposal(): ReplacePoolIncentivesProposa
 export const ReplacePoolIncentivesProposal = {
   typeUrl: "/osmosis.poolincentives.v1beta1.ReplacePoolIncentivesProposal",
   aminoType: "osmosis/poolincentives/replace-pool-incentives-proposal",
+  is(o: any): o is ReplacePoolIncentivesProposal {
+    return o && (o.$typeUrl === ReplacePoolIncentivesProposal.typeUrl || typeof o.title === "string" && typeof o.description === "string" && Array.isArray(o.records) && (!o.records.length || DistrRecord.is(o.records[0])));
+  },
+  isSDK(o: any): o is ReplacePoolIncentivesProposalSDKType {
+    return o && (o.$typeUrl === ReplacePoolIncentivesProposal.typeUrl || typeof o.title === "string" && typeof o.description === "string" && Array.isArray(o.records) && (!o.records.length || DistrRecord.isSDK(o.records[0])));
+  },
+  isAmino(o: any): o is ReplacePoolIncentivesProposalAmino {
+    return o && (o.$typeUrl === ReplacePoolIncentivesProposal.typeUrl || typeof o.title === "string" && typeof o.description === "string" && Array.isArray(o.records) && (!o.records.length || DistrRecord.isAmino(o.records[0])));
+  },
   encode(message: ReplacePoolIncentivesProposal, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.title !== "") {
       writer.uint32(10).string(message.title);
@@ -268,6 +278,14 @@ export const ReplacePoolIncentivesProposal = {
       typeUrl: "/osmosis.poolincentives.v1beta1.ReplacePoolIncentivesProposal",
       value: ReplacePoolIncentivesProposal.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ReplacePoolIncentivesProposal.typeUrl)) {
+      return;
+    }
+    GlobalDecoderRegistry.register(ReplacePoolIncentivesProposal.typeUrl, ReplacePoolIncentivesProposal);
+    GlobalDecoderRegistry.registerAminoProtoMapping(ReplacePoolIncentivesProposal.aminoType, ReplacePoolIncentivesProposal.typeUrl);
+    DistrRecord.registerTypeUrl();
   }
 };
 function createBaseUpdatePoolIncentivesProposal(): UpdatePoolIncentivesProposal {
@@ -293,6 +311,15 @@ function createBaseUpdatePoolIncentivesProposal(): UpdatePoolIncentivesProposal 
 export const UpdatePoolIncentivesProposal = {
   typeUrl: "/osmosis.poolincentives.v1beta1.UpdatePoolIncentivesProposal",
   aminoType: "osmosis/poolincentives/update-pool-incentives-proposal",
+  is(o: any): o is UpdatePoolIncentivesProposal {
+    return o && (o.$typeUrl === UpdatePoolIncentivesProposal.typeUrl || typeof o.title === "string" && typeof o.description === "string" && Array.isArray(o.records) && (!o.records.length || DistrRecord.is(o.records[0])));
+  },
+  isSDK(o: any): o is UpdatePoolIncentivesProposalSDKType {
+    return o && (o.$typeUrl === UpdatePoolIncentivesProposal.typeUrl || typeof o.title === "string" && typeof o.description === "string" && Array.isArray(o.records) && (!o.records.length || DistrRecord.isSDK(o.records[0])));
+  },
+  isAmino(o: any): o is UpdatePoolIncentivesProposalAmino {
+    return o && (o.$typeUrl === UpdatePoolIncentivesProposal.typeUrl || typeof o.title === "string" && typeof o.description === "string" && Array.isArray(o.records) && (!o.records.length || DistrRecord.isAmino(o.records[0])));
+  },
   encode(message: UpdatePoolIncentivesProposal, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.title !== "") {
       writer.uint32(10).string(message.title);
@@ -413,5 +440,13 @@ export const UpdatePoolIncentivesProposal = {
       typeUrl: "/osmosis.poolincentives.v1beta1.UpdatePoolIncentivesProposal",
       value: UpdatePoolIncentivesProposal.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(UpdatePoolIncentivesProposal.typeUrl)) {
+      return;
+    }
+    GlobalDecoderRegistry.register(UpdatePoolIncentivesProposal.typeUrl, UpdatePoolIncentivesProposal);
+    GlobalDecoderRegistry.registerAminoProtoMapping(UpdatePoolIncentivesProposal.aminoType, UpdatePoolIncentivesProposal.typeUrl);
+    DistrRecord.registerTypeUrl();
   }
 };

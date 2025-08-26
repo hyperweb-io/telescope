@@ -1,0 +1,56 @@
+import { buildQuery } from "../../../helper-func-types";
+import { QueryFeeTokensRequest, QueryFeeTokensResponse, QueryDenomSpotPriceRequest, QueryDenomSpotPriceResponse, QueryDenomPoolIdRequest, QueryDenomPoolIdResponse, QueryBaseDenomRequest, QueryBaseDenomResponse } from "./query";
+/**
+ * FeeTokens returns a list of all the whitelisted fee tokens and their
+ * corresponding pools. It does not include the BaseDenom, which has its own
+ * query endpoint
+ * @name getFeeTokens
+ * @package osmosis.txfees.v1beta1
+ * @see proto service: osmosis.txfees.v1beta1.FeeTokens
+ */
+export const getFeeTokens = buildQuery<QueryFeeTokensRequest, QueryFeeTokensResponse>({
+  encode: QueryFeeTokensRequest.encode,
+  decode: QueryFeeTokensResponse.decode,
+  service: "osmosis.txfees.v1beta1.Query",
+  method: "FeeTokens",
+  deps: [QueryFeeTokensRequest, QueryFeeTokensResponse]
+});
+/**
+ * DenomSpotPrice returns all spot prices by each registered token denom.
+ * @name getDenomSpotPrice
+ * @package osmosis.txfees.v1beta1
+ * @see proto service: osmosis.txfees.v1beta1.DenomSpotPrice
+ */
+export const getDenomSpotPrice = buildQuery<QueryDenomSpotPriceRequest, QueryDenomSpotPriceResponse>({
+  encode: QueryDenomSpotPriceRequest.encode,
+  decode: QueryDenomSpotPriceResponse.decode,
+  service: "osmosis.txfees.v1beta1.Query",
+  method: "DenomSpotPrice",
+  deps: [QueryDenomSpotPriceRequest, QueryDenomSpotPriceResponse]
+});
+/**
+ * Returns the poolID for a specified denom input.
+ * @name getDenomPoolId
+ * @package osmosis.txfees.v1beta1
+ * @see proto service: osmosis.txfees.v1beta1.DenomPoolId
+ */
+export const getDenomPoolId = buildQuery<QueryDenomPoolIdRequest, QueryDenomPoolIdResponse>({
+  encode: QueryDenomPoolIdRequest.encode,
+  decode: QueryDenomPoolIdResponse.decode,
+  service: "osmosis.txfees.v1beta1.Query",
+  method: "DenomPoolId",
+  deps: [QueryDenomPoolIdRequest, QueryDenomPoolIdResponse]
+});
+/**
+ * Returns a list of all base denom tokens and their corresponding pools.
+ * @name getBaseDenom
+ * @package osmosis.txfees.v1beta1
+ * @see proto service: osmosis.txfees.v1beta1.BaseDenom
+ */
+export const getBaseDenom = buildQuery<QueryBaseDenomRequest, QueryBaseDenomResponse>({
+  encode: QueryBaseDenomRequest.encode,
+  decode: QueryBaseDenomResponse.decode,
+  service: "osmosis.txfees.v1beta1.Query",
+  method: "BaseDenom",
+  deps: [QueryBaseDenomRequest, QueryBaseDenomResponse]
+});

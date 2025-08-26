@@ -3,6 +3,7 @@ import { Incentive, IncentiveAmino, IncentiveSDKType, GasMeter, GasMeterAmino, G
 import { DecCoin, DecCoinAmino, DecCoinSDKType } from "../../../cosmos/base/v1beta1/coin";
 import { Params, ParamsAmino, ParamsSDKType } from "./genesis";
 import { BinaryReader, BinaryWriter } from "../../../binary";
+import { GlobalDecoderRegistry } from "../../../registry";
 import { isSet, DeepPartial } from "../../../helpers";
 export const protobufPackage = "evmos.incentives.v1";
 /**
@@ -561,6 +562,15 @@ function createBaseQueryIncentivesRequest(): QueryIncentivesRequest {
  */
 export const QueryIncentivesRequest = {
   typeUrl: "/evmos.incentives.v1.QueryIncentivesRequest",
+  is(o: any): o is QueryIncentivesRequest {
+    return o && o.$typeUrl === QueryIncentivesRequest.typeUrl;
+  },
+  isSDK(o: any): o is QueryIncentivesRequestSDKType {
+    return o && o.$typeUrl === QueryIncentivesRequest.typeUrl;
+  },
+  isAmino(o: any): o is QueryIncentivesRequestAmino {
+    return o && o.$typeUrl === QueryIncentivesRequest.typeUrl;
+  },
   encode(message: QueryIncentivesRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.pagination !== undefined) {
       PageRequest.encode(message.pagination, writer.uint32(10).fork()).ldelim();
@@ -629,6 +639,12 @@ export const QueryIncentivesRequest = {
       typeUrl: "/evmos.incentives.v1.QueryIncentivesRequest",
       value: QueryIncentivesRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryIncentivesRequest.typeUrl)) {
+      return;
+    }
+    PageRequest.registerTypeUrl();
   }
 };
 function createBaseQueryIncentivesResponse(): QueryIncentivesResponse {
@@ -646,6 +662,15 @@ function createBaseQueryIncentivesResponse(): QueryIncentivesResponse {
  */
 export const QueryIncentivesResponse = {
   typeUrl: "/evmos.incentives.v1.QueryIncentivesResponse",
+  is(o: any): o is QueryIncentivesResponse {
+    return o && (o.$typeUrl === QueryIncentivesResponse.typeUrl || Array.isArray(o.incentives) && (!o.incentives.length || Incentive.is(o.incentives[0])));
+  },
+  isSDK(o: any): o is QueryIncentivesResponseSDKType {
+    return o && (o.$typeUrl === QueryIncentivesResponse.typeUrl || Array.isArray(o.incentives) && (!o.incentives.length || Incentive.isSDK(o.incentives[0])));
+  },
+  isAmino(o: any): o is QueryIncentivesResponseAmino {
+    return o && (o.$typeUrl === QueryIncentivesResponse.typeUrl || Array.isArray(o.incentives) && (!o.incentives.length || Incentive.isAmino(o.incentives[0])));
+  },
   encode(message: QueryIncentivesResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.incentives) {
       Incentive.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -734,6 +759,13 @@ export const QueryIncentivesResponse = {
       typeUrl: "/evmos.incentives.v1.QueryIncentivesResponse",
       value: QueryIncentivesResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryIncentivesResponse.typeUrl)) {
+      return;
+    }
+    Incentive.registerTypeUrl();
+    PageResponse.registerTypeUrl();
   }
 };
 function createBaseQueryIncentiveRequest(): QueryIncentiveRequest {
@@ -749,6 +781,15 @@ function createBaseQueryIncentiveRequest(): QueryIncentiveRequest {
  */
 export const QueryIncentiveRequest = {
   typeUrl: "/evmos.incentives.v1.QueryIncentiveRequest",
+  is(o: any): o is QueryIncentiveRequest {
+    return o && (o.$typeUrl === QueryIncentiveRequest.typeUrl || typeof o.contract === "string");
+  },
+  isSDK(o: any): o is QueryIncentiveRequestSDKType {
+    return o && (o.$typeUrl === QueryIncentiveRequest.typeUrl || typeof o.contract === "string");
+  },
+  isAmino(o: any): o is QueryIncentiveRequestAmino {
+    return o && (o.$typeUrl === QueryIncentiveRequest.typeUrl || typeof o.contract === "string");
+  },
   encode(message: QueryIncentiveRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.contract !== "") {
       writer.uint32(10).string(message.contract);
@@ -815,7 +856,8 @@ export const QueryIncentiveRequest = {
       typeUrl: "/evmos.incentives.v1.QueryIncentiveRequest",
       value: QueryIncentiveRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseQueryIncentiveResponse(): QueryIncentiveResponse {
   return {
@@ -831,6 +873,15 @@ function createBaseQueryIncentiveResponse(): QueryIncentiveResponse {
  */
 export const QueryIncentiveResponse = {
   typeUrl: "/evmos.incentives.v1.QueryIncentiveResponse",
+  is(o: any): o is QueryIncentiveResponse {
+    return o && (o.$typeUrl === QueryIncentiveResponse.typeUrl || Incentive.is(o.incentive));
+  },
+  isSDK(o: any): o is QueryIncentiveResponseSDKType {
+    return o && (o.$typeUrl === QueryIncentiveResponse.typeUrl || Incentive.isSDK(o.incentive));
+  },
+  isAmino(o: any): o is QueryIncentiveResponseAmino {
+    return o && (o.$typeUrl === QueryIncentiveResponse.typeUrl || Incentive.isAmino(o.incentive));
+  },
   encode(message: QueryIncentiveResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.incentive !== undefined) {
       Incentive.encode(message.incentive, writer.uint32(10).fork()).ldelim();
@@ -899,6 +950,12 @@ export const QueryIncentiveResponse = {
       typeUrl: "/evmos.incentives.v1.QueryIncentiveResponse",
       value: QueryIncentiveResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryIncentiveResponse.typeUrl)) {
+      return;
+    }
+    Incentive.registerTypeUrl();
   }
 };
 function createBaseQueryGasMetersRequest(): QueryGasMetersRequest {
@@ -916,6 +973,15 @@ function createBaseQueryGasMetersRequest(): QueryGasMetersRequest {
  */
 export const QueryGasMetersRequest = {
   typeUrl: "/evmos.incentives.v1.QueryGasMetersRequest",
+  is(o: any): o is QueryGasMetersRequest {
+    return o && (o.$typeUrl === QueryGasMetersRequest.typeUrl || typeof o.contract === "string");
+  },
+  isSDK(o: any): o is QueryGasMetersRequestSDKType {
+    return o && (o.$typeUrl === QueryGasMetersRequest.typeUrl || typeof o.contract === "string");
+  },
+  isAmino(o: any): o is QueryGasMetersRequestAmino {
+    return o && (o.$typeUrl === QueryGasMetersRequest.typeUrl || typeof o.contract === "string");
+  },
   encode(message: QueryGasMetersRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.contract !== "") {
       writer.uint32(10).string(message.contract);
@@ -998,6 +1064,12 @@ export const QueryGasMetersRequest = {
       typeUrl: "/evmos.incentives.v1.QueryGasMetersRequest",
       value: QueryGasMetersRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryGasMetersRequest.typeUrl)) {
+      return;
+    }
+    PageRequest.registerTypeUrl();
   }
 };
 function createBaseQueryGasMetersResponse(): QueryGasMetersResponse {
@@ -1015,6 +1087,15 @@ function createBaseQueryGasMetersResponse(): QueryGasMetersResponse {
  */
 export const QueryGasMetersResponse = {
   typeUrl: "/evmos.incentives.v1.QueryGasMetersResponse",
+  is(o: any): o is QueryGasMetersResponse {
+    return o && (o.$typeUrl === QueryGasMetersResponse.typeUrl || Array.isArray(o.gasMeters) && (!o.gasMeters.length || GasMeter.is(o.gasMeters[0])));
+  },
+  isSDK(o: any): o is QueryGasMetersResponseSDKType {
+    return o && (o.$typeUrl === QueryGasMetersResponse.typeUrl || Array.isArray(o.gas_meters) && (!o.gas_meters.length || GasMeter.isSDK(o.gas_meters[0])));
+  },
+  isAmino(o: any): o is QueryGasMetersResponseAmino {
+    return o && (o.$typeUrl === QueryGasMetersResponse.typeUrl || Array.isArray(o.gas_meters) && (!o.gas_meters.length || GasMeter.isAmino(o.gas_meters[0])));
+  },
   encode(message: QueryGasMetersResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.gasMeters) {
       GasMeter.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -1103,6 +1184,13 @@ export const QueryGasMetersResponse = {
       typeUrl: "/evmos.incentives.v1.QueryGasMetersResponse",
       value: QueryGasMetersResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryGasMetersResponse.typeUrl)) {
+      return;
+    }
+    GasMeter.registerTypeUrl();
+    PageResponse.registerTypeUrl();
   }
 };
 function createBaseQueryGasMeterRequest(): QueryGasMeterRequest {
@@ -1119,6 +1207,15 @@ function createBaseQueryGasMeterRequest(): QueryGasMeterRequest {
  */
 export const QueryGasMeterRequest = {
   typeUrl: "/evmos.incentives.v1.QueryGasMeterRequest",
+  is(o: any): o is QueryGasMeterRequest {
+    return o && (o.$typeUrl === QueryGasMeterRequest.typeUrl || typeof o.contract === "string" && typeof o.participant === "string");
+  },
+  isSDK(o: any): o is QueryGasMeterRequestSDKType {
+    return o && (o.$typeUrl === QueryGasMeterRequest.typeUrl || typeof o.contract === "string" && typeof o.participant === "string");
+  },
+  isAmino(o: any): o is QueryGasMeterRequestAmino {
+    return o && (o.$typeUrl === QueryGasMeterRequest.typeUrl || typeof o.contract === "string" && typeof o.participant === "string");
+  },
   encode(message: QueryGasMeterRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.contract !== "") {
       writer.uint32(10).string(message.contract);
@@ -1199,7 +1296,8 @@ export const QueryGasMeterRequest = {
       typeUrl: "/evmos.incentives.v1.QueryGasMeterRequest",
       value: QueryGasMeterRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseQueryGasMeterResponse(): QueryGasMeterResponse {
   return {
@@ -1215,6 +1313,15 @@ function createBaseQueryGasMeterResponse(): QueryGasMeterResponse {
  */
 export const QueryGasMeterResponse = {
   typeUrl: "/evmos.incentives.v1.QueryGasMeterResponse",
+  is(o: any): o is QueryGasMeterResponse {
+    return o && (o.$typeUrl === QueryGasMeterResponse.typeUrl || typeof o.gasMeter === "bigint");
+  },
+  isSDK(o: any): o is QueryGasMeterResponseSDKType {
+    return o && (o.$typeUrl === QueryGasMeterResponse.typeUrl || typeof o.gas_meter === "bigint");
+  },
+  isAmino(o: any): o is QueryGasMeterResponseAmino {
+    return o && (o.$typeUrl === QueryGasMeterResponse.typeUrl || typeof o.gas_meter === "bigint");
+  },
   encode(message: QueryGasMeterResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.gasMeter !== BigInt(0)) {
       writer.uint32(8).uint64(message.gasMeter);
@@ -1283,7 +1390,8 @@ export const QueryGasMeterResponse = {
       typeUrl: "/evmos.incentives.v1.QueryGasMeterResponse",
       value: QueryGasMeterResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseQueryAllocationMetersRequest(): QueryAllocationMetersRequest {
   return {
@@ -1299,6 +1407,15 @@ function createBaseQueryAllocationMetersRequest(): QueryAllocationMetersRequest 
  */
 export const QueryAllocationMetersRequest = {
   typeUrl: "/evmos.incentives.v1.QueryAllocationMetersRequest",
+  is(o: any): o is QueryAllocationMetersRequest {
+    return o && o.$typeUrl === QueryAllocationMetersRequest.typeUrl;
+  },
+  isSDK(o: any): o is QueryAllocationMetersRequestSDKType {
+    return o && o.$typeUrl === QueryAllocationMetersRequest.typeUrl;
+  },
+  isAmino(o: any): o is QueryAllocationMetersRequestAmino {
+    return o && o.$typeUrl === QueryAllocationMetersRequest.typeUrl;
+  },
   encode(message: QueryAllocationMetersRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.pagination !== undefined) {
       PageRequest.encode(message.pagination, writer.uint32(10).fork()).ldelim();
@@ -1367,6 +1484,12 @@ export const QueryAllocationMetersRequest = {
       typeUrl: "/evmos.incentives.v1.QueryAllocationMetersRequest",
       value: QueryAllocationMetersRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryAllocationMetersRequest.typeUrl)) {
+      return;
+    }
+    PageRequest.registerTypeUrl();
   }
 };
 function createBaseQueryAllocationMetersResponse(): QueryAllocationMetersResponse {
@@ -1384,6 +1507,15 @@ function createBaseQueryAllocationMetersResponse(): QueryAllocationMetersRespons
  */
 export const QueryAllocationMetersResponse = {
   typeUrl: "/evmos.incentives.v1.QueryAllocationMetersResponse",
+  is(o: any): o is QueryAllocationMetersResponse {
+    return o && (o.$typeUrl === QueryAllocationMetersResponse.typeUrl || Array.isArray(o.allocationMeters) && (!o.allocationMeters.length || DecCoin.is(o.allocationMeters[0])));
+  },
+  isSDK(o: any): o is QueryAllocationMetersResponseSDKType {
+    return o && (o.$typeUrl === QueryAllocationMetersResponse.typeUrl || Array.isArray(o.allocation_meters) && (!o.allocation_meters.length || DecCoin.isSDK(o.allocation_meters[0])));
+  },
+  isAmino(o: any): o is QueryAllocationMetersResponseAmino {
+    return o && (o.$typeUrl === QueryAllocationMetersResponse.typeUrl || Array.isArray(o.allocation_meters) && (!o.allocation_meters.length || DecCoin.isAmino(o.allocation_meters[0])));
+  },
   encode(message: QueryAllocationMetersResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.allocationMeters) {
       DecCoin.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -1472,6 +1604,13 @@ export const QueryAllocationMetersResponse = {
       typeUrl: "/evmos.incentives.v1.QueryAllocationMetersResponse",
       value: QueryAllocationMetersResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryAllocationMetersResponse.typeUrl)) {
+      return;
+    }
+    DecCoin.registerTypeUrl();
+    PageResponse.registerTypeUrl();
   }
 };
 function createBaseQueryAllocationMeterRequest(): QueryAllocationMeterRequest {
@@ -1488,6 +1627,15 @@ function createBaseQueryAllocationMeterRequest(): QueryAllocationMeterRequest {
  */
 export const QueryAllocationMeterRequest = {
   typeUrl: "/evmos.incentives.v1.QueryAllocationMeterRequest",
+  is(o: any): o is QueryAllocationMeterRequest {
+    return o && (o.$typeUrl === QueryAllocationMeterRequest.typeUrl || typeof o.denom === "string");
+  },
+  isSDK(o: any): o is QueryAllocationMeterRequestSDKType {
+    return o && (o.$typeUrl === QueryAllocationMeterRequest.typeUrl || typeof o.denom === "string");
+  },
+  isAmino(o: any): o is QueryAllocationMeterRequestAmino {
+    return o && (o.$typeUrl === QueryAllocationMeterRequest.typeUrl || typeof o.denom === "string");
+  },
   encode(message: QueryAllocationMeterRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.denom !== "") {
       writer.uint32(10).string(message.denom);
@@ -1554,7 +1702,8 @@ export const QueryAllocationMeterRequest = {
       typeUrl: "/evmos.incentives.v1.QueryAllocationMeterRequest",
       value: QueryAllocationMeterRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseQueryAllocationMeterResponse(): QueryAllocationMeterResponse {
   return {
@@ -1570,6 +1719,15 @@ function createBaseQueryAllocationMeterResponse(): QueryAllocationMeterResponse 
  */
 export const QueryAllocationMeterResponse = {
   typeUrl: "/evmos.incentives.v1.QueryAllocationMeterResponse",
+  is(o: any): o is QueryAllocationMeterResponse {
+    return o && (o.$typeUrl === QueryAllocationMeterResponse.typeUrl || DecCoin.is(o.allocationMeter));
+  },
+  isSDK(o: any): o is QueryAllocationMeterResponseSDKType {
+    return o && (o.$typeUrl === QueryAllocationMeterResponse.typeUrl || DecCoin.isSDK(o.allocation_meter));
+  },
+  isAmino(o: any): o is QueryAllocationMeterResponseAmino {
+    return o && (o.$typeUrl === QueryAllocationMeterResponse.typeUrl || DecCoin.isAmino(o.allocation_meter));
+  },
   encode(message: QueryAllocationMeterResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.allocationMeter !== undefined) {
       DecCoin.encode(message.allocationMeter, writer.uint32(10).fork()).ldelim();
@@ -1638,6 +1796,12 @@ export const QueryAllocationMeterResponse = {
       typeUrl: "/evmos.incentives.v1.QueryAllocationMeterResponse",
       value: QueryAllocationMeterResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryAllocationMeterResponse.typeUrl)) {
+      return;
+    }
+    DecCoin.registerTypeUrl();
   }
 };
 function createBaseQueryParamsRequest(): QueryParamsRequest {
@@ -1651,6 +1815,15 @@ function createBaseQueryParamsRequest(): QueryParamsRequest {
  */
 export const QueryParamsRequest = {
   typeUrl: "/evmos.incentives.v1.QueryParamsRequest",
+  is(o: any): o is QueryParamsRequest {
+    return o && o.$typeUrl === QueryParamsRequest.typeUrl;
+  },
+  isSDK(o: any): o is QueryParamsRequestSDKType {
+    return o && o.$typeUrl === QueryParamsRequest.typeUrl;
+  },
+  isAmino(o: any): o is QueryParamsRequestAmino {
+    return o && o.$typeUrl === QueryParamsRequest.typeUrl;
+  },
   encode(_: QueryParamsRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -1702,7 +1875,8 @@ export const QueryParamsRequest = {
       typeUrl: "/evmos.incentives.v1.QueryParamsRequest",
       value: QueryParamsRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseQueryParamsResponse(): QueryParamsResponse {
   return {
@@ -1718,6 +1892,15 @@ function createBaseQueryParamsResponse(): QueryParamsResponse {
  */
 export const QueryParamsResponse = {
   typeUrl: "/evmos.incentives.v1.QueryParamsResponse",
+  is(o: any): o is QueryParamsResponse {
+    return o && (o.$typeUrl === QueryParamsResponse.typeUrl || Params.is(o.params));
+  },
+  isSDK(o: any): o is QueryParamsResponseSDKType {
+    return o && (o.$typeUrl === QueryParamsResponse.typeUrl || Params.isSDK(o.params));
+  },
+  isAmino(o: any): o is QueryParamsResponseAmino {
+    return o && (o.$typeUrl === QueryParamsResponse.typeUrl || Params.isAmino(o.params));
+  },
   encode(message: QueryParamsResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.params !== undefined) {
       Params.encode(message.params, writer.uint32(10).fork()).ldelim();
@@ -1786,5 +1969,11 @@ export const QueryParamsResponse = {
       typeUrl: "/evmos.incentives.v1.QueryParamsResponse",
       value: QueryParamsResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryParamsResponse.typeUrl)) {
+      return;
+    }
+    Params.registerTypeUrl();
   }
 };

@@ -1,12 +1,7 @@
 import { Any, AnySDKType } from "../../../google/protobuf/any.js";
-import { GeneratedType, Registry } from "@cosmjs/proto-signing";
+import { TelescopeGeneratedType } from "../../../types.js";
 import { MsgSubmitEvidence, MsgSubmitEvidenceSDKType } from "./tx.js";
-export const registry: ReadonlyArray<[string, GeneratedType]> = [["/cosmos.evidence.v1beta1.MsgSubmitEvidence", MsgSubmitEvidence]];
-export const load = (protoRegistry: Registry) => {
-  registry.forEach(([typeUrl, mod]) => {
-    protoRegistry.register(typeUrl, mod);
-  });
-};
+export const registry: ReadonlyArray<[string, TelescopeGeneratedType<any, any, any>]> = [["/cosmos.evidence.v1beta1.MsgSubmitEvidence", MsgSubmitEvidence]];
 export const MessageComposer = {
   encoded: {
     submitEvidence(value: MsgSubmitEvidence) {

@@ -2,6 +2,7 @@ import { Service, ServiceAmino, ServiceSDKType } from "./resources";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
 import { isSet, DeepPartial } from "../../../../helpers";
 import { JsonSafe } from "../../../../json-safe";
+import { GlobalDecoderRegistry } from "../../../../registry";
 export const protobufPackage = "google.api.serviceusage.v1";
 /**
  * Enum to determine if service usage should be checked when disabling a
@@ -779,6 +780,15 @@ function createBaseEnableServiceRequest(): EnableServiceRequest {
  */
 export const EnableServiceRequest = {
   typeUrl: "/google.api.serviceusage.v1.EnableServiceRequest",
+  is(o: any): o is EnableServiceRequest {
+    return o && (o.$typeUrl === EnableServiceRequest.typeUrl || typeof o.name === "string");
+  },
+  isSDK(o: any): o is EnableServiceRequestSDKType {
+    return o && (o.$typeUrl === EnableServiceRequest.typeUrl || typeof o.name === "string");
+  },
+  isAmino(o: any): o is EnableServiceRequestAmino {
+    return o && (o.$typeUrl === EnableServiceRequest.typeUrl || typeof o.name === "string");
+  },
   encode(message: EnableServiceRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -853,7 +863,8 @@ export const EnableServiceRequest = {
       typeUrl: "/google.api.serviceusage.v1.EnableServiceRequest",
       value: EnableServiceRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseEnableServiceResponse(): EnableServiceResponse {
   return {
@@ -870,6 +881,15 @@ function createBaseEnableServiceResponse(): EnableServiceResponse {
  */
 export const EnableServiceResponse = {
   typeUrl: "/google.api.serviceusage.v1.EnableServiceResponse",
+  is(o: any): o is EnableServiceResponse {
+    return o && o.$typeUrl === EnableServiceResponse.typeUrl;
+  },
+  isSDK(o: any): o is EnableServiceResponseSDKType {
+    return o && o.$typeUrl === EnableServiceResponse.typeUrl;
+  },
+  isAmino(o: any): o is EnableServiceResponseAmino {
+    return o && o.$typeUrl === EnableServiceResponse.typeUrl;
+  },
   encode(message: EnableServiceResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.service !== undefined) {
       Service.encode(message.service, writer.uint32(10).fork()).ldelim();
@@ -946,6 +966,12 @@ export const EnableServiceResponse = {
       typeUrl: "/google.api.serviceusage.v1.EnableServiceResponse",
       value: EnableServiceResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(EnableServiceResponse.typeUrl)) {
+      return;
+    }
+    Service.registerTypeUrl();
   }
 };
 function createBaseDisableServiceRequest(): DisableServiceRequest {
@@ -963,6 +989,15 @@ function createBaseDisableServiceRequest(): DisableServiceRequest {
  */
 export const DisableServiceRequest = {
   typeUrl: "/google.api.serviceusage.v1.DisableServiceRequest",
+  is(o: any): o is DisableServiceRequest {
+    return o && (o.$typeUrl === DisableServiceRequest.typeUrl || typeof o.name === "string" && typeof o.disableDependentServices === "boolean" && isSet(o.checkIfServiceHasUsage));
+  },
+  isSDK(o: any): o is DisableServiceRequestSDKType {
+    return o && (o.$typeUrl === DisableServiceRequest.typeUrl || typeof o.name === "string" && typeof o.disable_dependent_services === "boolean" && isSet(o.check_if_service_has_usage));
+  },
+  isAmino(o: any): o is DisableServiceRequestAmino {
+    return o && (o.$typeUrl === DisableServiceRequest.typeUrl || typeof o.name === "string" && typeof o.disable_dependent_services === "boolean" && isSet(o.check_if_service_has_usage));
+  },
   encode(message: DisableServiceRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -1067,7 +1102,8 @@ export const DisableServiceRequest = {
       typeUrl: "/google.api.serviceusage.v1.DisableServiceRequest",
       value: DisableServiceRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseDisableServiceResponse(): DisableServiceResponse {
   return {
@@ -1084,6 +1120,15 @@ function createBaseDisableServiceResponse(): DisableServiceResponse {
  */
 export const DisableServiceResponse = {
   typeUrl: "/google.api.serviceusage.v1.DisableServiceResponse",
+  is(o: any): o is DisableServiceResponse {
+    return o && o.$typeUrl === DisableServiceResponse.typeUrl;
+  },
+  isSDK(o: any): o is DisableServiceResponseSDKType {
+    return o && o.$typeUrl === DisableServiceResponse.typeUrl;
+  },
+  isAmino(o: any): o is DisableServiceResponseAmino {
+    return o && o.$typeUrl === DisableServiceResponse.typeUrl;
+  },
   encode(message: DisableServiceResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.service !== undefined) {
       Service.encode(message.service, writer.uint32(10).fork()).ldelim();
@@ -1160,6 +1205,12 @@ export const DisableServiceResponse = {
       typeUrl: "/google.api.serviceusage.v1.DisableServiceResponse",
       value: DisableServiceResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(DisableServiceResponse.typeUrl)) {
+      return;
+    }
+    Service.registerTypeUrl();
   }
 };
 function createBaseGetServiceRequest(): GetServiceRequest {
@@ -1175,6 +1226,15 @@ function createBaseGetServiceRequest(): GetServiceRequest {
  */
 export const GetServiceRequest = {
   typeUrl: "/google.api.serviceusage.v1.GetServiceRequest",
+  is(o: any): o is GetServiceRequest {
+    return o && (o.$typeUrl === GetServiceRequest.typeUrl || typeof o.name === "string");
+  },
+  isSDK(o: any): o is GetServiceRequestSDKType {
+    return o && (o.$typeUrl === GetServiceRequest.typeUrl || typeof o.name === "string");
+  },
+  isAmino(o: any): o is GetServiceRequestAmino {
+    return o && (o.$typeUrl === GetServiceRequest.typeUrl || typeof o.name === "string");
+  },
   encode(message: GetServiceRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -1249,7 +1309,8 @@ export const GetServiceRequest = {
       typeUrl: "/google.api.serviceusage.v1.GetServiceRequest",
       value: GetServiceRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseListServicesRequest(): ListServicesRequest {
   return {
@@ -1267,6 +1328,15 @@ function createBaseListServicesRequest(): ListServicesRequest {
  */
 export const ListServicesRequest = {
   typeUrl: "/google.api.serviceusage.v1.ListServicesRequest",
+  is(o: any): o is ListServicesRequest {
+    return o && (o.$typeUrl === ListServicesRequest.typeUrl || typeof o.parent === "string" && typeof o.pageSize === "number" && typeof o.pageToken === "string" && typeof o.filter === "string");
+  },
+  isSDK(o: any): o is ListServicesRequestSDKType {
+    return o && (o.$typeUrl === ListServicesRequest.typeUrl || typeof o.parent === "string" && typeof o.page_size === "number" && typeof o.page_token === "string" && typeof o.filter === "string");
+  },
+  isAmino(o: any): o is ListServicesRequestAmino {
+    return o && (o.$typeUrl === ListServicesRequest.typeUrl || typeof o.parent === "string" && typeof o.page_size === "number" && typeof o.page_token === "string" && typeof o.filter === "string");
+  },
   encode(message: ListServicesRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.parent !== "") {
       writer.uint32(10).string(message.parent);
@@ -1386,7 +1456,8 @@ export const ListServicesRequest = {
       typeUrl: "/google.api.serviceusage.v1.ListServicesRequest",
       value: ListServicesRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseListServicesResponse(): ListServicesResponse {
   return {
@@ -1402,6 +1473,15 @@ function createBaseListServicesResponse(): ListServicesResponse {
  */
 export const ListServicesResponse = {
   typeUrl: "/google.api.serviceusage.v1.ListServicesResponse",
+  is(o: any): o is ListServicesResponse {
+    return o && (o.$typeUrl === ListServicesResponse.typeUrl || Array.isArray(o.services) && (!o.services.length || Service.is(o.services[0])) && typeof o.nextPageToken === "string");
+  },
+  isSDK(o: any): o is ListServicesResponseSDKType {
+    return o && (o.$typeUrl === ListServicesResponse.typeUrl || Array.isArray(o.services) && (!o.services.length || Service.isSDK(o.services[0])) && typeof o.next_page_token === "string");
+  },
+  isAmino(o: any): o is ListServicesResponseAmino {
+    return o && (o.$typeUrl === ListServicesResponse.typeUrl || Array.isArray(o.services) && (!o.services.length || Service.isAmino(o.services[0])) && typeof o.next_page_token === "string");
+  },
   encode(message: ListServicesResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.services) {
       Service.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -1501,6 +1581,12 @@ export const ListServicesResponse = {
       typeUrl: "/google.api.serviceusage.v1.ListServicesResponse",
       value: ListServicesResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ListServicesResponse.typeUrl)) {
+      return;
+    }
+    Service.registerTypeUrl();
   }
 };
 function createBaseBatchEnableServicesRequest(): BatchEnableServicesRequest {
@@ -1517,6 +1603,15 @@ function createBaseBatchEnableServicesRequest(): BatchEnableServicesRequest {
  */
 export const BatchEnableServicesRequest = {
   typeUrl: "/google.api.serviceusage.v1.BatchEnableServicesRequest",
+  is(o: any): o is BatchEnableServicesRequest {
+    return o && (o.$typeUrl === BatchEnableServicesRequest.typeUrl || typeof o.parent === "string" && Array.isArray(o.serviceIds) && (!o.serviceIds.length || typeof o.serviceIds[0] === "string"));
+  },
+  isSDK(o: any): o is BatchEnableServicesRequestSDKType {
+    return o && (o.$typeUrl === BatchEnableServicesRequest.typeUrl || typeof o.parent === "string" && Array.isArray(o.service_ids) && (!o.service_ids.length || typeof o.service_ids[0] === "string"));
+  },
+  isAmino(o: any): o is BatchEnableServicesRequestAmino {
+    return o && (o.$typeUrl === BatchEnableServicesRequest.typeUrl || typeof o.parent === "string" && Array.isArray(o.service_ids) && (!o.service_ids.length || typeof o.service_ids[0] === "string"));
+  },
   encode(message: BatchEnableServicesRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.parent !== "") {
       writer.uint32(10).string(message.parent);
@@ -1616,7 +1711,8 @@ export const BatchEnableServicesRequest = {
       typeUrl: "/google.api.serviceusage.v1.BatchEnableServicesRequest",
       value: BatchEnableServicesRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseBatchEnableServicesResponse(): BatchEnableServicesResponse {
   return {
@@ -1634,6 +1730,15 @@ function createBaseBatchEnableServicesResponse(): BatchEnableServicesResponse {
  */
 export const BatchEnableServicesResponse = {
   typeUrl: "/google.api.serviceusage.v1.BatchEnableServicesResponse",
+  is(o: any): o is BatchEnableServicesResponse {
+    return o && (o.$typeUrl === BatchEnableServicesResponse.typeUrl || Array.isArray(o.services) && (!o.services.length || Service.is(o.services[0])) && Array.isArray(o.failures) && (!o.failures.length || BatchEnableServicesResponse_EnableFailure.is(o.failures[0])));
+  },
+  isSDK(o: any): o is BatchEnableServicesResponseSDKType {
+    return o && (o.$typeUrl === BatchEnableServicesResponse.typeUrl || Array.isArray(o.services) && (!o.services.length || Service.isSDK(o.services[0])) && Array.isArray(o.failures) && (!o.failures.length || BatchEnableServicesResponse_EnableFailure.isSDK(o.failures[0])));
+  },
+  isAmino(o: any): o is BatchEnableServicesResponseAmino {
+    return o && (o.$typeUrl === BatchEnableServicesResponse.typeUrl || Array.isArray(o.services) && (!o.services.length || Service.isAmino(o.services[0])) && Array.isArray(o.failures) && (!o.failures.length || BatchEnableServicesResponse_EnableFailure.isAmino(o.failures[0])));
+  },
   encode(message: BatchEnableServicesResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.services) {
       Service.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -1743,6 +1848,13 @@ export const BatchEnableServicesResponse = {
       typeUrl: "/google.api.serviceusage.v1.BatchEnableServicesResponse",
       value: BatchEnableServicesResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(BatchEnableServicesResponse.typeUrl)) {
+      return;
+    }
+    Service.registerTypeUrl();
+    BatchEnableServicesResponse_EnableFailure.registerTypeUrl();
   }
 };
 function createBaseBatchEnableServicesResponse_EnableFailure(): BatchEnableServicesResponse_EnableFailure {
@@ -1759,6 +1871,15 @@ function createBaseBatchEnableServicesResponse_EnableFailure(): BatchEnableServi
  */
 export const BatchEnableServicesResponse_EnableFailure = {
   typeUrl: "/google.api.serviceusage.v1.EnableFailure",
+  is(o: any): o is BatchEnableServicesResponse_EnableFailure {
+    return o && (o.$typeUrl === BatchEnableServicesResponse_EnableFailure.typeUrl || typeof o.serviceId === "string" && typeof o.errorMessage === "string");
+  },
+  isSDK(o: any): o is BatchEnableServicesResponse_EnableFailureSDKType {
+    return o && (o.$typeUrl === BatchEnableServicesResponse_EnableFailure.typeUrl || typeof o.service_id === "string" && typeof o.error_message === "string");
+  },
+  isAmino(o: any): o is BatchEnableServicesResponse_EnableFailureAmino {
+    return o && (o.$typeUrl === BatchEnableServicesResponse_EnableFailure.typeUrl || typeof o.service_id === "string" && typeof o.error_message === "string");
+  },
   encode(message: BatchEnableServicesResponse_EnableFailure, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.serviceId !== "") {
       writer.uint32(10).string(message.serviceId);
@@ -1848,7 +1969,8 @@ export const BatchEnableServicesResponse_EnableFailure = {
       typeUrl: "/google.api.serviceusage.v1.EnableFailure",
       value: BatchEnableServicesResponse_EnableFailure.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseBatchGetServicesRequest(): BatchGetServicesRequest {
   return {
@@ -1864,6 +1986,15 @@ function createBaseBatchGetServicesRequest(): BatchGetServicesRequest {
  */
 export const BatchGetServicesRequest = {
   typeUrl: "/google.api.serviceusage.v1.BatchGetServicesRequest",
+  is(o: any): o is BatchGetServicesRequest {
+    return o && (o.$typeUrl === BatchGetServicesRequest.typeUrl || typeof o.parent === "string" && Array.isArray(o.names) && (!o.names.length || typeof o.names[0] === "string"));
+  },
+  isSDK(o: any): o is BatchGetServicesRequestSDKType {
+    return o && (o.$typeUrl === BatchGetServicesRequest.typeUrl || typeof o.parent === "string" && Array.isArray(o.names) && (!o.names.length || typeof o.names[0] === "string"));
+  },
+  isAmino(o: any): o is BatchGetServicesRequestAmino {
+    return o && (o.$typeUrl === BatchGetServicesRequest.typeUrl || typeof o.parent === "string" && Array.isArray(o.names) && (!o.names.length || typeof o.names[0] === "string"));
+  },
   encode(message: BatchGetServicesRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.parent !== "") {
       writer.uint32(10).string(message.parent);
@@ -1963,7 +2094,8 @@ export const BatchGetServicesRequest = {
       typeUrl: "/google.api.serviceusage.v1.BatchGetServicesRequest",
       value: BatchGetServicesRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseBatchGetServicesResponse(): BatchGetServicesResponse {
   return {
@@ -1978,6 +2110,15 @@ function createBaseBatchGetServicesResponse(): BatchGetServicesResponse {
  */
 export const BatchGetServicesResponse = {
   typeUrl: "/google.api.serviceusage.v1.BatchGetServicesResponse",
+  is(o: any): o is BatchGetServicesResponse {
+    return o && (o.$typeUrl === BatchGetServicesResponse.typeUrl || Array.isArray(o.services) && (!o.services.length || Service.is(o.services[0])));
+  },
+  isSDK(o: any): o is BatchGetServicesResponseSDKType {
+    return o && (o.$typeUrl === BatchGetServicesResponse.typeUrl || Array.isArray(o.services) && (!o.services.length || Service.isSDK(o.services[0])));
+  },
+  isAmino(o: any): o is BatchGetServicesResponseAmino {
+    return o && (o.$typeUrl === BatchGetServicesResponse.typeUrl || Array.isArray(o.services) && (!o.services.length || Service.isAmino(o.services[0])));
+  },
   encode(message: BatchGetServicesResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.services) {
       Service.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -2062,5 +2203,11 @@ export const BatchGetServicesResponse = {
       typeUrl: "/google.api.serviceusage.v1.BatchGetServicesResponse",
       value: BatchGetServicesResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(BatchGetServicesResponse.typeUrl)) {
+      return;
+    }
+    Service.registerTypeUrl();
   }
 };

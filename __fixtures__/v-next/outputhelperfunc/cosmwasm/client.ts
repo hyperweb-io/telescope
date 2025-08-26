@@ -2,7 +2,7 @@ import { GeneratedType, Registry, OfflineSigner } from "@cosmjs/proto-signing";
 import { defaultRegistryTypes, AminoTypes, SigningStargateClient } from "@cosmjs/stargate";
 import { HttpEndpoint } from "@cosmjs/tendermint-rpc";
 import { createRpcClient } from "../extern";
-import { DeliverTxResponse, EncodeObject, StdFee, TxRpc, SigningClientParams } from "../types";
+import { EncodeObject, StdFee, TxRpc, SigningClientParams } from "../types";
 import * as cosmwasmWasmV1TxRegistry from "./wasm/v1/tx.registry";
 import * as cosmwasmWasmV1TxAmino from "./wasm/v1/tx.amino";
 export const cosmwasmAminoConverters = {
@@ -57,7 +57,7 @@ export const getSigningCosmwasmTxRpc = async ({
     signer
   });
   txRpc.signAndBroadcast = (signerAddress: string, messages: EncodeObject[], fee: number | StdFee | "auto", memo?: string) => {
-    return (signingClient.signAndBroadcast(signerAddress, messages, fee, memo) as Promise<DeliverTxResponse>);
+    return (signingClient.signAndBroadcast(signerAddress, messages, fee, memo) as Promise<any>);
   };
   return txRpc;
 };

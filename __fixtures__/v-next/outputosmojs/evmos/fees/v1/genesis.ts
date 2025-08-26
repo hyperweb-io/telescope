@@ -2,7 +2,7 @@ import { DevFeeInfo, DevFeeInfoSDKType } from "./fees";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { isSet, DeepPartial } from "../../../helpers";
 import { JsonSafe } from "../../../json-safe";
-import { Decimal } from "@cosmjs/math";
+import { Decimal } from "@interchainjs/math";
 export const protobufPackage = "evmos.fees.v1";
 /**
  * GenesisState defines the module's genesis state.
@@ -343,10 +343,10 @@ export const Params = {
   toAmino(message: Params): ParamsAmino {
     const obj: any = {};
     obj.enable_fees = message.enableFees === false ? undefined : message.enableFees;
-    obj.developer_shares = message.developerShares === "" ? undefined : message.developerShares;
-    obj.validator_shares = message.validatorShares === "" ? undefined : message.validatorShares;
+    obj.developer_shares = message.developerShares === "" ? undefined : Decimal.fromUserInput(message.developerShares, 18).atomics;
+    obj.validator_shares = message.validatorShares === "" ? undefined : Decimal.fromUserInput(message.validatorShares, 18).atomics;
     obj.addr_derivation_cost_create = message.addrDerivationCostCreate !== BigInt(0) ? message.addrDerivationCostCreate?.toString() : undefined;
-    obj.min_gas_price = message.minGasPrice === "" ? undefined : message.minGasPrice;
+    obj.min_gas_price = message.minGasPrice === "" ? undefined : Decimal.fromUserInput(message.minGasPrice, 18).atomics;
     return obj;
   },
   fromAminoMsg(object: ParamsAminoMsg): Params {

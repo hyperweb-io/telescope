@@ -325,7 +325,11 @@ export const MsgInstantiateContract2 = {
       typeUrl: "/cosmos.bank.v1beta1.MsgInstantiateContract2",
       value: MsgInstantiateContract2.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgInstantiateContract2.typeUrl)) {
+      return;
+    }
+    Coin.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgInstantiateContract2.typeUrl, MsgInstantiateContract2);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgInstantiateContract2.aminoType, MsgInstantiateContract2.typeUrl);

@@ -2,7 +2,7 @@ import { Coin, CoinSDKType } from "../../cosmos/base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../binary";
 import { isSet, DeepPartial } from "../../helpers";
 import { JsonSafe } from "../../json-safe";
-import { Decimal } from "@cosmjs/math";
+import { Decimal } from "@interchainjs/math";
 export const protobufPackage = "osmosis.superfluid";
 /**
  * SuperfluidAssetType indicates whether the superfluid asset is
@@ -594,7 +594,7 @@ export const OsmoEquivalentMultiplierRecord = {
     const obj: any = {};
     obj.epoch_number = message.epochNumber !== BigInt(0) ? message.epochNumber?.toString() : undefined;
     obj.denom = message.denom === "" ? undefined : message.denom;
-    obj.multiplier = message.multiplier === "" ? undefined : message.multiplier;
+    obj.multiplier = message.multiplier === "" ? undefined : Decimal.fromUserInput(message.multiplier, 18).atomics;
     return obj;
   },
   fromAminoMsg(object: OsmoEquivalentMultiplierRecordAminoMsg): OsmoEquivalentMultiplierRecord {

@@ -1,6 +1,7 @@
 import { Coin, CoinAmino, CoinSDKType } from "../../../../cosmos/base/v1beta1/coin";
 import { Height, HeightAmino, HeightSDKType } from "../../../core/client/v1/client";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
+import { GlobalDecoderRegistry } from "../../../../registry";
 import { isSet, DeepPartial } from "../../../../helpers";
 import { JsonSafe } from "../../../../json-safe";
 export const protobufPackage = "ibc.applications.transfer.v1";
@@ -160,6 +161,15 @@ function createBaseMsgTransfer(): MsgTransfer {
 export const MsgTransfer = {
   typeUrl: "/ibc.applications.transfer.v1.MsgTransfer",
   aminoType: "cosmos-sdk/MsgTransfer",
+  is(o: any): o is MsgTransfer {
+    return o && (o.$typeUrl === MsgTransfer.typeUrl || typeof o.sourcePort === "string" && typeof o.sourceChannel === "string" && Coin.is(o.token) && typeof o.sender === "string" && typeof o.receiver === "string" && Height.is(o.timeoutHeight) && typeof o.timeoutTimestamp === "bigint");
+  },
+  isSDK(o: any): o is MsgTransferSDKType {
+    return o && (o.$typeUrl === MsgTransfer.typeUrl || typeof o.source_port === "string" && typeof o.source_channel === "string" && Coin.isSDK(o.token) && typeof o.sender === "string" && typeof o.receiver === "string" && Height.isSDK(o.timeout_height) && typeof o.timeout_timestamp === "bigint");
+  },
+  isAmino(o: any): o is MsgTransferAmino {
+    return o && (o.$typeUrl === MsgTransfer.typeUrl || typeof o.source_port === "string" && typeof o.source_channel === "string" && Coin.isAmino(o.token) && typeof o.sender === "string" && typeof o.receiver === "string" && Height.isAmino(o.timeout_height) && typeof o.timeout_timestamp === "bigint");
+  },
   encode(message: MsgTransfer, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.sourcePort !== "") {
       writer.uint32(10).string(message.sourcePort);
@@ -336,6 +346,13 @@ export const MsgTransfer = {
       typeUrl: "/ibc.applications.transfer.v1.MsgTransfer",
       value: MsgTransfer.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgTransfer.typeUrl)) {
+      return;
+    }
+    Coin.registerTypeUrl();
+    Height.registerTypeUrl();
   }
 };
 function createBaseMsgTransferResponse(): MsgTransferResponse {
@@ -350,6 +367,15 @@ function createBaseMsgTransferResponse(): MsgTransferResponse {
 export const MsgTransferResponse = {
   typeUrl: "/ibc.applications.transfer.v1.MsgTransferResponse",
   aminoType: "cosmos-sdk/MsgTransferResponse",
+  is(o: any): o is MsgTransferResponse {
+    return o && o.$typeUrl === MsgTransferResponse.typeUrl;
+  },
+  isSDK(o: any): o is MsgTransferResponseSDKType {
+    return o && o.$typeUrl === MsgTransferResponse.typeUrl;
+  },
+  isAmino(o: any): o is MsgTransferResponseAmino {
+    return o && o.$typeUrl === MsgTransferResponse.typeUrl;
+  },
   encode(_: MsgTransferResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -414,5 +440,6 @@ export const MsgTransferResponse = {
       typeUrl: "/ibc.applications.transfer.v1.MsgTransferResponse",
       value: MsgTransferResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

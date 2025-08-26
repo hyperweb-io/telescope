@@ -2,6 +2,7 @@
 import { PoolParams, PoolParamsSDKType } from "./stableswap_pool";
 import { Coin, CoinSDKType } from "../../../../cosmos/base/v1beta1/coin";
 import { AminoMsg } from "@cosmjs/amino";
+import { Decimal } from "@interchainjs/math";
 import { MsgCreateStableswapPool, MsgCreateStableswapPoolSDKType, MsgStableSwapAdjustScalingFactors, MsgStableSwapAdjustScalingFactorsSDKType } from "./tx";
 export interface MsgCreateStableswapPoolAminoType extends AminoMsg {
   type: "osmosis/gamm/create-stableswap-pool";
@@ -42,8 +43,8 @@ export const AminoConverter = {
       return {
         sender,
         pool_params: {
-          swap_fee: poolParams.swapFee,
-          exit_fee: poolParams.exitFee
+          swap_fee: Decimal.fromUserInput(poolParams.swapFee, 18).atomics,
+          exit_fee: Decimal.fromUserInput(poolParams.exitFee, 18).atomics
         },
         initial_pool_liquidity: initialPoolLiquidity.map(el0 => ({
           denom: el0.denom,

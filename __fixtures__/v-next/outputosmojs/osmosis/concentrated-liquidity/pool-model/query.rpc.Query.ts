@@ -3,7 +3,7 @@ import { PositionWithUnderlyingAssetBreakdown, PositionWithUnderlyingAssetBreakd
 import { Any, AnySDKType } from "../../../google/protobuf/any";
 import { Params, ParamsSDKType } from "../params";
 import { Coin, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
-import { Rpc } from "../../../helpers";
+import { TxRpc } from "../../../types";
 import { BinaryReader } from "../../../binary";
 import { QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
 import { QueryPoolsRequest, QueryPoolsRequestSDKType, QueryPoolsResponse, QueryPoolsResponseSDKType, QueryParamsRequest, QueryParamsRequestSDKType, QueryParamsResponse, QueryParamsResponseSDKType, QueryUserPositionsRequest, QueryUserPositionsRequestSDKType, QueryUserPositionsResponse, QueryUserPositionsResponseSDKType, QueryTotalLiquidityForRangeRequest, QueryTotalLiquidityForRangeRequestSDKType, QueryTotalLiquidityForRangeResponse, QueryTotalLiquidityForRangeResponseSDKType, QueryLiquidityNetInDirectionRequest, QueryLiquidityNetInDirectionRequestSDKType, QueryLiquidityNetInDirectionResponse, QueryLiquidityNetInDirectionResponseSDKType, QueryClaimableFeesRequest, QueryClaimableFeesRequestSDKType, QueryClaimableFeesResponse, QueryClaimableFeesResponseSDKType, QueryPositionByIdRequest, QueryPositionByIdRequestSDKType, QueryPositionByIdResponse, QueryPositionByIdResponseSDKType } from "./query";
@@ -31,8 +31,8 @@ export interface Query {
   positionById(request: QueryPositionByIdRequest): Promise<QueryPositionByIdResponse>;
 }
 export class QueryClientImpl implements Query {
-  private readonly rpc: Rpc;
-  constructor(rpc: Rpc) {
+  private readonly rpc: TxRpc;
+  constructor(rpc: TxRpc) {
     this.rpc = rpc;
     this.pools = this.pools.bind(this);
     this.params = this.params.bind(this);

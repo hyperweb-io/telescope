@@ -1,6 +1,7 @@
 //@ts-nocheck
 import { PoolParams, PoolParamsSDKType, PoolAsset, PoolAssetSDKType, SmoothWeightChangeParams, SmoothWeightChangeParamsSDKType } from "../balancerPool.js";
 import { AminoMsg } from "@cosmjs/amino";
+import { Decimal } from "@interchainjs/math";
 import { Duration, DurationSDKType } from "../../../../../google/protobuf/duration.js";
 import { Coin, CoinSDKType } from "../../../../../cosmos/base/v1beta1/coin.js";
 import { MsgCreateBalancerPool, MsgCreateBalancerPoolSDKType } from "./tx.js";
@@ -55,8 +56,8 @@ export const AminoConverter = {
       return {
         sender,
         pool_params: {
-          swap_fee: poolParams.swapFee,
-          exit_fee: poolParams.exitFee,
+          swap_fee: Decimal.fromUserInput(poolParams.swapFee, 18).atomics,
+          exit_fee: Decimal.fromUserInput(poolParams.exitFee, 18).atomics,
           smooth_weight_change_params: {
             start_time: poolParams.smoothWeightChangeParams.startTime,
             duration: (poolParams.smoothWeightChangeParams.duration * 1_000_000_000).toString(),

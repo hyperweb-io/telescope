@@ -1,6 +1,7 @@
 import { Coin, CoinAmino, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { isSet, DeepPartial } from "../../../helpers";
+import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "akash.escrow.v1beta1";
 /** State stores state for an escrow account */
 export enum Account_State {
@@ -279,6 +280,15 @@ function createBaseAccountID(): AccountID {
  */
 export const AccountID = {
   typeUrl: "/akash.escrow.v1beta1.AccountID",
+  is(o: any): o is AccountID {
+    return o && (o.$typeUrl === AccountID.typeUrl || typeof o.scope === "string" && typeof o.xid === "string");
+  },
+  isSDK(o: any): o is AccountIDSDKType {
+    return o && (o.$typeUrl === AccountID.typeUrl || typeof o.scope === "string" && typeof o.xid === "string");
+  },
+  isAmino(o: any): o is AccountIDAmino {
+    return o && (o.$typeUrl === AccountID.typeUrl || typeof o.scope === "string" && typeof o.xid === "string");
+  },
   encode(message: AccountID, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.scope !== "") {
       writer.uint32(10).string(message.scope);
@@ -359,7 +369,8 @@ export const AccountID = {
       typeUrl: "/akash.escrow.v1beta1.AccountID",
       value: AccountID.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseAccount(): Account {
   return {
@@ -379,6 +390,15 @@ function createBaseAccount(): Account {
  */
 export const Account = {
   typeUrl: "/akash.escrow.v1beta1.Account",
+  is(o: any): o is Account {
+    return o && (o.$typeUrl === Account.typeUrl || AccountID.is(o.id) && typeof o.owner === "string" && isSet(o.state) && Coin.is(o.balance) && Coin.is(o.transferred) && typeof o.settledAt === "bigint");
+  },
+  isSDK(o: any): o is AccountSDKType {
+    return o && (o.$typeUrl === Account.typeUrl || AccountID.isSDK(o.id) && typeof o.owner === "string" && isSet(o.state) && Coin.isSDK(o.balance) && Coin.isSDK(o.transferred) && typeof o.settled_at === "bigint");
+  },
+  isAmino(o: any): o is AccountAmino {
+    return o && (o.$typeUrl === Account.typeUrl || AccountID.isAmino(o.id) && typeof o.owner === "string" && isSet(o.state) && Coin.isAmino(o.balance) && Coin.isAmino(o.transferred) && typeof o.settled_at === "bigint");
+  },
   encode(message: Account, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.id !== undefined) {
       AccountID.encode(message.id, writer.uint32(10).fork()).ldelim();
@@ -523,6 +543,13 @@ export const Account = {
       typeUrl: "/akash.escrow.v1beta1.Account",
       value: Account.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Account.typeUrl)) {
+      return;
+    }
+    AccountID.registerTypeUrl();
+    Coin.registerTypeUrl();
   }
 };
 function createBasePayment(): Payment {
@@ -544,6 +571,15 @@ function createBasePayment(): Payment {
  */
 export const Payment = {
   typeUrl: "/akash.escrow.v1beta1.Payment",
+  is(o: any): o is Payment {
+    return o && (o.$typeUrl === Payment.typeUrl || AccountID.is(o.accountId) && typeof o.paymentId === "string" && typeof o.owner === "string" && isSet(o.state) && Coin.is(o.rate) && Coin.is(o.balance) && Coin.is(o.withdrawn));
+  },
+  isSDK(o: any): o is PaymentSDKType {
+    return o && (o.$typeUrl === Payment.typeUrl || AccountID.isSDK(o.account_id) && typeof o.payment_id === "string" && typeof o.owner === "string" && isSet(o.state) && Coin.isSDK(o.rate) && Coin.isSDK(o.balance) && Coin.isSDK(o.withdrawn));
+  },
+  isAmino(o: any): o is PaymentAmino {
+    return o && (o.$typeUrl === Payment.typeUrl || AccountID.isAmino(o.account_id) && typeof o.payment_id === "string" && typeof o.owner === "string" && isSet(o.state) && Coin.isAmino(o.rate) && Coin.isAmino(o.balance) && Coin.isAmino(o.withdrawn));
+  },
   encode(message: Payment, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.accountId !== undefined) {
       AccountID.encode(message.accountId, writer.uint32(10).fork()).ldelim();
@@ -702,5 +738,12 @@ export const Payment = {
       typeUrl: "/akash.escrow.v1beta1.Payment",
       value: Payment.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Payment.typeUrl)) {
+      return;
+    }
+    AccountID.registerTypeUrl();
+    Coin.registerTypeUrl();
   }
 };

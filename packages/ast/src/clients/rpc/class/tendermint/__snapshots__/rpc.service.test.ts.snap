@@ -20,8 +20,8 @@ export interface Service {
 
 exports[`RPC Service Client 2`] = `
 "export class ServiceClientImpl implements Service {
-  private readonly rpc: Rpc;
-  constructor(rpc: Rpc) {
+  private readonly rpc: TxRpc;
+  constructor(rpc: TxRpc) {
     this.rpc = rpc;
     this.getNodeInfo = this.getNodeInfo.bind(this);
     this.getSyncing = this.getSyncing.bind(this);

@@ -1,5 +1,6 @@
 import { Coin, CoinAmino, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../binary";
+import { GlobalDecoderRegistry } from "../../../registry";
 import { isSet, DeepPartial } from "../../../helpers";
 import { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "akash.market.v1beta2";
@@ -55,6 +56,15 @@ function createBaseParams(): Params {
  */
 export const Params = {
   typeUrl: "/akash.market.v1beta2.Params",
+  is(o: any): o is Params {
+    return o && (o.$typeUrl === Params.typeUrl || Coin.is(o.bidMinDeposit) && typeof o.orderMaxBids === "number");
+  },
+  isSDK(o: any): o is ParamsSDKType {
+    return o && (o.$typeUrl === Params.typeUrl || Coin.isSDK(o.bid_min_deposit) && typeof o.order_max_bids === "number");
+  },
+  isAmino(o: any): o is ParamsAmino {
+    return o && (o.$typeUrl === Params.typeUrl || Coin.isAmino(o.bid_min_deposit) && typeof o.order_max_bids === "number");
+  },
   encode(message: Params, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.bidMinDeposit !== undefined) {
       Coin.encode(message.bidMinDeposit, writer.uint32(10).fork()).ldelim();
@@ -146,5 +156,11 @@ export const Params = {
       typeUrl: "/akash.market.v1beta2.Params",
       value: Params.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Params.typeUrl)) {
+      return;
+    }
+    Coin.registerTypeUrl();
   }
 };

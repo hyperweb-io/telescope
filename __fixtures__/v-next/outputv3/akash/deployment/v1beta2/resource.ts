@@ -1,6 +1,7 @@
 import { ResourceUnits, ResourceUnitsAmino, ResourceUnitsSDKType } from "../../base/v1beta2/resourceunits";
 import { DecCoin, DecCoinAmino, DecCoinSDKType } from "../../../cosmos/base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../binary";
+import { GlobalDecoderRegistry } from "../../../registry";
 import { isSet, DeepPartial } from "../../../helpers";
 export const protobufPackage = "akash.deployment.v1beta2";
 /**
@@ -55,6 +56,15 @@ function createBaseResource(): Resource {
  */
 export const Resource = {
   typeUrl: "/akash.deployment.v1beta2.Resource",
+  is(o: any): o is Resource {
+    return o && (o.$typeUrl === Resource.typeUrl || ResourceUnits.is(o.resources) && typeof o.count === "number" && DecCoin.is(o.price));
+  },
+  isSDK(o: any): o is ResourceSDKType {
+    return o && (o.$typeUrl === Resource.typeUrl || ResourceUnits.isSDK(o.resources) && typeof o.count === "number" && DecCoin.isSDK(o.price));
+  },
+  isAmino(o: any): o is ResourceAmino {
+    return o && (o.$typeUrl === Resource.typeUrl || ResourceUnits.isAmino(o.resources) && typeof o.count === "number" && DecCoin.isAmino(o.price));
+  },
   encode(message: Resource, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.resources !== undefined) {
       ResourceUnits.encode(message.resources, writer.uint32(10).fork()).ldelim();
@@ -153,5 +163,12 @@ export const Resource = {
       typeUrl: "/akash.deployment.v1beta2.Resource",
       value: Resource.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Resource.typeUrl)) {
+      return;
+    }
+    ResourceUnits.registerTypeUrl();
+    DecCoin.registerTypeUrl();
   }
 };

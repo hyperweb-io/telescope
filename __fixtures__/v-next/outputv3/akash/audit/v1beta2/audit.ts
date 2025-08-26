@@ -1,6 +1,7 @@
 import { Attribute, AttributeAmino, AttributeSDKType } from "../../base/v1beta2/attribute";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { isSet, DeepPartial } from "../../../helpers";
+import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "akash.audit.v1beta2";
 /**
  * Provider stores owner auditor and attributes details
@@ -280,6 +281,15 @@ function createBaseProvider(): Provider {
  */
 export const Provider = {
   typeUrl: "/akash.audit.v1beta2.Provider",
+  is(o: any): o is Provider {
+    return o && (o.$typeUrl === Provider.typeUrl || typeof o.owner === "string" && typeof o.auditor === "string" && Array.isArray(o.attributes) && (!o.attributes.length || Attribute.is(o.attributes[0])));
+  },
+  isSDK(o: any): o is ProviderSDKType {
+    return o && (o.$typeUrl === Provider.typeUrl || typeof o.owner === "string" && typeof o.auditor === "string" && Array.isArray(o.attributes) && (!o.attributes.length || Attribute.isSDK(o.attributes[0])));
+  },
+  isAmino(o: any): o is ProviderAmino {
+    return o && (o.$typeUrl === Provider.typeUrl || typeof o.owner === "string" && typeof o.auditor === "string" && Array.isArray(o.attributes) && (!o.attributes.length || Attribute.isAmino(o.attributes[0])));
+  },
   encode(message: Provider, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.owner !== "") {
       writer.uint32(10).string(message.owner);
@@ -380,6 +390,12 @@ export const Provider = {
       typeUrl: "/akash.audit.v1beta2.Provider",
       value: Provider.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Provider.typeUrl)) {
+      return;
+    }
+    Attribute.registerTypeUrl();
   }
 };
 function createBaseAuditedAttributes(): AuditedAttributes {
@@ -397,6 +413,15 @@ function createBaseAuditedAttributes(): AuditedAttributes {
  */
 export const AuditedAttributes = {
   typeUrl: "/akash.audit.v1beta2.AuditedAttributes",
+  is(o: any): o is AuditedAttributes {
+    return o && (o.$typeUrl === AuditedAttributes.typeUrl || typeof o.owner === "string" && typeof o.auditor === "string" && Array.isArray(o.attributes) && (!o.attributes.length || Attribute.is(o.attributes[0])));
+  },
+  isSDK(o: any): o is AuditedAttributesSDKType {
+    return o && (o.$typeUrl === AuditedAttributes.typeUrl || typeof o.owner === "string" && typeof o.auditor === "string" && Array.isArray(o.attributes) && (!o.attributes.length || Attribute.isSDK(o.attributes[0])));
+  },
+  isAmino(o: any): o is AuditedAttributesAmino {
+    return o && (o.$typeUrl === AuditedAttributes.typeUrl || typeof o.owner === "string" && typeof o.auditor === "string" && Array.isArray(o.attributes) && (!o.attributes.length || Attribute.isAmino(o.attributes[0])));
+  },
   encode(message: AuditedAttributes, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.owner !== "") {
       writer.uint32(10).string(message.owner);
@@ -497,6 +522,12 @@ export const AuditedAttributes = {
       typeUrl: "/akash.audit.v1beta2.AuditedAttributes",
       value: AuditedAttributes.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(AuditedAttributes.typeUrl)) {
+      return;
+    }
+    Attribute.registerTypeUrl();
   }
 };
 function createBaseAttributesResponse(): AttributesResponse {
@@ -512,6 +543,15 @@ function createBaseAttributesResponse(): AttributesResponse {
  */
 export const AttributesResponse = {
   typeUrl: "/akash.audit.v1beta2.AttributesResponse",
+  is(o: any): o is AttributesResponse {
+    return o && (o.$typeUrl === AttributesResponse.typeUrl || Array.isArray(o.attributes) && (!o.attributes.length || AuditedAttributes.is(o.attributes[0])));
+  },
+  isSDK(o: any): o is AttributesResponseSDKType {
+    return o && (o.$typeUrl === AttributesResponse.typeUrl || Array.isArray(o.attributes) && (!o.attributes.length || AuditedAttributes.isSDK(o.attributes[0])));
+  },
+  isAmino(o: any): o is AttributesResponseAmino {
+    return o && (o.$typeUrl === AttributesResponse.typeUrl || Array.isArray(o.attributes) && (!o.attributes.length || AuditedAttributes.isAmino(o.attributes[0])));
+  },
   encode(message: AttributesResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.attributes) {
       AuditedAttributes.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -584,6 +624,12 @@ export const AttributesResponse = {
       typeUrl: "/akash.audit.v1beta2.AttributesResponse",
       value: AttributesResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(AttributesResponse.typeUrl)) {
+      return;
+    }
+    AuditedAttributes.registerTypeUrl();
   }
 };
 function createBaseAttributesFilters(): AttributesFilters {
@@ -600,6 +646,15 @@ function createBaseAttributesFilters(): AttributesFilters {
  */
 export const AttributesFilters = {
   typeUrl: "/akash.audit.v1beta2.AttributesFilters",
+  is(o: any): o is AttributesFilters {
+    return o && (o.$typeUrl === AttributesFilters.typeUrl || Array.isArray(o.auditors) && (!o.auditors.length || typeof o.auditors[0] === "string") && Array.isArray(o.owners) && (!o.owners.length || typeof o.owners[0] === "string"));
+  },
+  isSDK(o: any): o is AttributesFiltersSDKType {
+    return o && (o.$typeUrl === AttributesFilters.typeUrl || Array.isArray(o.auditors) && (!o.auditors.length || typeof o.auditors[0] === "string") && Array.isArray(o.owners) && (!o.owners.length || typeof o.owners[0] === "string"));
+  },
+  isAmino(o: any): o is AttributesFiltersAmino {
+    return o && (o.$typeUrl === AttributesFilters.typeUrl || Array.isArray(o.auditors) && (!o.auditors.length || typeof o.auditors[0] === "string") && Array.isArray(o.owners) && (!o.owners.length || typeof o.owners[0] === "string"));
+  },
   encode(message: AttributesFilters, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.auditors) {
       writer.uint32(10).string(v!);
@@ -692,7 +747,8 @@ export const AttributesFilters = {
       typeUrl: "/akash.audit.v1beta2.AttributesFilters",
       value: AttributesFilters.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseMsgSignProviderAttributes(): MsgSignProviderAttributes {
   return {
@@ -709,6 +765,15 @@ function createBaseMsgSignProviderAttributes(): MsgSignProviderAttributes {
  */
 export const MsgSignProviderAttributes = {
   typeUrl: "/akash.audit.v1beta2.MsgSignProviderAttributes",
+  is(o: any): o is MsgSignProviderAttributes {
+    return o && (o.$typeUrl === MsgSignProviderAttributes.typeUrl || typeof o.owner === "string" && typeof o.auditor === "string" && Array.isArray(o.attributes) && (!o.attributes.length || Attribute.is(o.attributes[0])));
+  },
+  isSDK(o: any): o is MsgSignProviderAttributesSDKType {
+    return o && (o.$typeUrl === MsgSignProviderAttributes.typeUrl || typeof o.owner === "string" && typeof o.auditor === "string" && Array.isArray(o.attributes) && (!o.attributes.length || Attribute.isSDK(o.attributes[0])));
+  },
+  isAmino(o: any): o is MsgSignProviderAttributesAmino {
+    return o && (o.$typeUrl === MsgSignProviderAttributes.typeUrl || typeof o.owner === "string" && typeof o.auditor === "string" && Array.isArray(o.attributes) && (!o.attributes.length || Attribute.isAmino(o.attributes[0])));
+  },
   encode(message: MsgSignProviderAttributes, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.owner !== "") {
       writer.uint32(10).string(message.owner);
@@ -809,6 +874,12 @@ export const MsgSignProviderAttributes = {
       typeUrl: "/akash.audit.v1beta2.MsgSignProviderAttributes",
       value: MsgSignProviderAttributes.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgSignProviderAttributes.typeUrl)) {
+      return;
+    }
+    Attribute.registerTypeUrl();
   }
 };
 function createBaseMsgSignProviderAttributesResponse(): MsgSignProviderAttributesResponse {
@@ -822,6 +893,15 @@ function createBaseMsgSignProviderAttributesResponse(): MsgSignProviderAttribute
  */
 export const MsgSignProviderAttributesResponse = {
   typeUrl: "/akash.audit.v1beta2.MsgSignProviderAttributesResponse",
+  is(o: any): o is MsgSignProviderAttributesResponse {
+    return o && o.$typeUrl === MsgSignProviderAttributesResponse.typeUrl;
+  },
+  isSDK(o: any): o is MsgSignProviderAttributesResponseSDKType {
+    return o && o.$typeUrl === MsgSignProviderAttributesResponse.typeUrl;
+  },
+  isAmino(o: any): o is MsgSignProviderAttributesResponseAmino {
+    return o && o.$typeUrl === MsgSignProviderAttributesResponse.typeUrl;
+  },
   encode(_: MsgSignProviderAttributesResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -873,7 +953,8 @@ export const MsgSignProviderAttributesResponse = {
       typeUrl: "/akash.audit.v1beta2.MsgSignProviderAttributesResponse",
       value: MsgSignProviderAttributesResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseMsgDeleteProviderAttributes(): MsgDeleteProviderAttributes {
   return {
@@ -890,6 +971,15 @@ function createBaseMsgDeleteProviderAttributes(): MsgDeleteProviderAttributes {
  */
 export const MsgDeleteProviderAttributes = {
   typeUrl: "/akash.audit.v1beta2.MsgDeleteProviderAttributes",
+  is(o: any): o is MsgDeleteProviderAttributes {
+    return o && (o.$typeUrl === MsgDeleteProviderAttributes.typeUrl || typeof o.owner === "string" && typeof o.auditor === "string" && Array.isArray(o.keys) && (!o.keys.length || typeof o.keys[0] === "string"));
+  },
+  isSDK(o: any): o is MsgDeleteProviderAttributesSDKType {
+    return o && (o.$typeUrl === MsgDeleteProviderAttributes.typeUrl || typeof o.owner === "string" && typeof o.auditor === "string" && Array.isArray(o.keys) && (!o.keys.length || typeof o.keys[0] === "string"));
+  },
+  isAmino(o: any): o is MsgDeleteProviderAttributesAmino {
+    return o && (o.$typeUrl === MsgDeleteProviderAttributes.typeUrl || typeof o.owner === "string" && typeof o.auditor === "string" && Array.isArray(o.keys) && (!o.keys.length || typeof o.keys[0] === "string"));
+  },
   encode(message: MsgDeleteProviderAttributes, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.owner !== "") {
       writer.uint32(10).string(message.owner);
@@ -990,7 +1080,8 @@ export const MsgDeleteProviderAttributes = {
       typeUrl: "/akash.audit.v1beta2.MsgDeleteProviderAttributes",
       value: MsgDeleteProviderAttributes.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseMsgDeleteProviderAttributesResponse(): MsgDeleteProviderAttributesResponse {
   return {};
@@ -1003,6 +1094,15 @@ function createBaseMsgDeleteProviderAttributesResponse(): MsgDeleteProviderAttri
  */
 export const MsgDeleteProviderAttributesResponse = {
   typeUrl: "/akash.audit.v1beta2.MsgDeleteProviderAttributesResponse",
+  is(o: any): o is MsgDeleteProviderAttributesResponse {
+    return o && o.$typeUrl === MsgDeleteProviderAttributesResponse.typeUrl;
+  },
+  isSDK(o: any): o is MsgDeleteProviderAttributesResponseSDKType {
+    return o && o.$typeUrl === MsgDeleteProviderAttributesResponse.typeUrl;
+  },
+  isAmino(o: any): o is MsgDeleteProviderAttributesResponseAmino {
+    return o && o.$typeUrl === MsgDeleteProviderAttributesResponse.typeUrl;
+  },
   encode(_: MsgDeleteProviderAttributesResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -1054,5 +1154,6 @@ export const MsgDeleteProviderAttributesResponse = {
       typeUrl: "/akash.audit.v1beta2.MsgDeleteProviderAttributesResponse",
       value: MsgDeleteProviderAttributesResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

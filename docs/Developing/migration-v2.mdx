@@ -1,0 +1,74 @@
+## Migration to v2.0
+Telescope v2.0 introduces significant changes that modernize the codebase and improve developer experience. The most notable change is the migration from CosmJS to **InterchainJS** as the default signing client library.
+
+### 🚀 Major Changes
+
+#### InterchainJS as Default
+
+The biggest change in v2.0 is that **InterchainJS is now the default** instead of CosmJS. This provides:
+
+- **Better TypeScript support** with improved type safety
+- **Enhanced multi-chain capabilities** for cross-chain applications
+- **Modern signing patterns** with improved developer experience
+- **Future-proof architecture** aligned with the latest Cosmos ecosystem standards
+
+#### Environment Preset Changes
+
+The default environment preset has changed from `"default"` to `"v-next"`, enabling more modern code generation patterns.
+
+### 🔧 Configuration Changes
+
+#### New Defaults in v2.0
+
+```typescript
+// v2.0 defaults
+const telescopeOptions = {
+  env: "v-next",                    // Changed from "default"
+  useInterchainJs: true,            // Changed from false
+  
+  // Enhanced interface support
+  interfaces: {
+    enabled: true,
+    useGlobalDecoderRegistry: true, // Changed from false
+    useUnionTypes: true,            // Changed from false
+  },
+  
+  // Improved prototypes configuration
+  prototypes: {
+    methods: {
+      fromJSON: false,              // Changed from true
+      toJSON: false,                // Changed from true
+      toSDK: false,                 // Changed from true
+      fromSDK: false,               // Changed from true
+      fromSDKJSON: false,           // Changed from true
+    },
+    enableRegistryLoader: false,    // Changed from true
+    typingsFormat: {
+      num64: "bigint",              // Changed from "long"
+      useTelescopeGeneratedType: true, // New option
+      setDefaultEnumToUnrecognized: true, // New behavior
+    }
+  },
+  
+  // Client generation defaults
+  stargateClients: {
+    enabled: false,                 // Changed from true
+  },
+  lcdClients: {
+    enabled: false,                 // Changed from true
+  },
+  rpcClients: {
+    enabled: false,                 // Changed from true
+  },
+  
+  // Helper functions enabled by default
+  helperFunctions: {
+    enabled: true,                  // Changed from false
+    useGlobalDecoderRegistry: true,
+  }
+};
+```
+
+### 📚 Additional Resources
+
+- [InterchainJS Documentation](https://github.com/hyperweb-io/interchainjs)

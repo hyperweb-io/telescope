@@ -1,0 +1,114 @@
+import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../base/query/v1beta1/pagination.js";
+import { Params, ParamsSDKType, ValidatorOutstandingRewards, ValidatorOutstandingRewardsSDKType, ValidatorAccumulatedCommission, ValidatorAccumulatedCommissionSDKType, ValidatorSlashEvent, ValidatorSlashEventSDKType, DelegationDelegatorReward, DelegationDelegatorRewardSDKType } from "./distribution.js";
+import { DecCoin, DecCoinSDKType } from "../../base/v1beta1/coin.js";
+import { EndpointOrRpc, buildQuery } from "../../../helper-func-types.js";
+import { QueryParamsRequest, QueryParamsRequestSDKType, QueryParamsResponse, QueryParamsResponseSDKType, QueryValidatorOutstandingRewardsRequest, QueryValidatorOutstandingRewardsRequestSDKType, QueryValidatorOutstandingRewardsResponse, QueryValidatorOutstandingRewardsResponseSDKType, QueryValidatorCommissionRequest, QueryValidatorCommissionRequestSDKType, QueryValidatorCommissionResponse, QueryValidatorCommissionResponseSDKType, QueryValidatorSlashesRequest, QueryValidatorSlashesRequestSDKType, QueryValidatorSlashesResponse, QueryValidatorSlashesResponseSDKType, QueryDelegationRewardsRequest, QueryDelegationRewardsRequestSDKType, QueryDelegationRewardsResponse, QueryDelegationRewardsResponseSDKType, QueryDelegationTotalRewardsRequest, QueryDelegationTotalRewardsRequestSDKType, QueryDelegationTotalRewardsResponse, QueryDelegationTotalRewardsResponseSDKType, QueryDelegatorValidatorsRequest, QueryDelegatorValidatorsRequestSDKType, QueryDelegatorValidatorsResponse, QueryDelegatorValidatorsResponseSDKType, QueryDelegatorWithdrawAddressRequest, QueryDelegatorWithdrawAddressRequestSDKType, QueryDelegatorWithdrawAddressResponse, QueryDelegatorWithdrawAddressResponseSDKType, QueryCommunityPoolRequest, QueryCommunityPoolRequestSDKType, QueryCommunityPoolResponse, QueryCommunityPoolResponseSDKType } from "./query.js";
+/**
+ * Params queries params of the distribution module.
+ * @name getParams
+ * @package cosmos.distribution.v1beta1
+ * @see proto service: cosmos.distribution.v1beta1.Params
+ */
+export const getParams = buildQuery<QueryParamsRequest, QueryParamsResponse>({
+  encode: QueryParamsRequest.encode,
+  decode: QueryParamsResponse.decode,
+  service: "cosmos.distribution.v1beta1.Query",
+  method: "Params"
+});
+/**
+ * ValidatorOutstandingRewards queries rewards of a validator address.
+ * @name getValidatorOutstandingRewards
+ * @package cosmos.distribution.v1beta1
+ * @see proto service: cosmos.distribution.v1beta1.ValidatorOutstandingRewards
+ */
+export const getValidatorOutstandingRewards = buildQuery<QueryValidatorOutstandingRewardsRequest, QueryValidatorOutstandingRewardsResponse>({
+  encode: QueryValidatorOutstandingRewardsRequest.encode,
+  decode: QueryValidatorOutstandingRewardsResponse.decode,
+  service: "cosmos.distribution.v1beta1.Query",
+  method: "ValidatorOutstandingRewards"
+});
+/**
+ * ValidatorCommission queries accumulated commission for a validator.
+ * @name getValidatorCommission
+ * @package cosmos.distribution.v1beta1
+ * @see proto service: cosmos.distribution.v1beta1.ValidatorCommission
+ */
+export const getValidatorCommission = buildQuery<QueryValidatorCommissionRequest, QueryValidatorCommissionResponse>({
+  encode: QueryValidatorCommissionRequest.encode,
+  decode: QueryValidatorCommissionResponse.decode,
+  service: "cosmos.distribution.v1beta1.Query",
+  method: "ValidatorCommission"
+});
+/**
+ * ValidatorSlashes queries slash events of a validator.
+ * @name getValidatorSlashes
+ * @package cosmos.distribution.v1beta1
+ * @see proto service: cosmos.distribution.v1beta1.ValidatorSlashes
+ */
+export const getValidatorSlashes = buildQuery<QueryValidatorSlashesRequest, QueryValidatorSlashesResponse>({
+  encode: QueryValidatorSlashesRequest.encode,
+  decode: QueryValidatorSlashesResponse.decode,
+  service: "cosmos.distribution.v1beta1.Query",
+  method: "ValidatorSlashes"
+});
+/**
+ * DelegationRewards queries the total rewards accrued by a delegation.
+ * @name getDelegationRewards
+ * @package cosmos.distribution.v1beta1
+ * @see proto service: cosmos.distribution.v1beta1.DelegationRewards
+ */
+export const getDelegationRewards = buildQuery<QueryDelegationRewardsRequest, QueryDelegationRewardsResponse>({
+  encode: QueryDelegationRewardsRequest.encode,
+  decode: QueryDelegationRewardsResponse.decode,
+  service: "cosmos.distribution.v1beta1.Query",
+  method: "DelegationRewards"
+});
+/**
+ * DelegationTotalRewards queries the total rewards accrued by a each
+ * validator.
+ * @name getDelegationTotalRewards
+ * @package cosmos.distribution.v1beta1
+ * @see proto service: cosmos.distribution.v1beta1.DelegationTotalRewards
+ */
+export const getDelegationTotalRewards = buildQuery<QueryDelegationTotalRewardsRequest, QueryDelegationTotalRewardsResponse>({
+  encode: QueryDelegationTotalRewardsRequest.encode,
+  decode: QueryDelegationTotalRewardsResponse.decode,
+  service: "cosmos.distribution.v1beta1.Query",
+  method: "DelegationTotalRewards"
+});
+/**
+ * DelegatorValidators queries the validators of a delegator.
+ * @name getDelegatorValidators
+ * @package cosmos.distribution.v1beta1
+ * @see proto service: cosmos.distribution.v1beta1.DelegatorValidators
+ */
+export const getDelegatorValidators = buildQuery<QueryDelegatorValidatorsRequest, QueryDelegatorValidatorsResponse>({
+  encode: QueryDelegatorValidatorsRequest.encode,
+  decode: QueryDelegatorValidatorsResponse.decode,
+  service: "cosmos.distribution.v1beta1.Query",
+  method: "DelegatorValidators"
+});
+/**
+ * DelegatorWithdrawAddress queries withdraw address of a delegator.
+ * @name getDelegatorWithdrawAddress
+ * @package cosmos.distribution.v1beta1
+ * @see proto service: cosmos.distribution.v1beta1.DelegatorWithdrawAddress
+ */
+export const getDelegatorWithdrawAddress = buildQuery<QueryDelegatorWithdrawAddressRequest, QueryDelegatorWithdrawAddressResponse>({
+  encode: QueryDelegatorWithdrawAddressRequest.encode,
+  decode: QueryDelegatorWithdrawAddressResponse.decode,
+  service: "cosmos.distribution.v1beta1.Query",
+  method: "DelegatorWithdrawAddress"
+});
+/**
+ * CommunityPool queries the community pool coins.
+ * @name getCommunityPool
+ * @package cosmos.distribution.v1beta1
+ * @see proto service: cosmos.distribution.v1beta1.CommunityPool
+ */
+export const getCommunityPool = buildQuery<QueryCommunityPoolRequest, QueryCommunityPoolResponse>({
+  encode: QueryCommunityPoolRequest.encode,
+  decode: QueryCommunityPoolResponse.decode,
+  service: "cosmos.distribution.v1beta1.Query",
+  method: "CommunityPool"
+});

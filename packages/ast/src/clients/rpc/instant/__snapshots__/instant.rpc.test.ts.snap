@@ -2,8 +2,8 @@
 
 exports[`createInstantRpcClass 1`] = `
 "export class CosmosAuth {
-  rpc: Rpc;
-  init(rpc: Rpc) {
+  rpc: TxRpc;
+  init(rpc: TxRpc) {
     this.rpc = rpc;
     this.authAccount = _CosmosAuthV1beta1Queryrpc.createClientImpl(rpc).account;
     this.bankAccount = _CosmosBankV1beta1Queryrpc.createClientImpl(rpc).account;
@@ -13,8 +13,8 @@ exports[`createInstantRpcClass 1`] = `
 
 exports[`createInstantRpcClass 2`] = `
 "export class CosmosAuth {
-  rpc: Rpc;
-  init(rpc: Rpc) {
+  rpc: TxRpc;
+  init(rpc: TxRpc) {
     this.rpc = rpc;
     this.authAccount = _CosmosAuthV1beta1Queryrpc.createClientImpl(rpc).account;
     this.bankAccount = _CosmosBankV1beta1Msgrpc.createClientImpl(rpc).account;

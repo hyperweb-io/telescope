@@ -1,5 +1,6 @@
 import { ExponentialCalculation, ExponentialCalculationAmino, ExponentialCalculationSDKType, InflationDistribution, InflationDistributionAmino, InflationDistributionSDKType } from "./inflation";
 import { BinaryReader, BinaryWriter } from "../../../binary";
+import { GlobalDecoderRegistry } from "../../../registry";
 import { isSet, DeepPartial } from "../../../helpers";
 export const protobufPackage = "evmos.inflation.v1";
 /**
@@ -156,6 +157,15 @@ function createBaseGenesisState(): GenesisState {
  */
 export const GenesisState = {
   typeUrl: "/evmos.inflation.v1.GenesisState",
+  is(o: any): o is GenesisState {
+    return o && (o.$typeUrl === GenesisState.typeUrl || Params.is(o.params) && typeof o.period === "bigint" && typeof o.epochIdentifier === "string" && typeof o.epochsPerPeriod === "bigint" && typeof o.skippedEpochs === "bigint");
+  },
+  isSDK(o: any): o is GenesisStateSDKType {
+    return o && (o.$typeUrl === GenesisState.typeUrl || Params.isSDK(o.params) && typeof o.period === "bigint" && typeof o.epoch_identifier === "string" && typeof o.epochs_per_period === "bigint" && typeof o.skipped_epochs === "bigint");
+  },
+  isAmino(o: any): o is GenesisStateAmino {
+    return o && (o.$typeUrl === GenesisState.typeUrl || Params.isAmino(o.params) && typeof o.period === "bigint" && typeof o.epoch_identifier === "string" && typeof o.epochs_per_period === "bigint" && typeof o.skipped_epochs === "bigint");
+  },
   encode(message: GenesisState, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.params !== undefined) {
       Params.encode(message.params, writer.uint32(10).fork()).ldelim();
@@ -286,6 +296,12 @@ export const GenesisState = {
       typeUrl: "/evmos.inflation.v1.GenesisState",
       value: GenesisState.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(GenesisState.typeUrl)) {
+      return;
+    }
+    Params.registerTypeUrl();
   }
 };
 function createBaseParams(): Params {
@@ -304,6 +320,15 @@ function createBaseParams(): Params {
  */
 export const Params = {
   typeUrl: "/evmos.inflation.v1.Params",
+  is(o: any): o is Params {
+    return o && (o.$typeUrl === Params.typeUrl || typeof o.mintDenom === "string" && ExponentialCalculation.is(o.exponentialCalculation) && InflationDistribution.is(o.inflationDistribution) && typeof o.enableInflation === "boolean");
+  },
+  isSDK(o: any): o is ParamsSDKType {
+    return o && (o.$typeUrl === Params.typeUrl || typeof o.mint_denom === "string" && ExponentialCalculation.isSDK(o.exponential_calculation) && InflationDistribution.isSDK(o.inflation_distribution) && typeof o.enable_inflation === "boolean");
+  },
+  isAmino(o: any): o is ParamsAmino {
+    return o && (o.$typeUrl === Params.typeUrl || typeof o.mint_denom === "string" && ExponentialCalculation.isAmino(o.exponential_calculation) && InflationDistribution.isAmino(o.inflation_distribution) && typeof o.enable_inflation === "boolean");
+  },
   encode(message: Params, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.mintDenom !== "") {
       writer.uint32(10).string(message.mintDenom);
@@ -416,5 +441,12 @@ export const Params = {
       typeUrl: "/evmos.inflation.v1.Params",
       value: Params.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Params.typeUrl)) {
+      return;
+    }
+    ExponentialCalculation.registerTypeUrl();
+    InflationDistribution.registerTypeUrl();
   }
 };

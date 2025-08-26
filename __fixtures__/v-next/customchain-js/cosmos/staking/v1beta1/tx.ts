@@ -605,7 +605,7 @@ export const MsgEditValidator = {
     const obj: any = {};
     obj.description = message.description ? Description.toAmino(message.description) : undefined;
     obj.validator_address = message.validatorAddress === "" ? undefined : message.validatorAddress;
-    obj.commission_rate = message.commissionRate === "" ? undefined : message.commissionRate;
+    obj.commission_rate = message.commissionRate === "" ? undefined : Decimal.fromUserInput(message.commissionRate, 18).atomics;
     obj.min_self_delegation = message.minSelfDelegation === "" ? undefined : message.minSelfDelegation;
     return obj;
   },

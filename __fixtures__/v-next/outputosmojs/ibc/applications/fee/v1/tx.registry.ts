@@ -1,12 +1,7 @@
 import { Fee, FeeSDKType, PacketFee, PacketFeeSDKType } from "./fee";
-import { GeneratedType, Registry } from "@cosmjs/proto-signing";
+import { TelescopeGeneratedType } from "../../../../types";
 import { MsgRegisterPayee, MsgRegisterPayeeSDKType, MsgRegisterCounterpartyPayee, MsgRegisterCounterpartyPayeeSDKType, MsgPayPacketFee, MsgPayPacketFeeSDKType, MsgPayPacketFeeAsync, MsgPayPacketFeeAsyncSDKType } from "./tx";
-export const registry: ReadonlyArray<[string, GeneratedType]> = [["/ibc.applications.fee.v1.MsgRegisterPayee", MsgRegisterPayee], ["/ibc.applications.fee.v1.MsgRegisterCounterpartyPayee", MsgRegisterCounterpartyPayee], ["/ibc.applications.fee.v1.MsgPayPacketFee", MsgPayPacketFee], ["/ibc.applications.fee.v1.MsgPayPacketFeeAsync", MsgPayPacketFeeAsync]];
-export const load = (protoRegistry: Registry) => {
-  registry.forEach(([typeUrl, mod]) => {
-    protoRegistry.register(typeUrl, mod);
-  });
-};
+export const registry: ReadonlyArray<[string, TelescopeGeneratedType<any, any, any>]> = [["/ibc.applications.fee.v1.MsgRegisterPayee", MsgRegisterPayee], ["/ibc.applications.fee.v1.MsgRegisterCounterpartyPayee", MsgRegisterCounterpartyPayee], ["/ibc.applications.fee.v1.MsgPayPacketFee", MsgPayPacketFee], ["/ibc.applications.fee.v1.MsgPayPacketFeeAsync", MsgPayPacketFeeAsync]];
 export const MessageComposer = {
   encoded: {
     registerPayee(value: MsgRegisterPayee) {

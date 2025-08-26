@@ -1,6 +1,7 @@
 import { DecCoin, DecCoinAmino, DecCoinSDKType, Coin, CoinAmino, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { isSet, DeepPartial } from "../../../helpers";
+import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "akash.escrow.v1beta2";
 /** State stores state for an escrow account */
 export enum Account_State {
@@ -303,6 +304,15 @@ function createBaseAccountID(): AccountID {
  */
 export const AccountID = {
   typeUrl: "/akash.escrow.v1beta2.AccountID",
+  is(o: any): o is AccountID {
+    return o && (o.$typeUrl === AccountID.typeUrl || typeof o.scope === "string" && typeof o.xid === "string");
+  },
+  isSDK(o: any): o is AccountIDSDKType {
+    return o && (o.$typeUrl === AccountID.typeUrl || typeof o.scope === "string" && typeof o.xid === "string");
+  },
+  isAmino(o: any): o is AccountIDAmino {
+    return o && (o.$typeUrl === AccountID.typeUrl || typeof o.scope === "string" && typeof o.xid === "string");
+  },
   encode(message: AccountID, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.scope !== "") {
       writer.uint32(10).string(message.scope);
@@ -383,7 +393,8 @@ export const AccountID = {
       typeUrl: "/akash.escrow.v1beta2.AccountID",
       value: AccountID.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseAccount(): Account {
   return {
@@ -405,6 +416,15 @@ function createBaseAccount(): Account {
  */
 export const Account = {
   typeUrl: "/akash.escrow.v1beta2.Account",
+  is(o: any): o is Account {
+    return o && (o.$typeUrl === Account.typeUrl || AccountID.is(o.id) && typeof o.owner === "string" && isSet(o.state) && DecCoin.is(o.balance) && DecCoin.is(o.transferred) && typeof o.settledAt === "bigint" && typeof o.depositor === "string" && DecCoin.is(o.funds));
+  },
+  isSDK(o: any): o is AccountSDKType {
+    return o && (o.$typeUrl === Account.typeUrl || AccountID.isSDK(o.id) && typeof o.owner === "string" && isSet(o.state) && DecCoin.isSDK(o.balance) && DecCoin.isSDK(o.transferred) && typeof o.settled_at === "bigint" && typeof o.depositor === "string" && DecCoin.isSDK(o.funds));
+  },
+  isAmino(o: any): o is AccountAmino {
+    return o && (o.$typeUrl === Account.typeUrl || AccountID.isAmino(o.id) && typeof o.owner === "string" && isSet(o.state) && DecCoin.isAmino(o.balance) && DecCoin.isAmino(o.transferred) && typeof o.settled_at === "bigint" && typeof o.depositor === "string" && DecCoin.isAmino(o.funds));
+  },
   encode(message: Account, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.id !== undefined) {
       AccountID.encode(message.id, writer.uint32(10).fork()).ldelim();
@@ -579,6 +599,13 @@ export const Account = {
       typeUrl: "/akash.escrow.v1beta2.Account",
       value: Account.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Account.typeUrl)) {
+      return;
+    }
+    AccountID.registerTypeUrl();
+    DecCoin.registerTypeUrl();
   }
 };
 function createBaseFractionalPayment(): FractionalPayment {
@@ -600,6 +627,15 @@ function createBaseFractionalPayment(): FractionalPayment {
  */
 export const FractionalPayment = {
   typeUrl: "/akash.escrow.v1beta2.FractionalPayment",
+  is(o: any): o is FractionalPayment {
+    return o && (o.$typeUrl === FractionalPayment.typeUrl || AccountID.is(o.accountId) && typeof o.paymentId === "string" && typeof o.owner === "string" && isSet(o.state) && DecCoin.is(o.rate) && DecCoin.is(o.balance) && Coin.is(o.withdrawn));
+  },
+  isSDK(o: any): o is FractionalPaymentSDKType {
+    return o && (o.$typeUrl === FractionalPayment.typeUrl || AccountID.isSDK(o.account_id) && typeof o.payment_id === "string" && typeof o.owner === "string" && isSet(o.state) && DecCoin.isSDK(o.rate) && DecCoin.isSDK(o.balance) && Coin.isSDK(o.withdrawn));
+  },
+  isAmino(o: any): o is FractionalPaymentAmino {
+    return o && (o.$typeUrl === FractionalPayment.typeUrl || AccountID.isAmino(o.account_id) && typeof o.payment_id === "string" && typeof o.owner === "string" && isSet(o.state) && DecCoin.isAmino(o.rate) && DecCoin.isAmino(o.balance) && Coin.isAmino(o.withdrawn));
+  },
   encode(message: FractionalPayment, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.accountId !== undefined) {
       AccountID.encode(message.accountId, writer.uint32(10).fork()).ldelim();
@@ -758,5 +794,13 @@ export const FractionalPayment = {
       typeUrl: "/akash.escrow.v1beta2.FractionalPayment",
       value: FractionalPayment.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(FractionalPayment.typeUrl)) {
+      return;
+    }
+    AccountID.registerTypeUrl();
+    DecCoin.registerTypeUrl();
+    Coin.registerTypeUrl();
   }
 };

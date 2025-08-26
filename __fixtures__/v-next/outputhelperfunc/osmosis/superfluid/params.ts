@@ -1,5 +1,5 @@
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { Decimal } from "@cosmjs/math";
+import { Decimal } from "@interchainjs/math";
 import { isSet, DeepPartial } from "../../helpers";
 import { JsonSafe } from "../../json-safe";
 export const protobufPackage = "osmosis.superfluid";
@@ -135,7 +135,7 @@ export const Params = {
   },
   toAmino(message: Params): ParamsAmino {
     const obj: any = {};
-    obj.minimum_risk_factor = message.minimumRiskFactor === "" ? undefined : message.minimumRiskFactor;
+    obj.minimum_risk_factor = message.minimumRiskFactor === "" ? undefined : Decimal.fromUserInput(message.minimumRiskFactor, 18).atomics;
     return obj;
   },
   fromAminoMsg(object: ParamsAminoMsg): Params {

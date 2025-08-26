@@ -2,7 +2,7 @@ import { FeeToken, FeeTokenSDKType } from "./feetoken.js";
 import { BinaryReader, BinaryWriter } from "../../../binary.js";
 import { JsonSafe } from "../../../json-safe.js";
 import { DeepPartial, isSet } from "../../../helpers.js";
-import { Decimal } from "@cosmjs/math";
+import { Decimal } from "@interchainjs/math";
 export const protobufPackage = "osmosis.txfees.v1beta1";
 /**
  * @name QueryFeeTokensRequest
@@ -550,7 +550,7 @@ export const QueryDenomSpotPriceResponse = {
   toAmino(message: QueryDenomSpotPriceResponse): QueryDenomSpotPriceResponseAmino {
     const obj: any = {};
     obj.poolID = message.poolID !== BigInt(0) ? message.poolID?.toString() : undefined;
-    obj.spot_price = message.spotPrice === "" ? undefined : message.spotPrice;
+    obj.spot_price = message.spotPrice === "" ? undefined : Decimal.fromUserInput(message.spotPrice, 18).atomics;
     return obj;
   },
   fromAminoMsg(object: QueryDenomSpotPriceResponseAminoMsg): QueryDenomSpotPriceResponse {

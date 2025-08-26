@@ -197,9 +197,15 @@ export const InputMsg = {
       typeUrl: "/misc.InputMsg",
       value: InputMsg.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(InputMsg.typeUrl)) {
+      return;
+    }
+    EncodingTestForDontOmit.registerTypeUrl();
+    EncodingTestForOmit.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(InputMsg.typeUrl, InputMsg);
 function createBaseMsgResponse(): MsgResponse {
   return {};
 }
@@ -281,6 +287,6 @@ export const MsgResponse = {
       typeUrl: "/misc.MsgResponse",
       value: MsgResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgResponse.typeUrl, MsgResponse);

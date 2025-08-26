@@ -242,6 +242,15 @@ function createBaseHttpBody(): HttpBody {
  */
 export const HttpBody = {
   typeUrl: "/google.api.HttpBody",
+  is(o: any): o is HttpBody {
+    return o && (o.$typeUrl === HttpBody.typeUrl || typeof o.contentType === "string" && (o.data instanceof Uint8Array || typeof o.data === "string") && Array.isArray(o.extensions) && (!o.extensions.length || Any.is(o.extensions[0])));
+  },
+  isSDK(o: any): o is HttpBodySDKType {
+    return o && (o.$typeUrl === HttpBody.typeUrl || typeof o.content_type === "string" && (o.data instanceof Uint8Array || typeof o.data === "string") && Array.isArray(o.extensions) && (!o.extensions.length || Any.isSDK(o.extensions[0])));
+  },
+  isAmino(o: any): o is HttpBodyAmino {
+    return o && (o.$typeUrl === HttpBody.typeUrl || typeof o.content_type === "string" && (o.data instanceof Uint8Array || typeof o.data === "string") && Array.isArray(o.extensions) && (!o.extensions.length || Any.isAmino(o.extensions[0])));
+  },
   encode(message: HttpBody, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.contentType !== "") {
       writer.uint32(10).string(message.contentType);
@@ -342,5 +351,6 @@ export const HttpBody = {
       typeUrl: "/google.api.HttpBody",
       value: HttpBody.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

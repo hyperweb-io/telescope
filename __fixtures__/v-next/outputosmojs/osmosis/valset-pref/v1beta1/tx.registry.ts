@@ -1,13 +1,8 @@
 import { ValidatorPreference, ValidatorPreferenceSDKType } from "./state";
 import { Coin, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
-import { GeneratedType, Registry } from "@cosmjs/proto-signing";
+import { TelescopeGeneratedType } from "../../../types";
 import { MsgSetValidatorSetPreference, MsgSetValidatorSetPreferenceSDKType, MsgDelegateToValidatorSet, MsgDelegateToValidatorSetSDKType, MsgUndelegateFromValidatorSet, MsgUndelegateFromValidatorSetSDKType, MsgRedelegateValidatorSet, MsgRedelegateValidatorSetSDKType, MsgWithdrawDelegationRewards, MsgWithdrawDelegationRewardsSDKType, MsgDelegateBondedTokens, MsgDelegateBondedTokensSDKType } from "./tx";
-export const registry: ReadonlyArray<[string, GeneratedType]> = [["/osmosis.valsetpref.v1beta1.MsgSetValidatorSetPreference", MsgSetValidatorSetPreference], ["/osmosis.valsetpref.v1beta1.MsgDelegateToValidatorSet", MsgDelegateToValidatorSet], ["/osmosis.valsetpref.v1beta1.MsgUndelegateFromValidatorSet", MsgUndelegateFromValidatorSet], ["/osmosis.valsetpref.v1beta1.MsgRedelegateValidatorSet", MsgRedelegateValidatorSet], ["/osmosis.valsetpref.v1beta1.MsgWithdrawDelegationRewards", MsgWithdrawDelegationRewards], ["/osmosis.valsetpref.v1beta1.MsgDelegateBondedTokens", MsgDelegateBondedTokens]];
-export const load = (protoRegistry: Registry) => {
-  registry.forEach(([typeUrl, mod]) => {
-    protoRegistry.register(typeUrl, mod);
-  });
-};
+export const registry: ReadonlyArray<[string, TelescopeGeneratedType<any, any, any>]> = [["/osmosis.valsetpref.v1beta1.MsgSetValidatorSetPreference", MsgSetValidatorSetPreference], ["/osmosis.valsetpref.v1beta1.MsgDelegateToValidatorSet", MsgDelegateToValidatorSet], ["/osmosis.valsetpref.v1beta1.MsgUndelegateFromValidatorSet", MsgUndelegateFromValidatorSet], ["/osmosis.valsetpref.v1beta1.MsgRedelegateValidatorSet", MsgRedelegateValidatorSet], ["/osmosis.valsetpref.v1beta1.MsgWithdrawDelegationRewards", MsgWithdrawDelegationRewards], ["/osmosis.valsetpref.v1beta1.MsgDelegateBondedTokens", MsgDelegateBondedTokens]];
 export const MessageComposer = {
   encoded: {
     setValidatorSetPreference(value: MsgSetValidatorSetPreference) {

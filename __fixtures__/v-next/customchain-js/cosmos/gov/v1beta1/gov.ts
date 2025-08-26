@@ -566,7 +566,7 @@ export const WeightedVoteOption = {
   toAmino(message: WeightedVoteOption): WeightedVoteOptionAmino {
     const obj: any = {};
     obj.option = message.option === 0 ? undefined : message.option;
-    obj.weight = message.weight === "" ? undefined : message.weight;
+    obj.weight = message.weight === "" ? undefined : Decimal.fromUserInput(message.weight, 18).atomics;
     return obj;
   },
   fromAminoMsg(object: WeightedVoteOptionAminoMsg): WeightedVoteOption {

@@ -428,6 +428,15 @@ function createBaseAny(): Any {
  */
 export const Any = {
   typeUrl: "/google.protobuf.Any",
+  is(o: any): o is Any {
+    return o && (o.$typeUrl === Any.typeUrl || typeof o.typeUrl === "string" && (o.value instanceof Uint8Array || typeof o.value === "string"));
+  },
+  isSDK(o: any): o is AnySDKType {
+    return o && (o.$typeUrl === Any.typeUrl || typeof o.type_url === "string" && (o.value instanceof Uint8Array || typeof o.value === "string"));
+  },
+  isAmino(o: any): o is AnyAmino {
+    return o && (o.$typeUrl === Any.typeUrl || typeof o.type === "string" && (o.value instanceof Uint8Array || typeof o.value === "string"));
+  },
   encode(message: Any, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.typeUrl !== "") {
       writer.uint32(10).string(message.typeUrl);
@@ -504,5 +513,6 @@ export const Any = {
       typeUrl: "/google.protobuf.Any",
       value: Any.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

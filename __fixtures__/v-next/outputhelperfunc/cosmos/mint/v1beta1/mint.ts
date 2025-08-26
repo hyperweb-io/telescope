@@ -1,5 +1,5 @@
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { Decimal } from "@cosmjs/math";
+import { Decimal } from "@interchainjs/math";
 import { isSet, DeepPartial } from "../../../helpers";
 import { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "cosmos.mint.v1beta1";
@@ -240,8 +240,8 @@ export const Minter = {
   },
   toAmino(message: Minter): MinterAmino {
     const obj: any = {};
-    obj.inflation = message.inflation === "" ? undefined : message.inflation;
-    obj.annual_provisions = message.annualProvisions === "" ? undefined : message.annualProvisions;
+    obj.inflation = message.inflation === "" ? undefined : Decimal.fromUserInput(message.inflation, 18).atomics;
+    obj.annual_provisions = message.annualProvisions === "" ? undefined : Decimal.fromUserInput(message.annualProvisions, 18).atomics;
     return obj;
   },
   fromAminoMsg(object: MinterAminoMsg): Minter {
@@ -435,10 +435,10 @@ export const Params = {
   toAmino(message: Params): ParamsAmino {
     const obj: any = {};
     obj.mint_denom = message.mintDenom === "" ? undefined : message.mintDenom;
-    obj.inflation_rate_change = message.inflationRateChange === "" ? undefined : message.inflationRateChange;
-    obj.inflation_max = message.inflationMax === "" ? undefined : message.inflationMax;
-    obj.inflation_min = message.inflationMin === "" ? undefined : message.inflationMin;
-    obj.goal_bonded = message.goalBonded === "" ? undefined : message.goalBonded;
+    obj.inflation_rate_change = message.inflationRateChange === "" ? undefined : Decimal.fromUserInput(message.inflationRateChange, 18).atomics;
+    obj.inflation_max = message.inflationMax === "" ? undefined : Decimal.fromUserInput(message.inflationMax, 18).atomics;
+    obj.inflation_min = message.inflationMin === "" ? undefined : Decimal.fromUserInput(message.inflationMin, 18).atomics;
+    obj.goal_bonded = message.goalBonded === "" ? undefined : Decimal.fromUserInput(message.goalBonded, 18).atomics;
     obj.blocks_per_year = message.blocksPerYear !== BigInt(0) ? message.blocksPerYear?.toString() : undefined;
     return obj;
   },

@@ -1,12 +1,6 @@
 import { TelescopeGeneratedType } from "../../../types";
-import { Registry } from "@cosmjs/proto-signing";
 import { MsgCreateCertificate, MsgCreateCertificateSDKType, MsgRevokeCertificate, MsgRevokeCertificateSDKType } from "./cert";
 export const registry: ReadonlyArray<[string, TelescopeGeneratedType<any, any, any>]> = [["/akash.cert.v1beta2.MsgCreateCertificate", MsgCreateCertificate], ["/akash.cert.v1beta2.MsgRevokeCertificate", MsgRevokeCertificate]];
-export const load = (protoRegistry: Registry) => {
-  registry.forEach(([typeUrl, mod]) => {
-    protoRegistry.register(typeUrl, mod);
-  });
-};
 export const MessageComposer = {
   encoded: {
     createCertificate(value: MsgCreateCertificate) {

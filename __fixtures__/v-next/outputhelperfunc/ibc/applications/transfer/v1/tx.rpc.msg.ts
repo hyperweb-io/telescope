@@ -1,12 +1,12 @@
 import { Coin, CoinSDKType } from "../../../../cosmos/base/v1beta1/coin";
 import { Height, HeightSDKType } from "../../../core/client/v1/client";
-import { DeliverTxResponse, StdFee, TxRpc } from "../../../../types";
+import { StdFee, TxRpc } from "../../../../types";
 import { BinaryReader } from "../../../../binary";
 import { MsgTransfer, MsgTransferSDKType, MsgTransferResponse, MsgTransferResponseSDKType } from "./tx";
 /** Msg defines the ibc/transfer Msg service. */
 export interface Msg {
   /** Transfer defines a rpc handler method for MsgTransfer. */
-  transfer(signerAddress: string, message: MsgTransfer, fee: number | StdFee | "auto", memo?: string): Promise<DeliverTxResponse>;
+  transfer(signerAddress: string, message: MsgTransfer, fee: number | StdFee | "auto", memo?: string): Promise<any>;
 }
 export class MsgClientImpl implements Msg {
   private readonly rpc: TxRpc;
@@ -14,7 +14,7 @@ export class MsgClientImpl implements Msg {
     this.rpc = rpc;
   }
   /* Transfer defines a rpc handler method for MsgTransfer. */
-  transfer = async (signerAddress: string, message: MsgTransfer, fee: number | StdFee | "auto" = "auto", memo: string = ""): Promise<DeliverTxResponse> => {
+  transfer = async (signerAddress: string, message: MsgTransfer, fee: number | StdFee | "auto" = "auto", memo: string = ""): Promise<any> => {
     const data = [{
       typeUrl: MsgTransfer.typeUrl,
       value: message

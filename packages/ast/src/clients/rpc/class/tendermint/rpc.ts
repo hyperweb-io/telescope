@@ -52,7 +52,7 @@ const rpcTxMethodDefinition = (
 ) => {
   const requestType = svc.requestType;
   const responseType = t.tsTypeReference(
-    t.identifier("DeliverTxResponse"),
+    t.identifier("any"),
   );
 
   const methodArgs: t.Identifier[] = [
@@ -326,7 +326,7 @@ const rpcTxClassMethod = (
 
   const requestType = svc.requestType;
   const responseType = t.tsTypeReference(
-    t.identifier("DeliverTxResponse"),
+    t.identifier("any"),
   );
   const comment = svc.comment ?? svc.name;
 
@@ -505,7 +505,6 @@ export const createRpcClientInterface = (
             let trailingComments = [];
             switch (implementType) {
               case "Tx":
-                context.addUtil("DeliverTxResponse");
                 context.addUtil("StdFee");
 
                 return rpcTxMethodDefinition(
@@ -583,7 +582,6 @@ export const createRpcClientClass = (
             const method = service.methods[key];
             switch (implementType) {
               case "Tx":
-                context.addUtil("DeliverTxResponse");
                 context.addUtil("StdFee");
 
                 return rpcTxClassMethod(

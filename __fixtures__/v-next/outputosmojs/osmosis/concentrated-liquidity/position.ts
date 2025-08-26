@@ -2,7 +2,7 @@ import { Timestamp, TimestampSDKType } from "../../google/protobuf/timestamp";
 import { Coin, CoinSDKType } from "../../cosmos/base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../binary";
 import { toTimestamp, fromTimestamp, isSet, DeepPartial } from "../../helpers";
-import { Decimal } from "@cosmjs/math";
+import { Decimal } from "@interchainjs/math";
 import { JsonSafe } from "../../json-safe";
 export const protobufPackage = "osmosis.concentratedliquidity.v1beta1";
 /**
@@ -243,7 +243,7 @@ export const Position = {
     obj.lower_tick = message.lowerTick !== BigInt(0) ? message.lowerTick?.toString() : undefined;
     obj.upper_tick = message.upperTick !== BigInt(0) ? message.upperTick?.toString() : undefined;
     obj.join_time = message.joinTime ? Timestamp.toAmino(toTimestamp(message.joinTime)) : undefined;
-    obj.liquidity = message.liquidity === "" ? undefined : message.liquidity;
+    obj.liquidity = message.liquidity === "" ? undefined : Decimal.fromUserInput(message.liquidity, 18).atomics;
     return obj;
   },
   fromAminoMsg(object: PositionAminoMsg): Position {

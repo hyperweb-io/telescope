@@ -2,7 +2,7 @@ import { Any, AnySDKType } from "../../../google/protobuf/any.js";
 import { BinaryReader, BinaryWriter } from "../../../binary.js";
 import { isSet, DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers.js";
 import { JsonSafe } from "../../../json-safe.js";
-import { toUtf8, fromUtf8 } from "@cosmjs/encoding";
+import { toUtf8, fromUtf8 } from "@interchainjs/encoding";
 export const protobufPackage = "cosmwasm.wasm.v1";
 /** AccessType permission types */
 export enum AccessType {

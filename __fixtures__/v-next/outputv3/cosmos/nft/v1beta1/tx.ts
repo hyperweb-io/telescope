@@ -107,6 +107,15 @@ function createBaseMsgSend(): MsgSend {
 export const MsgSend = {
   typeUrl: "/cosmos.nft.v1beta1.MsgSend",
   aminoType: "cosmos-sdk/MsgNFTSend",
+  is(o: any): o is MsgSend {
+    return o && (o.$typeUrl === MsgSend.typeUrl || typeof o.classId === "string" && typeof o.id === "string" && typeof o.sender === "string" && typeof o.receiver === "string");
+  },
+  isSDK(o: any): o is MsgSendSDKType {
+    return o && (o.$typeUrl === MsgSend.typeUrl || typeof o.class_id === "string" && typeof o.id === "string" && typeof o.sender === "string" && typeof o.receiver === "string");
+  },
+  isAmino(o: any): o is MsgSendAmino {
+    return o && (o.$typeUrl === MsgSend.typeUrl || typeof o.class_id === "string" && typeof o.id === "string" && typeof o.sender === "string" && typeof o.receiver === "string");
+  },
   encode(message: MsgSend, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.classId !== "") {
       writer.uint32(10).string(message.classId);
@@ -215,7 +224,8 @@ export const MsgSend = {
       typeUrl: "/cosmos.nft.v1beta1.MsgSend",
       value: MsgSend.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseMsgSendResponse(): MsgSendResponse {
   return {};
@@ -229,6 +239,15 @@ function createBaseMsgSendResponse(): MsgSendResponse {
 export const MsgSendResponse = {
   typeUrl: "/cosmos.nft.v1beta1.MsgSendResponse",
   aminoType: "cosmos-sdk/MsgSendResponse",
+  is(o: any): o is MsgSendResponse {
+    return o && o.$typeUrl === MsgSendResponse.typeUrl;
+  },
+  isSDK(o: any): o is MsgSendResponseSDKType {
+    return o && o.$typeUrl === MsgSendResponse.typeUrl;
+  },
+  isAmino(o: any): o is MsgSendResponseAmino {
+    return o && o.$typeUrl === MsgSendResponse.typeUrl;
+  },
   encode(_: MsgSendResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -280,5 +299,6 @@ export const MsgSendResponse = {
       typeUrl: "/cosmos.nft.v1beta1.MsgSendResponse",
       value: MsgSendResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

@@ -2,6 +2,7 @@ import { SourceInfo, SourceInfoAmino, SourceInfoSDKType, Expr, ExprAmino, ExprSD
 import { Empty, EmptyAmino, EmptySDKType } from "../../../protobuf/empty";
 import { NullValue, NullValueSDKType, nullValueFromJSON, nullValueToJSON } from "../../../protobuf/struct";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
+import { GlobalDecoderRegistry } from "../../../../registry";
 import { isSet, DeepPartial, isObject } from "../../../../helpers";
 export const protobufPackage = "google.api.expr.v1alpha1";
 /** CEL primitive types. */
@@ -1199,6 +1200,9 @@ export const CheckedExpr_ReferenceMapEntry = {
   },
   toProto(message: CheckedExpr_ReferenceMapEntry): Uint8Array {
     return CheckedExpr_ReferenceMapEntry.encode(message).finish();
+  },
+  registerTypeUrl() {
+    Reference.registerTypeUrl();
   }
 };
 function createBaseCheckedExpr_TypeMapEntry(): CheckedExpr_TypeMapEntry {
@@ -1291,6 +1295,9 @@ export const CheckedExpr_TypeMapEntry = {
   },
   toProto(message: CheckedExpr_TypeMapEntry): Uint8Array {
     return CheckedExpr_TypeMapEntry.encode(message).finish();
+  },
+  registerTypeUrl() {
+    Type.registerTypeUrl();
   }
 };
 function createBaseCheckedExpr(): CheckedExpr {
@@ -1310,6 +1317,15 @@ function createBaseCheckedExpr(): CheckedExpr {
  */
 export const CheckedExpr = {
   typeUrl: "/google.api.expr.v1alpha1.CheckedExpr",
+  is(o: any): o is CheckedExpr {
+    return o && (o.$typeUrl === CheckedExpr.typeUrl || isSet(o.referenceMap) && isSet(o.typeMap) && typeof o.exprVersion === "string");
+  },
+  isSDK(o: any): o is CheckedExprSDKType {
+    return o && (o.$typeUrl === CheckedExpr.typeUrl || isSet(o.reference_map) && isSet(o.type_map) && typeof o.expr_version === "string");
+  },
+  isAmino(o: any): o is CheckedExprAmino {
+    return o && (o.$typeUrl === CheckedExpr.typeUrl || isSet(o.reference_map) && isSet(o.type_map) && typeof o.expr_version === "string");
+  },
   encode(message: CheckedExpr, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     Object.entries(message.referenceMap).forEach(([key, value]) => {
       CheckedExpr_ReferenceMapEntry.encode({
@@ -1512,6 +1528,15 @@ export const CheckedExpr = {
       typeUrl: "/google.api.expr.v1alpha1.CheckedExpr",
       value: CheckedExpr.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(CheckedExpr.typeUrl)) {
+      return;
+    }
+    Reference.registerTypeUrl();
+    Type.registerTypeUrl();
+    SourceInfo.registerTypeUrl();
+    Expr.registerTypeUrl();
   }
 };
 function createBaseType(): Type {
@@ -1539,6 +1564,15 @@ function createBaseType(): Type {
  */
 export const Type = {
   typeUrl: "/google.api.expr.v1alpha1.Type",
+  is(o: any): o is Type {
+    return o && o.$typeUrl === Type.typeUrl;
+  },
+  isSDK(o: any): o is TypeSDKType {
+    return o && o.$typeUrl === Type.typeUrl;
+  },
+  isAmino(o: any): o is TypeAmino {
+    return o && o.$typeUrl === Type.typeUrl;
+  },
   encode(message: Type, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.dyn !== undefined) {
       Empty.encode(message.dyn, writer.uint32(10).fork()).ldelim();
@@ -1787,6 +1821,17 @@ export const Type = {
       typeUrl: "/google.api.expr.v1alpha1.Type",
       value: Type.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Type.typeUrl)) {
+      return;
+    }
+    Empty.registerTypeUrl();
+    Type_ListType.registerTypeUrl();
+    Type_MapType.registerTypeUrl();
+    Type_FunctionType.registerTypeUrl();
+    Type.registerTypeUrl();
+    Type_AbstractType.registerTypeUrl();
   }
 };
 function createBaseType_ListType(): Type_ListType {
@@ -1802,6 +1847,15 @@ function createBaseType_ListType(): Type_ListType {
  */
 export const Type_ListType = {
   typeUrl: "/google.api.expr.v1alpha1.ListType",
+  is(o: any): o is Type_ListType {
+    return o && o.$typeUrl === Type_ListType.typeUrl;
+  },
+  isSDK(o: any): o is Type_ListTypeSDKType {
+    return o && o.$typeUrl === Type_ListType.typeUrl;
+  },
+  isAmino(o: any): o is Type_ListTypeAmino {
+    return o && o.$typeUrl === Type_ListType.typeUrl;
+  },
   encode(message: Type_ListType, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.elemType !== undefined) {
       Type.encode(message.elemType, writer.uint32(10).fork()).ldelim();
@@ -1870,6 +1924,12 @@ export const Type_ListType = {
       typeUrl: "/google.api.expr.v1alpha1.ListType",
       value: Type_ListType.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Type_ListType.typeUrl)) {
+      return;
+    }
+    Type.registerTypeUrl();
   }
 };
 function createBaseType_MapType(): Type_MapType {
@@ -1886,6 +1946,15 @@ function createBaseType_MapType(): Type_MapType {
  */
 export const Type_MapType = {
   typeUrl: "/google.api.expr.v1alpha1.MapType",
+  is(o: any): o is Type_MapType {
+    return o && o.$typeUrl === Type_MapType.typeUrl;
+  },
+  isSDK(o: any): o is Type_MapTypeSDKType {
+    return o && o.$typeUrl === Type_MapType.typeUrl;
+  },
+  isAmino(o: any): o is Type_MapTypeAmino {
+    return o && o.$typeUrl === Type_MapType.typeUrl;
+  },
   encode(message: Type_MapType, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.keyType !== undefined) {
       Type.encode(message.keyType, writer.uint32(10).fork()).ldelim();
@@ -1970,6 +2039,12 @@ export const Type_MapType = {
       typeUrl: "/google.api.expr.v1alpha1.MapType",
       value: Type_MapType.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Type_MapType.typeUrl)) {
+      return;
+    }
+    Type.registerTypeUrl();
   }
 };
 function createBaseType_FunctionType(): Type_FunctionType {
@@ -1986,6 +2061,15 @@ function createBaseType_FunctionType(): Type_FunctionType {
  */
 export const Type_FunctionType = {
   typeUrl: "/google.api.expr.v1alpha1.FunctionType",
+  is(o: any): o is Type_FunctionType {
+    return o && (o.$typeUrl === Type_FunctionType.typeUrl || Array.isArray(o.argTypes) && (!o.argTypes.length || Type.is(o.argTypes[0])));
+  },
+  isSDK(o: any): o is Type_FunctionTypeSDKType {
+    return o && (o.$typeUrl === Type_FunctionType.typeUrl || Array.isArray(o.arg_types) && (!o.arg_types.length || Type.isSDK(o.arg_types[0])));
+  },
+  isAmino(o: any): o is Type_FunctionTypeAmino {
+    return o && (o.$typeUrl === Type_FunctionType.typeUrl || Array.isArray(o.arg_types) && (!o.arg_types.length || Type.isAmino(o.arg_types[0])));
+  },
   encode(message: Type_FunctionType, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.resultType !== undefined) {
       Type.encode(message.resultType, writer.uint32(10).fork()).ldelim();
@@ -2074,6 +2158,12 @@ export const Type_FunctionType = {
       typeUrl: "/google.api.expr.v1alpha1.FunctionType",
       value: Type_FunctionType.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Type_FunctionType.typeUrl)) {
+      return;
+    }
+    Type.registerTypeUrl();
   }
 };
 function createBaseType_AbstractType(): Type_AbstractType {
@@ -2090,6 +2180,15 @@ function createBaseType_AbstractType(): Type_AbstractType {
  */
 export const Type_AbstractType = {
   typeUrl: "/google.api.expr.v1alpha1.AbstractType",
+  is(o: any): o is Type_AbstractType {
+    return o && (o.$typeUrl === Type_AbstractType.typeUrl || typeof o.name === "string" && Array.isArray(o.parameterTypes) && (!o.parameterTypes.length || Type.is(o.parameterTypes[0])));
+  },
+  isSDK(o: any): o is Type_AbstractTypeSDKType {
+    return o && (o.$typeUrl === Type_AbstractType.typeUrl || typeof o.name === "string" && Array.isArray(o.parameter_types) && (!o.parameter_types.length || Type.isSDK(o.parameter_types[0])));
+  },
+  isAmino(o: any): o is Type_AbstractTypeAmino {
+    return o && (o.$typeUrl === Type_AbstractType.typeUrl || typeof o.name === "string" && Array.isArray(o.parameter_types) && (!o.parameter_types.length || Type.isAmino(o.parameter_types[0])));
+  },
   encode(message: Type_AbstractType, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -2176,6 +2275,12 @@ export const Type_AbstractType = {
       typeUrl: "/google.api.expr.v1alpha1.AbstractType",
       value: Type_AbstractType.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Type_AbstractType.typeUrl)) {
+      return;
+    }
+    Type.registerTypeUrl();
   }
 };
 function createBaseDecl(): Decl {
@@ -2196,6 +2301,15 @@ function createBaseDecl(): Decl {
  */
 export const Decl = {
   typeUrl: "/google.api.expr.v1alpha1.Decl",
+  is(o: any): o is Decl {
+    return o && (o.$typeUrl === Decl.typeUrl || typeof o.name === "string");
+  },
+  isSDK(o: any): o is DeclSDKType {
+    return o && (o.$typeUrl === Decl.typeUrl || typeof o.name === "string");
+  },
+  isAmino(o: any): o is DeclAmino {
+    return o && (o.$typeUrl === Decl.typeUrl || typeof o.name === "string");
+  },
   encode(message: Decl, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -2294,6 +2408,13 @@ export const Decl = {
       typeUrl: "/google.api.expr.v1alpha1.Decl",
       value: Decl.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Decl.typeUrl)) {
+      return;
+    }
+    Decl_IdentDecl.registerTypeUrl();
+    Decl_FunctionDecl.registerTypeUrl();
   }
 };
 function createBaseDecl_IdentDecl(): Decl_IdentDecl {
@@ -2316,6 +2437,15 @@ function createBaseDecl_IdentDecl(): Decl_IdentDecl {
  */
 export const Decl_IdentDecl = {
   typeUrl: "/google.api.expr.v1alpha1.IdentDecl",
+  is(o: any): o is Decl_IdentDecl {
+    return o && (o.$typeUrl === Decl_IdentDecl.typeUrl || typeof o.doc === "string");
+  },
+  isSDK(o: any): o is Decl_IdentDeclSDKType {
+    return o && (o.$typeUrl === Decl_IdentDecl.typeUrl || typeof o.doc === "string");
+  },
+  isAmino(o: any): o is Decl_IdentDeclAmino {
+    return o && (o.$typeUrl === Decl_IdentDecl.typeUrl || typeof o.doc === "string");
+  },
   encode(message: Decl_IdentDecl, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.type !== undefined) {
       Type.encode(message.type, writer.uint32(10).fork()).ldelim();
@@ -2414,6 +2544,13 @@ export const Decl_IdentDecl = {
       typeUrl: "/google.api.expr.v1alpha1.IdentDecl",
       value: Decl_IdentDecl.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Decl_IdentDecl.typeUrl)) {
+      return;
+    }
+    Type.registerTypeUrl();
+    Constant.registerTypeUrl();
   }
 };
 function createBaseDecl_FunctionDecl(): Decl_FunctionDecl {
@@ -2433,6 +2570,15 @@ function createBaseDecl_FunctionDecl(): Decl_FunctionDecl {
  */
 export const Decl_FunctionDecl = {
   typeUrl: "/google.api.expr.v1alpha1.FunctionDecl",
+  is(o: any): o is Decl_FunctionDecl {
+    return o && (o.$typeUrl === Decl_FunctionDecl.typeUrl || Array.isArray(o.overloads) && (!o.overloads.length || Decl_FunctionDecl_Overload.is(o.overloads[0])));
+  },
+  isSDK(o: any): o is Decl_FunctionDeclSDKType {
+    return o && (o.$typeUrl === Decl_FunctionDecl.typeUrl || Array.isArray(o.overloads) && (!o.overloads.length || Decl_FunctionDecl_Overload.isSDK(o.overloads[0])));
+  },
+  isAmino(o: any): o is Decl_FunctionDeclAmino {
+    return o && (o.$typeUrl === Decl_FunctionDecl.typeUrl || Array.isArray(o.overloads) && (!o.overloads.length || Decl_FunctionDecl_Overload.isAmino(o.overloads[0])));
+  },
   encode(message: Decl_FunctionDecl, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.overloads) {
       Decl_FunctionDecl_Overload.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -2505,6 +2651,12 @@ export const Decl_FunctionDecl = {
       typeUrl: "/google.api.expr.v1alpha1.FunctionDecl",
       value: Decl_FunctionDecl.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Decl_FunctionDecl.typeUrl)) {
+      return;
+    }
+    Decl_FunctionDecl_Overload.registerTypeUrl();
   }
 };
 function createBaseDecl_FunctionDecl_Overload(): Decl_FunctionDecl_Overload {
@@ -2534,6 +2686,15 @@ function createBaseDecl_FunctionDecl_Overload(): Decl_FunctionDecl_Overload {
  */
 export const Decl_FunctionDecl_Overload = {
   typeUrl: "/google.api.expr.v1alpha1.Overload",
+  is(o: any): o is Decl_FunctionDecl_Overload {
+    return o && (o.$typeUrl === Decl_FunctionDecl_Overload.typeUrl || typeof o.overloadId === "string" && Array.isArray(o.params) && (!o.params.length || Type.is(o.params[0])) && Array.isArray(o.typeParams) && (!o.typeParams.length || typeof o.typeParams[0] === "string") && typeof o.isInstanceFunction === "boolean" && typeof o.doc === "string");
+  },
+  isSDK(o: any): o is Decl_FunctionDecl_OverloadSDKType {
+    return o && (o.$typeUrl === Decl_FunctionDecl_Overload.typeUrl || typeof o.overload_id === "string" && Array.isArray(o.params) && (!o.params.length || Type.isSDK(o.params[0])) && Array.isArray(o.type_params) && (!o.type_params.length || typeof o.type_params[0] === "string") && typeof o.is_instance_function === "boolean" && typeof o.doc === "string");
+  },
+  isAmino(o: any): o is Decl_FunctionDecl_OverloadAmino {
+    return o && (o.$typeUrl === Decl_FunctionDecl_Overload.typeUrl || typeof o.overload_id === "string" && Array.isArray(o.params) && (!o.params.length || Type.isAmino(o.params[0])) && Array.isArray(o.type_params) && (!o.type_params.length || typeof o.type_params[0] === "string") && typeof o.is_instance_function === "boolean" && typeof o.doc === "string");
+  },
   encode(message: Decl_FunctionDecl_Overload, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.overloadId !== "") {
       writer.uint32(10).string(message.overloadId);
@@ -2684,6 +2845,12 @@ export const Decl_FunctionDecl_Overload = {
       typeUrl: "/google.api.expr.v1alpha1.Overload",
       value: Decl_FunctionDecl_Overload.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Decl_FunctionDecl_Overload.typeUrl)) {
+      return;
+    }
+    Type.registerTypeUrl();
   }
 };
 function createBaseReference(): Reference {
@@ -2701,6 +2868,15 @@ function createBaseReference(): Reference {
  */
 export const Reference = {
   typeUrl: "/google.api.expr.v1alpha1.Reference",
+  is(o: any): o is Reference {
+    return o && (o.$typeUrl === Reference.typeUrl || typeof o.name === "string" && Array.isArray(o.overloadId) && (!o.overloadId.length || typeof o.overloadId[0] === "string"));
+  },
+  isSDK(o: any): o is ReferenceSDKType {
+    return o && (o.$typeUrl === Reference.typeUrl || typeof o.name === "string" && Array.isArray(o.overload_id) && (!o.overload_id.length || typeof o.overload_id[0] === "string"));
+  },
+  isAmino(o: any): o is ReferenceAmino {
+    return o && (o.$typeUrl === Reference.typeUrl || typeof o.name === "string" && Array.isArray(o.overload_id) && (!o.overload_id.length || typeof o.overload_id[0] === "string"));
+  },
   encode(message: Reference, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -2803,5 +2979,11 @@ export const Reference = {
       typeUrl: "/google.api.expr.v1alpha1.Reference",
       value: Reference.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Reference.typeUrl)) {
+      return;
+    }
+    Constant.registerTypeUrl();
   }
 };

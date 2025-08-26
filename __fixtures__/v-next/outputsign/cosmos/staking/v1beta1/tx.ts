@@ -4,8 +4,8 @@ import { Coin, CoinAmino, CoinSDKType } from "../../base/v1beta1/coin";
 import { Timestamp, TimestampAmino, TimestampSDKType } from "../../../google/protobuf/timestamp";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { DeepPartial, toTimestamp, fromTimestamp } from "../../../helpers";
-import { encodePubkey, decodePubkey } from "@cosmjs/proto-signing";
-import { Decimal } from "@cosmjs/math";
+import { encodePubkey, decodePubkey } from "@interchainjs/pubkey";
+import { Decimal } from "@interchainjs/math";
 export const protobufPackage = "cosmos.staking.v1beta1";
 /**
  * MsgCreateValidator defines a SDK message for creating a new validator.
@@ -712,7 +712,7 @@ export const MsgEditValidator = {
     const obj: any = {};
     obj.description = message.description ? Description.toAmino(message.description) : undefined;
     obj.validator_address = message.validatorAddress === "" ? undefined : message.validatorAddress;
-    obj.commission_rate = message.commissionRate === "" ? undefined : message.commissionRate;
+    obj.commission_rate = message.commissionRate === "" ? undefined : Decimal.fromUserInput(message.commissionRate, 18).atomics;
     obj.min_self_delegation = message.minSelfDelegation === "" ? undefined : message.minSelfDelegation;
     return obj;
   },

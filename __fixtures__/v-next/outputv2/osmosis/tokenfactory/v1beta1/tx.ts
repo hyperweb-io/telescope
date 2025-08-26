@@ -3,6 +3,7 @@ import { Metadata, MetadataAmino, MetadataSDKType } from "../../../cosmos/bank/v
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { isSet, DeepPartial } from "../../../helpers";
 import { JsonSafe } from "../../../json-safe";
+import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "osmosis.tokenfactory.v1beta1";
 /**
  * MsgCreateDenom defines the message structure for the CreateDenom gRPC service
@@ -416,6 +417,15 @@ function createBaseMsgCreateDenom(): MsgCreateDenom {
 export const MsgCreateDenom = {
   typeUrl: "/osmosis.tokenfactory.v1beta1.MsgCreateDenom",
   aminoType: "osmosis/tokenfactory/create-denom",
+  is(o: any): o is MsgCreateDenom {
+    return o && (o.$typeUrl === MsgCreateDenom.typeUrl || typeof o.sender === "string" && typeof o.subdenom === "string");
+  },
+  isSDK(o: any): o is MsgCreateDenomSDKType {
+    return o && (o.$typeUrl === MsgCreateDenom.typeUrl || typeof o.sender === "string" && typeof o.subdenom === "string");
+  },
+  isAmino(o: any): o is MsgCreateDenomAmino {
+    return o && (o.$typeUrl === MsgCreateDenom.typeUrl || typeof o.sender === "string" && typeof o.subdenom === "string");
+  },
   encode(message: MsgCreateDenom, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.sender !== "") {
       writer.uint32(10).string(message.sender);
@@ -511,7 +521,8 @@ export const MsgCreateDenom = {
       typeUrl: "/osmosis.tokenfactory.v1beta1.MsgCreateDenom",
       value: MsgCreateDenom.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseMsgCreateDenomResponse(): MsgCreateDenomResponse {
   return {
@@ -528,6 +539,15 @@ function createBaseMsgCreateDenomResponse(): MsgCreateDenomResponse {
 export const MsgCreateDenomResponse = {
   typeUrl: "/osmosis.tokenfactory.v1beta1.MsgCreateDenomResponse",
   aminoType: "osmosis/tokenfactory/create-denom-response",
+  is(o: any): o is MsgCreateDenomResponse {
+    return o && (o.$typeUrl === MsgCreateDenomResponse.typeUrl || typeof o.newTokenDenom === "string");
+  },
+  isSDK(o: any): o is MsgCreateDenomResponseSDKType {
+    return o && (o.$typeUrl === MsgCreateDenomResponse.typeUrl || typeof o.new_token_denom === "string");
+  },
+  isAmino(o: any): o is MsgCreateDenomResponseAmino {
+    return o && (o.$typeUrl === MsgCreateDenomResponse.typeUrl || typeof o.new_token_denom === "string");
+  },
   encode(message: MsgCreateDenomResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.newTokenDenom !== "") {
       writer.uint32(10).string(message.newTokenDenom);
@@ -608,7 +628,8 @@ export const MsgCreateDenomResponse = {
       typeUrl: "/osmosis.tokenfactory.v1beta1.MsgCreateDenomResponse",
       value: MsgCreateDenomResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseMsgMint(): MsgMint {
   return {
@@ -626,6 +647,15 @@ function createBaseMsgMint(): MsgMint {
 export const MsgMint = {
   typeUrl: "/osmosis.tokenfactory.v1beta1.MsgMint",
   aminoType: "osmosis/tokenfactory/mint",
+  is(o: any): o is MsgMint {
+    return o && (o.$typeUrl === MsgMint.typeUrl || typeof o.sender === "string" && Coin.is(o.amount));
+  },
+  isSDK(o: any): o is MsgMintSDKType {
+    return o && (o.$typeUrl === MsgMint.typeUrl || typeof o.sender === "string" && Coin.isSDK(o.amount));
+  },
+  isAmino(o: any): o is MsgMintAmino {
+    return o && (o.$typeUrl === MsgMint.typeUrl || typeof o.sender === "string" && Coin.isAmino(o.amount));
+  },
   encode(message: MsgMint, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.sender !== "") {
       writer.uint32(10).string(message.sender);
@@ -723,6 +753,12 @@ export const MsgMint = {
       typeUrl: "/osmosis.tokenfactory.v1beta1.MsgMint",
       value: MsgMint.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgMint.typeUrl)) {
+      return;
+    }
+    Coin.registerTypeUrl();
   }
 };
 function createBaseMsgMintResponse(): MsgMintResponse {
@@ -736,6 +772,15 @@ function createBaseMsgMintResponse(): MsgMintResponse {
 export const MsgMintResponse = {
   typeUrl: "/osmosis.tokenfactory.v1beta1.MsgMintResponse",
   aminoType: "osmosis/tokenfactory/mint-response",
+  is(o: any): o is MsgMintResponse {
+    return o && o.$typeUrl === MsgMintResponse.typeUrl;
+  },
+  isSDK(o: any): o is MsgMintResponseSDKType {
+    return o && o.$typeUrl === MsgMintResponse.typeUrl;
+  },
+  isAmino(o: any): o is MsgMintResponseAmino {
+    return o && o.$typeUrl === MsgMintResponse.typeUrl;
+  },
   encode(_: MsgMintResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -800,7 +845,8 @@ export const MsgMintResponse = {
       typeUrl: "/osmosis.tokenfactory.v1beta1.MsgMintResponse",
       value: MsgMintResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseMsgBurn(): MsgBurn {
   return {
@@ -818,6 +864,15 @@ function createBaseMsgBurn(): MsgBurn {
 export const MsgBurn = {
   typeUrl: "/osmosis.tokenfactory.v1beta1.MsgBurn",
   aminoType: "osmosis/tokenfactory/burn",
+  is(o: any): o is MsgBurn {
+    return o && (o.$typeUrl === MsgBurn.typeUrl || typeof o.sender === "string" && Coin.is(o.amount));
+  },
+  isSDK(o: any): o is MsgBurnSDKType {
+    return o && (o.$typeUrl === MsgBurn.typeUrl || typeof o.sender === "string" && Coin.isSDK(o.amount));
+  },
+  isAmino(o: any): o is MsgBurnAmino {
+    return o && (o.$typeUrl === MsgBurn.typeUrl || typeof o.sender === "string" && Coin.isAmino(o.amount));
+  },
   encode(message: MsgBurn, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.sender !== "") {
       writer.uint32(10).string(message.sender);
@@ -915,6 +970,12 @@ export const MsgBurn = {
       typeUrl: "/osmosis.tokenfactory.v1beta1.MsgBurn",
       value: MsgBurn.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgBurn.typeUrl)) {
+      return;
+    }
+    Coin.registerTypeUrl();
   }
 };
 function createBaseMsgBurnResponse(): MsgBurnResponse {
@@ -928,6 +989,15 @@ function createBaseMsgBurnResponse(): MsgBurnResponse {
 export const MsgBurnResponse = {
   typeUrl: "/osmosis.tokenfactory.v1beta1.MsgBurnResponse",
   aminoType: "osmosis/tokenfactory/burn-response",
+  is(o: any): o is MsgBurnResponse {
+    return o && o.$typeUrl === MsgBurnResponse.typeUrl;
+  },
+  isSDK(o: any): o is MsgBurnResponseSDKType {
+    return o && o.$typeUrl === MsgBurnResponse.typeUrl;
+  },
+  isAmino(o: any): o is MsgBurnResponseAmino {
+    return o && o.$typeUrl === MsgBurnResponse.typeUrl;
+  },
   encode(_: MsgBurnResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -992,7 +1062,8 @@ export const MsgBurnResponse = {
       typeUrl: "/osmosis.tokenfactory.v1beta1.MsgBurnResponse",
       value: MsgBurnResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseMsgChangeAdmin(): MsgChangeAdmin {
   return {
@@ -1011,6 +1082,15 @@ function createBaseMsgChangeAdmin(): MsgChangeAdmin {
 export const MsgChangeAdmin = {
   typeUrl: "/osmosis.tokenfactory.v1beta1.MsgChangeAdmin",
   aminoType: "osmosis/tokenfactory/change-admin",
+  is(o: any): o is MsgChangeAdmin {
+    return o && (o.$typeUrl === MsgChangeAdmin.typeUrl || typeof o.sender === "string" && typeof o.denom === "string" && typeof o.newAdmin === "string");
+  },
+  isSDK(o: any): o is MsgChangeAdminSDKType {
+    return o && (o.$typeUrl === MsgChangeAdmin.typeUrl || typeof o.sender === "string" && typeof o.denom === "string" && typeof o.new_admin === "string");
+  },
+  isAmino(o: any): o is MsgChangeAdminAmino {
+    return o && (o.$typeUrl === MsgChangeAdmin.typeUrl || typeof o.sender === "string" && typeof o.denom === "string" && typeof o.new_admin === "string");
+  },
   encode(message: MsgChangeAdmin, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.sender !== "") {
       writer.uint32(10).string(message.sender);
@@ -1121,7 +1201,8 @@ export const MsgChangeAdmin = {
       typeUrl: "/osmosis.tokenfactory.v1beta1.MsgChangeAdmin",
       value: MsgChangeAdmin.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseMsgChangeAdminResponse(): MsgChangeAdminResponse {
   return {};
@@ -1136,6 +1217,15 @@ function createBaseMsgChangeAdminResponse(): MsgChangeAdminResponse {
 export const MsgChangeAdminResponse = {
   typeUrl: "/osmosis.tokenfactory.v1beta1.MsgChangeAdminResponse",
   aminoType: "osmosis/tokenfactory/change-admin-response",
+  is(o: any): o is MsgChangeAdminResponse {
+    return o && o.$typeUrl === MsgChangeAdminResponse.typeUrl;
+  },
+  isSDK(o: any): o is MsgChangeAdminResponseSDKType {
+    return o && o.$typeUrl === MsgChangeAdminResponse.typeUrl;
+  },
+  isAmino(o: any): o is MsgChangeAdminResponseAmino {
+    return o && o.$typeUrl === MsgChangeAdminResponse.typeUrl;
+  },
   encode(_: MsgChangeAdminResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -1200,7 +1290,8 @@ export const MsgChangeAdminResponse = {
       typeUrl: "/osmosis.tokenfactory.v1beta1.MsgChangeAdminResponse",
       value: MsgChangeAdminResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseMsgSetDenomMetadata(): MsgSetDenomMetadata {
   return {
@@ -1218,6 +1309,15 @@ function createBaseMsgSetDenomMetadata(): MsgSetDenomMetadata {
 export const MsgSetDenomMetadata = {
   typeUrl: "/osmosis.tokenfactory.v1beta1.MsgSetDenomMetadata",
   aminoType: "osmosis/tokenfactory/set-denom-metadata",
+  is(o: any): o is MsgSetDenomMetadata {
+    return o && (o.$typeUrl === MsgSetDenomMetadata.typeUrl || typeof o.sender === "string" && Metadata.is(o.metadata));
+  },
+  isSDK(o: any): o is MsgSetDenomMetadataSDKType {
+    return o && (o.$typeUrl === MsgSetDenomMetadata.typeUrl || typeof o.sender === "string" && Metadata.isSDK(o.metadata));
+  },
+  isAmino(o: any): o is MsgSetDenomMetadataAmino {
+    return o && (o.$typeUrl === MsgSetDenomMetadata.typeUrl || typeof o.sender === "string" && Metadata.isAmino(o.metadata));
+  },
   encode(message: MsgSetDenomMetadata, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.sender !== "") {
       writer.uint32(10).string(message.sender);
@@ -1315,6 +1415,12 @@ export const MsgSetDenomMetadata = {
       typeUrl: "/osmosis.tokenfactory.v1beta1.MsgSetDenomMetadata",
       value: MsgSetDenomMetadata.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgSetDenomMetadata.typeUrl)) {
+      return;
+    }
+    Metadata.registerTypeUrl();
   }
 };
 function createBaseMsgSetDenomMetadataResponse(): MsgSetDenomMetadataResponse {
@@ -1330,6 +1436,15 @@ function createBaseMsgSetDenomMetadataResponse(): MsgSetDenomMetadataResponse {
 export const MsgSetDenomMetadataResponse = {
   typeUrl: "/osmosis.tokenfactory.v1beta1.MsgSetDenomMetadataResponse",
   aminoType: "osmosis/tokenfactory/set-denom-metadata-response",
+  is(o: any): o is MsgSetDenomMetadataResponse {
+    return o && o.$typeUrl === MsgSetDenomMetadataResponse.typeUrl;
+  },
+  isSDK(o: any): o is MsgSetDenomMetadataResponseSDKType {
+    return o && o.$typeUrl === MsgSetDenomMetadataResponse.typeUrl;
+  },
+  isAmino(o: any): o is MsgSetDenomMetadataResponseAmino {
+    return o && o.$typeUrl === MsgSetDenomMetadataResponse.typeUrl;
+  },
   encode(_: MsgSetDenomMetadataResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -1394,5 +1509,6 @@ export const MsgSetDenomMetadataResponse = {
       typeUrl: "/osmosis.tokenfactory.v1beta1.MsgSetDenomMetadataResponse",
       value: MsgSetDenomMetadataResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

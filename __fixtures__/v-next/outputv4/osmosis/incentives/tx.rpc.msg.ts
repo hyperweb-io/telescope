@@ -1,7 +1,7 @@
 import { QueryCondition, QueryConditionSDKType } from "../lockup/lock.js";
 import { Coin, CoinSDKType } from "../../cosmos/base/v1beta1/coin.js";
 import { Timestamp, TimestampSDKType } from "../../google/protobuf/timestamp.js";
-import { Rpc } from "../../helpers.js";
+import { TxRpc } from "../../types.js";
 import { BinaryReader } from "../../binary.js";
 import { MsgCreateGauge, MsgCreateGaugeSDKType, MsgCreateGaugeResponse, MsgCreateGaugeResponseSDKType, MsgAddToGauge, MsgAddToGaugeSDKType, MsgAddToGaugeResponse, MsgAddToGaugeResponseSDKType } from "./tx.js";
 export interface Msg {
@@ -9,8 +9,8 @@ export interface Msg {
   addToGauge(request: MsgAddToGauge): Promise<MsgAddToGaugeResponse>;
 }
 export class MsgClientImpl implements Msg {
-  private readonly rpc: Rpc;
-  constructor(rpc: Rpc) {
+  private readonly rpc: TxRpc;
+  constructor(rpc: TxRpc) {
     this.rpc = rpc;
     this.createGauge = this.createGauge.bind(this);
     this.addToGauge = this.addToGauge.bind(this);
@@ -26,6 +26,6 @@ export class MsgClientImpl implements Msg {
     return promise.then(data => MsgAddToGaugeResponse.decode(new BinaryReader(data)));
   }
 }
-export const createClientImpl = (rpc: Rpc) => {
+export const createClientImpl = (rpc: TxRpc) => {
   return new MsgClientImpl(rpc);
 };

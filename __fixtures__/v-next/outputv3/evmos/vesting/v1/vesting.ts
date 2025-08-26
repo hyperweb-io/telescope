@@ -1,6 +1,7 @@
 import { BaseVestingAccount, BaseVestingAccountAmino, BaseVestingAccountSDKType, Period, PeriodAmino, PeriodSDKType } from "../../../cosmos/vesting/v1beta1/vesting";
 import { Timestamp, TimestampAmino, TimestampSDKType } from "../../../google/protobuf/timestamp";
 import { BinaryReader, BinaryWriter } from "../../../binary";
+import { GlobalDecoderRegistry } from "../../../registry";
 import { toTimestamp, fromTimestamp, isSet, DeepPartial } from "../../../helpers";
 export const protobufPackage = "evmos.vesting.v1";
 /**
@@ -107,6 +108,15 @@ function createBaseClawbackVestingAccount(): ClawbackVestingAccount {
  */
 export const ClawbackVestingAccount = {
   typeUrl: "/evmos.vesting.v1.ClawbackVestingAccount",
+  is(o: any): o is ClawbackVestingAccount {
+    return o && (o.$typeUrl === ClawbackVestingAccount.typeUrl || typeof o.funderAddress === "string" && Timestamp.is(o.startTime) && Array.isArray(o.lockupPeriods) && (!o.lockupPeriods.length || Period.is(o.lockupPeriods[0])) && Array.isArray(o.vestingPeriods) && (!o.vestingPeriods.length || Period.is(o.vestingPeriods[0])));
+  },
+  isSDK(o: any): o is ClawbackVestingAccountSDKType {
+    return o && (o.$typeUrl === ClawbackVestingAccount.typeUrl || typeof o.funder_address === "string" && Timestamp.isSDK(o.start_time) && Array.isArray(o.lockup_periods) && (!o.lockup_periods.length || Period.isSDK(o.lockup_periods[0])) && Array.isArray(o.vesting_periods) && (!o.vesting_periods.length || Period.isSDK(o.vesting_periods[0])));
+  },
+  isAmino(o: any): o is ClawbackVestingAccountAmino {
+    return o && (o.$typeUrl === ClawbackVestingAccount.typeUrl || typeof o.funder_address === "string" && Timestamp.isAmino(o.start_time) && Array.isArray(o.lockup_periods) && (!o.lockup_periods.length || Period.isAmino(o.lockup_periods[0])) && Array.isArray(o.vesting_periods) && (!o.vesting_periods.length || Period.isAmino(o.vesting_periods[0])));
+  },
   encode(message: ClawbackVestingAccount, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.baseVestingAccount !== undefined) {
       BaseVestingAccount.encode(message.baseVestingAccount, writer.uint32(10).fork()).ldelim();
@@ -243,5 +253,12 @@ export const ClawbackVestingAccount = {
       typeUrl: "/evmos.vesting.v1.ClawbackVestingAccount",
       value: ClawbackVestingAccount.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ClawbackVestingAccount.typeUrl)) {
+      return;
+    }
+    BaseVestingAccount.registerTypeUrl();
+    Period.registerTypeUrl();
   }
 };

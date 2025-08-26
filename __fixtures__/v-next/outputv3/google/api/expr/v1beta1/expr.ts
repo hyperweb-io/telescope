@@ -1,6 +1,7 @@
 import { SourceInfo, SourceInfoAmino, SourceInfoSDKType } from "./source";
 import { NullValue, NullValueSDKType, nullValueFromJSON, nullValueToJSON } from "../../../protobuf/struct";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
+import { GlobalDecoderRegistry } from "../../../../registry";
 import { isSet, DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers";
 export const protobufPackage = "google.api.expr.v1beta1";
 /**
@@ -871,6 +872,15 @@ function createBaseParsedExpr(): ParsedExpr {
  */
 export const ParsedExpr = {
   typeUrl: "/google.api.expr.v1beta1.ParsedExpr",
+  is(o: any): o is ParsedExpr {
+    return o && (o.$typeUrl === ParsedExpr.typeUrl || typeof o.syntaxVersion === "string");
+  },
+  isSDK(o: any): o is ParsedExprSDKType {
+    return o && (o.$typeUrl === ParsedExpr.typeUrl || typeof o.syntax_version === "string");
+  },
+  isAmino(o: any): o is ParsedExprAmino {
+    return o && (o.$typeUrl === ParsedExpr.typeUrl || typeof o.syntax_version === "string");
+  },
   encode(message: ParsedExpr, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.expr !== undefined) {
       Expr.encode(message.expr, writer.uint32(18).fork()).ldelim();
@@ -969,6 +979,13 @@ export const ParsedExpr = {
       typeUrl: "/google.api.expr.v1beta1.ParsedExpr",
       value: ParsedExpr.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ParsedExpr.typeUrl)) {
+      return;
+    }
+    Expr.registerTypeUrl();
+    SourceInfo.registerTypeUrl();
   }
 };
 function createBaseExpr(): Expr {
@@ -1005,6 +1022,15 @@ function createBaseExpr(): Expr {
  */
 export const Expr = {
   typeUrl: "/google.api.expr.v1beta1.Expr",
+  is(o: any): o is Expr {
+    return o && (o.$typeUrl === Expr.typeUrl || typeof o.id === "number");
+  },
+  isSDK(o: any): o is ExprSDKType {
+    return o && (o.$typeUrl === Expr.typeUrl || typeof o.id === "number");
+  },
+  isAmino(o: any): o is ExprAmino {
+    return o && (o.$typeUrl === Expr.typeUrl || typeof o.id === "number");
+  },
   encode(message: Expr, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.id !== 0) {
       writer.uint32(16).int32(message.id);
@@ -1183,6 +1209,18 @@ export const Expr = {
       typeUrl: "/google.api.expr.v1beta1.Expr",
       value: Expr.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Expr.typeUrl)) {
+      return;
+    }
+    Literal.registerTypeUrl();
+    Expr_Ident.registerTypeUrl();
+    Expr_Select.registerTypeUrl();
+    Expr_Call.registerTypeUrl();
+    Expr_CreateList.registerTypeUrl();
+    Expr_CreateStruct.registerTypeUrl();
+    Expr_Comprehension.registerTypeUrl();
   }
 };
 function createBaseExpr_Ident(): Expr_Ident {
@@ -1198,6 +1236,15 @@ function createBaseExpr_Ident(): Expr_Ident {
  */
 export const Expr_Ident = {
   typeUrl: "/google.api.expr.v1beta1.Ident",
+  is(o: any): o is Expr_Ident {
+    return o && (o.$typeUrl === Expr_Ident.typeUrl || typeof o.name === "string");
+  },
+  isSDK(o: any): o is Expr_IdentSDKType {
+    return o && (o.$typeUrl === Expr_Ident.typeUrl || typeof o.name === "string");
+  },
+  isAmino(o: any): o is Expr_IdentAmino {
+    return o && (o.$typeUrl === Expr_Ident.typeUrl || typeof o.name === "string");
+  },
   encode(message: Expr_Ident, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -1264,7 +1311,8 @@ export const Expr_Ident = {
       typeUrl: "/google.api.expr.v1beta1.Ident",
       value: Expr_Ident.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseExpr_Select(): Expr_Select {
   return {
@@ -1281,6 +1329,15 @@ function createBaseExpr_Select(): Expr_Select {
  */
 export const Expr_Select = {
   typeUrl: "/google.api.expr.v1beta1.Select",
+  is(o: any): o is Expr_Select {
+    return o && (o.$typeUrl === Expr_Select.typeUrl || typeof o.field === "string" && typeof o.testOnly === "boolean");
+  },
+  isSDK(o: any): o is Expr_SelectSDKType {
+    return o && (o.$typeUrl === Expr_Select.typeUrl || typeof o.field === "string" && typeof o.test_only === "boolean");
+  },
+  isAmino(o: any): o is Expr_SelectAmino {
+    return o && (o.$typeUrl === Expr_Select.typeUrl || typeof o.field === "string" && typeof o.test_only === "boolean");
+  },
   encode(message: Expr_Select, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.operand !== undefined) {
       Expr.encode(message.operand, writer.uint32(10).fork()).ldelim();
@@ -1377,6 +1434,12 @@ export const Expr_Select = {
       typeUrl: "/google.api.expr.v1beta1.Select",
       value: Expr_Select.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Expr_Select.typeUrl)) {
+      return;
+    }
+    Expr.registerTypeUrl();
   }
 };
 function createBaseExpr_Call(): Expr_Call {
@@ -1396,6 +1459,15 @@ function createBaseExpr_Call(): Expr_Call {
  */
 export const Expr_Call = {
   typeUrl: "/google.api.expr.v1beta1.Call",
+  is(o: any): o is Expr_Call {
+    return o && (o.$typeUrl === Expr_Call.typeUrl || typeof o.function === "string" && Array.isArray(o.args) && (!o.args.length || Expr.is(o.args[0])));
+  },
+  isSDK(o: any): o is Expr_CallSDKType {
+    return o && (o.$typeUrl === Expr_Call.typeUrl || typeof o.function === "string" && Array.isArray(o.args) && (!o.args.length || Expr.isSDK(o.args[0])));
+  },
+  isAmino(o: any): o is Expr_CallAmino {
+    return o && (o.$typeUrl === Expr_Call.typeUrl || typeof o.function === "string" && Array.isArray(o.args) && (!o.args.length || Expr.isAmino(o.args[0])));
+  },
   encode(message: Expr_Call, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.target !== undefined) {
       Expr.encode(message.target, writer.uint32(10).fork()).ldelim();
@@ -1498,6 +1570,12 @@ export const Expr_Call = {
       typeUrl: "/google.api.expr.v1beta1.Call",
       value: Expr_Call.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Expr_Call.typeUrl)) {
+      return;
+    }
+    Expr.registerTypeUrl();
   }
 };
 function createBaseExpr_CreateList(): Expr_CreateList {
@@ -1516,6 +1594,15 @@ function createBaseExpr_CreateList(): Expr_CreateList {
  */
 export const Expr_CreateList = {
   typeUrl: "/google.api.expr.v1beta1.CreateList",
+  is(o: any): o is Expr_CreateList {
+    return o && (o.$typeUrl === Expr_CreateList.typeUrl || Array.isArray(o.elements) && (!o.elements.length || Expr.is(o.elements[0])));
+  },
+  isSDK(o: any): o is Expr_CreateListSDKType {
+    return o && (o.$typeUrl === Expr_CreateList.typeUrl || Array.isArray(o.elements) && (!o.elements.length || Expr.isSDK(o.elements[0])));
+  },
+  isAmino(o: any): o is Expr_CreateListAmino {
+    return o && (o.$typeUrl === Expr_CreateList.typeUrl || Array.isArray(o.elements) && (!o.elements.length || Expr.isAmino(o.elements[0])));
+  },
   encode(message: Expr_CreateList, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.elements) {
       Expr.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -1588,6 +1675,12 @@ export const Expr_CreateList = {
       typeUrl: "/google.api.expr.v1beta1.CreateList",
       value: Expr_CreateList.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Expr_CreateList.typeUrl)) {
+      return;
+    }
+    Expr.registerTypeUrl();
   }
 };
 function createBaseExpr_CreateStruct(): Expr_CreateStruct {
@@ -1608,6 +1701,15 @@ function createBaseExpr_CreateStruct(): Expr_CreateStruct {
  */
 export const Expr_CreateStruct = {
   typeUrl: "/google.api.expr.v1beta1.CreateStruct",
+  is(o: any): o is Expr_CreateStruct {
+    return o && (o.$typeUrl === Expr_CreateStruct.typeUrl || typeof o.type === "string" && Array.isArray(o.entries) && (!o.entries.length || Expr_CreateStruct_Entry.is(o.entries[0])));
+  },
+  isSDK(o: any): o is Expr_CreateStructSDKType {
+    return o && (o.$typeUrl === Expr_CreateStruct.typeUrl || typeof o.type === "string" && Array.isArray(o.entries) && (!o.entries.length || Expr_CreateStruct_Entry.isSDK(o.entries[0])));
+  },
+  isAmino(o: any): o is Expr_CreateStructAmino {
+    return o && (o.$typeUrl === Expr_CreateStruct.typeUrl || typeof o.type === "string" && Array.isArray(o.entries) && (!o.entries.length || Expr_CreateStruct_Entry.isAmino(o.entries[0])));
+  },
   encode(message: Expr_CreateStruct, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.type !== "") {
       writer.uint32(10).string(message.type);
@@ -1694,6 +1796,12 @@ export const Expr_CreateStruct = {
       typeUrl: "/google.api.expr.v1beta1.CreateStruct",
       value: Expr_CreateStruct.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Expr_CreateStruct.typeUrl)) {
+      return;
+    }
+    Expr_CreateStruct_Entry.registerTypeUrl();
   }
 };
 function createBaseExpr_CreateStruct_Entry(): Expr_CreateStruct_Entry {
@@ -1712,6 +1820,15 @@ function createBaseExpr_CreateStruct_Entry(): Expr_CreateStruct_Entry {
  */
 export const Expr_CreateStruct_Entry = {
   typeUrl: "/google.api.expr.v1beta1.Entry",
+  is(o: any): o is Expr_CreateStruct_Entry {
+    return o && (o.$typeUrl === Expr_CreateStruct_Entry.typeUrl || typeof o.id === "number");
+  },
+  isSDK(o: any): o is Expr_CreateStruct_EntrySDKType {
+    return o && (o.$typeUrl === Expr_CreateStruct_Entry.typeUrl || typeof o.id === "number");
+  },
+  isAmino(o: any): o is Expr_CreateStruct_EntryAmino {
+    return o && (o.$typeUrl === Expr_CreateStruct_Entry.typeUrl || typeof o.id === "number");
+  },
   encode(message: Expr_CreateStruct_Entry, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.id !== 0) {
       writer.uint32(8).int32(message.id);
@@ -1824,6 +1941,12 @@ export const Expr_CreateStruct_Entry = {
       typeUrl: "/google.api.expr.v1beta1.Entry",
       value: Expr_CreateStruct_Entry.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Expr_CreateStruct_Entry.typeUrl)) {
+      return;
+    }
+    Expr.registerTypeUrl();
   }
 };
 function createBaseExpr_Comprehension(): Expr_Comprehension {
@@ -1870,6 +1993,15 @@ function createBaseExpr_Comprehension(): Expr_Comprehension {
  */
 export const Expr_Comprehension = {
   typeUrl: "/google.api.expr.v1beta1.Comprehension",
+  is(o: any): o is Expr_Comprehension {
+    return o && (o.$typeUrl === Expr_Comprehension.typeUrl || typeof o.iterVar === "string" && typeof o.accuVar === "string");
+  },
+  isSDK(o: any): o is Expr_ComprehensionSDKType {
+    return o && (o.$typeUrl === Expr_Comprehension.typeUrl || typeof o.iter_var === "string" && typeof o.accu_var === "string");
+  },
+  isAmino(o: any): o is Expr_ComprehensionAmino {
+    return o && (o.$typeUrl === Expr_Comprehension.typeUrl || typeof o.iter_var === "string" && typeof o.accu_var === "string");
+  },
   encode(message: Expr_Comprehension, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.iterVar !== "") {
       writer.uint32(10).string(message.iterVar);
@@ -2030,6 +2162,12 @@ export const Expr_Comprehension = {
       typeUrl: "/google.api.expr.v1beta1.Comprehension",
       value: Expr_Comprehension.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Expr_Comprehension.typeUrl)) {
+      return;
+    }
+    Expr.registerTypeUrl();
   }
 };
 function createBaseLiteral(): Literal {
@@ -2061,6 +2199,15 @@ function createBaseLiteral(): Literal {
  */
 export const Literal = {
   typeUrl: "/google.api.expr.v1beta1.Literal",
+  is(o: any): o is Literal {
+    return o && o.$typeUrl === Literal.typeUrl;
+  },
+  isSDK(o: any): o is LiteralSDKType {
+    return o && o.$typeUrl === Literal.typeUrl;
+  },
+  isAmino(o: any): o is LiteralAmino {
+    return o && o.$typeUrl === Literal.typeUrl;
+  },
   encode(message: Literal, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.nullValue !== undefined) {
       writer.uint32(8).int32(message.nullValue);
@@ -2215,5 +2362,6 @@ export const Literal = {
       typeUrl: "/google.api.expr.v1beta1.Literal",
       value: Literal.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

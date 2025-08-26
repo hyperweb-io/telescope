@@ -3,7 +3,8 @@ import { Any, AnySDKType } from "../../../google/protobuf/any.js";
 import { Coin, CoinSDKType } from "../../base/v1beta1/coin.js";
 import { Timestamp, TimestampSDKType } from "../../../google/protobuf/timestamp.js";
 import { AminoMsg, Pubkey } from "@cosmjs/amino";
-import { decodePubkey, encodePubkey } from "@cosmjs/proto-signing";
+import { Decimal } from "@interchainjs/math";
+import { decodePubkey, encodePubkey } from "@interchainjs/pubkey";
 import { MsgCreateValidator, MsgCreateValidatorSDKType, MsgEditValidator, MsgEditValidatorSDKType, MsgDelegate, MsgDelegateSDKType, MsgBeginRedelegate, MsgBeginRedelegateSDKType, MsgUndelegate, MsgUndelegateSDKType } from "./tx.js";
 export interface MsgCreateValidatorAminoType extends AminoMsg {
   type: "cosmos-sdk/MsgCreateValidator";
@@ -100,9 +101,9 @@ export const AminoConverter = {
           details: description.details
         },
         commission: {
-          rate: commission.rate,
-          max_rate: commission.maxRate,
-          max_change_rate: commission.maxChangeRate
+          rate: Decimal.fromUserInput(commission.rate, 18).atomics,
+          max_rate: Decimal.fromUserInput(commission.maxRate, 18).atomics,
+          max_change_rate: Decimal.fromUserInput(commission.maxChangeRate, 18).atomics
         },
         min_self_delegation: minSelfDelegation,
         delegator_address: delegatorAddress,
@@ -164,7 +165,7 @@ export const AminoConverter = {
           details: description.details
         },
         validator_address: validatorAddress,
-        commission_rate: commissionRate,
+        commission_rate: Decimal.fromUserInput(commissionRate, 18).atomics,
         min_self_delegation: minSelfDelegation
       };
     },

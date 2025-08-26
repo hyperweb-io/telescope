@@ -1,6 +1,7 @@
 import { GroupSpec, GroupSpecAmino, GroupSpecSDKType } from "../../deployment/v1beta2/groupspec";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { isSet, DeepPartial } from "../../../helpers";
+import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "akash.market.v1beta2";
 /** State is an enum which refers to state of order */
 export enum Order_State {
@@ -190,6 +191,15 @@ function createBaseOrderID(): OrderID {
  */
 export const OrderID = {
   typeUrl: "/akash.market.v1beta2.OrderID",
+  is(o: any): o is OrderID {
+    return o && (o.$typeUrl === OrderID.typeUrl || typeof o.owner === "string" && typeof o.dseq === "bigint" && typeof o.gseq === "number" && typeof o.oseq === "number");
+  },
+  isSDK(o: any): o is OrderIDSDKType {
+    return o && (o.$typeUrl === OrderID.typeUrl || typeof o.owner === "string" && typeof o.dseq === "bigint" && typeof o.gseq === "number" && typeof o.oseq === "number");
+  },
+  isAmino(o: any): o is OrderIDAmino {
+    return o && (o.$typeUrl === OrderID.typeUrl || typeof o.owner === "string" && typeof o.dseq === "bigint" && typeof o.gseq === "number" && typeof o.oseq === "number");
+  },
   encode(message: OrderID, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.owner !== "") {
       writer.uint32(10).string(message.owner);
@@ -300,7 +310,8 @@ export const OrderID = {
       typeUrl: "/akash.market.v1beta2.OrderID",
       value: OrderID.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseOrder(): Order {
   return {
@@ -318,6 +329,15 @@ function createBaseOrder(): Order {
  */
 export const Order = {
   typeUrl: "/akash.market.v1beta2.Order",
+  is(o: any): o is Order {
+    return o && (o.$typeUrl === Order.typeUrl || OrderID.is(o.orderId) && isSet(o.state) && GroupSpec.is(o.spec) && typeof o.createdAt === "bigint");
+  },
+  isSDK(o: any): o is OrderSDKType {
+    return o && (o.$typeUrl === Order.typeUrl || OrderID.isSDK(o.order_id) && isSet(o.state) && GroupSpec.isSDK(o.spec) && typeof o.created_at === "bigint");
+  },
+  isAmino(o: any): o is OrderAmino {
+    return o && (o.$typeUrl === Order.typeUrl || OrderID.isAmino(o.order_id) && isSet(o.state) && GroupSpec.isAmino(o.spec) && typeof o.created_at === "bigint");
+  },
   encode(message: Order, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.orderId !== undefined) {
       OrderID.encode(message.orderId, writer.uint32(10).fork()).ldelim();
@@ -432,6 +452,13 @@ export const Order = {
       typeUrl: "/akash.market.v1beta2.Order",
       value: Order.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Order.typeUrl)) {
+      return;
+    }
+    OrderID.registerTypeUrl();
+    GroupSpec.registerTypeUrl();
   }
 };
 function createBaseOrderFilters(): OrderFilters {
@@ -451,6 +478,15 @@ function createBaseOrderFilters(): OrderFilters {
  */
 export const OrderFilters = {
   typeUrl: "/akash.market.v1beta2.OrderFilters",
+  is(o: any): o is OrderFilters {
+    return o && (o.$typeUrl === OrderFilters.typeUrl || typeof o.owner === "string" && typeof o.dseq === "bigint" && typeof o.gseq === "number" && typeof o.oseq === "number" && typeof o.state === "string");
+  },
+  isSDK(o: any): o is OrderFiltersSDKType {
+    return o && (o.$typeUrl === OrderFilters.typeUrl || typeof o.owner === "string" && typeof o.dseq === "bigint" && typeof o.gseq === "number" && typeof o.oseq === "number" && typeof o.state === "string");
+  },
+  isAmino(o: any): o is OrderFiltersAmino {
+    return o && (o.$typeUrl === OrderFilters.typeUrl || typeof o.owner === "string" && typeof o.dseq === "bigint" && typeof o.gseq === "number" && typeof o.oseq === "number" && typeof o.state === "string");
+  },
   encode(message: OrderFilters, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.owner !== "") {
       writer.uint32(10).string(message.owner);
@@ -575,5 +611,6 @@ export const OrderFilters = {
       typeUrl: "/akash.market.v1beta2.OrderFilters",
       value: OrderFilters.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

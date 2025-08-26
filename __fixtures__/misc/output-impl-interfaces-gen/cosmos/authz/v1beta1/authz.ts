@@ -408,10 +408,15 @@ export const GenericAuthorization = {
       typeUrl: "/cosmos.authz.v1beta1.GenericAuthorization",
       value: GenericAuthorization.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(GenericAuthorization.typeUrl)) {
+      return;
+    }
+    GlobalDecoderRegistry.register(GenericAuthorization.typeUrl, GenericAuthorization);
+    GlobalDecoderRegistry.registerAminoProtoMapping(GenericAuthorization.aminoType, GenericAuthorization.typeUrl);
   }
 };
-GlobalDecoderRegistry.register(GenericAuthorization.typeUrl, GenericAuthorization);
-GlobalDecoderRegistry.registerAminoProtoMapping(GenericAuthorization.aminoType, GenericAuthorization.typeUrl);
 function createBaseGrant(): Grant {
   return {
     authorization: Any.fromPartial({}),
@@ -603,10 +608,9 @@ export const Grant = {
       typeUrl: "/cosmos.authz.v1beta1.Grant",
       value: Grant.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(Grant.typeUrl, Grant);
-GlobalDecoderRegistry.registerAminoProtoMapping(Grant.aminoType, Grant.typeUrl);
 function createBaseGrantAuthorization(): GrantAuthorization {
   return {
     granter: "",
@@ -769,10 +773,16 @@ export const GrantAuthorization = {
       typeUrl: "/cosmos.authz.v1beta1.GrantAuthorization",
       value: GrantAuthorization.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(GrantAuthorization.typeUrl)) {
+      return;
+    }
+    GenericAuthorization.registerTypeUrl();
+    DepositDeploymentAuthorization.registerTypeUrl();
+    SendAuthorization.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(GrantAuthorization.typeUrl, GrantAuthorization);
-GlobalDecoderRegistry.registerAminoProtoMapping(GrantAuthorization.aminoType, GrantAuthorization.typeUrl);
 function createBaseGrantQueueItem(): GrantQueueItem {
   return {
     msgTypeUrls: []
@@ -891,10 +901,9 @@ export const GrantQueueItem = {
       typeUrl: "/cosmos.authz.v1beta1.GrantQueueItem",
       value: GrantQueueItem.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(GrantQueueItem.typeUrl, GrantQueueItem);
-GlobalDecoderRegistry.registerAminoProtoMapping(GrantQueueItem.aminoType, GrantQueueItem.typeUrl);
 function createBaseGrants(): Grants {
   return {
     authorization: []
@@ -1013,7 +1022,13 @@ export const Grants = {
       typeUrl: "/cosmos.authz.v1beta1.Grants",
       value: Grants.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Grants.typeUrl)) {
+      return;
+    }
+    GenericAuthorization.registerTypeUrl();
+    DepositDeploymentAuthorization.registerTypeUrl();
+    SendAuthorization.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(Grants.typeUrl, Grants);
-GlobalDecoderRegistry.registerAminoProtoMapping(Grants.aminoType, Grants.typeUrl);

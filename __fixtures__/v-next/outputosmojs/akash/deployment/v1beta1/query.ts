@@ -3,8 +3,9 @@ import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } fr
 import { GroupID, GroupIDSDKType, Group, GroupSDKType } from "./group";
 import { Account, AccountSDKType } from "../../escrow/v1beta1/types";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet, Exact, Rpc } from "../../../helpers";
+import { isSet, Exact } from "../../../helpers";
 import { JsonSafe } from "../../../json-safe";
+import { TxRpc } from "../../../types";
 import { QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
 export const protobufPackage = "akash.deployment.v1beta1";
 /**
@@ -845,8 +846,8 @@ export interface Query {
   group(request: QueryGroupRequest): Promise<QueryGroupResponse>;
 }
 export class QueryClientImpl implements Query {
-  private readonly rpc: Rpc;
-  constructor(rpc: Rpc) {
+  private readonly rpc: TxRpc;
+  constructor(rpc: TxRpc) {
     this.rpc = rpc;
   }
   /* Deployments queries deployments */

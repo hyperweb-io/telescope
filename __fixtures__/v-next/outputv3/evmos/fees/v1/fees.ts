@@ -77,6 +77,15 @@ function createBaseDevFeeInfo(): DevFeeInfo {
  */
 export const DevFeeInfo = {
   typeUrl: "/evmos.fees.v1.DevFeeInfo",
+  is(o: any): o is DevFeeInfo {
+    return o && (o.$typeUrl === DevFeeInfo.typeUrl || typeof o.contractAddress === "string" && typeof o.deployerAddress === "string" && typeof o.withdrawAddress === "string");
+  },
+  isSDK(o: any): o is DevFeeInfoSDKType {
+    return o && (o.$typeUrl === DevFeeInfo.typeUrl || typeof o.contract_address === "string" && typeof o.deployer_address === "string" && typeof o.withdraw_address === "string");
+  },
+  isAmino(o: any): o is DevFeeInfoAmino {
+    return o && (o.$typeUrl === DevFeeInfo.typeUrl || typeof o.contract_address === "string" && typeof o.deployer_address === "string" && typeof o.withdraw_address === "string");
+  },
   encode(message: DevFeeInfo, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.contractAddress !== "") {
       writer.uint32(10).string(message.contractAddress);
@@ -171,5 +180,6 @@ export const DevFeeInfo = {
       typeUrl: "/evmos.fees.v1.DevFeeInfo",
       value: DevFeeInfo.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

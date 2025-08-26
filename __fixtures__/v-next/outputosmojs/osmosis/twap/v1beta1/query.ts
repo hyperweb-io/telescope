@@ -3,7 +3,7 @@ import { Params, ParamsSDKType } from "./genesis";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { toTimestamp, fromTimestamp, isSet, DeepPartial } from "../../../helpers";
 import { JsonSafe } from "../../../json-safe";
-import { Decimal } from "@cosmjs/math";
+import { Decimal } from "@interchainjs/math";
 export const protobufPackage = "osmosis.twap.v1beta1";
 /**
  * @name ArithmeticTwapRequest
@@ -376,7 +376,7 @@ export const ArithmeticTwapResponse = {
   },
   toAmino(message: ArithmeticTwapResponse): ArithmeticTwapResponseAmino {
     const obj: any = {};
-    obj.arithmetic_twap = message.arithmeticTwap === "" ? undefined : message.arithmeticTwap;
+    obj.arithmetic_twap = message.arithmeticTwap === "" ? undefined : Decimal.fromUserInput(message.arithmeticTwap, 18).atomics;
     return obj;
   },
   fromAminoMsg(object: ArithmeticTwapResponseAminoMsg): ArithmeticTwapResponse {
@@ -625,7 +625,7 @@ export const ArithmeticTwapToNowResponse = {
   },
   toAmino(message: ArithmeticTwapToNowResponse): ArithmeticTwapToNowResponseAmino {
     const obj: any = {};
-    obj.arithmetic_twap = message.arithmeticTwap === "" ? undefined : message.arithmeticTwap;
+    obj.arithmetic_twap = message.arithmeticTwap === "" ? undefined : Decimal.fromUserInput(message.arithmeticTwap, 18).atomics;
     return obj;
   },
   fromAminoMsg(object: ArithmeticTwapToNowResponseAminoMsg): ArithmeticTwapToNowResponse {

@@ -71,6 +71,15 @@ function createBaseParams(): Params {
 export const Params = {
   typeUrl: "/osmosis.claim.v1beta1.Params",
   aminoType: "osmosis/claim/params",
+  is(o: any): o is Params {
+    return o && (o.$typeUrl === Params.typeUrl || Timestamp.is(o.airdropStartTime) && Duration.is(o.durationUntilDecay) && Duration.is(o.durationOfDecay) && typeof o.claimDenom === "string");
+  },
+  isSDK(o: any): o is ParamsSDKType {
+    return o && (o.$typeUrl === Params.typeUrl || Timestamp.isSDK(o.airdrop_start_time) && Duration.isSDK(o.duration_until_decay) && Duration.isSDK(o.duration_of_decay) && typeof o.claim_denom === "string");
+  },
+  isAmino(o: any): o is ParamsAmino {
+    return o && (o.$typeUrl === Params.typeUrl || Timestamp.isAmino(o.airdrop_start_time) && Duration.isAmino(o.duration_until_decay) && Duration.isAmino(o.duration_of_decay) && typeof o.claim_denom === "string");
+  },
   encode(message: Params, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.airdropStartTime !== undefined) {
       Timestamp.encode(toTimestamp(message.airdropStartTime), writer.uint32(10).fork()).ldelim();
@@ -200,5 +209,6 @@ export const Params = {
       typeUrl: "/osmosis.claim.v1beta1.Params",
       value: Params.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

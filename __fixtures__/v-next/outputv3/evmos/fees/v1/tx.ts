@@ -272,6 +272,15 @@ function createBaseMsgRegisterDevFeeInfo(): MsgRegisterDevFeeInfo {
  */
 export const MsgRegisterDevFeeInfo = {
   typeUrl: "/evmos.fees.v1.MsgRegisterDevFeeInfo",
+  is(o: any): o is MsgRegisterDevFeeInfo {
+    return o && (o.$typeUrl === MsgRegisterDevFeeInfo.typeUrl || typeof o.contractAddress === "string" && typeof o.deployerAddress === "string" && typeof o.withdrawAddress === "string" && Array.isArray(o.nonces) && (!o.nonces.length || typeof o.nonces[0] === "bigint"));
+  },
+  isSDK(o: any): o is MsgRegisterDevFeeInfoSDKType {
+    return o && (o.$typeUrl === MsgRegisterDevFeeInfo.typeUrl || typeof o.contract_address === "string" && typeof o.deployer_address === "string" && typeof o.withdraw_address === "string" && Array.isArray(o.nonces) && (!o.nonces.length || typeof o.nonces[0] === "bigint"));
+  },
+  isAmino(o: any): o is MsgRegisterDevFeeInfoAmino {
+    return o && (o.$typeUrl === MsgRegisterDevFeeInfo.typeUrl || typeof o.contract_address === "string" && typeof o.deployer_address === "string" && typeof o.withdraw_address === "string" && Array.isArray(o.nonces) && (!o.nonces.length || typeof o.nonces[0] === "bigint"));
+  },
   encode(message: MsgRegisterDevFeeInfo, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.contractAddress !== "") {
       writer.uint32(10).string(message.contractAddress);
@@ -395,7 +404,8 @@ export const MsgRegisterDevFeeInfo = {
       typeUrl: "/evmos.fees.v1.MsgRegisterDevFeeInfo",
       value: MsgRegisterDevFeeInfo.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseMsgRegisterDevFeeInfoResponse(): MsgRegisterDevFeeInfoResponse {
   return {};
@@ -409,6 +419,15 @@ function createBaseMsgRegisterDevFeeInfoResponse(): MsgRegisterDevFeeInfoRespons
  */
 export const MsgRegisterDevFeeInfoResponse = {
   typeUrl: "/evmos.fees.v1.MsgRegisterDevFeeInfoResponse",
+  is(o: any): o is MsgRegisterDevFeeInfoResponse {
+    return o && o.$typeUrl === MsgRegisterDevFeeInfoResponse.typeUrl;
+  },
+  isSDK(o: any): o is MsgRegisterDevFeeInfoResponseSDKType {
+    return o && o.$typeUrl === MsgRegisterDevFeeInfoResponse.typeUrl;
+  },
+  isAmino(o: any): o is MsgRegisterDevFeeInfoResponseAmino {
+    return o && o.$typeUrl === MsgRegisterDevFeeInfoResponse.typeUrl;
+  },
   encode(_: MsgRegisterDevFeeInfoResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -460,7 +479,8 @@ export const MsgRegisterDevFeeInfoResponse = {
       typeUrl: "/evmos.fees.v1.MsgRegisterDevFeeInfoResponse",
       value: MsgRegisterDevFeeInfoResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseMsgCancelDevFeeInfo(): MsgCancelDevFeeInfo {
   return {
@@ -477,6 +497,15 @@ function createBaseMsgCancelDevFeeInfo(): MsgCancelDevFeeInfo {
  */
 export const MsgCancelDevFeeInfo = {
   typeUrl: "/evmos.fees.v1.MsgCancelDevFeeInfo",
+  is(o: any): o is MsgCancelDevFeeInfo {
+    return o && (o.$typeUrl === MsgCancelDevFeeInfo.typeUrl || typeof o.contractAddress === "string" && typeof o.deployerAddress === "string");
+  },
+  isSDK(o: any): o is MsgCancelDevFeeInfoSDKType {
+    return o && (o.$typeUrl === MsgCancelDevFeeInfo.typeUrl || typeof o.contract_address === "string" && typeof o.deployer_address === "string");
+  },
+  isAmino(o: any): o is MsgCancelDevFeeInfoAmino {
+    return o && (o.$typeUrl === MsgCancelDevFeeInfo.typeUrl || typeof o.contract_address === "string" && typeof o.deployer_address === "string");
+  },
   encode(message: MsgCancelDevFeeInfo, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.contractAddress !== "") {
       writer.uint32(10).string(message.contractAddress);
@@ -557,7 +586,8 @@ export const MsgCancelDevFeeInfo = {
       typeUrl: "/evmos.fees.v1.MsgCancelDevFeeInfo",
       value: MsgCancelDevFeeInfo.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseMsgCancelDevFeeInfoResponse(): MsgCancelDevFeeInfoResponse {
   return {};
@@ -570,6 +600,15 @@ function createBaseMsgCancelDevFeeInfoResponse(): MsgCancelDevFeeInfoResponse {
  */
 export const MsgCancelDevFeeInfoResponse = {
   typeUrl: "/evmos.fees.v1.MsgCancelDevFeeInfoResponse",
+  is(o: any): o is MsgCancelDevFeeInfoResponse {
+    return o && o.$typeUrl === MsgCancelDevFeeInfoResponse.typeUrl;
+  },
+  isSDK(o: any): o is MsgCancelDevFeeInfoResponseSDKType {
+    return o && o.$typeUrl === MsgCancelDevFeeInfoResponse.typeUrl;
+  },
+  isAmino(o: any): o is MsgCancelDevFeeInfoResponseAmino {
+    return o && o.$typeUrl === MsgCancelDevFeeInfoResponse.typeUrl;
+  },
   encode(_: MsgCancelDevFeeInfoResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -621,7 +660,8 @@ export const MsgCancelDevFeeInfoResponse = {
       typeUrl: "/evmos.fees.v1.MsgCancelDevFeeInfoResponse",
       value: MsgCancelDevFeeInfoResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseMsgUpdateDevFeeInfo(): MsgUpdateDevFeeInfo {
   return {
@@ -639,6 +679,15 @@ function createBaseMsgUpdateDevFeeInfo(): MsgUpdateDevFeeInfo {
  */
 export const MsgUpdateDevFeeInfo = {
   typeUrl: "/evmos.fees.v1.MsgUpdateDevFeeInfo",
+  is(o: any): o is MsgUpdateDevFeeInfo {
+    return o && (o.$typeUrl === MsgUpdateDevFeeInfo.typeUrl || typeof o.contractAddress === "string" && typeof o.deployerAddress === "string" && typeof o.withdrawAddress === "string");
+  },
+  isSDK(o: any): o is MsgUpdateDevFeeInfoSDKType {
+    return o && (o.$typeUrl === MsgUpdateDevFeeInfo.typeUrl || typeof o.contract_address === "string" && typeof o.deployer_address === "string" && typeof o.withdraw_address === "string");
+  },
+  isAmino(o: any): o is MsgUpdateDevFeeInfoAmino {
+    return o && (o.$typeUrl === MsgUpdateDevFeeInfo.typeUrl || typeof o.contract_address === "string" && typeof o.deployer_address === "string" && typeof o.withdraw_address === "string");
+  },
   encode(message: MsgUpdateDevFeeInfo, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.contractAddress !== "") {
       writer.uint32(10).string(message.contractAddress);
@@ -733,7 +782,8 @@ export const MsgUpdateDevFeeInfo = {
       typeUrl: "/evmos.fees.v1.MsgUpdateDevFeeInfo",
       value: MsgUpdateDevFeeInfo.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseMsgUpdateDevFeeInfoResponse(): MsgUpdateDevFeeInfoResponse {
   return {};
@@ -746,6 +796,15 @@ function createBaseMsgUpdateDevFeeInfoResponse(): MsgUpdateDevFeeInfoResponse {
  */
 export const MsgUpdateDevFeeInfoResponse = {
   typeUrl: "/evmos.fees.v1.MsgUpdateDevFeeInfoResponse",
+  is(o: any): o is MsgUpdateDevFeeInfoResponse {
+    return o && o.$typeUrl === MsgUpdateDevFeeInfoResponse.typeUrl;
+  },
+  isSDK(o: any): o is MsgUpdateDevFeeInfoResponseSDKType {
+    return o && o.$typeUrl === MsgUpdateDevFeeInfoResponse.typeUrl;
+  },
+  isAmino(o: any): o is MsgUpdateDevFeeInfoResponseAmino {
+    return o && o.$typeUrl === MsgUpdateDevFeeInfoResponse.typeUrl;
+  },
   encode(_: MsgUpdateDevFeeInfoResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -797,5 +856,6 @@ export const MsgUpdateDevFeeInfoResponse = {
       typeUrl: "/evmos.fees.v1.MsgUpdateDevFeeInfoResponse",
       value: MsgUpdateDevFeeInfoResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

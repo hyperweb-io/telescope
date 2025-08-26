@@ -3,6 +3,7 @@ import { ConfigChange, ConfigChangeAmino, ConfigChangeSDKType } from "../../conf
 import { BinaryReader, BinaryWriter } from "../../../../binary";
 import { isSet, DeepPartial, toTimestamp, fromTimestamp, bytesFromBase64, base64FromBytes, isObject } from "../../../../helpers";
 import { JsonSafe } from "../../../../json-safe";
+import { GlobalDecoderRegistry } from "../../../../registry";
 export const protobufPackage = "google.api.servicemanagement.v1";
 /** Code describes the status of the operation (or one of its steps). */
 export enum OperationMetadata_Status {
@@ -1053,6 +1054,15 @@ function createBaseManagedService(): ManagedService {
  */
 export const ManagedService = {
   typeUrl: "/google.api.servicemanagement.v1.ManagedService",
+  is(o: any): o is ManagedService {
+    return o && (o.$typeUrl === ManagedService.typeUrl || typeof o.serviceName === "string" && typeof o.producerProjectId === "string");
+  },
+  isSDK(o: any): o is ManagedServiceSDKType {
+    return o && (o.$typeUrl === ManagedService.typeUrl || typeof o.service_name === "string" && typeof o.producer_project_id === "string");
+  },
+  isAmino(o: any): o is ManagedServiceAmino {
+    return o && (o.$typeUrl === ManagedService.typeUrl || typeof o.service_name === "string" && typeof o.producer_project_id === "string");
+  },
   encode(message: ManagedService, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.serviceName !== "") {
       writer.uint32(18).string(message.serviceName);
@@ -1142,7 +1152,8 @@ export const ManagedService = {
       typeUrl: "/google.api.servicemanagement.v1.ManagedService",
       value: ManagedService.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseOperationMetadata(): OperationMetadata {
   return {
@@ -1160,6 +1171,15 @@ function createBaseOperationMetadata(): OperationMetadata {
  */
 export const OperationMetadata = {
   typeUrl: "/google.api.servicemanagement.v1.OperationMetadata",
+  is(o: any): o is OperationMetadata {
+    return o && (o.$typeUrl === OperationMetadata.typeUrl || Array.isArray(o.resourceNames) && (!o.resourceNames.length || typeof o.resourceNames[0] === "string") && Array.isArray(o.steps) && (!o.steps.length || OperationMetadata_Step.is(o.steps[0])) && typeof o.progressPercentage === "number");
+  },
+  isSDK(o: any): o is OperationMetadataSDKType {
+    return o && (o.$typeUrl === OperationMetadata.typeUrl || Array.isArray(o.resource_names) && (!o.resource_names.length || typeof o.resource_names[0] === "string") && Array.isArray(o.steps) && (!o.steps.length || OperationMetadata_Step.isSDK(o.steps[0])) && typeof o.progress_percentage === "number");
+  },
+  isAmino(o: any): o is OperationMetadataAmino {
+    return o && (o.$typeUrl === OperationMetadata.typeUrl || Array.isArray(o.resource_names) && (!o.resource_names.length || typeof o.resource_names[0] === "string") && Array.isArray(o.steps) && (!o.steps.length || OperationMetadata_Step.isAmino(o.steps[0])) && typeof o.progress_percentage === "number");
+  },
   encode(message: OperationMetadata, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.resourceNames) {
       writer.uint32(10).string(v!);
@@ -1299,6 +1319,12 @@ export const OperationMetadata = {
       typeUrl: "/google.api.servicemanagement.v1.OperationMetadata",
       value: OperationMetadata.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(OperationMetadata.typeUrl)) {
+      return;
+    }
+    OperationMetadata_Step.registerTypeUrl();
   }
 };
 function createBaseOperationMetadata_Step(): OperationMetadata_Step {
@@ -1315,6 +1341,15 @@ function createBaseOperationMetadata_Step(): OperationMetadata_Step {
  */
 export const OperationMetadata_Step = {
   typeUrl: "/google.api.servicemanagement.v1.Step",
+  is(o: any): o is OperationMetadata_Step {
+    return o && (o.$typeUrl === OperationMetadata_Step.typeUrl || typeof o.description === "string" && isSet(o.status));
+  },
+  isSDK(o: any): o is OperationMetadata_StepSDKType {
+    return o && (o.$typeUrl === OperationMetadata_Step.typeUrl || typeof o.description === "string" && isSet(o.status));
+  },
+  isAmino(o: any): o is OperationMetadata_StepAmino {
+    return o && (o.$typeUrl === OperationMetadata_Step.typeUrl || typeof o.description === "string" && isSet(o.status));
+  },
   encode(message: OperationMetadata_Step, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.description !== "") {
       writer.uint32(18).string(message.description);
@@ -1404,7 +1439,8 @@ export const OperationMetadata_Step = {
       typeUrl: "/google.api.servicemanagement.v1.Step",
       value: OperationMetadata_Step.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseDiagnostic(): Diagnostic {
   return {
@@ -1421,6 +1457,15 @@ function createBaseDiagnostic(): Diagnostic {
  */
 export const Diagnostic = {
   typeUrl: "/google.api.servicemanagement.v1.Diagnostic",
+  is(o: any): o is Diagnostic {
+    return o && (o.$typeUrl === Diagnostic.typeUrl || typeof o.location === "string" && isSet(o.kind) && typeof o.message === "string");
+  },
+  isSDK(o: any): o is DiagnosticSDKType {
+    return o && (o.$typeUrl === Diagnostic.typeUrl || typeof o.location === "string" && isSet(o.kind) && typeof o.message === "string");
+  },
+  isAmino(o: any): o is DiagnosticAmino {
+    return o && (o.$typeUrl === Diagnostic.typeUrl || typeof o.location === "string" && isSet(o.kind) && typeof o.message === "string");
+  },
   encode(message: Diagnostic, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.location !== "") {
       writer.uint32(10).string(message.location);
@@ -1525,7 +1570,8 @@ export const Diagnostic = {
       typeUrl: "/google.api.servicemanagement.v1.Diagnostic",
       value: Diagnostic.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseConfigSource(): ConfigSource {
   return {
@@ -1542,6 +1588,15 @@ function createBaseConfigSource(): ConfigSource {
  */
 export const ConfigSource = {
   typeUrl: "/google.api.servicemanagement.v1.ConfigSource",
+  is(o: any): o is ConfigSource {
+    return o && (o.$typeUrl === ConfigSource.typeUrl || typeof o.id === "string" && Array.isArray(o.files) && (!o.files.length || ConfigFile.is(o.files[0])));
+  },
+  isSDK(o: any): o is ConfigSourceSDKType {
+    return o && (o.$typeUrl === ConfigSource.typeUrl || typeof o.id === "string" && Array.isArray(o.files) && (!o.files.length || ConfigFile.isSDK(o.files[0])));
+  },
+  isAmino(o: any): o is ConfigSourceAmino {
+    return o && (o.$typeUrl === ConfigSource.typeUrl || typeof o.id === "string" && Array.isArray(o.files) && (!o.files.length || ConfigFile.isAmino(o.files[0])));
+  },
   encode(message: ConfigSource, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.id !== "") {
       writer.uint32(42).string(message.id);
@@ -1641,6 +1696,12 @@ export const ConfigSource = {
       typeUrl: "/google.api.servicemanagement.v1.ConfigSource",
       value: ConfigSource.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ConfigSource.typeUrl)) {
+      return;
+    }
+    ConfigFile.registerTypeUrl();
   }
 };
 function createBaseConfigFile(): ConfigFile {
@@ -1658,6 +1719,15 @@ function createBaseConfigFile(): ConfigFile {
  */
 export const ConfigFile = {
   typeUrl: "/google.api.servicemanagement.v1.ConfigFile",
+  is(o: any): o is ConfigFile {
+    return o && (o.$typeUrl === ConfigFile.typeUrl || typeof o.filePath === "string" && (o.fileContents instanceof Uint8Array || typeof o.fileContents === "string") && isSet(o.fileType));
+  },
+  isSDK(o: any): o is ConfigFileSDKType {
+    return o && (o.$typeUrl === ConfigFile.typeUrl || typeof o.file_path === "string" && (o.file_contents instanceof Uint8Array || typeof o.file_contents === "string") && isSet(o.file_type));
+  },
+  isAmino(o: any): o is ConfigFileAmino {
+    return o && (o.$typeUrl === ConfigFile.typeUrl || typeof o.file_path === "string" && (o.file_contents instanceof Uint8Array || typeof o.file_contents === "string") && isSet(o.file_type));
+  },
   encode(message: ConfigFile, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.filePath !== "") {
       writer.uint32(10).string(message.filePath);
@@ -1762,7 +1832,8 @@ export const ConfigFile = {
       typeUrl: "/google.api.servicemanagement.v1.ConfigFile",
       value: ConfigFile.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseConfigRef(): ConfigRef {
   return {
@@ -1777,6 +1848,15 @@ function createBaseConfigRef(): ConfigRef {
  */
 export const ConfigRef = {
   typeUrl: "/google.api.servicemanagement.v1.ConfigRef",
+  is(o: any): o is ConfigRef {
+    return o && (o.$typeUrl === ConfigRef.typeUrl || typeof o.name === "string");
+  },
+  isSDK(o: any): o is ConfigRefSDKType {
+    return o && (o.$typeUrl === ConfigRef.typeUrl || typeof o.name === "string");
+  },
+  isAmino(o: any): o is ConfigRefAmino {
+    return o && (o.$typeUrl === ConfigRef.typeUrl || typeof o.name === "string");
+  },
   encode(message: ConfigRef, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -1851,7 +1931,8 @@ export const ConfigRef = {
       typeUrl: "/google.api.servicemanagement.v1.ConfigRef",
       value: ConfigRef.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseChangeReport(): ChangeReport {
   return {
@@ -1869,6 +1950,15 @@ function createBaseChangeReport(): ChangeReport {
  */
 export const ChangeReport = {
   typeUrl: "/google.api.servicemanagement.v1.ChangeReport",
+  is(o: any): o is ChangeReport {
+    return o && (o.$typeUrl === ChangeReport.typeUrl || Array.isArray(o.configChanges) && (!o.configChanges.length || ConfigChange.is(o.configChanges[0])));
+  },
+  isSDK(o: any): o is ChangeReportSDKType {
+    return o && (o.$typeUrl === ChangeReport.typeUrl || Array.isArray(o.config_changes) && (!o.config_changes.length || ConfigChange.isSDK(o.config_changes[0])));
+  },
+  isAmino(o: any): o is ChangeReportAmino {
+    return o && (o.$typeUrl === ChangeReport.typeUrl || Array.isArray(o.config_changes) && (!o.config_changes.length || ConfigChange.isAmino(o.config_changes[0])));
+  },
   encode(message: ChangeReport, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.configChanges) {
       ConfigChange.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -1953,6 +2043,12 @@ export const ChangeReport = {
       typeUrl: "/google.api.servicemanagement.v1.ChangeReport",
       value: ChangeReport.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ChangeReport.typeUrl)) {
+      return;
+    }
+    ConfigChange.registerTypeUrl();
   }
 };
 function createBaseRollout(): Rollout {
@@ -1976,6 +2072,15 @@ function createBaseRollout(): Rollout {
  */
 export const Rollout = {
   typeUrl: "/google.api.servicemanagement.v1.Rollout",
+  is(o: any): o is Rollout {
+    return o && (o.$typeUrl === Rollout.typeUrl || typeof o.rolloutId === "string" && typeof o.createdBy === "string" && isSet(o.status) && typeof o.serviceName === "string");
+  },
+  isSDK(o: any): o is RolloutSDKType {
+    return o && (o.$typeUrl === Rollout.typeUrl || typeof o.rollout_id === "string" && typeof o.created_by === "string" && isSet(o.status) && typeof o.service_name === "string");
+  },
+  isAmino(o: any): o is RolloutAmino {
+    return o && (o.$typeUrl === Rollout.typeUrl || typeof o.rollout_id === "string" && typeof o.created_by === "string" && isSet(o.status) && typeof o.service_name === "string");
+  },
   encode(message: Rollout, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.rolloutId !== "") {
       writer.uint32(10).string(message.rolloutId);
@@ -2144,6 +2249,13 @@ export const Rollout = {
       typeUrl: "/google.api.servicemanagement.v1.Rollout",
       value: Rollout.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Rollout.typeUrl)) {
+      return;
+    }
+    Rollout_TrafficPercentStrategy.registerTypeUrl();
+    Rollout_DeleteServiceStrategy.registerTypeUrl();
   }
 };
 function createBaseRollout_TrafficPercentStrategy_PercentagesEntry(): Rollout_TrafficPercentStrategy_PercentagesEntry {
@@ -2241,7 +2353,8 @@ export const Rollout_TrafficPercentStrategy_PercentagesEntry = {
   },
   toProto(message: Rollout_TrafficPercentStrategy_PercentagesEntry): Uint8Array {
     return Rollout_TrafficPercentStrategy_PercentagesEntry.encode(message).finish();
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseRollout_TrafficPercentStrategy(): Rollout_TrafficPercentStrategy {
   return {
@@ -2285,6 +2398,15 @@ function createBaseRollout_TrafficPercentStrategy(): Rollout_TrafficPercentStrat
  */
 export const Rollout_TrafficPercentStrategy = {
   typeUrl: "/google.api.servicemanagement.v1.TrafficPercentStrategy",
+  is(o: any): o is Rollout_TrafficPercentStrategy {
+    return o && (o.$typeUrl === Rollout_TrafficPercentStrategy.typeUrl || isSet(o.percentages));
+  },
+  isSDK(o: any): o is Rollout_TrafficPercentStrategySDKType {
+    return o && (o.$typeUrl === Rollout_TrafficPercentStrategy.typeUrl || isSet(o.percentages));
+  },
+  isAmino(o: any): o is Rollout_TrafficPercentStrategyAmino {
+    return o && (o.$typeUrl === Rollout_TrafficPercentStrategy.typeUrl || isSet(o.percentages));
+  },
   encode(message: Rollout_TrafficPercentStrategy, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     Object.entries(message.percentages).forEach(([key, value]) => {
       Rollout_TrafficPercentStrategy_PercentagesEntry.encode({
@@ -2402,7 +2524,8 @@ export const Rollout_TrafficPercentStrategy = {
       typeUrl: "/google.api.servicemanagement.v1.TrafficPercentStrategy",
       value: Rollout_TrafficPercentStrategy.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseRollout_DeleteServiceStrategy(): Rollout_DeleteServiceStrategy {
   return {};
@@ -2416,6 +2539,15 @@ function createBaseRollout_DeleteServiceStrategy(): Rollout_DeleteServiceStrateg
  */
 export const Rollout_DeleteServiceStrategy = {
   typeUrl: "/google.api.servicemanagement.v1.DeleteServiceStrategy",
+  is(o: any): o is Rollout_DeleteServiceStrategy {
+    return o && o.$typeUrl === Rollout_DeleteServiceStrategy.typeUrl;
+  },
+  isSDK(o: any): o is Rollout_DeleteServiceStrategySDKType {
+    return o && o.$typeUrl === Rollout_DeleteServiceStrategy.typeUrl;
+  },
+  isAmino(o: any): o is Rollout_DeleteServiceStrategyAmino {
+    return o && o.$typeUrl === Rollout_DeleteServiceStrategy.typeUrl;
+  },
   encode(_: Rollout_DeleteServiceStrategy, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -2474,5 +2606,6 @@ export const Rollout_DeleteServiceStrategy = {
       typeUrl: "/google.api.servicemanagement.v1.DeleteServiceStrategy",
       value: Rollout_DeleteServiceStrategy.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

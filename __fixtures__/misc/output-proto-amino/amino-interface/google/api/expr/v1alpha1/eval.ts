@@ -189,9 +189,14 @@ export const ExprValue = {
       typeUrl: "/google.api.expr.v1alpha1.ExprValue",
       value: ExprValue.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ExprValue.typeUrl)) {
+      return;
+    }
+    IdRef.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(ExprValue.typeUrl, ExprValue);
 function createBaseIdRef(): IdRef {
   return {
     id: 0
@@ -292,6 +297,6 @@ export const IdRef = {
       typeUrl: "/google.api.expr.v1alpha1.IdRef",
       value: IdRef.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(IdRef.typeUrl, IdRef);

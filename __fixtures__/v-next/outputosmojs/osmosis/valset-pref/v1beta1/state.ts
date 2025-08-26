@@ -1,5 +1,5 @@
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { Decimal } from "@cosmjs/math";
+import { Decimal } from "@interchainjs/math";
 import { isSet, DeepPartial } from "../../../helpers";
 import { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "osmosis.valsetpref.v1beta1";
@@ -169,7 +169,7 @@ export const ValidatorPreference = {
   toAmino(message: ValidatorPreference): ValidatorPreferenceAmino {
     const obj: any = {};
     obj.val_oper_address = message.valOperAddress === "" ? undefined : message.valOperAddress;
-    obj.weight = message.weight === "" ? undefined : message.weight;
+    obj.weight = message.weight === "" ? undefined : Decimal.fromUserInput(message.weight, 18).atomics;
     return obj;
   },
   fromAminoMsg(object: ValidatorPreferenceAminoMsg): ValidatorPreference {

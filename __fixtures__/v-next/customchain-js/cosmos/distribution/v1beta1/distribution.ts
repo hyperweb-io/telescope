@@ -484,9 +484,9 @@ export const CosmosDistributionV1beta1Params = {
   },
   toAmino(message: CosmosDistributionV1beta1Params): CosmosDistributionV1beta1ParamsAmino {
     const obj: any = {};
-    obj.community_tax = message.communityTax === "" ? undefined : message.communityTax;
-    obj.base_proposer_reward = message.baseProposerReward === "" ? undefined : message.baseProposerReward;
-    obj.bonus_proposer_reward = message.bonusProposerReward === "" ? undefined : message.bonusProposerReward;
+    obj.community_tax = message.communityTax === "" ? undefined : Decimal.fromUserInput(message.communityTax, 18).atomics;
+    obj.base_proposer_reward = message.baseProposerReward === "" ? undefined : Decimal.fromUserInput(message.baseProposerReward, 18).atomics;
+    obj.bonus_proposer_reward = message.bonusProposerReward === "" ? undefined : Decimal.fromUserInput(message.bonusProposerReward, 18).atomics;
     obj.withdraw_addr_enabled = message.withdrawAddrEnabled === false ? undefined : message.withdrawAddrEnabled;
     return obj;
   },
@@ -929,7 +929,7 @@ export const ValidatorSlashEvent = {
   toAmino(message: ValidatorSlashEvent): ValidatorSlashEventAmino {
     const obj: any = {};
     obj.validator_period = message.validatorPeriod !== BigInt(0) ? message.validatorPeriod?.toString() : undefined;
-    obj.fraction = message.fraction === "" ? undefined : message.fraction;
+    obj.fraction = message.fraction === "" ? undefined : Decimal.fromUserInput(message.fraction, 18).atomics;
     return obj;
   },
   fromAminoMsg(object: ValidatorSlashEventAminoMsg): ValidatorSlashEvent {
@@ -1305,7 +1305,7 @@ export const DelegatorStartingInfo = {
   toAmino(message: DelegatorStartingInfo): DelegatorStartingInfoAmino {
     const obj: any = {};
     obj.previous_period = message.previousPeriod !== BigInt(0) ? message.previousPeriod?.toString() : undefined;
-    obj.stake = message.stake === "" ? undefined : message.stake;
+    obj.stake = message.stake === "" ? undefined : Decimal.fromUserInput(message.stake, 18).atomics;
     obj.height = message.height ? message.height?.toString() : "0";
     return obj;
   },

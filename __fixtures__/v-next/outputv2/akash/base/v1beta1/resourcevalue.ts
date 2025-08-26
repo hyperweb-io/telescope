@@ -50,6 +50,15 @@ function createBaseResourceValue(): ResourceValue {
  */
 export const ResourceValue = {
   typeUrl: "/akash.base.v1beta1.ResourceValue",
+  is(o: any): o is ResourceValue {
+    return o && (o.$typeUrl === ResourceValue.typeUrl || o.val instanceof Uint8Array || typeof o.val === "string");
+  },
+  isSDK(o: any): o is ResourceValueSDKType {
+    return o && (o.$typeUrl === ResourceValue.typeUrl || o.val instanceof Uint8Array || typeof o.val === "string");
+  },
+  isAmino(o: any): o is ResourceValueAmino {
+    return o && (o.$typeUrl === ResourceValue.typeUrl || o.val instanceof Uint8Array || typeof o.val === "string");
+  },
   encode(message: ResourceValue, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.val.length !== 0) {
       writer.uint32(10).bytes(message.val);
@@ -124,5 +133,6 @@ export const ResourceValue = {
       typeUrl: "/akash.base.v1beta1.ResourceValue",
       value: ResourceValue.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

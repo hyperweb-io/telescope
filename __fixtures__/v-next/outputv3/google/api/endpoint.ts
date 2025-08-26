@@ -176,6 +176,15 @@ function createBaseEndpoint(): Endpoint {
  */
 export const Endpoint = {
   typeUrl: "/google.api.Endpoint",
+  is(o: any): o is Endpoint {
+    return o && (o.$typeUrl === Endpoint.typeUrl || typeof o.name === "string" && Array.isArray(o.aliases) && (!o.aliases.length || typeof o.aliases[0] === "string") && typeof o.target === "string" && typeof o.allowCors === "boolean");
+  },
+  isSDK(o: any): o is EndpointSDKType {
+    return o && (o.$typeUrl === Endpoint.typeUrl || typeof o.name === "string" && Array.isArray(o.aliases) && (!o.aliases.length || typeof o.aliases[0] === "string") && typeof o.target === "string" && typeof o.allow_cors === "boolean");
+  },
+  isAmino(o: any): o is EndpointAmino {
+    return o && (o.$typeUrl === Endpoint.typeUrl || typeof o.name === "string" && Array.isArray(o.aliases) && (!o.aliases.length || typeof o.aliases[0] === "string") && typeof o.target === "string" && typeof o.allow_cors === "boolean");
+  },
   encode(message: Endpoint, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -290,5 +299,6 @@ export const Endpoint = {
       typeUrl: "/google.api.Endpoint",
       value: Endpoint.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

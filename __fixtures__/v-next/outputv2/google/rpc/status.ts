@@ -107,6 +107,15 @@ function createBaseStatus(): Status {
  */
 export const Status = {
   typeUrl: "/google.rpc.Status",
+  is(o: any): o is Status {
+    return o && (o.$typeUrl === Status.typeUrl || typeof o.code === "number" && typeof o.message === "string" && Array.isArray(o.details) && (!o.details.length || Any.is(o.details[0])));
+  },
+  isSDK(o: any): o is StatusSDKType {
+    return o && (o.$typeUrl === Status.typeUrl || typeof o.code === "number" && typeof o.message === "string" && Array.isArray(o.details) && (!o.details.length || Any.isSDK(o.details[0])));
+  },
+  isAmino(o: any): o is StatusAmino {
+    return o && (o.$typeUrl === Status.typeUrl || typeof o.code === "number" && typeof o.message === "string" && Array.isArray(o.details) && (!o.details.length || Any.isAmino(o.details[0])));
+  },
   encode(message: Status, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.code !== 0) {
       writer.uint32(8).int32(message.code);
@@ -221,5 +230,6 @@ export const Status = {
       typeUrl: "/google.rpc.Status",
       value: Status.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

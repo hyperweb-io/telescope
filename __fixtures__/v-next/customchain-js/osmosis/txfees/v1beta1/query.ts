@@ -476,7 +476,7 @@ export const QueryDenomSpotPriceResponse = {
   toAmino(message: QueryDenomSpotPriceResponse): QueryDenomSpotPriceResponseAmino {
     const obj: any = {};
     obj.poolID = message.poolID !== BigInt(0) ? message.poolID?.toString() : undefined;
-    obj.spot_price = message.spotPrice === "" ? undefined : message.spotPrice;
+    obj.spot_price = message.spotPrice === "" ? undefined : Decimal.fromUserInput(message.spotPrice, 18).atomics;
     return obj;
   },
   fromAminoMsg(object: QueryDenomSpotPriceResponseAminoMsg): QueryDenomSpotPriceResponse {

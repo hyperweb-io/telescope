@@ -1,7 +1,7 @@
 import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../base/query/v1beta1/pagination.js";
 import { Coin, CoinSDKType } from "../../base/v1beta1/coin.js";
 import { Params, ParamsSDKType, Metadata, MetadataSDKType } from "./bank.js";
-import { Rpc } from "../../../helpers.js";
+import { TxRpc } from "../../../types.js";
 import { BinaryReader } from "../../../binary.js";
 import { QueryClient, createProtobufRpcClient, ProtobufRpcClient } from "@cosmjs/stargate";
 import { ReactQueryParams } from "../../../react-query.js";
@@ -38,8 +38,8 @@ export interface Query {
   denomOwners(request: QueryDenomOwnersRequest): Promise<QueryDenomOwnersResponse>;
 }
 export class QueryClientImpl implements Query {
-  private readonly rpc: Rpc;
-  constructor(rpc: Rpc) {
+  private readonly rpc: TxRpc;
+  constructor(rpc: TxRpc) {
     this.rpc = rpc;
     this.balance = this.balance.bind(this);
     this.allBalances = this.allBalances.bind(this);

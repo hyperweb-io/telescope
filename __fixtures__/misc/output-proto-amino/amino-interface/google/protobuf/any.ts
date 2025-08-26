@@ -533,5 +533,6 @@ export const Any = {
       typeUrl: "/google.protobuf.Any",
       value: Any.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

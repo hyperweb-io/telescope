@@ -21,3 +21,4 @@ export * from "./varint";
 export * from "./utf8";
 export * from "./binary";
 export * from "./types";
+export * from "./registry";

@@ -1,6 +1,7 @@
 import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageResponseAmino, PageResponseSDKType } from "../../../cosmos/base/query/v1beta1/pagination";
 import { EpochInfo, EpochInfoAmino, EpochInfoSDKType } from "./genesis";
 import { BinaryReader, BinaryWriter } from "../../../binary";
+import { GlobalDecoderRegistry } from "../../../registry";
 import { isSet, DeepPartial } from "../../../helpers";
 export const protobufPackage = "evmos.epochs.v1";
 /**
@@ -130,6 +131,15 @@ function createBaseQueryEpochsInfoRequest(): QueryEpochsInfoRequest {
  */
 export const QueryEpochsInfoRequest = {
   typeUrl: "/evmos.epochs.v1.QueryEpochsInfoRequest",
+  is(o: any): o is QueryEpochsInfoRequest {
+    return o && o.$typeUrl === QueryEpochsInfoRequest.typeUrl;
+  },
+  isSDK(o: any): o is QueryEpochsInfoRequestSDKType {
+    return o && o.$typeUrl === QueryEpochsInfoRequest.typeUrl;
+  },
+  isAmino(o: any): o is QueryEpochsInfoRequestAmino {
+    return o && o.$typeUrl === QueryEpochsInfoRequest.typeUrl;
+  },
   encode(message: QueryEpochsInfoRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.pagination !== undefined) {
       PageRequest.encode(message.pagination, writer.uint32(10).fork()).ldelim();
@@ -198,6 +208,12 @@ export const QueryEpochsInfoRequest = {
       typeUrl: "/evmos.epochs.v1.QueryEpochsInfoRequest",
       value: QueryEpochsInfoRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryEpochsInfoRequest.typeUrl)) {
+      return;
+    }
+    PageRequest.registerTypeUrl();
   }
 };
 function createBaseQueryEpochsInfoResponse(): QueryEpochsInfoResponse {
@@ -213,6 +229,15 @@ function createBaseQueryEpochsInfoResponse(): QueryEpochsInfoResponse {
  */
 export const QueryEpochsInfoResponse = {
   typeUrl: "/evmos.epochs.v1.QueryEpochsInfoResponse",
+  is(o: any): o is QueryEpochsInfoResponse {
+    return o && (o.$typeUrl === QueryEpochsInfoResponse.typeUrl || Array.isArray(o.epochs) && (!o.epochs.length || EpochInfo.is(o.epochs[0])));
+  },
+  isSDK(o: any): o is QueryEpochsInfoResponseSDKType {
+    return o && (o.$typeUrl === QueryEpochsInfoResponse.typeUrl || Array.isArray(o.epochs) && (!o.epochs.length || EpochInfo.isSDK(o.epochs[0])));
+  },
+  isAmino(o: any): o is QueryEpochsInfoResponseAmino {
+    return o && (o.$typeUrl === QueryEpochsInfoResponse.typeUrl || Array.isArray(o.epochs) && (!o.epochs.length || EpochInfo.isAmino(o.epochs[0])));
+  },
   encode(message: QueryEpochsInfoResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.epochs) {
       EpochInfo.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -301,6 +326,13 @@ export const QueryEpochsInfoResponse = {
       typeUrl: "/evmos.epochs.v1.QueryEpochsInfoResponse",
       value: QueryEpochsInfoResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryEpochsInfoResponse.typeUrl)) {
+      return;
+    }
+    EpochInfo.registerTypeUrl();
+    PageResponse.registerTypeUrl();
   }
 };
 function createBaseQueryCurrentEpochRequest(): QueryCurrentEpochRequest {
@@ -315,6 +347,15 @@ function createBaseQueryCurrentEpochRequest(): QueryCurrentEpochRequest {
  */
 export const QueryCurrentEpochRequest = {
   typeUrl: "/evmos.epochs.v1.QueryCurrentEpochRequest",
+  is(o: any): o is QueryCurrentEpochRequest {
+    return o && (o.$typeUrl === QueryCurrentEpochRequest.typeUrl || typeof o.identifier === "string");
+  },
+  isSDK(o: any): o is QueryCurrentEpochRequestSDKType {
+    return o && (o.$typeUrl === QueryCurrentEpochRequest.typeUrl || typeof o.identifier === "string");
+  },
+  isAmino(o: any): o is QueryCurrentEpochRequestAmino {
+    return o && (o.$typeUrl === QueryCurrentEpochRequest.typeUrl || typeof o.identifier === "string");
+  },
   encode(message: QueryCurrentEpochRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.identifier !== "") {
       writer.uint32(10).string(message.identifier);
@@ -381,7 +422,8 @@ export const QueryCurrentEpochRequest = {
       typeUrl: "/evmos.epochs.v1.QueryCurrentEpochRequest",
       value: QueryCurrentEpochRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseQueryCurrentEpochResponse(): QueryCurrentEpochResponse {
   return {
@@ -395,6 +437,15 @@ function createBaseQueryCurrentEpochResponse(): QueryCurrentEpochResponse {
  */
 export const QueryCurrentEpochResponse = {
   typeUrl: "/evmos.epochs.v1.QueryCurrentEpochResponse",
+  is(o: any): o is QueryCurrentEpochResponse {
+    return o && (o.$typeUrl === QueryCurrentEpochResponse.typeUrl || typeof o.currentEpoch === "bigint");
+  },
+  isSDK(o: any): o is QueryCurrentEpochResponseSDKType {
+    return o && (o.$typeUrl === QueryCurrentEpochResponse.typeUrl || typeof o.current_epoch === "bigint");
+  },
+  isAmino(o: any): o is QueryCurrentEpochResponseAmino {
+    return o && (o.$typeUrl === QueryCurrentEpochResponse.typeUrl || typeof o.current_epoch === "bigint");
+  },
   encode(message: QueryCurrentEpochResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.currentEpoch !== BigInt(0)) {
       writer.uint32(8).int64(message.currentEpoch);
@@ -463,5 +514,6 @@ export const QueryCurrentEpochResponse = {
       typeUrl: "/evmos.epochs.v1.QueryCurrentEpochResponse",
       value: QueryCurrentEpochResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

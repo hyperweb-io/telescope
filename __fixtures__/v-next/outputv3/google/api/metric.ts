@@ -1,8 +1,9 @@
 import { LaunchStage, LaunchStageSDKType, launchStageFromJSON, launchStageToJSON } from "./launch_stage";
 import { Duration, DurationAmino, DurationSDKType } from "../protobuf/duration";
 import { LabelDescriptor, LabelDescriptorAmino, LabelDescriptorSDKType } from "./label";
-import { BinaryReader, BinaryWriter } from "../../binary";
 import { isSet, DeepPartial, isObject } from "../../helpers";
+import { BinaryReader, BinaryWriter } from "../../binary";
+import { GlobalDecoderRegistry } from "../../registry";
 export const protobufPackage = "google.api";
 /**
  * The kind of measurement. It describes how the data is reported.
@@ -701,6 +702,15 @@ function createBaseMetricDescriptor(): MetricDescriptor {
  */
 export const MetricDescriptor = {
   typeUrl: "/google.api.MetricDescriptor",
+  is(o: any): o is MetricDescriptor {
+    return o && (o.$typeUrl === MetricDescriptor.typeUrl || typeof o.name === "string" && typeof o.type === "string" && Array.isArray(o.labels) && (!o.labels.length || LabelDescriptor.is(o.labels[0])) && isSet(o.metricKind) && isSet(o.valueType) && typeof o.unit === "string" && typeof o.description === "string" && typeof o.displayName === "string" && isSet(o.launchStage) && Array.isArray(o.monitoredResourceTypes) && (!o.monitoredResourceTypes.length || typeof o.monitoredResourceTypes[0] === "string"));
+  },
+  isSDK(o: any): o is MetricDescriptorSDKType {
+    return o && (o.$typeUrl === MetricDescriptor.typeUrl || typeof o.name === "string" && typeof o.type === "string" && Array.isArray(o.labels) && (!o.labels.length || LabelDescriptor.isSDK(o.labels[0])) && isSet(o.metric_kind) && isSet(o.value_type) && typeof o.unit === "string" && typeof o.description === "string" && typeof o.display_name === "string" && isSet(o.launch_stage) && Array.isArray(o.monitored_resource_types) && (!o.monitored_resource_types.length || typeof o.monitored_resource_types[0] === "string"));
+  },
+  isAmino(o: any): o is MetricDescriptorAmino {
+    return o && (o.$typeUrl === MetricDescriptor.typeUrl || typeof o.name === "string" && typeof o.type === "string" && Array.isArray(o.labels) && (!o.labels.length || LabelDescriptor.isAmino(o.labels[0])) && isSet(o.metric_kind) && isSet(o.value_type) && typeof o.unit === "string" && typeof o.description === "string" && typeof o.display_name === "string" && isSet(o.launch_stage) && Array.isArray(o.monitored_resource_types) && (!o.monitored_resource_types.length || typeof o.monitored_resource_types[0] === "string"));
+  },
   encode(message: MetricDescriptor, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -921,6 +931,13 @@ export const MetricDescriptor = {
       typeUrl: "/google.api.MetricDescriptor",
       value: MetricDescriptor.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MetricDescriptor.typeUrl)) {
+      return;
+    }
+    LabelDescriptor.registerTypeUrl();
+    MetricDescriptor_MetricDescriptorMetadata.registerTypeUrl();
   }
 };
 function createBaseMetricDescriptor_MetricDescriptorMetadata(): MetricDescriptor_MetricDescriptorMetadata {
@@ -938,6 +955,15 @@ function createBaseMetricDescriptor_MetricDescriptorMetadata(): MetricDescriptor
  */
 export const MetricDescriptor_MetricDescriptorMetadata = {
   typeUrl: "/google.api.MetricDescriptorMetadata",
+  is(o: any): o is MetricDescriptor_MetricDescriptorMetadata {
+    return o && (o.$typeUrl === MetricDescriptor_MetricDescriptorMetadata.typeUrl || isSet(o.launchStage));
+  },
+  isSDK(o: any): o is MetricDescriptor_MetricDescriptorMetadataSDKType {
+    return o && (o.$typeUrl === MetricDescriptor_MetricDescriptorMetadata.typeUrl || isSet(o.launch_stage));
+  },
+  isAmino(o: any): o is MetricDescriptor_MetricDescriptorMetadataAmino {
+    return o && (o.$typeUrl === MetricDescriptor_MetricDescriptorMetadata.typeUrl || isSet(o.launch_stage));
+  },
   encode(message: MetricDescriptor_MetricDescriptorMetadata, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.launchStage !== 0) {
       writer.uint32(8).int32(message.launchStage);
@@ -1036,7 +1062,8 @@ export const MetricDescriptor_MetricDescriptorMetadata = {
       typeUrl: "/google.api.MetricDescriptorMetadata",
       value: MetricDescriptor_MetricDescriptorMetadata.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseMetric_LabelsEntry(): Metric_LabelsEntry {
   return {
@@ -1124,7 +1151,8 @@ export const Metric_LabelsEntry = {
   },
   toProto(message: Metric_LabelsEntry): Uint8Array {
     return Metric_LabelsEntry.encode(message).finish();
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseMetric(): Metric {
   return {
@@ -1141,6 +1169,15 @@ function createBaseMetric(): Metric {
  */
 export const Metric = {
   typeUrl: "/google.api.Metric",
+  is(o: any): o is Metric {
+    return o && (o.$typeUrl === Metric.typeUrl || typeof o.type === "string" && isSet(o.labels));
+  },
+  isSDK(o: any): o is MetricSDKType {
+    return o && (o.$typeUrl === Metric.typeUrl || typeof o.type === "string" && isSet(o.labels));
+  },
+  isAmino(o: any): o is MetricAmino {
+    return o && (o.$typeUrl === Metric.typeUrl || typeof o.type === "string" && isSet(o.labels));
+  },
   encode(message: Metric, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.type !== "") {
       writer.uint32(26).string(message.type);
@@ -1259,5 +1296,6 @@ export const Metric = {
       typeUrl: "/google.api.Metric",
       value: Metric.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

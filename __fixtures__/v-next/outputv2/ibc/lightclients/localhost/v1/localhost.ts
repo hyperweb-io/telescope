@@ -1,5 +1,6 @@
 import { Height, HeightAmino, HeightSDKType } from "../../../core/client/v1/client";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
+import { GlobalDecoderRegistry } from "../../../../registry";
 import { isSet, DeepPartial } from "../../../../helpers";
 import { JsonSafe } from "../../../../json-safe";
 export const protobufPackage = "ibc.lightclients.localhost.v1";
@@ -72,6 +73,15 @@ function createBaseClientState(): ClientState {
 export const ClientState = {
   typeUrl: "/ibc.lightclients.localhost.v1.ClientState",
   aminoType: "cosmos-sdk/ClientState",
+  is(o: any): o is ClientState {
+    return o && (o.$typeUrl === ClientState.typeUrl || typeof o.chainId === "string" && Height.is(o.height));
+  },
+  isSDK(o: any): o is ClientStateSDKType {
+    return o && (o.$typeUrl === ClientState.typeUrl || typeof o.chain_id === "string" && Height.isSDK(o.height));
+  },
+  isAmino(o: any): o is ClientStateAmino {
+    return o && (o.$typeUrl === ClientState.typeUrl || typeof o.chain_id === "string" && Height.isAmino(o.height));
+  },
   encode(message: ClientState, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.chainId !== "") {
       writer.uint32(10).string(message.chainId);
@@ -169,5 +179,11 @@ export const ClientState = {
       typeUrl: "/ibc.lightclients.localhost.v1.ClientState",
       value: ClientState.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ClientState.typeUrl)) {
+      return;
+    }
+    Height.registerTypeUrl();
   }
 };

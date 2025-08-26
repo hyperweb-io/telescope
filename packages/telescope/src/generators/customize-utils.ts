@@ -14,8 +14,6 @@ export const plugin = (builder: TelescopeBuilder) => {
     UTILS.toUtf8 = '@interchainjs/encoding';
 
     UTILS.Decimal = '@interchainjs/math';
-
-    UTILS.DeliverTxResponse = '@interchainjs/types';
   }
 
   if (

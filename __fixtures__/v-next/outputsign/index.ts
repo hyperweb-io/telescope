@@ -24,6 +24,7 @@ export * from "./tendermint/bundle";
 export * from "./hooks";
 export * from "./mobx.stores";
 export * from "./extern";
+export * from "./helper-func-types";
 export * from "./react-query";
 export * from "./mobx";
 export * from "./pinia-endpoint";

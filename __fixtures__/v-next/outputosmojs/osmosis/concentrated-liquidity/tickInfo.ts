@@ -1,6 +1,6 @@
 import { DecCoin, DecCoinSDKType } from "../../cosmos/base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { Decimal } from "@cosmjs/math";
+import { Decimal } from "@interchainjs/math";
 import { isSet, DeepPartial } from "../../helpers";
 import { JsonSafe } from "../../json-safe";
 export const protobufPackage = "osmosis.concentratedliquidity.v1beta1";
@@ -184,8 +184,8 @@ export const TickInfo = {
   },
   toAmino(message: TickInfo): TickInfoAmino {
     const obj: any = {};
-    obj.liquidity_gross = message.liquidityGross === "" ? undefined : message.liquidityGross;
-    obj.liquidity_net = message.liquidityNet === "" ? undefined : message.liquidityNet;
+    obj.liquidity_gross = message.liquidityGross === "" ? undefined : Decimal.fromUserInput(message.liquidityGross, 18).atomics;
+    obj.liquidity_net = message.liquidityNet === "" ? undefined : Decimal.fromUserInput(message.liquidityNet, 18).atomics;
     if (message.feeGrowthOutside) {
       obj.fee_growth_outside = message.feeGrowthOutside.map(e => e ? DecCoin.toAmino(e) : undefined);
     } else {

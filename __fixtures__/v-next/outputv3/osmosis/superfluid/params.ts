@@ -1,5 +1,5 @@
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { Decimal } from "@cosmjs/math";
+import { Decimal } from "@interchainjs/math";
 import { isSet, DeepPartial } from "../../helpers";
 export const protobufPackage = "osmosis.superfluid";
 /**
@@ -59,6 +59,15 @@ function createBaseParams(): Params {
 export const Params = {
   typeUrl: "/osmosis.superfluid.Params",
   aminoType: "osmosis/params",
+  is(o: any): o is Params {
+    return o && (o.$typeUrl === Params.typeUrl || typeof o.minimumRiskFactor === "string");
+  },
+  isSDK(o: any): o is ParamsSDKType {
+    return o && (o.$typeUrl === Params.typeUrl || typeof o.minimum_risk_factor === "string");
+  },
+  isAmino(o: any): o is ParamsAmino {
+    return o && (o.$typeUrl === Params.typeUrl || typeof o.minimum_risk_factor === "string");
+  },
   encode(message: Params, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.minimumRiskFactor !== "") {
       writer.uint32(10).string(Decimal.fromUserInput(message.minimumRiskFactor, 18).atomics);
@@ -111,7 +120,7 @@ export const Params = {
   },
   toAmino(message: Params, useInterfaces: boolean = true): ParamsAmino {
     const obj: any = {};
-    obj.minimum_risk_factor = message.minimumRiskFactor === "" ? undefined : message.minimumRiskFactor;
+    obj.minimum_risk_factor = message.minimumRiskFactor === "" ? undefined : Decimal.fromUserInput(message.minimumRiskFactor, 18).atomics;
     return obj;
   },
   fromProtoMsg(message: ParamsProtoMsg, useInterfaces: boolean = true): Params {
@@ -125,5 +134,6 @@ export const Params = {
       typeUrl: "/osmosis.superfluid.Params",
       value: Params.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

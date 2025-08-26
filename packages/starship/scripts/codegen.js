@@ -1,6 +1,7 @@
 import { join } from 'path';
 import telescope from '@hyperweb/telescope';
 import { rimrafSync as rimraf } from 'rimraf';
+import { snake, camel } from "case";
 
 const protoDirs = [join(__dirname, '/../../../__fixtures__/chain1')];
 const outPath = join(__dirname, '/../src/codegen');
@@ -10,245 +11,184 @@ telescope({
   protoDirs,
   outPath,
   options: {
+    env: "v-next",
+    useInterchainJs: true,
     removeUnusedImports: true,
-    tsDisable: {
-      patterns: ['**/tx.registry.ts']
-    },
-    interfaces: {
-      enabled: false,
-      useUnionTypes: false
-    },
-    prototypes: {
-      addTypeUrlToObjects: true,
-      excluded: {
-        packages: [
-          'ibc.applications.fee.v1', // issue with parsing protos (LCD routes with nested objects in params)
-
-          'akash.**',
-
-          'cosmos.app.v1alpha1',
-          'cosmos.app.v1beta1',
-          'cosmos.base.kv.v1beta1',
-          'cosmos.base.reflection.v1beta1',
-          'cosmos.base.snapshots.v1beta1',
-          'cosmos.base.store.v1beta1',
-          'cosmos.base.tendermint.v1beta1',
-          'cosmos.crisis.v1beta1',
-          'cosmos.evidence.v1beta1',
-          'cosmos.feegrant.v1beta1',
-          'cosmos.genutil.v1beta1',
-          'cosmos.group.v1beta1',
-
-          'cosmos.autocli.v1',
-
-          'cosmos.group.v1',
-          'cosmos.msg.v1',
-          'cosmos.nft.v1beta1',
-          'cosmos.capability.v1beta1',
-          'cosmos.orm.v1alpha1',
-          'cosmos.orm.v1',
-          'cosmos.slashing.v1beta1',
-          'cosmos.vesting.v1beta1',
-          'google.api.**',
-          'google.logging.**',
-          'ibc.core.port.v1',
-          'ibc.core.types.v1'
-        ]
-      },
-      methods: {
-        fromJSON: false,
-        toJSON: false
-      },
-      parser: {
-        keepCase: false
-      },
-      typingsFormat: {
-        num64: 'long',
-        duration: 'duration',
-        timestamp: 'date',
-        useExact: false
-      }
-    },
-    aminoEncoding: {
-      enabled: true,
-      useLegacyInlineEncoding: false
-    },
-    lcdClients: {
-      enabled: true
-    },
-    rpcClients: {
-      enabled: true,
-      camelCase: true
-    },
-    reactQuery: {
-      enabled: true
-    },
-    packages: {
-      osmosis: {
-        classesUseArrowFunctions: true
-      }
-    }
-  }
-})
-  .then(() => {
-    console.log('✨ all done!');
-  })
-  .catch((e) => {
-    console.error(e);
-    process.exit(1);
-  });
-
-const outPathV1 = join(__dirname, '/../src/codegen1');
-rimraf(outPathV1);
-
-telescope({
-  protoDirs,
-  outPath: outPathV1,
-  options: {
-    env: 'v-next',
-    removeUnusedImports: false,
-    classesUseArrowFunctions: true,
+    classesUseArrowFunctions: false,
+    useSDKTypes: true,
+    includeExternalHelpers: false,
+    logLevel: 0,
+    readme: { enabled: false },
 
     interfaces: {
       enabled: true,
       useGlobalDecoderRegistry: true,
-      useUnionTypes: true
+      registerAllDecodersToGlobal: false,
+      useByDefault: true,
+      useByDefaultRpc: true,
+      useUnionTypes: true,
     },
 
     prototypes: {
       enabled: true,
-      addTypeUrlToObjects: true,
-      addTypeUrlToDecoders: true,
-      addAminoTypeToObjects: true,
-      excluded: {
-        packages: ['google.api.**', 'google.logging.**', 'google.protobuf.**']
-      },
       parser: {
-        keepCase: false
+        keepCase: false,
+        alternateCommentMode: true,
+        preferTrailingComment: false,
       },
       methods: {
         encode: true,
         decode: true,
-        fromJSON: true,
-        toJSON: true,
+        fromJSON: false,
+        toJSON: false,
         fromPartial: true,
-        toSDK: true,
-        fromSDK: true,
+        toSDK: false,
+        fromSDK: false,
+        fromSDKJSON: false,
         toAmino: true,
         fromAmino: true,
         toProto: true,
-        fromProto: true
+        fromProto: true,
       },
-      strictNullCheckForPrototypeMethods: true,
-      paginationDefaultFromPartial: true,
-      includePackageVar: true,
+      strictNullCheckForPrototypeMethods: false,
+      includePackageVar: false,
       fieldDefaultIsOptional: false,
-      useOptionalNullable: true,
       allowUndefinedTypes: false,
-      allowEncodeDefaultScalars: true,
+      useOptionalNullable: true,
+
+      addTypeUrlToObjects: true,
+      addAminoTypeToObjects: false,
+      addTypeUrlToDecoders: true,
+
+      enableRegistryLoader: false,
+      enableMessageComposer: true,
+
+      optionalQueryParams: false,
+      optionalPageRequests: false,
+
       typingsFormat: {
         customTypes: {
-          useCosmosSDKDec: true
+          useCosmosSDKDec: true,
         },
-        num64: 'bigint',
-        useDeepPartial: true,
+        num64: "bigint",
+        useDeepPartial: false,
         useExact: false,
-        timestamp: 'date',
-        duration: 'duration',
-        useTelescopeGeneratedType: true
-      }
+        toJsonUnknown: false,
+        timestamp: "date",
+        duration: "duration",
+        updatedDuration: false,
+        useTelescopeGeneratedType: true,
+        setDefaultEnumToUnrecognized: true,
+        autoFixUndefinedEnumDefault: false,
+      },
+    },
+
+    enums: {
+      useCustomNames: false,
     },
 
     bundle: {
-      enabled: true
+      enabled: true,
+      type: "namespace",
+    },
+
+    tsDisable: {
+      files: [],
+      patterns: [],
+      disableAll: false,
+    },
+
+    eslintDisable: {
+      files: [],
+      patterns: [],
+      disableAll: false,
     },
 
     stargateClients: {
-      enabled: true,
+      enabled: false,
       includeCosmosDefaultTypes: true,
-      addGetTxRpc: true
-    },
-
-    aggregatedLCD: {
-      dir: 'osmosis',
-      filename: 'agg-lcd.ts',
-      packages: ['cosmos.bank.v1beta1', 'osmosis.gamm.v1beta1'],
-      addToBundle: true
-    },
-
-    lcdClients: {
-      enabled: true,
-      scopedIsExclusive: false,
-      scoped: [
-        {
-          dir: 'osmosis',
-          filename: 'custom-lcd-client.ts',
-          packages: [
-            'cosmos.bank.v1beta1',
-            'cosmos.gov.v1beta1',
-            'osmosis.gamm.v1beta1'
-          ],
-          addToBundle: true,
-          methodName: 'createCustomLCDClient'
-        },
-        {
-          dir: 'evmos',
-          filename: 'custom-lcd-client.ts',
-          packages: [
-            'cosmos.bank.v1beta1',
-            'cosmos.gov.v1beta1',
-            'evmos.erc20.v1'
-          ],
-          addToBundle: true,
-          methodName: 'createEvmosLCDClient'
-        }
-      ]
-    },
-
-    rpcClients: {
-      enabled: true,
-      extensions: true,
-      camelCase: true,
-      scopedIsExclusive: false,
-      useConnectComet: true,
-      scoped: [
-        {
-          dir: 'cosmos',
-          filename: 'cosmos-rpc-client.ts',
-          packages: ['cosmos.bank.v1beta1', 'cosmos.gov.v1beta1'],
-          addToBundle: true,
-          methodNameQuery: 'createCosmicRPCQueryClient',
-          methodNameTx: 'createCosmicRPCTxClient'
-        },
-        {
-          dir: 'evmos',
-          filename: 'evmos-rpc-client.ts',
-          packages: [
-            'cosmos.bank.v1beta1',
-            'cosmos.gov.v1beta1',
-            'evmos.erc20.v1'
-          ],
-          addToBundle: true,
-          methodNameQuery: 'createEvmosRPCQueryClient',
-          methodNameTx: 'createEvmosRPCTxClient'
-        }
-      ],
-      serviceImplement: {
-        Msg: {
-          type: 'Tx'
-        }
-      },
-      enabledServices: [
-        'Msg',
-        'Query',
-        'Service',
-        'ReflectionService',
-        'ABCIApplication'
-      ]
     },
 
     aminoEncoding: {
-      enabled: true
+      enabled: true,
+      useLegacyInlineEncoding: false,
+      customTypes: {
+        useCosmosSDKDec: true,
+      },
+      omitEmptyTags: ["omitempty", "dont_omitempty"],
+      casingFn: snake,
+    },
+    lcdClients: {
+      bundle: true,
+      enabled: false,
+      scopedIsExclusive: true,
+    },
+    rpcClients: {
+      type: "tendermint",
+      clientStyle: {
+        useUpdatedClientStyle: false,
+      },
+      enabled: false,
+      extensions: true,
+      inline: false,
+      bundle: true,
+      camelCase: true,
+      enabledServices: ["Msg", "Query", "Service"],
+      scopedIsExclusive: true,
+    },
+
+    reactQuery: {
+      enabled: false,
+      include: {
+        patterns: [],
+        packages: [],
+        protos: [],
+      },
+    },
+
+    mobx: {
+      enabled: false,
+      include: {
+        patterns: [],
+        packages: [],
+        protos: [],
+      },
+    },
+
+    pinia: {
+      enabled: false,
+      include: {
+        patterns: [],
+        packages: [],
+        protos: [],
+      },
+    },
+
+    helperFunctions: {
+      enabled: true,
+      useGlobalDecoderRegistry: true,
+      hooks: {
+        react: false,
+        vue: false
+      }
+    },
+
+    mcpServer: {
+      enabled: false,
+    },
+
+    // packages
+    packages: {
+      cosmos: {
+        stargateClients: {
+          includeCosmosDefaultTypes: false,
+        },
+      },
+      osmosis: {
+        aminoEncoding: {
+          casingFn: camel,
+        },
+      },
     }
   }
 })

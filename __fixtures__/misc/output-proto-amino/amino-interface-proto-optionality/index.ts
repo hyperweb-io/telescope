@@ -9,6 +9,7 @@ export * from "./google/bundle";
 export * from "./misc/bundle";
 export * from "./misc/client";
 export * from "./extern";
+export * from "./helper-func-types";
 export * from "./react-query";
 export * from "./mobx";
 export * from "./pinia-endpoint";

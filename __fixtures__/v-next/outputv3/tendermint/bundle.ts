@@ -9,9 +9,11 @@ import * as _312 from "./types/params";
 import * as _313 from "./types/types";
 import * as _314 from "./types/validator";
 import * as _315 from "./version/types";
+import * as _572 from "./abci/types.rpc.func";
 export namespace tendermint {
   export const abci = {
-    ..._305
+    ..._305,
+    ..._572
   };
   export const crypto = {
     ..._306,

@@ -1,7 +1,6 @@
 import { BinaryReader, BinaryWriter } from "../binary";
 import { isSet, DeepPartial } from "../helpers";
 import { JsonSafe } from "../json-safe";
-import { GlobalDecoderRegistry } from "../registry";
 export const protobufPackage = "misc";
 /**
  * @name TestNest
@@ -167,9 +166,9 @@ export const TestNest = {
       typeUrl: "/misc.TestNest",
       value: TestNest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(TestNest.typeUrl, TestNest);
 function createBaseTestNest_Graph(): TestNest_Graph {
   return {
     name: ""
@@ -270,6 +269,6 @@ export const TestNest_Graph = {
       typeUrl: "/misc.Graph",
       value: TestNest_Graph.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(TestNest_Graph.typeUrl, TestNest_Graph);

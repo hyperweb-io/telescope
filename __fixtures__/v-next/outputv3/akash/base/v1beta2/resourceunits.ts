@@ -1,6 +1,7 @@
 import { CPU, CPUAmino, CPUSDKType, Memory, MemoryAmino, MemorySDKType, Storage, StorageAmino, StorageSDKType } from "./resource";
 import { Endpoint, EndpointAmino, EndpointSDKType } from "./endpoint";
 import { BinaryReader, BinaryWriter } from "../../../binary";
+import { GlobalDecoderRegistry } from "../../../registry";
 import { isSet, DeepPartial } from "../../../helpers";
 export const protobufPackage = "akash.base.v1beta2";
 /**
@@ -63,6 +64,15 @@ function createBaseResourceUnits(): ResourceUnits {
  */
 export const ResourceUnits = {
   typeUrl: "/akash.base.v1beta2.ResourceUnits",
+  is(o: any): o is ResourceUnits {
+    return o && (o.$typeUrl === ResourceUnits.typeUrl || Array.isArray(o.storage) && (!o.storage.length || Storage.is(o.storage[0])) && Array.isArray(o.endpoints) && (!o.endpoints.length || Endpoint.is(o.endpoints[0])));
+  },
+  isSDK(o: any): o is ResourceUnitsSDKType {
+    return o && (o.$typeUrl === ResourceUnits.typeUrl || Array.isArray(o.storage) && (!o.storage.length || Storage.isSDK(o.storage[0])) && Array.isArray(o.endpoints) && (!o.endpoints.length || Endpoint.isSDK(o.endpoints[0])));
+  },
+  isAmino(o: any): o is ResourceUnitsAmino {
+    return o && (o.$typeUrl === ResourceUnits.typeUrl || Array.isArray(o.storage) && (!o.storage.length || Storage.isAmino(o.storage[0])) && Array.isArray(o.endpoints) && (!o.endpoints.length || Endpoint.isAmino(o.endpoints[0])));
+  },
   encode(message: ResourceUnits, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.cpu !== undefined) {
       CPU.encode(message.cpu, writer.uint32(10).fork()).ldelim();
@@ -187,5 +197,14 @@ export const ResourceUnits = {
       typeUrl: "/akash.base.v1beta2.ResourceUnits",
       value: ResourceUnits.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ResourceUnits.typeUrl)) {
+      return;
+    }
+    CPU.registerTypeUrl();
+    Memory.registerTypeUrl();
+    Storage.registerTypeUrl();
+    Endpoint.registerTypeUrl();
   }
 };

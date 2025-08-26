@@ -1,7 +1,8 @@
 import { Metadata, MetadataAmino, MetadataSDKType } from "../../../cosmos/bank/v1beta1/bank";
-import { BinaryReader, BinaryWriter } from "../../../binary";
 import { isSet, DeepPartial } from "../../../helpers";
+import { BinaryReader, BinaryWriter } from "../../../binary";
 import { JsonSafe } from "../../../json-safe";
+import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "evmos.erc20.v1";
 /** Owner enumerates the ownership of a ERC20 contract. */
 export enum Owner {
@@ -321,6 +322,15 @@ function createBaseTokenPair(): TokenPair {
  */
 export const TokenPair = {
   typeUrl: "/evmos.erc20.v1.TokenPair",
+  is(o: any): o is TokenPair {
+    return o && (o.$typeUrl === TokenPair.typeUrl || typeof o.erc20Address === "string" && typeof o.denom === "string" && typeof o.enabled === "boolean" && isSet(o.contractOwner));
+  },
+  isSDK(o: any): o is TokenPairSDKType {
+    return o && (o.$typeUrl === TokenPair.typeUrl || typeof o.erc20_address === "string" && typeof o.denom === "string" && typeof o.enabled === "boolean" && isSet(o.contract_owner));
+  },
+  isAmino(o: any): o is TokenPairAmino {
+    return o && (o.$typeUrl === TokenPair.typeUrl || typeof o.erc20_address === "string" && typeof o.denom === "string" && typeof o.enabled === "boolean" && isSet(o.contract_owner));
+  },
   encode(message: TokenPair, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.erc20Address !== "") {
       writer.uint32(10).string(message.erc20Address);
@@ -440,7 +450,8 @@ export const TokenPair = {
       typeUrl: "/evmos.erc20.v1.TokenPair",
       value: TokenPair.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseRegisterCoinProposal(): RegisterCoinProposal {
   return {
@@ -458,6 +469,15 @@ function createBaseRegisterCoinProposal(): RegisterCoinProposal {
  */
 export const RegisterCoinProposal = {
   typeUrl: "/evmos.erc20.v1.RegisterCoinProposal",
+  is(o: any): o is RegisterCoinProposal {
+    return o && (o.$typeUrl === RegisterCoinProposal.typeUrl || typeof o.title === "string" && typeof o.description === "string" && Metadata.is(o.metadata));
+  },
+  isSDK(o: any): o is RegisterCoinProposalSDKType {
+    return o && (o.$typeUrl === RegisterCoinProposal.typeUrl || typeof o.title === "string" && typeof o.description === "string" && Metadata.isSDK(o.metadata));
+  },
+  isAmino(o: any): o is RegisterCoinProposalAmino {
+    return o && (o.$typeUrl === RegisterCoinProposal.typeUrl || typeof o.title === "string" && typeof o.description === "string" && Metadata.isAmino(o.metadata));
+  },
   encode(message: RegisterCoinProposal, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.title !== "") {
       writer.uint32(10).string(message.title);
@@ -564,6 +584,12 @@ export const RegisterCoinProposal = {
       typeUrl: "/evmos.erc20.v1.RegisterCoinProposal",
       value: RegisterCoinProposal.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(RegisterCoinProposal.typeUrl)) {
+      return;
+    }
+    Metadata.registerTypeUrl();
   }
 };
 function createBaseRegisterERC20Proposal(): RegisterERC20Proposal {
@@ -582,6 +608,15 @@ function createBaseRegisterERC20Proposal(): RegisterERC20Proposal {
  */
 export const RegisterERC20Proposal = {
   typeUrl: "/evmos.erc20.v1.RegisterERC20Proposal",
+  is(o: any): o is RegisterERC20Proposal {
+    return o && (o.$typeUrl === RegisterERC20Proposal.typeUrl || typeof o.title === "string" && typeof o.description === "string" && typeof o.erc20address === "string");
+  },
+  isSDK(o: any): o is RegisterERC20ProposalSDKType {
+    return o && (o.$typeUrl === RegisterERC20Proposal.typeUrl || typeof o.title === "string" && typeof o.description === "string" && typeof o.erc20address === "string");
+  },
+  isAmino(o: any): o is RegisterERC20ProposalAmino {
+    return o && (o.$typeUrl === RegisterERC20Proposal.typeUrl || typeof o.title === "string" && typeof o.description === "string" && typeof o.erc20address === "string");
+  },
   encode(message: RegisterERC20Proposal, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.title !== "") {
       writer.uint32(10).string(message.title);
@@ -686,7 +721,8 @@ export const RegisterERC20Proposal = {
       typeUrl: "/evmos.erc20.v1.RegisterERC20Proposal",
       value: RegisterERC20Proposal.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseToggleTokenConversionProposal(): ToggleTokenConversionProposal {
   return {
@@ -704,6 +740,15 @@ function createBaseToggleTokenConversionProposal(): ToggleTokenConversionProposa
  */
 export const ToggleTokenConversionProposal = {
   typeUrl: "/evmos.erc20.v1.ToggleTokenConversionProposal",
+  is(o: any): o is ToggleTokenConversionProposal {
+    return o && (o.$typeUrl === ToggleTokenConversionProposal.typeUrl || typeof o.title === "string" && typeof o.description === "string" && typeof o.token === "string");
+  },
+  isSDK(o: any): o is ToggleTokenConversionProposalSDKType {
+    return o && (o.$typeUrl === ToggleTokenConversionProposal.typeUrl || typeof o.title === "string" && typeof o.description === "string" && typeof o.token === "string");
+  },
+  isAmino(o: any): o is ToggleTokenConversionProposalAmino {
+    return o && (o.$typeUrl === ToggleTokenConversionProposal.typeUrl || typeof o.title === "string" && typeof o.description === "string" && typeof o.token === "string");
+  },
   encode(message: ToggleTokenConversionProposal, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.title !== "") {
       writer.uint32(10).string(message.title);
@@ -808,5 +853,6 @@ export const ToggleTokenConversionProposal = {
       typeUrl: "/evmos.erc20.v1.ToggleTokenConversionProposal",
       value: ToggleTokenConversionProposal.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

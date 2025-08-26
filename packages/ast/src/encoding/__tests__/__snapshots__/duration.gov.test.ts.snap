@@ -1,8 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Duraation: duration DepositParams 1`] = `
-"export const DepositParams = {
+"/**
+ * DepositParams defines the params for deposits on governance proposals.
+ * @name DepositParams
+ * @package cosmos.gov.v1beta1
+ * @see proto type: cosmos.gov.v1beta1.DepositParams
+ */
+export const DepositParams = {
   typeUrl: "/cosmos.gov.v1beta1.DepositParams",
+  aminoType: "cosmos-sdk/DepositParams",
+  is(o: any): o is DepositParams {
+    return o && (o.$typeUrl === DepositParams.typeUrl || Array.isArray(o.minDeposit) && (!o.minDeposit.length || Coin.is(o.minDeposit[0])) && typeof o.maxDepositPeriod === "string");
+  },
+  isSDK(o: any): o is DepositParamsSDKType {
+    return o && (o.$typeUrl === DepositParams.typeUrl || Array.isArray(o.min_deposit) && (!o.min_deposit.length || Coin.isSDK(o.min_deposit[0])) && typeof o.max_deposit_period === "string");
+  },
   encode(message: DepositParams, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.minDeposit) {
       Coin.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -76,13 +89,32 @@ exports[`Duraation: duration DepositParams 1`] = `
       typeUrl: "/cosmos.gov.v1beta1.DepositParams",
       value: DepositParams.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(DepositParams.typeUrl)) {
+      return;
+    }
+    Coin.registerTypeUrl();
   }
 };"
 `;
 
 exports[`Duration: string DepositParams 1`] = `
-"export const DepositParams = {
+"/**
+ * DepositParams defines the params for deposits on governance proposals.
+ * @name DepositParams
+ * @package cosmos.gov.v1beta1
+ * @see proto type: cosmos.gov.v1beta1.DepositParams
+ */
+export const DepositParams = {
   typeUrl: "/cosmos.gov.v1beta1.DepositParams",
+  aminoType: "cosmos-sdk/DepositParams",
+  is(o: any): o is DepositParams {
+    return o && (o.$typeUrl === DepositParams.typeUrl || Array.isArray(o.minDeposit) && (!o.minDeposit.length || Coin.is(o.minDeposit[0])) && typeof o.maxDepositPeriod === "string");
+  },
+  isSDK(o: any): o is DepositParamsSDKType {
+    return o && (o.$typeUrl === DepositParams.typeUrl || Array.isArray(o.min_deposit) && (!o.min_deposit.length || Coin.isSDK(o.min_deposit[0])) && typeof o.max_deposit_period === "string");
+  },
   encode(message: DepositParams, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.minDeposit) {
       Coin.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -156,6 +188,12 @@ exports[`Duration: string DepositParams 1`] = `
       typeUrl: "/cosmos.gov.v1beta1.DepositParams",
       value: DepositParams.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(DepositParams.typeUrl)) {
+      return;
+    }
+    Coin.registerTypeUrl();
   }
 };"
 `;

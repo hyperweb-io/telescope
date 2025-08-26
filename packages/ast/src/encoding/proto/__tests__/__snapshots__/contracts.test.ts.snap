@@ -1,22 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MsgExecuteContract interface 1`] = `
-"/** MsgExecuteContract submits the given message data to a smart contract */
+"/**
+ * MsgExecuteContract submits the given message data to a smart contract
+ * @name MsgExecuteContract
+ * @package cosmwasm.wasm.v1
+ * @see proto type: cosmwasm.wasm.v1.MsgExecuteContract
+ */
 export interface MsgExecuteContract {
-  /** Sender is the that actor that signed the messages */
+  /**
+   * Sender is the that actor that signed the messages
+   */
   sender: string;
-  /** Contract is the address of the smart contract */
+  /**
+   * Contract is the address of the smart contract
+   */
   contract: string;
-  /** Msg json encoded message to be passed to the contract */
+  /**
+   * Msg json encoded message to be passed to the contract
+   */
   msg: Uint8Array;
-  /** Funds coins that are transferred to the contract on execution */
+  /**
+   * Funds coins that are transferred to the contract on execution
+   */
   funds: Coin[];
 }"
 `;
 
 exports[`MsgExecuteContract interface 2`] = `
-"export const MsgExecuteContract = {
+"/**
+ * MsgExecuteContract submits the given message data to a smart contract
+ * @name MsgExecuteContract
+ * @package cosmwasm.wasm.v1
+ * @see proto type: cosmwasm.wasm.v1.MsgExecuteContract
+ */
+export const MsgExecuteContract = {
   typeUrl: "/cosmwasm.wasm.v1.MsgExecuteContract",
+  aminoType: "wasm/MsgExecuteContract",
+  is(o: any): o is MsgExecuteContract {
+    return o && (o.$typeUrl === MsgExecuteContract.typeUrl || typeof o.sender === "string" && typeof o.contract === "string" && (o.msg instanceof Uint8Array || typeof o.msg === "string") && Array.isArray(o.funds) && (!o.funds.length || Coin.is(o.funds[0])));
+  },
+  isSDK(o: any): o is MsgExecuteContractSDKType {
+    return o && (o.$typeUrl === MsgExecuteContract.typeUrl || typeof o.sender === "string" && typeof o.contract === "string" && (o.msg instanceof Uint8Array || typeof o.msg === "string") && Array.isArray(o.funds) && (!o.funds.length || Coin.isSDK(o.funds[0])));
+  },
   encode(message: MsgExecuteContract, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.sender !== "") {
       writer.uint32(10).string(message.sender);
@@ -152,6 +178,12 @@ exports[`MsgExecuteContract interface 2`] = `
       typeUrl: "/cosmwasm.wasm.v1.MsgExecuteContract",
       value: MsgExecuteContract.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgExecuteContract.typeUrl)) {
+      return;
+    }
+    Coin.registerTypeUrl();
   }
 };"
 `;

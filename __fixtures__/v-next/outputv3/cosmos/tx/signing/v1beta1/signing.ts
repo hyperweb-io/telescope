@@ -2,6 +2,7 @@ import { CompactBitArray, CompactBitArrayAmino, CompactBitArraySDKType } from ".
 import { Any, AnyProtoMsg, AnyAmino, AnySDKType } from "../../../../google/protobuf/any";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
 import { DeepPartial, isSet, bytesFromBase64, base64FromBytes } from "../../../../helpers";
+import { GlobalDecoderRegistry } from "../../../../registry";
 export const protobufPackage = "cosmos.tx.signing.v1beta1";
 /**
  * SignMode represents a signing mode with its own security guarantees.
@@ -339,6 +340,15 @@ function createBaseSignatureDescriptors(): SignatureDescriptors {
 export const SignatureDescriptors = {
   typeUrl: "/cosmos.tx.signing.v1beta1.SignatureDescriptors",
   aminoType: "cosmos-sdk/SignatureDescriptors",
+  is(o: any): o is SignatureDescriptors {
+    return o && (o.$typeUrl === SignatureDescriptors.typeUrl || Array.isArray(o.signatures) && (!o.signatures.length || SignatureDescriptor.is(o.signatures[0])));
+  },
+  isSDK(o: any): o is SignatureDescriptorsSDKType {
+    return o && (o.$typeUrl === SignatureDescriptors.typeUrl || Array.isArray(o.signatures) && (!o.signatures.length || SignatureDescriptor.isSDK(o.signatures[0])));
+  },
+  isAmino(o: any): o is SignatureDescriptorsAmino {
+    return o && (o.$typeUrl === SignatureDescriptors.typeUrl || Array.isArray(o.signatures) && (!o.signatures.length || SignatureDescriptor.isAmino(o.signatures[0])));
+  },
   encode(message: SignatureDescriptors, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.signatures) {
       SignatureDescriptor.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -411,6 +421,12 @@ export const SignatureDescriptors = {
       typeUrl: "/cosmos.tx.signing.v1beta1.SignatureDescriptors",
       value: SignatureDescriptors.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(SignatureDescriptors.typeUrl)) {
+      return;
+    }
+    SignatureDescriptor.registerTypeUrl();
   }
 };
 function createBaseSignatureDescriptor(): SignatureDescriptor {
@@ -432,6 +448,15 @@ function createBaseSignatureDescriptor(): SignatureDescriptor {
 export const SignatureDescriptor = {
   typeUrl: "/cosmos.tx.signing.v1beta1.SignatureDescriptor",
   aminoType: "cosmos-sdk/SignatureDescriptor",
+  is(o: any): o is SignatureDescriptor {
+    return o && (o.$typeUrl === SignatureDescriptor.typeUrl || typeof o.sequence === "bigint");
+  },
+  isSDK(o: any): o is SignatureDescriptorSDKType {
+    return o && (o.$typeUrl === SignatureDescriptor.typeUrl || typeof o.sequence === "bigint");
+  },
+  isAmino(o: any): o is SignatureDescriptorAmino {
+    return o && (o.$typeUrl === SignatureDescriptor.typeUrl || typeof o.sequence === "bigint");
+  },
   encode(message: SignatureDescriptor, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.publicKey !== undefined) {
       Any.encode(message.publicKey, writer.uint32(10).fork()).ldelim();
@@ -532,6 +557,12 @@ export const SignatureDescriptor = {
       typeUrl: "/cosmos.tx.signing.v1beta1.SignatureDescriptor",
       value: SignatureDescriptor.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(SignatureDescriptor.typeUrl)) {
+      return;
+    }
+    SignatureDescriptor_Data.registerTypeUrl();
   }
 };
 function createBaseSignatureDescriptor_Data(): SignatureDescriptor_Data {
@@ -549,6 +580,15 @@ function createBaseSignatureDescriptor_Data(): SignatureDescriptor_Data {
 export const SignatureDescriptor_Data = {
   typeUrl: "/cosmos.tx.signing.v1beta1.Data",
   aminoType: "cosmos-sdk/Data",
+  is(o: any): o is SignatureDescriptor_Data {
+    return o && o.$typeUrl === SignatureDescriptor_Data.typeUrl;
+  },
+  isSDK(o: any): o is SignatureDescriptor_DataSDKType {
+    return o && o.$typeUrl === SignatureDescriptor_Data.typeUrl;
+  },
+  isAmino(o: any): o is SignatureDescriptor_DataAmino {
+    return o && o.$typeUrl === SignatureDescriptor_Data.typeUrl;
+  },
   encode(message: SignatureDescriptor_Data, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.single !== undefined) {
       SignatureDescriptor_Data_Single.encode(message.single, writer.uint32(10).fork()).ldelim();
@@ -633,6 +673,13 @@ export const SignatureDescriptor_Data = {
       typeUrl: "/cosmos.tx.signing.v1beta1.Data",
       value: SignatureDescriptor_Data.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(SignatureDescriptor_Data.typeUrl)) {
+      return;
+    }
+    SignatureDescriptor_Data_Single.registerTypeUrl();
+    SignatureDescriptor_Data_Multi.registerTypeUrl();
   }
 };
 function createBaseSignatureDescriptor_Data_Single(): SignatureDescriptor_Data_Single {
@@ -650,6 +697,15 @@ function createBaseSignatureDescriptor_Data_Single(): SignatureDescriptor_Data_S
 export const SignatureDescriptor_Data_Single = {
   typeUrl: "/cosmos.tx.signing.v1beta1.Single",
   aminoType: "cosmos-sdk/Single",
+  is(o: any): o is SignatureDescriptor_Data_Single {
+    return o && (o.$typeUrl === SignatureDescriptor_Data_Single.typeUrl || isSet(o.mode) && (o.signature instanceof Uint8Array || typeof o.signature === "string"));
+  },
+  isSDK(o: any): o is SignatureDescriptor_Data_SingleSDKType {
+    return o && (o.$typeUrl === SignatureDescriptor_Data_Single.typeUrl || isSet(o.mode) && (o.signature instanceof Uint8Array || typeof o.signature === "string"));
+  },
+  isAmino(o: any): o is SignatureDescriptor_Data_SingleAmino {
+    return o && (o.$typeUrl === SignatureDescriptor_Data_Single.typeUrl || isSet(o.mode) && (o.signature instanceof Uint8Array || typeof o.signature === "string"));
+  },
   encode(message: SignatureDescriptor_Data_Single, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.mode !== 0) {
       writer.uint32(8).int32(message.mode);
@@ -730,7 +786,8 @@ export const SignatureDescriptor_Data_Single = {
       typeUrl: "/cosmos.tx.signing.v1beta1.Single",
       value: SignatureDescriptor_Data_Single.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseSignatureDescriptor_Data_Multi(): SignatureDescriptor_Data_Multi {
   return {
@@ -747,6 +804,15 @@ function createBaseSignatureDescriptor_Data_Multi(): SignatureDescriptor_Data_Mu
 export const SignatureDescriptor_Data_Multi = {
   typeUrl: "/cosmos.tx.signing.v1beta1.Multi",
   aminoType: "cosmos-sdk/Multi",
+  is(o: any): o is SignatureDescriptor_Data_Multi {
+    return o && (o.$typeUrl === SignatureDescriptor_Data_Multi.typeUrl || Array.isArray(o.signatures) && (!o.signatures.length || SignatureDescriptor_Data.is(o.signatures[0])));
+  },
+  isSDK(o: any): o is SignatureDescriptor_Data_MultiSDKType {
+    return o && (o.$typeUrl === SignatureDescriptor_Data_Multi.typeUrl || Array.isArray(o.signatures) && (!o.signatures.length || SignatureDescriptor_Data.isSDK(o.signatures[0])));
+  },
+  isAmino(o: any): o is SignatureDescriptor_Data_MultiAmino {
+    return o && (o.$typeUrl === SignatureDescriptor_Data_Multi.typeUrl || Array.isArray(o.signatures) && (!o.signatures.length || SignatureDescriptor_Data.isAmino(o.signatures[0])));
+  },
   encode(message: SignatureDescriptor_Data_Multi, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.bitarray !== undefined) {
       CompactBitArray.encode(message.bitarray, writer.uint32(10).fork()).ldelim();
@@ -835,5 +901,12 @@ export const SignatureDescriptor_Data_Multi = {
       typeUrl: "/cosmos.tx.signing.v1beta1.Multi",
       value: SignatureDescriptor_Data_Multi.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(SignatureDescriptor_Data_Multi.typeUrl)) {
+      return;
+    }
+    CompactBitArray.registerTypeUrl();
+    SignatureDescriptor_Data.registerTypeUrl();
   }
 };

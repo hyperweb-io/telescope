@@ -3,7 +3,7 @@ import { Any, AnySDKType } from "../../../google/protobuf/any.js";
 import { Timestamp, TimestampSDKType } from "../../../google/protobuf/timestamp.js";
 import { Duration, DurationSDKType } from "../../../google/protobuf/duration.js";
 import { BinaryReader, BinaryWriter } from "../../../binary.js";
-import { Decimal } from "@cosmjs/math";
+import { Decimal } from "@interchainjs/math";
 import { isSet, DeepPartial, toTimestamp, fromTimestamp, bytesFromBase64, base64FromBytes } from "../../../helpers.js";
 import { JsonSafe } from "../../../json-safe.js";
 export const protobufPackage = "cosmos.gov.v1beta1";
@@ -521,7 +521,7 @@ export const WeightedVoteOption = {
   toAmino(message: WeightedVoteOption): WeightedVoteOptionAmino {
     const obj: any = {};
     obj.option = message.option === 0 ? undefined : message.option;
-    obj.weight = message.weight === "" ? undefined : message.weight;
+    obj.weight = message.weight === "" ? undefined : Decimal.fromUserInput(message.weight, 18).atomics;
     return obj;
   },
   fromAminoMsg(object: WeightedVoteOptionAminoMsg): WeightedVoteOption {

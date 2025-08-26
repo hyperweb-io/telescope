@@ -2,6 +2,7 @@ import { Attribute, AttributeAmino, AttributeSDKType } from "../../base/v1beta2/
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { isSet, DeepPartial } from "../../../helpers";
 import { JsonSafe } from "../../../json-safe";
+import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "akash.provider.v1beta2";
 /**
  * ProviderInfo
@@ -309,6 +310,15 @@ function createBaseProviderInfo(): ProviderInfo {
  */
 export const ProviderInfo = {
   typeUrl: "/akash.provider.v1beta2.ProviderInfo",
+  is(o: any): o is ProviderInfo {
+    return o && (o.$typeUrl === ProviderInfo.typeUrl || typeof o.email === "string" && typeof o.website === "string");
+  },
+  isSDK(o: any): o is ProviderInfoSDKType {
+    return o && (o.$typeUrl === ProviderInfo.typeUrl || typeof o.email === "string" && typeof o.website === "string");
+  },
+  isAmino(o: any): o is ProviderInfoAmino {
+    return o && (o.$typeUrl === ProviderInfo.typeUrl || typeof o.email === "string" && typeof o.website === "string");
+  },
   encode(message: ProviderInfo, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.email !== "") {
       writer.uint32(10).string(message.email);
@@ -398,7 +408,8 @@ export const ProviderInfo = {
       typeUrl: "/akash.provider.v1beta2.ProviderInfo",
       value: ProviderInfo.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseMsgCreateProvider(): MsgCreateProvider {
   return {
@@ -416,6 +427,15 @@ function createBaseMsgCreateProvider(): MsgCreateProvider {
  */
 export const MsgCreateProvider = {
   typeUrl: "/akash.provider.v1beta2.MsgCreateProvider",
+  is(o: any): o is MsgCreateProvider {
+    return o && (o.$typeUrl === MsgCreateProvider.typeUrl || typeof o.owner === "string" && typeof o.hostUri === "string" && Array.isArray(o.attributes) && (!o.attributes.length || Attribute.is(o.attributes[0])) && ProviderInfo.is(o.info));
+  },
+  isSDK(o: any): o is MsgCreateProviderSDKType {
+    return o && (o.$typeUrl === MsgCreateProvider.typeUrl || typeof o.owner === "string" && typeof o.host_uri === "string" && Array.isArray(o.attributes) && (!o.attributes.length || Attribute.isSDK(o.attributes[0])) && ProviderInfo.isSDK(o.info));
+  },
+  isAmino(o: any): o is MsgCreateProviderAmino {
+    return o && (o.$typeUrl === MsgCreateProvider.typeUrl || typeof o.owner === "string" && typeof o.host_uri === "string" && Array.isArray(o.attributes) && (!o.attributes.length || Attribute.isAmino(o.attributes[0])) && ProviderInfo.isAmino(o.info));
+  },
   encode(message: MsgCreateProvider, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.owner !== "") {
       writer.uint32(10).string(message.owner);
@@ -547,6 +567,13 @@ export const MsgCreateProvider = {
       typeUrl: "/akash.provider.v1beta2.MsgCreateProvider",
       value: MsgCreateProvider.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgCreateProvider.typeUrl)) {
+      return;
+    }
+    Attribute.registerTypeUrl();
+    ProviderInfo.registerTypeUrl();
   }
 };
 function createBaseMsgCreateProviderResponse(): MsgCreateProviderResponse {
@@ -560,6 +587,15 @@ function createBaseMsgCreateProviderResponse(): MsgCreateProviderResponse {
  */
 export const MsgCreateProviderResponse = {
   typeUrl: "/akash.provider.v1beta2.MsgCreateProviderResponse",
+  is(o: any): o is MsgCreateProviderResponse {
+    return o && o.$typeUrl === MsgCreateProviderResponse.typeUrl;
+  },
+  isSDK(o: any): o is MsgCreateProviderResponseSDKType {
+    return o && o.$typeUrl === MsgCreateProviderResponse.typeUrl;
+  },
+  isAmino(o: any): o is MsgCreateProviderResponseAmino {
+    return o && o.$typeUrl === MsgCreateProviderResponse.typeUrl;
+  },
   encode(_: MsgCreateProviderResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -618,7 +654,8 @@ export const MsgCreateProviderResponse = {
       typeUrl: "/akash.provider.v1beta2.MsgCreateProviderResponse",
       value: MsgCreateProviderResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseMsgUpdateProvider(): MsgUpdateProvider {
   return {
@@ -636,6 +673,15 @@ function createBaseMsgUpdateProvider(): MsgUpdateProvider {
  */
 export const MsgUpdateProvider = {
   typeUrl: "/akash.provider.v1beta2.MsgUpdateProvider",
+  is(o: any): o is MsgUpdateProvider {
+    return o && (o.$typeUrl === MsgUpdateProvider.typeUrl || typeof o.owner === "string" && typeof o.hostUri === "string" && Array.isArray(o.attributes) && (!o.attributes.length || Attribute.is(o.attributes[0])) && ProviderInfo.is(o.info));
+  },
+  isSDK(o: any): o is MsgUpdateProviderSDKType {
+    return o && (o.$typeUrl === MsgUpdateProvider.typeUrl || typeof o.owner === "string" && typeof o.host_uri === "string" && Array.isArray(o.attributes) && (!o.attributes.length || Attribute.isSDK(o.attributes[0])) && ProviderInfo.isSDK(o.info));
+  },
+  isAmino(o: any): o is MsgUpdateProviderAmino {
+    return o && (o.$typeUrl === MsgUpdateProvider.typeUrl || typeof o.owner === "string" && typeof o.host_uri === "string" && Array.isArray(o.attributes) && (!o.attributes.length || Attribute.isAmino(o.attributes[0])) && ProviderInfo.isAmino(o.info));
+  },
   encode(message: MsgUpdateProvider, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.owner !== "") {
       writer.uint32(10).string(message.owner);
@@ -767,6 +813,13 @@ export const MsgUpdateProvider = {
       typeUrl: "/akash.provider.v1beta2.MsgUpdateProvider",
       value: MsgUpdateProvider.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgUpdateProvider.typeUrl)) {
+      return;
+    }
+    Attribute.registerTypeUrl();
+    ProviderInfo.registerTypeUrl();
   }
 };
 function createBaseMsgUpdateProviderResponse(): MsgUpdateProviderResponse {
@@ -780,6 +833,15 @@ function createBaseMsgUpdateProviderResponse(): MsgUpdateProviderResponse {
  */
 export const MsgUpdateProviderResponse = {
   typeUrl: "/akash.provider.v1beta2.MsgUpdateProviderResponse",
+  is(o: any): o is MsgUpdateProviderResponse {
+    return o && o.$typeUrl === MsgUpdateProviderResponse.typeUrl;
+  },
+  isSDK(o: any): o is MsgUpdateProviderResponseSDKType {
+    return o && o.$typeUrl === MsgUpdateProviderResponse.typeUrl;
+  },
+  isAmino(o: any): o is MsgUpdateProviderResponseAmino {
+    return o && o.$typeUrl === MsgUpdateProviderResponse.typeUrl;
+  },
   encode(_: MsgUpdateProviderResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -838,7 +900,8 @@ export const MsgUpdateProviderResponse = {
       typeUrl: "/akash.provider.v1beta2.MsgUpdateProviderResponse",
       value: MsgUpdateProviderResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseMsgDeleteProvider(): MsgDeleteProvider {
   return {
@@ -853,6 +916,15 @@ function createBaseMsgDeleteProvider(): MsgDeleteProvider {
  */
 export const MsgDeleteProvider = {
   typeUrl: "/akash.provider.v1beta2.MsgDeleteProvider",
+  is(o: any): o is MsgDeleteProvider {
+    return o && (o.$typeUrl === MsgDeleteProvider.typeUrl || typeof o.owner === "string");
+  },
+  isSDK(o: any): o is MsgDeleteProviderSDKType {
+    return o && (o.$typeUrl === MsgDeleteProvider.typeUrl || typeof o.owner === "string");
+  },
+  isAmino(o: any): o is MsgDeleteProviderAmino {
+    return o && (o.$typeUrl === MsgDeleteProvider.typeUrl || typeof o.owner === "string");
+  },
   encode(message: MsgDeleteProvider, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.owner !== "") {
       writer.uint32(10).string(message.owner);
@@ -927,7 +999,8 @@ export const MsgDeleteProvider = {
       typeUrl: "/akash.provider.v1beta2.MsgDeleteProvider",
       value: MsgDeleteProvider.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseMsgDeleteProviderResponse(): MsgDeleteProviderResponse {
   return {};
@@ -940,6 +1013,15 @@ function createBaseMsgDeleteProviderResponse(): MsgDeleteProviderResponse {
  */
 export const MsgDeleteProviderResponse = {
   typeUrl: "/akash.provider.v1beta2.MsgDeleteProviderResponse",
+  is(o: any): o is MsgDeleteProviderResponse {
+    return o && o.$typeUrl === MsgDeleteProviderResponse.typeUrl;
+  },
+  isSDK(o: any): o is MsgDeleteProviderResponseSDKType {
+    return o && o.$typeUrl === MsgDeleteProviderResponse.typeUrl;
+  },
+  isAmino(o: any): o is MsgDeleteProviderResponseAmino {
+    return o && o.$typeUrl === MsgDeleteProviderResponse.typeUrl;
+  },
   encode(_: MsgDeleteProviderResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -998,7 +1080,8 @@ export const MsgDeleteProviderResponse = {
       typeUrl: "/akash.provider.v1beta2.MsgDeleteProviderResponse",
       value: MsgDeleteProviderResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseProvider(): Provider {
   return {
@@ -1016,6 +1099,15 @@ function createBaseProvider(): Provider {
  */
 export const Provider = {
   typeUrl: "/akash.provider.v1beta2.Provider",
+  is(o: any): o is Provider {
+    return o && (o.$typeUrl === Provider.typeUrl || typeof o.owner === "string" && typeof o.hostUri === "string" && Array.isArray(o.attributes) && (!o.attributes.length || Attribute.is(o.attributes[0])) && ProviderInfo.is(o.info));
+  },
+  isSDK(o: any): o is ProviderSDKType {
+    return o && (o.$typeUrl === Provider.typeUrl || typeof o.owner === "string" && typeof o.host_uri === "string" && Array.isArray(o.attributes) && (!o.attributes.length || Attribute.isSDK(o.attributes[0])) && ProviderInfo.isSDK(o.info));
+  },
+  isAmino(o: any): o is ProviderAmino {
+    return o && (o.$typeUrl === Provider.typeUrl || typeof o.owner === "string" && typeof o.host_uri === "string" && Array.isArray(o.attributes) && (!o.attributes.length || Attribute.isAmino(o.attributes[0])) && ProviderInfo.isAmino(o.info));
+  },
   encode(message: Provider, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.owner !== "") {
       writer.uint32(10).string(message.owner);
@@ -1147,5 +1239,12 @@ export const Provider = {
       typeUrl: "/akash.provider.v1beta2.Provider",
       value: Provider.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Provider.typeUrl)) {
+      return;
+    }
+    Attribute.registerTypeUrl();
+    ProviderInfo.registerTypeUrl();
   }
 };

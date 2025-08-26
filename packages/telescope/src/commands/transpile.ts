@@ -27,10 +27,11 @@ export default async (argv: {
   } else {
     options = {
       // global options (can be overridden through plugins)
+      useInterchainJs: true,
       interfaces: {
-        enabled: false,
-        useByDefault: false,
-        useUnionTypes: false,
+        enabled: true,
+        useByDefault: true,
+        useUnionTypes: true,
       },
 
       prototypes: {
@@ -53,37 +54,43 @@ export default async (argv: {
         addTypeUrlToDecoders: true,
 
         typingsFormat: {
-          duration: 'duration',
-          timestamp: 'date',
-          useExact: false,
-          useDeepPartial: false,
-          num64: 'bigint',
           customTypes: {
-            useCosmosSDKDec: true
-          }
+            useCosmosSDKDec: true,
+          },
+          num64: "bigint",
+          useDeepPartial: false,
+          useExact: false,
+          toJsonUnknown: false,
+          timestamp: "date",
+          duration: "duration",
+          updatedDuration: false,
+          useTelescopeGeneratedType: true,
+          setDefaultEnumToUnrecognized: true,
+          autoFixUndefinedEnumDefault: false,
         },
       },
 
       bundle: {
-        enabled: true
+        enabled: true,
+        type: "namespace",
       },
 
       stargateClients: {
-        enabled: true,
+        enabled: false,
         includeCosmosDefaultTypes: true
       },
 
       aminoEncoding: {
         enabled: true,
+        useLegacyInlineEncoding: false,
       },
 
       lcdClients: {
-        enabled: true
+        enabled: false
       },
 
       rpcClients: {
-        enabled: true,
-        camelCase: true
+        enabled: false,
       }
     }
 
@@ -95,7 +102,7 @@ export default async (argv: {
       type: 'path',
       name: 'protoDirs',
       message: 'where is the proto directory?',
-      default: './proto'
+      default: './protos'
     },
     {
       _: true,

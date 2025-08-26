@@ -462,8 +462,8 @@ export const PoolParams = {
   },
   toAmino(message: PoolParams): PoolParamsAmino {
     const obj: any = {};
-    obj.swap_fee = message.swapFee === "" ? undefined : message.swapFee;
-    obj.exit_fee = message.exitFee === "" ? undefined : message.exitFee;
+    obj.swap_fee = message.swapFee === "" ? undefined : Decimal.fromUserInput(message.swapFee, 18).atomics;
+    obj.exit_fee = message.exitFee === "" ? undefined : Decimal.fromUserInput(message.exitFee, 18).atomics;
     obj.smooth_weight_change_params = message.smoothWeightChangeParams ? SmoothWeightChangeParams.toAmino(message.smoothWeightChangeParams) : undefined;
     return obj;
   },

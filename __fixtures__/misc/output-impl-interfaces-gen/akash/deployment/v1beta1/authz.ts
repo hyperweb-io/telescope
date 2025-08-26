@@ -154,6 +154,12 @@ export const DepositDeploymentAuthorization = {
       typeUrl: "/akash.deployment.v1beta1.DepositDeploymentAuthorization",
       value: DepositDeploymentAuthorization.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(DepositDeploymentAuthorization.typeUrl)) {
+      return;
+    }
+    GlobalDecoderRegistry.register(DepositDeploymentAuthorization.typeUrl, DepositDeploymentAuthorization);
+    Coin.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(DepositDeploymentAuthorization.typeUrl, DepositDeploymentAuthorization);

@@ -1,5 +1,6 @@
 import { BinaryReader, BinaryWriter } from "../../binary";
 import { DeepPartial, isSet } from "../../helpers";
+import { GlobalDecoderRegistry } from "../../registry";
 export const protobufPackage = "google.api";
 /**
  * Path Translation specifies how to combine the backend address with the
@@ -349,6 +350,15 @@ function createBaseBackend(): Backend {
  */
 export const Backend = {
   typeUrl: "/google.api.Backend",
+  is(o: any): o is Backend {
+    return o && (o.$typeUrl === Backend.typeUrl || Array.isArray(o.rules) && (!o.rules.length || BackendRule.is(o.rules[0])));
+  },
+  isSDK(o: any): o is BackendSDKType {
+    return o && (o.$typeUrl === Backend.typeUrl || Array.isArray(o.rules) && (!o.rules.length || BackendRule.isSDK(o.rules[0])));
+  },
+  isAmino(o: any): o is BackendAmino {
+    return o && (o.$typeUrl === Backend.typeUrl || Array.isArray(o.rules) && (!o.rules.length || BackendRule.isAmino(o.rules[0])));
+  },
   encode(message: Backend, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.rules) {
       BackendRule.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -421,6 +431,12 @@ export const Backend = {
       typeUrl: "/google.api.Backend",
       value: Backend.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Backend.typeUrl)) {
+      return;
+    }
+    BackendRule.registerTypeUrl();
   }
 };
 function createBaseBackendRule(): BackendRule {
@@ -444,6 +460,15 @@ function createBaseBackendRule(): BackendRule {
  */
 export const BackendRule = {
   typeUrl: "/google.api.BackendRule",
+  is(o: any): o is BackendRule {
+    return o && (o.$typeUrl === BackendRule.typeUrl || typeof o.selector === "string" && typeof o.address === "string" && typeof o.deadline === "number" && typeof o.minDeadline === "number" && typeof o.operationDeadline === "number" && isSet(o.pathTranslation) && typeof o.protocol === "string");
+  },
+  isSDK(o: any): o is BackendRuleSDKType {
+    return o && (o.$typeUrl === BackendRule.typeUrl || typeof o.selector === "string" && typeof o.address === "string" && typeof o.deadline === "number" && typeof o.min_deadline === "number" && typeof o.operation_deadline === "number" && isSet(o.path_translation) && typeof o.protocol === "string");
+  },
+  isAmino(o: any): o is BackendRuleAmino {
+    return o && (o.$typeUrl === BackendRule.typeUrl || typeof o.selector === "string" && typeof o.address === "string" && typeof o.deadline === "number" && typeof o.min_deadline === "number" && typeof o.operation_deadline === "number" && isSet(o.path_translation) && typeof o.protocol === "string");
+  },
   encode(message: BackendRule, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.selector !== "") {
       writer.uint32(10).string(message.selector);
@@ -622,5 +647,6 @@ export const BackendRule = {
       typeUrl: "/google.api.BackendRule",
       value: BackendRule.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

@@ -1,6 +1,7 @@
 import { Timestamp, TimestampAmino, TimestampSDKType } from "../protobuf/timestamp";
 import { Any, AnyProtoMsg, AnyAmino, AnySDKType } from "../protobuf/any";
 import { BinaryReader, BinaryWriter } from "../../binary";
+import { GlobalDecoderRegistry } from "../../registry";
 import { isSet, DeepPartial, toTimestamp, fromTimestamp } from "../../helpers";
 export const protobufPackage = "google.api";
 /**
@@ -676,6 +677,15 @@ function createBaseDistribution(): Distribution {
  */
 export const Distribution = {
   typeUrl: "/google.api.Distribution",
+  is(o: any): o is Distribution {
+    return o && (o.$typeUrl === Distribution.typeUrl || typeof o.count === "bigint" && typeof o.mean === "number" && typeof o.sumOfSquaredDeviation === "number" && Array.isArray(o.bucketCounts) && (!o.bucketCounts.length || typeof o.bucketCounts[0] === "bigint") && Array.isArray(o.exemplars) && (!o.exemplars.length || Distribution_Exemplar.is(o.exemplars[0])));
+  },
+  isSDK(o: any): o is DistributionSDKType {
+    return o && (o.$typeUrl === Distribution.typeUrl || typeof o.count === "bigint" && typeof o.mean === "number" && typeof o.sum_of_squared_deviation === "number" && Array.isArray(o.bucket_counts) && (!o.bucket_counts.length || typeof o.bucket_counts[0] === "bigint") && Array.isArray(o.exemplars) && (!o.exemplars.length || Distribution_Exemplar.isSDK(o.exemplars[0])));
+  },
+  isAmino(o: any): o is DistributionAmino {
+    return o && (o.$typeUrl === Distribution.typeUrl || typeof o.count === "bigint" && typeof o.mean === "number" && typeof o.sum_of_squared_deviation === "number" && Array.isArray(o.bucket_counts) && (!o.bucket_counts.length || typeof o.bucket_counts[0] === "bigint") && Array.isArray(o.exemplars) && (!o.exemplars.length || Distribution_Exemplar.isAmino(o.exemplars[0])));
+  },
   encode(message: Distribution, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.count !== BigInt(0)) {
       writer.uint32(8).int64(message.count);
@@ -853,6 +863,14 @@ export const Distribution = {
       typeUrl: "/google.api.Distribution",
       value: Distribution.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Distribution.typeUrl)) {
+      return;
+    }
+    Distribution_Range.registerTypeUrl();
+    Distribution_BucketOptions.registerTypeUrl();
+    Distribution_Exemplar.registerTypeUrl();
   }
 };
 function createBaseDistribution_Range(): Distribution_Range {
@@ -869,6 +887,15 @@ function createBaseDistribution_Range(): Distribution_Range {
  */
 export const Distribution_Range = {
   typeUrl: "/google.api.Range",
+  is(o: any): o is Distribution_Range {
+    return o && (o.$typeUrl === Distribution_Range.typeUrl || typeof o.min === "number" && typeof o.max === "number");
+  },
+  isSDK(o: any): o is Distribution_RangeSDKType {
+    return o && (o.$typeUrl === Distribution_Range.typeUrl || typeof o.min === "number" && typeof o.max === "number");
+  },
+  isAmino(o: any): o is Distribution_RangeAmino {
+    return o && (o.$typeUrl === Distribution_Range.typeUrl || typeof o.min === "number" && typeof o.max === "number");
+  },
   encode(message: Distribution_Range, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.min !== 0) {
       writer.uint32(9).double(message.min);
@@ -949,7 +976,8 @@ export const Distribution_Range = {
       typeUrl: "/google.api.Range",
       value: Distribution_Range.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseDistribution_BucketOptions(): Distribution_BucketOptions {
   return {
@@ -980,6 +1008,15 @@ function createBaseDistribution_BucketOptions(): Distribution_BucketOptions {
  */
 export const Distribution_BucketOptions = {
   typeUrl: "/google.api.BucketOptions",
+  is(o: any): o is Distribution_BucketOptions {
+    return o && o.$typeUrl === Distribution_BucketOptions.typeUrl;
+  },
+  isSDK(o: any): o is Distribution_BucketOptionsSDKType {
+    return o && o.$typeUrl === Distribution_BucketOptions.typeUrl;
+  },
+  isAmino(o: any): o is Distribution_BucketOptionsAmino {
+    return o && o.$typeUrl === Distribution_BucketOptions.typeUrl;
+  },
   encode(message: Distribution_BucketOptions, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.linearBuckets !== undefined) {
       Distribution_BucketOptions_Linear.encode(message.linearBuckets, writer.uint32(10).fork()).ldelim();
@@ -1080,6 +1117,14 @@ export const Distribution_BucketOptions = {
       typeUrl: "/google.api.BucketOptions",
       value: Distribution_BucketOptions.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Distribution_BucketOptions.typeUrl)) {
+      return;
+    }
+    Distribution_BucketOptions_Linear.registerTypeUrl();
+    Distribution_BucketOptions_Exponential.registerTypeUrl();
+    Distribution_BucketOptions_Explicit.registerTypeUrl();
   }
 };
 function createBaseDistribution_BucketOptions_Linear(): Distribution_BucketOptions_Linear {
@@ -1105,6 +1150,15 @@ function createBaseDistribution_BucketOptions_Linear(): Distribution_BucketOptio
  */
 export const Distribution_BucketOptions_Linear = {
   typeUrl: "/google.api.Linear",
+  is(o: any): o is Distribution_BucketOptions_Linear {
+    return o && (o.$typeUrl === Distribution_BucketOptions_Linear.typeUrl || typeof o.numFiniteBuckets === "number" && typeof o.width === "number" && typeof o.offset === "number");
+  },
+  isSDK(o: any): o is Distribution_BucketOptions_LinearSDKType {
+    return o && (o.$typeUrl === Distribution_BucketOptions_Linear.typeUrl || typeof o.num_finite_buckets === "number" && typeof o.width === "number" && typeof o.offset === "number");
+  },
+  isAmino(o: any): o is Distribution_BucketOptions_LinearAmino {
+    return o && (o.$typeUrl === Distribution_BucketOptions_Linear.typeUrl || typeof o.num_finite_buckets === "number" && typeof o.width === "number" && typeof o.offset === "number");
+  },
   encode(message: Distribution_BucketOptions_Linear, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.numFiniteBuckets !== 0) {
       writer.uint32(8).int32(message.numFiniteBuckets);
@@ -1199,7 +1253,8 @@ export const Distribution_BucketOptions_Linear = {
       typeUrl: "/google.api.Linear",
       value: Distribution_BucketOptions_Linear.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseDistribution_BucketOptions_Exponential(): Distribution_BucketOptions_Exponential {
   return {
@@ -1224,6 +1279,15 @@ function createBaseDistribution_BucketOptions_Exponential(): Distribution_Bucket
  */
 export const Distribution_BucketOptions_Exponential = {
   typeUrl: "/google.api.Exponential",
+  is(o: any): o is Distribution_BucketOptions_Exponential {
+    return o && (o.$typeUrl === Distribution_BucketOptions_Exponential.typeUrl || typeof o.numFiniteBuckets === "number" && typeof o.growthFactor === "number" && typeof o.scale === "number");
+  },
+  isSDK(o: any): o is Distribution_BucketOptions_ExponentialSDKType {
+    return o && (o.$typeUrl === Distribution_BucketOptions_Exponential.typeUrl || typeof o.num_finite_buckets === "number" && typeof o.growth_factor === "number" && typeof o.scale === "number");
+  },
+  isAmino(o: any): o is Distribution_BucketOptions_ExponentialAmino {
+    return o && (o.$typeUrl === Distribution_BucketOptions_Exponential.typeUrl || typeof o.num_finite_buckets === "number" && typeof o.growth_factor === "number" && typeof o.scale === "number");
+  },
   encode(message: Distribution_BucketOptions_Exponential, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.numFiniteBuckets !== 0) {
       writer.uint32(8).int32(message.numFiniteBuckets);
@@ -1318,7 +1382,8 @@ export const Distribution_BucketOptions_Exponential = {
       typeUrl: "/google.api.Exponential",
       value: Distribution_BucketOptions_Exponential.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseDistribution_BucketOptions_Explicit(): Distribution_BucketOptions_Explicit {
   return {
@@ -1343,6 +1408,15 @@ function createBaseDistribution_BucketOptions_Explicit(): Distribution_BucketOpt
  */
 export const Distribution_BucketOptions_Explicit = {
   typeUrl: "/google.api.Explicit",
+  is(o: any): o is Distribution_BucketOptions_Explicit {
+    return o && (o.$typeUrl === Distribution_BucketOptions_Explicit.typeUrl || Array.isArray(o.bounds) && (!o.bounds.length || typeof o.bounds[0] === "number"));
+  },
+  isSDK(o: any): o is Distribution_BucketOptions_ExplicitSDKType {
+    return o && (o.$typeUrl === Distribution_BucketOptions_Explicit.typeUrl || Array.isArray(o.bounds) && (!o.bounds.length || typeof o.bounds[0] === "number"));
+  },
+  isAmino(o: any): o is Distribution_BucketOptions_ExplicitAmino {
+    return o && (o.$typeUrl === Distribution_BucketOptions_Explicit.typeUrl || Array.isArray(o.bounds) && (!o.bounds.length || typeof o.bounds[0] === "number"));
+  },
   encode(message: Distribution_BucketOptions_Explicit, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     writer.uint32(10).fork();
     for (const v of message.bounds) {
@@ -1424,7 +1498,8 @@ export const Distribution_BucketOptions_Explicit = {
       typeUrl: "/google.api.Explicit",
       value: Distribution_BucketOptions_Explicit.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseDistribution_Exemplar(): Distribution_Exemplar {
   return {
@@ -1445,6 +1520,15 @@ function createBaseDistribution_Exemplar(): Distribution_Exemplar {
  */
 export const Distribution_Exemplar = {
   typeUrl: "/google.api.Exemplar",
+  is(o: any): o is Distribution_Exemplar {
+    return o && (o.$typeUrl === Distribution_Exemplar.typeUrl || typeof o.value === "number" && Array.isArray(o.attachments) && (!o.attachments.length || Any.is(o.attachments[0])));
+  },
+  isSDK(o: any): o is Distribution_ExemplarSDKType {
+    return o && (o.$typeUrl === Distribution_Exemplar.typeUrl || typeof o.value === "number" && Array.isArray(o.attachments) && (!o.attachments.length || Any.isSDK(o.attachments[0])));
+  },
+  isAmino(o: any): o is Distribution_ExemplarAmino {
+    return o && (o.$typeUrl === Distribution_Exemplar.typeUrl || typeof o.value === "number" && Array.isArray(o.attachments) && (!o.attachments.length || Any.isAmino(o.attachments[0])));
+  },
   encode(message: Distribution_Exemplar, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.value !== 0) {
       writer.uint32(9).double(message.value);
@@ -1545,5 +1629,6 @@ export const Distribution_Exemplar = {
       typeUrl: "/google.api.Exemplar",
       value: Distribution_Exemplar.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

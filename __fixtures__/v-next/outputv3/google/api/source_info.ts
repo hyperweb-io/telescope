@@ -52,6 +52,15 @@ function createBaseSourceInfo(): SourceInfo {
  */
 export const SourceInfo = {
   typeUrl: "/google.api.SourceInfo",
+  is(o: any): o is SourceInfo {
+    return o && (o.$typeUrl === SourceInfo.typeUrl || Array.isArray(o.sourceFiles) && (!o.sourceFiles.length || Any.is(o.sourceFiles[0])));
+  },
+  isSDK(o: any): o is SourceInfoSDKType {
+    return o && (o.$typeUrl === SourceInfo.typeUrl || Array.isArray(o.source_files) && (!o.source_files.length || Any.isSDK(o.source_files[0])));
+  },
+  isAmino(o: any): o is SourceInfoAmino {
+    return o && (o.$typeUrl === SourceInfo.typeUrl || Array.isArray(o.source_files) && (!o.source_files.length || Any.isAmino(o.source_files[0])));
+  },
   encode(message: SourceInfo, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.sourceFiles) {
       Any.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -124,5 +133,6 @@ export const SourceInfo = {
       typeUrl: "/google.api.SourceInfo",
       value: SourceInfo.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

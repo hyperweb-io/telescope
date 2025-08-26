@@ -1,7 +1,6 @@
 import { BinaryReader, BinaryWriter } from "../../binary";
 import { isSet, DeepPartial } from "../../helpers";
 import { JsonSafe } from "../../json-safe";
-import { GlobalDecoderRegistry } from "../../registry";
 export const protobufPackage = "google.protobuf";
 /**
  * A Duration represents a signed, fixed-length span of time represented
@@ -393,6 +392,6 @@ export const Duration = {
       typeUrl: "/google.protobuf.Duration",
       value: Duration.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(Duration.typeUrl, Duration);

@@ -4,7 +4,7 @@ import { BinaryReader, BinaryWriter } from "../../../binary";
 import { GlobalDecoderRegistry } from "../../../registry";
 import { isSet, bytesFromBase64, base64FromBytes, DeepPartial } from "../../../helpers";
 import { JsonSafe } from "../../../json-safe";
-import { fromBase64, toBase64, toUtf8, fromUtf8 } from "@cosmjs/encoding";
+import { fromBase64, toBase64, toUtf8, fromUtf8 } from "@interchainjs/encoding";
 export const protobufPackage = "cosmwasm.wasm.v1";
 /**
  * MsgStoreCode submit Wasm code to the system

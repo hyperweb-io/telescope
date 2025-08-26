@@ -54,6 +54,15 @@ function createBaseParams(): Params {
 export const Params = {
   typeUrl: "/osmosis.incentives.Params",
   aminoType: "osmosis/incentives/params",
+  is(o: any): o is Params {
+    return o && (o.$typeUrl === Params.typeUrl || typeof o.distrEpochIdentifier === "string");
+  },
+  isSDK(o: any): o is ParamsSDKType {
+    return o && (o.$typeUrl === Params.typeUrl || typeof o.distr_epoch_identifier === "string");
+  },
+  isAmino(o: any): o is ParamsAmino {
+    return o && (o.$typeUrl === Params.typeUrl || typeof o.distr_epoch_identifier === "string");
+  },
   encode(message: Params, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.distrEpochIdentifier !== "") {
       writer.uint32(10).string(message.distrEpochIdentifier);
@@ -120,5 +129,6 @@ export const Params = {
       typeUrl: "/osmosis.incentives.Params",
       value: Params.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

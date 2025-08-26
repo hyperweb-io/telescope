@@ -71,6 +71,15 @@ function createBaseMsgUnjail(): MsgUnjail {
 export const MsgUnjail = {
   typeUrl: "/cosmos.slashing.v1beta1.MsgUnjail",
   aminoType: "cosmos-sdk/MsgUnjail",
+  is(o: any): o is MsgUnjail {
+    return o && (o.$typeUrl === MsgUnjail.typeUrl || typeof o.validatorAddr === "string");
+  },
+  isSDK(o: any): o is MsgUnjailSDKType {
+    return o && (o.$typeUrl === MsgUnjail.typeUrl || typeof o.validator_addr === "string");
+  },
+  isAmino(o: any): o is MsgUnjailAmino {
+    return o && (o.$typeUrl === MsgUnjail.typeUrl || typeof o.validator_addr === "string");
+  },
   encode(message: MsgUnjail, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.validatorAddr !== "") {
       writer.uint32(10).string(message.validatorAddr);
@@ -137,7 +146,8 @@ export const MsgUnjail = {
       typeUrl: "/cosmos.slashing.v1beta1.MsgUnjail",
       value: MsgUnjail.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseMsgUnjailResponse(): MsgUnjailResponse {
   return {};
@@ -151,6 +161,15 @@ function createBaseMsgUnjailResponse(): MsgUnjailResponse {
 export const MsgUnjailResponse = {
   typeUrl: "/cosmos.slashing.v1beta1.MsgUnjailResponse",
   aminoType: "cosmos-sdk/MsgUnjailResponse",
+  is(o: any): o is MsgUnjailResponse {
+    return o && o.$typeUrl === MsgUnjailResponse.typeUrl;
+  },
+  isSDK(o: any): o is MsgUnjailResponseSDKType {
+    return o && o.$typeUrl === MsgUnjailResponse.typeUrl;
+  },
+  isAmino(o: any): o is MsgUnjailResponseAmino {
+    return o && o.$typeUrl === MsgUnjailResponse.typeUrl;
+  },
   encode(_: MsgUnjailResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -202,5 +221,6 @@ export const MsgUnjailResponse = {
       typeUrl: "/cosmos.slashing.v1beta1.MsgUnjailResponse",
       value: MsgUnjailResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

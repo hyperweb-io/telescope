@@ -1,5 +1,5 @@
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { Decimal } from "@cosmjs/math";
+import { Decimal } from "@interchainjs/math";
 import { isSet, DeepPartial } from "../../../helpers";
 export const protobufPackage = "cosmos.mint.v1beta1";
 /**
@@ -145,6 +145,15 @@ function createBaseMinter(): Minter {
 export const Minter = {
   typeUrl: "/cosmos.mint.v1beta1.Minter",
   aminoType: "cosmos-sdk/Minter",
+  is(o: any): o is Minter {
+    return o && (o.$typeUrl === Minter.typeUrl || typeof o.inflation === "string" && typeof o.annualProvisions === "string");
+  },
+  isSDK(o: any): o is MinterSDKType {
+    return o && (o.$typeUrl === Minter.typeUrl || typeof o.inflation === "string" && typeof o.annual_provisions === "string");
+  },
+  isAmino(o: any): o is MinterAmino {
+    return o && (o.$typeUrl === Minter.typeUrl || typeof o.inflation === "string" && typeof o.annual_provisions === "string");
+  },
   encode(message: Minter, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.inflation !== "") {
       writer.uint32(10).string(Decimal.fromUserInput(message.inflation, 18).atomics);
@@ -210,8 +219,8 @@ export const Minter = {
   },
   toAmino(message: Minter, useInterfaces: boolean = true): MinterAmino {
     const obj: any = {};
-    obj.inflation = message.inflation === "" ? undefined : message.inflation;
-    obj.annual_provisions = message.annualProvisions === "" ? undefined : message.annualProvisions;
+    obj.inflation = message.inflation === "" ? undefined : Decimal.fromUserInput(message.inflation, 18).atomics;
+    obj.annual_provisions = message.annualProvisions === "" ? undefined : Decimal.fromUserInput(message.annualProvisions, 18).atomics;
     return obj;
   },
   fromProtoMsg(message: MinterProtoMsg, useInterfaces: boolean = true): Minter {
@@ -225,7 +234,8 @@ export const Minter = {
       typeUrl: "/cosmos.mint.v1beta1.Minter",
       value: Minter.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseParams(): Params {
   return {
@@ -246,6 +256,15 @@ function createBaseParams(): Params {
 export const Params = {
   typeUrl: "/cosmos.mint.v1beta1.Params",
   aminoType: "cosmos-sdk/Params",
+  is(o: any): o is Params {
+    return o && (o.$typeUrl === Params.typeUrl || typeof o.mintDenom === "string" && typeof o.inflationRateChange === "string" && typeof o.inflationMax === "string" && typeof o.inflationMin === "string" && typeof o.goalBonded === "string" && typeof o.blocksPerYear === "bigint");
+  },
+  isSDK(o: any): o is ParamsSDKType {
+    return o && (o.$typeUrl === Params.typeUrl || typeof o.mint_denom === "string" && typeof o.inflation_rate_change === "string" && typeof o.inflation_max === "string" && typeof o.inflation_min === "string" && typeof o.goal_bonded === "string" && typeof o.blocks_per_year === "bigint");
+  },
+  isAmino(o: any): o is ParamsAmino {
+    return o && (o.$typeUrl === Params.typeUrl || typeof o.mint_denom === "string" && typeof o.inflation_rate_change === "string" && typeof o.inflation_max === "string" && typeof o.inflation_min === "string" && typeof o.goal_bonded === "string" && typeof o.blocks_per_year === "bigint");
+  },
   encode(message: Params, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.mintDenom !== "") {
       writer.uint32(10).string(message.mintDenom);
@@ -366,10 +385,10 @@ export const Params = {
   toAmino(message: Params, useInterfaces: boolean = true): ParamsAmino {
     const obj: any = {};
     obj.mint_denom = message.mintDenom === "" ? undefined : message.mintDenom;
-    obj.inflation_rate_change = message.inflationRateChange === "" ? undefined : message.inflationRateChange;
-    obj.inflation_max = message.inflationMax === "" ? undefined : message.inflationMax;
-    obj.inflation_min = message.inflationMin === "" ? undefined : message.inflationMin;
-    obj.goal_bonded = message.goalBonded === "" ? undefined : message.goalBonded;
+    obj.inflation_rate_change = message.inflationRateChange === "" ? undefined : Decimal.fromUserInput(message.inflationRateChange, 18).atomics;
+    obj.inflation_max = message.inflationMax === "" ? undefined : Decimal.fromUserInput(message.inflationMax, 18).atomics;
+    obj.inflation_min = message.inflationMin === "" ? undefined : Decimal.fromUserInput(message.inflationMin, 18).atomics;
+    obj.goal_bonded = message.goalBonded === "" ? undefined : Decimal.fromUserInput(message.goalBonded, 18).atomics;
     obj.blocks_per_year = message.blocksPerYear !== BigInt(0) ? message.blocksPerYear?.toString() : undefined;
     return obj;
   },
@@ -384,5 +403,6 @@ export const Params = {
       typeUrl: "/cosmos.mint.v1beta1.Params",
       value: Params.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

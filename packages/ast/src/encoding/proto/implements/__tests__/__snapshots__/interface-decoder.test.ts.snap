@@ -31,11 +31,26 @@ exports[`PoolI getMapFromTypeUrlMap 1`] = `
 `;
 
 exports[`PoolI objects 1`] = `
-"export const QueryPoolsResponse = {
+"/**
+ * @name QueryPoolsResponse
+ * @package osmosis.gamm.v1beta1
+ * @see proto type: osmosis.gamm.v1beta1.QueryPoolsResponse
+ */
+export const QueryPoolsResponse = {
   typeUrl: "/osmosis.gamm.v1beta1.QueryPoolsResponse",
+  aminoType: "osmosis/gamm/query-pools-response",
+  is(o: any): o is QueryPoolsResponse {
+    return o && (o.$typeUrl === QueryPoolsResponse.typeUrl || Array.isArray(o.pools) && (!o.pools.length || Pool1.is(o.pools[0]) || Pool2.is(o.pools[0]) || Any.is(o.pools[0])));
+  },
+  isSDK(o: any): o is QueryPoolsResponseSDKType {
+    return o && (o.$typeUrl === QueryPoolsResponse.typeUrl || Array.isArray(o.pools) && (!o.pools.length || Pool1.isSDK(o.pools[0]) || Pool2.isSDK(o.pools[0]) || Any.isSDK(o.pools[0])));
+  },
+  isAmino(o: any): o is QueryPoolsResponseAmino {
+    return o && (o.$typeUrl === QueryPoolsResponse.typeUrl || Array.isArray(o.pools) && (!o.pools.length || Pool1.isAmino(o.pools[0]) || Pool2.isAmino(o.pools[0]) || Any.isAmino(o.pools[0])));
+  },
   encode(message: QueryPoolsResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.pools) {
-      Any.encode((v! as Any), writer.uint32(10).fork()).ldelim();
+      Any.encode(GlobalDecoderRegistry.wrapAny(v!), writer.uint32(10).fork()).ldelim();
     }
     if (message.pagination !== undefined) {
       PageResponse.encode(message.pagination, writer.uint32(18).fork()).ldelim();
@@ -50,7 +65,7 @@ exports[`PoolI objects 1`] = `
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.pools.push((Any.decode(reader, reader.uint32()) as Any));
+          message.pools.push(GlobalDecoderRegistry.unwrapAny(reader));
           break;
         case 2:
           message.pagination = PageResponse.decode(reader, reader.uint32());
@@ -64,14 +79,14 @@ exports[`PoolI objects 1`] = `
   },
   fromJSON(object: any): QueryPoolsResponse {
     return {
-      pools: Array.isArray(object?.pools) ? object.pools.map((e: any) => Any.fromJSON(e)) : [],
+      pools: Array.isArray(object?.pools) ? object.pools.map((e: any) => GlobalDecoderRegistry.fromJSON(e)) : [],
       pagination: isSet(object.pagination) ? PageResponse.fromJSON(object.pagination) : undefined
     };
   },
   toJSON(message: QueryPoolsResponse): JsonSafe<QueryPoolsResponse> {
     const obj: any = {};
     if (message.pools) {
-      obj.pools = message.pools.map(e => e ? Any.toJSON(e) : undefined);
+      obj.pools = message.pools.map(e => e ? GlobalDecoderRegistry.toJSON(e) : undefined);
     } else {
       obj.pools = [];
     }
@@ -80,20 +95,20 @@ exports[`PoolI objects 1`] = `
   },
   fromPartial(object: Partial<QueryPoolsResponse>): QueryPoolsResponse {
     const message = createBaseQueryPoolsResponse();
-    message.pools = object.pools?.map(e => Any.fromPartial(e)) || [];
+    message.pools = object.pools?.map(e => (GlobalDecoderRegistry.fromPartial(e) as any)) || [];
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageResponse.fromPartial(object.pagination) : undefined;
     return message;
   },
   fromSDK(object: QueryPoolsResponseSDKType): QueryPoolsResponse {
     return {
-      pools: Array.isArray(object?.pools) ? object.pools.map((e: any) => Any.fromSDK(e)) : [],
+      pools: Array.isArray(object?.pools) ? object.pools.map((e: any) => GlobalDecoderRegistry.fromSDK(e)) : [],
       pagination: object.pagination ? PageResponse.fromSDK(object.pagination) : undefined
     };
   },
   toSDK(message: QueryPoolsResponse): QueryPoolsResponseSDKType {
     const obj: any = {};
     if (message.pools) {
-      obj.pools = message.pools.map(e => e ? Any.toSDK(e) : undefined);
+      obj.pools = message.pools.map(e => e ? GlobalDecoderRegistry.toSDK(e) : undefined);
     } else {
       obj.pools = [];
     }
@@ -102,7 +117,7 @@ exports[`PoolI objects 1`] = `
   },
   fromAmino(object: QueryPoolsResponseAmino): QueryPoolsResponse {
     const message = createBaseQueryPoolsResponse();
-    message.pools = object.pools?.map(e => PoolI_FromAmino(e)) || [];
+    message.pools = object.pools?.map(e => GlobalDecoderRegistry.fromAminoMsg(e)) || [];
     if (object.pagination !== undefined && object.pagination !== null) {
       message.pagination = PageResponse.fromAmino(object.pagination);
     }
@@ -111,7 +126,7 @@ exports[`PoolI objects 1`] = `
   toAmino(message: QueryPoolsResponse): QueryPoolsResponseAmino {
     const obj: any = {};
     if (message.pools) {
-      obj.pools = message.pools.map(e => e ? PoolI_ToAmino((e as Any)) : undefined);
+      obj.pools = message.pools.map(e => e ? GlobalDecoderRegistry.toAminoMsg(e) : undefined);
     } else {
       obj.pools = message.pools;
     }
@@ -138,6 +153,14 @@ exports[`PoolI objects 1`] = `
       typeUrl: "/osmosis.gamm.v1beta1.QueryPoolsResponse",
       value: QueryPoolsResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryPoolsResponse.typeUrl)) {
+      return;
+    }
+    Pool1.registerTypeUrl();
+    Pool2.registerTypeUrl();
+    PageResponse.registerTypeUrl();
   }
 };"
 `;

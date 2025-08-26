@@ -3,6 +3,7 @@ import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageRe
 import { GroupID, GroupIDAmino, GroupIDSDKType, Group, GroupAmino, GroupSDKType } from "./group";
 import { Account, AccountAmino, AccountSDKType } from "../../escrow/v1beta1/types";
 import { BinaryReader, BinaryWriter } from "../../../binary";
+import { GlobalDecoderRegistry } from "../../../registry";
 import { isSet, DeepPartial } from "../../../helpers";
 import { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "akash.deployment.v1beta1";
@@ -242,6 +243,15 @@ function createBaseQueryDeploymentsRequest(): QueryDeploymentsRequest {
  */
 export const QueryDeploymentsRequest = {
   typeUrl: "/akash.deployment.v1beta1.QueryDeploymentsRequest",
+  is(o: any): o is QueryDeploymentsRequest {
+    return o && (o.$typeUrl === QueryDeploymentsRequest.typeUrl || DeploymentFilters.is(o.filters));
+  },
+  isSDK(o: any): o is QueryDeploymentsRequestSDKType {
+    return o && (o.$typeUrl === QueryDeploymentsRequest.typeUrl || DeploymentFilters.isSDK(o.filters));
+  },
+  isAmino(o: any): o is QueryDeploymentsRequestAmino {
+    return o && (o.$typeUrl === QueryDeploymentsRequest.typeUrl || DeploymentFilters.isAmino(o.filters));
+  },
   encode(message: QueryDeploymentsRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.filters !== undefined) {
       DeploymentFilters.encode(message.filters, writer.uint32(10).fork()).ldelim();
@@ -335,6 +345,13 @@ export const QueryDeploymentsRequest = {
       typeUrl: "/akash.deployment.v1beta1.QueryDeploymentsRequest",
       value: QueryDeploymentsRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryDeploymentsRequest.typeUrl)) {
+      return;
+    }
+    DeploymentFilters.registerTypeUrl();
+    PageRequest.registerTypeUrl();
   }
 };
 function createBaseQueryDeploymentsResponse(): QueryDeploymentsResponse {
@@ -351,6 +368,15 @@ function createBaseQueryDeploymentsResponse(): QueryDeploymentsResponse {
  */
 export const QueryDeploymentsResponse = {
   typeUrl: "/akash.deployment.v1beta1.QueryDeploymentsResponse",
+  is(o: any): o is QueryDeploymentsResponse {
+    return o && (o.$typeUrl === QueryDeploymentsResponse.typeUrl || Array.isArray(o.deployments) && (!o.deployments.length || QueryDeploymentResponse.is(o.deployments[0])));
+  },
+  isSDK(o: any): o is QueryDeploymentsResponseSDKType {
+    return o && (o.$typeUrl === QueryDeploymentsResponse.typeUrl || Array.isArray(o.deployments) && (!o.deployments.length || QueryDeploymentResponse.isSDK(o.deployments[0])));
+  },
+  isAmino(o: any): o is QueryDeploymentsResponseAmino {
+    return o && (o.$typeUrl === QueryDeploymentsResponse.typeUrl || Array.isArray(o.deployments) && (!o.deployments.length || QueryDeploymentResponse.isAmino(o.deployments[0])));
+  },
   encode(message: QueryDeploymentsResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.deployments) {
       QueryDeploymentResponse.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -452,6 +478,13 @@ export const QueryDeploymentsResponse = {
       typeUrl: "/akash.deployment.v1beta1.QueryDeploymentsResponse",
       value: QueryDeploymentsResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryDeploymentsResponse.typeUrl)) {
+      return;
+    }
+    QueryDeploymentResponse.registerTypeUrl();
+    PageResponse.registerTypeUrl();
   }
 };
 function createBaseQueryDeploymentRequest(): QueryDeploymentRequest {
@@ -467,6 +500,15 @@ function createBaseQueryDeploymentRequest(): QueryDeploymentRequest {
  */
 export const QueryDeploymentRequest = {
   typeUrl: "/akash.deployment.v1beta1.QueryDeploymentRequest",
+  is(o: any): o is QueryDeploymentRequest {
+    return o && (o.$typeUrl === QueryDeploymentRequest.typeUrl || DeploymentID.is(o.id));
+  },
+  isSDK(o: any): o is QueryDeploymentRequestSDKType {
+    return o && (o.$typeUrl === QueryDeploymentRequest.typeUrl || DeploymentID.isSDK(o.id));
+  },
+  isAmino(o: any): o is QueryDeploymentRequestAmino {
+    return o && (o.$typeUrl === QueryDeploymentRequest.typeUrl || DeploymentID.isAmino(o.id));
+  },
   encode(message: QueryDeploymentRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.id !== undefined) {
       DeploymentID.encode(message.id, writer.uint32(10).fork()).ldelim();
@@ -543,6 +585,12 @@ export const QueryDeploymentRequest = {
       typeUrl: "/akash.deployment.v1beta1.QueryDeploymentRequest",
       value: QueryDeploymentRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryDeploymentRequest.typeUrl)) {
+      return;
+    }
+    DeploymentID.registerTypeUrl();
   }
 };
 function createBaseQueryDeploymentResponse(): QueryDeploymentResponse {
@@ -560,6 +608,15 @@ function createBaseQueryDeploymentResponse(): QueryDeploymentResponse {
  */
 export const QueryDeploymentResponse = {
   typeUrl: "/akash.deployment.v1beta1.QueryDeploymentResponse",
+  is(o: any): o is QueryDeploymentResponse {
+    return o && (o.$typeUrl === QueryDeploymentResponse.typeUrl || Deployment.is(o.deployment) && Array.isArray(o.groups) && (!o.groups.length || Group.is(o.groups[0])) && Account.is(o.escrowAccount));
+  },
+  isSDK(o: any): o is QueryDeploymentResponseSDKType {
+    return o && (o.$typeUrl === QueryDeploymentResponse.typeUrl || Deployment.isSDK(o.deployment) && Array.isArray(o.groups) && (!o.groups.length || Group.isSDK(o.groups[0])) && Account.isSDK(o.escrow_account));
+  },
+  isAmino(o: any): o is QueryDeploymentResponseAmino {
+    return o && (o.$typeUrl === QueryDeploymentResponse.typeUrl || Deployment.isAmino(o.deployment) && Array.isArray(o.groups) && (!o.groups.length || Group.isAmino(o.groups[0])) && Account.isAmino(o.escrow_account));
+  },
   encode(message: QueryDeploymentResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.deployment !== undefined) {
       Deployment.encode(message.deployment, writer.uint32(10).fork()).ldelim();
@@ -678,6 +735,14 @@ export const QueryDeploymentResponse = {
       typeUrl: "/akash.deployment.v1beta1.QueryDeploymentResponse",
       value: QueryDeploymentResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryDeploymentResponse.typeUrl)) {
+      return;
+    }
+    Deployment.registerTypeUrl();
+    Group.registerTypeUrl();
+    Account.registerTypeUrl();
   }
 };
 function createBaseQueryGroupRequest(): QueryGroupRequest {
@@ -693,6 +758,15 @@ function createBaseQueryGroupRequest(): QueryGroupRequest {
  */
 export const QueryGroupRequest = {
   typeUrl: "/akash.deployment.v1beta1.QueryGroupRequest",
+  is(o: any): o is QueryGroupRequest {
+    return o && (o.$typeUrl === QueryGroupRequest.typeUrl || GroupID.is(o.id));
+  },
+  isSDK(o: any): o is QueryGroupRequestSDKType {
+    return o && (o.$typeUrl === QueryGroupRequest.typeUrl || GroupID.isSDK(o.id));
+  },
+  isAmino(o: any): o is QueryGroupRequestAmino {
+    return o && (o.$typeUrl === QueryGroupRequest.typeUrl || GroupID.isAmino(o.id));
+  },
   encode(message: QueryGroupRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.id !== undefined) {
       GroupID.encode(message.id, writer.uint32(10).fork()).ldelim();
@@ -769,6 +843,12 @@ export const QueryGroupRequest = {
       typeUrl: "/akash.deployment.v1beta1.QueryGroupRequest",
       value: QueryGroupRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryGroupRequest.typeUrl)) {
+      return;
+    }
+    GroupID.registerTypeUrl();
   }
 };
 function createBaseQueryGroupResponse(): QueryGroupResponse {
@@ -784,6 +864,15 @@ function createBaseQueryGroupResponse(): QueryGroupResponse {
  */
 export const QueryGroupResponse = {
   typeUrl: "/akash.deployment.v1beta1.QueryGroupResponse",
+  is(o: any): o is QueryGroupResponse {
+    return o && (o.$typeUrl === QueryGroupResponse.typeUrl || Group.is(o.group));
+  },
+  isSDK(o: any): o is QueryGroupResponseSDKType {
+    return o && (o.$typeUrl === QueryGroupResponse.typeUrl || Group.isSDK(o.group));
+  },
+  isAmino(o: any): o is QueryGroupResponseAmino {
+    return o && (o.$typeUrl === QueryGroupResponse.typeUrl || Group.isAmino(o.group));
+  },
   encode(message: QueryGroupResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.group !== undefined) {
       Group.encode(message.group, writer.uint32(10).fork()).ldelim();
@@ -860,5 +949,11 @@ export const QueryGroupResponse = {
       typeUrl: "/akash.deployment.v1beta1.QueryGroupResponse",
       value: QueryGroupResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryGroupResponse.typeUrl)) {
+      return;
+    }
+    Group.registerTypeUrl();
   }
 };

@@ -10,9 +10,9 @@ import { Any } from "./google/protobuf/any";
 import { HttpEndpoint } from "@interchainjs/types";
 
 
-import { DeliverTxResponse, Event, Attribute } from "@interchainjs/types";
+import { Event, Attribute } from "@interchainjs/types";
 
-export { DeliverTxResponse }
+
 
 
 export type ProtoMsg = Omit<Any, "typeUrl"> & { typeUrl: any };
@@ -104,6 +104,6 @@ export interface TxRpc {
     messages: EncodeObject[],
     fee: StdFee | "auto" | number,
     memo: string
-  ): Promise<DeliverTxResponse>;
+  ): Promise<any>;
 }
 

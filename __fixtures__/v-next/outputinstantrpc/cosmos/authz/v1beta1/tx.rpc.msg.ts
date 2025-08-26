@@ -1,6 +1,6 @@
 import { Grant, GrantSDKType } from "./authz";
 import { Any, AnySDKType } from "../../../google/protobuf/any";
-import { DeliverTxResponse, StdFee, TxRpc } from "../../../types";
+import { StdFee, TxRpc } from "../../../types";
 import { BinaryReader } from "../../../binary";
 import { MsgGrant, MsgGrantSDKType, MsgGrantResponse, MsgGrantResponseSDKType, MsgExec, MsgExecSDKType, MsgExecResponse, MsgExecResponseSDKType, MsgRevoke, MsgRevokeSDKType, MsgRevokeResponse, MsgRevokeResponseSDKType } from "./tx";
 /** Msg defines the authz Msg service. */
@@ -11,18 +11,18 @@ export interface Msg {
    * for the given (granter, grantee, Authorization) triple, then the grant
    * will be overwritten.
    */
-  grant(signerAddress: string, message: MsgGrant, fee: number | StdFee | "auto", memo?: string): Promise<DeliverTxResponse>;
+  grant(signerAddress: string, message: MsgGrant, fee: number | StdFee | "auto", memo?: string): Promise<any>;
   /**
    * Exec attempts to execute the provided messages using
    * authorizations granted to the grantee. Each message should have only
    * one signer corresponding to the granter of the authorization.
    */
-  exec(signerAddress: string, message: MsgExec, fee: number | StdFee | "auto", memo?: string): Promise<DeliverTxResponse>;
+  exec(signerAddress: string, message: MsgExec, fee: number | StdFee | "auto", memo?: string): Promise<any>;
   /**
    * Revoke revokes any authorization corresponding to the provided method name on the
    * granter's account that has been granted to the grantee.
    */
-  revoke(signerAddress: string, message: MsgRevoke, fee: number | StdFee | "auto", memo?: string): Promise<DeliverTxResponse>;
+  revoke(signerAddress: string, message: MsgRevoke, fee: number | StdFee | "auto", memo?: string): Promise<any>;
 }
 export class MsgClientImpl implements Msg {
   private readonly rpc: TxRpc;
@@ -33,7 +33,7 @@ export class MsgClientImpl implements Msg {
    account with the provided expiration time. If there is already a grant
    for the given (granter, grantee, Authorization) triple, then the grant
    will be overwritten. */
-  grant = async (signerAddress: string, message: MsgGrant, fee: number | StdFee | "auto" = "auto", memo: string = ""): Promise<DeliverTxResponse> => {
+  grant = async (signerAddress: string, message: MsgGrant, fee: number | StdFee | "auto" = "auto", memo: string = ""): Promise<any> => {
     const data = [{
       typeUrl: MsgGrant.typeUrl,
       value: message
@@ -43,7 +43,7 @@ export class MsgClientImpl implements Msg {
   /* Exec attempts to execute the provided messages using
    authorizations granted to the grantee. Each message should have only
    one signer corresponding to the granter of the authorization. */
-  exec = async (signerAddress: string, message: MsgExec, fee: number | StdFee | "auto" = "auto", memo: string = ""): Promise<DeliverTxResponse> => {
+  exec = async (signerAddress: string, message: MsgExec, fee: number | StdFee | "auto" = "auto", memo: string = ""): Promise<any> => {
     const data = [{
       typeUrl: MsgExec.typeUrl,
       value: message
@@ -52,7 +52,7 @@ export class MsgClientImpl implements Msg {
   };
   /* Revoke revokes any authorization corresponding to the provided method name on the
    granter's account that has been granted to the grantee. */
-  revoke = async (signerAddress: string, message: MsgRevoke, fee: number | StdFee | "auto" = "auto", memo: string = ""): Promise<DeliverTxResponse> => {
+  revoke = async (signerAddress: string, message: MsgRevoke, fee: number | StdFee | "auto" = "auto", memo: string = ""): Promise<any> => {
     const data = [{
       typeUrl: MsgRevoke.typeUrl,
       value: message

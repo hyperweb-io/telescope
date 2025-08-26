@@ -287,9 +287,9 @@ export const EvmosIncentivesV1Params = {
   toAmino(message: EvmosIncentivesV1Params): EvmosIncentivesV1ParamsAmino {
     const obj: any = {};
     obj.enable_incentives = message.enableIncentives === false ? undefined : message.enableIncentives;
-    obj.allocation_limit = message.allocationLimit === "" ? undefined : message.allocationLimit;
+    obj.allocation_limit = message.allocationLimit === "" ? undefined : Decimal.fromUserInput(message.allocationLimit, 18).atomics;
     obj.incentives_epoch_identifier = message.incentivesEpochIdentifier === "" ? undefined : message.incentivesEpochIdentifier;
-    obj.reward_scaler = message.rewardScaler === "" ? undefined : message.rewardScaler;
+    obj.reward_scaler = message.rewardScaler === "" ? undefined : Decimal.fromUserInput(message.rewardScaler, 18).atomics;
     return obj;
   },
   fromAminoMsg(object: EvmosIncentivesV1ParamsAminoMsg): EvmosIncentivesV1Params {

@@ -1,11 +1,6 @@
-import { GeneratedType, Registry } from "@cosmjs/proto-signing";
+import { TelescopeGeneratedType } from "../../../types";
 import { MsgCreateProvider, MsgUpdateProvider, MsgDeleteProvider } from "./provider";
-export const registry: ReadonlyArray<[string, GeneratedType]> = [["/akash.provider.v1beta2.MsgCreateProvider", MsgCreateProvider], ["/akash.provider.v1beta2.MsgUpdateProvider", MsgUpdateProvider], ["/akash.provider.v1beta2.MsgDeleteProvider", MsgDeleteProvider]];
-export const load = (protoRegistry: Registry) => {
-  registry.forEach(([typeUrl, mod]) => {
-    protoRegistry.register(typeUrl, mod);
-  });
-};
+export const registry: ReadonlyArray<[string, TelescopeGeneratedType<any, any, any>]> = [["/akash.provider.v1beta2.MsgCreateProvider", MsgCreateProvider], ["/akash.provider.v1beta2.MsgUpdateProvider", MsgUpdateProvider], ["/akash.provider.v1beta2.MsgDeleteProvider", MsgDeleteProvider]];
 export const MessageComposer = {
   encoded: {
     createProvider(value: MsgCreateProvider) {

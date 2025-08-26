@@ -1,7 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`osmosis/lockup/tx duration 1`] = `
-"export interface MsgLockTokens {
+"/**
+ * @name MsgLockTokens
+ * @package osmosis.lockup
+ * @see proto type: osmosis.lockup.MsgLockTokens
+ */
+export interface MsgLockTokens {
   owner: string;
   duration: Duration;
   coins: Coin[];
@@ -9,8 +14,20 @@ exports[`osmosis/lockup/tx duration 1`] = `
 `;
 
 exports[`osmosis/lockup/tx duration 2`] = `
-"export const MsgLockTokens = {
+"/**
+ * @name MsgLockTokens
+ * @package osmosis.lockup
+ * @see proto type: osmosis.lockup.MsgLockTokens
+ */
+export const MsgLockTokens = {
   typeUrl: "/osmosis.lockup.MsgLockTokens",
+  aminoType: "osmosis/lockup/lock-tokens",
+  is(o: any): o is MsgLockTokens {
+    return o && (o.$typeUrl === MsgLockTokens.typeUrl || typeof o.owner === "string" && Duration.is(o.duration) && Array.isArray(o.coins) && (!o.coins.length || Coin.is(o.coins[0])));
+  },
+  isSDK(o: any): o is MsgLockTokensSDKType {
+    return o && (o.$typeUrl === MsgLockTokens.typeUrl || typeof o.owner === "string" && Duration.isSDK(o.duration) && Array.isArray(o.coins) && (!o.coins.length || Coin.isSDK(o.coins[0])));
+  },
   encode(message: MsgLockTokens, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.owner !== "") {
       writer.uint32(10).string(message.owner);
@@ -131,6 +148,12 @@ exports[`osmosis/lockup/tx duration 2`] = `
       typeUrl: "/osmosis.lockup.MsgLockTokens",
       value: MsgLockTokens.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgLockTokens.typeUrl)) {
+      return;
+    }
+    Coin.registerTypeUrl();
   }
 };"
 `;
@@ -192,7 +215,12 @@ exports[`osmosis/lockup/tx duration 4`] = `
 `;
 
 exports[`osmosis/lockup/tx string 1`] = `
-"export interface MsgLockTokens {
+"/**
+ * @name MsgLockTokens
+ * @package osmosis.lockup
+ * @see proto type: osmosis.lockup.MsgLockTokens
+ */
+export interface MsgLockTokens {
   owner: string;
   duration: string;
   coins: Coin[];
@@ -200,8 +228,20 @@ exports[`osmosis/lockup/tx string 1`] = `
 `;
 
 exports[`osmosis/lockup/tx string 2`] = `
-"export const MsgLockTokens = {
+"/**
+ * @name MsgLockTokens
+ * @package osmosis.lockup
+ * @see proto type: osmosis.lockup.MsgLockTokens
+ */
+export const MsgLockTokens = {
   typeUrl: "/osmosis.lockup.MsgLockTokens",
+  aminoType: "osmosis/lockup/lock-tokens",
+  is(o: any): o is MsgLockTokens {
+    return o && (o.$typeUrl === MsgLockTokens.typeUrl || typeof o.owner === "string" && typeof o.duration === "string" && Array.isArray(o.coins) && (!o.coins.length || Coin.is(o.coins[0])));
+  },
+  isSDK(o: any): o is MsgLockTokensSDKType {
+    return o && (o.$typeUrl === MsgLockTokens.typeUrl || typeof o.owner === "string" && typeof o.duration === "string" && Array.isArray(o.coins) && (!o.coins.length || Coin.isSDK(o.coins[0])));
+  },
   encode(message: MsgLockTokens, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.owner !== "") {
       writer.uint32(10).string(message.owner);
@@ -322,6 +362,12 @@ exports[`osmosis/lockup/tx string 2`] = `
       typeUrl: "/osmosis.lockup.MsgLockTokens",
       value: MsgLockTokens.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgLockTokens.typeUrl)) {
+      return;
+    }
+    Coin.registerTypeUrl();
   }
 };"
 `;

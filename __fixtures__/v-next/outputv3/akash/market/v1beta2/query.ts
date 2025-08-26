@@ -4,6 +4,7 @@ import { BidFilters, BidFiltersAmino, BidFiltersSDKType, BidID, BidIDAmino, BidI
 import { LeaseFilters, LeaseFiltersAmino, LeaseFiltersSDKType, LeaseID, LeaseIDAmino, LeaseIDSDKType, Lease, LeaseAmino, LeaseSDKType } from "./lease";
 import { Account, AccountAmino, AccountSDKType, FractionalPayment, FractionalPaymentAmino, FractionalPaymentSDKType } from "../../escrow/v1beta2/types";
 import { BinaryReader, BinaryWriter } from "../../../binary";
+import { GlobalDecoderRegistry } from "../../../registry";
 import { isSet, DeepPartial } from "../../../helpers";
 export const protobufPackage = "akash.market.v1beta2";
 /**
@@ -416,6 +417,15 @@ function createBaseQueryOrdersRequest(): QueryOrdersRequest {
  */
 export const QueryOrdersRequest = {
   typeUrl: "/akash.market.v1beta2.QueryOrdersRequest",
+  is(o: any): o is QueryOrdersRequest {
+    return o && (o.$typeUrl === QueryOrdersRequest.typeUrl || OrderFilters.is(o.filters));
+  },
+  isSDK(o: any): o is QueryOrdersRequestSDKType {
+    return o && (o.$typeUrl === QueryOrdersRequest.typeUrl || OrderFilters.isSDK(o.filters));
+  },
+  isAmino(o: any): o is QueryOrdersRequestAmino {
+    return o && (o.$typeUrl === QueryOrdersRequest.typeUrl || OrderFilters.isAmino(o.filters));
+  },
   encode(message: QueryOrdersRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.filters !== undefined) {
       OrderFilters.encode(message.filters, writer.uint32(10).fork()).ldelim();
@@ -500,6 +510,13 @@ export const QueryOrdersRequest = {
       typeUrl: "/akash.market.v1beta2.QueryOrdersRequest",
       value: QueryOrdersRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryOrdersRequest.typeUrl)) {
+      return;
+    }
+    OrderFilters.registerTypeUrl();
+    PageRequest.registerTypeUrl();
   }
 };
 function createBaseQueryOrdersResponse(): QueryOrdersResponse {
@@ -516,6 +533,15 @@ function createBaseQueryOrdersResponse(): QueryOrdersResponse {
  */
 export const QueryOrdersResponse = {
   typeUrl: "/akash.market.v1beta2.QueryOrdersResponse",
+  is(o: any): o is QueryOrdersResponse {
+    return o && (o.$typeUrl === QueryOrdersResponse.typeUrl || Array.isArray(o.orders) && (!o.orders.length || Order.is(o.orders[0])));
+  },
+  isSDK(o: any): o is QueryOrdersResponseSDKType {
+    return o && (o.$typeUrl === QueryOrdersResponse.typeUrl || Array.isArray(o.orders) && (!o.orders.length || Order.isSDK(o.orders[0])));
+  },
+  isAmino(o: any): o is QueryOrdersResponseAmino {
+    return o && (o.$typeUrl === QueryOrdersResponse.typeUrl || Array.isArray(o.orders) && (!o.orders.length || Order.isAmino(o.orders[0])));
+  },
   encode(message: QueryOrdersResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.orders) {
       Order.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -604,6 +630,13 @@ export const QueryOrdersResponse = {
       typeUrl: "/akash.market.v1beta2.QueryOrdersResponse",
       value: QueryOrdersResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryOrdersResponse.typeUrl)) {
+      return;
+    }
+    Order.registerTypeUrl();
+    PageResponse.registerTypeUrl();
   }
 };
 function createBaseQueryOrderRequest(): QueryOrderRequest {
@@ -619,6 +652,15 @@ function createBaseQueryOrderRequest(): QueryOrderRequest {
  */
 export const QueryOrderRequest = {
   typeUrl: "/akash.market.v1beta2.QueryOrderRequest",
+  is(o: any): o is QueryOrderRequest {
+    return o && (o.$typeUrl === QueryOrderRequest.typeUrl || OrderID.is(o.id));
+  },
+  isSDK(o: any): o is QueryOrderRequestSDKType {
+    return o && (o.$typeUrl === QueryOrderRequest.typeUrl || OrderID.isSDK(o.id));
+  },
+  isAmino(o: any): o is QueryOrderRequestAmino {
+    return o && (o.$typeUrl === QueryOrderRequest.typeUrl || OrderID.isAmino(o.id));
+  },
   encode(message: QueryOrderRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.id !== undefined) {
       OrderID.encode(message.id, writer.uint32(10).fork()).ldelim();
@@ -687,6 +729,12 @@ export const QueryOrderRequest = {
       typeUrl: "/akash.market.v1beta2.QueryOrderRequest",
       value: QueryOrderRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryOrderRequest.typeUrl)) {
+      return;
+    }
+    OrderID.registerTypeUrl();
   }
 };
 function createBaseQueryOrderResponse(): QueryOrderResponse {
@@ -702,6 +750,15 @@ function createBaseQueryOrderResponse(): QueryOrderResponse {
  */
 export const QueryOrderResponse = {
   typeUrl: "/akash.market.v1beta2.QueryOrderResponse",
+  is(o: any): o is QueryOrderResponse {
+    return o && (o.$typeUrl === QueryOrderResponse.typeUrl || Order.is(o.order));
+  },
+  isSDK(o: any): o is QueryOrderResponseSDKType {
+    return o && (o.$typeUrl === QueryOrderResponse.typeUrl || Order.isSDK(o.order));
+  },
+  isAmino(o: any): o is QueryOrderResponseAmino {
+    return o && (o.$typeUrl === QueryOrderResponse.typeUrl || Order.isAmino(o.order));
+  },
   encode(message: QueryOrderResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.order !== undefined) {
       Order.encode(message.order, writer.uint32(10).fork()).ldelim();
@@ -770,6 +827,12 @@ export const QueryOrderResponse = {
       typeUrl: "/akash.market.v1beta2.QueryOrderResponse",
       value: QueryOrderResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryOrderResponse.typeUrl)) {
+      return;
+    }
+    Order.registerTypeUrl();
   }
 };
 function createBaseQueryBidsRequest(): QueryBidsRequest {
@@ -786,6 +849,15 @@ function createBaseQueryBidsRequest(): QueryBidsRequest {
  */
 export const QueryBidsRequest = {
   typeUrl: "/akash.market.v1beta2.QueryBidsRequest",
+  is(o: any): o is QueryBidsRequest {
+    return o && (o.$typeUrl === QueryBidsRequest.typeUrl || BidFilters.is(o.filters));
+  },
+  isSDK(o: any): o is QueryBidsRequestSDKType {
+    return o && (o.$typeUrl === QueryBidsRequest.typeUrl || BidFilters.isSDK(o.filters));
+  },
+  isAmino(o: any): o is QueryBidsRequestAmino {
+    return o && (o.$typeUrl === QueryBidsRequest.typeUrl || BidFilters.isAmino(o.filters));
+  },
   encode(message: QueryBidsRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.filters !== undefined) {
       BidFilters.encode(message.filters, writer.uint32(10).fork()).ldelim();
@@ -870,6 +942,13 @@ export const QueryBidsRequest = {
       typeUrl: "/akash.market.v1beta2.QueryBidsRequest",
       value: QueryBidsRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryBidsRequest.typeUrl)) {
+      return;
+    }
+    BidFilters.registerTypeUrl();
+    PageRequest.registerTypeUrl();
   }
 };
 function createBaseQueryBidsResponse(): QueryBidsResponse {
@@ -886,6 +965,15 @@ function createBaseQueryBidsResponse(): QueryBidsResponse {
  */
 export const QueryBidsResponse = {
   typeUrl: "/akash.market.v1beta2.QueryBidsResponse",
+  is(o: any): o is QueryBidsResponse {
+    return o && (o.$typeUrl === QueryBidsResponse.typeUrl || Array.isArray(o.bids) && (!o.bids.length || QueryBidResponse.is(o.bids[0])));
+  },
+  isSDK(o: any): o is QueryBidsResponseSDKType {
+    return o && (o.$typeUrl === QueryBidsResponse.typeUrl || Array.isArray(o.bids) && (!o.bids.length || QueryBidResponse.isSDK(o.bids[0])));
+  },
+  isAmino(o: any): o is QueryBidsResponseAmino {
+    return o && (o.$typeUrl === QueryBidsResponse.typeUrl || Array.isArray(o.bids) && (!o.bids.length || QueryBidResponse.isAmino(o.bids[0])));
+  },
   encode(message: QueryBidsResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.bids) {
       QueryBidResponse.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -974,6 +1062,13 @@ export const QueryBidsResponse = {
       typeUrl: "/akash.market.v1beta2.QueryBidsResponse",
       value: QueryBidsResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryBidsResponse.typeUrl)) {
+      return;
+    }
+    QueryBidResponse.registerTypeUrl();
+    PageResponse.registerTypeUrl();
   }
 };
 function createBaseQueryBidRequest(): QueryBidRequest {
@@ -989,6 +1084,15 @@ function createBaseQueryBidRequest(): QueryBidRequest {
  */
 export const QueryBidRequest = {
   typeUrl: "/akash.market.v1beta2.QueryBidRequest",
+  is(o: any): o is QueryBidRequest {
+    return o && (o.$typeUrl === QueryBidRequest.typeUrl || BidID.is(o.id));
+  },
+  isSDK(o: any): o is QueryBidRequestSDKType {
+    return o && (o.$typeUrl === QueryBidRequest.typeUrl || BidID.isSDK(o.id));
+  },
+  isAmino(o: any): o is QueryBidRequestAmino {
+    return o && (o.$typeUrl === QueryBidRequest.typeUrl || BidID.isAmino(o.id));
+  },
   encode(message: QueryBidRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.id !== undefined) {
       BidID.encode(message.id, writer.uint32(10).fork()).ldelim();
@@ -1057,6 +1161,12 @@ export const QueryBidRequest = {
       typeUrl: "/akash.market.v1beta2.QueryBidRequest",
       value: QueryBidRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryBidRequest.typeUrl)) {
+      return;
+    }
+    BidID.registerTypeUrl();
   }
 };
 function createBaseQueryBidResponse(): QueryBidResponse {
@@ -1073,6 +1183,15 @@ function createBaseQueryBidResponse(): QueryBidResponse {
  */
 export const QueryBidResponse = {
   typeUrl: "/akash.market.v1beta2.QueryBidResponse",
+  is(o: any): o is QueryBidResponse {
+    return o && (o.$typeUrl === QueryBidResponse.typeUrl || Bid.is(o.bid) && Account.is(o.escrowAccount));
+  },
+  isSDK(o: any): o is QueryBidResponseSDKType {
+    return o && (o.$typeUrl === QueryBidResponse.typeUrl || Bid.isSDK(o.bid) && Account.isSDK(o.escrow_account));
+  },
+  isAmino(o: any): o is QueryBidResponseAmino {
+    return o && (o.$typeUrl === QueryBidResponse.typeUrl || Bid.isAmino(o.bid) && Account.isAmino(o.escrow_account));
+  },
   encode(message: QueryBidResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.bid !== undefined) {
       Bid.encode(message.bid, writer.uint32(10).fork()).ldelim();
@@ -1157,6 +1276,13 @@ export const QueryBidResponse = {
       typeUrl: "/akash.market.v1beta2.QueryBidResponse",
       value: QueryBidResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryBidResponse.typeUrl)) {
+      return;
+    }
+    Bid.registerTypeUrl();
+    Account.registerTypeUrl();
   }
 };
 function createBaseQueryLeasesRequest(): QueryLeasesRequest {
@@ -1173,6 +1299,15 @@ function createBaseQueryLeasesRequest(): QueryLeasesRequest {
  */
 export const QueryLeasesRequest = {
   typeUrl: "/akash.market.v1beta2.QueryLeasesRequest",
+  is(o: any): o is QueryLeasesRequest {
+    return o && (o.$typeUrl === QueryLeasesRequest.typeUrl || LeaseFilters.is(o.filters));
+  },
+  isSDK(o: any): o is QueryLeasesRequestSDKType {
+    return o && (o.$typeUrl === QueryLeasesRequest.typeUrl || LeaseFilters.isSDK(o.filters));
+  },
+  isAmino(o: any): o is QueryLeasesRequestAmino {
+    return o && (o.$typeUrl === QueryLeasesRequest.typeUrl || LeaseFilters.isAmino(o.filters));
+  },
   encode(message: QueryLeasesRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.filters !== undefined) {
       LeaseFilters.encode(message.filters, writer.uint32(10).fork()).ldelim();
@@ -1257,6 +1392,13 @@ export const QueryLeasesRequest = {
       typeUrl: "/akash.market.v1beta2.QueryLeasesRequest",
       value: QueryLeasesRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryLeasesRequest.typeUrl)) {
+      return;
+    }
+    LeaseFilters.registerTypeUrl();
+    PageRequest.registerTypeUrl();
   }
 };
 function createBaseQueryLeasesResponse(): QueryLeasesResponse {
@@ -1273,6 +1415,15 @@ function createBaseQueryLeasesResponse(): QueryLeasesResponse {
  */
 export const QueryLeasesResponse = {
   typeUrl: "/akash.market.v1beta2.QueryLeasesResponse",
+  is(o: any): o is QueryLeasesResponse {
+    return o && (o.$typeUrl === QueryLeasesResponse.typeUrl || Array.isArray(o.leases) && (!o.leases.length || QueryLeaseResponse.is(o.leases[0])));
+  },
+  isSDK(o: any): o is QueryLeasesResponseSDKType {
+    return o && (o.$typeUrl === QueryLeasesResponse.typeUrl || Array.isArray(o.leases) && (!o.leases.length || QueryLeaseResponse.isSDK(o.leases[0])));
+  },
+  isAmino(o: any): o is QueryLeasesResponseAmino {
+    return o && (o.$typeUrl === QueryLeasesResponse.typeUrl || Array.isArray(o.leases) && (!o.leases.length || QueryLeaseResponse.isAmino(o.leases[0])));
+  },
   encode(message: QueryLeasesResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.leases) {
       QueryLeaseResponse.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -1361,6 +1512,13 @@ export const QueryLeasesResponse = {
       typeUrl: "/akash.market.v1beta2.QueryLeasesResponse",
       value: QueryLeasesResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryLeasesResponse.typeUrl)) {
+      return;
+    }
+    QueryLeaseResponse.registerTypeUrl();
+    PageResponse.registerTypeUrl();
   }
 };
 function createBaseQueryLeaseRequest(): QueryLeaseRequest {
@@ -1376,6 +1534,15 @@ function createBaseQueryLeaseRequest(): QueryLeaseRequest {
  */
 export const QueryLeaseRequest = {
   typeUrl: "/akash.market.v1beta2.QueryLeaseRequest",
+  is(o: any): o is QueryLeaseRequest {
+    return o && (o.$typeUrl === QueryLeaseRequest.typeUrl || LeaseID.is(o.id));
+  },
+  isSDK(o: any): o is QueryLeaseRequestSDKType {
+    return o && (o.$typeUrl === QueryLeaseRequest.typeUrl || LeaseID.isSDK(o.id));
+  },
+  isAmino(o: any): o is QueryLeaseRequestAmino {
+    return o && (o.$typeUrl === QueryLeaseRequest.typeUrl || LeaseID.isAmino(o.id));
+  },
   encode(message: QueryLeaseRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.id !== undefined) {
       LeaseID.encode(message.id, writer.uint32(10).fork()).ldelim();
@@ -1444,6 +1611,12 @@ export const QueryLeaseRequest = {
       typeUrl: "/akash.market.v1beta2.QueryLeaseRequest",
       value: QueryLeaseRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryLeaseRequest.typeUrl)) {
+      return;
+    }
+    LeaseID.registerTypeUrl();
   }
 };
 function createBaseQueryLeaseResponse(): QueryLeaseResponse {
@@ -1460,6 +1633,15 @@ function createBaseQueryLeaseResponse(): QueryLeaseResponse {
  */
 export const QueryLeaseResponse = {
   typeUrl: "/akash.market.v1beta2.QueryLeaseResponse",
+  is(o: any): o is QueryLeaseResponse {
+    return o && (o.$typeUrl === QueryLeaseResponse.typeUrl || Lease.is(o.lease) && FractionalPayment.is(o.escrowPayment));
+  },
+  isSDK(o: any): o is QueryLeaseResponseSDKType {
+    return o && (o.$typeUrl === QueryLeaseResponse.typeUrl || Lease.isSDK(o.lease) && FractionalPayment.isSDK(o.escrow_payment));
+  },
+  isAmino(o: any): o is QueryLeaseResponseAmino {
+    return o && (o.$typeUrl === QueryLeaseResponse.typeUrl || Lease.isAmino(o.lease) && FractionalPayment.isAmino(o.escrow_payment));
+  },
   encode(message: QueryLeaseResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.lease !== undefined) {
       Lease.encode(message.lease, writer.uint32(10).fork()).ldelim();
@@ -1544,5 +1726,12 @@ export const QueryLeaseResponse = {
       typeUrl: "/akash.market.v1beta2.QueryLeaseResponse",
       value: QueryLeaseResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryLeaseResponse.typeUrl)) {
+      return;
+    }
+    Lease.registerTypeUrl();
+    FractionalPayment.registerTypeUrl();
   }
 };

@@ -1,5 +1,6 @@
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { DeepPartial, isSet, bytesFromBase64, base64FromBytes } from "../../../helpers";
+import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "osmosis.store.v1beta1";
 /**
  * @name Node
@@ -101,6 +102,15 @@ function createBaseNode(): Node {
 export const Node = {
   typeUrl: "/osmosis.store.v1beta1.Node",
   aminoType: "osmosis/store/node",
+  is(o: any): o is Node {
+    return o && (o.$typeUrl === Node.typeUrl || Array.isArray(o.children) && (!o.children.length || Child.is(o.children[0])));
+  },
+  isSDK(o: any): o is NodeSDKType {
+    return o && (o.$typeUrl === Node.typeUrl || Array.isArray(o.children) && (!o.children.length || Child.isSDK(o.children[0])));
+  },
+  isAmino(o: any): o is NodeAmino {
+    return o && (o.$typeUrl === Node.typeUrl || Array.isArray(o.children) && (!o.children.length || Child.isAmino(o.children[0])));
+  },
   encode(message: Node, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.children) {
       Child.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -173,6 +183,12 @@ export const Node = {
       typeUrl: "/osmosis.store.v1beta1.Node",
       value: Node.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Node.typeUrl)) {
+      return;
+    }
+    Child.registerTypeUrl();
   }
 };
 function createBaseChild(): Child {
@@ -189,6 +205,15 @@ function createBaseChild(): Child {
 export const Child = {
   typeUrl: "/osmosis.store.v1beta1.Child",
   aminoType: "osmosis/store/child",
+  is(o: any): o is Child {
+    return o && (o.$typeUrl === Child.typeUrl || (o.index instanceof Uint8Array || typeof o.index === "string") && typeof o.accumulation === "string");
+  },
+  isSDK(o: any): o is ChildSDKType {
+    return o && (o.$typeUrl === Child.typeUrl || (o.index instanceof Uint8Array || typeof o.index === "string") && typeof o.accumulation === "string");
+  },
+  isAmino(o: any): o is ChildAmino {
+    return o && (o.$typeUrl === Child.typeUrl || (o.index instanceof Uint8Array || typeof o.index === "string") && typeof o.accumulation === "string");
+  },
   encode(message: Child, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.index.length !== 0) {
       writer.uint32(10).bytes(message.index);
@@ -269,7 +294,8 @@ export const Child = {
       typeUrl: "/osmosis.store.v1beta1.Child",
       value: Child.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseLeaf(): Leaf {
   return {
@@ -284,6 +310,15 @@ function createBaseLeaf(): Leaf {
 export const Leaf = {
   typeUrl: "/osmosis.store.v1beta1.Leaf",
   aminoType: "osmosis/store/leaf",
+  is(o: any): o is Leaf {
+    return o && o.$typeUrl === Leaf.typeUrl;
+  },
+  isSDK(o: any): o is LeafSDKType {
+    return o && o.$typeUrl === Leaf.typeUrl;
+  },
+  isAmino(o: any): o is LeafAmino {
+    return o && o.$typeUrl === Leaf.typeUrl;
+  },
   encode(message: Leaf, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.leaf !== undefined) {
       Child.encode(message.leaf, writer.uint32(10).fork()).ldelim();
@@ -352,5 +387,11 @@ export const Leaf = {
       typeUrl: "/osmosis.store.v1beta1.Leaf",
       value: Leaf.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Leaf.typeUrl)) {
+      return;
+    }
+    Child.registerTypeUrl();
   }
 };

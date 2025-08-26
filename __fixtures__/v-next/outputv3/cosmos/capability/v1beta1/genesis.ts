@@ -1,5 +1,6 @@
 import { CapabilityOwners, CapabilityOwnersAmino, CapabilityOwnersSDKType } from "./capability";
 import { BinaryReader, BinaryWriter } from "../../../binary";
+import { GlobalDecoderRegistry } from "../../../registry";
 import { isSet, DeepPartial } from "../../../helpers";
 export const protobufPackage = "cosmos.capability.v1beta1";
 /**
@@ -111,6 +112,15 @@ function createBaseGenesisOwners(): GenesisOwners {
 export const GenesisOwners = {
   typeUrl: "/cosmos.capability.v1beta1.GenesisOwners",
   aminoType: "cosmos-sdk/GenesisOwners",
+  is(o: any): o is GenesisOwners {
+    return o && (o.$typeUrl === GenesisOwners.typeUrl || typeof o.index === "bigint" && CapabilityOwners.is(o.indexOwners));
+  },
+  isSDK(o: any): o is GenesisOwnersSDKType {
+    return o && (o.$typeUrl === GenesisOwners.typeUrl || typeof o.index === "bigint" && CapabilityOwners.isSDK(o.index_owners));
+  },
+  isAmino(o: any): o is GenesisOwnersAmino {
+    return o && (o.$typeUrl === GenesisOwners.typeUrl || typeof o.index === "bigint" && CapabilityOwners.isAmino(o.index_owners));
+  },
   encode(message: GenesisOwners, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.index !== BigInt(0)) {
       writer.uint32(8).uint64(message.index);
@@ -195,6 +205,12 @@ export const GenesisOwners = {
       typeUrl: "/cosmos.capability.v1beta1.GenesisOwners",
       value: GenesisOwners.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(GenesisOwners.typeUrl)) {
+      return;
+    }
+    CapabilityOwners.registerTypeUrl();
   }
 };
 function createBaseGenesisState(): GenesisState {
@@ -212,6 +228,15 @@ function createBaseGenesisState(): GenesisState {
 export const GenesisState = {
   typeUrl: "/cosmos.capability.v1beta1.GenesisState",
   aminoType: "cosmos-sdk/GenesisState",
+  is(o: any): o is GenesisState {
+    return o && (o.$typeUrl === GenesisState.typeUrl || typeof o.index === "bigint" && Array.isArray(o.owners) && (!o.owners.length || GenesisOwners.is(o.owners[0])));
+  },
+  isSDK(o: any): o is GenesisStateSDKType {
+    return o && (o.$typeUrl === GenesisState.typeUrl || typeof o.index === "bigint" && Array.isArray(o.owners) && (!o.owners.length || GenesisOwners.isSDK(o.owners[0])));
+  },
+  isAmino(o: any): o is GenesisStateAmino {
+    return o && (o.$typeUrl === GenesisState.typeUrl || typeof o.index === "bigint" && Array.isArray(o.owners) && (!o.owners.length || GenesisOwners.isAmino(o.owners[0])));
+  },
   encode(message: GenesisState, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.index !== BigInt(0)) {
       writer.uint32(8).uint64(message.index);
@@ -300,5 +325,11 @@ export const GenesisState = {
       typeUrl: "/cosmos.capability.v1beta1.GenesisState",
       value: GenesisState.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(GenesisState.typeUrl)) {
+      return;
+    }
+    GenesisOwners.registerTypeUrl();
   }
 };

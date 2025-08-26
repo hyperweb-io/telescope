@@ -1,5 +1,5 @@
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { Decimal } from "@cosmjs/math";
+import { Decimal } from "@interchainjs/math";
 import { isSet, DeepPartial } from "../../../helpers";
 export const protobufPackage = "akash.inflation.v1beta2";
 /**
@@ -76,6 +76,15 @@ function createBaseParams(): Params {
  */
 export const Params = {
   typeUrl: "/akash.inflation.v1beta2.Params",
+  is(o: any): o is Params {
+    return o && (o.$typeUrl === Params.typeUrl || typeof o.inflationDecayFactor === "string" && typeof o.initialInflation === "string" && typeof o.variance === "string");
+  },
+  isSDK(o: any): o is ParamsSDKType {
+    return o && (o.$typeUrl === Params.typeUrl || typeof o.inflation_decay_factor === "string" && typeof o.initial_inflation === "string" && typeof o.variance === "string");
+  },
+  isAmino(o: any): o is ParamsAmino {
+    return o && (o.$typeUrl === Params.typeUrl || typeof o.inflation_decay_factor === "string" && typeof o.initial_inflation === "string" && typeof o.variance === "string");
+  },
   encode(message: Params, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.inflationDecayFactor !== "") {
       writer.uint32(10).string(Decimal.fromUserInput(message.inflationDecayFactor, 18).atomics);
@@ -154,9 +163,9 @@ export const Params = {
   },
   toAmino(message: Params, useInterfaces: boolean = true): ParamsAmino {
     const obj: any = {};
-    obj.inflation_decay_factor = message.inflationDecayFactor ?? "";
-    obj.initial_inflation = message.initialInflation ?? "";
-    obj.variance = message.variance ?? "";
+    obj.inflation_decay_factor = Decimal.fromUserInput(message.inflationDecayFactor, 18).atomics ?? "";
+    obj.initial_inflation = Decimal.fromUserInput(message.initialInflation, 18).atomics ?? "";
+    obj.variance = Decimal.fromUserInput(message.variance, 18).atomics ?? "";
     return obj;
   },
   fromProtoMsg(message: ParamsProtoMsg, useInterfaces: boolean = true): Params {
@@ -170,5 +179,6 @@ export const Params = {
       typeUrl: "/akash.inflation.v1beta2.Params",
       value: Params.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

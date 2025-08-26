@@ -1,0 +1,62 @@
+import { buildQuery } from "../../../helper-func-types";
+import { QueryModuleAccountBalanceRequest, QueryModuleAccountBalanceResponse, QueryParamsRequest, QueryParamsResponse, QueryClaimRecordRequest, QueryClaimRecordResponse, QueryClaimableForActionRequest, QueryClaimableForActionResponse, QueryTotalClaimableRequest, QueryTotalClaimableResponse } from "./query";
+/**
+ * @name getModuleAccountBalance
+ * @package osmosis.claim.v1beta1
+ * @see proto service: osmosis.claim.v1beta1.ModuleAccountBalance
+ */
+export const getModuleAccountBalance = buildQuery<QueryModuleAccountBalanceRequest, QueryModuleAccountBalanceResponse>({
+  encode: QueryModuleAccountBalanceRequest.encode,
+  decode: QueryModuleAccountBalanceResponse.decode,
+  service: "osmosis.claim.v1beta1.Query",
+  method: "ModuleAccountBalance",
+  deps: [QueryModuleAccountBalanceRequest, QueryModuleAccountBalanceResponse]
+});
+/**
+ * @name getParams
+ * @package osmosis.claim.v1beta1
+ * @see proto service: osmosis.claim.v1beta1.Params
+ */
+export const getParams = buildQuery<QueryParamsRequest, QueryParamsResponse>({
+  encode: QueryParamsRequest.encode,
+  decode: QueryParamsResponse.decode,
+  service: "osmosis.claim.v1beta1.Query",
+  method: "Params",
+  deps: [QueryParamsRequest, QueryParamsResponse]
+});
+/**
+ * @name getClaimRecord
+ * @package osmosis.claim.v1beta1
+ * @see proto service: osmosis.claim.v1beta1.ClaimRecord
+ */
+export const getClaimRecord = buildQuery<QueryClaimRecordRequest, QueryClaimRecordResponse>({
+  encode: QueryClaimRecordRequest.encode,
+  decode: QueryClaimRecordResponse.decode,
+  service: "osmosis.claim.v1beta1.Query",
+  method: "ClaimRecord",
+  deps: [QueryClaimRecordRequest, QueryClaimRecordResponse]
+});
+/**
+ * @name getClaimableForAction
+ * @package osmosis.claim.v1beta1
+ * @see proto service: osmosis.claim.v1beta1.ClaimableForAction
+ */
+export const getClaimableForAction = buildQuery<QueryClaimableForActionRequest, QueryClaimableForActionResponse>({
+  encode: QueryClaimableForActionRequest.encode,
+  decode: QueryClaimableForActionResponse.decode,
+  service: "osmosis.claim.v1beta1.Query",
+  method: "ClaimableForAction",
+  deps: [QueryClaimableForActionRequest, QueryClaimableForActionResponse]
+});
+/**
+ * @name getTotalClaimable
+ * @package osmosis.claim.v1beta1
+ * @see proto service: osmosis.claim.v1beta1.TotalClaimable
+ */
+export const getTotalClaimable = buildQuery<QueryTotalClaimableRequest, QueryTotalClaimableResponse>({
+  encode: QueryTotalClaimableRequest.encode,
+  decode: QueryTotalClaimableResponse.decode,
+  service: "osmosis.claim.v1beta1.Query",
+  method: "TotalClaimable",
+  deps: [QueryTotalClaimableRequest, QueryTotalClaimableResponse]
+});

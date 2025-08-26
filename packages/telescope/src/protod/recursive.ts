@@ -95,6 +95,14 @@ export async function clone({
   return clonedResult;
 }
 
+function sanitizeProtoContent(content: string): string {
+  // Remove any standalone semicolon lines that could be introduced upstream
+  // e.g., a line that only contains ';' or whitespace + ';'
+  const lines = content.split(/\r?\n/);
+  const sanitized = lines.filter((line) => !/^\s*;\s*$/.test(line));
+  return sanitized.join("\n");
+}
+
 export function extractProto({ sources, targets, outDir }: ProtoCopyOptions) {
   const extractProtoFiles: { sourceFile: string; target: string }[] =
     extractProtoFromDirs({
@@ -106,7 +114,9 @@ export function extractProto({ sources, targets, outDir }: ProtoCopyOptions) {
     const targetFile = join(outDir, target);
     const deepTargetDir = dirname(targetFile);
     makeDir(deepTargetDir);
-    fs.copyFileSync(sourceFile, targetFile);
+    const raw = fs.readFileSync(sourceFile, "utf8");
+    const sanitized = sanitizeProtoContent(raw);
+    fs.writeFileSync(targetFile, sanitized, "utf8");
     console.info(`Copied ${target} from ${sourceFile.replace(target, "")}`);
   });
 }

@@ -9,9 +9,9 @@ import { HttpEndpoint } from "@interchainjs/types";
 import { BinaryReader, BinaryWriter } from "./binary";
 import { getRpcClient } from "./extern";
 import { isRpc, Rpc } from "./helpers";
-import { TelescopeGeneratedCodec, DeliverTxResponse, Message, StdFee } from "./types";
-import { toConverters, toEncoders } from "@interchainjs/cosmos";
-import { ISigningClient } from "@interchainjs/cosmos";
+import { TelescopeGeneratedCodec, Message, StdFee } from "./types";
+import { toConverters, toEncoders } from "@interchainjs/cosmos/utils";
+import { ISigningClient } from "@interchainjs/cosmos/types/signing-client";
 
 export interface QueryBuilderOptions<TReq, TRes> {
   encode: (request: TReq, writer?: BinaryWriter) => BinaryWriter
@@ -63,7 +63,7 @@ export function buildTx<TMsg>(opts: TxBuilderOptions) {
     message: TMsg | TMsg[],
     fee: StdFee | 'auto',
     memo: string
-  ): Promise<DeliverTxResponse> => {
+  ): Promise<any> => {
     if (!client) throw new Error("SigningClient is not initialized");
 
     //register all related encoders and converters

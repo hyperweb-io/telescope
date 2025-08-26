@@ -1,7 +1,8 @@
 import { FieldMask, FieldMaskAmino, FieldMaskSDKType } from "../../protobuf/field_mask";
 import { Timestamp, TimestampAmino, TimestampSDKType } from "../../protobuf/timestamp";
+import { isSet, toTimestamp, fromTimestamp, DeepPartial } from "../../../helpers";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { toTimestamp, fromTimestamp, isSet, DeepPartial } from "../../../helpers";
+import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "google.logging.v2";
 /** Deprecated. This is unused. */
 export enum LogSink_VersionFormat {
@@ -3545,6 +3546,15 @@ function createBaseLogBucket(): LogBucket {
  */
 export const LogBucket = {
   typeUrl: "/google.logging.v2.LogBucket",
+  is(o: any): o is LogBucket {
+    return o && (o.$typeUrl === LogBucket.typeUrl || typeof o.name === "string" && typeof o.description === "string" && typeof o.retentionDays === "number" && typeof o.locked === "boolean" && isSet(o.lifecycleState) && Array.isArray(o.restrictedFields) && (!o.restrictedFields.length || typeof o.restrictedFields[0] === "string"));
+  },
+  isSDK(o: any): o is LogBucketSDKType {
+    return o && (o.$typeUrl === LogBucket.typeUrl || typeof o.name === "string" && typeof o.description === "string" && typeof o.retention_days === "number" && typeof o.locked === "boolean" && isSet(o.lifecycle_state) && Array.isArray(o.restricted_fields) && (!o.restricted_fields.length || typeof o.restricted_fields[0] === "string"));
+  },
+  isAmino(o: any): o is LogBucketAmino {
+    return o && (o.$typeUrl === LogBucket.typeUrl || typeof o.name === "string" && typeof o.description === "string" && typeof o.retention_days === "number" && typeof o.locked === "boolean" && isSet(o.lifecycle_state) && Array.isArray(o.restricted_fields) && (!o.restricted_fields.length || typeof o.restricted_fields[0] === "string"));
+  },
   encode(message: LogBucket, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -3731,6 +3741,12 @@ export const LogBucket = {
       typeUrl: "/google.logging.v2.LogBucket",
       value: LogBucket.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(LogBucket.typeUrl)) {
+      return;
+    }
+    CmekSettings.registerTypeUrl();
   }
 };
 function createBaseLogView(): LogView {
@@ -3750,6 +3766,15 @@ function createBaseLogView(): LogView {
  */
 export const LogView = {
   typeUrl: "/google.logging.v2.LogView",
+  is(o: any): o is LogView {
+    return o && (o.$typeUrl === LogView.typeUrl || typeof o.name === "string" && typeof o.description === "string" && typeof o.filter === "string");
+  },
+  isSDK(o: any): o is LogViewSDKType {
+    return o && (o.$typeUrl === LogView.typeUrl || typeof o.name === "string" && typeof o.description === "string" && typeof o.filter === "string");
+  },
+  isAmino(o: any): o is LogViewAmino {
+    return o && (o.$typeUrl === LogView.typeUrl || typeof o.name === "string" && typeof o.description === "string" && typeof o.filter === "string");
+  },
   encode(message: LogView, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -3872,7 +3897,8 @@ export const LogView = {
       typeUrl: "/google.logging.v2.LogView",
       value: LogView.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseLogSink(): LogSink {
   return {
@@ -3902,6 +3928,15 @@ function createBaseLogSink(): LogSink {
  */
 export const LogSink = {
   typeUrl: "/google.logging.v2.LogSink",
+  is(o: any): o is LogSink {
+    return o && (o.$typeUrl === LogSink.typeUrl || typeof o.name === "string" && typeof o.destination === "string" && typeof o.filter === "string" && typeof o.description === "string" && typeof o.disabled === "boolean" && Array.isArray(o.exclusions) && (!o.exclusions.length || LogExclusion.is(o.exclusions[0])) && isSet(o.outputVersionFormat) && typeof o.writerIdentity === "string" && typeof o.includeChildren === "boolean");
+  },
+  isSDK(o: any): o is LogSinkSDKType {
+    return o && (o.$typeUrl === LogSink.typeUrl || typeof o.name === "string" && typeof o.destination === "string" && typeof o.filter === "string" && typeof o.description === "string" && typeof o.disabled === "boolean" && Array.isArray(o.exclusions) && (!o.exclusions.length || LogExclusion.isSDK(o.exclusions[0])) && isSet(o.output_version_format) && typeof o.writer_identity === "string" && typeof o.include_children === "boolean");
+  },
+  isAmino(o: any): o is LogSinkAmino {
+    return o && (o.$typeUrl === LogSink.typeUrl || typeof o.name === "string" && typeof o.destination === "string" && typeof o.filter === "string" && typeof o.description === "string" && typeof o.disabled === "boolean" && Array.isArray(o.exclusions) && (!o.exclusions.length || LogExclusion.isAmino(o.exclusions[0])) && isSet(o.output_version_format) && typeof o.writer_identity === "string" && typeof o.include_children === "boolean");
+  },
   encode(message: LogSink, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -4130,6 +4165,13 @@ export const LogSink = {
       typeUrl: "/google.logging.v2.LogSink",
       value: LogSink.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(LogSink.typeUrl)) {
+      return;
+    }
+    LogExclusion.registerTypeUrl();
+    BigQueryOptions.registerTypeUrl();
   }
 };
 function createBaseBigQueryOptions(): BigQueryOptions {
@@ -4146,6 +4188,15 @@ function createBaseBigQueryOptions(): BigQueryOptions {
  */
 export const BigQueryOptions = {
   typeUrl: "/google.logging.v2.BigQueryOptions",
+  is(o: any): o is BigQueryOptions {
+    return o && (o.$typeUrl === BigQueryOptions.typeUrl || typeof o.usePartitionedTables === "boolean" && typeof o.usesTimestampColumnPartitioning === "boolean");
+  },
+  isSDK(o: any): o is BigQueryOptionsSDKType {
+    return o && (o.$typeUrl === BigQueryOptions.typeUrl || typeof o.use_partitioned_tables === "boolean" && typeof o.uses_timestamp_column_partitioning === "boolean");
+  },
+  isAmino(o: any): o is BigQueryOptionsAmino {
+    return o && (o.$typeUrl === BigQueryOptions.typeUrl || typeof o.use_partitioned_tables === "boolean" && typeof o.uses_timestamp_column_partitioning === "boolean");
+  },
   encode(message: BigQueryOptions, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.usePartitionedTables === true) {
       writer.uint32(8).bool(message.usePartitionedTables);
@@ -4226,7 +4277,8 @@ export const BigQueryOptions = {
       typeUrl: "/google.logging.v2.BigQueryOptions",
       value: BigQueryOptions.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseListBucketsRequest(): ListBucketsRequest {
   return {
@@ -4243,6 +4295,15 @@ function createBaseListBucketsRequest(): ListBucketsRequest {
  */
 export const ListBucketsRequest = {
   typeUrl: "/google.logging.v2.ListBucketsRequest",
+  is(o: any): o is ListBucketsRequest {
+    return o && (o.$typeUrl === ListBucketsRequest.typeUrl || typeof o.parent === "string" && typeof o.pageToken === "string" && typeof o.pageSize === "number");
+  },
+  isSDK(o: any): o is ListBucketsRequestSDKType {
+    return o && (o.$typeUrl === ListBucketsRequest.typeUrl || typeof o.parent === "string" && typeof o.page_token === "string" && typeof o.page_size === "number");
+  },
+  isAmino(o: any): o is ListBucketsRequestAmino {
+    return o && (o.$typeUrl === ListBucketsRequest.typeUrl || typeof o.parent === "string" && typeof o.page_token === "string" && typeof o.page_size === "number");
+  },
   encode(message: ListBucketsRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.parent !== "") {
       writer.uint32(10).string(message.parent);
@@ -4337,7 +4398,8 @@ export const ListBucketsRequest = {
       typeUrl: "/google.logging.v2.ListBucketsRequest",
       value: ListBucketsRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseListBucketsResponse(): ListBucketsResponse {
   return {
@@ -4353,6 +4415,15 @@ function createBaseListBucketsResponse(): ListBucketsResponse {
  */
 export const ListBucketsResponse = {
   typeUrl: "/google.logging.v2.ListBucketsResponse",
+  is(o: any): o is ListBucketsResponse {
+    return o && (o.$typeUrl === ListBucketsResponse.typeUrl || Array.isArray(o.buckets) && (!o.buckets.length || LogBucket.is(o.buckets[0])) && typeof o.nextPageToken === "string");
+  },
+  isSDK(o: any): o is ListBucketsResponseSDKType {
+    return o && (o.$typeUrl === ListBucketsResponse.typeUrl || Array.isArray(o.buckets) && (!o.buckets.length || LogBucket.isSDK(o.buckets[0])) && typeof o.next_page_token === "string");
+  },
+  isAmino(o: any): o is ListBucketsResponseAmino {
+    return o && (o.$typeUrl === ListBucketsResponse.typeUrl || Array.isArray(o.buckets) && (!o.buckets.length || LogBucket.isAmino(o.buckets[0])) && typeof o.next_page_token === "string");
+  },
   encode(message: ListBucketsResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.buckets) {
       LogBucket.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -4439,6 +4510,12 @@ export const ListBucketsResponse = {
       typeUrl: "/google.logging.v2.ListBucketsResponse",
       value: ListBucketsResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ListBucketsResponse.typeUrl)) {
+      return;
+    }
+    LogBucket.registerTypeUrl();
   }
 };
 function createBaseCreateBucketRequest(): CreateBucketRequest {
@@ -4456,6 +4533,15 @@ function createBaseCreateBucketRequest(): CreateBucketRequest {
  */
 export const CreateBucketRequest = {
   typeUrl: "/google.logging.v2.CreateBucketRequest",
+  is(o: any): o is CreateBucketRequest {
+    return o && (o.$typeUrl === CreateBucketRequest.typeUrl || typeof o.parent === "string" && typeof o.bucketId === "string");
+  },
+  isSDK(o: any): o is CreateBucketRequestSDKType {
+    return o && (o.$typeUrl === CreateBucketRequest.typeUrl || typeof o.parent === "string" && typeof o.bucket_id === "string");
+  },
+  isAmino(o: any): o is CreateBucketRequestAmino {
+    return o && (o.$typeUrl === CreateBucketRequest.typeUrl || typeof o.parent === "string" && typeof o.bucket_id === "string");
+  },
   encode(message: CreateBucketRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.parent !== "") {
       writer.uint32(10).string(message.parent);
@@ -4552,6 +4638,12 @@ export const CreateBucketRequest = {
       typeUrl: "/google.logging.v2.CreateBucketRequest",
       value: CreateBucketRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(CreateBucketRequest.typeUrl)) {
+      return;
+    }
+    LogBucket.registerTypeUrl();
   }
 };
 function createBaseUpdateBucketRequest(): UpdateBucketRequest {
@@ -4569,6 +4661,15 @@ function createBaseUpdateBucketRequest(): UpdateBucketRequest {
  */
 export const UpdateBucketRequest = {
   typeUrl: "/google.logging.v2.UpdateBucketRequest",
+  is(o: any): o is UpdateBucketRequest {
+    return o && (o.$typeUrl === UpdateBucketRequest.typeUrl || typeof o.name === "string");
+  },
+  isSDK(o: any): o is UpdateBucketRequestSDKType {
+    return o && (o.$typeUrl === UpdateBucketRequest.typeUrl || typeof o.name === "string");
+  },
+  isAmino(o: any): o is UpdateBucketRequestAmino {
+    return o && (o.$typeUrl === UpdateBucketRequest.typeUrl || typeof o.name === "string");
+  },
   encode(message: UpdateBucketRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -4667,6 +4768,13 @@ export const UpdateBucketRequest = {
       typeUrl: "/google.logging.v2.UpdateBucketRequest",
       value: UpdateBucketRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(UpdateBucketRequest.typeUrl)) {
+      return;
+    }
+    LogBucket.registerTypeUrl();
+    FieldMask.registerTypeUrl();
   }
 };
 function createBaseGetBucketRequest(): GetBucketRequest {
@@ -4682,6 +4790,15 @@ function createBaseGetBucketRequest(): GetBucketRequest {
  */
 export const GetBucketRequest = {
   typeUrl: "/google.logging.v2.GetBucketRequest",
+  is(o: any): o is GetBucketRequest {
+    return o && (o.$typeUrl === GetBucketRequest.typeUrl || typeof o.name === "string");
+  },
+  isSDK(o: any): o is GetBucketRequestSDKType {
+    return o && (o.$typeUrl === GetBucketRequest.typeUrl || typeof o.name === "string");
+  },
+  isAmino(o: any): o is GetBucketRequestAmino {
+    return o && (o.$typeUrl === GetBucketRequest.typeUrl || typeof o.name === "string");
+  },
   encode(message: GetBucketRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -4748,7 +4865,8 @@ export const GetBucketRequest = {
       typeUrl: "/google.logging.v2.GetBucketRequest",
       value: GetBucketRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseDeleteBucketRequest(): DeleteBucketRequest {
   return {
@@ -4763,6 +4881,15 @@ function createBaseDeleteBucketRequest(): DeleteBucketRequest {
  */
 export const DeleteBucketRequest = {
   typeUrl: "/google.logging.v2.DeleteBucketRequest",
+  is(o: any): o is DeleteBucketRequest {
+    return o && (o.$typeUrl === DeleteBucketRequest.typeUrl || typeof o.name === "string");
+  },
+  isSDK(o: any): o is DeleteBucketRequestSDKType {
+    return o && (o.$typeUrl === DeleteBucketRequest.typeUrl || typeof o.name === "string");
+  },
+  isAmino(o: any): o is DeleteBucketRequestAmino {
+    return o && (o.$typeUrl === DeleteBucketRequest.typeUrl || typeof o.name === "string");
+  },
   encode(message: DeleteBucketRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -4829,7 +4956,8 @@ export const DeleteBucketRequest = {
       typeUrl: "/google.logging.v2.DeleteBucketRequest",
       value: DeleteBucketRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseUndeleteBucketRequest(): UndeleteBucketRequest {
   return {
@@ -4844,6 +4972,15 @@ function createBaseUndeleteBucketRequest(): UndeleteBucketRequest {
  */
 export const UndeleteBucketRequest = {
   typeUrl: "/google.logging.v2.UndeleteBucketRequest",
+  is(o: any): o is UndeleteBucketRequest {
+    return o && (o.$typeUrl === UndeleteBucketRequest.typeUrl || typeof o.name === "string");
+  },
+  isSDK(o: any): o is UndeleteBucketRequestSDKType {
+    return o && (o.$typeUrl === UndeleteBucketRequest.typeUrl || typeof o.name === "string");
+  },
+  isAmino(o: any): o is UndeleteBucketRequestAmino {
+    return o && (o.$typeUrl === UndeleteBucketRequest.typeUrl || typeof o.name === "string");
+  },
   encode(message: UndeleteBucketRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -4910,7 +5047,8 @@ export const UndeleteBucketRequest = {
       typeUrl: "/google.logging.v2.UndeleteBucketRequest",
       value: UndeleteBucketRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseListViewsRequest(): ListViewsRequest {
   return {
@@ -4927,6 +5065,15 @@ function createBaseListViewsRequest(): ListViewsRequest {
  */
 export const ListViewsRequest = {
   typeUrl: "/google.logging.v2.ListViewsRequest",
+  is(o: any): o is ListViewsRequest {
+    return o && (o.$typeUrl === ListViewsRequest.typeUrl || typeof o.parent === "string" && typeof o.pageToken === "string" && typeof o.pageSize === "number");
+  },
+  isSDK(o: any): o is ListViewsRequestSDKType {
+    return o && (o.$typeUrl === ListViewsRequest.typeUrl || typeof o.parent === "string" && typeof o.page_token === "string" && typeof o.page_size === "number");
+  },
+  isAmino(o: any): o is ListViewsRequestAmino {
+    return o && (o.$typeUrl === ListViewsRequest.typeUrl || typeof o.parent === "string" && typeof o.page_token === "string" && typeof o.page_size === "number");
+  },
   encode(message: ListViewsRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.parent !== "") {
       writer.uint32(10).string(message.parent);
@@ -5021,7 +5168,8 @@ export const ListViewsRequest = {
       typeUrl: "/google.logging.v2.ListViewsRequest",
       value: ListViewsRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseListViewsResponse(): ListViewsResponse {
   return {
@@ -5037,6 +5185,15 @@ function createBaseListViewsResponse(): ListViewsResponse {
  */
 export const ListViewsResponse = {
   typeUrl: "/google.logging.v2.ListViewsResponse",
+  is(o: any): o is ListViewsResponse {
+    return o && (o.$typeUrl === ListViewsResponse.typeUrl || Array.isArray(o.views) && (!o.views.length || LogView.is(o.views[0])) && typeof o.nextPageToken === "string");
+  },
+  isSDK(o: any): o is ListViewsResponseSDKType {
+    return o && (o.$typeUrl === ListViewsResponse.typeUrl || Array.isArray(o.views) && (!o.views.length || LogView.isSDK(o.views[0])) && typeof o.next_page_token === "string");
+  },
+  isAmino(o: any): o is ListViewsResponseAmino {
+    return o && (o.$typeUrl === ListViewsResponse.typeUrl || Array.isArray(o.views) && (!o.views.length || LogView.isAmino(o.views[0])) && typeof o.next_page_token === "string");
+  },
   encode(message: ListViewsResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.views) {
       LogView.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -5123,6 +5280,12 @@ export const ListViewsResponse = {
       typeUrl: "/google.logging.v2.ListViewsResponse",
       value: ListViewsResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ListViewsResponse.typeUrl)) {
+      return;
+    }
+    LogView.registerTypeUrl();
   }
 };
 function createBaseCreateViewRequest(): CreateViewRequest {
@@ -5140,6 +5303,15 @@ function createBaseCreateViewRequest(): CreateViewRequest {
  */
 export const CreateViewRequest = {
   typeUrl: "/google.logging.v2.CreateViewRequest",
+  is(o: any): o is CreateViewRequest {
+    return o && (o.$typeUrl === CreateViewRequest.typeUrl || typeof o.parent === "string" && typeof o.viewId === "string");
+  },
+  isSDK(o: any): o is CreateViewRequestSDKType {
+    return o && (o.$typeUrl === CreateViewRequest.typeUrl || typeof o.parent === "string" && typeof o.view_id === "string");
+  },
+  isAmino(o: any): o is CreateViewRequestAmino {
+    return o && (o.$typeUrl === CreateViewRequest.typeUrl || typeof o.parent === "string" && typeof o.view_id === "string");
+  },
   encode(message: CreateViewRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.parent !== "") {
       writer.uint32(10).string(message.parent);
@@ -5236,6 +5408,12 @@ export const CreateViewRequest = {
       typeUrl: "/google.logging.v2.CreateViewRequest",
       value: CreateViewRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(CreateViewRequest.typeUrl)) {
+      return;
+    }
+    LogView.registerTypeUrl();
   }
 };
 function createBaseUpdateViewRequest(): UpdateViewRequest {
@@ -5253,6 +5431,15 @@ function createBaseUpdateViewRequest(): UpdateViewRequest {
  */
 export const UpdateViewRequest = {
   typeUrl: "/google.logging.v2.UpdateViewRequest",
+  is(o: any): o is UpdateViewRequest {
+    return o && (o.$typeUrl === UpdateViewRequest.typeUrl || typeof o.name === "string");
+  },
+  isSDK(o: any): o is UpdateViewRequestSDKType {
+    return o && (o.$typeUrl === UpdateViewRequest.typeUrl || typeof o.name === "string");
+  },
+  isAmino(o: any): o is UpdateViewRequestAmino {
+    return o && (o.$typeUrl === UpdateViewRequest.typeUrl || typeof o.name === "string");
+  },
   encode(message: UpdateViewRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -5351,6 +5538,13 @@ export const UpdateViewRequest = {
       typeUrl: "/google.logging.v2.UpdateViewRequest",
       value: UpdateViewRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(UpdateViewRequest.typeUrl)) {
+      return;
+    }
+    LogView.registerTypeUrl();
+    FieldMask.registerTypeUrl();
   }
 };
 function createBaseGetViewRequest(): GetViewRequest {
@@ -5366,6 +5560,15 @@ function createBaseGetViewRequest(): GetViewRequest {
  */
 export const GetViewRequest = {
   typeUrl: "/google.logging.v2.GetViewRequest",
+  is(o: any): o is GetViewRequest {
+    return o && (o.$typeUrl === GetViewRequest.typeUrl || typeof o.name === "string");
+  },
+  isSDK(o: any): o is GetViewRequestSDKType {
+    return o && (o.$typeUrl === GetViewRequest.typeUrl || typeof o.name === "string");
+  },
+  isAmino(o: any): o is GetViewRequestAmino {
+    return o && (o.$typeUrl === GetViewRequest.typeUrl || typeof o.name === "string");
+  },
   encode(message: GetViewRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -5432,7 +5635,8 @@ export const GetViewRequest = {
       typeUrl: "/google.logging.v2.GetViewRequest",
       value: GetViewRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseDeleteViewRequest(): DeleteViewRequest {
   return {
@@ -5447,6 +5651,15 @@ function createBaseDeleteViewRequest(): DeleteViewRequest {
  */
 export const DeleteViewRequest = {
   typeUrl: "/google.logging.v2.DeleteViewRequest",
+  is(o: any): o is DeleteViewRequest {
+    return o && (o.$typeUrl === DeleteViewRequest.typeUrl || typeof o.name === "string");
+  },
+  isSDK(o: any): o is DeleteViewRequestSDKType {
+    return o && (o.$typeUrl === DeleteViewRequest.typeUrl || typeof o.name === "string");
+  },
+  isAmino(o: any): o is DeleteViewRequestAmino {
+    return o && (o.$typeUrl === DeleteViewRequest.typeUrl || typeof o.name === "string");
+  },
   encode(message: DeleteViewRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -5513,7 +5726,8 @@ export const DeleteViewRequest = {
       typeUrl: "/google.logging.v2.DeleteViewRequest",
       value: DeleteViewRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseListSinksRequest(): ListSinksRequest {
   return {
@@ -5530,6 +5744,15 @@ function createBaseListSinksRequest(): ListSinksRequest {
  */
 export const ListSinksRequest = {
   typeUrl: "/google.logging.v2.ListSinksRequest",
+  is(o: any): o is ListSinksRequest {
+    return o && (o.$typeUrl === ListSinksRequest.typeUrl || typeof o.parent === "string" && typeof o.pageToken === "string" && typeof o.pageSize === "number");
+  },
+  isSDK(o: any): o is ListSinksRequestSDKType {
+    return o && (o.$typeUrl === ListSinksRequest.typeUrl || typeof o.parent === "string" && typeof o.page_token === "string" && typeof o.page_size === "number");
+  },
+  isAmino(o: any): o is ListSinksRequestAmino {
+    return o && (o.$typeUrl === ListSinksRequest.typeUrl || typeof o.parent === "string" && typeof o.page_token === "string" && typeof o.page_size === "number");
+  },
   encode(message: ListSinksRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.parent !== "") {
       writer.uint32(10).string(message.parent);
@@ -5624,7 +5847,8 @@ export const ListSinksRequest = {
       typeUrl: "/google.logging.v2.ListSinksRequest",
       value: ListSinksRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseListSinksResponse(): ListSinksResponse {
   return {
@@ -5640,6 +5864,15 @@ function createBaseListSinksResponse(): ListSinksResponse {
  */
 export const ListSinksResponse = {
   typeUrl: "/google.logging.v2.ListSinksResponse",
+  is(o: any): o is ListSinksResponse {
+    return o && (o.$typeUrl === ListSinksResponse.typeUrl || Array.isArray(o.sinks) && (!o.sinks.length || LogSink.is(o.sinks[0])) && typeof o.nextPageToken === "string");
+  },
+  isSDK(o: any): o is ListSinksResponseSDKType {
+    return o && (o.$typeUrl === ListSinksResponse.typeUrl || Array.isArray(o.sinks) && (!o.sinks.length || LogSink.isSDK(o.sinks[0])) && typeof o.next_page_token === "string");
+  },
+  isAmino(o: any): o is ListSinksResponseAmino {
+    return o && (o.$typeUrl === ListSinksResponse.typeUrl || Array.isArray(o.sinks) && (!o.sinks.length || LogSink.isAmino(o.sinks[0])) && typeof o.next_page_token === "string");
+  },
   encode(message: ListSinksResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.sinks) {
       LogSink.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -5726,6 +5959,12 @@ export const ListSinksResponse = {
       typeUrl: "/google.logging.v2.ListSinksResponse",
       value: ListSinksResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ListSinksResponse.typeUrl)) {
+      return;
+    }
+    LogSink.registerTypeUrl();
   }
 };
 function createBaseGetSinkRequest(): GetSinkRequest {
@@ -5741,6 +5980,15 @@ function createBaseGetSinkRequest(): GetSinkRequest {
  */
 export const GetSinkRequest = {
   typeUrl: "/google.logging.v2.GetSinkRequest",
+  is(o: any): o is GetSinkRequest {
+    return o && (o.$typeUrl === GetSinkRequest.typeUrl || typeof o.sinkName === "string");
+  },
+  isSDK(o: any): o is GetSinkRequestSDKType {
+    return o && (o.$typeUrl === GetSinkRequest.typeUrl || typeof o.sink_name === "string");
+  },
+  isAmino(o: any): o is GetSinkRequestAmino {
+    return o && (o.$typeUrl === GetSinkRequest.typeUrl || typeof o.sink_name === "string");
+  },
   encode(message: GetSinkRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.sinkName !== "") {
       writer.uint32(10).string(message.sinkName);
@@ -5807,7 +6055,8 @@ export const GetSinkRequest = {
       typeUrl: "/google.logging.v2.GetSinkRequest",
       value: GetSinkRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseCreateSinkRequest(): CreateSinkRequest {
   return {
@@ -5824,6 +6073,15 @@ function createBaseCreateSinkRequest(): CreateSinkRequest {
  */
 export const CreateSinkRequest = {
   typeUrl: "/google.logging.v2.CreateSinkRequest",
+  is(o: any): o is CreateSinkRequest {
+    return o && (o.$typeUrl === CreateSinkRequest.typeUrl || typeof o.parent === "string" && typeof o.uniqueWriterIdentity === "boolean");
+  },
+  isSDK(o: any): o is CreateSinkRequestSDKType {
+    return o && (o.$typeUrl === CreateSinkRequest.typeUrl || typeof o.parent === "string" && typeof o.unique_writer_identity === "boolean");
+  },
+  isAmino(o: any): o is CreateSinkRequestAmino {
+    return o && (o.$typeUrl === CreateSinkRequest.typeUrl || typeof o.parent === "string" && typeof o.unique_writer_identity === "boolean");
+  },
   encode(message: CreateSinkRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.parent !== "") {
       writer.uint32(10).string(message.parent);
@@ -5920,6 +6178,12 @@ export const CreateSinkRequest = {
       typeUrl: "/google.logging.v2.CreateSinkRequest",
       value: CreateSinkRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(CreateSinkRequest.typeUrl)) {
+      return;
+    }
+    LogSink.registerTypeUrl();
   }
 };
 function createBaseUpdateSinkRequest(): UpdateSinkRequest {
@@ -5938,6 +6202,15 @@ function createBaseUpdateSinkRequest(): UpdateSinkRequest {
  */
 export const UpdateSinkRequest = {
   typeUrl: "/google.logging.v2.UpdateSinkRequest",
+  is(o: any): o is UpdateSinkRequest {
+    return o && (o.$typeUrl === UpdateSinkRequest.typeUrl || typeof o.sinkName === "string" && typeof o.uniqueWriterIdentity === "boolean");
+  },
+  isSDK(o: any): o is UpdateSinkRequestSDKType {
+    return o && (o.$typeUrl === UpdateSinkRequest.typeUrl || typeof o.sink_name === "string" && typeof o.unique_writer_identity === "boolean");
+  },
+  isAmino(o: any): o is UpdateSinkRequestAmino {
+    return o && (o.$typeUrl === UpdateSinkRequest.typeUrl || typeof o.sink_name === "string" && typeof o.unique_writer_identity === "boolean");
+  },
   encode(message: UpdateSinkRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.sinkName !== "") {
       writer.uint32(10).string(message.sinkName);
@@ -6050,6 +6323,13 @@ export const UpdateSinkRequest = {
       typeUrl: "/google.logging.v2.UpdateSinkRequest",
       value: UpdateSinkRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(UpdateSinkRequest.typeUrl)) {
+      return;
+    }
+    LogSink.registerTypeUrl();
+    FieldMask.registerTypeUrl();
   }
 };
 function createBaseDeleteSinkRequest(): DeleteSinkRequest {
@@ -6065,6 +6345,15 @@ function createBaseDeleteSinkRequest(): DeleteSinkRequest {
  */
 export const DeleteSinkRequest = {
   typeUrl: "/google.logging.v2.DeleteSinkRequest",
+  is(o: any): o is DeleteSinkRequest {
+    return o && (o.$typeUrl === DeleteSinkRequest.typeUrl || typeof o.sinkName === "string");
+  },
+  isSDK(o: any): o is DeleteSinkRequestSDKType {
+    return o && (o.$typeUrl === DeleteSinkRequest.typeUrl || typeof o.sink_name === "string");
+  },
+  isAmino(o: any): o is DeleteSinkRequestAmino {
+    return o && (o.$typeUrl === DeleteSinkRequest.typeUrl || typeof o.sink_name === "string");
+  },
   encode(message: DeleteSinkRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.sinkName !== "") {
       writer.uint32(10).string(message.sinkName);
@@ -6131,7 +6420,8 @@ export const DeleteSinkRequest = {
       typeUrl: "/google.logging.v2.DeleteSinkRequest",
       value: DeleteSinkRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseLogExclusion(): LogExclusion {
   return {
@@ -6155,6 +6445,15 @@ function createBaseLogExclusion(): LogExclusion {
  */
 export const LogExclusion = {
   typeUrl: "/google.logging.v2.LogExclusion",
+  is(o: any): o is LogExclusion {
+    return o && (o.$typeUrl === LogExclusion.typeUrl || typeof o.name === "string" && typeof o.description === "string" && typeof o.filter === "string" && typeof o.disabled === "boolean");
+  },
+  isSDK(o: any): o is LogExclusionSDKType {
+    return o && (o.$typeUrl === LogExclusion.typeUrl || typeof o.name === "string" && typeof o.description === "string" && typeof o.filter === "string" && typeof o.disabled === "boolean");
+  },
+  isAmino(o: any): o is LogExclusionAmino {
+    return o && (o.$typeUrl === LogExclusion.typeUrl || typeof o.name === "string" && typeof o.description === "string" && typeof o.filter === "string" && typeof o.disabled === "boolean");
+  },
   encode(message: LogExclusion, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -6291,7 +6590,8 @@ export const LogExclusion = {
       typeUrl: "/google.logging.v2.LogExclusion",
       value: LogExclusion.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseListExclusionsRequest(): ListExclusionsRequest {
   return {
@@ -6308,6 +6608,15 @@ function createBaseListExclusionsRequest(): ListExclusionsRequest {
  */
 export const ListExclusionsRequest = {
   typeUrl: "/google.logging.v2.ListExclusionsRequest",
+  is(o: any): o is ListExclusionsRequest {
+    return o && (o.$typeUrl === ListExclusionsRequest.typeUrl || typeof o.parent === "string" && typeof o.pageToken === "string" && typeof o.pageSize === "number");
+  },
+  isSDK(o: any): o is ListExclusionsRequestSDKType {
+    return o && (o.$typeUrl === ListExclusionsRequest.typeUrl || typeof o.parent === "string" && typeof o.page_token === "string" && typeof o.page_size === "number");
+  },
+  isAmino(o: any): o is ListExclusionsRequestAmino {
+    return o && (o.$typeUrl === ListExclusionsRequest.typeUrl || typeof o.parent === "string" && typeof o.page_token === "string" && typeof o.page_size === "number");
+  },
   encode(message: ListExclusionsRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.parent !== "") {
       writer.uint32(10).string(message.parent);
@@ -6402,7 +6711,8 @@ export const ListExclusionsRequest = {
       typeUrl: "/google.logging.v2.ListExclusionsRequest",
       value: ListExclusionsRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseListExclusionsResponse(): ListExclusionsResponse {
   return {
@@ -6418,6 +6728,15 @@ function createBaseListExclusionsResponse(): ListExclusionsResponse {
  */
 export const ListExclusionsResponse = {
   typeUrl: "/google.logging.v2.ListExclusionsResponse",
+  is(o: any): o is ListExclusionsResponse {
+    return o && (o.$typeUrl === ListExclusionsResponse.typeUrl || Array.isArray(o.exclusions) && (!o.exclusions.length || LogExclusion.is(o.exclusions[0])) && typeof o.nextPageToken === "string");
+  },
+  isSDK(o: any): o is ListExclusionsResponseSDKType {
+    return o && (o.$typeUrl === ListExclusionsResponse.typeUrl || Array.isArray(o.exclusions) && (!o.exclusions.length || LogExclusion.isSDK(o.exclusions[0])) && typeof o.next_page_token === "string");
+  },
+  isAmino(o: any): o is ListExclusionsResponseAmino {
+    return o && (o.$typeUrl === ListExclusionsResponse.typeUrl || Array.isArray(o.exclusions) && (!o.exclusions.length || LogExclusion.isAmino(o.exclusions[0])) && typeof o.next_page_token === "string");
+  },
   encode(message: ListExclusionsResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.exclusions) {
       LogExclusion.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -6504,6 +6823,12 @@ export const ListExclusionsResponse = {
       typeUrl: "/google.logging.v2.ListExclusionsResponse",
       value: ListExclusionsResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ListExclusionsResponse.typeUrl)) {
+      return;
+    }
+    LogExclusion.registerTypeUrl();
   }
 };
 function createBaseGetExclusionRequest(): GetExclusionRequest {
@@ -6519,6 +6844,15 @@ function createBaseGetExclusionRequest(): GetExclusionRequest {
  */
 export const GetExclusionRequest = {
   typeUrl: "/google.logging.v2.GetExclusionRequest",
+  is(o: any): o is GetExclusionRequest {
+    return o && (o.$typeUrl === GetExclusionRequest.typeUrl || typeof o.name === "string");
+  },
+  isSDK(o: any): o is GetExclusionRequestSDKType {
+    return o && (o.$typeUrl === GetExclusionRequest.typeUrl || typeof o.name === "string");
+  },
+  isAmino(o: any): o is GetExclusionRequestAmino {
+    return o && (o.$typeUrl === GetExclusionRequest.typeUrl || typeof o.name === "string");
+  },
   encode(message: GetExclusionRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -6585,7 +6919,8 @@ export const GetExclusionRequest = {
       typeUrl: "/google.logging.v2.GetExclusionRequest",
       value: GetExclusionRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseCreateExclusionRequest(): CreateExclusionRequest {
   return {
@@ -6601,6 +6936,15 @@ function createBaseCreateExclusionRequest(): CreateExclusionRequest {
  */
 export const CreateExclusionRequest = {
   typeUrl: "/google.logging.v2.CreateExclusionRequest",
+  is(o: any): o is CreateExclusionRequest {
+    return o && (o.$typeUrl === CreateExclusionRequest.typeUrl || typeof o.parent === "string");
+  },
+  isSDK(o: any): o is CreateExclusionRequestSDKType {
+    return o && (o.$typeUrl === CreateExclusionRequest.typeUrl || typeof o.parent === "string");
+  },
+  isAmino(o: any): o is CreateExclusionRequestAmino {
+    return o && (o.$typeUrl === CreateExclusionRequest.typeUrl || typeof o.parent === "string");
+  },
   encode(message: CreateExclusionRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.parent !== "") {
       writer.uint32(10).string(message.parent);
@@ -6683,6 +7027,12 @@ export const CreateExclusionRequest = {
       typeUrl: "/google.logging.v2.CreateExclusionRequest",
       value: CreateExclusionRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(CreateExclusionRequest.typeUrl)) {
+      return;
+    }
+    LogExclusion.registerTypeUrl();
   }
 };
 function createBaseUpdateExclusionRequest(): UpdateExclusionRequest {
@@ -6700,6 +7050,15 @@ function createBaseUpdateExclusionRequest(): UpdateExclusionRequest {
  */
 export const UpdateExclusionRequest = {
   typeUrl: "/google.logging.v2.UpdateExclusionRequest",
+  is(o: any): o is UpdateExclusionRequest {
+    return o && (o.$typeUrl === UpdateExclusionRequest.typeUrl || typeof o.name === "string");
+  },
+  isSDK(o: any): o is UpdateExclusionRequestSDKType {
+    return o && (o.$typeUrl === UpdateExclusionRequest.typeUrl || typeof o.name === "string");
+  },
+  isAmino(o: any): o is UpdateExclusionRequestAmino {
+    return o && (o.$typeUrl === UpdateExclusionRequest.typeUrl || typeof o.name === "string");
+  },
   encode(message: UpdateExclusionRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -6798,6 +7157,13 @@ export const UpdateExclusionRequest = {
       typeUrl: "/google.logging.v2.UpdateExclusionRequest",
       value: UpdateExclusionRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(UpdateExclusionRequest.typeUrl)) {
+      return;
+    }
+    LogExclusion.registerTypeUrl();
+    FieldMask.registerTypeUrl();
   }
 };
 function createBaseDeleteExclusionRequest(): DeleteExclusionRequest {
@@ -6813,6 +7179,15 @@ function createBaseDeleteExclusionRequest(): DeleteExclusionRequest {
  */
 export const DeleteExclusionRequest = {
   typeUrl: "/google.logging.v2.DeleteExclusionRequest",
+  is(o: any): o is DeleteExclusionRequest {
+    return o && (o.$typeUrl === DeleteExclusionRequest.typeUrl || typeof o.name === "string");
+  },
+  isSDK(o: any): o is DeleteExclusionRequestSDKType {
+    return o && (o.$typeUrl === DeleteExclusionRequest.typeUrl || typeof o.name === "string");
+  },
+  isAmino(o: any): o is DeleteExclusionRequestAmino {
+    return o && (o.$typeUrl === DeleteExclusionRequest.typeUrl || typeof o.name === "string");
+  },
   encode(message: DeleteExclusionRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -6879,7 +7254,8 @@ export const DeleteExclusionRequest = {
       typeUrl: "/google.logging.v2.DeleteExclusionRequest",
       value: DeleteExclusionRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseGetCmekSettingsRequest(): GetCmekSettingsRequest {
   return {
@@ -6899,6 +7275,15 @@ function createBaseGetCmekSettingsRequest(): GetCmekSettingsRequest {
  */
 export const GetCmekSettingsRequest = {
   typeUrl: "/google.logging.v2.GetCmekSettingsRequest",
+  is(o: any): o is GetCmekSettingsRequest {
+    return o && (o.$typeUrl === GetCmekSettingsRequest.typeUrl || typeof o.name === "string");
+  },
+  isSDK(o: any): o is GetCmekSettingsRequestSDKType {
+    return o && (o.$typeUrl === GetCmekSettingsRequest.typeUrl || typeof o.name === "string");
+  },
+  isAmino(o: any): o is GetCmekSettingsRequestAmino {
+    return o && (o.$typeUrl === GetCmekSettingsRequest.typeUrl || typeof o.name === "string");
+  },
   encode(message: GetCmekSettingsRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -6965,7 +7350,8 @@ export const GetCmekSettingsRequest = {
       typeUrl: "/google.logging.v2.GetCmekSettingsRequest",
       value: GetCmekSettingsRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseUpdateCmekSettingsRequest(): UpdateCmekSettingsRequest {
   return {
@@ -6987,6 +7373,15 @@ function createBaseUpdateCmekSettingsRequest(): UpdateCmekSettingsRequest {
  */
 export const UpdateCmekSettingsRequest = {
   typeUrl: "/google.logging.v2.UpdateCmekSettingsRequest",
+  is(o: any): o is UpdateCmekSettingsRequest {
+    return o && (o.$typeUrl === UpdateCmekSettingsRequest.typeUrl || typeof o.name === "string");
+  },
+  isSDK(o: any): o is UpdateCmekSettingsRequestSDKType {
+    return o && (o.$typeUrl === UpdateCmekSettingsRequest.typeUrl || typeof o.name === "string");
+  },
+  isAmino(o: any): o is UpdateCmekSettingsRequestAmino {
+    return o && (o.$typeUrl === UpdateCmekSettingsRequest.typeUrl || typeof o.name === "string");
+  },
   encode(message: UpdateCmekSettingsRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -7085,6 +7480,13 @@ export const UpdateCmekSettingsRequest = {
       typeUrl: "/google.logging.v2.UpdateCmekSettingsRequest",
       value: UpdateCmekSettingsRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(UpdateCmekSettingsRequest.typeUrl)) {
+      return;
+    }
+    CmekSettings.registerTypeUrl();
+    FieldMask.registerTypeUrl();
   }
 };
 function createBaseCmekSettings(): CmekSettings {
@@ -7111,6 +7513,15 @@ function createBaseCmekSettings(): CmekSettings {
  */
 export const CmekSettings = {
   typeUrl: "/google.logging.v2.CmekSettings",
+  is(o: any): o is CmekSettings {
+    return o && (o.$typeUrl === CmekSettings.typeUrl || typeof o.name === "string" && typeof o.kmsKeyName === "string" && typeof o.serviceAccountId === "string");
+  },
+  isSDK(o: any): o is CmekSettingsSDKType {
+    return o && (o.$typeUrl === CmekSettings.typeUrl || typeof o.name === "string" && typeof o.kms_key_name === "string" && typeof o.service_account_id === "string");
+  },
+  isAmino(o: any): o is CmekSettingsAmino {
+    return o && (o.$typeUrl === CmekSettings.typeUrl || typeof o.name === "string" && typeof o.kms_key_name === "string" && typeof o.service_account_id === "string");
+  },
   encode(message: CmekSettings, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -7205,7 +7616,8 @@ export const CmekSettings = {
       typeUrl: "/google.logging.v2.CmekSettings",
       value: CmekSettings.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseGetSettingsRequest(): GetSettingsRequest {
   return {
@@ -7225,6 +7637,15 @@ function createBaseGetSettingsRequest(): GetSettingsRequest {
  */
 export const GetSettingsRequest = {
   typeUrl: "/google.logging.v2.GetSettingsRequest",
+  is(o: any): o is GetSettingsRequest {
+    return o && (o.$typeUrl === GetSettingsRequest.typeUrl || typeof o.name === "string");
+  },
+  isSDK(o: any): o is GetSettingsRequestSDKType {
+    return o && (o.$typeUrl === GetSettingsRequest.typeUrl || typeof o.name === "string");
+  },
+  isAmino(o: any): o is GetSettingsRequestAmino {
+    return o && (o.$typeUrl === GetSettingsRequest.typeUrl || typeof o.name === "string");
+  },
   encode(message: GetSettingsRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -7291,7 +7712,8 @@ export const GetSettingsRequest = {
       typeUrl: "/google.logging.v2.GetSettingsRequest",
       value: GetSettingsRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseUpdateSettingsRequest(): UpdateSettingsRequest {
   return {
@@ -7313,6 +7735,15 @@ function createBaseUpdateSettingsRequest(): UpdateSettingsRequest {
  */
 export const UpdateSettingsRequest = {
   typeUrl: "/google.logging.v2.UpdateSettingsRequest",
+  is(o: any): o is UpdateSettingsRequest {
+    return o && (o.$typeUrl === UpdateSettingsRequest.typeUrl || typeof o.name === "string");
+  },
+  isSDK(o: any): o is UpdateSettingsRequestSDKType {
+    return o && (o.$typeUrl === UpdateSettingsRequest.typeUrl || typeof o.name === "string");
+  },
+  isAmino(o: any): o is UpdateSettingsRequestAmino {
+    return o && (o.$typeUrl === UpdateSettingsRequest.typeUrl || typeof o.name === "string");
+  },
   encode(message: UpdateSettingsRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -7411,6 +7842,13 @@ export const UpdateSettingsRequest = {
       typeUrl: "/google.logging.v2.UpdateSettingsRequest",
       value: UpdateSettingsRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(UpdateSettingsRequest.typeUrl)) {
+      return;
+    }
+    Settings.registerTypeUrl();
+    FieldMask.registerTypeUrl();
   }
 };
 function createBaseSettings(): Settings {
@@ -7431,6 +7869,15 @@ function createBaseSettings(): Settings {
  */
 export const Settings = {
   typeUrl: "/google.logging.v2.Settings",
+  is(o: any): o is Settings {
+    return o && (o.$typeUrl === Settings.typeUrl || typeof o.name === "string" && typeof o.kmsKeyName === "string" && typeof o.kmsServiceAccountId === "string" && typeof o.storageLocation === "string" && typeof o.disableDefaultSink === "boolean");
+  },
+  isSDK(o: any): o is SettingsSDKType {
+    return o && (o.$typeUrl === Settings.typeUrl || typeof o.name === "string" && typeof o.kms_key_name === "string" && typeof o.kms_service_account_id === "string" && typeof o.storage_location === "string" && typeof o.disable_default_sink === "boolean");
+  },
+  isAmino(o: any): o is SettingsAmino {
+    return o && (o.$typeUrl === Settings.typeUrl || typeof o.name === "string" && typeof o.kms_key_name === "string" && typeof o.kms_service_account_id === "string" && typeof o.storage_location === "string" && typeof o.disable_default_sink === "boolean");
+  },
   encode(message: Settings, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -7553,7 +8000,8 @@ export const Settings = {
       typeUrl: "/google.logging.v2.Settings",
       value: Settings.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseCopyLogEntriesRequest(): CopyLogEntriesRequest {
   return {
@@ -7570,6 +8018,15 @@ function createBaseCopyLogEntriesRequest(): CopyLogEntriesRequest {
  */
 export const CopyLogEntriesRequest = {
   typeUrl: "/google.logging.v2.CopyLogEntriesRequest",
+  is(o: any): o is CopyLogEntriesRequest {
+    return o && (o.$typeUrl === CopyLogEntriesRequest.typeUrl || typeof o.name === "string" && typeof o.filter === "string" && typeof o.destination === "string");
+  },
+  isSDK(o: any): o is CopyLogEntriesRequestSDKType {
+    return o && (o.$typeUrl === CopyLogEntriesRequest.typeUrl || typeof o.name === "string" && typeof o.filter === "string" && typeof o.destination === "string");
+  },
+  isAmino(o: any): o is CopyLogEntriesRequestAmino {
+    return o && (o.$typeUrl === CopyLogEntriesRequest.typeUrl || typeof o.name === "string" && typeof o.filter === "string" && typeof o.destination === "string");
+  },
   encode(message: CopyLogEntriesRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -7664,7 +8121,8 @@ export const CopyLogEntriesRequest = {
       typeUrl: "/google.logging.v2.CopyLogEntriesRequest",
       value: CopyLogEntriesRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseCopyLogEntriesMetadata(): CopyLogEntriesMetadata {
   return {
@@ -7685,6 +8143,15 @@ function createBaseCopyLogEntriesMetadata(): CopyLogEntriesMetadata {
  */
 export const CopyLogEntriesMetadata = {
   typeUrl: "/google.logging.v2.CopyLogEntriesMetadata",
+  is(o: any): o is CopyLogEntriesMetadata {
+    return o && (o.$typeUrl === CopyLogEntriesMetadata.typeUrl || isSet(o.state) && typeof o.cancellationRequested === "boolean" && typeof o.progress === "number" && typeof o.writerIdentity === "string");
+  },
+  isSDK(o: any): o is CopyLogEntriesMetadataSDKType {
+    return o && (o.$typeUrl === CopyLogEntriesMetadata.typeUrl || isSet(o.state) && typeof o.cancellation_requested === "boolean" && typeof o.progress === "number" && typeof o.writer_identity === "string");
+  },
+  isAmino(o: any): o is CopyLogEntriesMetadataAmino {
+    return o && (o.$typeUrl === CopyLogEntriesMetadata.typeUrl || isSet(o.state) && typeof o.cancellation_requested === "boolean" && typeof o.progress === "number" && typeof o.writer_identity === "string");
+  },
   encode(message: CopyLogEntriesMetadata, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.startTime !== undefined) {
       Timestamp.encode(toTimestamp(message.startTime), writer.uint32(10).fork()).ldelim();
@@ -7837,6 +8304,12 @@ export const CopyLogEntriesMetadata = {
       typeUrl: "/google.logging.v2.CopyLogEntriesMetadata",
       value: CopyLogEntriesMetadata.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(CopyLogEntriesMetadata.typeUrl)) {
+      return;
+    }
+    CopyLogEntriesRequest.registerTypeUrl();
   }
 };
 function createBaseCopyLogEntriesResponse(): CopyLogEntriesResponse {
@@ -7852,6 +8325,15 @@ function createBaseCopyLogEntriesResponse(): CopyLogEntriesResponse {
  */
 export const CopyLogEntriesResponse = {
   typeUrl: "/google.logging.v2.CopyLogEntriesResponse",
+  is(o: any): o is CopyLogEntriesResponse {
+    return o && (o.$typeUrl === CopyLogEntriesResponse.typeUrl || typeof o.logEntriesCopiedCount === "bigint");
+  },
+  isSDK(o: any): o is CopyLogEntriesResponseSDKType {
+    return o && (o.$typeUrl === CopyLogEntriesResponse.typeUrl || typeof o.log_entries_copied_count === "bigint");
+  },
+  isAmino(o: any): o is CopyLogEntriesResponseAmino {
+    return o && (o.$typeUrl === CopyLogEntriesResponse.typeUrl || typeof o.log_entries_copied_count === "bigint");
+  },
   encode(message: CopyLogEntriesResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.logEntriesCopiedCount !== BigInt(0)) {
       writer.uint32(8).int64(message.logEntriesCopiedCount);
@@ -7920,5 +8402,6 @@ export const CopyLogEntriesResponse = {
       typeUrl: "/google.logging.v2.CopyLogEntriesResponse",
       value: CopyLogEntriesResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

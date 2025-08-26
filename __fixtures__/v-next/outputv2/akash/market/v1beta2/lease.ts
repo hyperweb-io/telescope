@@ -3,6 +3,7 @@ import { BidID, BidIDAmino, BidIDSDKType } from "./bid";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { isSet, DeepPartial } from "../../../helpers";
 import { JsonSafe } from "../../../json-safe";
+import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "akash.market.v1beta2";
 /** State is an enum which refers to state of lease */
 export enum Lease_State {
@@ -406,6 +407,15 @@ function createBaseLeaseID(): LeaseID {
  */
 export const LeaseID = {
   typeUrl: "/akash.market.v1beta2.LeaseID",
+  is(o: any): o is LeaseID {
+    return o && (o.$typeUrl === LeaseID.typeUrl || typeof o.owner === "string" && typeof o.dseq === "bigint" && typeof o.gseq === "number" && typeof o.oseq === "number" && typeof o.provider === "string");
+  },
+  isSDK(o: any): o is LeaseIDSDKType {
+    return o && (o.$typeUrl === LeaseID.typeUrl || typeof o.owner === "string" && typeof o.dseq === "bigint" && typeof o.gseq === "number" && typeof o.oseq === "number" && typeof o.provider === "string");
+  },
+  isAmino(o: any): o is LeaseIDAmino {
+    return o && (o.$typeUrl === LeaseID.typeUrl || typeof o.owner === "string" && typeof o.dseq === "bigint" && typeof o.gseq === "number" && typeof o.oseq === "number" && typeof o.provider === "string");
+  },
   encode(message: LeaseID, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.owner !== "") {
       writer.uint32(10).string(message.owner);
@@ -542,7 +552,8 @@ export const LeaseID = {
       typeUrl: "/akash.market.v1beta2.LeaseID",
       value: LeaseID.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseLease(): Lease {
   return {
@@ -561,6 +572,15 @@ function createBaseLease(): Lease {
  */
 export const Lease = {
   typeUrl: "/akash.market.v1beta2.Lease",
+  is(o: any): o is Lease {
+    return o && (o.$typeUrl === Lease.typeUrl || LeaseID.is(o.leaseId) && isSet(o.state) && DecCoin.is(o.price) && typeof o.createdAt === "bigint" && typeof o.closedOn === "bigint");
+  },
+  isSDK(o: any): o is LeaseSDKType {
+    return o && (o.$typeUrl === Lease.typeUrl || LeaseID.isSDK(o.lease_id) && isSet(o.state) && DecCoin.isSDK(o.price) && typeof o.created_at === "bigint" && typeof o.closed_on === "bigint");
+  },
+  isAmino(o: any): o is LeaseAmino {
+    return o && (o.$typeUrl === Lease.typeUrl || LeaseID.isAmino(o.lease_id) && isSet(o.state) && DecCoin.isAmino(o.price) && typeof o.created_at === "bigint" && typeof o.closed_on === "bigint");
+  },
   encode(message: Lease, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.leaseId !== undefined) {
       LeaseID.encode(message.leaseId, writer.uint32(10).fork()).ldelim();
@@ -703,6 +723,13 @@ export const Lease = {
       typeUrl: "/akash.market.v1beta2.Lease",
       value: Lease.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Lease.typeUrl)) {
+      return;
+    }
+    LeaseID.registerTypeUrl();
+    DecCoin.registerTypeUrl();
   }
 };
 function createBaseLeaseFilters(): LeaseFilters {
@@ -723,6 +750,15 @@ function createBaseLeaseFilters(): LeaseFilters {
  */
 export const LeaseFilters = {
   typeUrl: "/akash.market.v1beta2.LeaseFilters",
+  is(o: any): o is LeaseFilters {
+    return o && (o.$typeUrl === LeaseFilters.typeUrl || typeof o.owner === "string" && typeof o.dseq === "bigint" && typeof o.gseq === "number" && typeof o.oseq === "number" && typeof o.provider === "string" && typeof o.state === "string");
+  },
+  isSDK(o: any): o is LeaseFiltersSDKType {
+    return o && (o.$typeUrl === LeaseFilters.typeUrl || typeof o.owner === "string" && typeof o.dseq === "bigint" && typeof o.gseq === "number" && typeof o.oseq === "number" && typeof o.provider === "string" && typeof o.state === "string");
+  },
+  isAmino(o: any): o is LeaseFiltersAmino {
+    return o && (o.$typeUrl === LeaseFilters.typeUrl || typeof o.owner === "string" && typeof o.dseq === "bigint" && typeof o.gseq === "number" && typeof o.oseq === "number" && typeof o.provider === "string" && typeof o.state === "string");
+  },
   encode(message: LeaseFilters, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.owner !== "") {
       writer.uint32(10).string(message.owner);
@@ -874,7 +910,8 @@ export const LeaseFilters = {
       typeUrl: "/akash.market.v1beta2.LeaseFilters",
       value: LeaseFilters.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseMsgCreateLease(): MsgCreateLease {
   return {
@@ -889,6 +926,15 @@ function createBaseMsgCreateLease(): MsgCreateLease {
  */
 export const MsgCreateLease = {
   typeUrl: "/akash.market.v1beta2.MsgCreateLease",
+  is(o: any): o is MsgCreateLease {
+    return o && (o.$typeUrl === MsgCreateLease.typeUrl || BidID.is(o.bidId));
+  },
+  isSDK(o: any): o is MsgCreateLeaseSDKType {
+    return o && (o.$typeUrl === MsgCreateLease.typeUrl || BidID.isSDK(o.bid_id));
+  },
+  isAmino(o: any): o is MsgCreateLeaseAmino {
+    return o && (o.$typeUrl === MsgCreateLease.typeUrl || BidID.isAmino(o.bid_id));
+  },
   encode(message: MsgCreateLease, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.bidId !== undefined) {
       BidID.encode(message.bidId, writer.uint32(10).fork()).ldelim();
@@ -965,6 +1011,12 @@ export const MsgCreateLease = {
       typeUrl: "/akash.market.v1beta2.MsgCreateLease",
       value: MsgCreateLease.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgCreateLease.typeUrl)) {
+      return;
+    }
+    BidID.registerTypeUrl();
   }
 };
 function createBaseMsgCreateLeaseResponse(): MsgCreateLeaseResponse {
@@ -978,6 +1030,15 @@ function createBaseMsgCreateLeaseResponse(): MsgCreateLeaseResponse {
  */
 export const MsgCreateLeaseResponse = {
   typeUrl: "/akash.market.v1beta2.MsgCreateLeaseResponse",
+  is(o: any): o is MsgCreateLeaseResponse {
+    return o && o.$typeUrl === MsgCreateLeaseResponse.typeUrl;
+  },
+  isSDK(o: any): o is MsgCreateLeaseResponseSDKType {
+    return o && o.$typeUrl === MsgCreateLeaseResponse.typeUrl;
+  },
+  isAmino(o: any): o is MsgCreateLeaseResponseAmino {
+    return o && o.$typeUrl === MsgCreateLeaseResponse.typeUrl;
+  },
   encode(_: MsgCreateLeaseResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -1036,7 +1097,8 @@ export const MsgCreateLeaseResponse = {
       typeUrl: "/akash.market.v1beta2.MsgCreateLeaseResponse",
       value: MsgCreateLeaseResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseMsgWithdrawLease(): MsgWithdrawLease {
   return {
@@ -1051,6 +1113,15 @@ function createBaseMsgWithdrawLease(): MsgWithdrawLease {
  */
 export const MsgWithdrawLease = {
   typeUrl: "/akash.market.v1beta2.MsgWithdrawLease",
+  is(o: any): o is MsgWithdrawLease {
+    return o && (o.$typeUrl === MsgWithdrawLease.typeUrl || LeaseID.is(o.bidId));
+  },
+  isSDK(o: any): o is MsgWithdrawLeaseSDKType {
+    return o && (o.$typeUrl === MsgWithdrawLease.typeUrl || LeaseID.isSDK(o.bid_id));
+  },
+  isAmino(o: any): o is MsgWithdrawLeaseAmino {
+    return o && (o.$typeUrl === MsgWithdrawLease.typeUrl || LeaseID.isAmino(o.bid_id));
+  },
   encode(message: MsgWithdrawLease, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.bidId !== undefined) {
       LeaseID.encode(message.bidId, writer.uint32(10).fork()).ldelim();
@@ -1127,6 +1198,12 @@ export const MsgWithdrawLease = {
       typeUrl: "/akash.market.v1beta2.MsgWithdrawLease",
       value: MsgWithdrawLease.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgWithdrawLease.typeUrl)) {
+      return;
+    }
+    LeaseID.registerTypeUrl();
   }
 };
 function createBaseMsgWithdrawLeaseResponse(): MsgWithdrawLeaseResponse {
@@ -1140,6 +1217,15 @@ function createBaseMsgWithdrawLeaseResponse(): MsgWithdrawLeaseResponse {
  */
 export const MsgWithdrawLeaseResponse = {
   typeUrl: "/akash.market.v1beta2.MsgWithdrawLeaseResponse",
+  is(o: any): o is MsgWithdrawLeaseResponse {
+    return o && o.$typeUrl === MsgWithdrawLeaseResponse.typeUrl;
+  },
+  isSDK(o: any): o is MsgWithdrawLeaseResponseSDKType {
+    return o && o.$typeUrl === MsgWithdrawLeaseResponse.typeUrl;
+  },
+  isAmino(o: any): o is MsgWithdrawLeaseResponseAmino {
+    return o && o.$typeUrl === MsgWithdrawLeaseResponse.typeUrl;
+  },
   encode(_: MsgWithdrawLeaseResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -1198,7 +1284,8 @@ export const MsgWithdrawLeaseResponse = {
       typeUrl: "/akash.market.v1beta2.MsgWithdrawLeaseResponse",
       value: MsgWithdrawLeaseResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseMsgCloseLease(): MsgCloseLease {
   return {
@@ -1213,6 +1300,15 @@ function createBaseMsgCloseLease(): MsgCloseLease {
  */
 export const MsgCloseLease = {
   typeUrl: "/akash.market.v1beta2.MsgCloseLease",
+  is(o: any): o is MsgCloseLease {
+    return o && (o.$typeUrl === MsgCloseLease.typeUrl || LeaseID.is(o.leaseId));
+  },
+  isSDK(o: any): o is MsgCloseLeaseSDKType {
+    return o && (o.$typeUrl === MsgCloseLease.typeUrl || LeaseID.isSDK(o.lease_id));
+  },
+  isAmino(o: any): o is MsgCloseLeaseAmino {
+    return o && (o.$typeUrl === MsgCloseLease.typeUrl || LeaseID.isAmino(o.lease_id));
+  },
   encode(message: MsgCloseLease, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.leaseId !== undefined) {
       LeaseID.encode(message.leaseId, writer.uint32(10).fork()).ldelim();
@@ -1289,6 +1385,12 @@ export const MsgCloseLease = {
       typeUrl: "/akash.market.v1beta2.MsgCloseLease",
       value: MsgCloseLease.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgCloseLease.typeUrl)) {
+      return;
+    }
+    LeaseID.registerTypeUrl();
   }
 };
 function createBaseMsgCloseLeaseResponse(): MsgCloseLeaseResponse {
@@ -1302,6 +1404,15 @@ function createBaseMsgCloseLeaseResponse(): MsgCloseLeaseResponse {
  */
 export const MsgCloseLeaseResponse = {
   typeUrl: "/akash.market.v1beta2.MsgCloseLeaseResponse",
+  is(o: any): o is MsgCloseLeaseResponse {
+    return o && o.$typeUrl === MsgCloseLeaseResponse.typeUrl;
+  },
+  isSDK(o: any): o is MsgCloseLeaseResponseSDKType {
+    return o && o.$typeUrl === MsgCloseLeaseResponse.typeUrl;
+  },
+  isAmino(o: any): o is MsgCloseLeaseResponseAmino {
+    return o && o.$typeUrl === MsgCloseLeaseResponse.typeUrl;
+  },
   encode(_: MsgCloseLeaseResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -1360,5 +1471,6 @@ export const MsgCloseLeaseResponse = {
       typeUrl: "/akash.market.v1beta2.MsgCloseLeaseResponse",
       value: MsgCloseLeaseResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

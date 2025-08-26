@@ -4,11 +4,11 @@ import { Any, AnyProtoMsg, AnyAmino, AnySDKType } from "../../../google/protobuf
 import { Duration, DurationAmino, DurationSDKType } from "../../../google/protobuf/duration";
 import { Coin, CoinAmino, CoinSDKType } from "../../base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../binary";
+import { GlobalDecoderRegistry } from "../../../registry";
 import { isSet, DeepPartial, toTimestamp, fromTimestamp } from "../../../helpers";
 import { JsonSafe } from "../../../json-safe";
-import { Decimal } from "@cosmjs/math";
-import { encodePubkey, decodePubkey } from "@cosmjs/proto-signing";
-import { Pubkey } from "@cosmjs/amino";
+import { Decimal } from "@interchainjs/math";
+import { encodePubkey, decodePubkey } from "@interchainjs/pubkey";
 export const protobufPackage = "cosmos.staking.v1beta1";
 /** BondStatus is the status of a validator. */
 export enum BondStatus {
@@ -1260,6 +1260,15 @@ function createBaseHistoricalInfo(): HistoricalInfo {
 export const HistoricalInfo = {
   typeUrl: "/cosmos.staking.v1beta1.HistoricalInfo",
   aminoType: "cosmos-sdk/HistoricalInfo",
+  is(o: any): o is HistoricalInfo {
+    return o && (o.$typeUrl === HistoricalInfo.typeUrl || Header.is(o.header) && Array.isArray(o.valset) && (!o.valset.length || Validator.is(o.valset[0])));
+  },
+  isSDK(o: any): o is HistoricalInfoSDKType {
+    return o && (o.$typeUrl === HistoricalInfo.typeUrl || Header.isSDK(o.header) && Array.isArray(o.valset) && (!o.valset.length || Validator.isSDK(o.valset[0])));
+  },
+  isAmino(o: any): o is HistoricalInfoAmino {
+    return o && (o.$typeUrl === HistoricalInfo.typeUrl || Header.isAmino(o.header) && Array.isArray(o.valset) && (!o.valset.length || Validator.isAmino(o.valset[0])));
+  },
   encode(message: HistoricalInfo, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.header !== undefined) {
       Header.encode(message.header, writer.uint32(10).fork()).ldelim();
@@ -1367,6 +1376,13 @@ export const HistoricalInfo = {
       typeUrl: "/cosmos.staking.v1beta1.HistoricalInfo",
       value: HistoricalInfo.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(HistoricalInfo.typeUrl)) {
+      return;
+    }
+    Header.registerTypeUrl();
+    Validator.registerTypeUrl();
   }
 };
 function createBaseCommissionRates(): CommissionRates {
@@ -1386,6 +1402,15 @@ function createBaseCommissionRates(): CommissionRates {
 export const CommissionRates = {
   typeUrl: "/cosmos.staking.v1beta1.CommissionRates",
   aminoType: "cosmos-sdk/CommissionRates",
+  is(o: any): o is CommissionRates {
+    return o && (o.$typeUrl === CommissionRates.typeUrl || typeof o.rate === "string" && typeof o.maxRate === "string" && typeof o.maxChangeRate === "string");
+  },
+  isSDK(o: any): o is CommissionRatesSDKType {
+    return o && (o.$typeUrl === CommissionRates.typeUrl || typeof o.rate === "string" && typeof o.max_rate === "string" && typeof o.max_change_rate === "string");
+  },
+  isAmino(o: any): o is CommissionRatesAmino {
+    return o && (o.$typeUrl === CommissionRates.typeUrl || typeof o.rate === "string" && typeof o.max_rate === "string" && typeof o.max_change_rate === "string");
+  },
   encode(message: CommissionRates, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.rate !== "") {
       writer.uint32(10).string(Decimal.fromUserInput(message.rate, 18).atomics);
@@ -1471,9 +1496,9 @@ export const CommissionRates = {
   },
   toAmino(message: CommissionRates): CommissionRatesAmino {
     const obj: any = {};
-    obj.rate = message.rate === "" ? undefined : message.rate;
-    obj.max_rate = message.maxRate === "" ? undefined : message.maxRate;
-    obj.max_change_rate = message.maxChangeRate === "" ? undefined : message.maxChangeRate;
+    obj.rate = message.rate === "" ? undefined : Decimal.fromUserInput(message.rate, 18).atomics;
+    obj.max_rate = message.maxRate === "" ? undefined : Decimal.fromUserInput(message.maxRate, 18).atomics;
+    obj.max_change_rate = message.maxChangeRate === "" ? undefined : Decimal.fromUserInput(message.maxChangeRate, 18).atomics;
     return obj;
   },
   fromAminoMsg(object: CommissionRatesAminoMsg): CommissionRates {
@@ -1496,7 +1521,8 @@ export const CommissionRates = {
       typeUrl: "/cosmos.staking.v1beta1.CommissionRates",
       value: CommissionRates.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseCommission(): Commission {
   return {
@@ -1513,6 +1539,15 @@ function createBaseCommission(): Commission {
 export const Commission = {
   typeUrl: "/cosmos.staking.v1beta1.Commission",
   aminoType: "cosmos-sdk/Commission",
+  is(o: any): o is Commission {
+    return o && (o.$typeUrl === Commission.typeUrl || CommissionRates.is(o.commissionRates) && Timestamp.is(o.updateTime));
+  },
+  isSDK(o: any): o is CommissionSDKType {
+    return o && (o.$typeUrl === Commission.typeUrl || CommissionRates.isSDK(o.commission_rates) && Timestamp.isSDK(o.update_time));
+  },
+  isAmino(o: any): o is CommissionAmino {
+    return o && (o.$typeUrl === Commission.typeUrl || CommissionRates.isAmino(o.commission_rates) && Timestamp.isAmino(o.update_time));
+  },
   encode(message: Commission, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.commissionRates !== undefined) {
       CommissionRates.encode(message.commissionRates, writer.uint32(10).fork()).ldelim();
@@ -1610,6 +1645,12 @@ export const Commission = {
       typeUrl: "/cosmos.staking.v1beta1.Commission",
       value: Commission.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Commission.typeUrl)) {
+      return;
+    }
+    CommissionRates.registerTypeUrl();
   }
 };
 function createBaseDescription(): Description {
@@ -1630,6 +1671,15 @@ function createBaseDescription(): Description {
 export const Description = {
   typeUrl: "/cosmos.staking.v1beta1.Description",
   aminoType: "cosmos-sdk/Description",
+  is(o: any): o is Description {
+    return o && (o.$typeUrl === Description.typeUrl || typeof o.moniker === "string" && typeof o.identity === "string" && typeof o.website === "string" && typeof o.securityContact === "string" && typeof o.details === "string");
+  },
+  isSDK(o: any): o is DescriptionSDKType {
+    return o && (o.$typeUrl === Description.typeUrl || typeof o.moniker === "string" && typeof o.identity === "string" && typeof o.website === "string" && typeof o.security_contact === "string" && typeof o.details === "string");
+  },
+  isAmino(o: any): o is DescriptionAmino {
+    return o && (o.$typeUrl === Description.typeUrl || typeof o.moniker === "string" && typeof o.identity === "string" && typeof o.website === "string" && typeof o.security_contact === "string" && typeof o.details === "string");
+  },
   encode(message: Description, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.moniker !== "") {
       writer.uint32(10).string(message.moniker);
@@ -1770,7 +1820,8 @@ export const Description = {
       typeUrl: "/cosmos.staking.v1beta1.Description",
       value: Description.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseValidator(): Validator {
   return {
@@ -1803,12 +1854,21 @@ function createBaseValidator(): Validator {
 export const Validator = {
   typeUrl: "/cosmos.staking.v1beta1.Validator",
   aminoType: "cosmos-sdk/Validator",
+  is(o: any): o is Validator {
+    return o && (o.$typeUrl === Validator.typeUrl || typeof o.operatorAddress === "string" && typeof o.jailed === "boolean" && isSet(o.status) && typeof o.tokens === "string" && typeof o.delegatorShares === "string" && Description.is(o.description) && typeof o.unbondingHeight === "bigint" && Timestamp.is(o.unbondingTime) && Commission.is(o.commission) && typeof o.minSelfDelegation === "string");
+  },
+  isSDK(o: any): o is ValidatorSDKType {
+    return o && (o.$typeUrl === Validator.typeUrl || typeof o.operator_address === "string" && typeof o.jailed === "boolean" && isSet(o.status) && typeof o.tokens === "string" && typeof o.delegator_shares === "string" && Description.isSDK(o.description) && typeof o.unbonding_height === "bigint" && Timestamp.isSDK(o.unbonding_time) && Commission.isSDK(o.commission) && typeof o.min_self_delegation === "string");
+  },
+  isAmino(o: any): o is ValidatorAmino {
+    return o && (o.$typeUrl === Validator.typeUrl || typeof o.operator_address === "string" && typeof o.jailed === "boolean" && isSet(o.status) && typeof o.tokens === "string" && typeof o.delegator_shares === "string" && Description.isAmino(o.description) && typeof o.unbonding_height === "bigint" && Timestamp.isAmino(o.unbonding_time) && Commission.isAmino(o.commission) && typeof o.min_self_delegation === "string");
+  },
   encode(message: Validator, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.operatorAddress !== "") {
       writer.uint32(10).string(message.operatorAddress);
     }
     if (message.consensusPubkey !== undefined) {
-      Any.encode((message.consensusPubkey as Any), writer.uint32(18).fork()).ldelim();
+      Any.encode(GlobalDecoderRegistry.wrapAny(message.consensusPubkey), writer.uint32(18).fork()).ldelim();
     }
     if (message.jailed === true) {
       writer.uint32(24).bool(message.jailed);
@@ -1850,7 +1910,7 @@ export const Validator = {
           message.operatorAddress = reader.string();
           break;
         case 2:
-          message.consensusPubkey = (Cosmos_cryptoPubKey_InterfaceDecoder(reader) as Any);
+          message.consensusPubkey = GlobalDecoderRegistry.unwrapAny(reader);
           break;
         case 3:
           message.jailed = reader.bool();
@@ -1889,7 +1949,7 @@ export const Validator = {
   fromJSON(object: any): Validator {
     const obj = createBaseValidator();
     if (isSet(object.operatorAddress)) obj.operatorAddress = String(object.operatorAddress);
-    if (isSet(object.consensusPubkey)) obj.consensusPubkey = Any.fromJSON(object.consensusPubkey);
+    if (isSet(object.consensusPubkey)) obj.consensusPubkey = GlobalDecoderRegistry.fromJSON(object.consensusPubkey);
     if (isSet(object.jailed)) obj.jailed = Boolean(object.jailed);
     if (isSet(object.status)) obj.status = bondStatusFromJSON(object.status);
     if (isSet(object.tokens)) obj.tokens = String(object.tokens);
@@ -1904,7 +1964,7 @@ export const Validator = {
   toJSON(message: Validator): JsonSafe<Validator> {
     const obj: any = {};
     message.operatorAddress !== undefined && (obj.operatorAddress = message.operatorAddress);
-    message.consensusPubkey !== undefined && (obj.consensusPubkey = message.consensusPubkey ? Any.toJSON(message.consensusPubkey) : undefined);
+    message.consensusPubkey !== undefined && (obj.consensusPubkey = message.consensusPubkey ? GlobalDecoderRegistry.toJSON(message.consensusPubkey) : undefined);
     message.jailed !== undefined && (obj.jailed = message.jailed);
     message.status !== undefined && (obj.status = bondStatusToJSON(message.status));
     message.tokens !== undefined && (obj.tokens = message.tokens);
@@ -1920,7 +1980,7 @@ export const Validator = {
     const message = createBaseValidator();
     message.operatorAddress = object.operatorAddress ?? "";
     if (object.consensusPubkey !== undefined && object.consensusPubkey !== null) {
-      message.consensusPubkey = Any.fromPartial(object.consensusPubkey);
+      message.consensusPubkey = GlobalDecoderRegistry.fromPartial(object.consensusPubkey);
     }
     message.jailed = object.jailed ?? false;
     message.status = object.status ?? 0;
@@ -1942,7 +2002,7 @@ export const Validator = {
   fromSDK(object: ValidatorSDKType): Validator {
     return {
       operatorAddress: object?.operator_address,
-      consensusPubkey: object.consensus_pubkey ? Any.fromSDK(object.consensus_pubkey) : undefined,
+      consensusPubkey: object.consensus_pubkey ? GlobalDecoderRegistry.fromSDK(object.consensus_pubkey) : undefined,
       jailed: object?.jailed,
       status: isSet(object.status) ? bondStatusFromJSON(object.status) : -1,
       tokens: object?.tokens,
@@ -1957,7 +2017,7 @@ export const Validator = {
   toSDK(message: Validator): ValidatorSDKType {
     const obj: any = {};
     obj.operator_address = message.operatorAddress;
-    message.consensusPubkey !== undefined && (obj.consensus_pubkey = message.consensusPubkey ? Any.toSDK(message.consensusPubkey) : undefined);
+    message.consensusPubkey !== undefined && (obj.consensus_pubkey = message.consensusPubkey ? GlobalDecoderRegistry.toSDK(message.consensusPubkey) : undefined);
     obj.jailed = message.jailed;
     message.status !== undefined && (obj.status = bondStatusToJSON(message.status));
     obj.tokens = message.tokens;
@@ -2013,7 +2073,7 @@ export const Validator = {
     obj.jailed = message.jailed === false ? undefined : message.jailed;
     obj.status = message.status === 0 ? undefined : message.status;
     obj.tokens = message.tokens === "" ? undefined : message.tokens;
-    obj.delegator_shares = message.delegatorShares === "" ? undefined : message.delegatorShares;
+    obj.delegator_shares = message.delegatorShares === "" ? undefined : Decimal.fromUserInput(message.delegatorShares, 18).atomics;
     obj.description = message.description ? Description.toAmino(message.description) : undefined;
     obj.unbonding_height = message.unbondingHeight !== BigInt(0) ? message.unbondingHeight?.toString() : undefined;
     obj.unbonding_time = message.unbondingTime ? Timestamp.toAmino(toTimestamp(message.unbondingTime)) : undefined;
@@ -2041,6 +2101,13 @@ export const Validator = {
       typeUrl: "/cosmos.staking.v1beta1.Validator",
       value: Validator.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Validator.typeUrl)) {
+      return;
+    }
+    Description.registerTypeUrl();
+    Commission.registerTypeUrl();
   }
 };
 function createBaseValAddresses(): ValAddresses {
@@ -2057,6 +2124,15 @@ function createBaseValAddresses(): ValAddresses {
 export const ValAddresses = {
   typeUrl: "/cosmos.staking.v1beta1.ValAddresses",
   aminoType: "cosmos-sdk/ValAddresses",
+  is(o: any): o is ValAddresses {
+    return o && (o.$typeUrl === ValAddresses.typeUrl || Array.isArray(o.addresses) && (!o.addresses.length || typeof o.addresses[0] === "string"));
+  },
+  isSDK(o: any): o is ValAddressesSDKType {
+    return o && (o.$typeUrl === ValAddresses.typeUrl || Array.isArray(o.addresses) && (!o.addresses.length || typeof o.addresses[0] === "string"));
+  },
+  isAmino(o: any): o is ValAddressesAmino {
+    return o && (o.$typeUrl === ValAddresses.typeUrl || Array.isArray(o.addresses) && (!o.addresses.length || typeof o.addresses[0] === "string"));
+  },
   encode(message: ValAddresses, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.addresses) {
       writer.uint32(10).string(v!);
@@ -2147,7 +2223,8 @@ export const ValAddresses = {
       typeUrl: "/cosmos.staking.v1beta1.ValAddresses",
       value: ValAddresses.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseDVPair(): DVPair {
   return {
@@ -2166,6 +2243,15 @@ function createBaseDVPair(): DVPair {
 export const DVPair = {
   typeUrl: "/cosmos.staking.v1beta1.DVPair",
   aminoType: "cosmos-sdk/DVPair",
+  is(o: any): o is DVPair {
+    return o && (o.$typeUrl === DVPair.typeUrl || typeof o.delegatorAddress === "string" && typeof o.validatorAddress === "string");
+  },
+  isSDK(o: any): o is DVPairSDKType {
+    return o && (o.$typeUrl === DVPair.typeUrl || typeof o.delegator_address === "string" && typeof o.validator_address === "string");
+  },
+  isAmino(o: any): o is DVPairAmino {
+    return o && (o.$typeUrl === DVPair.typeUrl || typeof o.delegator_address === "string" && typeof o.validator_address === "string");
+  },
   encode(message: DVPair, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.delegatorAddress !== "") {
       writer.uint32(10).string(message.delegatorAddress);
@@ -2261,7 +2347,8 @@ export const DVPair = {
       typeUrl: "/cosmos.staking.v1beta1.DVPair",
       value: DVPair.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseDVPairs(): DVPairs {
   return {
@@ -2277,6 +2364,15 @@ function createBaseDVPairs(): DVPairs {
 export const DVPairs = {
   typeUrl: "/cosmos.staking.v1beta1.DVPairs",
   aminoType: "cosmos-sdk/DVPairs",
+  is(o: any): o is DVPairs {
+    return o && (o.$typeUrl === DVPairs.typeUrl || Array.isArray(o.pairs) && (!o.pairs.length || DVPair.is(o.pairs[0])));
+  },
+  isSDK(o: any): o is DVPairsSDKType {
+    return o && (o.$typeUrl === DVPairs.typeUrl || Array.isArray(o.pairs) && (!o.pairs.length || DVPair.isSDK(o.pairs[0])));
+  },
+  isAmino(o: any): o is DVPairsAmino {
+    return o && (o.$typeUrl === DVPairs.typeUrl || Array.isArray(o.pairs) && (!o.pairs.length || DVPair.isAmino(o.pairs[0])));
+  },
   encode(message: DVPairs, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.pairs) {
       DVPair.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -2367,6 +2463,12 @@ export const DVPairs = {
       typeUrl: "/cosmos.staking.v1beta1.DVPairs",
       value: DVPairs.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(DVPairs.typeUrl)) {
+      return;
+    }
+    DVPair.registerTypeUrl();
   }
 };
 function createBaseDVVTriplet(): DVVTriplet {
@@ -2388,6 +2490,15 @@ function createBaseDVVTriplet(): DVVTriplet {
 export const DVVTriplet = {
   typeUrl: "/cosmos.staking.v1beta1.DVVTriplet",
   aminoType: "cosmos-sdk/DVVTriplet",
+  is(o: any): o is DVVTriplet {
+    return o && (o.$typeUrl === DVVTriplet.typeUrl || typeof o.delegatorAddress === "string" && typeof o.validatorSrcAddress === "string" && typeof o.validatorDstAddress === "string");
+  },
+  isSDK(o: any): o is DVVTripletSDKType {
+    return o && (o.$typeUrl === DVVTriplet.typeUrl || typeof o.delegator_address === "string" && typeof o.validator_src_address === "string" && typeof o.validator_dst_address === "string");
+  },
+  isAmino(o: any): o is DVVTripletAmino {
+    return o && (o.$typeUrl === DVVTriplet.typeUrl || typeof o.delegator_address === "string" && typeof o.validator_src_address === "string" && typeof o.validator_dst_address === "string");
+  },
   encode(message: DVVTriplet, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.delegatorAddress !== "") {
       writer.uint32(10).string(message.delegatorAddress);
@@ -2498,7 +2609,8 @@ export const DVVTriplet = {
       typeUrl: "/cosmos.staking.v1beta1.DVVTriplet",
       value: DVVTriplet.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseDVVTriplets(): DVVTriplets {
   return {
@@ -2514,6 +2626,15 @@ function createBaseDVVTriplets(): DVVTriplets {
 export const DVVTriplets = {
   typeUrl: "/cosmos.staking.v1beta1.DVVTriplets",
   aminoType: "cosmos-sdk/DVVTriplets",
+  is(o: any): o is DVVTriplets {
+    return o && (o.$typeUrl === DVVTriplets.typeUrl || Array.isArray(o.triplets) && (!o.triplets.length || DVVTriplet.is(o.triplets[0])));
+  },
+  isSDK(o: any): o is DVVTripletsSDKType {
+    return o && (o.$typeUrl === DVVTriplets.typeUrl || Array.isArray(o.triplets) && (!o.triplets.length || DVVTriplet.isSDK(o.triplets[0])));
+  },
+  isAmino(o: any): o is DVVTripletsAmino {
+    return o && (o.$typeUrl === DVVTriplets.typeUrl || Array.isArray(o.triplets) && (!o.triplets.length || DVVTriplet.isAmino(o.triplets[0])));
+  },
   encode(message: DVVTriplets, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.triplets) {
       DVVTriplet.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -2604,6 +2725,12 @@ export const DVVTriplets = {
       typeUrl: "/cosmos.staking.v1beta1.DVVTriplets",
       value: DVVTriplets.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(DVVTriplets.typeUrl)) {
+      return;
+    }
+    DVVTriplet.registerTypeUrl();
   }
 };
 function createBaseDelegation(): Delegation {
@@ -2624,6 +2751,15 @@ function createBaseDelegation(): Delegation {
 export const Delegation = {
   typeUrl: "/cosmos.staking.v1beta1.Delegation",
   aminoType: "cosmos-sdk/Delegation",
+  is(o: any): o is Delegation {
+    return o && (o.$typeUrl === Delegation.typeUrl || typeof o.delegatorAddress === "string" && typeof o.validatorAddress === "string" && typeof o.shares === "string");
+  },
+  isSDK(o: any): o is DelegationSDKType {
+    return o && (o.$typeUrl === Delegation.typeUrl || typeof o.delegator_address === "string" && typeof o.validator_address === "string" && typeof o.shares === "string");
+  },
+  isAmino(o: any): o is DelegationAmino {
+    return o && (o.$typeUrl === Delegation.typeUrl || typeof o.delegator_address === "string" && typeof o.validator_address === "string" && typeof o.shares === "string");
+  },
   encode(message: Delegation, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.delegatorAddress !== "") {
       writer.uint32(10).string(message.delegatorAddress);
@@ -2711,7 +2847,7 @@ export const Delegation = {
     const obj: any = {};
     obj.delegator_address = message.delegatorAddress === "" ? undefined : message.delegatorAddress;
     obj.validator_address = message.validatorAddress === "" ? undefined : message.validatorAddress;
-    obj.shares = message.shares === "" ? undefined : message.shares;
+    obj.shares = message.shares === "" ? undefined : Decimal.fromUserInput(message.shares, 18).atomics;
     return obj;
   },
   fromAminoMsg(object: DelegationAminoMsg): Delegation {
@@ -2734,7 +2870,8 @@ export const Delegation = {
       typeUrl: "/cosmos.staking.v1beta1.Delegation",
       value: Delegation.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseUnbondingDelegation(): UnbondingDelegation {
   return {
@@ -2753,6 +2890,15 @@ function createBaseUnbondingDelegation(): UnbondingDelegation {
 export const UnbondingDelegation = {
   typeUrl: "/cosmos.staking.v1beta1.UnbondingDelegation",
   aminoType: "cosmos-sdk/UnbondingDelegation",
+  is(o: any): o is UnbondingDelegation {
+    return o && (o.$typeUrl === UnbondingDelegation.typeUrl || typeof o.delegatorAddress === "string" && typeof o.validatorAddress === "string" && Array.isArray(o.entries) && (!o.entries.length || UnbondingDelegationEntry.is(o.entries[0])));
+  },
+  isSDK(o: any): o is UnbondingDelegationSDKType {
+    return o && (o.$typeUrl === UnbondingDelegation.typeUrl || typeof o.delegator_address === "string" && typeof o.validator_address === "string" && Array.isArray(o.entries) && (!o.entries.length || UnbondingDelegationEntry.isSDK(o.entries[0])));
+  },
+  isAmino(o: any): o is UnbondingDelegationAmino {
+    return o && (o.$typeUrl === UnbondingDelegation.typeUrl || typeof o.delegator_address === "string" && typeof o.validator_address === "string" && Array.isArray(o.entries) && (!o.entries.length || UnbondingDelegationEntry.isAmino(o.entries[0])));
+  },
   encode(message: UnbondingDelegation, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.delegatorAddress !== "") {
       writer.uint32(10).string(message.delegatorAddress);
@@ -2873,6 +3019,12 @@ export const UnbondingDelegation = {
       typeUrl: "/cosmos.staking.v1beta1.UnbondingDelegation",
       value: UnbondingDelegation.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(UnbondingDelegation.typeUrl)) {
+      return;
+    }
+    UnbondingDelegationEntry.registerTypeUrl();
   }
 };
 function createBaseUnbondingDelegationEntry(): UnbondingDelegationEntry {
@@ -2892,6 +3044,15 @@ function createBaseUnbondingDelegationEntry(): UnbondingDelegationEntry {
 export const UnbondingDelegationEntry = {
   typeUrl: "/cosmos.staking.v1beta1.UnbondingDelegationEntry",
   aminoType: "cosmos-sdk/UnbondingDelegationEntry",
+  is(o: any): o is UnbondingDelegationEntry {
+    return o && (o.$typeUrl === UnbondingDelegationEntry.typeUrl || typeof o.creationHeight === "bigint" && Timestamp.is(o.completionTime) && typeof o.initialBalance === "string" && typeof o.balance === "string");
+  },
+  isSDK(o: any): o is UnbondingDelegationEntrySDKType {
+    return o && (o.$typeUrl === UnbondingDelegationEntry.typeUrl || typeof o.creation_height === "bigint" && Timestamp.isSDK(o.completion_time) && typeof o.initial_balance === "string" && typeof o.balance === "string");
+  },
+  isAmino(o: any): o is UnbondingDelegationEntryAmino {
+    return o && (o.$typeUrl === UnbondingDelegationEntry.typeUrl || typeof o.creation_height === "bigint" && Timestamp.isAmino(o.completion_time) && typeof o.initial_balance === "string" && typeof o.balance === "string");
+  },
   encode(message: UnbondingDelegationEntry, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.creationHeight !== BigInt(0)) {
       writer.uint32(8).int64(message.creationHeight);
@@ -3019,7 +3180,8 @@ export const UnbondingDelegationEntry = {
       typeUrl: "/cosmos.staking.v1beta1.UnbondingDelegationEntry",
       value: UnbondingDelegationEntry.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseRedelegationEntry(): RedelegationEntry {
   return {
@@ -3038,6 +3200,15 @@ function createBaseRedelegationEntry(): RedelegationEntry {
 export const RedelegationEntry = {
   typeUrl: "/cosmos.staking.v1beta1.RedelegationEntry",
   aminoType: "cosmos-sdk/RedelegationEntry",
+  is(o: any): o is RedelegationEntry {
+    return o && (o.$typeUrl === RedelegationEntry.typeUrl || typeof o.creationHeight === "bigint" && Timestamp.is(o.completionTime) && typeof o.initialBalance === "string" && typeof o.sharesDst === "string");
+  },
+  isSDK(o: any): o is RedelegationEntrySDKType {
+    return o && (o.$typeUrl === RedelegationEntry.typeUrl || typeof o.creation_height === "bigint" && Timestamp.isSDK(o.completion_time) && typeof o.initial_balance === "string" && typeof o.shares_dst === "string");
+  },
+  isAmino(o: any): o is RedelegationEntryAmino {
+    return o && (o.$typeUrl === RedelegationEntry.typeUrl || typeof o.creation_height === "bigint" && Timestamp.isAmino(o.completion_time) && typeof o.initial_balance === "string" && typeof o.shares_dst === "string");
+  },
   encode(message: RedelegationEntry, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.creationHeight !== BigInt(0)) {
       writer.uint32(8).int64(message.creationHeight);
@@ -3142,7 +3313,7 @@ export const RedelegationEntry = {
     obj.creation_height = message.creationHeight !== BigInt(0) ? message.creationHeight?.toString() : undefined;
     obj.completion_time = message.completionTime ? Timestamp.toAmino(toTimestamp(message.completionTime)) : undefined;
     obj.initial_balance = message.initialBalance === "" ? undefined : message.initialBalance;
-    obj.shares_dst = message.sharesDst === "" ? undefined : message.sharesDst;
+    obj.shares_dst = message.sharesDst === "" ? undefined : Decimal.fromUserInput(message.sharesDst, 18).atomics;
     return obj;
   },
   fromAminoMsg(object: RedelegationEntryAminoMsg): RedelegationEntry {
@@ -3165,7 +3336,8 @@ export const RedelegationEntry = {
       typeUrl: "/cosmos.staking.v1beta1.RedelegationEntry",
       value: RedelegationEntry.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseRedelegation(): Redelegation {
   return {
@@ -3185,6 +3357,15 @@ function createBaseRedelegation(): Redelegation {
 export const Redelegation = {
   typeUrl: "/cosmos.staking.v1beta1.Redelegation",
   aminoType: "cosmos-sdk/Redelegation",
+  is(o: any): o is Redelegation {
+    return o && (o.$typeUrl === Redelegation.typeUrl || typeof o.delegatorAddress === "string" && typeof o.validatorSrcAddress === "string" && typeof o.validatorDstAddress === "string" && Array.isArray(o.entries) && (!o.entries.length || RedelegationEntry.is(o.entries[0])));
+  },
+  isSDK(o: any): o is RedelegationSDKType {
+    return o && (o.$typeUrl === Redelegation.typeUrl || typeof o.delegator_address === "string" && typeof o.validator_src_address === "string" && typeof o.validator_dst_address === "string" && Array.isArray(o.entries) && (!o.entries.length || RedelegationEntry.isSDK(o.entries[0])));
+  },
+  isAmino(o: any): o is RedelegationAmino {
+    return o && (o.$typeUrl === Redelegation.typeUrl || typeof o.delegator_address === "string" && typeof o.validator_src_address === "string" && typeof o.validator_dst_address === "string" && Array.isArray(o.entries) && (!o.entries.length || RedelegationEntry.isAmino(o.entries[0])));
+  },
   encode(message: Redelegation, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.delegatorAddress !== "") {
       writer.uint32(10).string(message.delegatorAddress);
@@ -3320,6 +3501,12 @@ export const Redelegation = {
       typeUrl: "/cosmos.staking.v1beta1.Redelegation",
       value: Redelegation.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Redelegation.typeUrl)) {
+      return;
+    }
+    RedelegationEntry.registerTypeUrl();
   }
 };
 function createBaseParams(): Params {
@@ -3341,6 +3528,15 @@ function createBaseParams(): Params {
 export const Params = {
   typeUrl: "/cosmos.staking.v1beta1.Params",
   aminoType: "cosmos-sdk/Params",
+  is(o: any): o is Params {
+    return o && (o.$typeUrl === Params.typeUrl || Duration.is(o.unbondingTime) && typeof o.maxValidators === "number" && typeof o.maxEntries === "number" && typeof o.historicalEntries === "number" && typeof o.bondDenom === "string" && typeof o.minCommissionRate === "string");
+  },
+  isSDK(o: any): o is ParamsSDKType {
+    return o && (o.$typeUrl === Params.typeUrl || Duration.isSDK(o.unbonding_time) && typeof o.max_validators === "number" && typeof o.max_entries === "number" && typeof o.historical_entries === "number" && typeof o.bond_denom === "string" && typeof o.min_commission_rate === "string");
+  },
+  isAmino(o: any): o is ParamsAmino {
+    return o && (o.$typeUrl === Params.typeUrl || Duration.isAmino(o.unbonding_time) && typeof o.max_validators === "number" && typeof o.max_entries === "number" && typeof o.historical_entries === "number" && typeof o.bond_denom === "string" && typeof o.min_commission_rate === "string");
+  },
   encode(message: Params, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.unbondingTime !== undefined) {
       Duration.encode(message.unbondingTime, writer.uint32(10).fork()).ldelim();
@@ -3475,7 +3671,7 @@ export const Params = {
     obj.max_entries = message.maxEntries === 0 ? undefined : message.maxEntries;
     obj.historical_entries = message.historicalEntries === 0 ? undefined : message.historicalEntries;
     obj.bond_denom = message.bondDenom === "" ? undefined : message.bondDenom;
-    obj.min_commission_rate = message.minCommissionRate === "" ? undefined : message.minCommissionRate;
+    obj.min_commission_rate = message.minCommissionRate === "" ? undefined : Decimal.fromUserInput(message.minCommissionRate, 18).atomics;
     return obj;
   },
   fromAminoMsg(object: ParamsAminoMsg): Params {
@@ -3498,7 +3694,8 @@ export const Params = {
       typeUrl: "/cosmos.staking.v1beta1.Params",
       value: Params.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseDelegationResponse(): DelegationResponse {
   return {
@@ -3516,6 +3713,15 @@ function createBaseDelegationResponse(): DelegationResponse {
 export const DelegationResponse = {
   typeUrl: "/cosmos.staking.v1beta1.DelegationResponse",
   aminoType: "cosmos-sdk/DelegationResponse",
+  is(o: any): o is DelegationResponse {
+    return o && (o.$typeUrl === DelegationResponse.typeUrl || Delegation.is(o.delegation) && Coin.is(o.balance));
+  },
+  isSDK(o: any): o is DelegationResponseSDKType {
+    return o && (o.$typeUrl === DelegationResponse.typeUrl || Delegation.isSDK(o.delegation) && Coin.isSDK(o.balance));
+  },
+  isAmino(o: any): o is DelegationResponseAmino {
+    return o && (o.$typeUrl === DelegationResponse.typeUrl || Delegation.isAmino(o.delegation) && Coin.isAmino(o.balance));
+  },
   encode(message: DelegationResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.delegation !== undefined) {
       Delegation.encode(message.delegation, writer.uint32(10).fork()).ldelim();
@@ -3615,6 +3821,13 @@ export const DelegationResponse = {
       typeUrl: "/cosmos.staking.v1beta1.DelegationResponse",
       value: DelegationResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(DelegationResponse.typeUrl)) {
+      return;
+    }
+    Delegation.registerTypeUrl();
+    Coin.registerTypeUrl();
   }
 };
 function createBaseRedelegationEntryResponse(): RedelegationEntryResponse {
@@ -3634,6 +3847,15 @@ function createBaseRedelegationEntryResponse(): RedelegationEntryResponse {
 export const RedelegationEntryResponse = {
   typeUrl: "/cosmos.staking.v1beta1.RedelegationEntryResponse",
   aminoType: "cosmos-sdk/RedelegationEntryResponse",
+  is(o: any): o is RedelegationEntryResponse {
+    return o && (o.$typeUrl === RedelegationEntryResponse.typeUrl || RedelegationEntry.is(o.redelegationEntry) && typeof o.balance === "string");
+  },
+  isSDK(o: any): o is RedelegationEntryResponseSDKType {
+    return o && (o.$typeUrl === RedelegationEntryResponse.typeUrl || RedelegationEntry.isSDK(o.redelegation_entry) && typeof o.balance === "string");
+  },
+  isAmino(o: any): o is RedelegationEntryResponseAmino {
+    return o && (o.$typeUrl === RedelegationEntryResponse.typeUrl || RedelegationEntry.isAmino(o.redelegation_entry) && typeof o.balance === "string");
+  },
   encode(message: RedelegationEntryResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.redelegationEntry !== undefined) {
       RedelegationEntry.encode(message.redelegationEntry, writer.uint32(10).fork()).ldelim();
@@ -3731,6 +3953,12 @@ export const RedelegationEntryResponse = {
       typeUrl: "/cosmos.staking.v1beta1.RedelegationEntryResponse",
       value: RedelegationEntryResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(RedelegationEntryResponse.typeUrl)) {
+      return;
+    }
+    RedelegationEntry.registerTypeUrl();
   }
 };
 function createBaseRedelegationResponse(): RedelegationResponse {
@@ -3750,6 +3978,15 @@ function createBaseRedelegationResponse(): RedelegationResponse {
 export const RedelegationResponse = {
   typeUrl: "/cosmos.staking.v1beta1.RedelegationResponse",
   aminoType: "cosmos-sdk/RedelegationResponse",
+  is(o: any): o is RedelegationResponse {
+    return o && (o.$typeUrl === RedelegationResponse.typeUrl || Redelegation.is(o.redelegation) && Array.isArray(o.entries) && (!o.entries.length || RedelegationEntryResponse.is(o.entries[0])));
+  },
+  isSDK(o: any): o is RedelegationResponseSDKType {
+    return o && (o.$typeUrl === RedelegationResponse.typeUrl || Redelegation.isSDK(o.redelegation) && Array.isArray(o.entries) && (!o.entries.length || RedelegationEntryResponse.isSDK(o.entries[0])));
+  },
+  isAmino(o: any): o is RedelegationResponseAmino {
+    return o && (o.$typeUrl === RedelegationResponse.typeUrl || Redelegation.isAmino(o.redelegation) && Array.isArray(o.entries) && (!o.entries.length || RedelegationEntryResponse.isAmino(o.entries[0])));
+  },
   encode(message: RedelegationResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.redelegation !== undefined) {
       Redelegation.encode(message.redelegation, writer.uint32(10).fork()).ldelim();
@@ -3857,6 +4094,13 @@ export const RedelegationResponse = {
       typeUrl: "/cosmos.staking.v1beta1.RedelegationResponse",
       value: RedelegationResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(RedelegationResponse.typeUrl)) {
+      return;
+    }
+    Redelegation.registerTypeUrl();
+    RedelegationEntryResponse.registerTypeUrl();
   }
 };
 function createBasePool(): Pool {
@@ -3875,6 +4119,15 @@ function createBasePool(): Pool {
 export const Pool = {
   typeUrl: "/cosmos.staking.v1beta1.Pool",
   aminoType: "cosmos-sdk/Pool",
+  is(o: any): o is Pool {
+    return o && (o.$typeUrl === Pool.typeUrl || typeof o.notBondedTokens === "string" && typeof o.bondedTokens === "string");
+  },
+  isSDK(o: any): o is PoolSDKType {
+    return o && (o.$typeUrl === Pool.typeUrl || typeof o.not_bonded_tokens === "string" && typeof o.bonded_tokens === "string");
+  },
+  isAmino(o: any): o is PoolAmino {
+    return o && (o.$typeUrl === Pool.typeUrl || typeof o.not_bonded_tokens === "string" && typeof o.bonded_tokens === "string");
+  },
   encode(message: Pool, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.notBondedTokens !== "") {
       writer.uint32(10).string(message.notBondedTokens);
@@ -3970,19 +4223,6 @@ export const Pool = {
       typeUrl: "/cosmos.staking.v1beta1.Pool",
       value: Pool.encode(message).finish()
     };
-  }
-};
-export const Cosmos_cryptoPubKey_InterfaceDecoder = (input: BinaryReader | Uint8Array): Any => {
-  const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
-  const data = Any.decode(reader, reader.uint32());
-  switch (data.typeUrl) {
-    default:
-      return data;
-  }
-};
-export const Cosmos_cryptoPubKey_FromAmino = (content: AnyAmino): Any => {
-  return encodePubkey(content);
-};
-export const Cosmos_cryptoPubKey_ToAmino = (content: Any): Pubkey | null => {
-  return decodePubkey(content);
+  },
+  registerTypeUrl() {}
 };

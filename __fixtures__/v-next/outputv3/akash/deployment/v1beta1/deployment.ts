@@ -3,6 +3,7 @@
 import { GroupSpec, GroupSpecAmino, GroupSpecSDKType, GroupID, GroupIDSDKType } from "./group";
 import { Coin, CoinAmino, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../binary";
+import { GlobalDecoderRegistry } from "../../../registry";
 import { isSet, bytesFromBase64, DeepPartial, base64FromBytes } from "../../../helpers";
 export const protobufPackage = "akash.deployment.v1beta1";
 /** State is an enum which refers to state of deployment */
@@ -416,6 +417,15 @@ function createBaseMsgCreateDeployment(): MsgCreateDeployment {
  */
 export const MsgCreateDeployment = {
   typeUrl: "/akash.deployment.v1beta1.MsgCreateDeployment",
+  is(o: any): o is MsgCreateDeployment {
+    return o && (o.$typeUrl === MsgCreateDeployment.typeUrl || DeploymentID.is(o.id) && Array.isArray(o.groups) && (!o.groups.length || GroupSpec.is(o.groups[0])) && (o.version instanceof Uint8Array || typeof o.version === "string") && Coin.is(o.deposit));
+  },
+  isSDK(o: any): o is MsgCreateDeploymentSDKType {
+    return o && (o.$typeUrl === MsgCreateDeployment.typeUrl || DeploymentID.isSDK(o.id) && Array.isArray(o.groups) && (!o.groups.length || GroupSpec.isSDK(o.groups[0])) && (o.version instanceof Uint8Array || typeof o.version === "string") && Coin.isSDK(o.deposit));
+  },
+  isAmino(o: any): o is MsgCreateDeploymentAmino {
+    return o && (o.$typeUrl === MsgCreateDeployment.typeUrl || DeploymentID.isAmino(o.id) && Array.isArray(o.groups) && (!o.groups.length || GroupSpec.isAmino(o.groups[0])) && (o.version instanceof Uint8Array || typeof o.version === "string") && Coin.isAmino(o.deposit));
+  },
   encode(message: MsgCreateDeployment, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.id !== undefined) {
       DeploymentID.encode(message.id, writer.uint32(10).fork()).ldelim();
@@ -534,6 +544,14 @@ export const MsgCreateDeployment = {
       typeUrl: "/akash.deployment.v1beta1.MsgCreateDeployment",
       value: MsgCreateDeployment.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgCreateDeployment.typeUrl)) {
+      return;
+    }
+    DeploymentID.registerTypeUrl();
+    GroupSpec.registerTypeUrl();
+    Coin.registerTypeUrl();
   }
 };
 function createBaseMsgCreateDeploymentResponse(): MsgCreateDeploymentResponse {
@@ -547,6 +565,15 @@ function createBaseMsgCreateDeploymentResponse(): MsgCreateDeploymentResponse {
  */
 export const MsgCreateDeploymentResponse = {
   typeUrl: "/akash.deployment.v1beta1.MsgCreateDeploymentResponse",
+  is(o: any): o is MsgCreateDeploymentResponse {
+    return o && o.$typeUrl === MsgCreateDeploymentResponse.typeUrl;
+  },
+  isSDK(o: any): o is MsgCreateDeploymentResponseSDKType {
+    return o && o.$typeUrl === MsgCreateDeploymentResponse.typeUrl;
+  },
+  isAmino(o: any): o is MsgCreateDeploymentResponseAmino {
+    return o && o.$typeUrl === MsgCreateDeploymentResponse.typeUrl;
+  },
   encode(_: MsgCreateDeploymentResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -598,7 +625,8 @@ export const MsgCreateDeploymentResponse = {
       typeUrl: "/akash.deployment.v1beta1.MsgCreateDeploymentResponse",
       value: MsgCreateDeploymentResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseMsgDepositDeployment(): MsgDepositDeployment {
   return {
@@ -614,6 +642,15 @@ function createBaseMsgDepositDeployment(): MsgDepositDeployment {
  */
 export const MsgDepositDeployment = {
   typeUrl: "/akash.deployment.v1beta1.MsgDepositDeployment",
+  is(o: any): o is MsgDepositDeployment {
+    return o && (o.$typeUrl === MsgDepositDeployment.typeUrl || DeploymentID.is(o.id) && Coin.is(o.amount));
+  },
+  isSDK(o: any): o is MsgDepositDeploymentSDKType {
+    return o && (o.$typeUrl === MsgDepositDeployment.typeUrl || DeploymentID.isSDK(o.id) && Coin.isSDK(o.amount));
+  },
+  isAmino(o: any): o is MsgDepositDeploymentAmino {
+    return o && (o.$typeUrl === MsgDepositDeployment.typeUrl || DeploymentID.isAmino(o.id) && Coin.isAmino(o.amount));
+  },
   encode(message: MsgDepositDeployment, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.id !== undefined) {
       DeploymentID.encode(message.id, writer.uint32(10).fork()).ldelim();
@@ -698,6 +735,13 @@ export const MsgDepositDeployment = {
       typeUrl: "/akash.deployment.v1beta1.MsgDepositDeployment",
       value: MsgDepositDeployment.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgDepositDeployment.typeUrl)) {
+      return;
+    }
+    DeploymentID.registerTypeUrl();
+    Coin.registerTypeUrl();
   }
 };
 function createBaseMsgDepositDeploymentResponse(): MsgDepositDeploymentResponse {
@@ -711,6 +755,15 @@ function createBaseMsgDepositDeploymentResponse(): MsgDepositDeploymentResponse 
  */
 export const MsgDepositDeploymentResponse = {
   typeUrl: "/akash.deployment.v1beta1.MsgDepositDeploymentResponse",
+  is(o: any): o is MsgDepositDeploymentResponse {
+    return o && o.$typeUrl === MsgDepositDeploymentResponse.typeUrl;
+  },
+  isSDK(o: any): o is MsgDepositDeploymentResponseSDKType {
+    return o && o.$typeUrl === MsgDepositDeploymentResponse.typeUrl;
+  },
+  isAmino(o: any): o is MsgDepositDeploymentResponseAmino {
+    return o && o.$typeUrl === MsgDepositDeploymentResponse.typeUrl;
+  },
   encode(_: MsgDepositDeploymentResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -762,7 +815,8 @@ export const MsgDepositDeploymentResponse = {
       typeUrl: "/akash.deployment.v1beta1.MsgDepositDeploymentResponse",
       value: MsgDepositDeploymentResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseMsgUpdateDeployment(): MsgUpdateDeployment {
   return {
@@ -779,6 +833,15 @@ function createBaseMsgUpdateDeployment(): MsgUpdateDeployment {
  */
 export const MsgUpdateDeployment = {
   typeUrl: "/akash.deployment.v1beta1.MsgUpdateDeployment",
+  is(o: any): o is MsgUpdateDeployment {
+    return o && (o.$typeUrl === MsgUpdateDeployment.typeUrl || DeploymentID.is(o.id) && Array.isArray(o.groups) && (!o.groups.length || GroupSpec.is(o.groups[0])) && (o.version instanceof Uint8Array || typeof o.version === "string"));
+  },
+  isSDK(o: any): o is MsgUpdateDeploymentSDKType {
+    return o && (o.$typeUrl === MsgUpdateDeployment.typeUrl || DeploymentID.isSDK(o.id) && Array.isArray(o.groups) && (!o.groups.length || GroupSpec.isSDK(o.groups[0])) && (o.version instanceof Uint8Array || typeof o.version === "string"));
+  },
+  isAmino(o: any): o is MsgUpdateDeploymentAmino {
+    return o && (o.$typeUrl === MsgUpdateDeployment.typeUrl || DeploymentID.isAmino(o.id) && Array.isArray(o.groups) && (!o.groups.length || GroupSpec.isAmino(o.groups[0])) && (o.version instanceof Uint8Array || typeof o.version === "string"));
+  },
   encode(message: MsgUpdateDeployment, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.id !== undefined) {
       DeploymentID.encode(message.id, writer.uint32(10).fork()).ldelim();
@@ -881,6 +944,13 @@ export const MsgUpdateDeployment = {
       typeUrl: "/akash.deployment.v1beta1.MsgUpdateDeployment",
       value: MsgUpdateDeployment.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgUpdateDeployment.typeUrl)) {
+      return;
+    }
+    DeploymentID.registerTypeUrl();
+    GroupSpec.registerTypeUrl();
   }
 };
 function createBaseMsgUpdateDeploymentResponse(): MsgUpdateDeploymentResponse {
@@ -894,6 +964,15 @@ function createBaseMsgUpdateDeploymentResponse(): MsgUpdateDeploymentResponse {
  */
 export const MsgUpdateDeploymentResponse = {
   typeUrl: "/akash.deployment.v1beta1.MsgUpdateDeploymentResponse",
+  is(o: any): o is MsgUpdateDeploymentResponse {
+    return o && o.$typeUrl === MsgUpdateDeploymentResponse.typeUrl;
+  },
+  isSDK(o: any): o is MsgUpdateDeploymentResponseSDKType {
+    return o && o.$typeUrl === MsgUpdateDeploymentResponse.typeUrl;
+  },
+  isAmino(o: any): o is MsgUpdateDeploymentResponseAmino {
+    return o && o.$typeUrl === MsgUpdateDeploymentResponse.typeUrl;
+  },
   encode(_: MsgUpdateDeploymentResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -945,7 +1024,8 @@ export const MsgUpdateDeploymentResponse = {
       typeUrl: "/akash.deployment.v1beta1.MsgUpdateDeploymentResponse",
       value: MsgUpdateDeploymentResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseMsgCloseDeployment(): MsgCloseDeployment {
   return {
@@ -960,6 +1040,15 @@ function createBaseMsgCloseDeployment(): MsgCloseDeployment {
  */
 export const MsgCloseDeployment = {
   typeUrl: "/akash.deployment.v1beta1.MsgCloseDeployment",
+  is(o: any): o is MsgCloseDeployment {
+    return o && (o.$typeUrl === MsgCloseDeployment.typeUrl || DeploymentID.is(o.id));
+  },
+  isSDK(o: any): o is MsgCloseDeploymentSDKType {
+    return o && (o.$typeUrl === MsgCloseDeployment.typeUrl || DeploymentID.isSDK(o.id));
+  },
+  isAmino(o: any): o is MsgCloseDeploymentAmino {
+    return o && (o.$typeUrl === MsgCloseDeployment.typeUrl || DeploymentID.isAmino(o.id));
+  },
   encode(message: MsgCloseDeployment, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.id !== undefined) {
       DeploymentID.encode(message.id, writer.uint32(10).fork()).ldelim();
@@ -1028,6 +1117,12 @@ export const MsgCloseDeployment = {
       typeUrl: "/akash.deployment.v1beta1.MsgCloseDeployment",
       value: MsgCloseDeployment.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgCloseDeployment.typeUrl)) {
+      return;
+    }
+    DeploymentID.registerTypeUrl();
   }
 };
 function createBaseMsgCloseDeploymentResponse(): MsgCloseDeploymentResponse {
@@ -1041,6 +1136,15 @@ function createBaseMsgCloseDeploymentResponse(): MsgCloseDeploymentResponse {
  */
 export const MsgCloseDeploymentResponse = {
   typeUrl: "/akash.deployment.v1beta1.MsgCloseDeploymentResponse",
+  is(o: any): o is MsgCloseDeploymentResponse {
+    return o && o.$typeUrl === MsgCloseDeploymentResponse.typeUrl;
+  },
+  isSDK(o: any): o is MsgCloseDeploymentResponseSDKType {
+    return o && o.$typeUrl === MsgCloseDeploymentResponse.typeUrl;
+  },
+  isAmino(o: any): o is MsgCloseDeploymentResponseAmino {
+    return o && o.$typeUrl === MsgCloseDeploymentResponse.typeUrl;
+  },
   encode(_: MsgCloseDeploymentResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -1092,7 +1196,8 @@ export const MsgCloseDeploymentResponse = {
       typeUrl: "/akash.deployment.v1beta1.MsgCloseDeploymentResponse",
       value: MsgCloseDeploymentResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseDeploymentID(): DeploymentID {
   return {
@@ -1108,6 +1213,15 @@ function createBaseDeploymentID(): DeploymentID {
  */
 export const DeploymentID = {
   typeUrl: "/akash.deployment.v1beta1.DeploymentID",
+  is(o: any): o is DeploymentID {
+    return o && (o.$typeUrl === DeploymentID.typeUrl || typeof o.owner === "string" && typeof o.dseq === "bigint");
+  },
+  isSDK(o: any): o is DeploymentIDSDKType {
+    return o && (o.$typeUrl === DeploymentID.typeUrl || typeof o.owner === "string" && typeof o.dseq === "bigint");
+  },
+  isAmino(o: any): o is DeploymentIDAmino {
+    return o && (o.$typeUrl === DeploymentID.typeUrl || typeof o.owner === "string" && typeof o.dseq === "bigint");
+  },
   encode(message: DeploymentID, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.owner !== "") {
       writer.uint32(10).string(message.owner);
@@ -1190,7 +1304,8 @@ export const DeploymentID = {
       typeUrl: "/akash.deployment.v1beta1.DeploymentID",
       value: DeploymentID.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseDeployment(): Deployment {
   return {
@@ -1208,6 +1323,15 @@ function createBaseDeployment(): Deployment {
  */
 export const Deployment = {
   typeUrl: "/akash.deployment.v1beta1.Deployment",
+  is(o: any): o is Deployment {
+    return o && (o.$typeUrl === Deployment.typeUrl || DeploymentID.is(o.deploymentId) && isSet(o.state) && (o.version instanceof Uint8Array || typeof o.version === "string") && typeof o.createdAt === "bigint");
+  },
+  isSDK(o: any): o is DeploymentSDKType {
+    return o && (o.$typeUrl === Deployment.typeUrl || DeploymentID.isSDK(o.deployment_id) && isSet(o.state) && (o.version instanceof Uint8Array || typeof o.version === "string") && typeof o.created_at === "bigint");
+  },
+  isAmino(o: any): o is DeploymentAmino {
+    return o && (o.$typeUrl === Deployment.typeUrl || DeploymentID.isAmino(o.deployment_id) && isSet(o.state) && (o.version instanceof Uint8Array || typeof o.version === "string") && typeof o.created_at === "bigint");
+  },
   encode(message: Deployment, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.deploymentId !== undefined) {
       DeploymentID.encode(message.deploymentId, writer.uint32(10).fork()).ldelim();
@@ -1320,6 +1444,12 @@ export const Deployment = {
       typeUrl: "/akash.deployment.v1beta1.Deployment",
       value: Deployment.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Deployment.typeUrl)) {
+      return;
+    }
+    DeploymentID.registerTypeUrl();
   }
 };
 function createBaseDeploymentFilters(): DeploymentFilters {
@@ -1337,6 +1467,15 @@ function createBaseDeploymentFilters(): DeploymentFilters {
  */
 export const DeploymentFilters = {
   typeUrl: "/akash.deployment.v1beta1.DeploymentFilters",
+  is(o: any): o is DeploymentFilters {
+    return o && (o.$typeUrl === DeploymentFilters.typeUrl || typeof o.owner === "string" && typeof o.dseq === "bigint" && typeof o.state === "string");
+  },
+  isSDK(o: any): o is DeploymentFiltersSDKType {
+    return o && (o.$typeUrl === DeploymentFilters.typeUrl || typeof o.owner === "string" && typeof o.dseq === "bigint" && typeof o.state === "string");
+  },
+  isAmino(o: any): o is DeploymentFiltersAmino {
+    return o && (o.$typeUrl === DeploymentFilters.typeUrl || typeof o.owner === "string" && typeof o.dseq === "bigint" && typeof o.state === "string");
+  },
   encode(message: DeploymentFilters, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.owner !== "") {
       writer.uint32(10).string(message.owner);
@@ -1433,5 +1572,6 @@ export const DeploymentFilters = {
       typeUrl: "/akash.deployment.v1beta1.DeploymentFilters",
       value: DeploymentFilters.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

@@ -1,7 +1,8 @@
 import { GroupID, GroupIDAmino, GroupIDSDKType } from "./groupid";
 import { GroupSpec, GroupSpecAmino, GroupSpecSDKType } from "./groupspec";
-import { BinaryReader, BinaryWriter } from "../../../binary";
 import { isSet, DeepPartial } from "../../../helpers";
+import { BinaryReader, BinaryWriter } from "../../../binary";
+import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "akash.deployment.v1beta2";
 /** State is an enum which refers to state of group */
 export enum Group_State {
@@ -115,6 +116,15 @@ function createBaseGroup(): Group {
  */
 export const Group = {
   typeUrl: "/akash.deployment.v1beta2.Group",
+  is(o: any): o is Group {
+    return o && (o.$typeUrl === Group.typeUrl || GroupID.is(o.groupId) && isSet(o.state) && GroupSpec.is(o.groupSpec) && typeof o.createdAt === "bigint");
+  },
+  isSDK(o: any): o is GroupSDKType {
+    return o && (o.$typeUrl === Group.typeUrl || GroupID.isSDK(o.group_id) && isSet(o.state) && GroupSpec.isSDK(o.group_spec) && typeof o.created_at === "bigint");
+  },
+  isAmino(o: any): o is GroupAmino {
+    return o && (o.$typeUrl === Group.typeUrl || GroupID.isAmino(o.group_id) && isSet(o.state) && GroupSpec.isAmino(o.group_spec) && typeof o.created_at === "bigint");
+  },
   encode(message: Group, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.groupId !== undefined) {
       GroupID.encode(message.groupId, writer.uint32(10).fork()).ldelim();
@@ -229,5 +239,12 @@ export const Group = {
       typeUrl: "/akash.deployment.v1beta2.Group",
       value: Group.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Group.typeUrl)) {
+      return;
+    }
+    GroupID.registerTypeUrl();
+    GroupSpec.registerTypeUrl();
   }
 };

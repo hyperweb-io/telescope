@@ -1,6 +1,7 @@
 import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageResponseAmino, PageResponseSDKType } from "../../../cosmos/base/query/v1beta1/pagination";
 import { Account, AccountAmino, AccountSDKType, Payment, PaymentAmino, PaymentSDKType } from "./types";
 import { BinaryReader, BinaryWriter } from "../../../binary";
+import { GlobalDecoderRegistry } from "../../../registry";
 import { isSet, DeepPartial } from "../../../helpers";
 export const protobufPackage = "akash.escrow.v1beta1";
 /**
@@ -177,6 +178,15 @@ function createBaseQueryAccountsRequest(): QueryAccountsRequest {
  */
 export const QueryAccountsRequest = {
   typeUrl: "/akash.escrow.v1beta1.QueryAccountsRequest",
+  is(o: any): o is QueryAccountsRequest {
+    return o && (o.$typeUrl === QueryAccountsRequest.typeUrl || typeof o.scope === "string" && typeof o.xid === "string" && typeof o.owner === "string" && typeof o.state === "string");
+  },
+  isSDK(o: any): o is QueryAccountsRequestSDKType {
+    return o && (o.$typeUrl === QueryAccountsRequest.typeUrl || typeof o.scope === "string" && typeof o.xid === "string" && typeof o.owner === "string" && typeof o.state === "string");
+  },
+  isAmino(o: any): o is QueryAccountsRequestAmino {
+    return o && (o.$typeUrl === QueryAccountsRequest.typeUrl || typeof o.scope === "string" && typeof o.xid === "string" && typeof o.owner === "string" && typeof o.state === "string");
+  },
   encode(message: QueryAccountsRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.scope !== "") {
       writer.uint32(10).string(message.scope);
@@ -301,6 +311,12 @@ export const QueryAccountsRequest = {
       typeUrl: "/akash.escrow.v1beta1.QueryAccountsRequest",
       value: QueryAccountsRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryAccountsRequest.typeUrl)) {
+      return;
+    }
+    PageRequest.registerTypeUrl();
   }
 };
 function createBaseQueryAccountsResponse(): QueryAccountsResponse {
@@ -317,6 +333,15 @@ function createBaseQueryAccountsResponse(): QueryAccountsResponse {
  */
 export const QueryAccountsResponse = {
   typeUrl: "/akash.escrow.v1beta1.QueryAccountsResponse",
+  is(o: any): o is QueryAccountsResponse {
+    return o && (o.$typeUrl === QueryAccountsResponse.typeUrl || Array.isArray(o.accounts) && (!o.accounts.length || Account.is(o.accounts[0])));
+  },
+  isSDK(o: any): o is QueryAccountsResponseSDKType {
+    return o && (o.$typeUrl === QueryAccountsResponse.typeUrl || Array.isArray(o.accounts) && (!o.accounts.length || Account.isSDK(o.accounts[0])));
+  },
+  isAmino(o: any): o is QueryAccountsResponseAmino {
+    return o && (o.$typeUrl === QueryAccountsResponse.typeUrl || Array.isArray(o.accounts) && (!o.accounts.length || Account.isAmino(o.accounts[0])));
+  },
   encode(message: QueryAccountsResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.accounts) {
       Account.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -405,6 +430,13 @@ export const QueryAccountsResponse = {
       typeUrl: "/akash.escrow.v1beta1.QueryAccountsResponse",
       value: QueryAccountsResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryAccountsResponse.typeUrl)) {
+      return;
+    }
+    Account.registerTypeUrl();
+    PageResponse.registerTypeUrl();
   }
 };
 function createBaseQueryPaymentsRequest(): QueryPaymentsRequest {
@@ -425,6 +457,15 @@ function createBaseQueryPaymentsRequest(): QueryPaymentsRequest {
  */
 export const QueryPaymentsRequest = {
   typeUrl: "/akash.escrow.v1beta1.QueryPaymentsRequest",
+  is(o: any): o is QueryPaymentsRequest {
+    return o && (o.$typeUrl === QueryPaymentsRequest.typeUrl || typeof o.scope === "string" && typeof o.xid === "string" && typeof o.id === "string" && typeof o.owner === "string" && typeof o.state === "string");
+  },
+  isSDK(o: any): o is QueryPaymentsRequestSDKType {
+    return o && (o.$typeUrl === QueryPaymentsRequest.typeUrl || typeof o.scope === "string" && typeof o.xid === "string" && typeof o.id === "string" && typeof o.owner === "string" && typeof o.state === "string");
+  },
+  isAmino(o: any): o is QueryPaymentsRequestAmino {
+    return o && (o.$typeUrl === QueryPaymentsRequest.typeUrl || typeof o.scope === "string" && typeof o.xid === "string" && typeof o.id === "string" && typeof o.owner === "string" && typeof o.state === "string");
+  },
   encode(message: QueryPaymentsRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.scope !== "") {
       writer.uint32(10).string(message.scope);
@@ -563,6 +604,12 @@ export const QueryPaymentsRequest = {
       typeUrl: "/akash.escrow.v1beta1.QueryPaymentsRequest",
       value: QueryPaymentsRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryPaymentsRequest.typeUrl)) {
+      return;
+    }
+    PageRequest.registerTypeUrl();
   }
 };
 function createBaseQueryPaymentsResponse(): QueryPaymentsResponse {
@@ -579,6 +626,15 @@ function createBaseQueryPaymentsResponse(): QueryPaymentsResponse {
  */
 export const QueryPaymentsResponse = {
   typeUrl: "/akash.escrow.v1beta1.QueryPaymentsResponse",
+  is(o: any): o is QueryPaymentsResponse {
+    return o && (o.$typeUrl === QueryPaymentsResponse.typeUrl || Array.isArray(o.payments) && (!o.payments.length || Payment.is(o.payments[0])));
+  },
+  isSDK(o: any): o is QueryPaymentsResponseSDKType {
+    return o && (o.$typeUrl === QueryPaymentsResponse.typeUrl || Array.isArray(o.payments) && (!o.payments.length || Payment.isSDK(o.payments[0])));
+  },
+  isAmino(o: any): o is QueryPaymentsResponseAmino {
+    return o && (o.$typeUrl === QueryPaymentsResponse.typeUrl || Array.isArray(o.payments) && (!o.payments.length || Payment.isAmino(o.payments[0])));
+  },
   encode(message: QueryPaymentsResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.payments) {
       Payment.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -667,5 +723,12 @@ export const QueryPaymentsResponse = {
       typeUrl: "/akash.escrow.v1beta1.QueryPaymentsResponse",
       value: QueryPaymentsResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryPaymentsResponse.typeUrl)) {
+      return;
+    }
+    Payment.registerTypeUrl();
+    PageResponse.registerTypeUrl();
   }
 };

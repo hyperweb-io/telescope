@@ -1,6 +1,7 @@
 import { MetricValueSet, MetricValueSetAmino, MetricValueSetSDKType } from "./metric_value";
 import { Status, StatusAmino, StatusSDKType } from "../../../rpc/status";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
+import { GlobalDecoderRegistry } from "../../../../registry";
 import { isSet, DeepPartial, isObject } from "../../../../helpers";
 export const protobufPackage = "google.api.servicecontrol.v1";
 /** Supported quota modes. */
@@ -594,6 +595,15 @@ function createBaseAllocateQuotaRequest(): AllocateQuotaRequest {
  */
 export const AllocateQuotaRequest = {
   typeUrl: "/google.api.servicecontrol.v1.AllocateQuotaRequest",
+  is(o: any): o is AllocateQuotaRequest {
+    return o && (o.$typeUrl === AllocateQuotaRequest.typeUrl || typeof o.serviceName === "string" && typeof o.serviceConfigId === "string");
+  },
+  isSDK(o: any): o is AllocateQuotaRequestSDKType {
+    return o && (o.$typeUrl === AllocateQuotaRequest.typeUrl || typeof o.service_name === "string" && typeof o.service_config_id === "string");
+  },
+  isAmino(o: any): o is AllocateQuotaRequestAmino {
+    return o && (o.$typeUrl === AllocateQuotaRequest.typeUrl || typeof o.service_name === "string" && typeof o.service_config_id === "string");
+  },
   encode(message: AllocateQuotaRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.serviceName !== "") {
       writer.uint32(10).string(message.serviceName);
@@ -690,6 +700,12 @@ export const AllocateQuotaRequest = {
       typeUrl: "/google.api.servicecontrol.v1.AllocateQuotaRequest",
       value: AllocateQuotaRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(AllocateQuotaRequest.typeUrl)) {
+      return;
+    }
+    QuotaOperation.registerTypeUrl();
   }
 };
 function createBaseQuotaOperation_LabelsEntry(): QuotaOperation_LabelsEntry {
@@ -778,7 +794,8 @@ export const QuotaOperation_LabelsEntry = {
   },
   toProto(message: QuotaOperation_LabelsEntry): Uint8Array {
     return QuotaOperation_LabelsEntry.encode(message).finish();
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseQuotaOperation(): QuotaOperation {
   return {
@@ -798,6 +815,15 @@ function createBaseQuotaOperation(): QuotaOperation {
  */
 export const QuotaOperation = {
   typeUrl: "/google.api.servicecontrol.v1.QuotaOperation",
+  is(o: any): o is QuotaOperation {
+    return o && (o.$typeUrl === QuotaOperation.typeUrl || typeof o.operationId === "string" && typeof o.methodName === "string" && typeof o.consumerId === "string" && isSet(o.labels) && Array.isArray(o.quotaMetrics) && (!o.quotaMetrics.length || MetricValueSet.is(o.quotaMetrics[0])) && isSet(o.quotaMode));
+  },
+  isSDK(o: any): o is QuotaOperationSDKType {
+    return o && (o.$typeUrl === QuotaOperation.typeUrl || typeof o.operation_id === "string" && typeof o.method_name === "string" && typeof o.consumer_id === "string" && isSet(o.labels) && Array.isArray(o.quota_metrics) && (!o.quota_metrics.length || MetricValueSet.isSDK(o.quota_metrics[0])) && isSet(o.quota_mode));
+  },
+  isAmino(o: any): o is QuotaOperationAmino {
+    return o && (o.$typeUrl === QuotaOperation.typeUrl || typeof o.operation_id === "string" && typeof o.method_name === "string" && typeof o.consumer_id === "string" && isSet(o.labels) && Array.isArray(o.quota_metrics) && (!o.quota_metrics.length || MetricValueSet.isAmino(o.quota_metrics[0])) && isSet(o.quota_mode));
+  },
   encode(message: QuotaOperation, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.operationId !== "") {
       writer.uint32(10).string(message.operationId);
@@ -978,6 +1004,12 @@ export const QuotaOperation = {
       typeUrl: "/google.api.servicecontrol.v1.QuotaOperation",
       value: QuotaOperation.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QuotaOperation.typeUrl)) {
+      return;
+    }
+    MetricValueSet.registerTypeUrl();
   }
 };
 function createBaseAllocateQuotaResponse(): AllocateQuotaResponse {
@@ -996,6 +1028,15 @@ function createBaseAllocateQuotaResponse(): AllocateQuotaResponse {
  */
 export const AllocateQuotaResponse = {
   typeUrl: "/google.api.servicecontrol.v1.AllocateQuotaResponse",
+  is(o: any): o is AllocateQuotaResponse {
+    return o && (o.$typeUrl === AllocateQuotaResponse.typeUrl || typeof o.operationId === "string" && Array.isArray(o.allocateErrors) && (!o.allocateErrors.length || QuotaError.is(o.allocateErrors[0])) && Array.isArray(o.quotaMetrics) && (!o.quotaMetrics.length || MetricValueSet.is(o.quotaMetrics[0])) && typeof o.serviceConfigId === "string");
+  },
+  isSDK(o: any): o is AllocateQuotaResponseSDKType {
+    return o && (o.$typeUrl === AllocateQuotaResponse.typeUrl || typeof o.operation_id === "string" && Array.isArray(o.allocate_errors) && (!o.allocate_errors.length || QuotaError.isSDK(o.allocate_errors[0])) && Array.isArray(o.quota_metrics) && (!o.quota_metrics.length || MetricValueSet.isSDK(o.quota_metrics[0])) && typeof o.service_config_id === "string");
+  },
+  isAmino(o: any): o is AllocateQuotaResponseAmino {
+    return o && (o.$typeUrl === AllocateQuotaResponse.typeUrl || typeof o.operation_id === "string" && Array.isArray(o.allocate_errors) && (!o.allocate_errors.length || QuotaError.isAmino(o.allocate_errors[0])) && Array.isArray(o.quota_metrics) && (!o.quota_metrics.length || MetricValueSet.isAmino(o.quota_metrics[0])) && typeof o.service_config_id === "string");
+  },
   encode(message: AllocateQuotaResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.operationId !== "") {
       writer.uint32(10).string(message.operationId);
@@ -1116,6 +1157,13 @@ export const AllocateQuotaResponse = {
       typeUrl: "/google.api.servicecontrol.v1.AllocateQuotaResponse",
       value: AllocateQuotaResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(AllocateQuotaResponse.typeUrl)) {
+      return;
+    }
+    QuotaError.registerTypeUrl();
+    MetricValueSet.registerTypeUrl();
   }
 };
 function createBaseQuotaError(): QuotaError {
@@ -1134,6 +1182,15 @@ function createBaseQuotaError(): QuotaError {
  */
 export const QuotaError = {
   typeUrl: "/google.api.servicecontrol.v1.QuotaError",
+  is(o: any): o is QuotaError {
+    return o && (o.$typeUrl === QuotaError.typeUrl || isSet(o.code) && typeof o.subject === "string" && typeof o.description === "string");
+  },
+  isSDK(o: any): o is QuotaErrorSDKType {
+    return o && (o.$typeUrl === QuotaError.typeUrl || isSet(o.code) && typeof o.subject === "string" && typeof o.description === "string");
+  },
+  isAmino(o: any): o is QuotaErrorAmino {
+    return o && (o.$typeUrl === QuotaError.typeUrl || isSet(o.code) && typeof o.subject === "string" && typeof o.description === "string");
+  },
   encode(message: QuotaError, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.code !== 0) {
       writer.uint32(8).int32(message.code);
@@ -1244,5 +1301,11 @@ export const QuotaError = {
       typeUrl: "/google.api.servicecontrol.v1.QuotaError",
       value: QuotaError.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QuotaError.typeUrl)) {
+      return;
+    }
+    Status.registerTypeUrl();
   }
 };

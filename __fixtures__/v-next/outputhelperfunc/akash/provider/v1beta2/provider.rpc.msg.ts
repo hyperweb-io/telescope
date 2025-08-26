@@ -1,15 +1,15 @@
 import { Attribute, AttributeSDKType } from "../../base/v1beta2/attribute";
-import { DeliverTxResponse, StdFee, TxRpc } from "../../../types";
+import { StdFee, TxRpc } from "../../../types";
 import { BinaryReader } from "../../../binary";
 import { MsgCreateProvider, MsgCreateProviderSDKType, MsgCreateProviderResponse, MsgCreateProviderResponseSDKType, MsgUpdateProvider, MsgUpdateProviderSDKType, MsgUpdateProviderResponse, MsgUpdateProviderResponseSDKType, MsgDeleteProvider, MsgDeleteProviderSDKType, MsgDeleteProviderResponse, MsgDeleteProviderResponseSDKType } from "./provider";
 /** Msg defines the provider Msg service */
 export interface Msg {
   /** CreateProvider defines a method that creates a provider given the proper inputs */
-  createProvider(signerAddress: string, message: MsgCreateProvider, fee: number | StdFee | "auto", memo?: string): Promise<DeliverTxResponse>;
+  createProvider(signerAddress: string, message: MsgCreateProvider, fee: number | StdFee | "auto", memo?: string): Promise<any>;
   /** UpdateProvider defines a method that updates a provider given the proper inputs */
-  updateProvider(signerAddress: string, message: MsgUpdateProvider, fee: number | StdFee | "auto", memo?: string): Promise<DeliverTxResponse>;
+  updateProvider(signerAddress: string, message: MsgUpdateProvider, fee: number | StdFee | "auto", memo?: string): Promise<any>;
   /** DeleteProvider defines a method that deletes a provider given the proper inputs */
-  deleteProvider(signerAddress: string, message: MsgDeleteProvider, fee: number | StdFee | "auto", memo?: string): Promise<DeliverTxResponse>;
+  deleteProvider(signerAddress: string, message: MsgDeleteProvider, fee: number | StdFee | "auto", memo?: string): Promise<any>;
 }
 export class MsgClientImpl implements Msg {
   private readonly rpc: TxRpc;
@@ -17,7 +17,7 @@ export class MsgClientImpl implements Msg {
     this.rpc = rpc;
   }
   /* CreateProvider defines a method that creates a provider given the proper inputs */
-  createProvider = async (signerAddress: string, message: MsgCreateProvider, fee: number | StdFee | "auto" = "auto", memo: string = ""): Promise<DeliverTxResponse> => {
+  createProvider = async (signerAddress: string, message: MsgCreateProvider, fee: number | StdFee | "auto" = "auto", memo: string = ""): Promise<any> => {
     const data = [{
       typeUrl: MsgCreateProvider.typeUrl,
       value: message
@@ -25,7 +25,7 @@ export class MsgClientImpl implements Msg {
     return this.rpc.signAndBroadcast!(signerAddress, data, fee, memo);
   };
   /* UpdateProvider defines a method that updates a provider given the proper inputs */
-  updateProvider = async (signerAddress: string, message: MsgUpdateProvider, fee: number | StdFee | "auto" = "auto", memo: string = ""): Promise<DeliverTxResponse> => {
+  updateProvider = async (signerAddress: string, message: MsgUpdateProvider, fee: number | StdFee | "auto" = "auto", memo: string = ""): Promise<any> => {
     const data = [{
       typeUrl: MsgUpdateProvider.typeUrl,
       value: message
@@ -33,7 +33,7 @@ export class MsgClientImpl implements Msg {
     return this.rpc.signAndBroadcast!(signerAddress, data, fee, memo);
   };
   /* DeleteProvider defines a method that deletes a provider given the proper inputs */
-  deleteProvider = async (signerAddress: string, message: MsgDeleteProvider, fee: number | StdFee | "auto" = "auto", memo: string = ""): Promise<DeliverTxResponse> => {
+  deleteProvider = async (signerAddress: string, message: MsgDeleteProvider, fee: number | StdFee | "auto" = "auto", memo: string = ""): Promise<any> => {
     const data = [{
       typeUrl: MsgDeleteProvider.typeUrl,
       value: message

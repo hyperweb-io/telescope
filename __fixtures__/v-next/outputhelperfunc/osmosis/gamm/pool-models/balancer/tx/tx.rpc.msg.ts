@@ -1,9 +1,9 @@
 import { PoolParams, PoolParamsSDKType, PoolAsset, PoolAssetSDKType } from "../balancerPool";
-import { DeliverTxResponse, StdFee, TxRpc } from "../../../../../types";
+import { StdFee, TxRpc } from "../../../../../types";
 import { BinaryReader } from "../../../../../binary";
 import { MsgCreateBalancerPool, MsgCreateBalancerPoolSDKType, MsgCreateBalancerPoolResponse, MsgCreateBalancerPoolResponseSDKType } from "./tx";
 export interface Msg {
-  createBalancerPool(signerAddress: string, message: MsgCreateBalancerPool, fee: number | StdFee | "auto", memo?: string): Promise<DeliverTxResponse>;
+  createBalancerPool(signerAddress: string, message: MsgCreateBalancerPool, fee: number | StdFee | "auto", memo?: string): Promise<any>;
 }
 export class MsgClientImpl implements Msg {
   private readonly rpc: TxRpc;
@@ -11,7 +11,7 @@ export class MsgClientImpl implements Msg {
     this.rpc = rpc;
   }
   /* CreateBalancerPool */
-  createBalancerPool = async (signerAddress: string, message: MsgCreateBalancerPool, fee: number | StdFee | "auto" = "auto", memo: string = ""): Promise<DeliverTxResponse> => {
+  createBalancerPool = async (signerAddress: string, message: MsgCreateBalancerPool, fee: number | StdFee | "auto" = "auto", memo: string = ""): Promise<any> => {
     const data = [{
       typeUrl: MsgCreateBalancerPool.typeUrl,
       value: message

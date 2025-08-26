@@ -3,13 +3,7 @@ import { DecCoin, DecCoinSDKType, Coin, CoinSDKType } from "../../../cosmos/base
 import { BidID, BidIDSDKType, MsgCreateBid, MsgCreateBidSDKType, MsgCloseBid, MsgCloseBidSDKType } from "./bid";
 import { LeaseID, LeaseIDSDKType, MsgWithdrawLease, MsgWithdrawLeaseSDKType, MsgCreateLease, MsgCreateLeaseSDKType, MsgCloseLease, MsgCloseLeaseSDKType } from "./lease";
 import { TelescopeGeneratedType } from "../../../types";
-import { Registry } from "@cosmjs/proto-signing";
 export const registry: ReadonlyArray<[string, TelescopeGeneratedType<any, any, any>]> = [["/akash.market.v1beta2.MsgCreateBid", MsgCreateBid], ["/akash.market.v1beta2.MsgCloseBid", MsgCloseBid], ["/akash.market.v1beta2.MsgWithdrawLease", MsgWithdrawLease], ["/akash.market.v1beta2.MsgCreateLease", MsgCreateLease], ["/akash.market.v1beta2.MsgCloseLease", MsgCloseLease]];
-export const load = (protoRegistry: Registry) => {
-  registry.forEach(([typeUrl, mod]) => {
-    protoRegistry.register(typeUrl, mod);
-  });
-};
 export const MessageComposer = {
   encoded: {
     createBid(value: MsgCreateBid) {

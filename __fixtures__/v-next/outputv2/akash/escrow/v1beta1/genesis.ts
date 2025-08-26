@@ -2,6 +2,7 @@ import { Account, AccountAmino, AccountSDKType, Payment, PaymentAmino, PaymentSD
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { JsonSafe } from "../../../json-safe";
 import { DeepPartial } from "../../../helpers";
+import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "akash.escrow.v1beta1";
 /**
  * GenesisState defines the basic genesis state used by escrow module
@@ -55,6 +56,15 @@ function createBaseGenesisState(): GenesisState {
  */
 export const GenesisState = {
   typeUrl: "/akash.escrow.v1beta1.GenesisState",
+  is(o: any): o is GenesisState {
+    return o && (o.$typeUrl === GenesisState.typeUrl || Array.isArray(o.accounts) && (!o.accounts.length || Account.is(o.accounts[0])) && Array.isArray(o.payments) && (!o.payments.length || Payment.is(o.payments[0])));
+  },
+  isSDK(o: any): o is GenesisStateSDKType {
+    return o && (o.$typeUrl === GenesisState.typeUrl || Array.isArray(o.accounts) && (!o.accounts.length || Account.isSDK(o.accounts[0])) && Array.isArray(o.payments) && (!o.payments.length || Payment.isSDK(o.payments[0])));
+  },
+  isAmino(o: any): o is GenesisStateAmino {
+    return o && (o.$typeUrl === GenesisState.typeUrl || Array.isArray(o.accounts) && (!o.accounts.length || Account.isAmino(o.accounts[0])) && Array.isArray(o.payments) && (!o.payments.length || Payment.isAmino(o.payments[0])));
+  },
   encode(message: GenesisState, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.accounts) {
       Account.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -164,5 +174,12 @@ export const GenesisState = {
       typeUrl: "/akash.escrow.v1beta1.GenesisState",
       value: GenesisState.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(GenesisState.typeUrl)) {
+      return;
+    }
+    Account.registerTypeUrl();
+    Payment.registerTypeUrl();
   }
 };

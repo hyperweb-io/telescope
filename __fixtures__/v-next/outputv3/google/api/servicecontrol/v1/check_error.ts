@@ -1,6 +1,7 @@
 import { Status, StatusAmino, StatusSDKType } from "../../../rpc/status";
-import { BinaryReader, BinaryWriter } from "../../../../binary";
 import { isSet, DeepPartial } from "../../../../helpers";
+import { BinaryReader, BinaryWriter } from "../../../../binary";
+import { GlobalDecoderRegistry } from "../../../../registry";
 export const protobufPackage = "google.api.servicecontrol.v1";
 /** Error codes for Check responses. */
 export enum CheckError_Code {
@@ -289,6 +290,15 @@ function createBaseCheckError(): CheckError {
  */
 export const CheckError = {
   typeUrl: "/google.api.servicecontrol.v1.CheckError",
+  is(o: any): o is CheckError {
+    return o && (o.$typeUrl === CheckError.typeUrl || isSet(o.code) && typeof o.subject === "string" && typeof o.detail === "string");
+  },
+  isSDK(o: any): o is CheckErrorSDKType {
+    return o && (o.$typeUrl === CheckError.typeUrl || isSet(o.code) && typeof o.subject === "string" && typeof o.detail === "string");
+  },
+  isAmino(o: any): o is CheckErrorAmino {
+    return o && (o.$typeUrl === CheckError.typeUrl || isSet(o.code) && typeof o.subject === "string" && typeof o.detail === "string");
+  },
   encode(message: CheckError, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.code !== 0) {
       writer.uint32(8).int32(message.code);
@@ -399,5 +409,11 @@ export const CheckError = {
       typeUrl: "/google.api.servicecontrol.v1.CheckError",
       value: CheckError.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(CheckError.typeUrl)) {
+      return;
+    }
+    Status.registerTypeUrl();
   }
 };

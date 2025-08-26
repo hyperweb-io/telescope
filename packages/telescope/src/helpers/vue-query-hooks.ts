@@ -16,7 +16,7 @@ import {
 import { ISigningClient, isISigningClient } from "@interchainjs/cosmos/types/signing-client${options.restoreImportExtension ?? ""}";
 import {
   StdFee,
-  DeliverTxResponse,
+
 } from './types${options.restoreImportExtension ?? ""}'
 import {
     useQuery,
@@ -176,7 +176,7 @@ export interface UseMutationBuilderOptions<TMsg> {
     message: TMsg | TMsg[],
     fee: StdFee | 'auto',
     memo: string
-  ) => Promise<DeliverTxResponse>;
+  ) => Promise<any>;
 }
 
 export function buildUseVueMutation<TMsg, TError>(
@@ -185,7 +185,7 @@ export function buildUseVueMutation<TMsg, TError>(
   return function useBuiltMutation({
     options,
     clientResolver,
-  }: VueMutationParams<DeliverTxResponse, TError, ITxArgs<TMsg>>) {
+  }: VueMutationParams<any, TError, ITxArgs<TMsg>>) {
     const queryClient = useQueryClient();
 
     let signingClientResolver: ISigningClient | undefined;
@@ -205,7 +205,7 @@ export function buildUseVueMutation<TMsg, TError>(
       clientResolver = clientResolver;
     }
 
-    return useMutation<DeliverTxResponse, TError, ITxArgs<TMsg>>(
+    return useMutation<any, TError, ITxArgs<TMsg>>(
       {
         mutationFn: (reqData: ITxArgs<TMsg>) =>
           opts.builderMutationFn(

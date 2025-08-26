@@ -1,6 +1,7 @@
 # Telescope 🔭
 
 > ⚠️ **Important**: Please upgrade to `@hyperweb/telescope` to leverage new features like generating MCP servers and agents for AI-powered blockchain interactions!
+**Update**: We have now updated '@hyperweb/telescope' to version 2.0 which now use interchainjs as the default dependency.
 
 <p align="center">
   <img width="280" src="https://user-images.githubusercontent.com/545047/175660665-5cbde84b-0928-4e59-ab56-be6adb2f3a7e.png"/>
@@ -532,12 +533,12 @@ telescope({
 | option                                    | description                                                     | defaults   |
 | ----------------------------------------- | --------------------------------------------------------------  | ---------- |
 | `interfaces.enabled`                      | Enable converters between Any type and specific implemented interfaces                | `true`     |
-| `interfaces.useGlobalDecoderRegistry`     | Enable GlobalDecoderRegistry and related functions. Highly recommended when dealing with fields with 'accepted_interface' option. See 'packages/telescope/__tests__/impl-interfaces.test.ts' for usage. | `false`     |
+| `interfaces.useGlobalDecoderRegistry`     | Enable GlobalDecoderRegistry and related functions. Highly recommended when dealing with fields with 'accepted_interface' option. See 'packages/telescope/__tests__/impl-interfaces.test.ts' for usage. | `true`     |
 | `interfaces.registerAllDecodersToGlobal`  | Automatically register all decoders to the global registry      | `true`     |
 | `interfaces.useUseInterfacesParams`       | Add `useInterfaces` argument to `decode` and `toAmino` functions                | `false`     |
 | `interfaces.useByDefault`                 | Use interface decoders by default (default for `useInterfaces` argument to `decode` and `toAmino` functions)                | `true`     |
 | `interfaces.useByDefaultRpc`              | Use interface decoders by default in RPC clients                | `true`     |
-| `interfaces.useUnionTypes`                | Generate Any type as union types (TextProposal \| RegisterIncentiveProposal) instead of intersection types (TextProposal & RegisterIncentiveProposal)                | `false`     |
+| `interfaces.useUnionTypes`                | Generate Any type as union types (TextProposal \| RegisterIncentiveProposal) instead of intersection types (TextProposal & RegisterIncentiveProposal)                | `true`     |
 
 ### Prototypes Options
 
@@ -563,7 +564,7 @@ telescope({
 | `prototypes.addTypeUrlToObjects`          | Add typeUrl field to generated Decoders                                                                                                                                          | `true`      |
 | `prototypes.strictNullCheckForPrototypeMethods` | Enable strict null checks for prototype methods                                                                                                                           | `false`     |
 | `prototypes.paginationDefaultFromPartial` | Set default values for pagination in fromPartial methods                                                                                                                         | `false`     |
-| `prototypes.enableRegistryLoader`         | Generate Registry loader in *.registry.ts files                                                                                                                                  | `true`      |
+| `prototypes.enableRegistryLoader`         | Generate Registry loader in *.registry.ts files                                                                                                                                  | `false`      |
 | `prototypes.enableMessageComposer`        | Generate MessageComposer in *.registry.ts files                                                                                                                                  | `true`      |
 | `prototypes.patch`                        | Object mapping filenames to an array of `Operation` to be applied as patches to proto files during generation. See [JSON Patch Protos](#json-patch-protos)                    | `undefined` |
 
@@ -573,12 +574,16 @@ telescope({
 | ---------------------------------- | -----------------------------------------------------------------  | ------- |
 | `prototypes.methods.encode`        | Enable `encode` method on proto objects                 | `true`  |
 | `prototypes.methods.decode`        | Enable `decode` method on proto objects                 | `true`  |
-| `prototypes.methods.fromJSON`      | Enable `fromJSON` method on proto objects               | `true`  |
-| `prototypes.methods.toJSON`        | Enable `toJSON` method on proto objects                 | `true`  |
+| `prototypes.methods.fromJSON`      | Enable `fromJSON` method on proto objects               | `false`  |
+| `prototypes.methods.toJSON`        | Enable `toJSON` method on proto objects                 | `false`  |
 | `prototypes.methods.fromPartial`   | Enable `fromPartial` method on proto objects            | `true`  |
 | `prototypes.methods.fromSDK`       | Enable `fromSDK` method on proto objects                | `false` |
 | `prototypes.methods.toSDK`         | Enable `toSDK` method on proto objects                  | `false` |
-
+| `prototypes.methods.fromSDKJSON`         | boolean to enable `fromSDKJSON` method on proto objects                  | `false` |
+| `prototypes.methods.toAmino`         | boolean to enable `toAmino` method on proto objects                  | `true` |
+| `prototypes.methods.fromAmino`         | boolean to enable `fromAmino` method on proto objects                  | `true` |
+| `prototypes.methods.toProto`         | boolean to enable `toProto` method on proto objects                  | `true` |
+| `prototypes.methods.fromProto`         | boolean to enable `fromProto` method on proto objects                  | `true` |
 ### Enums Options
 
 | option                                | description                                                     | defaults   |
@@ -590,7 +595,7 @@ telescope({
 
 | option                         | description                                                     | defaults   |
 | ------------------------------ | --------------------------------------------------------------  | ---------- |
-| `lcdClients.enabled`           | Generate LCD clients that can query proto `Query` messages      | `true`     |
+| `lcdClients.enabled`           | Generate LCD clients that can query proto `Query` messages      | `false`     |
 | `lcdClients.bundle`            | Generate factory bundle aggregate of all LCD Clients       | `true`     |
 | `lcdClients.scoped`            | Generate factory of scoped LCD Clients                     | `undefined`|
 | `lcdClients.scopedIsExclusive` | Allow both scoped bundles and all RPC Clients              | `true`     |
@@ -612,7 +617,7 @@ See [LCD Clients](#lcd-clients) for more info.
 | option                         | description                                                             | defaults                      |
 | ------------------------------ | ----------------------------------------------------------------------  | ----------------------------- |
 | `rpcClients.type`              | Generate this type of RPC client (`tendermint`, `gRPC-web`, `gRPC`)| `tendermint`                  |
-| `rpcClients.enabled`           | Generate RPC clients that can interact with proto messages              | `true`                        |
+| `rpcClients.enabled`           | Generate RPC clients that can interact with proto messages              | `false`                        |
 | `rpcClients.bundle`            | Generate factory bundle aggregate of all RPC Clients               | `true`                        |
 | `rpcClients.inline`            | Inline all RPC client methods into a single file                       | `false`                       |
 | `rpcClients.extensions`        | Enable extensions for RPC clients                                       | `true`                        |
@@ -637,8 +642,8 @@ See [RPC Clients](#rpc-clients) for more info.
 
 | Option                                  | Description                                                                                          | Defaults                     |
 | --------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------- |
-| `helperFunctions.enabled`            | Enable the generation of helper function files `.func.ts`                                                   | `false`                      |
-| `helperFunctions.useGlobalDecoderRegistry` | Use global decoder registry in helper functions                                                   | `false`                      |
+| `helperFunctions.enabled`            | Enable the generation of helper function files `.func.ts`                                                   | `true`                      |
+| `helperFunctions.useGlobalDecoderRegistry` | Use global decoder registry in helper functions                                                   | `true`                      |
 | `helperFunctions.hooks`     | Generates hooks selected alongside helper functions                                                     | `{ react: false, vue: false }`                      |
 | `helperFunctions.include.serviceTypes`| Specifies which types of services to include (`Query`, `Msg`). `undefined` includes all types. | `undefined`                  |
 | `helperFunctions.include.patterns`   | Array of glob patterns patterns (e.g., `"**"`, `"cosmos.bank.v1beta1.bala*"`, etc.) to match specific proto services.     | `undefined`                         |
@@ -656,8 +661,9 @@ See [Helper Functions Configuration](#helper-functions-configuration) for more i
 
 | option                                       | description                                                     | defaults |
 | -------------------------------------------- | --------------------------------------------------------------  | ---------|
-| `stargateClients.includeCosmosDefaultTypes`  | Include the CosmJS defaults with stargate clients | `true` (except cosmos package) |
-| `stargateClients.addGetTxRpc`  | Add getSigningTxRpc to clients in namespaces | `false` |
+| `stargateClients.enabled`  | if true, will include the cosmjs defaults with stargate clients | `false` |
+| `stargateClients.includeCosmosDefaultTypes`  | if true, will include the cosmjs defaults with stargate clients | `true` (except cosmos package) |
+| `stargateClients.addGetTxRpc`  | if true, will add getSigningTxRpc to clients in namespaces | `false` |
 
 ### State Management
 
@@ -706,10 +712,10 @@ See [Helper Functions Configuration](#helper-functions-configuration) for more i
 | `prototypes.typingsFormat.customTypes.useEnhancedDecimal` | Use patched decimal instead of decimal from @cosmjs/math    | `false`    |
 | `prototypes.typingsFormat.customTypes.base64Lib` | Use endo/base64 methods | `undefined` |
 | `prototypes.typingsFormat.num64` | 'long' or 'bigint', the way of generating int64 proto types. Set to 'bigint' to use more stable built-in type   | `bigint`    |
-| `prototypes.typingsFormat.useTelescopeGeneratedType` | Discard GeneratedType from CosmJS, use TelescopeGeneratedType instead inside *.registry.ts files  | `false`    |
+| `prototypes.typingsFormat.useTelescopeGeneratedType` | Discard GeneratedType from CosmJS, use TelescopeGeneratedType instead inside *.registry.ts files  | `true`    |
 | `prototypes.typingsFormat.useDeepPartial` | Use `DeepPartial` type instead of `Partial` TS type    | `false`    |
 | `prototypes.typingsFormat.useExact`       | Use the `Exact` TS type      | `false`   |
-| `prototypes.typingsFormat.toJsonUnknown`  | Use `any` for `toJSON` methods instead of `JsonSafe`      | `true`   |
+| `prototypes.typingsFormat.toJsonUnknown`  | Use `any` for `toJSON` methods instead of `JsonSafe`      | `false`   |
 | `prototypes.typingsFormat.timestamp`      | Use either `date` or `timestamp` for `Timestamp` proto type     | "date"    |
 | `prototypes.typingsFormat.duration`       | Use either `duration` or `string` for `Duration` proto type     | "duration"|
 | `prototypes.typingsFormat.updatedDuration` | temporary field to avoid breaking changes | `false` |
@@ -721,6 +727,9 @@ See [Helper Functions Configuration](#helper-functions-configuration) for more i
 
 | option                                    | description                                                     | defaults  |
 | ----------------------------------------- | --------------------------------------------------------------  | --------- |
+| `prototypes.parser.keepCase`              | passes `keepCase` to protobuf `parse()` to keep original casing | `false`   |
+| `prototypes.parser.alternateCommentMode`  | passes `alternateCommentMode` to protobuf `parse()` method      | `true`    |
+| `prototypes.parser.preferTrailingComment` | passes `preferTrailingComment` to protobuf `parse()` method     | `false`   |
 | `prototypes.parser.keepCase`              | Pass `keepCase` to protobuf `parse()` to keep original casing | `true`   |
 | `prototypes.parser.alternateCommentMode`  | Pass `alternateCommentMode` to protobuf `parse()` method      | `true`    |
 | `prototypes.parser.preferTrailingComment` | Pass `preferTrailingComment` to protobuf `parse()` method     | `false`   |
@@ -765,6 +774,13 @@ See [MCP Integration](https://docs.hyperweb.io/telescope/developing/mcp-integrat
 
 | option                         | description                                                        | defaults   |
 | ------------------------------ | -----------------------------------------------------------------  | ---------- |
+| `env`          | 'default' or 'v-next', set to 'v-next' to enable yet to release features                                             | `v-next`     |
+| `useInterchainJs`          | use interchain.js features                                             | `true`     |
+| `removeUnusedImports`          | removes unused imports                                             | `true`     |
+| `classesUseArrowFunctions`     | classes use arrow functions instead of `bind()`ing in constructors | `false`    |
+| `useSDKTypes`     | use SDK types | `true`    |
+| `includeExternalHelpers`       | exports a few helpers functions in `extern.ts`                     | `false`    |
+| `restoreImportExtension`       | restore extensions of imported paths. e.g: '.js'. null means no ext                    | `null`    |
 | `env`          | 'default' or 'v-next', set to 'v-next' to enable yet-to-be-released features                                             | `default`     |
 | `removeUnusedImports`          | Remove unused imports                                             | `true`     |
 | `classesUseArrowFunctions`     | Classes use arrow functions instead of `bind()`ing in constructors | `false`    |

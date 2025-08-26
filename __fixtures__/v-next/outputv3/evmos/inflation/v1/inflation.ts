@@ -1,5 +1,5 @@
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { Decimal } from "@cosmjs/math";
+import { Decimal } from "@interchainjs/math";
 import { isSet, DeepPartial } from "../../../helpers";
 export const protobufPackage = "evmos.inflation.v1";
 /**
@@ -187,6 +187,15 @@ function createBaseInflationDistribution(): InflationDistribution {
  */
 export const InflationDistribution = {
   typeUrl: "/evmos.inflation.v1.InflationDistribution",
+  is(o: any): o is InflationDistribution {
+    return o && (o.$typeUrl === InflationDistribution.typeUrl || typeof o.stakingRewards === "string" && typeof o.usageIncentives === "string" && typeof o.communityPool === "string");
+  },
+  isSDK(o: any): o is InflationDistributionSDKType {
+    return o && (o.$typeUrl === InflationDistribution.typeUrl || typeof o.staking_rewards === "string" && typeof o.usage_incentives === "string" && typeof o.community_pool === "string");
+  },
+  isAmino(o: any): o is InflationDistributionAmino {
+    return o && (o.$typeUrl === InflationDistribution.typeUrl || typeof o.staking_rewards === "string" && typeof o.usage_incentives === "string" && typeof o.community_pool === "string");
+  },
   encode(message: InflationDistribution, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.stakingRewards !== "") {
       writer.uint32(10).string(Decimal.fromUserInput(message.stakingRewards, 18).atomics);
@@ -265,9 +274,9 @@ export const InflationDistribution = {
   },
   toAmino(message: InflationDistribution, useInterfaces: boolean = true): InflationDistributionAmino {
     const obj: any = {};
-    obj.staking_rewards = message.stakingRewards === "" ? undefined : message.stakingRewards;
-    obj.usage_incentives = message.usageIncentives === "" ? undefined : message.usageIncentives;
-    obj.community_pool = message.communityPool === "" ? undefined : message.communityPool;
+    obj.staking_rewards = message.stakingRewards === "" ? undefined : Decimal.fromUserInput(message.stakingRewards, 18).atomics;
+    obj.usage_incentives = message.usageIncentives === "" ? undefined : Decimal.fromUserInput(message.usageIncentives, 18).atomics;
+    obj.community_pool = message.communityPool === "" ? undefined : Decimal.fromUserInput(message.communityPool, 18).atomics;
     return obj;
   },
   fromProtoMsg(message: InflationDistributionProtoMsg, useInterfaces: boolean = true): InflationDistribution {
@@ -281,7 +290,8 @@ export const InflationDistribution = {
       typeUrl: "/evmos.inflation.v1.InflationDistribution",
       value: InflationDistribution.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseExponentialCalculation(): ExponentialCalculation {
   return {
@@ -304,6 +314,15 @@ function createBaseExponentialCalculation(): ExponentialCalculation {
  */
 export const ExponentialCalculation = {
   typeUrl: "/evmos.inflation.v1.ExponentialCalculation",
+  is(o: any): o is ExponentialCalculation {
+    return o && (o.$typeUrl === ExponentialCalculation.typeUrl || typeof o.a === "string" && typeof o.r === "string" && typeof o.c === "string" && typeof o.bondingTarget === "string" && typeof o.maxVariance === "string");
+  },
+  isSDK(o: any): o is ExponentialCalculationSDKType {
+    return o && (o.$typeUrl === ExponentialCalculation.typeUrl || typeof o.a === "string" && typeof o.r === "string" && typeof o.c === "string" && typeof o.bonding_target === "string" && typeof o.max_variance === "string");
+  },
+  isAmino(o: any): o is ExponentialCalculationAmino {
+    return o && (o.$typeUrl === ExponentialCalculation.typeUrl || typeof o.a === "string" && typeof o.r === "string" && typeof o.c === "string" && typeof o.bonding_target === "string" && typeof o.max_variance === "string");
+  },
   encode(message: ExponentialCalculation, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.a !== "") {
       writer.uint32(10).string(Decimal.fromUserInput(message.a, 18).atomics);
@@ -408,11 +427,11 @@ export const ExponentialCalculation = {
   },
   toAmino(message: ExponentialCalculation, useInterfaces: boolean = true): ExponentialCalculationAmino {
     const obj: any = {};
-    obj.a = message.a === "" ? undefined : message.a;
-    obj.r = message.r === "" ? undefined : message.r;
-    obj.c = message.c === "" ? undefined : message.c;
-    obj.bonding_target = message.bondingTarget === "" ? undefined : message.bondingTarget;
-    obj.max_variance = message.maxVariance === "" ? undefined : message.maxVariance;
+    obj.a = message.a === "" ? undefined : Decimal.fromUserInput(message.a, 18).atomics;
+    obj.r = message.r === "" ? undefined : Decimal.fromUserInput(message.r, 18).atomics;
+    obj.c = message.c === "" ? undefined : Decimal.fromUserInput(message.c, 18).atomics;
+    obj.bonding_target = message.bondingTarget === "" ? undefined : Decimal.fromUserInput(message.bondingTarget, 18).atomics;
+    obj.max_variance = message.maxVariance === "" ? undefined : Decimal.fromUserInput(message.maxVariance, 18).atomics;
     return obj;
   },
   fromProtoMsg(message: ExponentialCalculationProtoMsg, useInterfaces: boolean = true): ExponentialCalculation {
@@ -426,5 +445,6 @@ export const ExponentialCalculation = {
       typeUrl: "/evmos.inflation.v1.ExponentialCalculation",
       value: ExponentialCalculation.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

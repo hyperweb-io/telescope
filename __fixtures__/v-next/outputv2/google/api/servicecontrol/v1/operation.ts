@@ -400,7 +400,8 @@ export const Operation_LabelsEntry = {
   },
   toProto(message: Operation_LabelsEntry): Uint8Array {
     return Operation_LabelsEntry.encode(message).finish();
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseOperation(): Operation {
   return {
@@ -424,6 +425,15 @@ function createBaseOperation(): Operation {
  */
 export const Operation = {
   typeUrl: "/google.api.servicecontrol.v1.Operation",
+  is(o: any): o is Operation {
+    return o && (o.$typeUrl === Operation.typeUrl || typeof o.operationId === "string" && typeof o.operationName === "string" && typeof o.consumerId === "string" && isSet(o.labels) && Array.isArray(o.metricValueSets) && (!o.metricValueSets.length || MetricValueSet.is(o.metricValueSets[0])) && Array.isArray(o.logEntries) && (!o.logEntries.length || LogEntry.is(o.logEntries[0])) && isSet(o.importance) && Array.isArray(o.extensions) && (!o.extensions.length || Any.is(o.extensions[0])));
+  },
+  isSDK(o: any): o is OperationSDKType {
+    return o && (o.$typeUrl === Operation.typeUrl || typeof o.operation_id === "string" && typeof o.operation_name === "string" && typeof o.consumer_id === "string" && isSet(o.labels) && Array.isArray(o.metric_value_sets) && (!o.metric_value_sets.length || MetricValueSet.isSDK(o.metric_value_sets[0])) && Array.isArray(o.log_entries) && (!o.log_entries.length || LogEntry.isSDK(o.log_entries[0])) && isSet(o.importance) && Array.isArray(o.extensions) && (!o.extensions.length || Any.isSDK(o.extensions[0])));
+  },
+  isAmino(o: any): o is OperationAmino {
+    return o && (o.$typeUrl === Operation.typeUrl || typeof o.operation_id === "string" && typeof o.operation_name === "string" && typeof o.consumer_id === "string" && isSet(o.labels) && Array.isArray(o.metric_value_sets) && (!o.metric_value_sets.length || MetricValueSet.isAmino(o.metric_value_sets[0])) && Array.isArray(o.log_entries) && (!o.log_entries.length || LogEntry.isAmino(o.log_entries[0])) && isSet(o.importance) && Array.isArray(o.extensions) && (!o.extensions.length || Any.isAmino(o.extensions[0])));
+  },
   encode(message: Operation, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.operationId !== "") {
       writer.uint32(10).string(message.operationId);
@@ -706,5 +716,6 @@ export const Operation = {
       typeUrl: "/google.api.servicecontrol.v1.Operation",
       value: Operation.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

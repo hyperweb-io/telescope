@@ -8,6 +8,7 @@ import { PoolProtoMsg as Pool2ProtoMsg } from "../pool-models/stableswap/stables
 import { PoolSDKType as Pool2SDKType } from "../pool-models/stableswap/stableswap_pool";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { DeepPartial, isSet } from "../../../helpers";
+import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "osmosis.gamm.v1beta1";
 /**
  * Params holds parameters for the incentives module
@@ -100,6 +101,15 @@ function createBaseParams(): Params {
 export const Params = {
   typeUrl: "/osmosis.gamm.v1beta1.Params",
   aminoType: "osmosis/gamm/params",
+  is(o: any): o is Params {
+    return o && (o.$typeUrl === Params.typeUrl || Array.isArray(o.poolCreationFee) && (!o.poolCreationFee.length || Coin.is(o.poolCreationFee[0])));
+  },
+  isSDK(o: any): o is ParamsSDKType {
+    return o && (o.$typeUrl === Params.typeUrl || Array.isArray(o.pool_creation_fee) && (!o.pool_creation_fee.length || Coin.isSDK(o.pool_creation_fee[0])));
+  },
+  isAmino(o: any): o is ParamsAmino {
+    return o && (o.$typeUrl === Params.typeUrl || Array.isArray(o.pool_creation_fee) && (!o.pool_creation_fee.length || Coin.isAmino(o.pool_creation_fee[0])));
+  },
   encode(message: Params, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.poolCreationFee) {
       Coin.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -172,6 +182,12 @@ export const Params = {
       typeUrl: "/osmosis.gamm.v1beta1.Params",
       value: Params.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Params.typeUrl)) {
+      return;
+    }
+    Coin.registerTypeUrl();
   }
 };
 function createBaseGenesisState(): GenesisState {
@@ -190,9 +206,18 @@ function createBaseGenesisState(): GenesisState {
 export const GenesisState = {
   typeUrl: "/osmosis.gamm.v1beta1.GenesisState",
   aminoType: "osmosis/gamm/genesis-state",
+  is(o: any): o is GenesisState {
+    return o && (o.$typeUrl === GenesisState.typeUrl || Array.isArray(o.pools) && (!o.pools.length || Pool1.is(o.pools[0]) || Pool2.is(o.pools[0]) || Any.is(o.pools[0])) && typeof o.nextPoolNumber === "bigint" && Params.is(o.params));
+  },
+  isSDK(o: any): o is GenesisStateSDKType {
+    return o && (o.$typeUrl === GenesisState.typeUrl || Array.isArray(o.pools) && (!o.pools.length || Pool1.isSDK(o.pools[0]) || Pool2.isSDK(o.pools[0]) || Any.isSDK(o.pools[0])) && typeof o.next_pool_number === "bigint" && Params.isSDK(o.params));
+  },
+  isAmino(o: any): o is GenesisStateAmino {
+    return o && (o.$typeUrl === GenesisState.typeUrl || Array.isArray(o.pools) && (!o.pools.length || Pool1.isAmino(o.pools[0]) || Pool2.isAmino(o.pools[0]) || Any.isAmino(o.pools[0])) && typeof o.next_pool_number === "bigint" && Params.isAmino(o.params));
+  },
   encode(message: GenesisState, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.pools) {
-      Any.encode((v! as Any), writer.uint32(10).fork()).ldelim();
+      Any.encode(GlobalDecoderRegistry.wrapAny(v!), writer.uint32(10).fork()).ldelim();
     }
     if (message.nextPoolNumber !== BigInt(0)) {
       writer.uint32(16).uint64(message.nextPoolNumber);
@@ -210,7 +235,7 @@ export const GenesisState = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.pools.push(useInterfaces ? (PoolI_InterfaceDecoder(reader) as Any) : Any.decode(reader, reader.uint32(), useInterfaces));
+          message.pools.push(GlobalDecoderRegistry.unwrapAny(reader));
           break;
         case 2:
           message.nextPoolNumber = reader.uint64();
@@ -227,14 +252,14 @@ export const GenesisState = {
   },
   fromJSON(object: any): GenesisState {
     const obj = createBaseGenesisState();
-    if (Array.isArray(object?.pools)) obj.pools = object.pools.map((e: any) => Any.fromJSON(e));
+    if (Array.isArray(object?.pools)) obj.pools = object.pools.map((e: any) => GlobalDecoderRegistry.fromJSON(e));
     if (isSet(object.nextPoolNumber)) obj.nextPoolNumber = BigInt(object.nextPoolNumber.toString());
     if (isSet(object.params)) obj.params = Params.fromJSON(object.params);
     return obj;
   },
   fromPartial(object: DeepPartial<GenesisState>): GenesisState {
     const message = createBaseGenesisState();
-    message.pools = object.pools?.map(e => Any.fromPartial(e)) || [];
+    message.pools = object.pools?.map(e => (GlobalDecoderRegistry.fromPartial(e) as any)) || [];
     if (object.nextPoolNumber !== undefined && object.nextPoolNumber !== null) {
       message.nextPoolNumber = BigInt(object.nextPoolNumber.toString());
     }
@@ -245,7 +270,7 @@ export const GenesisState = {
   },
   fromSDK(object: GenesisStateSDKType): GenesisState {
     return {
-      pools: Array.isArray(object?.pools) ? object.pools.map((e: any) => Any.fromSDK(e)) : [],
+      pools: Array.isArray(object?.pools) ? object.pools.map((e: any) => GlobalDecoderRegistry.fromSDK(e)) : [],
       nextPoolNumber: object?.next_pool_number,
       params: object.params ? Params.fromSDK(object.params) : undefined
     };
@@ -253,7 +278,7 @@ export const GenesisState = {
   toSDK(message: GenesisState): GenesisStateSDKType {
     const obj: any = {};
     if (message.pools) {
-      obj.pools = message.pools.map(e => e ? Any.toSDK(e) : undefined);
+      obj.pools = message.pools.map(e => e ? GlobalDecoderRegistry.toSDK(e) : undefined);
     } else {
       obj.pools = [];
     }
@@ -263,7 +288,7 @@ export const GenesisState = {
   },
   fromAmino(object: GenesisStateAmino): GenesisState {
     const message = createBaseGenesisState();
-    message.pools = object.pools?.map(e => PoolI_FromAmino(e)) || [];
+    message.pools = object.pools?.map(e => GlobalDecoderRegistry.fromAminoMsg(e)) || [];
     if (object.next_pool_number !== undefined && object.next_pool_number !== null) {
       message.nextPoolNumber = BigInt(object.next_pool_number);
     }
@@ -275,7 +300,7 @@ export const GenesisState = {
   toAmino(message: GenesisState, useInterfaces: boolean = true): GenesisStateAmino {
     const obj: any = {};
     if (message.pools) {
-      obj.pools = message.pools.map(e => e ? PoolI_ToAmino((e as Any), useInterfaces) : undefined);
+      obj.pools = message.pools.map(e => e ? GlobalDecoderRegistry.toAminoMsg(e) : undefined);
     } else {
       obj.pools = message.pools;
     }
@@ -294,49 +319,13 @@ export const GenesisState = {
       typeUrl: "/osmosis.gamm.v1beta1.GenesisState",
       value: GenesisState.encode(message).finish()
     };
-  }
-};
-export const PoolI_InterfaceDecoder = (input: BinaryReader | Uint8Array): Pool1 | Pool2 | Any => {
-  const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
-  const data = Any.decode(reader, reader.uint32(), true);
-  switch (data.typeUrl) {
-    case "/osmosis.gamm.v1beta1.Pool":
-      return Pool1.decode(data.value, undefined, true);
-    case "/osmosis.gamm.poolmodels.stableswap.v1beta1.Pool":
-      return Pool2.decode(data.value, undefined, true);
-    default:
-      return data;
-  }
-};
-export const PoolI_FromAmino = (content: AnyAmino): Any => {
-  switch (content.type) {
-    case "osmosis/gamm/pool":
-      return Any.fromPartial({
-        typeUrl: "/osmosis.gamm.v1beta1.Pool",
-        value: Pool1.encode(Pool1.fromPartial(Pool1.fromAmino(content.value))).finish()
-      });
-    case "osmosis/gamm/pool":
-      return Any.fromPartial({
-        typeUrl: "/osmosis.gamm.poolmodels.stableswap.v1beta1.Pool",
-        value: Pool2.encode(Pool2.fromPartial(Pool2.fromAmino(content.value))).finish()
-      });
-    default:
-      return Any.fromAmino(content);
-  }
-};
-export const PoolI_ToAmino = (content: Any, useInterfaces: boolean = true) => {
-  switch (content.typeUrl) {
-    case "/osmosis.gamm.v1beta1.Pool":
-      return {
-        type: "osmosis/gamm/pool",
-        value: Pool1.toAmino(Pool1.decode(content.value, undefined, useInterfaces), useInterfaces)
-      };
-    case "/osmosis.gamm.poolmodels.stableswap.v1beta1.Pool":
-      return {
-        type: "osmosis/gamm/pool",
-        value: Pool2.toAmino(Pool2.decode(content.value, undefined, useInterfaces), useInterfaces)
-      };
-    default:
-      return Any.toAmino(content, useInterfaces);
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(GenesisState.typeUrl)) {
+      return;
+    }
+    Pool1.registerTypeUrl();
+    Pool2.registerTypeUrl();
+    Params.registerTypeUrl();
   }
 };

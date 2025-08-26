@@ -1,5 +1,6 @@
 import { BinaryReader, BinaryWriter } from "../../binary";
 import { DeepPartial, isSet } from "../../helpers";
+import { GlobalDecoderRegistry } from "../../registry";
 export const protobufPackage = "google.api";
 /**
  * Billing related configuration of the service.
@@ -234,6 +235,15 @@ function createBaseBilling(): Billing {
  */
 export const Billing = {
   typeUrl: "/google.api.Billing",
+  is(o: any): o is Billing {
+    return o && (o.$typeUrl === Billing.typeUrl || Array.isArray(o.consumerDestinations) && (!o.consumerDestinations.length || Billing_BillingDestination.is(o.consumerDestinations[0])));
+  },
+  isSDK(o: any): o is BillingSDKType {
+    return o && (o.$typeUrl === Billing.typeUrl || Array.isArray(o.consumer_destinations) && (!o.consumer_destinations.length || Billing_BillingDestination.isSDK(o.consumer_destinations[0])));
+  },
+  isAmino(o: any): o is BillingAmino {
+    return o && (o.$typeUrl === Billing.typeUrl || Array.isArray(o.consumer_destinations) && (!o.consumer_destinations.length || Billing_BillingDestination.isAmino(o.consumer_destinations[0])));
+  },
   encode(message: Billing, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.consumerDestinations) {
       Billing_BillingDestination.encode(v!, writer.uint32(66).fork()).ldelim();
@@ -306,6 +316,12 @@ export const Billing = {
       typeUrl: "/google.api.Billing",
       value: Billing.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Billing.typeUrl)) {
+      return;
+    }
+    Billing_BillingDestination.registerTypeUrl();
   }
 };
 function createBaseBilling_BillingDestination(): Billing_BillingDestination {
@@ -323,6 +339,15 @@ function createBaseBilling_BillingDestination(): Billing_BillingDestination {
  */
 export const Billing_BillingDestination = {
   typeUrl: "/google.api.BillingDestination",
+  is(o: any): o is Billing_BillingDestination {
+    return o && (o.$typeUrl === Billing_BillingDestination.typeUrl || typeof o.monitoredResource === "string" && Array.isArray(o.metrics) && (!o.metrics.length || typeof o.metrics[0] === "string"));
+  },
+  isSDK(o: any): o is Billing_BillingDestinationSDKType {
+    return o && (o.$typeUrl === Billing_BillingDestination.typeUrl || typeof o.monitored_resource === "string" && Array.isArray(o.metrics) && (!o.metrics.length || typeof o.metrics[0] === "string"));
+  },
+  isAmino(o: any): o is Billing_BillingDestinationAmino {
+    return o && (o.$typeUrl === Billing_BillingDestination.typeUrl || typeof o.monitored_resource === "string" && Array.isArray(o.metrics) && (!o.metrics.length || typeof o.metrics[0] === "string"));
+  },
   encode(message: Billing_BillingDestination, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.monitoredResource !== "") {
       writer.uint32(10).string(message.monitoredResource);
@@ -409,5 +434,6 @@ export const Billing_BillingDestination = {
       typeUrl: "/google.api.BillingDestination",
       value: Billing_BillingDestination.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

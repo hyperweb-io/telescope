@@ -1,5 +1,5 @@
 import { Plan, PlanSDKType } from "./upgrade.js";
-import { Rpc } from "../../../helpers.js";
+import { TxRpc } from "../../../types.js";
 import { BinaryReader } from "../../../binary.js";
 import { MsgSoftwareUpgrade, MsgSoftwareUpgradeSDKType, MsgSoftwareUpgradeResponse, MsgSoftwareUpgradeResponseSDKType, MsgCancelUpgrade, MsgCancelUpgradeSDKType, MsgCancelUpgradeResponse, MsgCancelUpgradeResponseSDKType } from "./tx.js";
 /** Msg defines the upgrade Msg service. */
@@ -19,8 +19,8 @@ export interface Msg {
   cancelUpgrade(request: MsgCancelUpgrade): Promise<MsgCancelUpgradeResponse>;
 }
 export class MsgClientImpl implements Msg {
-  private readonly rpc: Rpc;
-  constructor(rpc: Rpc) {
+  private readonly rpc: TxRpc;
+  constructor(rpc: TxRpc) {
     this.rpc = rpc;
     this.softwareUpgrade = this.softwareUpgrade.bind(this);
     this.cancelUpgrade = this.cancelUpgrade.bind(this);
@@ -36,6 +36,6 @@ export class MsgClientImpl implements Msg {
     return promise.then(data => MsgCancelUpgradeResponse.decode(new BinaryReader(data)));
   }
 }
-export const createClientImpl = (rpc: Rpc) => {
+export const createClientImpl = (rpc: TxRpc) => {
   return new MsgClientImpl(rpc);
 };

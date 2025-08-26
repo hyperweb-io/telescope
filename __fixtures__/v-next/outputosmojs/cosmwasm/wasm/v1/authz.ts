@@ -3,7 +3,7 @@ import { Coin, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { JsonSafe } from "../../../json-safe";
 import { DeepPartial, isSet, bytesFromBase64, base64FromBytes } from "../../../helpers";
-import { toUtf8, fromUtf8 } from "@cosmjs/encoding";
+import { toUtf8, fromUtf8 } from "@interchainjs/encoding";
 export const protobufPackage = "cosmwasm.wasm.v1";
 /**
  * ContractExecutionAuthorization defines authorization for wasm execute.

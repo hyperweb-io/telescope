@@ -26,8 +26,8 @@ export interface Query {
 
 exports[`RPC Query Client 2`] = `
 "export class QueryClientImpl implements Query {
-  private readonly rpc: Rpc;
-  constructor(rpc: Rpc) {
+  private readonly rpc: TxRpc;
+  constructor(rpc: TxRpc) {
     this.rpc = rpc;
     this.accounts = this.accounts.bind(this);
     this.account = this.account.bind(this);

@@ -2,14 +2,8 @@ import { Counterparty, CounterpartySDKType, Version, VersionSDKType } from "./co
 import { Any, AnyProtoMsg, AnyAmino, AnySDKType } from "../../../../google/protobuf/any";
 import { Height, HeightSDKType } from "../../client/v1/client";
 import { TelescopeGeneratedType } from "../../../../types";
-import { Registry } from "@cosmjs/proto-signing";
 import { MsgConnectionOpenInit, MsgConnectionOpenInitSDKType, MsgConnectionOpenTry, MsgConnectionOpenTrySDKType, MsgConnectionOpenAck, MsgConnectionOpenAckSDKType, MsgConnectionOpenConfirm, MsgConnectionOpenConfirmSDKType } from "./tx";
 export const registry: ReadonlyArray<[string, TelescopeGeneratedType<any, any, any>]> = [["/ibc.core.connection.v1.MsgConnectionOpenInit", MsgConnectionOpenInit], ["/ibc.core.connection.v1.MsgConnectionOpenTry", MsgConnectionOpenTry], ["/ibc.core.connection.v1.MsgConnectionOpenAck", MsgConnectionOpenAck], ["/ibc.core.connection.v1.MsgConnectionOpenConfirm", MsgConnectionOpenConfirm]];
-export const load = (protoRegistry: Registry) => {
-  registry.forEach(([typeUrl, mod]) => {
-    protoRegistry.register(typeUrl, mod);
-  });
-};
 export const MessageComposer = {
   encoded: {
     connectionOpenInit(value: MsgConnectionOpenInit) {

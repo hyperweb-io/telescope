@@ -1,12 +1,7 @@
 import { TokenPairArbRoutes, TokenPairArbRoutesSDKType, PoolWeights, PoolWeightsSDKType, BaseDenom, BaseDenomSDKType } from "./protorev";
-import { GeneratedType, Registry } from "@cosmjs/proto-signing";
+import { TelescopeGeneratedType } from "../../../types";
 import { MsgSetHotRoutes, MsgSetHotRoutesSDKType, MsgSetDeveloperAccount, MsgSetDeveloperAccountSDKType, MsgSetMaxPoolPointsPerTx, MsgSetMaxPoolPointsPerTxSDKType, MsgSetMaxPoolPointsPerBlock, MsgSetMaxPoolPointsPerBlockSDKType, MsgSetPoolWeights, MsgSetPoolWeightsSDKType, MsgSetBaseDenoms, MsgSetBaseDenomsSDKType } from "./tx";
-export const registry: ReadonlyArray<[string, GeneratedType]> = [["/osmosis.protorev.v1beta1.MsgSetHotRoutes", MsgSetHotRoutes], ["/osmosis.protorev.v1beta1.MsgSetDeveloperAccount", MsgSetDeveloperAccount], ["/osmosis.protorev.v1beta1.MsgSetMaxPoolPointsPerTx", MsgSetMaxPoolPointsPerTx], ["/osmosis.protorev.v1beta1.MsgSetMaxPoolPointsPerBlock", MsgSetMaxPoolPointsPerBlock], ["/osmosis.protorev.v1beta1.MsgSetPoolWeights", MsgSetPoolWeights], ["/osmosis.protorev.v1beta1.MsgSetBaseDenoms", MsgSetBaseDenoms]];
-export const load = (protoRegistry: Registry) => {
-  registry.forEach(([typeUrl, mod]) => {
-    protoRegistry.register(typeUrl, mod);
-  });
-};
+export const registry: ReadonlyArray<[string, TelescopeGeneratedType<any, any, any>]> = [["/osmosis.protorev.v1beta1.MsgSetHotRoutes", MsgSetHotRoutes], ["/osmosis.protorev.v1beta1.MsgSetDeveloperAccount", MsgSetDeveloperAccount], ["/osmosis.protorev.v1beta1.MsgSetMaxPoolPointsPerTx", MsgSetMaxPoolPointsPerTx], ["/osmosis.protorev.v1beta1.MsgSetMaxPoolPointsPerBlock", MsgSetMaxPoolPointsPerBlock], ["/osmosis.protorev.v1beta1.MsgSetPoolWeights", MsgSetPoolWeights], ["/osmosis.protorev.v1beta1.MsgSetBaseDenoms", MsgSetBaseDenoms]];
 export const MessageComposer = {
   encoded: {
     setHotRoutes(value: MsgSetHotRoutes) {

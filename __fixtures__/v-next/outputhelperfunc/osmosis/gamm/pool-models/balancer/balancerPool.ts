@@ -5,7 +5,7 @@ import { BinaryReader, BinaryWriter } from "../../../../binary";
 import { toTimestamp, fromTimestamp, isSet, DeepPartial } from "../../../../helpers";
 import { GlobalDecoderRegistry } from "../../../../registry";
 import { JsonSafe } from "../../../../json-safe";
-import { Decimal } from "@cosmjs/math";
+import { Decimal } from "@interchainjs/math";
 export const protobufPackage = "osmosis.gamm.v1beta1";
 /**
  * Parameters for changing the weights in a balancer pool smoothly from
@@ -649,8 +649,8 @@ export const PoolParams = {
   },
   toAmino(message: PoolParams): PoolParamsAmino {
     const obj: any = {};
-    obj.swap_fee = message.swapFee === "" ? undefined : message.swapFee;
-    obj.exit_fee = message.exitFee === "" ? undefined : message.exitFee;
+    obj.swap_fee = message.swapFee === "" ? undefined : Decimal.fromUserInput(message.swapFee, 18).atomics;
+    obj.exit_fee = message.exitFee === "" ? undefined : Decimal.fromUserInput(message.exitFee, 18).atomics;
     obj.smooth_weight_change_params = message.smoothWeightChangeParams ? SmoothWeightChangeParams.toAmino(message.smoothWeightChangeParams) : undefined;
     return obj;
   },

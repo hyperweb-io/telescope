@@ -4,6 +4,9 @@ exports[`ibc/lightclients/tendermint/v1/tendermint duration 1`] = `
 "/**
  * ClientState from Tendermint tracks the current validator set, latest height,
  * and a possible frozen height.
+ * @name ClientState
+ * @package ibc.lightclients.tendermint.v1
+ * @see proto type: ibc.lightclients.tendermint.v1.ClientState
  */
 export interface ClientState {
   chainId: string;
@@ -13,15 +16,25 @@ export interface ClientState {
    * submitted headers are valid for upgrade
    */
   trustingPeriod: Duration;
-  /** duration of the staking unbonding period */
+  /**
+   * duration of the staking unbonding period
+   */
   unbondingPeriod: Duration;
-  /** defines how much new (untrusted) header's Time can drift into the future. */
+  /**
+   * defines how much new (untrusted) header's Time can drift into the future.
+   */
   maxClockDrift: Duration;
-  /** Block height when the client was frozen due to a misbehaviour */
+  /**
+   * Block height when the client was frozen due to a misbehaviour
+   */
   frozenHeight: Height;
-  /** Latest height the client was updated to */
+  /**
+   * Latest height the client was updated to
+   */
   latestHeight: Height;
-  /** Proof specifications used in verifying counterparty state */
+  /**
+   * Proof specifications used in verifying counterparty state
+   */
   proofSpecs: ProofSpec[];
   /**
    * Path at which next upgraded client will be committed.
@@ -47,8 +60,22 @@ export interface ClientState {
 `;
 
 exports[`ibc/lightclients/tendermint/v1/tendermint duration 2`] = `
-"export const ClientState = {
+"/**
+ * ClientState from Tendermint tracks the current validator set, latest height,
+ * and a possible frozen height.
+ * @name ClientState
+ * @package ibc.lightclients.tendermint.v1
+ * @see proto type: ibc.lightclients.tendermint.v1.ClientState
+ */
+export const ClientState = {
   typeUrl: "/ibc.lightclients.tendermint.v1.ClientState",
+  aminoType: "cosmos-sdk/ClientState",
+  is(o: any): o is ClientState {
+    return o && (o.$typeUrl === ClientState.typeUrl || typeof o.chainId === "string" && Fraction.is(o.trustLevel) && Duration.is(o.trustingPeriod) && Duration.is(o.unbondingPeriod) && Duration.is(o.maxClockDrift) && Height.is(o.frozenHeight) && Height.is(o.latestHeight) && Array.isArray(o.proofSpecs) && (!o.proofSpecs.length || ProofSpec.is(o.proofSpecs[0])) && Array.isArray(o.upgradePath) && (!o.upgradePath.length || typeof o.upgradePath[0] === "string") && typeof o.allowUpdateAfterExpiry === "boolean" && typeof o.allowUpdateAfterMisbehaviour === "boolean");
+  },
+  isSDK(o: any): o is ClientStateSDKType {
+    return o && (o.$typeUrl === ClientState.typeUrl || typeof o.chain_id === "string" && Fraction.isSDK(o.trust_level) && Duration.isSDK(o.trusting_period) && Duration.isSDK(o.unbonding_period) && Duration.isSDK(o.max_clock_drift) && Height.isSDK(o.frozen_height) && Height.isSDK(o.latest_height) && Array.isArray(o.proof_specs) && (!o.proof_specs.length || ProofSpec.isSDK(o.proof_specs[0])) && Array.isArray(o.upgrade_path) && (!o.upgrade_path.length || typeof o.upgrade_path[0] === "string") && typeof o.allow_update_after_expiry === "boolean" && typeof o.allow_update_after_misbehaviour === "boolean");
+  },
   encode(message: ClientState, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.chainId !== "") {
       writer.uint32(10).string(message.chainId);
@@ -299,6 +326,14 @@ exports[`ibc/lightclients/tendermint/v1/tendermint duration 2`] = `
       typeUrl: "/ibc.lightclients.tendermint.v1.ClientState",
       value: ClientState.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ClientState.typeUrl)) {
+      return;
+    }
+    Fraction.registerTypeUrl();
+    Height.registerTypeUrl();
+    ProofSpec.registerTypeUrl();
   }
 };"
 `;
@@ -481,6 +516,9 @@ exports[`ibc/lightclients/tendermint/v1/tendermint string 1`] = `
 "/**
  * ClientState from Tendermint tracks the current validator set, latest height,
  * and a possible frozen height.
+ * @name ClientState
+ * @package ibc.lightclients.tendermint.v1
+ * @see proto type: ibc.lightclients.tendermint.v1.ClientState
  */
 export interface ClientState {
   chainId: string;
@@ -490,15 +528,25 @@ export interface ClientState {
    * submitted headers are valid for upgrade
    */
   trustingPeriod: string;
-  /** duration of the staking unbonding period */
+  /**
+   * duration of the staking unbonding period
+   */
   unbondingPeriod: string;
-  /** defines how much new (untrusted) header's Time can drift into the future. */
+  /**
+   * defines how much new (untrusted) header's Time can drift into the future.
+   */
   maxClockDrift: string;
-  /** Block height when the client was frozen due to a misbehaviour */
+  /**
+   * Block height when the client was frozen due to a misbehaviour
+   */
   frozenHeight: Height;
-  /** Latest height the client was updated to */
+  /**
+   * Latest height the client was updated to
+   */
   latestHeight: Height;
-  /** Proof specifications used in verifying counterparty state */
+  /**
+   * Proof specifications used in verifying counterparty state
+   */
   proofSpecs: ProofSpec[];
   /**
    * Path at which next upgraded client will be committed.
@@ -524,8 +572,22 @@ export interface ClientState {
 `;
 
 exports[`ibc/lightclients/tendermint/v1/tendermint string 2`] = `
-"export const ClientState = {
+"/**
+ * ClientState from Tendermint tracks the current validator set, latest height,
+ * and a possible frozen height.
+ * @name ClientState
+ * @package ibc.lightclients.tendermint.v1
+ * @see proto type: ibc.lightclients.tendermint.v1.ClientState
+ */
+export const ClientState = {
   typeUrl: "/ibc.lightclients.tendermint.v1.ClientState",
+  aminoType: "cosmos-sdk/ClientState",
+  is(o: any): o is ClientState {
+    return o && (o.$typeUrl === ClientState.typeUrl || typeof o.chainId === "string" && Fraction.is(o.trustLevel) && typeof o.trustingPeriod === "string" && typeof o.unbondingPeriod === "string" && typeof o.maxClockDrift === "string" && Height.is(o.frozenHeight) && Height.is(o.latestHeight) && Array.isArray(o.proofSpecs) && (!o.proofSpecs.length || ProofSpec.is(o.proofSpecs[0])) && Array.isArray(o.upgradePath) && (!o.upgradePath.length || typeof o.upgradePath[0] === "string") && typeof o.allowUpdateAfterExpiry === "boolean" && typeof o.allowUpdateAfterMisbehaviour === "boolean");
+  },
+  isSDK(o: any): o is ClientStateSDKType {
+    return o && (o.$typeUrl === ClientState.typeUrl || typeof o.chain_id === "string" && Fraction.isSDK(o.trust_level) && typeof o.trusting_period === "string" && typeof o.unbonding_period === "string" && typeof o.max_clock_drift === "string" && Height.isSDK(o.frozen_height) && Height.isSDK(o.latest_height) && Array.isArray(o.proof_specs) && (!o.proof_specs.length || ProofSpec.isSDK(o.proof_specs[0])) && Array.isArray(o.upgrade_path) && (!o.upgrade_path.length || typeof o.upgrade_path[0] === "string") && typeof o.allow_update_after_expiry === "boolean" && typeof o.allow_update_after_misbehaviour === "boolean");
+  },
   encode(message: ClientState, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.chainId !== "") {
       writer.uint32(10).string(message.chainId);
@@ -776,6 +838,14 @@ exports[`ibc/lightclients/tendermint/v1/tendermint string 2`] = `
       typeUrl: "/ibc.lightclients.tendermint.v1.ClientState",
       value: ClientState.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ClientState.typeUrl)) {
+      return;
+    }
+    Fraction.registerTypeUrl();
+    Height.registerTypeUrl();
+    ProofSpec.registerTypeUrl();
   }
 };"
 `;

@@ -5,6 +5,7 @@ import { Any, AnyProtoMsg, AnyAmino, AnySDKType } from "../../../protobuf/any";
 import { Struct, StructAmino, StructSDKType } from "../../../protobuf/struct";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
 import { isSet, DeepPartial, toTimestamp, fromTimestamp, isObject } from "../../../../helpers";
+import { GlobalDecoderRegistry } from "../../../../registry";
 export const protobufPackage = "google.api.servicecontrol.v1";
 /**
  * @name LogEntry_LabelsEntry
@@ -438,7 +439,8 @@ export const LogEntry_LabelsEntry = {
   },
   toProto(message: LogEntry_LabelsEntry): Uint8Array {
     return LogEntry_LabelsEntry.encode(message).finish();
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseLogEntry(): LogEntry {
   return {
@@ -464,6 +466,15 @@ function createBaseLogEntry(): LogEntry {
  */
 export const LogEntry = {
   typeUrl: "/google.api.servicecontrol.v1.LogEntry",
+  is(o: any): o is LogEntry {
+    return o && (o.$typeUrl === LogEntry.typeUrl || typeof o.name === "string" && isSet(o.severity) && typeof o.trace === "string" && typeof o.insertId === "string" && isSet(o.labels));
+  },
+  isSDK(o: any): o is LogEntrySDKType {
+    return o && (o.$typeUrl === LogEntry.typeUrl || typeof o.name === "string" && isSet(o.severity) && typeof o.trace === "string" && typeof o.insert_id === "string" && isSet(o.labels));
+  },
+  isAmino(o: any): o is LogEntryAmino {
+    return o && (o.$typeUrl === LogEntry.typeUrl || typeof o.name === "string" && isSet(o.severity) && typeof o.trace === "string" && typeof o.insert_id === "string" && isSet(o.labels));
+  },
   encode(message: LogEntry, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(82).string(message.name);
@@ -732,6 +743,14 @@ export const LogEntry = {
       typeUrl: "/google.api.servicecontrol.v1.LogEntry",
       value: LogEntry.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(LogEntry.typeUrl)) {
+      return;
+    }
+    Struct.registerTypeUrl();
+    LogEntryOperation.registerTypeUrl();
+    LogEntrySourceLocation.registerTypeUrl();
   }
 };
 function createBaseLogEntryOperation(): LogEntryOperation {
@@ -751,6 +770,15 @@ function createBaseLogEntryOperation(): LogEntryOperation {
  */
 export const LogEntryOperation = {
   typeUrl: "/google.api.servicecontrol.v1.LogEntryOperation",
+  is(o: any): o is LogEntryOperation {
+    return o && (o.$typeUrl === LogEntryOperation.typeUrl || typeof o.id === "string" && typeof o.producer === "string" && typeof o.first === "boolean" && typeof o.last === "boolean");
+  },
+  isSDK(o: any): o is LogEntryOperationSDKType {
+    return o && (o.$typeUrl === LogEntryOperation.typeUrl || typeof o.id === "string" && typeof o.producer === "string" && typeof o.first === "boolean" && typeof o.last === "boolean");
+  },
+  isAmino(o: any): o is LogEntryOperationAmino {
+    return o && (o.$typeUrl === LogEntryOperation.typeUrl || typeof o.id === "string" && typeof o.producer === "string" && typeof o.first === "boolean" && typeof o.last === "boolean");
+  },
   encode(message: LogEntryOperation, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.id !== "") {
       writer.uint32(10).string(message.id);
@@ -859,7 +887,8 @@ export const LogEntryOperation = {
       typeUrl: "/google.api.servicecontrol.v1.LogEntryOperation",
       value: LogEntryOperation.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseLogEntrySourceLocation(): LogEntrySourceLocation {
   return {
@@ -877,6 +906,15 @@ function createBaseLogEntrySourceLocation(): LogEntrySourceLocation {
  */
 export const LogEntrySourceLocation = {
   typeUrl: "/google.api.servicecontrol.v1.LogEntrySourceLocation",
+  is(o: any): o is LogEntrySourceLocation {
+    return o && (o.$typeUrl === LogEntrySourceLocation.typeUrl || typeof o.file === "string" && typeof o.line === "bigint" && typeof o.function === "string");
+  },
+  isSDK(o: any): o is LogEntrySourceLocationSDKType {
+    return o && (o.$typeUrl === LogEntrySourceLocation.typeUrl || typeof o.file === "string" && typeof o.line === "bigint" && typeof o.function === "string");
+  },
+  isAmino(o: any): o is LogEntrySourceLocationAmino {
+    return o && (o.$typeUrl === LogEntrySourceLocation.typeUrl || typeof o.file === "string" && typeof o.line === "bigint" && typeof o.function === "string");
+  },
   encode(message: LogEntrySourceLocation, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.file !== "") {
       writer.uint32(10).string(message.file);
@@ -973,5 +1011,6 @@ export const LogEntrySourceLocation = {
       typeUrl: "/google.api.servicecontrol.v1.LogEntrySourceLocation",
       value: LogEntrySourceLocation.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

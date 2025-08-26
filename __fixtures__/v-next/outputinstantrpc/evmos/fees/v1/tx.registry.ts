@@ -1,12 +1,6 @@
 import { TelescopeGeneratedType } from "../../../types";
-import { Registry } from "@cosmjs/proto-signing";
 import { MsgRegisterDevFeeInfo, MsgRegisterDevFeeInfoSDKType, MsgCancelDevFeeInfo, MsgCancelDevFeeInfoSDKType, MsgUpdateDevFeeInfo, MsgUpdateDevFeeInfoSDKType } from "./tx";
 export const registry: ReadonlyArray<[string, TelescopeGeneratedType<any, any, any>]> = [["/evmos.fees.v1.MsgRegisterDevFeeInfo", MsgRegisterDevFeeInfo], ["/evmos.fees.v1.MsgCancelDevFeeInfo", MsgCancelDevFeeInfo], ["/evmos.fees.v1.MsgUpdateDevFeeInfo", MsgUpdateDevFeeInfo]];
-export const load = (protoRegistry: Registry) => {
-  registry.forEach(([typeUrl, mod]) => {
-    protoRegistry.register(typeUrl, mod);
-  });
-};
 export const MessageComposer = {
   encoded: {
     registerDevFeeInfo(value: MsgRegisterDevFeeInfo) {

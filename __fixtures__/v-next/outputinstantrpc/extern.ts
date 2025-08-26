@@ -4,51 +4,45 @@
 * and run the transpile command or npm scripts command that is used to regenerate this bundle.
 */
 
-import { QueryClient, createProtobufRpcClient, ProtobufRpcClient } from '@cosmjs/stargate'
-import { connectComet, Tendermint34Client, HttpEndpoint } from "@cosmjs/tendermint-rpc";
 
-const _rpcClients: Record<string, ProtobufRpcClient> = {};
+import { HttpEndpoint } from "@interchainjs/types";
+import { Rpc } from "./helpers";
+import { ClientOptions, createCosmosQueryClient } from "@interchainjs/cosmos";
+
+const _rpcClients: Record<string, Rpc> = {};
 
 export const getRpcEndpointKey = (rpcEndpoint: string | HttpEndpoint) => {
-    if (typeof rpcEndpoint === 'string') {
-        return rpcEndpoint;
-    } else if (!!rpcEndpoint) {
-        //@ts-ignore
-        return rpcEndpoint.url;
-    }
+  if (typeof rpcEndpoint === 'string') {
+    return rpcEndpoint;
+  } else if (!!rpcEndpoint) {
+    //@ts-ignore
+    return rpcEndpoint.url;
+  }
 }
 
 export const getRpcClient = async (rpcEndpoint: string | HttpEndpoint) => {
-    const key = getRpcEndpointKey(rpcEndpoint);
-    if (!key) return;
-    if (_rpcClients.hasOwnProperty(key)) {
-        return _rpcClients[key];
-    }
-    const cometClient = await connectComet(rpcEndpoint);
-    //@ts-ignore
-    const client = new QueryClient(cometClient);
-    const rpc = createProtobufRpcClient(client);
-    _rpcClients[key] = rpc;
-    return rpc;
-}
-
-export const createRpcClient = async (rpcEndpoint: string | HttpEndpoint) => {
-  const cometClient = await connectComet(rpcEndpoint);
-  //@ts-ignore
-  const client = new QueryClient(cometClient);
-  const rpc = createProtobufRpcClient(client);
-
+  const key = getRpcEndpointKey(rpcEndpoint);
+  if (!key) return;
+  if (_rpcClients.hasOwnProperty(key)) {
+    return _rpcClients[key];
+  }
+  const rpc = await createRpcClient(rpcEndpoint);
+  _rpcClients[key] = rpc;
   return rpc;
 }
 
-export const createTm34QueryClient = async (rpcEndpoint: string | HttpEndpoint) => {
-    const tmClient = await Tendermint34Client.connect(rpcEndpoint);
-    //@ts-ignore
-    return new QueryClient(tmClient);
-}
+export const createRpcClient = async (rpcEndpoint: string | HttpEndpoint,
+  options?: ClientOptions
+) => {
+  if (typeof rpcEndpoint === 'string') {
+    return createCosmosQueryClient(rpcEndpoint, options);
+  } else {
+    const endpointStr = rpcEndpoint.url;
+    const clientOptions = {
+      ...options,
+      headers: rpcEndpoint.headers
+    };
 
-export const createConnectCometQueryClient = async (rpcEndpoint: string | HttpEndpoint) => {
-    const cometClient = await connectComet(rpcEndpoint);
-    //@ts-ignore
-    return new QueryClient(cometClient);
+    return createCosmosQueryClient(endpointStr, clientOptions);
+  }
 }

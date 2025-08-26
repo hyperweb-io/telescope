@@ -1,6 +1,7 @@
 import { AttributeContext, AttributeContextAmino, AttributeContextSDKType } from "../../../rpc/context/attribute_context";
 import { Status, StatusAmino, StatusSDKType } from "../../../rpc/status";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
+import { GlobalDecoderRegistry } from "../../../../registry";
 import { isSet, DeepPartial, isObject } from "../../../../helpers";
 import { JsonSafe } from "../../../../json-safe";
 export const protobufPackage = "google.api.servicecontrol.v2";
@@ -413,6 +414,15 @@ function createBaseCheckRequest(): CheckRequest {
  */
 export const CheckRequest = {
   typeUrl: "/google.api.servicecontrol.v2.CheckRequest",
+  is(o: any): o is CheckRequest {
+    return o && (o.$typeUrl === CheckRequest.typeUrl || typeof o.serviceName === "string" && typeof o.serviceConfigId === "string" && Array.isArray(o.resources) && (!o.resources.length || ResourceInfo.is(o.resources[0])) && typeof o.flags === "string");
+  },
+  isSDK(o: any): o is CheckRequestSDKType {
+    return o && (o.$typeUrl === CheckRequest.typeUrl || typeof o.service_name === "string" && typeof o.service_config_id === "string" && Array.isArray(o.resources) && (!o.resources.length || ResourceInfo.isSDK(o.resources[0])) && typeof o.flags === "string");
+  },
+  isAmino(o: any): o is CheckRequestAmino {
+    return o && (o.$typeUrl === CheckRequest.typeUrl || typeof o.service_name === "string" && typeof o.service_config_id === "string" && Array.isArray(o.resources) && (!o.resources.length || ResourceInfo.isAmino(o.resources[0])) && typeof o.flags === "string");
+  },
   encode(message: CheckRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.serviceName !== "") {
       writer.uint32(10).string(message.serviceName);
@@ -559,6 +569,13 @@ export const CheckRequest = {
       typeUrl: "/google.api.servicecontrol.v2.CheckRequest",
       value: CheckRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(CheckRequest.typeUrl)) {
+      return;
+    }
+    AttributeContext.registerTypeUrl();
+    ResourceInfo.registerTypeUrl();
   }
 };
 function createBaseResourceInfo(): ResourceInfo {
@@ -578,6 +595,15 @@ function createBaseResourceInfo(): ResourceInfo {
  */
 export const ResourceInfo = {
   typeUrl: "/google.api.servicecontrol.v2.ResourceInfo",
+  is(o: any): o is ResourceInfo {
+    return o && (o.$typeUrl === ResourceInfo.typeUrl || typeof o.name === "string" && typeof o.type === "string" && typeof o.permission === "string" && typeof o.container === "string" && typeof o.location === "string");
+  },
+  isSDK(o: any): o is ResourceInfoSDKType {
+    return o && (o.$typeUrl === ResourceInfo.typeUrl || typeof o.name === "string" && typeof o.type === "string" && typeof o.permission === "string" && typeof o.container === "string" && typeof o.location === "string");
+  },
+  isAmino(o: any): o is ResourceInfoAmino {
+    return o && (o.$typeUrl === ResourceInfo.typeUrl || typeof o.name === "string" && typeof o.type === "string" && typeof o.permission === "string" && typeof o.container === "string" && typeof o.location === "string");
+  },
   encode(message: ResourceInfo, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -712,7 +738,8 @@ export const ResourceInfo = {
       typeUrl: "/google.api.servicecontrol.v2.ResourceInfo",
       value: ResourceInfo.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseCheckResponse_HeadersEntry(): CheckResponse_HeadersEntry {
   return {
@@ -809,7 +836,8 @@ export const CheckResponse_HeadersEntry = {
   },
   toProto(message: CheckResponse_HeadersEntry): Uint8Array {
     return CheckResponse_HeadersEntry.encode(message).finish();
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseCheckResponse(): CheckResponse {
   return {
@@ -825,6 +853,15 @@ function createBaseCheckResponse(): CheckResponse {
  */
 export const CheckResponse = {
   typeUrl: "/google.api.servicecontrol.v2.CheckResponse",
+  is(o: any): o is CheckResponse {
+    return o && (o.$typeUrl === CheckResponse.typeUrl || isSet(o.headers));
+  },
+  isSDK(o: any): o is CheckResponseSDKType {
+    return o && (o.$typeUrl === CheckResponse.typeUrl || isSet(o.headers));
+  },
+  isAmino(o: any): o is CheckResponseAmino {
+    return o && (o.$typeUrl === CheckResponse.typeUrl || isSet(o.headers));
+  },
   encode(message: CheckResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.status !== undefined) {
       Status.encode(message.status, writer.uint32(10).fork()).ldelim();
@@ -959,6 +996,12 @@ export const CheckResponse = {
       typeUrl: "/google.api.servicecontrol.v2.CheckResponse",
       value: CheckResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(CheckResponse.typeUrl)) {
+      return;
+    }
+    Status.registerTypeUrl();
   }
 };
 function createBaseReportRequest(): ReportRequest {
@@ -976,6 +1019,15 @@ function createBaseReportRequest(): ReportRequest {
  */
 export const ReportRequest = {
   typeUrl: "/google.api.servicecontrol.v2.ReportRequest",
+  is(o: any): o is ReportRequest {
+    return o && (o.$typeUrl === ReportRequest.typeUrl || typeof o.serviceName === "string" && typeof o.serviceConfigId === "string" && Array.isArray(o.operations) && (!o.operations.length || AttributeContext.is(o.operations[0])));
+  },
+  isSDK(o: any): o is ReportRequestSDKType {
+    return o && (o.$typeUrl === ReportRequest.typeUrl || typeof o.service_name === "string" && typeof o.service_config_id === "string" && Array.isArray(o.operations) && (!o.operations.length || AttributeContext.isSDK(o.operations[0])));
+  },
+  isAmino(o: any): o is ReportRequestAmino {
+    return o && (o.$typeUrl === ReportRequest.typeUrl || typeof o.service_name === "string" && typeof o.service_config_id === "string" && Array.isArray(o.operations) && (!o.operations.length || AttributeContext.isAmino(o.operations[0])));
+  },
   encode(message: ReportRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.serviceName !== "") {
       writer.uint32(10).string(message.serviceName);
@@ -1090,6 +1142,12 @@ export const ReportRequest = {
       typeUrl: "/google.api.servicecontrol.v2.ReportRequest",
       value: ReportRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ReportRequest.typeUrl)) {
+      return;
+    }
+    AttributeContext.registerTypeUrl();
   }
 };
 function createBaseReportResponse(): ReportResponse {
@@ -1104,6 +1162,15 @@ function createBaseReportResponse(): ReportResponse {
  */
 export const ReportResponse = {
   typeUrl: "/google.api.servicecontrol.v2.ReportResponse",
+  is(o: any): o is ReportResponse {
+    return o && o.$typeUrl === ReportResponse.typeUrl;
+  },
+  isSDK(o: any): o is ReportResponseSDKType {
+    return o && o.$typeUrl === ReportResponse.typeUrl;
+  },
+  isAmino(o: any): o is ReportResponseAmino {
+    return o && o.$typeUrl === ReportResponse.typeUrl;
+  },
   encode(_: ReportResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -1162,5 +1229,6 @@ export const ReportResponse = {
       typeUrl: "/google.api.servicecontrol.v2.ReportResponse",
       value: ReportResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

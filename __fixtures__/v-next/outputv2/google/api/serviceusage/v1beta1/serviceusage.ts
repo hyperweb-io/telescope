@@ -3,6 +3,7 @@ import { FieldMask, FieldMaskAmino, FieldMaskSDKType } from "../../../protobuf/f
 import { BinaryReader, BinaryWriter } from "../../../../binary";
 import { isSet, DeepPartial } from "../../../../helpers";
 import { JsonSafe } from "../../../../json-safe";
+import { GlobalDecoderRegistry } from "../../../../registry";
 export const protobufPackage = "google.api.serviceusage.v1beta1";
 /** Enum for service identity state. */
 export enum GetServiceIdentityResponse_IdentityState {
@@ -2163,6 +2164,15 @@ function createBaseEnableServiceRequest(): EnableServiceRequest {
  */
 export const EnableServiceRequest = {
   typeUrl: "/google.api.serviceusage.v1beta1.EnableServiceRequest",
+  is(o: any): o is EnableServiceRequest {
+    return o && (o.$typeUrl === EnableServiceRequest.typeUrl || typeof o.name === "string");
+  },
+  isSDK(o: any): o is EnableServiceRequestSDKType {
+    return o && (o.$typeUrl === EnableServiceRequest.typeUrl || typeof o.name === "string");
+  },
+  isAmino(o: any): o is EnableServiceRequestAmino {
+    return o && (o.$typeUrl === EnableServiceRequest.typeUrl || typeof o.name === "string");
+  },
   encode(message: EnableServiceRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -2237,7 +2247,8 @@ export const EnableServiceRequest = {
       typeUrl: "/google.api.serviceusage.v1beta1.EnableServiceRequest",
       value: EnableServiceRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseDisableServiceRequest(): DisableServiceRequest {
   return {
@@ -2252,6 +2263,15 @@ function createBaseDisableServiceRequest(): DisableServiceRequest {
  */
 export const DisableServiceRequest = {
   typeUrl: "/google.api.serviceusage.v1beta1.DisableServiceRequest",
+  is(o: any): o is DisableServiceRequest {
+    return o && (o.$typeUrl === DisableServiceRequest.typeUrl || typeof o.name === "string");
+  },
+  isSDK(o: any): o is DisableServiceRequestSDKType {
+    return o && (o.$typeUrl === DisableServiceRequest.typeUrl || typeof o.name === "string");
+  },
+  isAmino(o: any): o is DisableServiceRequestAmino {
+    return o && (o.$typeUrl === DisableServiceRequest.typeUrl || typeof o.name === "string");
+  },
   encode(message: DisableServiceRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -2326,7 +2346,8 @@ export const DisableServiceRequest = {
       typeUrl: "/google.api.serviceusage.v1beta1.DisableServiceRequest",
       value: DisableServiceRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseGetServiceRequest(): GetServiceRequest {
   return {
@@ -2341,6 +2362,15 @@ function createBaseGetServiceRequest(): GetServiceRequest {
  */
 export const GetServiceRequest = {
   typeUrl: "/google.api.serviceusage.v1beta1.GetServiceRequest",
+  is(o: any): o is GetServiceRequest {
+    return o && (o.$typeUrl === GetServiceRequest.typeUrl || typeof o.name === "string");
+  },
+  isSDK(o: any): o is GetServiceRequestSDKType {
+    return o && (o.$typeUrl === GetServiceRequest.typeUrl || typeof o.name === "string");
+  },
+  isAmino(o: any): o is GetServiceRequestAmino {
+    return o && (o.$typeUrl === GetServiceRequest.typeUrl || typeof o.name === "string");
+  },
   encode(message: GetServiceRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -2415,7 +2445,8 @@ export const GetServiceRequest = {
       typeUrl: "/google.api.serviceusage.v1beta1.GetServiceRequest",
       value: GetServiceRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseListServicesRequest(): ListServicesRequest {
   return {
@@ -2433,6 +2464,15 @@ function createBaseListServicesRequest(): ListServicesRequest {
  */
 export const ListServicesRequest = {
   typeUrl: "/google.api.serviceusage.v1beta1.ListServicesRequest",
+  is(o: any): o is ListServicesRequest {
+    return o && (o.$typeUrl === ListServicesRequest.typeUrl || typeof o.parent === "string" && typeof o.pageSize === "number" && typeof o.pageToken === "string" && typeof o.filter === "string");
+  },
+  isSDK(o: any): o is ListServicesRequestSDKType {
+    return o && (o.$typeUrl === ListServicesRequest.typeUrl || typeof o.parent === "string" && typeof o.page_size === "number" && typeof o.page_token === "string" && typeof o.filter === "string");
+  },
+  isAmino(o: any): o is ListServicesRequestAmino {
+    return o && (o.$typeUrl === ListServicesRequest.typeUrl || typeof o.parent === "string" && typeof o.page_size === "number" && typeof o.page_token === "string" && typeof o.filter === "string");
+  },
   encode(message: ListServicesRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.parent !== "") {
       writer.uint32(10).string(message.parent);
@@ -2552,7 +2592,8 @@ export const ListServicesRequest = {
       typeUrl: "/google.api.serviceusage.v1beta1.ListServicesRequest",
       value: ListServicesRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseListServicesResponse(): ListServicesResponse {
   return {
@@ -2568,6 +2609,15 @@ function createBaseListServicesResponse(): ListServicesResponse {
  */
 export const ListServicesResponse = {
   typeUrl: "/google.api.serviceusage.v1beta1.ListServicesResponse",
+  is(o: any): o is ListServicesResponse {
+    return o && (o.$typeUrl === ListServicesResponse.typeUrl || Array.isArray(o.services) && (!o.services.length || Service.is(o.services[0])) && typeof o.nextPageToken === "string");
+  },
+  isSDK(o: any): o is ListServicesResponseSDKType {
+    return o && (o.$typeUrl === ListServicesResponse.typeUrl || Array.isArray(o.services) && (!o.services.length || Service.isSDK(o.services[0])) && typeof o.next_page_token === "string");
+  },
+  isAmino(o: any): o is ListServicesResponseAmino {
+    return o && (o.$typeUrl === ListServicesResponse.typeUrl || Array.isArray(o.services) && (!o.services.length || Service.isAmino(o.services[0])) && typeof o.next_page_token === "string");
+  },
   encode(message: ListServicesResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.services) {
       Service.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -2667,6 +2717,12 @@ export const ListServicesResponse = {
       typeUrl: "/google.api.serviceusage.v1beta1.ListServicesResponse",
       value: ListServicesResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ListServicesResponse.typeUrl)) {
+      return;
+    }
+    Service.registerTypeUrl();
   }
 };
 function createBaseBatchEnableServicesRequest(): BatchEnableServicesRequest {
@@ -2683,6 +2739,15 @@ function createBaseBatchEnableServicesRequest(): BatchEnableServicesRequest {
  */
 export const BatchEnableServicesRequest = {
   typeUrl: "/google.api.serviceusage.v1beta1.BatchEnableServicesRequest",
+  is(o: any): o is BatchEnableServicesRequest {
+    return o && (o.$typeUrl === BatchEnableServicesRequest.typeUrl || typeof o.parent === "string" && Array.isArray(o.serviceIds) && (!o.serviceIds.length || typeof o.serviceIds[0] === "string"));
+  },
+  isSDK(o: any): o is BatchEnableServicesRequestSDKType {
+    return o && (o.$typeUrl === BatchEnableServicesRequest.typeUrl || typeof o.parent === "string" && Array.isArray(o.service_ids) && (!o.service_ids.length || typeof o.service_ids[0] === "string"));
+  },
+  isAmino(o: any): o is BatchEnableServicesRequestAmino {
+    return o && (o.$typeUrl === BatchEnableServicesRequest.typeUrl || typeof o.parent === "string" && Array.isArray(o.service_ids) && (!o.service_ids.length || typeof o.service_ids[0] === "string"));
+  },
   encode(message: BatchEnableServicesRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.parent !== "") {
       writer.uint32(10).string(message.parent);
@@ -2782,7 +2847,8 @@ export const BatchEnableServicesRequest = {
       typeUrl: "/google.api.serviceusage.v1beta1.BatchEnableServicesRequest",
       value: BatchEnableServicesRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseListConsumerQuotaMetricsRequest(): ListConsumerQuotaMetricsRequest {
   return {
@@ -2800,6 +2866,15 @@ function createBaseListConsumerQuotaMetricsRequest(): ListConsumerQuotaMetricsRe
  */
 export const ListConsumerQuotaMetricsRequest = {
   typeUrl: "/google.api.serviceusage.v1beta1.ListConsumerQuotaMetricsRequest",
+  is(o: any): o is ListConsumerQuotaMetricsRequest {
+    return o && (o.$typeUrl === ListConsumerQuotaMetricsRequest.typeUrl || typeof o.parent === "string" && typeof o.pageSize === "number" && typeof o.pageToken === "string" && isSet(o.view));
+  },
+  isSDK(o: any): o is ListConsumerQuotaMetricsRequestSDKType {
+    return o && (o.$typeUrl === ListConsumerQuotaMetricsRequest.typeUrl || typeof o.parent === "string" && typeof o.page_size === "number" && typeof o.page_token === "string" && isSet(o.view));
+  },
+  isAmino(o: any): o is ListConsumerQuotaMetricsRequestAmino {
+    return o && (o.$typeUrl === ListConsumerQuotaMetricsRequest.typeUrl || typeof o.parent === "string" && typeof o.page_size === "number" && typeof o.page_token === "string" && isSet(o.view));
+  },
   encode(message: ListConsumerQuotaMetricsRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.parent !== "") {
       writer.uint32(10).string(message.parent);
@@ -2919,7 +2994,8 @@ export const ListConsumerQuotaMetricsRequest = {
       typeUrl: "/google.api.serviceusage.v1beta1.ListConsumerQuotaMetricsRequest",
       value: ListConsumerQuotaMetricsRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseListConsumerQuotaMetricsResponse(): ListConsumerQuotaMetricsResponse {
   return {
@@ -2935,6 +3011,15 @@ function createBaseListConsumerQuotaMetricsResponse(): ListConsumerQuotaMetricsR
  */
 export const ListConsumerQuotaMetricsResponse = {
   typeUrl: "/google.api.serviceusage.v1beta1.ListConsumerQuotaMetricsResponse",
+  is(o: any): o is ListConsumerQuotaMetricsResponse {
+    return o && (o.$typeUrl === ListConsumerQuotaMetricsResponse.typeUrl || Array.isArray(o.metrics) && (!o.metrics.length || ConsumerQuotaMetric.is(o.metrics[0])) && typeof o.nextPageToken === "string");
+  },
+  isSDK(o: any): o is ListConsumerQuotaMetricsResponseSDKType {
+    return o && (o.$typeUrl === ListConsumerQuotaMetricsResponse.typeUrl || Array.isArray(o.metrics) && (!o.metrics.length || ConsumerQuotaMetric.isSDK(o.metrics[0])) && typeof o.next_page_token === "string");
+  },
+  isAmino(o: any): o is ListConsumerQuotaMetricsResponseAmino {
+    return o && (o.$typeUrl === ListConsumerQuotaMetricsResponse.typeUrl || Array.isArray(o.metrics) && (!o.metrics.length || ConsumerQuotaMetric.isAmino(o.metrics[0])) && typeof o.next_page_token === "string");
+  },
   encode(message: ListConsumerQuotaMetricsResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.metrics) {
       ConsumerQuotaMetric.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -3034,6 +3119,12 @@ export const ListConsumerQuotaMetricsResponse = {
       typeUrl: "/google.api.serviceusage.v1beta1.ListConsumerQuotaMetricsResponse",
       value: ListConsumerQuotaMetricsResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ListConsumerQuotaMetricsResponse.typeUrl)) {
+      return;
+    }
+    ConsumerQuotaMetric.registerTypeUrl();
   }
 };
 function createBaseGetConsumerQuotaMetricRequest(): GetConsumerQuotaMetricRequest {
@@ -3050,6 +3141,15 @@ function createBaseGetConsumerQuotaMetricRequest(): GetConsumerQuotaMetricReques
  */
 export const GetConsumerQuotaMetricRequest = {
   typeUrl: "/google.api.serviceusage.v1beta1.GetConsumerQuotaMetricRequest",
+  is(o: any): o is GetConsumerQuotaMetricRequest {
+    return o && (o.$typeUrl === GetConsumerQuotaMetricRequest.typeUrl || typeof o.name === "string" && isSet(o.view));
+  },
+  isSDK(o: any): o is GetConsumerQuotaMetricRequestSDKType {
+    return o && (o.$typeUrl === GetConsumerQuotaMetricRequest.typeUrl || typeof o.name === "string" && isSet(o.view));
+  },
+  isAmino(o: any): o is GetConsumerQuotaMetricRequestAmino {
+    return o && (o.$typeUrl === GetConsumerQuotaMetricRequest.typeUrl || typeof o.name === "string" && isSet(o.view));
+  },
   encode(message: GetConsumerQuotaMetricRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -3139,7 +3239,8 @@ export const GetConsumerQuotaMetricRequest = {
       typeUrl: "/google.api.serviceusage.v1beta1.GetConsumerQuotaMetricRequest",
       value: GetConsumerQuotaMetricRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseGetConsumerQuotaLimitRequest(): GetConsumerQuotaLimitRequest {
   return {
@@ -3155,6 +3256,15 @@ function createBaseGetConsumerQuotaLimitRequest(): GetConsumerQuotaLimitRequest 
  */
 export const GetConsumerQuotaLimitRequest = {
   typeUrl: "/google.api.serviceusage.v1beta1.GetConsumerQuotaLimitRequest",
+  is(o: any): o is GetConsumerQuotaLimitRequest {
+    return o && (o.$typeUrl === GetConsumerQuotaLimitRequest.typeUrl || typeof o.name === "string" && isSet(o.view));
+  },
+  isSDK(o: any): o is GetConsumerQuotaLimitRequestSDKType {
+    return o && (o.$typeUrl === GetConsumerQuotaLimitRequest.typeUrl || typeof o.name === "string" && isSet(o.view));
+  },
+  isAmino(o: any): o is GetConsumerQuotaLimitRequestAmino {
+    return o && (o.$typeUrl === GetConsumerQuotaLimitRequest.typeUrl || typeof o.name === "string" && isSet(o.view));
+  },
   encode(message: GetConsumerQuotaLimitRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -3244,7 +3354,8 @@ export const GetConsumerQuotaLimitRequest = {
       typeUrl: "/google.api.serviceusage.v1beta1.GetConsumerQuotaLimitRequest",
       value: GetConsumerQuotaLimitRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseCreateAdminOverrideRequest(): CreateAdminOverrideRequest {
   return {
@@ -3262,6 +3373,15 @@ function createBaseCreateAdminOverrideRequest(): CreateAdminOverrideRequest {
  */
 export const CreateAdminOverrideRequest = {
   typeUrl: "/google.api.serviceusage.v1beta1.CreateAdminOverrideRequest",
+  is(o: any): o is CreateAdminOverrideRequest {
+    return o && (o.$typeUrl === CreateAdminOverrideRequest.typeUrl || typeof o.parent === "string" && typeof o.force === "boolean" && Array.isArray(o.forceOnly));
+  },
+  isSDK(o: any): o is CreateAdminOverrideRequestSDKType {
+    return o && (o.$typeUrl === CreateAdminOverrideRequest.typeUrl || typeof o.parent === "string" && typeof o.force === "boolean" && Array.isArray(o.force_only));
+  },
+  isAmino(o: any): o is CreateAdminOverrideRequestAmino {
+    return o && (o.$typeUrl === CreateAdminOverrideRequest.typeUrl || typeof o.parent === "string" && typeof o.force === "boolean" && Array.isArray(o.force_only));
+  },
   encode(message: CreateAdminOverrideRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.parent !== "") {
       writer.uint32(10).string(message.parent);
@@ -3402,6 +3522,12 @@ export const CreateAdminOverrideRequest = {
       typeUrl: "/google.api.serviceusage.v1beta1.CreateAdminOverrideRequest",
       value: CreateAdminOverrideRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(CreateAdminOverrideRequest.typeUrl)) {
+      return;
+    }
+    QuotaOverride.registerTypeUrl();
   }
 };
 function createBaseUpdateAdminOverrideRequest(): UpdateAdminOverrideRequest {
@@ -3421,6 +3547,15 @@ function createBaseUpdateAdminOverrideRequest(): UpdateAdminOverrideRequest {
  */
 export const UpdateAdminOverrideRequest = {
   typeUrl: "/google.api.serviceusage.v1beta1.UpdateAdminOverrideRequest",
+  is(o: any): o is UpdateAdminOverrideRequest {
+    return o && (o.$typeUrl === UpdateAdminOverrideRequest.typeUrl || typeof o.name === "string" && typeof o.force === "boolean" && Array.isArray(o.forceOnly));
+  },
+  isSDK(o: any): o is UpdateAdminOverrideRequestSDKType {
+    return o && (o.$typeUrl === UpdateAdminOverrideRequest.typeUrl || typeof o.name === "string" && typeof o.force === "boolean" && Array.isArray(o.force_only));
+  },
+  isAmino(o: any): o is UpdateAdminOverrideRequestAmino {
+    return o && (o.$typeUrl === UpdateAdminOverrideRequest.typeUrl || typeof o.name === "string" && typeof o.force === "boolean" && Array.isArray(o.force_only));
+  },
   encode(message: UpdateAdminOverrideRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -3578,6 +3713,13 @@ export const UpdateAdminOverrideRequest = {
       typeUrl: "/google.api.serviceusage.v1beta1.UpdateAdminOverrideRequest",
       value: UpdateAdminOverrideRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(UpdateAdminOverrideRequest.typeUrl)) {
+      return;
+    }
+    QuotaOverride.registerTypeUrl();
+    FieldMask.registerTypeUrl();
   }
 };
 function createBaseDeleteAdminOverrideRequest(): DeleteAdminOverrideRequest {
@@ -3595,6 +3737,15 @@ function createBaseDeleteAdminOverrideRequest(): DeleteAdminOverrideRequest {
  */
 export const DeleteAdminOverrideRequest = {
   typeUrl: "/google.api.serviceusage.v1beta1.DeleteAdminOverrideRequest",
+  is(o: any): o is DeleteAdminOverrideRequest {
+    return o && (o.$typeUrl === DeleteAdminOverrideRequest.typeUrl || typeof o.name === "string" && typeof o.force === "boolean" && Array.isArray(o.forceOnly));
+  },
+  isSDK(o: any): o is DeleteAdminOverrideRequestSDKType {
+    return o && (o.$typeUrl === DeleteAdminOverrideRequest.typeUrl || typeof o.name === "string" && typeof o.force === "boolean" && Array.isArray(o.force_only));
+  },
+  isAmino(o: any): o is DeleteAdminOverrideRequestAmino {
+    return o && (o.$typeUrl === DeleteAdminOverrideRequest.typeUrl || typeof o.name === "string" && typeof o.force === "boolean" && Array.isArray(o.force_only));
+  },
   encode(message: DeleteAdminOverrideRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -3718,7 +3869,8 @@ export const DeleteAdminOverrideRequest = {
       typeUrl: "/google.api.serviceusage.v1beta1.DeleteAdminOverrideRequest",
       value: DeleteAdminOverrideRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseListAdminOverridesRequest(): ListAdminOverridesRequest {
   return {
@@ -3735,6 +3887,15 @@ function createBaseListAdminOverridesRequest(): ListAdminOverridesRequest {
  */
 export const ListAdminOverridesRequest = {
   typeUrl: "/google.api.serviceusage.v1beta1.ListAdminOverridesRequest",
+  is(o: any): o is ListAdminOverridesRequest {
+    return o && (o.$typeUrl === ListAdminOverridesRequest.typeUrl || typeof o.parent === "string" && typeof o.pageSize === "number" && typeof o.pageToken === "string");
+  },
+  isSDK(o: any): o is ListAdminOverridesRequestSDKType {
+    return o && (o.$typeUrl === ListAdminOverridesRequest.typeUrl || typeof o.parent === "string" && typeof o.page_size === "number" && typeof o.page_token === "string");
+  },
+  isAmino(o: any): o is ListAdminOverridesRequestAmino {
+    return o && (o.$typeUrl === ListAdminOverridesRequest.typeUrl || typeof o.parent === "string" && typeof o.page_size === "number" && typeof o.page_token === "string");
+  },
   encode(message: ListAdminOverridesRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.parent !== "") {
       writer.uint32(10).string(message.parent);
@@ -3839,7 +4000,8 @@ export const ListAdminOverridesRequest = {
       typeUrl: "/google.api.serviceusage.v1beta1.ListAdminOverridesRequest",
       value: ListAdminOverridesRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseListAdminOverridesResponse(): ListAdminOverridesResponse {
   return {
@@ -3855,6 +4017,15 @@ function createBaseListAdminOverridesResponse(): ListAdminOverridesResponse {
  */
 export const ListAdminOverridesResponse = {
   typeUrl: "/google.api.serviceusage.v1beta1.ListAdminOverridesResponse",
+  is(o: any): o is ListAdminOverridesResponse {
+    return o && (o.$typeUrl === ListAdminOverridesResponse.typeUrl || Array.isArray(o.overrides) && (!o.overrides.length || QuotaOverride.is(o.overrides[0])) && typeof o.nextPageToken === "string");
+  },
+  isSDK(o: any): o is ListAdminOverridesResponseSDKType {
+    return o && (o.$typeUrl === ListAdminOverridesResponse.typeUrl || Array.isArray(o.overrides) && (!o.overrides.length || QuotaOverride.isSDK(o.overrides[0])) && typeof o.next_page_token === "string");
+  },
+  isAmino(o: any): o is ListAdminOverridesResponseAmino {
+    return o && (o.$typeUrl === ListAdminOverridesResponse.typeUrl || Array.isArray(o.overrides) && (!o.overrides.length || QuotaOverride.isAmino(o.overrides[0])) && typeof o.next_page_token === "string");
+  },
   encode(message: ListAdminOverridesResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.overrides) {
       QuotaOverride.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -3954,6 +4125,12 @@ export const ListAdminOverridesResponse = {
       typeUrl: "/google.api.serviceusage.v1beta1.ListAdminOverridesResponse",
       value: ListAdminOverridesResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ListAdminOverridesResponse.typeUrl)) {
+      return;
+    }
+    QuotaOverride.registerTypeUrl();
   }
 };
 function createBaseBatchCreateAdminOverridesResponse(): BatchCreateAdminOverridesResponse {
@@ -3969,6 +4146,15 @@ function createBaseBatchCreateAdminOverridesResponse(): BatchCreateAdminOverride
  */
 export const BatchCreateAdminOverridesResponse = {
   typeUrl: "/google.api.serviceusage.v1beta1.BatchCreateAdminOverridesResponse",
+  is(o: any): o is BatchCreateAdminOverridesResponse {
+    return o && (o.$typeUrl === BatchCreateAdminOverridesResponse.typeUrl || Array.isArray(o.overrides) && (!o.overrides.length || QuotaOverride.is(o.overrides[0])));
+  },
+  isSDK(o: any): o is BatchCreateAdminOverridesResponseSDKType {
+    return o && (o.$typeUrl === BatchCreateAdminOverridesResponse.typeUrl || Array.isArray(o.overrides) && (!o.overrides.length || QuotaOverride.isSDK(o.overrides[0])));
+  },
+  isAmino(o: any): o is BatchCreateAdminOverridesResponseAmino {
+    return o && (o.$typeUrl === BatchCreateAdminOverridesResponse.typeUrl || Array.isArray(o.overrides) && (!o.overrides.length || QuotaOverride.isAmino(o.overrides[0])));
+  },
   encode(message: BatchCreateAdminOverridesResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.overrides) {
       QuotaOverride.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -4053,6 +4239,12 @@ export const BatchCreateAdminOverridesResponse = {
       typeUrl: "/google.api.serviceusage.v1beta1.BatchCreateAdminOverridesResponse",
       value: BatchCreateAdminOverridesResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(BatchCreateAdminOverridesResponse.typeUrl)) {
+      return;
+    }
+    QuotaOverride.registerTypeUrl();
   }
 };
 function createBaseImportAdminOverridesRequest(): ImportAdminOverridesRequest {
@@ -4071,6 +4263,15 @@ function createBaseImportAdminOverridesRequest(): ImportAdminOverridesRequest {
  */
 export const ImportAdminOverridesRequest = {
   typeUrl: "/google.api.serviceusage.v1beta1.ImportAdminOverridesRequest",
+  is(o: any): o is ImportAdminOverridesRequest {
+    return o && (o.$typeUrl === ImportAdminOverridesRequest.typeUrl || typeof o.parent === "string" && typeof o.force === "boolean" && Array.isArray(o.forceOnly));
+  },
+  isSDK(o: any): o is ImportAdminOverridesRequestSDKType {
+    return o && (o.$typeUrl === ImportAdminOverridesRequest.typeUrl || typeof o.parent === "string" && typeof o.force === "boolean" && Array.isArray(o.force_only));
+  },
+  isAmino(o: any): o is ImportAdminOverridesRequestAmino {
+    return o && (o.$typeUrl === ImportAdminOverridesRequest.typeUrl || typeof o.parent === "string" && typeof o.force === "boolean" && Array.isArray(o.force_only));
+  },
   encode(message: ImportAdminOverridesRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.parent !== "") {
       writer.uint32(10).string(message.parent);
@@ -4211,6 +4412,12 @@ export const ImportAdminOverridesRequest = {
       typeUrl: "/google.api.serviceusage.v1beta1.ImportAdminOverridesRequest",
       value: ImportAdminOverridesRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ImportAdminOverridesRequest.typeUrl)) {
+      return;
+    }
+    OverrideInlineSource.registerTypeUrl();
   }
 };
 function createBaseImportAdminOverridesResponse(): ImportAdminOverridesResponse {
@@ -4226,6 +4433,15 @@ function createBaseImportAdminOverridesResponse(): ImportAdminOverridesResponse 
  */
 export const ImportAdminOverridesResponse = {
   typeUrl: "/google.api.serviceusage.v1beta1.ImportAdminOverridesResponse",
+  is(o: any): o is ImportAdminOverridesResponse {
+    return o && (o.$typeUrl === ImportAdminOverridesResponse.typeUrl || Array.isArray(o.overrides) && (!o.overrides.length || QuotaOverride.is(o.overrides[0])));
+  },
+  isSDK(o: any): o is ImportAdminOverridesResponseSDKType {
+    return o && (o.$typeUrl === ImportAdminOverridesResponse.typeUrl || Array.isArray(o.overrides) && (!o.overrides.length || QuotaOverride.isSDK(o.overrides[0])));
+  },
+  isAmino(o: any): o is ImportAdminOverridesResponseAmino {
+    return o && (o.$typeUrl === ImportAdminOverridesResponse.typeUrl || Array.isArray(o.overrides) && (!o.overrides.length || QuotaOverride.isAmino(o.overrides[0])));
+  },
   encode(message: ImportAdminOverridesResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.overrides) {
       QuotaOverride.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -4310,6 +4526,12 @@ export const ImportAdminOverridesResponse = {
       typeUrl: "/google.api.serviceusage.v1beta1.ImportAdminOverridesResponse",
       value: ImportAdminOverridesResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ImportAdminOverridesResponse.typeUrl)) {
+      return;
+    }
+    QuotaOverride.registerTypeUrl();
   }
 };
 function createBaseImportAdminOverridesMetadata(): ImportAdminOverridesMetadata {
@@ -4325,6 +4547,15 @@ function createBaseImportAdminOverridesMetadata(): ImportAdminOverridesMetadata 
  */
 export const ImportAdminOverridesMetadata = {
   typeUrl: "/google.api.serviceusage.v1beta1.ImportAdminOverridesMetadata",
+  is(o: any): o is ImportAdminOverridesMetadata {
+    return o && o.$typeUrl === ImportAdminOverridesMetadata.typeUrl;
+  },
+  isSDK(o: any): o is ImportAdminOverridesMetadataSDKType {
+    return o && o.$typeUrl === ImportAdminOverridesMetadata.typeUrl;
+  },
+  isAmino(o: any): o is ImportAdminOverridesMetadataAmino {
+    return o && o.$typeUrl === ImportAdminOverridesMetadata.typeUrl;
+  },
   encode(_: ImportAdminOverridesMetadata, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -4383,7 +4614,8 @@ export const ImportAdminOverridesMetadata = {
       typeUrl: "/google.api.serviceusage.v1beta1.ImportAdminOverridesMetadata",
       value: ImportAdminOverridesMetadata.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseCreateConsumerOverrideRequest(): CreateConsumerOverrideRequest {
   return {
@@ -4401,6 +4633,15 @@ function createBaseCreateConsumerOverrideRequest(): CreateConsumerOverrideReques
  */
 export const CreateConsumerOverrideRequest = {
   typeUrl: "/google.api.serviceusage.v1beta1.CreateConsumerOverrideRequest",
+  is(o: any): o is CreateConsumerOverrideRequest {
+    return o && (o.$typeUrl === CreateConsumerOverrideRequest.typeUrl || typeof o.parent === "string" && typeof o.force === "boolean" && Array.isArray(o.forceOnly));
+  },
+  isSDK(o: any): o is CreateConsumerOverrideRequestSDKType {
+    return o && (o.$typeUrl === CreateConsumerOverrideRequest.typeUrl || typeof o.parent === "string" && typeof o.force === "boolean" && Array.isArray(o.force_only));
+  },
+  isAmino(o: any): o is CreateConsumerOverrideRequestAmino {
+    return o && (o.$typeUrl === CreateConsumerOverrideRequest.typeUrl || typeof o.parent === "string" && typeof o.force === "boolean" && Array.isArray(o.force_only));
+  },
   encode(message: CreateConsumerOverrideRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.parent !== "") {
       writer.uint32(10).string(message.parent);
@@ -4541,6 +4782,12 @@ export const CreateConsumerOverrideRequest = {
       typeUrl: "/google.api.serviceusage.v1beta1.CreateConsumerOverrideRequest",
       value: CreateConsumerOverrideRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(CreateConsumerOverrideRequest.typeUrl)) {
+      return;
+    }
+    QuotaOverride.registerTypeUrl();
   }
 };
 function createBaseUpdateConsumerOverrideRequest(): UpdateConsumerOverrideRequest {
@@ -4560,6 +4807,15 @@ function createBaseUpdateConsumerOverrideRequest(): UpdateConsumerOverrideReques
  */
 export const UpdateConsumerOverrideRequest = {
   typeUrl: "/google.api.serviceusage.v1beta1.UpdateConsumerOverrideRequest",
+  is(o: any): o is UpdateConsumerOverrideRequest {
+    return o && (o.$typeUrl === UpdateConsumerOverrideRequest.typeUrl || typeof o.name === "string" && typeof o.force === "boolean" && Array.isArray(o.forceOnly));
+  },
+  isSDK(o: any): o is UpdateConsumerOverrideRequestSDKType {
+    return o && (o.$typeUrl === UpdateConsumerOverrideRequest.typeUrl || typeof o.name === "string" && typeof o.force === "boolean" && Array.isArray(o.force_only));
+  },
+  isAmino(o: any): o is UpdateConsumerOverrideRequestAmino {
+    return o && (o.$typeUrl === UpdateConsumerOverrideRequest.typeUrl || typeof o.name === "string" && typeof o.force === "boolean" && Array.isArray(o.force_only));
+  },
   encode(message: UpdateConsumerOverrideRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -4717,6 +4973,13 @@ export const UpdateConsumerOverrideRequest = {
       typeUrl: "/google.api.serviceusage.v1beta1.UpdateConsumerOverrideRequest",
       value: UpdateConsumerOverrideRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(UpdateConsumerOverrideRequest.typeUrl)) {
+      return;
+    }
+    QuotaOverride.registerTypeUrl();
+    FieldMask.registerTypeUrl();
   }
 };
 function createBaseDeleteConsumerOverrideRequest(): DeleteConsumerOverrideRequest {
@@ -4734,6 +4997,15 @@ function createBaseDeleteConsumerOverrideRequest(): DeleteConsumerOverrideReques
  */
 export const DeleteConsumerOverrideRequest = {
   typeUrl: "/google.api.serviceusage.v1beta1.DeleteConsumerOverrideRequest",
+  is(o: any): o is DeleteConsumerOverrideRequest {
+    return o && (o.$typeUrl === DeleteConsumerOverrideRequest.typeUrl || typeof o.name === "string" && typeof o.force === "boolean" && Array.isArray(o.forceOnly));
+  },
+  isSDK(o: any): o is DeleteConsumerOverrideRequestSDKType {
+    return o && (o.$typeUrl === DeleteConsumerOverrideRequest.typeUrl || typeof o.name === "string" && typeof o.force === "boolean" && Array.isArray(o.force_only));
+  },
+  isAmino(o: any): o is DeleteConsumerOverrideRequestAmino {
+    return o && (o.$typeUrl === DeleteConsumerOverrideRequest.typeUrl || typeof o.name === "string" && typeof o.force === "boolean" && Array.isArray(o.force_only));
+  },
   encode(message: DeleteConsumerOverrideRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -4857,7 +5129,8 @@ export const DeleteConsumerOverrideRequest = {
       typeUrl: "/google.api.serviceusage.v1beta1.DeleteConsumerOverrideRequest",
       value: DeleteConsumerOverrideRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseListConsumerOverridesRequest(): ListConsumerOverridesRequest {
   return {
@@ -4874,6 +5147,15 @@ function createBaseListConsumerOverridesRequest(): ListConsumerOverridesRequest 
  */
 export const ListConsumerOverridesRequest = {
   typeUrl: "/google.api.serviceusage.v1beta1.ListConsumerOverridesRequest",
+  is(o: any): o is ListConsumerOverridesRequest {
+    return o && (o.$typeUrl === ListConsumerOverridesRequest.typeUrl || typeof o.parent === "string" && typeof o.pageSize === "number" && typeof o.pageToken === "string");
+  },
+  isSDK(o: any): o is ListConsumerOverridesRequestSDKType {
+    return o && (o.$typeUrl === ListConsumerOverridesRequest.typeUrl || typeof o.parent === "string" && typeof o.page_size === "number" && typeof o.page_token === "string");
+  },
+  isAmino(o: any): o is ListConsumerOverridesRequestAmino {
+    return o && (o.$typeUrl === ListConsumerOverridesRequest.typeUrl || typeof o.parent === "string" && typeof o.page_size === "number" && typeof o.page_token === "string");
+  },
   encode(message: ListConsumerOverridesRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.parent !== "") {
       writer.uint32(10).string(message.parent);
@@ -4978,7 +5260,8 @@ export const ListConsumerOverridesRequest = {
       typeUrl: "/google.api.serviceusage.v1beta1.ListConsumerOverridesRequest",
       value: ListConsumerOverridesRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseListConsumerOverridesResponse(): ListConsumerOverridesResponse {
   return {
@@ -4994,6 +5277,15 @@ function createBaseListConsumerOverridesResponse(): ListConsumerOverridesRespons
  */
 export const ListConsumerOverridesResponse = {
   typeUrl: "/google.api.serviceusage.v1beta1.ListConsumerOverridesResponse",
+  is(o: any): o is ListConsumerOverridesResponse {
+    return o && (o.$typeUrl === ListConsumerOverridesResponse.typeUrl || Array.isArray(o.overrides) && (!o.overrides.length || QuotaOverride.is(o.overrides[0])) && typeof o.nextPageToken === "string");
+  },
+  isSDK(o: any): o is ListConsumerOverridesResponseSDKType {
+    return o && (o.$typeUrl === ListConsumerOverridesResponse.typeUrl || Array.isArray(o.overrides) && (!o.overrides.length || QuotaOverride.isSDK(o.overrides[0])) && typeof o.next_page_token === "string");
+  },
+  isAmino(o: any): o is ListConsumerOverridesResponseAmino {
+    return o && (o.$typeUrl === ListConsumerOverridesResponse.typeUrl || Array.isArray(o.overrides) && (!o.overrides.length || QuotaOverride.isAmino(o.overrides[0])) && typeof o.next_page_token === "string");
+  },
   encode(message: ListConsumerOverridesResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.overrides) {
       QuotaOverride.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -5093,6 +5385,12 @@ export const ListConsumerOverridesResponse = {
       typeUrl: "/google.api.serviceusage.v1beta1.ListConsumerOverridesResponse",
       value: ListConsumerOverridesResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ListConsumerOverridesResponse.typeUrl)) {
+      return;
+    }
+    QuotaOverride.registerTypeUrl();
   }
 };
 function createBaseBatchCreateConsumerOverridesResponse(): BatchCreateConsumerOverridesResponse {
@@ -5108,6 +5406,15 @@ function createBaseBatchCreateConsumerOverridesResponse(): BatchCreateConsumerOv
  */
 export const BatchCreateConsumerOverridesResponse = {
   typeUrl: "/google.api.serviceusage.v1beta1.BatchCreateConsumerOverridesResponse",
+  is(o: any): o is BatchCreateConsumerOverridesResponse {
+    return o && (o.$typeUrl === BatchCreateConsumerOverridesResponse.typeUrl || Array.isArray(o.overrides) && (!o.overrides.length || QuotaOverride.is(o.overrides[0])));
+  },
+  isSDK(o: any): o is BatchCreateConsumerOverridesResponseSDKType {
+    return o && (o.$typeUrl === BatchCreateConsumerOverridesResponse.typeUrl || Array.isArray(o.overrides) && (!o.overrides.length || QuotaOverride.isSDK(o.overrides[0])));
+  },
+  isAmino(o: any): o is BatchCreateConsumerOverridesResponseAmino {
+    return o && (o.$typeUrl === BatchCreateConsumerOverridesResponse.typeUrl || Array.isArray(o.overrides) && (!o.overrides.length || QuotaOverride.isAmino(o.overrides[0])));
+  },
   encode(message: BatchCreateConsumerOverridesResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.overrides) {
       QuotaOverride.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -5192,6 +5499,12 @@ export const BatchCreateConsumerOverridesResponse = {
       typeUrl: "/google.api.serviceusage.v1beta1.BatchCreateConsumerOverridesResponse",
       value: BatchCreateConsumerOverridesResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(BatchCreateConsumerOverridesResponse.typeUrl)) {
+      return;
+    }
+    QuotaOverride.registerTypeUrl();
   }
 };
 function createBaseImportConsumerOverridesRequest(): ImportConsumerOverridesRequest {
@@ -5210,6 +5523,15 @@ function createBaseImportConsumerOverridesRequest(): ImportConsumerOverridesRequ
  */
 export const ImportConsumerOverridesRequest = {
   typeUrl: "/google.api.serviceusage.v1beta1.ImportConsumerOverridesRequest",
+  is(o: any): o is ImportConsumerOverridesRequest {
+    return o && (o.$typeUrl === ImportConsumerOverridesRequest.typeUrl || typeof o.parent === "string" && typeof o.force === "boolean" && Array.isArray(o.forceOnly));
+  },
+  isSDK(o: any): o is ImportConsumerOverridesRequestSDKType {
+    return o && (o.$typeUrl === ImportConsumerOverridesRequest.typeUrl || typeof o.parent === "string" && typeof o.force === "boolean" && Array.isArray(o.force_only));
+  },
+  isAmino(o: any): o is ImportConsumerOverridesRequestAmino {
+    return o && (o.$typeUrl === ImportConsumerOverridesRequest.typeUrl || typeof o.parent === "string" && typeof o.force === "boolean" && Array.isArray(o.force_only));
+  },
   encode(message: ImportConsumerOverridesRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.parent !== "") {
       writer.uint32(10).string(message.parent);
@@ -5350,6 +5672,12 @@ export const ImportConsumerOverridesRequest = {
       typeUrl: "/google.api.serviceusage.v1beta1.ImportConsumerOverridesRequest",
       value: ImportConsumerOverridesRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ImportConsumerOverridesRequest.typeUrl)) {
+      return;
+    }
+    OverrideInlineSource.registerTypeUrl();
   }
 };
 function createBaseImportConsumerOverridesResponse(): ImportConsumerOverridesResponse {
@@ -5365,6 +5693,15 @@ function createBaseImportConsumerOverridesResponse(): ImportConsumerOverridesRes
  */
 export const ImportConsumerOverridesResponse = {
   typeUrl: "/google.api.serviceusage.v1beta1.ImportConsumerOverridesResponse",
+  is(o: any): o is ImportConsumerOverridesResponse {
+    return o && (o.$typeUrl === ImportConsumerOverridesResponse.typeUrl || Array.isArray(o.overrides) && (!o.overrides.length || QuotaOverride.is(o.overrides[0])));
+  },
+  isSDK(o: any): o is ImportConsumerOverridesResponseSDKType {
+    return o && (o.$typeUrl === ImportConsumerOverridesResponse.typeUrl || Array.isArray(o.overrides) && (!o.overrides.length || QuotaOverride.isSDK(o.overrides[0])));
+  },
+  isAmino(o: any): o is ImportConsumerOverridesResponseAmino {
+    return o && (o.$typeUrl === ImportConsumerOverridesResponse.typeUrl || Array.isArray(o.overrides) && (!o.overrides.length || QuotaOverride.isAmino(o.overrides[0])));
+  },
   encode(message: ImportConsumerOverridesResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.overrides) {
       QuotaOverride.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -5449,6 +5786,12 @@ export const ImportConsumerOverridesResponse = {
       typeUrl: "/google.api.serviceusage.v1beta1.ImportConsumerOverridesResponse",
       value: ImportConsumerOverridesResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ImportConsumerOverridesResponse.typeUrl)) {
+      return;
+    }
+    QuotaOverride.registerTypeUrl();
   }
 };
 function createBaseImportConsumerOverridesMetadata(): ImportConsumerOverridesMetadata {
@@ -5464,6 +5807,15 @@ function createBaseImportConsumerOverridesMetadata(): ImportConsumerOverridesMet
  */
 export const ImportConsumerOverridesMetadata = {
   typeUrl: "/google.api.serviceusage.v1beta1.ImportConsumerOverridesMetadata",
+  is(o: any): o is ImportConsumerOverridesMetadata {
+    return o && o.$typeUrl === ImportConsumerOverridesMetadata.typeUrl;
+  },
+  isSDK(o: any): o is ImportConsumerOverridesMetadataSDKType {
+    return o && o.$typeUrl === ImportConsumerOverridesMetadata.typeUrl;
+  },
+  isAmino(o: any): o is ImportConsumerOverridesMetadataAmino {
+    return o && o.$typeUrl === ImportConsumerOverridesMetadata.typeUrl;
+  },
   encode(_: ImportConsumerOverridesMetadata, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -5522,7 +5874,8 @@ export const ImportConsumerOverridesMetadata = {
       typeUrl: "/google.api.serviceusage.v1beta1.ImportConsumerOverridesMetadata",
       value: ImportConsumerOverridesMetadata.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseImportAdminQuotaPoliciesResponse(): ImportAdminQuotaPoliciesResponse {
   return {
@@ -5537,6 +5890,15 @@ function createBaseImportAdminQuotaPoliciesResponse(): ImportAdminQuotaPoliciesR
  */
 export const ImportAdminQuotaPoliciesResponse = {
   typeUrl: "/google.api.serviceusage.v1beta1.ImportAdminQuotaPoliciesResponse",
+  is(o: any): o is ImportAdminQuotaPoliciesResponse {
+    return o && (o.$typeUrl === ImportAdminQuotaPoliciesResponse.typeUrl || Array.isArray(o.policies) && (!o.policies.length || AdminQuotaPolicy.is(o.policies[0])));
+  },
+  isSDK(o: any): o is ImportAdminQuotaPoliciesResponseSDKType {
+    return o && (o.$typeUrl === ImportAdminQuotaPoliciesResponse.typeUrl || Array.isArray(o.policies) && (!o.policies.length || AdminQuotaPolicy.isSDK(o.policies[0])));
+  },
+  isAmino(o: any): o is ImportAdminQuotaPoliciesResponseAmino {
+    return o && (o.$typeUrl === ImportAdminQuotaPoliciesResponse.typeUrl || Array.isArray(o.policies) && (!o.policies.length || AdminQuotaPolicy.isAmino(o.policies[0])));
+  },
   encode(message: ImportAdminQuotaPoliciesResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.policies) {
       AdminQuotaPolicy.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -5621,6 +5983,12 @@ export const ImportAdminQuotaPoliciesResponse = {
       typeUrl: "/google.api.serviceusage.v1beta1.ImportAdminQuotaPoliciesResponse",
       value: ImportAdminQuotaPoliciesResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ImportAdminQuotaPoliciesResponse.typeUrl)) {
+      return;
+    }
+    AdminQuotaPolicy.registerTypeUrl();
   }
 };
 function createBaseImportAdminQuotaPoliciesMetadata(): ImportAdminQuotaPoliciesMetadata {
@@ -5636,6 +6004,15 @@ function createBaseImportAdminQuotaPoliciesMetadata(): ImportAdminQuotaPoliciesM
  */
 export const ImportAdminQuotaPoliciesMetadata = {
   typeUrl: "/google.api.serviceusage.v1beta1.ImportAdminQuotaPoliciesMetadata",
+  is(o: any): o is ImportAdminQuotaPoliciesMetadata {
+    return o && o.$typeUrl === ImportAdminQuotaPoliciesMetadata.typeUrl;
+  },
+  isSDK(o: any): o is ImportAdminQuotaPoliciesMetadataSDKType {
+    return o && o.$typeUrl === ImportAdminQuotaPoliciesMetadata.typeUrl;
+  },
+  isAmino(o: any): o is ImportAdminQuotaPoliciesMetadataAmino {
+    return o && o.$typeUrl === ImportAdminQuotaPoliciesMetadata.typeUrl;
+  },
   encode(_: ImportAdminQuotaPoliciesMetadata, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -5694,7 +6071,8 @@ export const ImportAdminQuotaPoliciesMetadata = {
       typeUrl: "/google.api.serviceusage.v1beta1.ImportAdminQuotaPoliciesMetadata",
       value: ImportAdminQuotaPoliciesMetadata.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseCreateAdminQuotaPolicyMetadata(): CreateAdminQuotaPolicyMetadata {
   return {};
@@ -5709,6 +6087,15 @@ function createBaseCreateAdminQuotaPolicyMetadata(): CreateAdminQuotaPolicyMetad
  */
 export const CreateAdminQuotaPolicyMetadata = {
   typeUrl: "/google.api.serviceusage.v1beta1.CreateAdminQuotaPolicyMetadata",
+  is(o: any): o is CreateAdminQuotaPolicyMetadata {
+    return o && o.$typeUrl === CreateAdminQuotaPolicyMetadata.typeUrl;
+  },
+  isSDK(o: any): o is CreateAdminQuotaPolicyMetadataSDKType {
+    return o && o.$typeUrl === CreateAdminQuotaPolicyMetadata.typeUrl;
+  },
+  isAmino(o: any): o is CreateAdminQuotaPolicyMetadataAmino {
+    return o && o.$typeUrl === CreateAdminQuotaPolicyMetadata.typeUrl;
+  },
   encode(_: CreateAdminQuotaPolicyMetadata, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -5767,7 +6154,8 @@ export const CreateAdminQuotaPolicyMetadata = {
       typeUrl: "/google.api.serviceusage.v1beta1.CreateAdminQuotaPolicyMetadata",
       value: CreateAdminQuotaPolicyMetadata.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseUpdateAdminQuotaPolicyMetadata(): UpdateAdminQuotaPolicyMetadata {
   return {};
@@ -5782,6 +6170,15 @@ function createBaseUpdateAdminQuotaPolicyMetadata(): UpdateAdminQuotaPolicyMetad
  */
 export const UpdateAdminQuotaPolicyMetadata = {
   typeUrl: "/google.api.serviceusage.v1beta1.UpdateAdminQuotaPolicyMetadata",
+  is(o: any): o is UpdateAdminQuotaPolicyMetadata {
+    return o && o.$typeUrl === UpdateAdminQuotaPolicyMetadata.typeUrl;
+  },
+  isSDK(o: any): o is UpdateAdminQuotaPolicyMetadataSDKType {
+    return o && o.$typeUrl === UpdateAdminQuotaPolicyMetadata.typeUrl;
+  },
+  isAmino(o: any): o is UpdateAdminQuotaPolicyMetadataAmino {
+    return o && o.$typeUrl === UpdateAdminQuotaPolicyMetadata.typeUrl;
+  },
   encode(_: UpdateAdminQuotaPolicyMetadata, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -5840,7 +6237,8 @@ export const UpdateAdminQuotaPolicyMetadata = {
       typeUrl: "/google.api.serviceusage.v1beta1.UpdateAdminQuotaPolicyMetadata",
       value: UpdateAdminQuotaPolicyMetadata.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseDeleteAdminQuotaPolicyMetadata(): DeleteAdminQuotaPolicyMetadata {
   return {};
@@ -5855,6 +6253,15 @@ function createBaseDeleteAdminQuotaPolicyMetadata(): DeleteAdminQuotaPolicyMetad
  */
 export const DeleteAdminQuotaPolicyMetadata = {
   typeUrl: "/google.api.serviceusage.v1beta1.DeleteAdminQuotaPolicyMetadata",
+  is(o: any): o is DeleteAdminQuotaPolicyMetadata {
+    return o && o.$typeUrl === DeleteAdminQuotaPolicyMetadata.typeUrl;
+  },
+  isSDK(o: any): o is DeleteAdminQuotaPolicyMetadataSDKType {
+    return o && o.$typeUrl === DeleteAdminQuotaPolicyMetadata.typeUrl;
+  },
+  isAmino(o: any): o is DeleteAdminQuotaPolicyMetadataAmino {
+    return o && o.$typeUrl === DeleteAdminQuotaPolicyMetadata.typeUrl;
+  },
   encode(_: DeleteAdminQuotaPolicyMetadata, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -5913,7 +6320,8 @@ export const DeleteAdminQuotaPolicyMetadata = {
       typeUrl: "/google.api.serviceusage.v1beta1.DeleteAdminQuotaPolicyMetadata",
       value: DeleteAdminQuotaPolicyMetadata.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseGenerateServiceIdentityRequest(): GenerateServiceIdentityRequest {
   return {
@@ -5928,6 +6336,15 @@ function createBaseGenerateServiceIdentityRequest(): GenerateServiceIdentityRequ
  */
 export const GenerateServiceIdentityRequest = {
   typeUrl: "/google.api.serviceusage.v1beta1.GenerateServiceIdentityRequest",
+  is(o: any): o is GenerateServiceIdentityRequest {
+    return o && (o.$typeUrl === GenerateServiceIdentityRequest.typeUrl || typeof o.parent === "string");
+  },
+  isSDK(o: any): o is GenerateServiceIdentityRequestSDKType {
+    return o && (o.$typeUrl === GenerateServiceIdentityRequest.typeUrl || typeof o.parent === "string");
+  },
+  isAmino(o: any): o is GenerateServiceIdentityRequestAmino {
+    return o && (o.$typeUrl === GenerateServiceIdentityRequest.typeUrl || typeof o.parent === "string");
+  },
   encode(message: GenerateServiceIdentityRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.parent !== "") {
       writer.uint32(10).string(message.parent);
@@ -6002,7 +6419,8 @@ export const GenerateServiceIdentityRequest = {
       typeUrl: "/google.api.serviceusage.v1beta1.GenerateServiceIdentityRequest",
       value: GenerateServiceIdentityRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseGetServiceIdentityResponse(): GetServiceIdentityResponse {
   return {
@@ -6018,6 +6436,15 @@ function createBaseGetServiceIdentityResponse(): GetServiceIdentityResponse {
  */
 export const GetServiceIdentityResponse = {
   typeUrl: "/google.api.serviceusage.v1beta1.GetServiceIdentityResponse",
+  is(o: any): o is GetServiceIdentityResponse {
+    return o && (o.$typeUrl === GetServiceIdentityResponse.typeUrl || isSet(o.state));
+  },
+  isSDK(o: any): o is GetServiceIdentityResponseSDKType {
+    return o && (o.$typeUrl === GetServiceIdentityResponse.typeUrl || isSet(o.state));
+  },
+  isAmino(o: any): o is GetServiceIdentityResponseAmino {
+    return o && (o.$typeUrl === GetServiceIdentityResponse.typeUrl || isSet(o.state));
+  },
   encode(message: GetServiceIdentityResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.identity !== undefined) {
       ServiceIdentity.encode(message.identity, writer.uint32(10).fork()).ldelim();
@@ -6109,6 +6536,12 @@ export const GetServiceIdentityResponse = {
       typeUrl: "/google.api.serviceusage.v1beta1.GetServiceIdentityResponse",
       value: GetServiceIdentityResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(GetServiceIdentityResponse.typeUrl)) {
+      return;
+    }
+    ServiceIdentity.registerTypeUrl();
   }
 };
 function createBaseGetServiceIdentityMetadata(): GetServiceIdentityMetadata {
@@ -6122,6 +6555,15 @@ function createBaseGetServiceIdentityMetadata(): GetServiceIdentityMetadata {
  */
 export const GetServiceIdentityMetadata = {
   typeUrl: "/google.api.serviceusage.v1beta1.GetServiceIdentityMetadata",
+  is(o: any): o is GetServiceIdentityMetadata {
+    return o && o.$typeUrl === GetServiceIdentityMetadata.typeUrl;
+  },
+  isSDK(o: any): o is GetServiceIdentityMetadataSDKType {
+    return o && o.$typeUrl === GetServiceIdentityMetadata.typeUrl;
+  },
+  isAmino(o: any): o is GetServiceIdentityMetadataAmino {
+    return o && o.$typeUrl === GetServiceIdentityMetadata.typeUrl;
+  },
   encode(_: GetServiceIdentityMetadata, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -6180,5 +6622,6 @@ export const GetServiceIdentityMetadata = {
       typeUrl: "/google.api.serviceusage.v1beta1.GetServiceIdentityMetadata",
       value: GetServiceIdentityMetadata.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

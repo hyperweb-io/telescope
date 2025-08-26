@@ -2,6 +2,7 @@
 import { ValidatorPreference, ValidatorPreferenceSDKType } from "./state";
 import { Coin, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
 import { AminoMsg } from "@cosmjs/amino";
+import { Decimal } from "@interchainjs/math";
 import { MsgSetValidatorSetPreference, MsgSetValidatorSetPreferenceSDKType, MsgDelegateToValidatorSet, MsgDelegateToValidatorSetSDKType, MsgUndelegateFromValidatorSet, MsgUndelegateFromValidatorSetSDKType, MsgRedelegateValidatorSet, MsgRedelegateValidatorSetSDKType, MsgWithdrawDelegationRewards, MsgWithdrawDelegationRewardsSDKType, MsgDelegateBondedTokens, MsgDelegateBondedTokensSDKType } from "./tx";
 export interface MsgSetValidatorSetPreferenceAminoType extends AminoMsg {
   type: "osmosis/valset-pref/MsgSetValidatorSetPreference";
@@ -67,7 +68,7 @@ export const AminoConverter = {
         delegator,
         preferences: preferences.map(el0 => ({
           val_oper_address: el0.valOperAddress,
-          weight: el0.weight
+          weight: Decimal.fromUserInput(el0.weight, 18).atomics
         }))
       };
     },
@@ -148,7 +149,7 @@ export const AminoConverter = {
         delegator,
         preferences: preferences.map(el0 => ({
           val_oper_address: el0.valOperAddress,
-          weight: el0.weight
+          weight: Decimal.fromUserInput(el0.weight, 18).atomics
         }))
       };
     },

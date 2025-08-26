@@ -1,5 +1,5 @@
 import { Order, OrderSDKType, Counterparty, CounterpartySDKType } from "../../channel/v1/channel.js";
-import { Rpc } from "../../../../helpers.js";
+import { TxRpc } from "../../../../types.js";
 import { BinaryReader } from "../../../../binary.js";
 import { QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
 import { QueryAppVersionRequest, QueryAppVersionRequestSDKType, QueryAppVersionResponse, QueryAppVersionResponseSDKType } from "./query.js";
@@ -9,8 +9,8 @@ export interface Query {
   appVersion(request: QueryAppVersionRequest): Promise<QueryAppVersionResponse>;
 }
 export class QueryClientImpl implements Query {
-  private readonly rpc: Rpc;
-  constructor(rpc: Rpc) {
+  private readonly rpc: TxRpc;
+  constructor(rpc: TxRpc) {
     this.rpc = rpc;
     this.appVersion = this.appVersion.bind(this);
   }

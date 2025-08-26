@@ -69,6 +69,15 @@ function createBaseEmpty(): Empty {
  */
 export const Empty = {
   typeUrl: "/google.protobuf.Empty",
+  is(o: any): o is Empty {
+    return o && o.$typeUrl === Empty.typeUrl;
+  },
+  isSDK(o: any): o is EmptySDKType {
+    return o && o.$typeUrl === Empty.typeUrl;
+  },
+  isAmino(o: any): o is EmptyAmino {
+    return o && o.$typeUrl === Empty.typeUrl;
+  },
   encode(_: Empty, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -120,5 +129,6 @@ export const Empty = {
       typeUrl: "/google.protobuf.Empty",
       value: Empty.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

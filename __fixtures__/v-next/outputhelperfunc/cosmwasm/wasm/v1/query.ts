@@ -4,7 +4,7 @@ import { BinaryReader, BinaryWriter } from "../../../binary";
 import { isSet, DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers";
 import { JsonSafe } from "../../../json-safe";
 import { GlobalDecoderRegistry } from "../../../registry";
-import { toUtf8, fromUtf8 } from "@cosmjs/encoding";
+import { toUtf8, fromUtf8 } from "@interchainjs/encoding";
 export const protobufPackage = "cosmwasm.wasm.v1";
 /**
  * QueryContractInfoRequest is the request type for the Query/ContractInfo RPC

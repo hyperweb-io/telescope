@@ -1,5 +1,6 @@
 import { Distribution_Exemplar, Distribution_ExemplarAmino, Distribution_ExemplarSDKType } from "../../distribution";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
+import { GlobalDecoderRegistry } from "../../../../registry";
 import { isSet, DeepPartial } from "../../../../helpers";
 export const protobufPackage = "google.api.servicecontrol.v1";
 /**
@@ -403,6 +404,15 @@ function createBaseDistribution(): Distribution {
  */
 export const Distribution = {
   typeUrl: "/google.api.servicecontrol.v1.Distribution",
+  is(o: any): o is Distribution {
+    return o && (o.$typeUrl === Distribution.typeUrl || typeof o.count === "bigint" && typeof o.mean === "number" && typeof o.minimum === "number" && typeof o.maximum === "number" && typeof o.sumOfSquaredDeviation === "number" && Array.isArray(o.bucketCounts) && (!o.bucketCounts.length || typeof o.bucketCounts[0] === "bigint") && Array.isArray(o.exemplars) && (!o.exemplars.length || Distribution_Exemplar.is(o.exemplars[0])));
+  },
+  isSDK(o: any): o is DistributionSDKType {
+    return o && (o.$typeUrl === Distribution.typeUrl || typeof o.count === "bigint" && typeof o.mean === "number" && typeof o.minimum === "number" && typeof o.maximum === "number" && typeof o.sum_of_squared_deviation === "number" && Array.isArray(o.bucket_counts) && (!o.bucket_counts.length || typeof o.bucket_counts[0] === "bigint") && Array.isArray(o.exemplars) && (!o.exemplars.length || Distribution_Exemplar.isSDK(o.exemplars[0])));
+  },
+  isAmino(o: any): o is DistributionAmino {
+    return o && (o.$typeUrl === Distribution.typeUrl || typeof o.count === "bigint" && typeof o.mean === "number" && typeof o.minimum === "number" && typeof o.maximum === "number" && typeof o.sum_of_squared_deviation === "number" && Array.isArray(o.bucket_counts) && (!o.bucket_counts.length || typeof o.bucket_counts[0] === "bigint") && Array.isArray(o.exemplars) && (!o.exemplars.length || Distribution_Exemplar.isAmino(o.exemplars[0])));
+  },
   encode(message: Distribution, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.count !== BigInt(0)) {
       writer.uint32(8).int64(message.count);
@@ -624,6 +634,15 @@ export const Distribution = {
       typeUrl: "/google.api.servicecontrol.v1.Distribution",
       value: Distribution.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Distribution.typeUrl)) {
+      return;
+    }
+    Distribution_LinearBuckets.registerTypeUrl();
+    Distribution_ExponentialBuckets.registerTypeUrl();
+    Distribution_ExplicitBuckets.registerTypeUrl();
+    Distribution_Exemplar.registerTypeUrl();
   }
 };
 function createBaseDistribution_LinearBuckets(): Distribution_LinearBuckets {
@@ -641,6 +660,15 @@ function createBaseDistribution_LinearBuckets(): Distribution_LinearBuckets {
  */
 export const Distribution_LinearBuckets = {
   typeUrl: "/google.api.servicecontrol.v1.LinearBuckets",
+  is(o: any): o is Distribution_LinearBuckets {
+    return o && (o.$typeUrl === Distribution_LinearBuckets.typeUrl || typeof o.numFiniteBuckets === "number" && typeof o.width === "number" && typeof o.offset === "number");
+  },
+  isSDK(o: any): o is Distribution_LinearBucketsSDKType {
+    return o && (o.$typeUrl === Distribution_LinearBuckets.typeUrl || typeof o.num_finite_buckets === "number" && typeof o.width === "number" && typeof o.offset === "number");
+  },
+  isAmino(o: any): o is Distribution_LinearBucketsAmino {
+    return o && (o.$typeUrl === Distribution_LinearBuckets.typeUrl || typeof o.num_finite_buckets === "number" && typeof o.width === "number" && typeof o.offset === "number");
+  },
   encode(message: Distribution_LinearBuckets, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.numFiniteBuckets !== 0) {
       writer.uint32(8).int32(message.numFiniteBuckets);
@@ -735,7 +763,8 @@ export const Distribution_LinearBuckets = {
       typeUrl: "/google.api.servicecontrol.v1.LinearBuckets",
       value: Distribution_LinearBuckets.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseDistribution_ExponentialBuckets(): Distribution_ExponentialBuckets {
   return {
@@ -752,6 +781,15 @@ function createBaseDistribution_ExponentialBuckets(): Distribution_ExponentialBu
  */
 export const Distribution_ExponentialBuckets = {
   typeUrl: "/google.api.servicecontrol.v1.ExponentialBuckets",
+  is(o: any): o is Distribution_ExponentialBuckets {
+    return o && (o.$typeUrl === Distribution_ExponentialBuckets.typeUrl || typeof o.numFiniteBuckets === "number" && typeof o.growthFactor === "number" && typeof o.scale === "number");
+  },
+  isSDK(o: any): o is Distribution_ExponentialBucketsSDKType {
+    return o && (o.$typeUrl === Distribution_ExponentialBuckets.typeUrl || typeof o.num_finite_buckets === "number" && typeof o.growth_factor === "number" && typeof o.scale === "number");
+  },
+  isAmino(o: any): o is Distribution_ExponentialBucketsAmino {
+    return o && (o.$typeUrl === Distribution_ExponentialBuckets.typeUrl || typeof o.num_finite_buckets === "number" && typeof o.growth_factor === "number" && typeof o.scale === "number");
+  },
   encode(message: Distribution_ExponentialBuckets, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.numFiniteBuckets !== 0) {
       writer.uint32(8).int32(message.numFiniteBuckets);
@@ -846,7 +884,8 @@ export const Distribution_ExponentialBuckets = {
       typeUrl: "/google.api.servicecontrol.v1.ExponentialBuckets",
       value: Distribution_ExponentialBuckets.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseDistribution_ExplicitBuckets(): Distribution_ExplicitBuckets {
   return {
@@ -861,6 +900,15 @@ function createBaseDistribution_ExplicitBuckets(): Distribution_ExplicitBuckets 
  */
 export const Distribution_ExplicitBuckets = {
   typeUrl: "/google.api.servicecontrol.v1.ExplicitBuckets",
+  is(o: any): o is Distribution_ExplicitBuckets {
+    return o && (o.$typeUrl === Distribution_ExplicitBuckets.typeUrl || Array.isArray(o.bounds) && (!o.bounds.length || typeof o.bounds[0] === "number"));
+  },
+  isSDK(o: any): o is Distribution_ExplicitBucketsSDKType {
+    return o && (o.$typeUrl === Distribution_ExplicitBuckets.typeUrl || Array.isArray(o.bounds) && (!o.bounds.length || typeof o.bounds[0] === "number"));
+  },
+  isAmino(o: any): o is Distribution_ExplicitBucketsAmino {
+    return o && (o.$typeUrl === Distribution_ExplicitBuckets.typeUrl || Array.isArray(o.bounds) && (!o.bounds.length || typeof o.bounds[0] === "number"));
+  },
   encode(message: Distribution_ExplicitBuckets, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     writer.uint32(10).fork();
     for (const v of message.bounds) {
@@ -942,5 +990,6 @@ export const Distribution_ExplicitBuckets = {
       typeUrl: "/google.api.servicecontrol.v1.ExplicitBuckets",
       value: Distribution_ExplicitBuckets.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

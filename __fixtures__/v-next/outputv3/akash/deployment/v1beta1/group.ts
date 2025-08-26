@@ -2,6 +2,7 @@ import { PlacementRequirements, PlacementRequirementsAmino, PlacementRequirement
 import { ResourceUnits, ResourceUnitsAmino, ResourceUnitsSDKType } from "../../base/v1beta1/resource";
 import { Coin, CoinAmino, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../binary";
+import { GlobalDecoderRegistry } from "../../../registry";
 import { isSet, DeepPartial } from "../../../helpers";
 export const protobufPackage = "akash.deployment.v1beta1";
 /** State is an enum which refers to state of group */
@@ -392,6 +393,15 @@ function createBaseMsgCloseGroup(): MsgCloseGroup {
  */
 export const MsgCloseGroup = {
   typeUrl: "/akash.deployment.v1beta1.MsgCloseGroup",
+  is(o: any): o is MsgCloseGroup {
+    return o && (o.$typeUrl === MsgCloseGroup.typeUrl || GroupID.is(o.id));
+  },
+  isSDK(o: any): o is MsgCloseGroupSDKType {
+    return o && (o.$typeUrl === MsgCloseGroup.typeUrl || GroupID.isSDK(o.id));
+  },
+  isAmino(o: any): o is MsgCloseGroupAmino {
+    return o && (o.$typeUrl === MsgCloseGroup.typeUrl || GroupID.isAmino(o.id));
+  },
   encode(message: MsgCloseGroup, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.id !== undefined) {
       GroupID.encode(message.id, writer.uint32(10).fork()).ldelim();
@@ -460,6 +470,12 @@ export const MsgCloseGroup = {
       typeUrl: "/akash.deployment.v1beta1.MsgCloseGroup",
       value: MsgCloseGroup.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgCloseGroup.typeUrl)) {
+      return;
+    }
+    GroupID.registerTypeUrl();
   }
 };
 function createBaseMsgCloseGroupResponse(): MsgCloseGroupResponse {
@@ -473,6 +489,15 @@ function createBaseMsgCloseGroupResponse(): MsgCloseGroupResponse {
  */
 export const MsgCloseGroupResponse = {
   typeUrl: "/akash.deployment.v1beta1.MsgCloseGroupResponse",
+  is(o: any): o is MsgCloseGroupResponse {
+    return o && o.$typeUrl === MsgCloseGroupResponse.typeUrl;
+  },
+  isSDK(o: any): o is MsgCloseGroupResponseSDKType {
+    return o && o.$typeUrl === MsgCloseGroupResponse.typeUrl;
+  },
+  isAmino(o: any): o is MsgCloseGroupResponseAmino {
+    return o && o.$typeUrl === MsgCloseGroupResponse.typeUrl;
+  },
   encode(_: MsgCloseGroupResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -524,7 +549,8 @@ export const MsgCloseGroupResponse = {
       typeUrl: "/akash.deployment.v1beta1.MsgCloseGroupResponse",
       value: MsgCloseGroupResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseMsgPauseGroup(): MsgPauseGroup {
   return {
@@ -539,6 +565,15 @@ function createBaseMsgPauseGroup(): MsgPauseGroup {
  */
 export const MsgPauseGroup = {
   typeUrl: "/akash.deployment.v1beta1.MsgPauseGroup",
+  is(o: any): o is MsgPauseGroup {
+    return o && (o.$typeUrl === MsgPauseGroup.typeUrl || GroupID.is(o.id));
+  },
+  isSDK(o: any): o is MsgPauseGroupSDKType {
+    return o && (o.$typeUrl === MsgPauseGroup.typeUrl || GroupID.isSDK(o.id));
+  },
+  isAmino(o: any): o is MsgPauseGroupAmino {
+    return o && (o.$typeUrl === MsgPauseGroup.typeUrl || GroupID.isAmino(o.id));
+  },
   encode(message: MsgPauseGroup, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.id !== undefined) {
       GroupID.encode(message.id, writer.uint32(10).fork()).ldelim();
@@ -607,6 +642,12 @@ export const MsgPauseGroup = {
       typeUrl: "/akash.deployment.v1beta1.MsgPauseGroup",
       value: MsgPauseGroup.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgPauseGroup.typeUrl)) {
+      return;
+    }
+    GroupID.registerTypeUrl();
   }
 };
 function createBaseMsgPauseGroupResponse(): MsgPauseGroupResponse {
@@ -620,6 +661,15 @@ function createBaseMsgPauseGroupResponse(): MsgPauseGroupResponse {
  */
 export const MsgPauseGroupResponse = {
   typeUrl: "/akash.deployment.v1beta1.MsgPauseGroupResponse",
+  is(o: any): o is MsgPauseGroupResponse {
+    return o && o.$typeUrl === MsgPauseGroupResponse.typeUrl;
+  },
+  isSDK(o: any): o is MsgPauseGroupResponseSDKType {
+    return o && o.$typeUrl === MsgPauseGroupResponse.typeUrl;
+  },
+  isAmino(o: any): o is MsgPauseGroupResponseAmino {
+    return o && o.$typeUrl === MsgPauseGroupResponse.typeUrl;
+  },
   encode(_: MsgPauseGroupResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -671,7 +721,8 @@ export const MsgPauseGroupResponse = {
       typeUrl: "/akash.deployment.v1beta1.MsgPauseGroupResponse",
       value: MsgPauseGroupResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseMsgStartGroup(): MsgStartGroup {
   return {
@@ -686,6 +737,15 @@ function createBaseMsgStartGroup(): MsgStartGroup {
  */
 export const MsgStartGroup = {
   typeUrl: "/akash.deployment.v1beta1.MsgStartGroup",
+  is(o: any): o is MsgStartGroup {
+    return o && (o.$typeUrl === MsgStartGroup.typeUrl || GroupID.is(o.id));
+  },
+  isSDK(o: any): o is MsgStartGroupSDKType {
+    return o && (o.$typeUrl === MsgStartGroup.typeUrl || GroupID.isSDK(o.id));
+  },
+  isAmino(o: any): o is MsgStartGroupAmino {
+    return o && (o.$typeUrl === MsgStartGroup.typeUrl || GroupID.isAmino(o.id));
+  },
   encode(message: MsgStartGroup, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.id !== undefined) {
       GroupID.encode(message.id, writer.uint32(10).fork()).ldelim();
@@ -754,6 +814,12 @@ export const MsgStartGroup = {
       typeUrl: "/akash.deployment.v1beta1.MsgStartGroup",
       value: MsgStartGroup.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgStartGroup.typeUrl)) {
+      return;
+    }
+    GroupID.registerTypeUrl();
   }
 };
 function createBaseMsgStartGroupResponse(): MsgStartGroupResponse {
@@ -767,6 +833,15 @@ function createBaseMsgStartGroupResponse(): MsgStartGroupResponse {
  */
 export const MsgStartGroupResponse = {
   typeUrl: "/akash.deployment.v1beta1.MsgStartGroupResponse",
+  is(o: any): o is MsgStartGroupResponse {
+    return o && o.$typeUrl === MsgStartGroupResponse.typeUrl;
+  },
+  isSDK(o: any): o is MsgStartGroupResponseSDKType {
+    return o && o.$typeUrl === MsgStartGroupResponse.typeUrl;
+  },
+  isAmino(o: any): o is MsgStartGroupResponseAmino {
+    return o && o.$typeUrl === MsgStartGroupResponse.typeUrl;
+  },
   encode(_: MsgStartGroupResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -818,7 +893,8 @@ export const MsgStartGroupResponse = {
       typeUrl: "/akash.deployment.v1beta1.MsgStartGroupResponse",
       value: MsgStartGroupResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseGroupID(): GroupID {
   return {
@@ -835,6 +911,15 @@ function createBaseGroupID(): GroupID {
  */
 export const GroupID = {
   typeUrl: "/akash.deployment.v1beta1.GroupID",
+  is(o: any): o is GroupID {
+    return o && (o.$typeUrl === GroupID.typeUrl || typeof o.owner === "string" && typeof o.dseq === "bigint" && typeof o.gseq === "number");
+  },
+  isSDK(o: any): o is GroupIDSDKType {
+    return o && (o.$typeUrl === GroupID.typeUrl || typeof o.owner === "string" && typeof o.dseq === "bigint" && typeof o.gseq === "number");
+  },
+  isAmino(o: any): o is GroupIDAmino {
+    return o && (o.$typeUrl === GroupID.typeUrl || typeof o.owner === "string" && typeof o.dseq === "bigint" && typeof o.gseq === "number");
+  },
   encode(message: GroupID, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.owner !== "") {
       writer.uint32(10).string(message.owner);
@@ -931,7 +1016,8 @@ export const GroupID = {
       typeUrl: "/akash.deployment.v1beta1.GroupID",
       value: GroupID.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseGroupSpec(): GroupSpec {
   return {
@@ -948,6 +1034,15 @@ function createBaseGroupSpec(): GroupSpec {
  */
 export const GroupSpec = {
   typeUrl: "/akash.deployment.v1beta1.GroupSpec",
+  is(o: any): o is GroupSpec {
+    return o && (o.$typeUrl === GroupSpec.typeUrl || typeof o.name === "string" && PlacementRequirements.is(o.requirements) && Array.isArray(o.resources) && (!o.resources.length || Resource.is(o.resources[0])));
+  },
+  isSDK(o: any): o is GroupSpecSDKType {
+    return o && (o.$typeUrl === GroupSpec.typeUrl || typeof o.name === "string" && PlacementRequirements.isSDK(o.requirements) && Array.isArray(o.resources) && (!o.resources.length || Resource.isSDK(o.resources[0])));
+  },
+  isAmino(o: any): o is GroupSpecAmino {
+    return o && (o.$typeUrl === GroupSpec.typeUrl || typeof o.name === "string" && PlacementRequirements.isAmino(o.requirements) && Array.isArray(o.resources) && (!o.resources.length || Resource.isAmino(o.resources[0])));
+  },
   encode(message: GroupSpec, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -1050,6 +1145,13 @@ export const GroupSpec = {
       typeUrl: "/akash.deployment.v1beta1.GroupSpec",
       value: GroupSpec.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(GroupSpec.typeUrl)) {
+      return;
+    }
+    PlacementRequirements.registerTypeUrl();
+    Resource.registerTypeUrl();
   }
 };
 function createBaseGroup(): Group {
@@ -1068,6 +1170,15 @@ function createBaseGroup(): Group {
  */
 export const Group = {
   typeUrl: "/akash.deployment.v1beta1.Group",
+  is(o: any): o is Group {
+    return o && (o.$typeUrl === Group.typeUrl || GroupID.is(o.groupId) && isSet(o.state) && GroupSpec.is(o.groupSpec) && typeof o.createdAt === "bigint");
+  },
+  isSDK(o: any): o is GroupSDKType {
+    return o && (o.$typeUrl === Group.typeUrl || GroupID.isSDK(o.group_id) && isSet(o.state) && GroupSpec.isSDK(o.group_spec) && typeof o.created_at === "bigint");
+  },
+  isAmino(o: any): o is GroupAmino {
+    return o && (o.$typeUrl === Group.typeUrl || GroupID.isAmino(o.group_id) && isSet(o.state) && GroupSpec.isAmino(o.group_spec) && typeof o.created_at === "bigint");
+  },
   encode(message: Group, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.groupId !== undefined) {
       GroupID.encode(message.groupId, writer.uint32(10).fork()).ldelim();
@@ -1182,6 +1293,13 @@ export const Group = {
       typeUrl: "/akash.deployment.v1beta1.Group",
       value: Group.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Group.typeUrl)) {
+      return;
+    }
+    GroupID.registerTypeUrl();
+    GroupSpec.registerTypeUrl();
   }
 };
 function createBaseResource(): Resource {
@@ -1199,6 +1317,15 @@ function createBaseResource(): Resource {
  */
 export const Resource = {
   typeUrl: "/akash.deployment.v1beta1.Resource",
+  is(o: any): o is Resource {
+    return o && (o.$typeUrl === Resource.typeUrl || ResourceUnits.is(o.resources) && typeof o.count === "number" && Coin.is(o.price));
+  },
+  isSDK(o: any): o is ResourceSDKType {
+    return o && (o.$typeUrl === Resource.typeUrl || ResourceUnits.isSDK(o.resources) && typeof o.count === "number" && Coin.isSDK(o.price));
+  },
+  isAmino(o: any): o is ResourceAmino {
+    return o && (o.$typeUrl === Resource.typeUrl || ResourceUnits.isAmino(o.resources) && typeof o.count === "number" && Coin.isAmino(o.price));
+  },
   encode(message: Resource, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.resources !== undefined) {
       ResourceUnits.encode(message.resources, writer.uint32(10).fork()).ldelim();
@@ -1297,5 +1424,12 @@ export const Resource = {
       typeUrl: "/akash.deployment.v1beta1.Resource",
       value: Resource.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Resource.typeUrl)) {
+      return;
+    }
+    ResourceUnits.registerTypeUrl();
+    Coin.registerTypeUrl();
   }
 };

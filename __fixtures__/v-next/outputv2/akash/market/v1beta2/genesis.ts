@@ -2,6 +2,7 @@ import { Order, OrderAmino, OrderSDKType } from "./order";
 import { Lease, LeaseAmino, LeaseSDKType } from "./lease";
 import { Params, ParamsAmino, ParamsSDKType } from "./params";
 import { BinaryReader, BinaryWriter } from "../../../binary";
+import { GlobalDecoderRegistry } from "../../../registry";
 import { isSet, DeepPartial } from "../../../helpers";
 import { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "akash.market.v1beta2";
@@ -61,6 +62,15 @@ function createBaseGenesisState(): GenesisState {
  */
 export const GenesisState = {
   typeUrl: "/akash.market.v1beta2.GenesisState",
+  is(o: any): o is GenesisState {
+    return o && (o.$typeUrl === GenesisState.typeUrl || Array.isArray(o.orders) && (!o.orders.length || Order.is(o.orders[0])) && Array.isArray(o.leases) && (!o.leases.length || Lease.is(o.leases[0])) && Params.is(o.params));
+  },
+  isSDK(o: any): o is GenesisStateSDKType {
+    return o && (o.$typeUrl === GenesisState.typeUrl || Array.isArray(o.orders) && (!o.orders.length || Order.isSDK(o.orders[0])) && Array.isArray(o.leases) && (!o.leases.length || Lease.isSDK(o.leases[0])) && Params.isSDK(o.params));
+  },
+  isAmino(o: any): o is GenesisStateAmino {
+    return o && (o.$typeUrl === GenesisState.typeUrl || Array.isArray(o.orders) && (!o.orders.length || Order.isAmino(o.orders[0])) && Array.isArray(o.leases) && (!o.leases.length || Lease.isAmino(o.leases[0])) && Params.isAmino(o.params));
+  },
   encode(message: GenesisState, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.orders) {
       Order.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -187,5 +197,13 @@ export const GenesisState = {
       typeUrl: "/akash.market.v1beta2.GenesisState",
       value: GenesisState.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(GenesisState.typeUrl)) {
+      return;
+    }
+    Order.registerTypeUrl();
+    Lease.registerTypeUrl();
+    Params.registerTypeUrl();
   }
 };

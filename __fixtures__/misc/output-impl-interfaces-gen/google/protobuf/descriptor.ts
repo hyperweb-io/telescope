@@ -2776,9 +2776,14 @@ export const FileDescriptorSet = {
       typeUrl: "/google.protobuf.FileDescriptorSet",
       value: FileDescriptorSet.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(FileDescriptorSet.typeUrl)) {
+      return;
+    }
+    FileDescriptorProto.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(FileDescriptorSet.typeUrl, FileDescriptorSet);
 function createBaseFileDescriptorProto(): FileDescriptorProto {
   return {
     name: "",
@@ -3159,9 +3164,19 @@ export const FileDescriptorProto = {
       typeUrl: "/google.protobuf.FileDescriptorProto",
       value: FileDescriptorProto.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(FileDescriptorProto.typeUrl)) {
+      return;
+    }
+    DescriptorProto.registerTypeUrl();
+    EnumDescriptorProto.registerTypeUrl();
+    ServiceDescriptorProto.registerTypeUrl();
+    FieldDescriptorProto.registerTypeUrl();
+    FileOptions.registerTypeUrl();
+    SourceCodeInfo.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(FileDescriptorProto.typeUrl, FileDescriptorProto);
 function createBaseDescriptorProto(): DescriptorProto {
   return {
     name: "",
@@ -3498,9 +3513,20 @@ export const DescriptorProto = {
       typeUrl: "/google.protobuf.DescriptorProto",
       value: DescriptorProto.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(DescriptorProto.typeUrl)) {
+      return;
+    }
+    FieldDescriptorProto.registerTypeUrl();
+    DescriptorProto.registerTypeUrl();
+    EnumDescriptorProto.registerTypeUrl();
+    DescriptorProto_ExtensionRange.registerTypeUrl();
+    OneofDescriptorProto.registerTypeUrl();
+    MessageOptions.registerTypeUrl();
+    DescriptorProto_ReservedRange.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(DescriptorProto.typeUrl, DescriptorProto);
 function createBaseDescriptorProto_ExtensionRange(): DescriptorProto_ExtensionRange {
   return {
     start: 0,
@@ -3637,9 +3663,14 @@ export const DescriptorProto_ExtensionRange = {
       typeUrl: "/google.protobuf.ExtensionRange",
       value: DescriptorProto_ExtensionRange.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(DescriptorProto_ExtensionRange.typeUrl)) {
+      return;
+    }
+    ExtensionRangeOptions.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(DescriptorProto_ExtensionRange.typeUrl, DescriptorProto_ExtensionRange);
 function createBaseDescriptorProto_ReservedRange(): DescriptorProto_ReservedRange {
   return {
     start: 0,
@@ -3760,9 +3791,9 @@ export const DescriptorProto_ReservedRange = {
       typeUrl: "/google.protobuf.ReservedRange",
       value: DescriptorProto_ReservedRange.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(DescriptorProto_ReservedRange.typeUrl, DescriptorProto_ReservedRange);
 function createBaseExtensionRangeOptions(): ExtensionRangeOptions {
   return {
     uninterpretedOption: []
@@ -3873,9 +3904,14 @@ export const ExtensionRangeOptions = {
       typeUrl: "/google.protobuf.ExtensionRangeOptions",
       value: ExtensionRangeOptions.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ExtensionRangeOptions.typeUrl)) {
+      return;
+    }
+    UninterpretedOption.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(ExtensionRangeOptions.typeUrl, ExtensionRangeOptions);
 function createBaseFieldDescriptorProto(): FieldDescriptorProto {
   return {
     name: "",
@@ -4132,9 +4168,14 @@ export const FieldDescriptorProto = {
       typeUrl: "/google.protobuf.FieldDescriptorProto",
       value: FieldDescriptorProto.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(FieldDescriptorProto.typeUrl)) {
+      return;
+    }
+    FieldOptions.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(FieldDescriptorProto.typeUrl, FieldDescriptorProto);
 function createBaseOneofDescriptorProto(): OneofDescriptorProto {
   return {
     name: "",
@@ -4255,9 +4296,14 @@ export const OneofDescriptorProto = {
       typeUrl: "/google.protobuf.OneofDescriptorProto",
       value: OneofDescriptorProto.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(OneofDescriptorProto.typeUrl)) {
+      return;
+    }
+    OneofOptions.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(OneofDescriptorProto.typeUrl, OneofDescriptorProto);
 function createBaseEnumDescriptorProto(): EnumDescriptorProto {
   return {
     name: "",
@@ -4459,9 +4505,16 @@ export const EnumDescriptorProto = {
       typeUrl: "/google.protobuf.EnumDescriptorProto",
       value: EnumDescriptorProto.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(EnumDescriptorProto.typeUrl)) {
+      return;
+    }
+    EnumValueDescriptorProto.registerTypeUrl();
+    EnumOptions.registerTypeUrl();
+    EnumDescriptorProto_EnumReservedRange.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(EnumDescriptorProto.typeUrl, EnumDescriptorProto);
 function createBaseEnumDescriptorProto_EnumReservedRange(): EnumDescriptorProto_EnumReservedRange {
   return {
     start: 0,
@@ -4585,9 +4638,9 @@ export const EnumDescriptorProto_EnumReservedRange = {
       typeUrl: "/google.protobuf.EnumReservedRange",
       value: EnumDescriptorProto_EnumReservedRange.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(EnumDescriptorProto_EnumReservedRange.typeUrl, EnumDescriptorProto_EnumReservedRange);
 function createBaseEnumValueDescriptorProto(): EnumValueDescriptorProto {
   return {
     name: "",
@@ -4725,9 +4778,14 @@ export const EnumValueDescriptorProto = {
       typeUrl: "/google.protobuf.EnumValueDescriptorProto",
       value: EnumValueDescriptorProto.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(EnumValueDescriptorProto.typeUrl)) {
+      return;
+    }
+    EnumValueOptions.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(EnumValueDescriptorProto.typeUrl, EnumValueDescriptorProto);
 function createBaseServiceDescriptorProto(): ServiceDescriptorProto {
   return {
     name: "",
@@ -4875,9 +4933,15 @@ export const ServiceDescriptorProto = {
       typeUrl: "/google.protobuf.ServiceDescriptorProto",
       value: ServiceDescriptorProto.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ServiceDescriptorProto.typeUrl)) {
+      return;
+    }
+    MethodDescriptorProto.registerTypeUrl();
+    ServiceOptions.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(ServiceDescriptorProto.typeUrl, ServiceDescriptorProto);
 function createBaseMethodDescriptorProto(): MethodDescriptorProto {
   return {
     name: "",
@@ -5066,9 +5130,14 @@ export const MethodDescriptorProto = {
       typeUrl: "/google.protobuf.MethodDescriptorProto",
       value: MethodDescriptorProto.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MethodDescriptorProto.typeUrl)) {
+      return;
+    }
+    MethodOptions.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MethodDescriptorProto.typeUrl, MethodDescriptorProto);
 function createBaseFileOptions(): FileOptions {
   return {
     javaPackage: "",
@@ -5519,9 +5588,14 @@ export const FileOptions = {
       typeUrl: "/google.protobuf.FileOptions",
       value: FileOptions.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(FileOptions.typeUrl)) {
+      return;
+    }
+    UninterpretedOption.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(FileOptions.typeUrl, FileOptions);
 function createBaseMessageOptions(): MessageOptions {
   return {
     messageSetWireFormat: false,
@@ -5700,9 +5774,14 @@ export const MessageOptions = {
       typeUrl: "/google.protobuf.MessageOptions",
       value: MessageOptions.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MessageOptions.typeUrl)) {
+      return;
+    }
+    UninterpretedOption.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MessageOptions.typeUrl, MessageOptions);
 function createBaseFieldOptions(): FieldOptions {
   return {
     ctype: 1,
@@ -5915,9 +5994,14 @@ export const FieldOptions = {
       typeUrl: "/google.protobuf.FieldOptions",
       value: FieldOptions.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(FieldOptions.typeUrl)) {
+      return;
+    }
+    UninterpretedOption.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(FieldOptions.typeUrl, FieldOptions);
 function createBaseOneofOptions(): OneofOptions {
   return {
     uninterpretedOption: []
@@ -6028,9 +6112,14 @@ export const OneofOptions = {
       typeUrl: "/google.protobuf.OneofOptions",
       value: OneofOptions.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(OneofOptions.typeUrl)) {
+      return;
+    }
+    UninterpretedOption.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(OneofOptions.typeUrl, OneofOptions);
 function createBaseEnumOptions(): EnumOptions {
   return {
     allowAlias: false,
@@ -6175,9 +6264,14 @@ export const EnumOptions = {
       typeUrl: "/google.protobuf.EnumOptions",
       value: EnumOptions.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(EnumOptions.typeUrl)) {
+      return;
+    }
+    UninterpretedOption.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(EnumOptions.typeUrl, EnumOptions);
 function createBaseEnumValueOptions(): EnumValueOptions {
   return {
     deprecated: false,
@@ -6305,9 +6399,14 @@ export const EnumValueOptions = {
       typeUrl: "/google.protobuf.EnumValueOptions",
       value: EnumValueOptions.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(EnumValueOptions.typeUrl)) {
+      return;
+    }
+    UninterpretedOption.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(EnumValueOptions.typeUrl, EnumValueOptions);
 function createBaseServiceOptions(): ServiceOptions {
   return {
     deprecated: false,
@@ -6435,9 +6534,14 @@ export const ServiceOptions = {
       typeUrl: "/google.protobuf.ServiceOptions",
       value: ServiceOptions.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ServiceOptions.typeUrl)) {
+      return;
+    }
+    UninterpretedOption.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(ServiceOptions.typeUrl, ServiceOptions);
 function createBaseMethodOptions(): MethodOptions {
   return {
     deprecated: false,
@@ -6582,9 +6686,14 @@ export const MethodOptions = {
       typeUrl: "/google.protobuf.MethodOptions",
       value: MethodOptions.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MethodOptions.typeUrl)) {
+      return;
+    }
+    UninterpretedOption.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MethodOptions.typeUrl, MethodOptions);
 function createBaseUninterpretedOption(): UninterpretedOption {
   return {
     name: [],
@@ -6807,9 +6916,14 @@ export const UninterpretedOption = {
       typeUrl: "/google.protobuf.UninterpretedOption",
       value: UninterpretedOption.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(UninterpretedOption.typeUrl)) {
+      return;
+    }
+    UninterpretedOption_NamePart.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(UninterpretedOption.typeUrl, UninterpretedOption);
 function createBaseUninterpretedOption_NamePart(): UninterpretedOption_NamePart {
   return {
     namePart: "",
@@ -6932,9 +7046,9 @@ export const UninterpretedOption_NamePart = {
       typeUrl: "/google.protobuf.NamePart",
       value: UninterpretedOption_NamePart.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(UninterpretedOption_NamePart.typeUrl, UninterpretedOption_NamePart);
 function createBaseSourceCodeInfo(): SourceCodeInfo {
   return {
     location: []
@@ -7047,9 +7161,14 @@ export const SourceCodeInfo = {
       typeUrl: "/google.protobuf.SourceCodeInfo",
       value: SourceCodeInfo.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(SourceCodeInfo.typeUrl)) {
+      return;
+    }
+    SourceCodeInfo_Location.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(SourceCodeInfo.typeUrl, SourceCodeInfo);
 function createBaseSourceCodeInfo_Location(): SourceCodeInfo_Location {
   return {
     path: [],
@@ -7266,9 +7385,9 @@ export const SourceCodeInfo_Location = {
       typeUrl: "/google.protobuf.Location",
       value: SourceCodeInfo_Location.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(SourceCodeInfo_Location.typeUrl, SourceCodeInfo_Location);
 function createBaseGeneratedCodeInfo(): GeneratedCodeInfo {
   return {
     annotation: []
@@ -7382,9 +7501,14 @@ export const GeneratedCodeInfo = {
       typeUrl: "/google.protobuf.GeneratedCodeInfo",
       value: GeneratedCodeInfo.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(GeneratedCodeInfo.typeUrl)) {
+      return;
+    }
+    GeneratedCodeInfo_Annotation.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(GeneratedCodeInfo.typeUrl, GeneratedCodeInfo);
 function createBaseGeneratedCodeInfo_Annotation(): GeneratedCodeInfo_Annotation {
   return {
     path: [],
@@ -7555,6 +7679,6 @@ export const GeneratedCodeInfo_Annotation = {
       typeUrl: "/google.protobuf.Annotation",
       value: GeneratedCodeInfo_Annotation.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(GeneratedCodeInfo_Annotation.typeUrl, GeneratedCodeInfo_Annotation);

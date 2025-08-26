@@ -1,5 +1,6 @@
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { isSet, bytesFromBase64, DeepPartial, base64FromBytes } from "../../../helpers";
+import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "cosmos.orm.v1alpha1";
 /** StorageType */
 export enum StorageType {
@@ -208,6 +209,15 @@ function createBaseModuleSchemaDescriptor(): ModuleSchemaDescriptor {
 export const ModuleSchemaDescriptor = {
   typeUrl: "/cosmos.orm.v1alpha1.ModuleSchemaDescriptor",
   aminoType: "cosmos-sdk/ModuleSchemaDescriptor",
+  is(o: any): o is ModuleSchemaDescriptor {
+    return o && (o.$typeUrl === ModuleSchemaDescriptor.typeUrl || Array.isArray(o.schemaFile) && (!o.schemaFile.length || ModuleSchemaDescriptor_FileEntry.is(o.schemaFile[0])) && (o.prefix instanceof Uint8Array || typeof o.prefix === "string"));
+  },
+  isSDK(o: any): o is ModuleSchemaDescriptorSDKType {
+    return o && (o.$typeUrl === ModuleSchemaDescriptor.typeUrl || Array.isArray(o.schema_file) && (!o.schema_file.length || ModuleSchemaDescriptor_FileEntry.isSDK(o.schema_file[0])) && (o.prefix instanceof Uint8Array || typeof o.prefix === "string"));
+  },
+  isAmino(o: any): o is ModuleSchemaDescriptorAmino {
+    return o && (o.$typeUrl === ModuleSchemaDescriptor.typeUrl || Array.isArray(o.schema_file) && (!o.schema_file.length || ModuleSchemaDescriptor_FileEntry.isAmino(o.schema_file[0])) && (o.prefix instanceof Uint8Array || typeof o.prefix === "string"));
+  },
   encode(message: ModuleSchemaDescriptor, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.schemaFile) {
       ModuleSchemaDescriptor_FileEntry.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -294,6 +304,12 @@ export const ModuleSchemaDescriptor = {
       typeUrl: "/cosmos.orm.v1alpha1.ModuleSchemaDescriptor",
       value: ModuleSchemaDescriptor.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ModuleSchemaDescriptor.typeUrl)) {
+      return;
+    }
+    ModuleSchemaDescriptor_FileEntry.registerTypeUrl();
   }
 };
 function createBaseModuleSchemaDescriptor_FileEntry(): ModuleSchemaDescriptor_FileEntry {
@@ -312,6 +328,15 @@ function createBaseModuleSchemaDescriptor_FileEntry(): ModuleSchemaDescriptor_Fi
 export const ModuleSchemaDescriptor_FileEntry = {
   typeUrl: "/cosmos.orm.v1alpha1.FileEntry",
   aminoType: "cosmos-sdk/FileEntry",
+  is(o: any): o is ModuleSchemaDescriptor_FileEntry {
+    return o && (o.$typeUrl === ModuleSchemaDescriptor_FileEntry.typeUrl || typeof o.id === "number" && typeof o.protoFileName === "string" && isSet(o.storageType));
+  },
+  isSDK(o: any): o is ModuleSchemaDescriptor_FileEntrySDKType {
+    return o && (o.$typeUrl === ModuleSchemaDescriptor_FileEntry.typeUrl || typeof o.id === "number" && typeof o.proto_file_name === "string" && isSet(o.storage_type));
+  },
+  isAmino(o: any): o is ModuleSchemaDescriptor_FileEntryAmino {
+    return o && (o.$typeUrl === ModuleSchemaDescriptor_FileEntry.typeUrl || typeof o.id === "number" && typeof o.proto_file_name === "string" && isSet(o.storage_type));
+  },
   encode(message: ModuleSchemaDescriptor_FileEntry, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.id !== 0) {
       writer.uint32(8).uint32(message.id);
@@ -406,5 +431,6 @@ export const ModuleSchemaDescriptor_FileEntry = {
       typeUrl: "/cosmos.orm.v1alpha1.FileEntry",
       value: ModuleSchemaDescriptor_FileEntry.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

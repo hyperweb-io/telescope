@@ -1,6 +1,7 @@
 import { Params, ParamsAmino, ParamsSDKType } from "./params";
 import { SuperfluidAsset, SuperfluidAssetAmino, SuperfluidAssetSDKType, OsmoEquivalentMultiplierRecord, OsmoEquivalentMultiplierRecordAmino, OsmoEquivalentMultiplierRecordSDKType, SuperfluidIntermediaryAccount, SuperfluidIntermediaryAccountAmino, SuperfluidIntermediaryAccountSDKType, LockIdIntermediaryAccountConnection, LockIdIntermediaryAccountConnectionAmino, LockIdIntermediaryAccountConnectionSDKType } from "./superfluid";
 import { BinaryReader, BinaryWriter } from "../../binary";
+import { GlobalDecoderRegistry } from "../../registry";
 import { isSet, DeepPartial } from "../../helpers";
 import { JsonSafe } from "../../json-safe";
 export const protobufPackage = "osmosis.superfluid";
@@ -93,6 +94,15 @@ function createBaseGenesisState(): GenesisState {
 export const GenesisState = {
   typeUrl: "/osmosis.superfluid.GenesisState",
   aminoType: "osmosis/genesis-state",
+  is(o: any): o is GenesisState {
+    return o && (o.$typeUrl === GenesisState.typeUrl || Params.is(o.params) && Array.isArray(o.superfluidAssets) && (!o.superfluidAssets.length || SuperfluidAsset.is(o.superfluidAssets[0])) && Array.isArray(o.osmoEquivalentMultipliers) && (!o.osmoEquivalentMultipliers.length || OsmoEquivalentMultiplierRecord.is(o.osmoEquivalentMultipliers[0])) && Array.isArray(o.intermediaryAccounts) && (!o.intermediaryAccounts.length || SuperfluidIntermediaryAccount.is(o.intermediaryAccounts[0])) && Array.isArray(o.intemediaryAccountConnections) && (!o.intemediaryAccountConnections.length || LockIdIntermediaryAccountConnection.is(o.intemediaryAccountConnections[0])));
+  },
+  isSDK(o: any): o is GenesisStateSDKType {
+    return o && (o.$typeUrl === GenesisState.typeUrl || Params.isSDK(o.params) && Array.isArray(o.superfluid_assets) && (!o.superfluid_assets.length || SuperfluidAsset.isSDK(o.superfluid_assets[0])) && Array.isArray(o.osmo_equivalent_multipliers) && (!o.osmo_equivalent_multipliers.length || OsmoEquivalentMultiplierRecord.isSDK(o.osmo_equivalent_multipliers[0])) && Array.isArray(o.intermediary_accounts) && (!o.intermediary_accounts.length || SuperfluidIntermediaryAccount.isSDK(o.intermediary_accounts[0])) && Array.isArray(o.intemediary_account_connections) && (!o.intemediary_account_connections.length || LockIdIntermediaryAccountConnection.isSDK(o.intemediary_account_connections[0])));
+  },
+  isAmino(o: any): o is GenesisStateAmino {
+    return o && (o.$typeUrl === GenesisState.typeUrl || Params.isAmino(o.params) && Array.isArray(o.superfluid_assets) && (!o.superfluid_assets.length || SuperfluidAsset.isAmino(o.superfluid_assets[0])) && Array.isArray(o.osmo_equivalent_multipliers) && (!o.osmo_equivalent_multipliers.length || OsmoEquivalentMultiplierRecord.isAmino(o.osmo_equivalent_multipliers[0])) && Array.isArray(o.intermediary_accounts) && (!o.intermediary_accounts.length || SuperfluidIntermediaryAccount.isAmino(o.intermediary_accounts[0])) && Array.isArray(o.intemediary_account_connections) && (!o.intemediary_account_connections.length || LockIdIntermediaryAccountConnection.isAmino(o.intemediary_account_connections[0])));
+  },
   encode(message: GenesisState, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.params !== undefined) {
       Params.encode(message.params, writer.uint32(10).fork()).ldelim();
@@ -275,5 +285,15 @@ export const GenesisState = {
       typeUrl: "/osmosis.superfluid.GenesisState",
       value: GenesisState.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(GenesisState.typeUrl)) {
+      return;
+    }
+    Params.registerTypeUrl();
+    SuperfluidAsset.registerTypeUrl();
+    OsmoEquivalentMultiplierRecord.registerTypeUrl();
+    SuperfluidIntermediaryAccount.registerTypeUrl();
+    LockIdIntermediaryAccountConnection.registerTypeUrl();
   }
 };

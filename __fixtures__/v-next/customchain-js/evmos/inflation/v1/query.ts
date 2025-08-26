@@ -957,7 +957,7 @@ export const QueryInflationRateResponse = {
   },
   toAmino(message: QueryInflationRateResponse): QueryInflationRateResponseAmino {
     const obj: any = {};
-    obj.inflation_rate = message.inflationRate === "" ? undefined : message.inflationRate;
+    obj.inflation_rate = message.inflationRate === "" ? undefined : Decimal.fromUserInput(message.inflationRate, 18).atomics;
     return obj;
   },
   fromAminoMsg(object: QueryInflationRateResponseAminoMsg): QueryInflationRateResponse {

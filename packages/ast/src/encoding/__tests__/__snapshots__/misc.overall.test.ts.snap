@@ -367,6 +367,15 @@ export const EvalRequest = {
       typeUrl: "/misc.EvalRequest",
       value: EvalRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(EvalRequest.typeUrl)) {
+      return;
+    }
+    ExprValue.registerTypeUrl();
+    IdRef.registerTypeUrl();
+    AccessConfig.registerTypeUrl();
+    TestNest_Graph.registerTypeUrl();
   }
 };"
 `;
@@ -738,6 +747,15 @@ export const EvalRequest = {
       typeUrl: "/misc.EvalRequest",
       value: EvalRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(EvalRequest.typeUrl)) {
+      return;
+    }
+    ExprValue.registerTypeUrl();
+    IdRef.registerTypeUrl();
+    AccessConfig.registerTypeUrl();
+    TestNest_Graph.registerTypeUrl();
   }
 };"
 `;

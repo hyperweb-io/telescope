@@ -1,13 +1,8 @@
 import { Coin, CoinSDKType } from "../../../../cosmos/base/v1beta1/coin.js";
 import { Height, HeightSDKType } from "../../../core/client/v1/client.js";
-import { GeneratedType, Registry } from "@cosmjs/proto-signing";
+import { TelescopeGeneratedType } from "../../../../types.js";
 import { MsgTransfer, MsgTransferSDKType } from "./tx.js";
-export const registry: ReadonlyArray<[string, GeneratedType]> = [["/ibc.applications.transfer.v1.MsgTransfer", MsgTransfer]];
-export const load = (protoRegistry: Registry) => {
-  registry.forEach(([typeUrl, mod]) => {
-    protoRegistry.register(typeUrl, mod);
-  });
-};
+export const registry: ReadonlyArray<[string, TelescopeGeneratedType<any, any, any>]> = [["/ibc.applications.transfer.v1.MsgTransfer", MsgTransfer]];
 export const MessageComposer = {
   encoded: {
     transfer(value: MsgTransfer) {

@@ -4,10 +4,10 @@ import { Duration, DurationAmino, DurationSDKType } from "../google/protobuf/dur
 import { Timestamp, TimestampAmino, TimestampSDKType } from "../google/protobuf/timestamp";
 import { BinaryReader, BinaryWriter } from "../binary";
 import { toTimestamp, fromTimestamp, isSet, bytesFromBase64, base64FromBytes, DeepPartial } from "../helpers";
-import { Decimal } from "@cosmjs/math";
+import { Decimal } from "@interchainjs/math";
 import { JsonSafe } from "../json-safe";
-import { toUtf8, fromBase64, fromUtf8, toBase64 } from "@cosmjs/encoding";
-import { encodePubkey, decodePubkey } from "@cosmjs/proto-signing";
+import { toUtf8, fromBase64, fromUtf8, toBase64 } from "@interchainjs/encoding";
+import { encodePubkey, decodePubkey } from "@interchainjs/pubkey";
 export const protobufPackage = "misc";
 /**
  * @name EncodingTestForDontOmit
@@ -1747,15 +1747,15 @@ export const EncodingTestForDontOmit = {
     } else {
       obj.d_o_auths = message.dOAuths;
     }
-    obj.dec = message.dec === "" ? undefined : message.dec;
-    obj.d_o_dec = message.dODec ?? "";
+    obj.dec = message.dec === "" ? undefined : Decimal.fromUserInput(message.dec, 18).atomics;
+    obj.d_o_dec = Decimal.fromUserInput(message.dODec, 18).atomics ?? "";
     if (message.decs) {
-      obj.decs = message.decs.map(e => e);
+      obj.decs = message.decs.map(e => Decimal.fromUserInput(e, 18).atomics);
     } else {
       obj.decs = message.decs;
     }
     if (message.dODecs) {
-      obj.d_o_decs = message.dODecs.map(e => e);
+      obj.d_o_decs = message.dODecs.map(e => Decimal.fromUserInput(e, 18).atomics);
     } else {
       obj.d_o_decs = message.dODecs;
     }
@@ -2910,15 +2910,15 @@ export const EncodingTestForOmit = {
     } else {
       obj.o_auths = message.oAuths;
     }
-    obj.dec = message.dec ?? "";
-    obj.o_dec = message.oDec === "" ? undefined : message.oDec;
+    obj.dec = Decimal.fromUserInput(message.dec, 18).atomics ?? "";
+    obj.o_dec = message.oDec === "" ? undefined : Decimal.fromUserInput(message.oDec, 18).atomics;
     if (message.decs) {
-      obj.decs = message.decs.map(e => e);
+      obj.decs = message.decs.map(e => Decimal.fromUserInput(e, 18).atomics);
     } else {
       obj.decs = message.decs;
     }
     if (message.oDecs) {
-      obj.o_decs = message.oDecs.map(e => e);
+      obj.o_decs = message.oDecs.map(e => Decimal.fromUserInput(e, 18).atomics);
     } else {
       obj.o_decs = message.oDecs;
     }

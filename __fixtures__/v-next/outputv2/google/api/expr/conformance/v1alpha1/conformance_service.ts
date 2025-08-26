@@ -5,6 +5,7 @@ import { Status, StatusAmino, StatusSDKType } from "../../../../rpc/status";
 import { BinaryReader, BinaryWriter } from "../../../../../binary";
 import { isSet, DeepPartial, isObject } from "../../../../../helpers";
 import { JsonSafe } from "../../../../../json-safe";
+import { GlobalDecoderRegistry } from "../../../../../registry";
 export const protobufPackage = "google.api.expr.conformance.v1alpha1";
 /** Severities of issues. */
 export enum IssueDetails_Severity {
@@ -552,6 +553,15 @@ function createBaseParseRequest(): ParseRequest {
  */
 export const ParseRequest = {
   typeUrl: "/google.api.expr.conformance.v1alpha1.ParseRequest",
+  is(o: any): o is ParseRequest {
+    return o && (o.$typeUrl === ParseRequest.typeUrl || typeof o.celSource === "string" && typeof o.syntaxVersion === "string" && typeof o.sourceLocation === "string" && typeof o.disableMacros === "boolean");
+  },
+  isSDK(o: any): o is ParseRequestSDKType {
+    return o && (o.$typeUrl === ParseRequest.typeUrl || typeof o.cel_source === "string" && typeof o.syntax_version === "string" && typeof o.source_location === "string" && typeof o.disable_macros === "boolean");
+  },
+  isAmino(o: any): o is ParseRequestAmino {
+    return o && (o.$typeUrl === ParseRequest.typeUrl || typeof o.cel_source === "string" && typeof o.syntax_version === "string" && typeof o.source_location === "string" && typeof o.disable_macros === "boolean");
+  },
   encode(message: ParseRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.celSource !== "") {
       writer.uint32(10).string(message.celSource);
@@ -671,7 +681,8 @@ export const ParseRequest = {
       typeUrl: "/google.api.expr.conformance.v1alpha1.ParseRequest",
       value: ParseRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseParseResponse(): ParseResponse {
   return {
@@ -687,6 +698,15 @@ function createBaseParseResponse(): ParseResponse {
  */
 export const ParseResponse = {
   typeUrl: "/google.api.expr.conformance.v1alpha1.ParseResponse",
+  is(o: any): o is ParseResponse {
+    return o && (o.$typeUrl === ParseResponse.typeUrl || Array.isArray(o.issues) && (!o.issues.length || Status.is(o.issues[0])));
+  },
+  isSDK(o: any): o is ParseResponseSDKType {
+    return o && (o.$typeUrl === ParseResponse.typeUrl || Array.isArray(o.issues) && (!o.issues.length || Status.isSDK(o.issues[0])));
+  },
+  isAmino(o: any): o is ParseResponseAmino {
+    return o && (o.$typeUrl === ParseResponse.typeUrl || Array.isArray(o.issues) && (!o.issues.length || Status.isAmino(o.issues[0])));
+  },
   encode(message: ParseResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.parsedExpr !== undefined) {
       ParsedExpr.encode(message.parsedExpr, writer.uint32(10).fork()).ldelim();
@@ -788,6 +808,13 @@ export const ParseResponse = {
       typeUrl: "/google.api.expr.conformance.v1alpha1.ParseResponse",
       value: ParseResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ParseResponse.typeUrl)) {
+      return;
+    }
+    ParsedExpr.registerTypeUrl();
+    Status.registerTypeUrl();
   }
 };
 function createBaseCheckRequest(): CheckRequest {
@@ -806,6 +833,15 @@ function createBaseCheckRequest(): CheckRequest {
  */
 export const CheckRequest = {
   typeUrl: "/google.api.expr.conformance.v1alpha1.CheckRequest",
+  is(o: any): o is CheckRequest {
+    return o && (o.$typeUrl === CheckRequest.typeUrl || Array.isArray(o.typeEnv) && (!o.typeEnv.length || Decl.is(o.typeEnv[0])) && typeof o.container === "string" && typeof o.noStdEnv === "boolean");
+  },
+  isSDK(o: any): o is CheckRequestSDKType {
+    return o && (o.$typeUrl === CheckRequest.typeUrl || Array.isArray(o.type_env) && (!o.type_env.length || Decl.isSDK(o.type_env[0])) && typeof o.container === "string" && typeof o.no_std_env === "boolean");
+  },
+  isAmino(o: any): o is CheckRequestAmino {
+    return o && (o.$typeUrl === CheckRequest.typeUrl || Array.isArray(o.type_env) && (!o.type_env.length || Decl.isAmino(o.type_env[0])) && typeof o.container === "string" && typeof o.no_std_env === "boolean");
+  },
   encode(message: CheckRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.parsedExpr !== undefined) {
       ParsedExpr.encode(message.parsedExpr, writer.uint32(10).fork()).ldelim();
@@ -937,6 +973,13 @@ export const CheckRequest = {
       typeUrl: "/google.api.expr.conformance.v1alpha1.CheckRequest",
       value: CheckRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(CheckRequest.typeUrl)) {
+      return;
+    }
+    ParsedExpr.registerTypeUrl();
+    Decl.registerTypeUrl();
   }
 };
 function createBaseCheckResponse(): CheckResponse {
@@ -953,6 +996,15 @@ function createBaseCheckResponse(): CheckResponse {
  */
 export const CheckResponse = {
   typeUrl: "/google.api.expr.conformance.v1alpha1.CheckResponse",
+  is(o: any): o is CheckResponse {
+    return o && (o.$typeUrl === CheckResponse.typeUrl || Array.isArray(o.issues) && (!o.issues.length || Status.is(o.issues[0])));
+  },
+  isSDK(o: any): o is CheckResponseSDKType {
+    return o && (o.$typeUrl === CheckResponse.typeUrl || Array.isArray(o.issues) && (!o.issues.length || Status.isSDK(o.issues[0])));
+  },
+  isAmino(o: any): o is CheckResponseAmino {
+    return o && (o.$typeUrl === CheckResponse.typeUrl || Array.isArray(o.issues) && (!o.issues.length || Status.isAmino(o.issues[0])));
+  },
   encode(message: CheckResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.checkedExpr !== undefined) {
       CheckedExpr.encode(message.checkedExpr, writer.uint32(10).fork()).ldelim();
@@ -1054,6 +1106,13 @@ export const CheckResponse = {
       typeUrl: "/google.api.expr.conformance.v1alpha1.CheckResponse",
       value: CheckResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(CheckResponse.typeUrl)) {
+      return;
+    }
+    CheckedExpr.registerTypeUrl();
+    Status.registerTypeUrl();
   }
 };
 function createBaseEvalRequest_BindingsEntry(): EvalRequest_BindingsEntry {
@@ -1153,6 +1212,9 @@ export const EvalRequest_BindingsEntry = {
   },
   toProto(message: EvalRequest_BindingsEntry): Uint8Array {
     return EvalRequest_BindingsEntry.encode(message).finish();
+  },
+  registerTypeUrl() {
+    ExprValue.registerTypeUrl();
   }
 };
 function createBaseEvalRequest(): EvalRequest {
@@ -1171,6 +1233,15 @@ function createBaseEvalRequest(): EvalRequest {
  */
 export const EvalRequest = {
   typeUrl: "/google.api.expr.conformance.v1alpha1.EvalRequest",
+  is(o: any): o is EvalRequest {
+    return o && (o.$typeUrl === EvalRequest.typeUrl || isSet(o.bindings) && typeof o.container === "string");
+  },
+  isSDK(o: any): o is EvalRequestSDKType {
+    return o && (o.$typeUrl === EvalRequest.typeUrl || isSet(o.bindings) && typeof o.container === "string");
+  },
+  isAmino(o: any): o is EvalRequestAmino {
+    return o && (o.$typeUrl === EvalRequest.typeUrl || isSet(o.bindings) && typeof o.container === "string");
+  },
   encode(message: EvalRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.parsedExpr !== undefined) {
       ParsedExpr.encode(message.parsedExpr, writer.uint32(10).fork()).ldelim();
@@ -1337,6 +1408,14 @@ export const EvalRequest = {
       typeUrl: "/google.api.expr.conformance.v1alpha1.EvalRequest",
       value: EvalRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(EvalRequest.typeUrl)) {
+      return;
+    }
+    ParsedExpr.registerTypeUrl();
+    CheckedExpr.registerTypeUrl();
+    ExprValue.registerTypeUrl();
   }
 };
 function createBaseEvalResponse(): EvalResponse {
@@ -1353,6 +1432,15 @@ function createBaseEvalResponse(): EvalResponse {
  */
 export const EvalResponse = {
   typeUrl: "/google.api.expr.conformance.v1alpha1.EvalResponse",
+  is(o: any): o is EvalResponse {
+    return o && (o.$typeUrl === EvalResponse.typeUrl || Array.isArray(o.issues) && (!o.issues.length || Status.is(o.issues[0])));
+  },
+  isSDK(o: any): o is EvalResponseSDKType {
+    return o && (o.$typeUrl === EvalResponse.typeUrl || Array.isArray(o.issues) && (!o.issues.length || Status.isSDK(o.issues[0])));
+  },
+  isAmino(o: any): o is EvalResponseAmino {
+    return o && (o.$typeUrl === EvalResponse.typeUrl || Array.isArray(o.issues) && (!o.issues.length || Status.isAmino(o.issues[0])));
+  },
   encode(message: EvalResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.result !== undefined) {
       ExprValue.encode(message.result, writer.uint32(10).fork()).ldelim();
@@ -1454,6 +1542,13 @@ export const EvalResponse = {
       typeUrl: "/google.api.expr.conformance.v1alpha1.EvalResponse",
       value: EvalResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(EvalResponse.typeUrl)) {
+      return;
+    }
+    ExprValue.registerTypeUrl();
+    Status.registerTypeUrl();
   }
 };
 function createBaseIssueDetails(): IssueDetails {
@@ -1473,6 +1568,15 @@ function createBaseIssueDetails(): IssueDetails {
  */
 export const IssueDetails = {
   typeUrl: "/google.api.expr.conformance.v1alpha1.IssueDetails",
+  is(o: any): o is IssueDetails {
+    return o && (o.$typeUrl === IssueDetails.typeUrl || isSet(o.severity) && typeof o.id === "bigint");
+  },
+  isSDK(o: any): o is IssueDetailsSDKType {
+    return o && (o.$typeUrl === IssueDetails.typeUrl || isSet(o.severity) && typeof o.id === "bigint");
+  },
+  isAmino(o: any): o is IssueDetailsAmino {
+    return o && (o.$typeUrl === IssueDetails.typeUrl || isSet(o.severity) && typeof o.id === "bigint");
+  },
   encode(message: IssueDetails, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.severity !== 0) {
       writer.uint32(8).int32(message.severity);
@@ -1581,5 +1685,11 @@ export const IssueDetails = {
       typeUrl: "/google.api.expr.conformance.v1alpha1.IssueDetails",
       value: IssueDetails.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(IssueDetails.typeUrl)) {
+      return;
+    }
+    SourcePosition.registerTypeUrl();
   }
 };

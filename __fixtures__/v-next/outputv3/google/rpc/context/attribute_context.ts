@@ -3,6 +3,7 @@ import { Timestamp, TimestampAmino, TimestampSDKType } from "../../protobuf/time
 import { Duration, DurationAmino, DurationSDKType } from "../../protobuf/duration";
 import { Any, AnyProtoMsg, AnyAmino, AnySDKType } from "../../protobuf/any";
 import { BinaryReader, BinaryWriter } from "../../../binary";
+import { GlobalDecoderRegistry } from "../../../registry";
 import { isSet, DeepPartial, isObject, toTimestamp, fromTimestamp } from "../../../helpers";
 export const protobufPackage = "google.rpc.context";
 /**
@@ -1191,6 +1192,15 @@ function createBaseAttributeContext(): AttributeContext {
  */
 export const AttributeContext = {
   typeUrl: "/google.rpc.context.AttributeContext",
+  is(o: any): o is AttributeContext {
+    return o && (o.$typeUrl === AttributeContext.typeUrl || Array.isArray(o.extensions) && (!o.extensions.length || Any.is(o.extensions[0])));
+  },
+  isSDK(o: any): o is AttributeContextSDKType {
+    return o && (o.$typeUrl === AttributeContext.typeUrl || Array.isArray(o.extensions) && (!o.extensions.length || Any.isSDK(o.extensions[0])));
+  },
+  isAmino(o: any): o is AttributeContextAmino {
+    return o && (o.$typeUrl === AttributeContext.typeUrl || Array.isArray(o.extensions) && (!o.extensions.length || Any.isAmino(o.extensions[0])));
+  },
   encode(message: AttributeContext, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.origin !== undefined) {
       AttributeContext_Peer.encode(message.origin, writer.uint32(58).fork()).ldelim();
@@ -1375,7 +1385,8 @@ export const AttributeContext = {
       typeUrl: "/google.rpc.context.AttributeContext",
       value: AttributeContext.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseAttributeContext_Peer_LabelsEntry(): AttributeContext_Peer_LabelsEntry {
   return {
@@ -1463,7 +1474,8 @@ export const AttributeContext_Peer_LabelsEntry = {
   },
   toProto(message: AttributeContext_Peer_LabelsEntry): Uint8Array {
     return AttributeContext_Peer_LabelsEntry.encode(message).finish();
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseAttributeContext_Peer(): AttributeContext_Peer {
   return {
@@ -1485,6 +1497,15 @@ function createBaseAttributeContext_Peer(): AttributeContext_Peer {
  */
 export const AttributeContext_Peer = {
   typeUrl: "/google.rpc.context.Peer",
+  is(o: any): o is AttributeContext_Peer {
+    return o && (o.$typeUrl === AttributeContext_Peer.typeUrl || typeof o.ip === "string" && typeof o.port === "bigint" && isSet(o.labels) && typeof o.principal === "string" && typeof o.regionCode === "string");
+  },
+  isSDK(o: any): o is AttributeContext_PeerSDKType {
+    return o && (o.$typeUrl === AttributeContext_Peer.typeUrl || typeof o.ip === "string" && typeof o.port === "bigint" && isSet(o.labels) && typeof o.principal === "string" && typeof o.region_code === "string");
+  },
+  isAmino(o: any): o is AttributeContext_PeerAmino {
+    return o && (o.$typeUrl === AttributeContext_Peer.typeUrl || typeof o.ip === "string" && typeof o.port === "bigint" && isSet(o.labels) && typeof o.principal === "string" && typeof o.region_code === "string");
+  },
   encode(message: AttributeContext_Peer, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.ip !== "") {
       writer.uint32(10).string(message.ip);
@@ -1647,7 +1668,8 @@ export const AttributeContext_Peer = {
       typeUrl: "/google.rpc.context.Peer",
       value: AttributeContext_Peer.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseAttributeContext_Api(): AttributeContext_Api {
   return {
@@ -1667,6 +1689,15 @@ function createBaseAttributeContext_Api(): AttributeContext_Api {
  */
 export const AttributeContext_Api = {
   typeUrl: "/google.rpc.context.Api",
+  is(o: any): o is AttributeContext_Api {
+    return o && (o.$typeUrl === AttributeContext_Api.typeUrl || typeof o.service === "string" && typeof o.operation === "string" && typeof o.protocol === "string" && typeof o.version === "string");
+  },
+  isSDK(o: any): o is AttributeContext_ApiSDKType {
+    return o && (o.$typeUrl === AttributeContext_Api.typeUrl || typeof o.service === "string" && typeof o.operation === "string" && typeof o.protocol === "string" && typeof o.version === "string");
+  },
+  isAmino(o: any): o is AttributeContext_ApiAmino {
+    return o && (o.$typeUrl === AttributeContext_Api.typeUrl || typeof o.service === "string" && typeof o.operation === "string" && typeof o.protocol === "string" && typeof o.version === "string");
+  },
   encode(message: AttributeContext_Api, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.service !== "") {
       writer.uint32(10).string(message.service);
@@ -1775,7 +1806,8 @@ export const AttributeContext_Api = {
       typeUrl: "/google.rpc.context.Api",
       value: AttributeContext_Api.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseAttributeContext_Auth(): AttributeContext_Auth {
   return {
@@ -1796,6 +1828,15 @@ function createBaseAttributeContext_Auth(): AttributeContext_Auth {
  */
 export const AttributeContext_Auth = {
   typeUrl: "/google.rpc.context.Auth",
+  is(o: any): o is AttributeContext_Auth {
+    return o && (o.$typeUrl === AttributeContext_Auth.typeUrl || typeof o.principal === "string" && Array.isArray(o.audiences) && (!o.audiences.length || typeof o.audiences[0] === "string") && typeof o.presenter === "string" && Array.isArray(o.accessLevels) && (!o.accessLevels.length || typeof o.accessLevels[0] === "string"));
+  },
+  isSDK(o: any): o is AttributeContext_AuthSDKType {
+    return o && (o.$typeUrl === AttributeContext_Auth.typeUrl || typeof o.principal === "string" && Array.isArray(o.audiences) && (!o.audiences.length || typeof o.audiences[0] === "string") && typeof o.presenter === "string" && Array.isArray(o.access_levels) && (!o.access_levels.length || typeof o.access_levels[0] === "string"));
+  },
+  isAmino(o: any): o is AttributeContext_AuthAmino {
+    return o && (o.$typeUrl === AttributeContext_Auth.typeUrl || typeof o.principal === "string" && Array.isArray(o.audiences) && (!o.audiences.length || typeof o.audiences[0] === "string") && typeof o.presenter === "string" && Array.isArray(o.access_levels) && (!o.access_levels.length || typeof o.access_levels[0] === "string"));
+  },
   encode(message: AttributeContext_Auth, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.principal !== "") {
       writer.uint32(10).string(message.principal);
@@ -1932,6 +1973,12 @@ export const AttributeContext_Auth = {
       typeUrl: "/google.rpc.context.Auth",
       value: AttributeContext_Auth.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(AttributeContext_Auth.typeUrl)) {
+      return;
+    }
+    Struct.registerTypeUrl();
   }
 };
 function createBaseAttributeContext_Request_HeadersEntry(): AttributeContext_Request_HeadersEntry {
@@ -2020,7 +2067,8 @@ export const AttributeContext_Request_HeadersEntry = {
   },
   toProto(message: AttributeContext_Request_HeadersEntry): Uint8Array {
     return AttributeContext_Request_HeadersEntry.encode(message).finish();
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseAttributeContext_Request(): AttributeContext_Request {
   return {
@@ -2048,6 +2096,15 @@ function createBaseAttributeContext_Request(): AttributeContext_Request {
  */
 export const AttributeContext_Request = {
   typeUrl: "/google.rpc.context.Request",
+  is(o: any): o is AttributeContext_Request {
+    return o && (o.$typeUrl === AttributeContext_Request.typeUrl || typeof o.id === "string" && typeof o.method === "string" && isSet(o.headers) && typeof o.path === "string" && typeof o.host === "string" && typeof o.scheme === "string" && typeof o.query === "string" && typeof o.size === "bigint" && typeof o.protocol === "string" && typeof o.reason === "string");
+  },
+  isSDK(o: any): o is AttributeContext_RequestSDKType {
+    return o && (o.$typeUrl === AttributeContext_Request.typeUrl || typeof o.id === "string" && typeof o.method === "string" && isSet(o.headers) && typeof o.path === "string" && typeof o.host === "string" && typeof o.scheme === "string" && typeof o.query === "string" && typeof o.size === "bigint" && typeof o.protocol === "string" && typeof o.reason === "string");
+  },
+  isAmino(o: any): o is AttributeContext_RequestAmino {
+    return o && (o.$typeUrl === AttributeContext_Request.typeUrl || typeof o.id === "string" && typeof o.method === "string" && isSet(o.headers) && typeof o.path === "string" && typeof o.host === "string" && typeof o.scheme === "string" && typeof o.query === "string" && typeof o.size === "bigint" && typeof o.protocol === "string" && typeof o.reason === "string");
+  },
   encode(message: AttributeContext_Request, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.id !== "") {
       writer.uint32(10).string(message.id);
@@ -2310,6 +2367,12 @@ export const AttributeContext_Request = {
       typeUrl: "/google.rpc.context.Request",
       value: AttributeContext_Request.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(AttributeContext_Request.typeUrl)) {
+      return;
+    }
+    AttributeContext_Auth.registerTypeUrl();
   }
 };
 function createBaseAttributeContext_Response_HeadersEntry(): AttributeContext_Response_HeadersEntry {
@@ -2398,7 +2461,8 @@ export const AttributeContext_Response_HeadersEntry = {
   },
   toProto(message: AttributeContext_Response_HeadersEntry): Uint8Array {
     return AttributeContext_Response_HeadersEntry.encode(message).finish();
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseAttributeContext_Response(): AttributeContext_Response {
   return {
@@ -2418,6 +2482,15 @@ function createBaseAttributeContext_Response(): AttributeContext_Response {
  */
 export const AttributeContext_Response = {
   typeUrl: "/google.rpc.context.Response",
+  is(o: any): o is AttributeContext_Response {
+    return o && (o.$typeUrl === AttributeContext_Response.typeUrl || typeof o.code === "bigint" && typeof o.size === "bigint" && isSet(o.headers));
+  },
+  isSDK(o: any): o is AttributeContext_ResponseSDKType {
+    return o && (o.$typeUrl === AttributeContext_Response.typeUrl || typeof o.code === "bigint" && typeof o.size === "bigint" && isSet(o.headers));
+  },
+  isAmino(o: any): o is AttributeContext_ResponseAmino {
+    return o && (o.$typeUrl === AttributeContext_Response.typeUrl || typeof o.code === "bigint" && typeof o.size === "bigint" && isSet(o.headers));
+  },
   encode(message: AttributeContext_Response, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.code !== BigInt(0)) {
       writer.uint32(8).int64(message.code);
@@ -2584,7 +2657,8 @@ export const AttributeContext_Response = {
       typeUrl: "/google.rpc.context.Response",
       value: AttributeContext_Response.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseAttributeContext_Resource_LabelsEntry(): AttributeContext_Resource_LabelsEntry {
   return {
@@ -2672,7 +2746,8 @@ export const AttributeContext_Resource_LabelsEntry = {
   },
   toProto(message: AttributeContext_Resource_LabelsEntry): Uint8Array {
     return AttributeContext_Resource_LabelsEntry.encode(message).finish();
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseAttributeContext_Resource_AnnotationsEntry(): AttributeContext_Resource_AnnotationsEntry {
   return {
@@ -2760,7 +2835,8 @@ export const AttributeContext_Resource_AnnotationsEntry = {
   },
   toProto(message: AttributeContext_Resource_AnnotationsEntry): Uint8Array {
     return AttributeContext_Resource_AnnotationsEntry.encode(message).finish();
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseAttributeContext_Resource(): AttributeContext_Resource {
   return {
@@ -2788,6 +2864,15 @@ function createBaseAttributeContext_Resource(): AttributeContext_Resource {
  */
 export const AttributeContext_Resource = {
   typeUrl: "/google.rpc.context.Resource",
+  is(o: any): o is AttributeContext_Resource {
+    return o && (o.$typeUrl === AttributeContext_Resource.typeUrl || typeof o.service === "string" && typeof o.name === "string" && typeof o.type === "string" && isSet(o.labels) && typeof o.uid === "string" && isSet(o.annotations) && typeof o.displayName === "string" && typeof o.etag === "string" && typeof o.location === "string");
+  },
+  isSDK(o: any): o is AttributeContext_ResourceSDKType {
+    return o && (o.$typeUrl === AttributeContext_Resource.typeUrl || typeof o.service === "string" && typeof o.name === "string" && typeof o.type === "string" && isSet(o.labels) && typeof o.uid === "string" && isSet(o.annotations) && typeof o.display_name === "string" && typeof o.etag === "string" && typeof o.location === "string");
+  },
+  isAmino(o: any): o is AttributeContext_ResourceAmino {
+    return o && (o.$typeUrl === AttributeContext_Resource.typeUrl || typeof o.service === "string" && typeof o.name === "string" && typeof o.type === "string" && isSet(o.labels) && typeof o.uid === "string" && isSet(o.annotations) && typeof o.display_name === "string" && typeof o.etag === "string" && typeof o.location === "string");
+  },
   encode(message: AttributeContext_Resource, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.service !== "") {
       writer.uint32(10).string(message.service);
@@ -3084,5 +3169,6 @@ export const AttributeContext_Resource = {
       typeUrl: "/google.rpc.context.Resource",
       value: AttributeContext_Resource.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

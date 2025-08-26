@@ -1,4 +1,5 @@
 import { BinaryReader, BinaryWriter } from "../../binary";
+import { GlobalDecoderRegistry } from "../../registry";
 import { isSet, DeepPartial, isObject } from "../../helpers";
 import { JsonSafe } from "../../json-safe";
 export const protobufPackage = "google.protobuf";
@@ -383,6 +384,9 @@ export const Struct_FieldsEntry = {
   },
   toProto(message: Struct_FieldsEntry): Uint8Array {
     return Struct_FieldsEntry.encode(message).finish();
+  },
+  registerTypeUrl() {
+    Value.registerTypeUrl();
   }
 };
 function createBaseStruct(): Struct {
@@ -405,6 +409,15 @@ function createBaseStruct(): Struct {
  */
 export const Struct = {
   typeUrl: "/google.protobuf.Struct",
+  is(o: any): o is Struct {
+    return o && (o.$typeUrl === Struct.typeUrl || isSet(o.fields));
+  },
+  isSDK(o: any): o is StructSDKType {
+    return o && (o.$typeUrl === Struct.typeUrl || isSet(o.fields));
+  },
+  isAmino(o: any): o is StructAmino {
+    return o && (o.$typeUrl === Struct.typeUrl || isSet(o.fields));
+  },
   encode(message: Struct, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     Object.entries(message.fields).forEach(([key, value]) => {
       Struct_FieldsEntry.encode({
@@ -522,6 +535,12 @@ export const Struct = {
       typeUrl: "/google.protobuf.Struct",
       value: Struct.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Struct.typeUrl)) {
+      return;
+    }
+    Value.registerTypeUrl();
   }
 };
 function createBaseValue(): Value {
@@ -547,6 +566,15 @@ function createBaseValue(): Value {
  */
 export const Value = {
   typeUrl: "/google.protobuf.Value",
+  is(o: any): o is Value {
+    return o && o.$typeUrl === Value.typeUrl;
+  },
+  isSDK(o: any): o is ValueSDKType {
+    return o && o.$typeUrl === Value.typeUrl;
+  },
+  isAmino(o: any): o is ValueAmino {
+    return o && o.$typeUrl === Value.typeUrl;
+  },
   encode(message: Value, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.nullValue !== undefined) {
       writer.uint32(8).int32(message.nullValue);
@@ -700,6 +728,13 @@ export const Value = {
       typeUrl: "/google.protobuf.Value",
       value: Value.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Value.typeUrl)) {
+      return;
+    }
+    Struct.registerTypeUrl();
+    ListValue.registerTypeUrl();
   }
 };
 function createBaseListValue(): ListValue {
@@ -717,6 +752,15 @@ function createBaseListValue(): ListValue {
  */
 export const ListValue = {
   typeUrl: "/google.protobuf.ListValue",
+  is(o: any): o is ListValue {
+    return o && (o.$typeUrl === ListValue.typeUrl || Array.isArray(o.values) && (!o.values.length || Value.is(o.values[0])));
+  },
+  isSDK(o: any): o is ListValueSDKType {
+    return o && (o.$typeUrl === ListValue.typeUrl || Array.isArray(o.values) && (!o.values.length || Value.isSDK(o.values[0])));
+  },
+  isAmino(o: any): o is ListValueAmino {
+    return o && (o.$typeUrl === ListValue.typeUrl || Array.isArray(o.values) && (!o.values.length || Value.isAmino(o.values[0])));
+  },
   encode(message: ListValue, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.values) {
       Value.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -801,5 +845,11 @@ export const ListValue = {
       typeUrl: "/google.protobuf.ListValue",
       value: ListValue.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ListValue.typeUrl)) {
+      return;
+    }
+    Value.registerTypeUrl();
   }
 };

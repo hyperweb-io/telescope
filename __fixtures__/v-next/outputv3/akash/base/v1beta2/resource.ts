@@ -1,6 +1,7 @@
 import { ResourceValue, ResourceValueAmino, ResourceValueSDKType } from "./resourcevalue";
 import { Attribute, AttributeAmino, AttributeSDKType } from "./attribute";
 import { BinaryReader, BinaryWriter } from "../../../binary";
+import { GlobalDecoderRegistry } from "../../../registry";
 import { isSet, DeepPartial } from "../../../helpers";
 export const protobufPackage = "akash.base.v1beta2";
 /**
@@ -122,6 +123,15 @@ function createBaseCPU(): CPU {
  */
 export const CPU = {
   typeUrl: "/akash.base.v1beta2.CPU",
+  is(o: any): o is CPU {
+    return o && (o.$typeUrl === CPU.typeUrl || ResourceValue.is(o.units) && Array.isArray(o.attributes) && (!o.attributes.length || Attribute.is(o.attributes[0])));
+  },
+  isSDK(o: any): o is CPUSDKType {
+    return o && (o.$typeUrl === CPU.typeUrl || ResourceValue.isSDK(o.units) && Array.isArray(o.attributes) && (!o.attributes.length || Attribute.isSDK(o.attributes[0])));
+  },
+  isAmino(o: any): o is CPUAmino {
+    return o && (o.$typeUrl === CPU.typeUrl || ResourceValue.isAmino(o.units) && Array.isArray(o.attributes) && (!o.attributes.length || Attribute.isAmino(o.attributes[0])));
+  },
   encode(message: CPU, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.units !== undefined) {
       ResourceValue.encode(message.units, writer.uint32(10).fork()).ldelim();
@@ -210,6 +220,13 @@ export const CPU = {
       typeUrl: "/akash.base.v1beta2.CPU",
       value: CPU.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(CPU.typeUrl)) {
+      return;
+    }
+    ResourceValue.registerTypeUrl();
+    Attribute.registerTypeUrl();
   }
 };
 function createBaseMemory(): Memory {
@@ -226,6 +243,15 @@ function createBaseMemory(): Memory {
  */
 export const Memory = {
   typeUrl: "/akash.base.v1beta2.Memory",
+  is(o: any): o is Memory {
+    return o && (o.$typeUrl === Memory.typeUrl || ResourceValue.is(o.quantity) && Array.isArray(o.attributes) && (!o.attributes.length || Attribute.is(o.attributes[0])));
+  },
+  isSDK(o: any): o is MemorySDKType {
+    return o && (o.$typeUrl === Memory.typeUrl || ResourceValue.isSDK(o.quantity) && Array.isArray(o.attributes) && (!o.attributes.length || Attribute.isSDK(o.attributes[0])));
+  },
+  isAmino(o: any): o is MemoryAmino {
+    return o && (o.$typeUrl === Memory.typeUrl || ResourceValue.isAmino(o.quantity) && Array.isArray(o.attributes) && (!o.attributes.length || Attribute.isAmino(o.attributes[0])));
+  },
   encode(message: Memory, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.quantity !== undefined) {
       ResourceValue.encode(message.quantity, writer.uint32(10).fork()).ldelim();
@@ -314,6 +340,13 @@ export const Memory = {
       typeUrl: "/akash.base.v1beta2.Memory",
       value: Memory.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Memory.typeUrl)) {
+      return;
+    }
+    ResourceValue.registerTypeUrl();
+    Attribute.registerTypeUrl();
   }
 };
 function createBaseStorage(): Storage {
@@ -331,6 +364,15 @@ function createBaseStorage(): Storage {
  */
 export const Storage = {
   typeUrl: "/akash.base.v1beta2.Storage",
+  is(o: any): o is Storage {
+    return o && (o.$typeUrl === Storage.typeUrl || typeof o.name === "string" && ResourceValue.is(o.quantity) && Array.isArray(o.attributes) && (!o.attributes.length || Attribute.is(o.attributes[0])));
+  },
+  isSDK(o: any): o is StorageSDKType {
+    return o && (o.$typeUrl === Storage.typeUrl || typeof o.name === "string" && ResourceValue.isSDK(o.quantity) && Array.isArray(o.attributes) && (!o.attributes.length || Attribute.isSDK(o.attributes[0])));
+  },
+  isAmino(o: any): o is StorageAmino {
+    return o && (o.$typeUrl === Storage.typeUrl || typeof o.name === "string" && ResourceValue.isAmino(o.quantity) && Array.isArray(o.attributes) && (!o.attributes.length || Attribute.isAmino(o.attributes[0])));
+  },
   encode(message: Storage, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -433,5 +475,12 @@ export const Storage = {
       typeUrl: "/akash.base.v1beta2.Storage",
       value: Storage.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Storage.typeUrl)) {
+      return;
+    }
+    ResourceValue.registerTypeUrl();
+    Attribute.registerTypeUrl();
   }
 };

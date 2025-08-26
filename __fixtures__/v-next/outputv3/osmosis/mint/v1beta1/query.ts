@@ -1,6 +1,7 @@
 import { Params, ParamsAmino, ParamsSDKType } from "./mint";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { DeepPartial, isSet, bytesFromBase64, base64FromBytes } from "../../../helpers";
+import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "osmosis.mint.v1beta1";
 /**
  * QueryParamsRequest is the request type for the Query/Params RPC method.
@@ -144,6 +145,15 @@ function createBaseQueryParamsRequest(): QueryParamsRequest {
 export const QueryParamsRequest = {
   typeUrl: "/osmosis.mint.v1beta1.QueryParamsRequest",
   aminoType: "osmosis/mint/query-params-request",
+  is(o: any): o is QueryParamsRequest {
+    return o && o.$typeUrl === QueryParamsRequest.typeUrl;
+  },
+  isSDK(o: any): o is QueryParamsRequestSDKType {
+    return o && o.$typeUrl === QueryParamsRequest.typeUrl;
+  },
+  isAmino(o: any): o is QueryParamsRequestAmino {
+    return o && o.$typeUrl === QueryParamsRequest.typeUrl;
+  },
   encode(_: QueryParamsRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -195,7 +205,8 @@ export const QueryParamsRequest = {
       typeUrl: "/osmosis.mint.v1beta1.QueryParamsRequest",
       value: QueryParamsRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseQueryParamsResponse(): QueryParamsResponse {
   return {
@@ -211,6 +222,15 @@ function createBaseQueryParamsResponse(): QueryParamsResponse {
 export const QueryParamsResponse = {
   typeUrl: "/osmosis.mint.v1beta1.QueryParamsResponse",
   aminoType: "osmosis/mint/query-params-response",
+  is(o: any): o is QueryParamsResponse {
+    return o && (o.$typeUrl === QueryParamsResponse.typeUrl || Params.is(o.params));
+  },
+  isSDK(o: any): o is QueryParamsResponseSDKType {
+    return o && (o.$typeUrl === QueryParamsResponse.typeUrl || Params.isSDK(o.params));
+  },
+  isAmino(o: any): o is QueryParamsResponseAmino {
+    return o && (o.$typeUrl === QueryParamsResponse.typeUrl || Params.isAmino(o.params));
+  },
   encode(message: QueryParamsResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.params !== undefined) {
       Params.encode(message.params, writer.uint32(10).fork()).ldelim();
@@ -279,6 +299,12 @@ export const QueryParamsResponse = {
       typeUrl: "/osmosis.mint.v1beta1.QueryParamsResponse",
       value: QueryParamsResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryParamsResponse.typeUrl)) {
+      return;
+    }
+    Params.registerTypeUrl();
   }
 };
 function createBaseQueryEpochProvisionsRequest(): QueryEpochProvisionsRequest {
@@ -294,6 +320,15 @@ function createBaseQueryEpochProvisionsRequest(): QueryEpochProvisionsRequest {
 export const QueryEpochProvisionsRequest = {
   typeUrl: "/osmosis.mint.v1beta1.QueryEpochProvisionsRequest",
   aminoType: "osmosis/mint/query-epoch-provisions-request",
+  is(o: any): o is QueryEpochProvisionsRequest {
+    return o && o.$typeUrl === QueryEpochProvisionsRequest.typeUrl;
+  },
+  isSDK(o: any): o is QueryEpochProvisionsRequestSDKType {
+    return o && o.$typeUrl === QueryEpochProvisionsRequest.typeUrl;
+  },
+  isAmino(o: any): o is QueryEpochProvisionsRequestAmino {
+    return o && o.$typeUrl === QueryEpochProvisionsRequest.typeUrl;
+  },
   encode(_: QueryEpochProvisionsRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -345,7 +380,8 @@ export const QueryEpochProvisionsRequest = {
       typeUrl: "/osmosis.mint.v1beta1.QueryEpochProvisionsRequest",
       value: QueryEpochProvisionsRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseQueryEpochProvisionsResponse(): QueryEpochProvisionsResponse {
   return {
@@ -362,6 +398,15 @@ function createBaseQueryEpochProvisionsResponse(): QueryEpochProvisionsResponse 
 export const QueryEpochProvisionsResponse = {
   typeUrl: "/osmosis.mint.v1beta1.QueryEpochProvisionsResponse",
   aminoType: "osmosis/mint/query-epoch-provisions-response",
+  is(o: any): o is QueryEpochProvisionsResponse {
+    return o && (o.$typeUrl === QueryEpochProvisionsResponse.typeUrl || o.epochProvisions instanceof Uint8Array || typeof o.epochProvisions === "string");
+  },
+  isSDK(o: any): o is QueryEpochProvisionsResponseSDKType {
+    return o && (o.$typeUrl === QueryEpochProvisionsResponse.typeUrl || o.epoch_provisions instanceof Uint8Array || typeof o.epoch_provisions === "string");
+  },
+  isAmino(o: any): o is QueryEpochProvisionsResponseAmino {
+    return o && (o.$typeUrl === QueryEpochProvisionsResponse.typeUrl || o.epoch_provisions instanceof Uint8Array || typeof o.epoch_provisions === "string");
+  },
   encode(message: QueryEpochProvisionsResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.epochProvisions.length !== 0) {
       writer.uint32(10).bytes(message.epochProvisions);
@@ -428,5 +473,6 @@ export const QueryEpochProvisionsResponse = {
       typeUrl: "/osmosis.mint.v1beta1.QueryEpochProvisionsResponse",
       value: QueryEpochProvisionsResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

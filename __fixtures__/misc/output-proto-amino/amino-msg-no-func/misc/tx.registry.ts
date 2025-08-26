@@ -1,12 +1,7 @@
 import { EncodingTestForDontOmit, EncodingTestForDontOmitSDKType, EncodingTestForOmit, EncodingTestForOmitSDKType } from "./all_fields";
-import { GeneratedType, Registry } from "@cosmjs/proto-signing";
+import { TelescopeGeneratedType } from "../types";
 import { InputMsg, InputMsgSDKType } from "./tx";
-export const registry: ReadonlyArray<[string, GeneratedType]> = [["/misc.InputMsg", InputMsg]];
-export const load = (protoRegistry: Registry) => {
-  registry.forEach(([typeUrl, mod]) => {
-    protoRegistry.register(typeUrl, mod);
-  });
-};
+export const registry: ReadonlyArray<[string, TelescopeGeneratedType<any, any, any>]> = [["/misc.InputMsg", InputMsg]];
 export const MessageComposer = {
   encoded: {
     sendMsg(value: InputMsg) {

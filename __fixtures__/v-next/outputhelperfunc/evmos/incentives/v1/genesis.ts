@@ -3,7 +3,7 @@ import { BinaryReader, BinaryWriter } from "../../../binary";
 import { GlobalDecoderRegistry } from "../../../registry";
 import { isSet, DeepPartial } from "../../../helpers";
 import { JsonSafe } from "../../../json-safe";
-import { Decimal } from "@cosmjs/math";
+import { Decimal } from "@interchainjs/math";
 export const protobufPackage = "evmos.incentives.v1";
 /**
  * GenesisState defines the module's genesis state.
@@ -432,9 +432,9 @@ export const Params = {
   toAmino(message: Params): ParamsAmino {
     const obj: any = {};
     obj.enable_incentives = message.enableIncentives === false ? undefined : message.enableIncentives;
-    obj.allocation_limit = message.allocationLimit === "" ? undefined : message.allocationLimit;
+    obj.allocation_limit = message.allocationLimit === "" ? undefined : Decimal.fromUserInput(message.allocationLimit, 18).atomics;
     obj.incentives_epoch_identifier = message.incentivesEpochIdentifier === "" ? undefined : message.incentivesEpochIdentifier;
-    obj.reward_scaler = message.rewardScaler === "" ? undefined : message.rewardScaler;
+    obj.reward_scaler = message.rewardScaler === "" ? undefined : Decimal.fromUserInput(message.rewardScaler, 18).atomics;
     return obj;
   },
   fromAminoMsg(object: ParamsAminoMsg): Params {

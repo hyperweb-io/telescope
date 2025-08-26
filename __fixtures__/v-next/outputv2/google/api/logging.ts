@@ -1,6 +1,7 @@
 import { BinaryReader, BinaryWriter } from "../../binary";
 import { JsonSafe } from "../../json-safe";
 import { DeepPartial, isSet } from "../../helpers";
+import { GlobalDecoderRegistry } from "../../registry";
 export const protobufPackage = "google.api";
 /**
  * Logging configuration of the service.
@@ -251,6 +252,15 @@ function createBaseLogging(): Logging {
  */
 export const Logging = {
   typeUrl: "/google.api.Logging",
+  is(o: any): o is Logging {
+    return o && (o.$typeUrl === Logging.typeUrl || Array.isArray(o.producerDestinations) && (!o.producerDestinations.length || Logging_LoggingDestination.is(o.producerDestinations[0])) && Array.isArray(o.consumerDestinations) && (!o.consumerDestinations.length || Logging_LoggingDestination.is(o.consumerDestinations[0])));
+  },
+  isSDK(o: any): o is LoggingSDKType {
+    return o && (o.$typeUrl === Logging.typeUrl || Array.isArray(o.producer_destinations) && (!o.producer_destinations.length || Logging_LoggingDestination.isSDK(o.producer_destinations[0])) && Array.isArray(o.consumer_destinations) && (!o.consumer_destinations.length || Logging_LoggingDestination.isSDK(o.consumer_destinations[0])));
+  },
+  isAmino(o: any): o is LoggingAmino {
+    return o && (o.$typeUrl === Logging.typeUrl || Array.isArray(o.producer_destinations) && (!o.producer_destinations.length || Logging_LoggingDestination.isAmino(o.producer_destinations[0])) && Array.isArray(o.consumer_destinations) && (!o.consumer_destinations.length || Logging_LoggingDestination.isAmino(o.consumer_destinations[0])));
+  },
   encode(message: Logging, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.producerDestinations) {
       Logging_LoggingDestination.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -360,6 +370,12 @@ export const Logging = {
       typeUrl: "/google.api.Logging",
       value: Logging.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Logging.typeUrl)) {
+      return;
+    }
+    Logging_LoggingDestination.registerTypeUrl();
   }
 };
 function createBaseLogging_LoggingDestination(): Logging_LoggingDestination {
@@ -377,6 +393,15 @@ function createBaseLogging_LoggingDestination(): Logging_LoggingDestination {
  */
 export const Logging_LoggingDestination = {
   typeUrl: "/google.api.LoggingDestination",
+  is(o: any): o is Logging_LoggingDestination {
+    return o && (o.$typeUrl === Logging_LoggingDestination.typeUrl || typeof o.monitoredResource === "string" && Array.isArray(o.logs) && (!o.logs.length || typeof o.logs[0] === "string"));
+  },
+  isSDK(o: any): o is Logging_LoggingDestinationSDKType {
+    return o && (o.$typeUrl === Logging_LoggingDestination.typeUrl || typeof o.monitored_resource === "string" && Array.isArray(o.logs) && (!o.logs.length || typeof o.logs[0] === "string"));
+  },
+  isAmino(o: any): o is Logging_LoggingDestinationAmino {
+    return o && (o.$typeUrl === Logging_LoggingDestination.typeUrl || typeof o.monitored_resource === "string" && Array.isArray(o.logs) && (!o.logs.length || typeof o.logs[0] === "string"));
+  },
   encode(message: Logging_LoggingDestination, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.monitoredResource !== "") {
       writer.uint32(26).string(message.monitoredResource);
@@ -476,5 +501,6 @@ export const Logging_LoggingDestination = {
       typeUrl: "/google.api.LoggingDestination",
       value: Logging_LoggingDestination.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

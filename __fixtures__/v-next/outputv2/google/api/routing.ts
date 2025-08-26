@@ -1,6 +1,7 @@
 import { BinaryReader, BinaryWriter } from "../../binary";
 import { JsonSafe } from "../../json-safe";
 import { DeepPartial, isSet } from "../../helpers";
+import { GlobalDecoderRegistry } from "../../registry";
 export const protobufPackage = "google.api";
 /**
  * Specifies the routing information that should be sent along with the request
@@ -1654,6 +1655,15 @@ function createBaseRoutingRule(): RoutingRule {
  */
 export const RoutingRule = {
   typeUrl: "/google.api.RoutingRule",
+  is(o: any): o is RoutingRule {
+    return o && (o.$typeUrl === RoutingRule.typeUrl || Array.isArray(o.routingParameters) && (!o.routingParameters.length || RoutingParameter.is(o.routingParameters[0])));
+  },
+  isSDK(o: any): o is RoutingRuleSDKType {
+    return o && (o.$typeUrl === RoutingRule.typeUrl || Array.isArray(o.routing_parameters) && (!o.routing_parameters.length || RoutingParameter.isSDK(o.routing_parameters[0])));
+  },
+  isAmino(o: any): o is RoutingRuleAmino {
+    return o && (o.$typeUrl === RoutingRule.typeUrl || Array.isArray(o.routing_parameters) && (!o.routing_parameters.length || RoutingParameter.isAmino(o.routing_parameters[0])));
+  },
   encode(message: RoutingRule, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.routingParameters) {
       RoutingParameter.encode(v!, writer.uint32(18).fork()).ldelim();
@@ -1738,6 +1748,12 @@ export const RoutingRule = {
       typeUrl: "/google.api.RoutingRule",
       value: RoutingRule.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(RoutingRule.typeUrl)) {
+      return;
+    }
+    RoutingParameter.registerTypeUrl();
   }
 };
 function createBaseRoutingParameter(): RoutingParameter {
@@ -1754,6 +1770,15 @@ function createBaseRoutingParameter(): RoutingParameter {
  */
 export const RoutingParameter = {
   typeUrl: "/google.api.RoutingParameter",
+  is(o: any): o is RoutingParameter {
+    return o && (o.$typeUrl === RoutingParameter.typeUrl || typeof o.field === "string" && typeof o.pathTemplate === "string");
+  },
+  isSDK(o: any): o is RoutingParameterSDKType {
+    return o && (o.$typeUrl === RoutingParameter.typeUrl || typeof o.field === "string" && typeof o.path_template === "string");
+  },
+  isAmino(o: any): o is RoutingParameterAmino {
+    return o && (o.$typeUrl === RoutingParameter.typeUrl || typeof o.field === "string" && typeof o.path_template === "string");
+  },
   encode(message: RoutingParameter, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.field !== "") {
       writer.uint32(10).string(message.field);
@@ -1843,5 +1868,6 @@ export const RoutingParameter = {
       typeUrl: "/google.api.RoutingParameter",
       value: RoutingParameter.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

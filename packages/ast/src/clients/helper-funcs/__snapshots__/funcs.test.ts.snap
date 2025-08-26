@@ -35,7 +35,8 @@ export const getBalance = buildQuery<QueryBalanceRequest, QueryBalanceResponse>(
   encode: QueryBalanceRequest.encode,
   decode: QueryBalanceResponse.decode,
   service: "cosmos.bank.v1beta1.Query",
-  method: "Balance"
+  method: "Balance",
+  deps: [QueryBalanceRequest, QueryBalanceResponse]
 });"
 `;
 

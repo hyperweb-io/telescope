@@ -2,6 +2,7 @@ import { Duration, DurationAmino, DurationSDKType } from "../../google/protobuf/
 import { Timestamp } from "../../google/protobuf/timestamp";
 import { Coin, CoinAmino, CoinSDKType } from "../../cosmos/base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../binary";
+import { GlobalDecoderRegistry } from "../../registry";
 import { toTimestamp, fromTimestamp, isSet, DeepPartial } from "../../helpers";
 import { JsonSafe } from "../../json-safe";
 export const protobufPackage = "osmosis.lockup";
@@ -331,6 +332,15 @@ function createBasePeriodLock(): PeriodLock {
 export const PeriodLock = {
   typeUrl: "/osmosis.lockup.PeriodLock",
   aminoType: "osmosis/lockup/period-lock",
+  is(o: any): o is PeriodLock {
+    return o && (o.$typeUrl === PeriodLock.typeUrl || typeof o.iD === "bigint" && typeof o.owner === "string" && Duration.is(o.duration) && Timestamp.is(o.endTime) && Array.isArray(o.coins) && (!o.coins.length || Coin.is(o.coins[0])));
+  },
+  isSDK(o: any): o is PeriodLockSDKType {
+    return o && (o.$typeUrl === PeriodLock.typeUrl || typeof o.ID === "bigint" && typeof o.owner === "string" && Duration.isSDK(o.duration) && Timestamp.isSDK(o.end_time) && Array.isArray(o.coins) && (!o.coins.length || Coin.isSDK(o.coins[0])));
+  },
+  isAmino(o: any): o is PeriodLockAmino {
+    return o && (o.$typeUrl === PeriodLock.typeUrl || typeof o.ID === "bigint" && typeof o.owner === "string" && Duration.isAmino(o.duration) && Timestamp.isAmino(o.end_time) && Array.isArray(o.coins) && (!o.coins.length || Coin.isAmino(o.coins[0])));
+  },
   encode(message: PeriodLock, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.iD !== BigInt(0)) {
       writer.uint32(8).uint64(message.iD);
@@ -485,6 +495,12 @@ export const PeriodLock = {
       typeUrl: "/osmosis.lockup.PeriodLock",
       value: PeriodLock.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(PeriodLock.typeUrl)) {
+      return;
+    }
+    Coin.registerTypeUrl();
   }
 };
 function createBaseQueryCondition(): QueryCondition {
@@ -506,6 +522,15 @@ function createBaseQueryCondition(): QueryCondition {
 export const QueryCondition = {
   typeUrl: "/osmosis.lockup.QueryCondition",
   aminoType: "osmosis/lockup/query-condition",
+  is(o: any): o is QueryCondition {
+    return o && (o.$typeUrl === QueryCondition.typeUrl || isSet(o.lockQueryType) && typeof o.denom === "string" && Duration.is(o.duration) && Timestamp.is(o.timestamp));
+  },
+  isSDK(o: any): o is QueryConditionSDKType {
+    return o && (o.$typeUrl === QueryCondition.typeUrl || isSet(o.lock_query_type) && typeof o.denom === "string" && Duration.isSDK(o.duration) && Timestamp.isSDK(o.timestamp));
+  },
+  isAmino(o: any): o is QueryConditionAmino {
+    return o && (o.$typeUrl === QueryCondition.typeUrl || isSet(o.lock_query_type) && typeof o.denom === "string" && Duration.isAmino(o.duration) && Timestamp.isAmino(o.timestamp));
+  },
   encode(message: QueryCondition, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.lockQueryType !== 0) {
       writer.uint32(8).int32(message.lockQueryType);
@@ -633,7 +658,8 @@ export const QueryCondition = {
       typeUrl: "/osmosis.lockup.QueryCondition",
       value: QueryCondition.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseSyntheticLock(): SyntheticLock {
   return {
@@ -655,6 +681,15 @@ function createBaseSyntheticLock(): SyntheticLock {
 export const SyntheticLock = {
   typeUrl: "/osmosis.lockup.SyntheticLock",
   aminoType: "osmosis/lockup/synthetic-lock",
+  is(o: any): o is SyntheticLock {
+    return o && (o.$typeUrl === SyntheticLock.typeUrl || typeof o.underlyingLockId === "bigint" && typeof o.synthDenom === "string" && Timestamp.is(o.endTime) && Duration.is(o.duration));
+  },
+  isSDK(o: any): o is SyntheticLockSDKType {
+    return o && (o.$typeUrl === SyntheticLock.typeUrl || typeof o.underlying_lock_id === "bigint" && typeof o.synth_denom === "string" && Timestamp.isSDK(o.end_time) && Duration.isSDK(o.duration));
+  },
+  isAmino(o: any): o is SyntheticLockAmino {
+    return o && (o.$typeUrl === SyntheticLock.typeUrl || typeof o.underlying_lock_id === "bigint" && typeof o.synth_denom === "string" && Timestamp.isAmino(o.end_time) && Duration.isAmino(o.duration));
+  },
   encode(message: SyntheticLock, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.underlyingLockId !== BigInt(0)) {
       writer.uint32(8).uint64(message.underlyingLockId);
@@ -784,5 +819,6 @@ export const SyntheticLock = {
       typeUrl: "/osmosis.lockup.SyntheticLock",
       value: SyntheticLock.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

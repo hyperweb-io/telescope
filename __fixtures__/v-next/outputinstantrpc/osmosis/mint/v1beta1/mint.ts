@@ -1,5 +1,5 @@
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { Decimal } from "@cosmjs/math";
+import { Decimal } from "@interchainjs/math";
 import { isSet, DeepPartial } from "../../../helpers";
 import { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "osmosis.mint.v1beta1";
@@ -247,7 +247,7 @@ export const Minter = {
   },
   toAmino(message: Minter): MinterAmino {
     const obj: any = {};
-    obj.epoch_provisions = message.epochProvisions === "" ? undefined : message.epochProvisions;
+    obj.epoch_provisions = message.epochProvisions === "" ? undefined : Decimal.fromUserInput(message.epochProvisions, 18).atomics;
     return obj;
   },
   fromAminoMsg(object: MinterAminoMsg): Minter {
@@ -366,7 +366,7 @@ export const WeightedAddress = {
   toAmino(message: WeightedAddress): WeightedAddressAmino {
     const obj: any = {};
     obj.address = message.address === "" ? undefined : message.address;
-    obj.weight = message.weight === "" ? undefined : message.weight;
+    obj.weight = message.weight === "" ? undefined : Decimal.fromUserInput(message.weight, 18).atomics;
     return obj;
   },
   fromAminoMsg(object: WeightedAddressAminoMsg): WeightedAddress {
@@ -516,10 +516,10 @@ export const DistributionProportions = {
   },
   toAmino(message: DistributionProportions): DistributionProportionsAmino {
     const obj: any = {};
-    obj.staking = message.staking === "" ? undefined : message.staking;
-    obj.pool_incentives = message.poolIncentives === "" ? undefined : message.poolIncentives;
-    obj.developer_rewards = message.developerRewards === "" ? undefined : message.developerRewards;
-    obj.community_pool = message.communityPool === "" ? undefined : message.communityPool;
+    obj.staking = message.staking === "" ? undefined : Decimal.fromUserInput(message.staking, 18).atomics;
+    obj.pool_incentives = message.poolIncentives === "" ? undefined : Decimal.fromUserInput(message.poolIncentives, 18).atomics;
+    obj.developer_rewards = message.developerRewards === "" ? undefined : Decimal.fromUserInput(message.developerRewards, 18).atomics;
+    obj.community_pool = message.communityPool === "" ? undefined : Decimal.fromUserInput(message.communityPool, 18).atomics;
     return obj;
   },
   fromAminoMsg(object: DistributionProportionsAminoMsg): DistributionProportions {
@@ -744,10 +744,10 @@ export const Params = {
   toAmino(message: Params): ParamsAmino {
     const obj: any = {};
     obj.mint_denom = message.mintDenom === "" ? undefined : message.mintDenom;
-    obj.genesis_epoch_provisions = message.genesisEpochProvisions === "" ? undefined : message.genesisEpochProvisions;
+    obj.genesis_epoch_provisions = message.genesisEpochProvisions === "" ? undefined : Decimal.fromUserInput(message.genesisEpochProvisions, 18).atomics;
     obj.epoch_identifier = message.epochIdentifier === "" ? undefined : message.epochIdentifier;
     obj.reduction_period_in_epochs = message.reductionPeriodInEpochs !== BigInt(0) ? message.reductionPeriodInEpochs?.toString() : undefined;
-    obj.reduction_factor = message.reductionFactor === "" ? undefined : message.reductionFactor;
+    obj.reduction_factor = message.reductionFactor === "" ? undefined : Decimal.fromUserInput(message.reductionFactor, 18).atomics;
     obj.distribution_proportions = message.distributionProportions ? DistributionProportions.toAmino(message.distributionProportions) : undefined;
     if (message.weightedDeveloperRewardsReceivers) {
       obj.weighted_developer_rewards_receivers = message.weightedDeveloperRewardsReceivers.map(e => e ? WeightedAddress.toAmino(e) : undefined);

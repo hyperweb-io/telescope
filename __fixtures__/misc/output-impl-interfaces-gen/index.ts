@@ -11,6 +11,7 @@ export * from "./cosmos/client";
 export * from "./gogoproto/bundle";
 export * from "./google/bundle";
 export * from "./extern";
+export * from "./helper-func-types";
 export * from "./react-query";
 export * from "./mobx";
 export * from "./pinia-endpoint";

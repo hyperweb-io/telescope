@@ -381,6 +381,15 @@ function createBaseTimestamp(): Timestamp {
  */
 export const Timestamp = {
   typeUrl: "/google.protobuf.Timestamp",
+  is(o: any): o is Timestamp {
+    return o && (o.$typeUrl === Timestamp.typeUrl || typeof o.seconds === "bigint" && typeof o.nanos === "number");
+  },
+  isSDK(o: any): o is TimestampSDKType {
+    return o && (o.$typeUrl === Timestamp.typeUrl || typeof o.seconds === "bigint" && typeof o.nanos === "number");
+  },
+  isAmino(o: any): o is TimestampAmino {
+    return o && (o.$typeUrl === Timestamp.typeUrl || typeof o.seconds === "bigint" && typeof o.nanos === "number");
+  },
   encode(message: Timestamp, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.seconds !== BigInt(0)) {
       writer.uint32(8).int64(message.seconds);
@@ -453,5 +462,6 @@ export const Timestamp = {
       typeUrl: "/google.protobuf.Timestamp",
       value: Timestamp.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

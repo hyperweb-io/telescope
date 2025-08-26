@@ -4,7 +4,7 @@ import { Duration, DurationSDKType } from "../google/protobuf/duration";
 import { Timestamp, TimestampSDKType } from "../google/protobuf/timestamp";
 import { BinaryReader, BinaryWriter } from "../binary";
 import { toTimestamp, fromTimestamp, isSet, bytesFromBase64, base64FromBytes, DeepPartial } from "../helpers";
-import { Decimal } from "@cosmjs/math";
+import { Decimal } from "@interchainjs/math";
 import { JsonSafe } from "../json-safe";
 export const protobufPackage = "misc";
 /**

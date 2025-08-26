@@ -287,7 +287,8 @@ export const SourceInfo_PositionsEntry = {
   },
   toProto(message: SourceInfo_PositionsEntry): Uint8Array {
     return SourceInfo_PositionsEntry.encode(message).finish();
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseSourceInfo(): SourceInfo {
   return {
@@ -304,6 +305,15 @@ function createBaseSourceInfo(): SourceInfo {
  */
 export const SourceInfo = {
   typeUrl: "/google.api.expr.v1beta1.SourceInfo",
+  is(o: any): o is SourceInfo {
+    return o && (o.$typeUrl === SourceInfo.typeUrl || typeof o.location === "string" && Array.isArray(o.lineOffsets) && (!o.lineOffsets.length || typeof o.lineOffsets[0] === "number") && isSet(o.positions));
+  },
+  isSDK(o: any): o is SourceInfoSDKType {
+    return o && (o.$typeUrl === SourceInfo.typeUrl || typeof o.location === "string" && Array.isArray(o.line_offsets) && (!o.line_offsets.length || typeof o.line_offsets[0] === "number") && isSet(o.positions));
+  },
+  isAmino(o: any): o is SourceInfoAmino {
+    return o && (o.$typeUrl === SourceInfo.typeUrl || typeof o.location === "string" && Array.isArray(o.line_offsets) && (!o.line_offsets.length || typeof o.line_offsets[0] === "number") && isSet(o.positions));
+  },
   encode(message: SourceInfo, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.location !== "") {
       writer.uint32(18).string(message.location);
@@ -470,7 +480,8 @@ export const SourceInfo = {
       typeUrl: "/google.api.expr.v1beta1.SourceInfo",
       value: SourceInfo.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseSourcePosition(): SourcePosition {
   return {
@@ -488,6 +499,15 @@ function createBaseSourcePosition(): SourcePosition {
  */
 export const SourcePosition = {
   typeUrl: "/google.api.expr.v1beta1.SourcePosition",
+  is(o: any): o is SourcePosition {
+    return o && (o.$typeUrl === SourcePosition.typeUrl || typeof o.location === "string" && typeof o.offset === "number" && typeof o.line === "number" && typeof o.column === "number");
+  },
+  isSDK(o: any): o is SourcePositionSDKType {
+    return o && (o.$typeUrl === SourcePosition.typeUrl || typeof o.location === "string" && typeof o.offset === "number" && typeof o.line === "number" && typeof o.column === "number");
+  },
+  isAmino(o: any): o is SourcePositionAmino {
+    return o && (o.$typeUrl === SourcePosition.typeUrl || typeof o.location === "string" && typeof o.offset === "number" && typeof o.line === "number" && typeof o.column === "number");
+  },
   encode(message: SourcePosition, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.location !== "") {
       writer.uint32(10).string(message.location);
@@ -607,5 +627,6 @@ export const SourcePosition = {
       typeUrl: "/google.api.expr.v1beta1.SourcePosition",
       value: SourcePosition.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

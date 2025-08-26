@@ -3,7 +3,7 @@ import { Timestamp, TimestampSDKType } from "../../google/protobuf/timestamp";
 import { BinaryReader, BinaryWriter } from "../../binary";
 import { isSet, DeepPartial, toTimestamp, fromTimestamp } from "../../helpers";
 import { JsonSafe } from "../../json-safe";
-import { Decimal } from "@cosmjs/math";
+import { Decimal } from "@interchainjs/math";
 export const protobufPackage = "osmosis.concentratedliquidity.v1beta1";
 /**
  * IncentiveRecord is the high-level struct we use to deal with an independent
@@ -374,8 +374,8 @@ export const IncentiveRecordBody = {
   },
   toAmino(message: IncentiveRecordBody): IncentiveRecordBodyAmino {
     const obj: any = {};
-    obj.remaining_amount = message.remainingAmount === "" ? undefined : message.remainingAmount;
-    obj.emission_rate = message.emissionRate === "" ? undefined : message.emissionRate;
+    obj.remaining_amount = message.remainingAmount === "" ? undefined : Decimal.fromUserInput(message.remainingAmount, 18).atomics;
+    obj.emission_rate = message.emissionRate === "" ? undefined : Decimal.fromUserInput(message.emissionRate, 18).atomics;
     obj.start_time = message.startTime ? Timestamp.toAmino(toTimestamp(message.startTime)) : undefined;
     return obj;
   },

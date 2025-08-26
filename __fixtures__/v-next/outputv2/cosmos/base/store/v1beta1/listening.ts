@@ -91,6 +91,15 @@ function createBaseStoreKVPair(): StoreKVPair {
 export const StoreKVPair = {
   typeUrl: "/cosmos.base.store.v1beta1.StoreKVPair",
   aminoType: "cosmos-sdk/StoreKVPair",
+  is(o: any): o is StoreKVPair {
+    return o && (o.$typeUrl === StoreKVPair.typeUrl || typeof o.storeKey === "string" && typeof o.delete === "boolean" && (o.key instanceof Uint8Array || typeof o.key === "string") && (o.value instanceof Uint8Array || typeof o.value === "string"));
+  },
+  isSDK(o: any): o is StoreKVPairSDKType {
+    return o && (o.$typeUrl === StoreKVPair.typeUrl || typeof o.store_key === "string" && typeof o.delete === "boolean" && (o.key instanceof Uint8Array || typeof o.key === "string") && (o.value instanceof Uint8Array || typeof o.value === "string"));
+  },
+  isAmino(o: any): o is StoreKVPairAmino {
+    return o && (o.$typeUrl === StoreKVPair.typeUrl || typeof o.store_key === "string" && typeof o.delete === "boolean" && (o.key instanceof Uint8Array || typeof o.key === "string") && (o.value instanceof Uint8Array || typeof o.value === "string"));
+  },
   encode(message: StoreKVPair, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.storeKey !== "") {
       writer.uint32(10).string(message.storeKey);
@@ -216,5 +225,6 @@ export const StoreKVPair = {
       typeUrl: "/cosmos.base.store.v1beta1.StoreKVPair",
       value: StoreKVPair.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

@@ -90,7 +90,7 @@ export const OsmosisSuperfluidParams = {
   },
   toAmino(message: OsmosisSuperfluidParams): OsmosisSuperfluidParamsAmino {
     const obj: any = {};
-    obj.minimum_risk_factor = message.minimumRiskFactor === "" ? undefined : message.minimumRiskFactor;
+    obj.minimum_risk_factor = message.minimumRiskFactor === "" ? undefined : Decimal.fromUserInput(message.minimumRiskFactor, 18).atomics;
     return obj;
   },
   fromAminoMsg(object: OsmosisSuperfluidParamsAminoMsg): OsmosisSuperfluidParams {

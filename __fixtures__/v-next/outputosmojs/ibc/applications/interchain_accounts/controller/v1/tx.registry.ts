@@ -1,12 +1,7 @@
 import { InterchainAccountPacketData, InterchainAccountPacketDataSDKType } from "../../v1/packet";
-import { GeneratedType, Registry } from "@cosmjs/proto-signing";
+import { TelescopeGeneratedType } from "../../../../../types";
 import { MsgRegisterInterchainAccount, MsgRegisterInterchainAccountSDKType, MsgSendTx, MsgSendTxSDKType } from "./tx";
-export const registry: ReadonlyArray<[string, GeneratedType]> = [["/ibc.applications.interchain_accounts.controller.v1.MsgRegisterInterchainAccount", MsgRegisterInterchainAccount], ["/ibc.applications.interchain_accounts.controller.v1.MsgSendTx", MsgSendTx]];
-export const load = (protoRegistry: Registry) => {
-  registry.forEach(([typeUrl, mod]) => {
-    protoRegistry.register(typeUrl, mod);
-  });
-};
+export const registry: ReadonlyArray<[string, TelescopeGeneratedType<any, any, any>]> = [["/ibc.applications.interchain_accounts.controller.v1.MsgRegisterInterchainAccount", MsgRegisterInterchainAccount], ["/ibc.applications.interchain_accounts.controller.v1.MsgSendTx", MsgSendTx]];
 export const MessageComposer = {
   encoded: {
     registerInterchainAccount(value: MsgRegisterInterchainAccount) {

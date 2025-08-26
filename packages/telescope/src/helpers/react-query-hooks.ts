@@ -11,7 +11,7 @@ import {
 } from './helpers${options.restoreImportExtension ?? ""}'
  import {
   StdFee,
-  DeliverTxResponse,
+
 } from './types${options.restoreImportExtension ?? ""}'
 import {
   ITxArgs,
@@ -218,7 +218,7 @@ export interface UseMutationBuilderOptions<TMsg> {
     message: TMsg | TMsg[],
     fee: StdFee | 'auto',
     memo: string
-  ) => Promise<DeliverTxResponse>,
+  ) => Promise<any>,
 }
 
 const getSigningClientFromCache = (
@@ -234,7 +234,7 @@ export function buildUseMutation<TMsg, TError>(opts: UseMutationBuilderOptions<T
   return ({
     options,
     clientResolver
-  }: ReactMutationParams<DeliverTxResponse, TError, ITxArgs<TMsg>>) => {
+  }: ReactMutationParams<any, TError, ITxArgs<TMsg>>) => {
     const queryClient = useQueryClient({
       context: options?.context
     });
@@ -256,9 +256,9 @@ export function buildUseMutation<TMsg, TError>(opts: UseMutationBuilderOptions<T
 
     const mutationFn = opts.builderMutationFn(signingClientResolver);
 
-    return useMutation<DeliverTxResponse, Error, ITxArgs<TMsg>>(
+    return useMutation<any, Error, ITxArgs<TMsg>>(
       (reqData: ITxArgs<TMsg>) => mutationFn(reqData.signerAddress, reqData.message, reqData.fee, reqData.memo),
-      options as Omit<UseMutationOptions<DeliverTxResponse, Error, ITxArgs<TMsg>, unknown>, "mutationFn">
+      options as Omit<UseMutationOptions<any, Error, ITxArgs<TMsg>, unknown>, "mutationFn">
     );
   };
 }

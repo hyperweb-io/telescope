@@ -1,7 +1,7 @@
 import { Timestamp, TimestampAmino, TimestampSDKType } from "../../../google/protobuf/timestamp";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { toTimestamp, fromTimestamp, isSet, DeepPartial } from "../../../helpers";
-import { Decimal } from "@cosmjs/math";
+import { Decimal } from "@interchainjs/math";
 export const protobufPackage = "osmosis.twap.v1beta1";
 /**
  * A TWAP record should be indexed in state by pool_id, (asset pair), timestamp
@@ -152,6 +152,15 @@ function createBaseTwapRecord(): TwapRecord {
 export const TwapRecord = {
   typeUrl: "/osmosis.twap.v1beta1.TwapRecord",
   aminoType: "osmosis/twap/twap-record",
+  is(o: any): o is TwapRecord {
+    return o && (o.$typeUrl === TwapRecord.typeUrl || typeof o.poolId === "bigint" && typeof o.asset0Denom === "string" && typeof o.asset1Denom === "string" && typeof o.height === "bigint" && Timestamp.is(o.time) && typeof o.p0LastSpotPrice === "string" && typeof o.p1LastSpotPrice === "string" && typeof o.p0ArithmeticTwapAccumulator === "string" && typeof o.p1ArithmeticTwapAccumulator === "string" && Timestamp.is(o.lastErrorTime));
+  },
+  isSDK(o: any): o is TwapRecordSDKType {
+    return o && (o.$typeUrl === TwapRecord.typeUrl || typeof o.pool_id === "bigint" && typeof o.asset0_denom === "string" && typeof o.asset1_denom === "string" && typeof o.height === "bigint" && Timestamp.isSDK(o.time) && typeof o.p0_last_spot_price === "string" && typeof o.p1_last_spot_price === "string" && typeof o.p0_arithmetic_twap_accumulator === "string" && typeof o.p1_arithmetic_twap_accumulator === "string" && Timestamp.isSDK(o.last_error_time));
+  },
+  isAmino(o: any): o is TwapRecordAmino {
+    return o && (o.$typeUrl === TwapRecord.typeUrl || typeof o.pool_id === "bigint" && typeof o.asset0_denom === "string" && typeof o.asset1_denom === "string" && typeof o.height === "bigint" && Timestamp.isAmino(o.time) && typeof o.p0_last_spot_price === "string" && typeof o.p1_last_spot_price === "string" && typeof o.p0_arithmetic_twap_accumulator === "string" && typeof o.p1_arithmetic_twap_accumulator === "string" && Timestamp.isAmino(o.last_error_time));
+  },
   encode(message: TwapRecord, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.poolId !== BigInt(0)) {
       writer.uint32(8).uint64(message.poolId);
@@ -330,10 +339,10 @@ export const TwapRecord = {
     obj.asset1_denom = message.asset1Denom === "" ? undefined : message.asset1Denom;
     obj.height = message.height ? message.height?.toString() : "0";
     obj.time = message.time ? Timestamp.toAmino(toTimestamp(message.time)) : undefined;
-    obj.p0_last_spot_price = message.p0LastSpotPrice === "" ? undefined : message.p0LastSpotPrice;
-    obj.p1_last_spot_price = message.p1LastSpotPrice === "" ? undefined : message.p1LastSpotPrice;
-    obj.p0_arithmetic_twap_accumulator = message.p0ArithmeticTwapAccumulator === "" ? undefined : message.p0ArithmeticTwapAccumulator;
-    obj.p1_arithmetic_twap_accumulator = message.p1ArithmeticTwapAccumulator === "" ? undefined : message.p1ArithmeticTwapAccumulator;
+    obj.p0_last_spot_price = message.p0LastSpotPrice === "" ? undefined : Decimal.fromUserInput(message.p0LastSpotPrice, 18).atomics;
+    obj.p1_last_spot_price = message.p1LastSpotPrice === "" ? undefined : Decimal.fromUserInput(message.p1LastSpotPrice, 18).atomics;
+    obj.p0_arithmetic_twap_accumulator = message.p0ArithmeticTwapAccumulator === "" ? undefined : Decimal.fromUserInput(message.p0ArithmeticTwapAccumulator, 18).atomics;
+    obj.p1_arithmetic_twap_accumulator = message.p1ArithmeticTwapAccumulator === "" ? undefined : Decimal.fromUserInput(message.p1ArithmeticTwapAccumulator, 18).atomics;
     obj.last_error_time = message.lastErrorTime ? Timestamp.toAmino(toTimestamp(message.lastErrorTime)) : undefined;
     return obj;
   },
@@ -348,5 +357,6 @@ export const TwapRecord = {
       typeUrl: "/osmosis.twap.v1beta1.TwapRecord",
       value: TwapRecord.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

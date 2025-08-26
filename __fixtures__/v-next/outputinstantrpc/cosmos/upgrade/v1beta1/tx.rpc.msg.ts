@@ -1,5 +1,5 @@
 import { Plan, PlanSDKType } from "./upgrade";
-import { DeliverTxResponse, StdFee, TxRpc } from "../../../types";
+import { StdFee, TxRpc } from "../../../types";
 import { BinaryReader } from "../../../binary";
 import { MsgSoftwareUpgrade, MsgSoftwareUpgradeSDKType, MsgSoftwareUpgradeResponse, MsgSoftwareUpgradeResponseSDKType, MsgCancelUpgrade, MsgCancelUpgradeSDKType, MsgCancelUpgradeResponse, MsgCancelUpgradeResponseSDKType } from "./tx";
 /** Msg defines the upgrade Msg service. */
@@ -9,14 +9,14 @@ export interface Msg {
    * 
    * Since: cosmos-sdk 0.46
    */
-  softwareUpgrade(signerAddress: string, message: MsgSoftwareUpgrade, fee: number | StdFee | "auto", memo?: string): Promise<DeliverTxResponse>;
+  softwareUpgrade(signerAddress: string, message: MsgSoftwareUpgrade, fee: number | StdFee | "auto", memo?: string): Promise<any>;
   /**
    * CancelUpgrade is a governance operation for cancelling a previously
    * approvid software upgrade.
    * 
    * Since: cosmos-sdk 0.46
    */
-  cancelUpgrade(signerAddress: string, message: MsgCancelUpgrade, fee: number | StdFee | "auto", memo?: string): Promise<DeliverTxResponse>;
+  cancelUpgrade(signerAddress: string, message: MsgCancelUpgrade, fee: number | StdFee | "auto", memo?: string): Promise<any>;
 }
 export class MsgClientImpl implements Msg {
   private readonly rpc: TxRpc;
@@ -26,7 +26,7 @@ export class MsgClientImpl implements Msg {
   /* SoftwareUpgrade is a governance operation for initiating a software upgrade.
   
    Since: cosmos-sdk 0.46 */
-  softwareUpgrade = async (signerAddress: string, message: MsgSoftwareUpgrade, fee: number | StdFee | "auto" = "auto", memo: string = ""): Promise<DeliverTxResponse> => {
+  softwareUpgrade = async (signerAddress: string, message: MsgSoftwareUpgrade, fee: number | StdFee | "auto" = "auto", memo: string = ""): Promise<any> => {
     const data = [{
       typeUrl: MsgSoftwareUpgrade.typeUrl,
       value: message
@@ -37,7 +37,7 @@ export class MsgClientImpl implements Msg {
    approvid software upgrade.
   
    Since: cosmos-sdk 0.46 */
-  cancelUpgrade = async (signerAddress: string, message: MsgCancelUpgrade, fee: number | StdFee | "auto" = "auto", memo: string = ""): Promise<DeliverTxResponse> => {
+  cancelUpgrade = async (signerAddress: string, message: MsgCancelUpgrade, fee: number | StdFee | "auto" = "auto", memo: string = ""): Promise<any> => {
     const data = [{
       typeUrl: MsgCancelUpgrade.typeUrl,
       value: message

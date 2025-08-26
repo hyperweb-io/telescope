@@ -399,7 +399,6 @@ export const createGetTxRpc = (
   clientName: string
 ) => {
   ctx.addUtil("createRpcClient");
-  ctx.addUtil("DeliverTxResponse");
   ctx.addUtil("EncodeObject");
   ctx.addUtil("StdFee");
   ctx.addUtil("TxRpc");
@@ -518,7 +517,7 @@ export const createGetTxRpc = (
                               t.identifier("Promise"),
                               t.tSTypeParameterInstantiation([
                                 t.tSTypeReference(
-                                  t.identifier("DeliverTxResponse")
+                                  t.identifier("any")
                                 ),
                               ])
                             )

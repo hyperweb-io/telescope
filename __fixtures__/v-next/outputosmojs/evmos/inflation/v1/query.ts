@@ -3,7 +3,7 @@ import { Params, ParamsSDKType } from "./genesis";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { JsonSafe } from "../../../json-safe";
 import { DeepPartial, isSet } from "../../../helpers";
-import { Decimal } from "@cosmjs/math";
+import { Decimal } from "@interchainjs/math";
 export const protobufPackage = "evmos.inflation.v1";
 /**
  * QueryPeriodRequest is the request type for the Query/Period RPC method.
@@ -1103,7 +1103,7 @@ export const QueryInflationRateResponse = {
   },
   toAmino(message: QueryInflationRateResponse): QueryInflationRateResponseAmino {
     const obj: any = {};
-    obj.inflation_rate = message.inflationRate === "" ? undefined : message.inflationRate;
+    obj.inflation_rate = message.inflationRate === "" ? undefined : Decimal.fromUserInput(message.inflationRate, 18).atomics;
     return obj;
   },
   fromAminoMsg(object: QueryInflationRateResponseAminoMsg): QueryInflationRateResponse {

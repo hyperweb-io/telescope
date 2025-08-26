@@ -1,5 +1,5 @@
 import { TokenPairArbRoutes, TokenPairArbRoutesSDKType, PoolWeights, PoolWeightsSDKType, BaseDenom, BaseDenomSDKType } from "./protorev";
-import { Rpc } from "../../../helpers";
+import { TxRpc } from "../../../types";
 import { BinaryReader } from "../../../binary";
 import { MsgSetHotRoutes, MsgSetHotRoutesSDKType, MsgSetHotRoutesResponse, MsgSetHotRoutesResponseSDKType, MsgSetDeveloperAccount, MsgSetDeveloperAccountSDKType, MsgSetDeveloperAccountResponse, MsgSetDeveloperAccountResponseSDKType, MsgSetMaxPoolPointsPerTx, MsgSetMaxPoolPointsPerTxSDKType, MsgSetMaxPoolPointsPerTxResponse, MsgSetMaxPoolPointsPerTxResponseSDKType, MsgSetMaxPoolPointsPerBlock, MsgSetMaxPoolPointsPerBlockSDKType, MsgSetMaxPoolPointsPerBlockResponse, MsgSetMaxPoolPointsPerBlockResponseSDKType, MsgSetPoolWeights, MsgSetPoolWeightsSDKType, MsgSetPoolWeightsResponse, MsgSetPoolWeightsResponseSDKType, MsgSetBaseDenoms, MsgSetBaseDenomsSDKType, MsgSetBaseDenomsResponse, MsgSetBaseDenomsResponseSDKType } from "./tx";
 export interface Msg {
@@ -35,8 +35,8 @@ export interface Msg {
   setBaseDenoms(request: MsgSetBaseDenoms): Promise<MsgSetBaseDenomsResponse>;
 }
 export class MsgClientImpl implements Msg {
-  private readonly rpc: Rpc;
-  constructor(rpc: Rpc) {
+  private readonly rpc: TxRpc;
+  constructor(rpc: TxRpc) {
     this.rpc = rpc;
     this.setHotRoutes = this.setHotRoutes.bind(this);
     this.setDeveloperAccount = this.setDeveloperAccount.bind(this);
@@ -76,6 +76,6 @@ export class MsgClientImpl implements Msg {
     return promise.then(data => MsgSetBaseDenomsResponse.decode(new BinaryReader(data)));
   }
 }
-export const createClientImpl = (rpc: Rpc) => {
+export const createClientImpl = (rpc: TxRpc) => {
   return new MsgClientImpl(rpc);
 };

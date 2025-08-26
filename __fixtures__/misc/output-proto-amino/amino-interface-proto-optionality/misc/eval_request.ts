@@ -407,6 +407,9 @@ export const EvalRequest_BindingsEntry = {
   },
   toProto(message: EvalRequest_BindingsEntry): Uint8Array {
     return EvalRequest_BindingsEntry.encode(message).finish();
+  },
+  registerTypeUrl() {
+    ExprValue.registerTypeUrl();
   }
 };
 function createBaseEvalRequest_RefsEntry(): EvalRequest_RefsEntry {
@@ -512,6 +515,9 @@ export const EvalRequest_RefsEntry = {
   },
   toProto(message: EvalRequest_RefsEntry): Uint8Array {
     return EvalRequest_RefsEntry.encode(message).finish();
+  },
+  registerTypeUrl() {
+    IdRef.registerTypeUrl();
   }
 };
 function createBaseEvalRequest(): EvalRequest {
@@ -928,9 +934,17 @@ export const EvalRequest = {
       typeUrl: "/misc.EvalRequest",
       value: EvalRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(EvalRequest.typeUrl)) {
+      return;
+    }
+    ExprValue.registerTypeUrl();
+    IdRef.registerTypeUrl();
+    AccessConfig.registerTypeUrl();
+    TestNest_Graph.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(EvalRequest.typeUrl, EvalRequest);
 function createBaseAccessConfig(): AccessConfig {
   return {
     sender: ""
@@ -1031,9 +1045,9 @@ export const AccessConfig = {
       typeUrl: "/misc.AccessConfig",
       value: AccessConfig.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(AccessConfig.typeUrl, AccessConfig);
 function createBaseGenericAuthorization(): GenericAuthorization {
   return {
     $typeUrl: "/misc.GenericAuthorization",
@@ -1135,6 +1149,11 @@ export const GenericAuthorization = {
       typeUrl: "/misc.GenericAuthorization",
       value: GenericAuthorization.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(GenericAuthorization.typeUrl)) {
+      return;
+    }
+    GlobalDecoderRegistry.register(GenericAuthorization.typeUrl, GenericAuthorization);
   }
 };
-GlobalDecoderRegistry.register(GenericAuthorization.typeUrl, GenericAuthorization);

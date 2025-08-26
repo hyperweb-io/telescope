@@ -95,6 +95,15 @@ function createBaseFungibleTokenPacketData(): FungibleTokenPacketData {
 export const FungibleTokenPacketData = {
   typeUrl: "/ibc.applications.transfer.v2.FungibleTokenPacketData",
   aminoType: "cosmos-sdk/FungibleTokenPacketData",
+  is(o: any): o is FungibleTokenPacketData {
+    return o && (o.$typeUrl === FungibleTokenPacketData.typeUrl || typeof o.denom === "string" && typeof o.amount === "string" && typeof o.sender === "string" && typeof o.receiver === "string");
+  },
+  isSDK(o: any): o is FungibleTokenPacketDataSDKType {
+    return o && (o.$typeUrl === FungibleTokenPacketData.typeUrl || typeof o.denom === "string" && typeof o.amount === "string" && typeof o.sender === "string" && typeof o.receiver === "string");
+  },
+  isAmino(o: any): o is FungibleTokenPacketDataAmino {
+    return o && (o.$typeUrl === FungibleTokenPacketData.typeUrl || typeof o.denom === "string" && typeof o.amount === "string" && typeof o.sender === "string" && typeof o.receiver === "string");
+  },
   encode(message: FungibleTokenPacketData, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.denom !== "") {
       writer.uint32(10).string(message.denom);
@@ -220,5 +229,6 @@ export const FungibleTokenPacketData = {
       typeUrl: "/ibc.applications.transfer.v2.FungibleTokenPacketData",
       value: FungibleTokenPacketData.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

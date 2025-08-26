@@ -5,6 +5,7 @@ import { Status, StatusAmino, StatusSDKType } from "../../rpc/status";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { isSet, DeepPartial, isObject } from "../../../helpers";
 import { JsonSafe } from "../../../json-safe";
+import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "google.logging.v2";
 /** An indicator of why entries were omitted. */
 export enum TailLogEntriesResponse_SuppressionInfo_Reason {
@@ -1202,6 +1203,15 @@ function createBaseDeleteLogRequest(): DeleteLogRequest {
  */
 export const DeleteLogRequest = {
   typeUrl: "/google.logging.v2.DeleteLogRequest",
+  is(o: any): o is DeleteLogRequest {
+    return o && (o.$typeUrl === DeleteLogRequest.typeUrl || typeof o.logName === "string");
+  },
+  isSDK(o: any): o is DeleteLogRequestSDKType {
+    return o && (o.$typeUrl === DeleteLogRequest.typeUrl || typeof o.log_name === "string");
+  },
+  isAmino(o: any): o is DeleteLogRequestAmino {
+    return o && (o.$typeUrl === DeleteLogRequest.typeUrl || typeof o.log_name === "string");
+  },
   encode(message: DeleteLogRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.logName !== "") {
       writer.uint32(10).string(message.logName);
@@ -1276,7 +1286,8 @@ export const DeleteLogRequest = {
       typeUrl: "/google.logging.v2.DeleteLogRequest",
       value: DeleteLogRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseWriteLogEntriesRequest_LabelsEntry(): WriteLogEntriesRequest_LabelsEntry {
   return {
@@ -1373,7 +1384,8 @@ export const WriteLogEntriesRequest_LabelsEntry = {
   },
   toProto(message: WriteLogEntriesRequest_LabelsEntry): Uint8Array {
     return WriteLogEntriesRequest_LabelsEntry.encode(message).finish();
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseWriteLogEntriesRequest(): WriteLogEntriesRequest {
   return {
@@ -1393,6 +1405,15 @@ function createBaseWriteLogEntriesRequest(): WriteLogEntriesRequest {
  */
 export const WriteLogEntriesRequest = {
   typeUrl: "/google.logging.v2.WriteLogEntriesRequest",
+  is(o: any): o is WriteLogEntriesRequest {
+    return o && (o.$typeUrl === WriteLogEntriesRequest.typeUrl || typeof o.logName === "string" && isSet(o.labels) && Array.isArray(o.entries) && (!o.entries.length || LogEntry.is(o.entries[0])) && typeof o.partialSuccess === "boolean" && typeof o.dryRun === "boolean");
+  },
+  isSDK(o: any): o is WriteLogEntriesRequestSDKType {
+    return o && (o.$typeUrl === WriteLogEntriesRequest.typeUrl || typeof o.log_name === "string" && isSet(o.labels) && Array.isArray(o.entries) && (!o.entries.length || LogEntry.isSDK(o.entries[0])) && typeof o.partial_success === "boolean" && typeof o.dry_run === "boolean");
+  },
+  isAmino(o: any): o is WriteLogEntriesRequestAmino {
+    return o && (o.$typeUrl === WriteLogEntriesRequest.typeUrl || typeof o.log_name === "string" && isSet(o.labels) && Array.isArray(o.entries) && (!o.entries.length || LogEntry.isAmino(o.entries[0])) && typeof o.partial_success === "boolean" && typeof o.dry_run === "boolean");
+  },
   encode(message: WriteLogEntriesRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.logName !== "") {
       writer.uint32(10).string(message.logName);
@@ -1597,6 +1618,13 @@ export const WriteLogEntriesRequest = {
       typeUrl: "/google.logging.v2.WriteLogEntriesRequest",
       value: WriteLogEntriesRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(WriteLogEntriesRequest.typeUrl)) {
+      return;
+    }
+    MonitoredResource.registerTypeUrl();
+    LogEntry.registerTypeUrl();
   }
 };
 function createBaseWriteLogEntriesResponse(): WriteLogEntriesResponse {
@@ -1610,6 +1638,15 @@ function createBaseWriteLogEntriesResponse(): WriteLogEntriesResponse {
  */
 export const WriteLogEntriesResponse = {
   typeUrl: "/google.logging.v2.WriteLogEntriesResponse",
+  is(o: any): o is WriteLogEntriesResponse {
+    return o && o.$typeUrl === WriteLogEntriesResponse.typeUrl;
+  },
+  isSDK(o: any): o is WriteLogEntriesResponseSDKType {
+    return o && o.$typeUrl === WriteLogEntriesResponse.typeUrl;
+  },
+  isAmino(o: any): o is WriteLogEntriesResponseAmino {
+    return o && o.$typeUrl === WriteLogEntriesResponse.typeUrl;
+  },
   encode(_: WriteLogEntriesResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -1668,7 +1705,8 @@ export const WriteLogEntriesResponse = {
       typeUrl: "/google.logging.v2.WriteLogEntriesResponse",
       value: WriteLogEntriesResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseWriteLogEntriesPartialErrors_LogEntryErrorsEntry(): WriteLogEntriesPartialErrors_LogEntryErrorsEntry {
   return {
@@ -1767,6 +1805,9 @@ export const WriteLogEntriesPartialErrors_LogEntryErrorsEntry = {
   },
   toProto(message: WriteLogEntriesPartialErrors_LogEntryErrorsEntry): Uint8Array {
     return WriteLogEntriesPartialErrors_LogEntryErrorsEntry.encode(message).finish();
+  },
+  registerTypeUrl() {
+    Status.registerTypeUrl();
   }
 };
 function createBaseWriteLogEntriesPartialErrors(): WriteLogEntriesPartialErrors {
@@ -1782,6 +1823,15 @@ function createBaseWriteLogEntriesPartialErrors(): WriteLogEntriesPartialErrors 
  */
 export const WriteLogEntriesPartialErrors = {
   typeUrl: "/google.logging.v2.WriteLogEntriesPartialErrors",
+  is(o: any): o is WriteLogEntriesPartialErrors {
+    return o && (o.$typeUrl === WriteLogEntriesPartialErrors.typeUrl || isSet(o.logEntryErrors));
+  },
+  isSDK(o: any): o is WriteLogEntriesPartialErrorsSDKType {
+    return o && (o.$typeUrl === WriteLogEntriesPartialErrors.typeUrl || isSet(o.log_entry_errors));
+  },
+  isAmino(o: any): o is WriteLogEntriesPartialErrorsAmino {
+    return o && (o.$typeUrl === WriteLogEntriesPartialErrors.typeUrl || isSet(o.log_entry_errors));
+  },
   encode(message: WriteLogEntriesPartialErrors, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     Object.entries(message.logEntryErrors).forEach(([key, value]) => {
       WriteLogEntriesPartialErrors_LogEntryErrorsEntry.encode({
@@ -1899,6 +1949,12 @@ export const WriteLogEntriesPartialErrors = {
       typeUrl: "/google.logging.v2.WriteLogEntriesPartialErrors",
       value: WriteLogEntriesPartialErrors.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(WriteLogEntriesPartialErrors.typeUrl)) {
+      return;
+    }
+    Status.registerTypeUrl();
   }
 };
 function createBaseListLogEntriesRequest(): ListLogEntriesRequest {
@@ -1918,6 +1974,15 @@ function createBaseListLogEntriesRequest(): ListLogEntriesRequest {
  */
 export const ListLogEntriesRequest = {
   typeUrl: "/google.logging.v2.ListLogEntriesRequest",
+  is(o: any): o is ListLogEntriesRequest {
+    return o && (o.$typeUrl === ListLogEntriesRequest.typeUrl || Array.isArray(o.resourceNames) && (!o.resourceNames.length || typeof o.resourceNames[0] === "string") && typeof o.filter === "string" && typeof o.orderBy === "string" && typeof o.pageSize === "number" && typeof o.pageToken === "string");
+  },
+  isSDK(o: any): o is ListLogEntriesRequestSDKType {
+    return o && (o.$typeUrl === ListLogEntriesRequest.typeUrl || Array.isArray(o.resource_names) && (!o.resource_names.length || typeof o.resource_names[0] === "string") && typeof o.filter === "string" && typeof o.order_by === "string" && typeof o.page_size === "number" && typeof o.page_token === "string");
+  },
+  isAmino(o: any): o is ListLogEntriesRequestAmino {
+    return o && (o.$typeUrl === ListLogEntriesRequest.typeUrl || Array.isArray(o.resource_names) && (!o.resource_names.length || typeof o.resource_names[0] === "string") && typeof o.filter === "string" && typeof o.order_by === "string" && typeof o.page_size === "number" && typeof o.page_token === "string");
+  },
   encode(message: ListLogEntriesRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.resourceNames) {
       writer.uint32(66).string(v!);
@@ -2062,7 +2127,8 @@ export const ListLogEntriesRequest = {
       typeUrl: "/google.logging.v2.ListLogEntriesRequest",
       value: ListLogEntriesRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseListLogEntriesResponse(): ListLogEntriesResponse {
   return {
@@ -2078,6 +2144,15 @@ function createBaseListLogEntriesResponse(): ListLogEntriesResponse {
  */
 export const ListLogEntriesResponse = {
   typeUrl: "/google.logging.v2.ListLogEntriesResponse",
+  is(o: any): o is ListLogEntriesResponse {
+    return o && (o.$typeUrl === ListLogEntriesResponse.typeUrl || Array.isArray(o.entries) && (!o.entries.length || LogEntry.is(o.entries[0])) && typeof o.nextPageToken === "string");
+  },
+  isSDK(o: any): o is ListLogEntriesResponseSDKType {
+    return o && (o.$typeUrl === ListLogEntriesResponse.typeUrl || Array.isArray(o.entries) && (!o.entries.length || LogEntry.isSDK(o.entries[0])) && typeof o.next_page_token === "string");
+  },
+  isAmino(o: any): o is ListLogEntriesResponseAmino {
+    return o && (o.$typeUrl === ListLogEntriesResponse.typeUrl || Array.isArray(o.entries) && (!o.entries.length || LogEntry.isAmino(o.entries[0])) && typeof o.next_page_token === "string");
+  },
   encode(message: ListLogEntriesResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.entries) {
       LogEntry.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -2177,6 +2252,12 @@ export const ListLogEntriesResponse = {
       typeUrl: "/google.logging.v2.ListLogEntriesResponse",
       value: ListLogEntriesResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ListLogEntriesResponse.typeUrl)) {
+      return;
+    }
+    LogEntry.registerTypeUrl();
   }
 };
 function createBaseListMonitoredResourceDescriptorsRequest(): ListMonitoredResourceDescriptorsRequest {
@@ -2193,6 +2274,15 @@ function createBaseListMonitoredResourceDescriptorsRequest(): ListMonitoredResou
  */
 export const ListMonitoredResourceDescriptorsRequest = {
   typeUrl: "/google.logging.v2.ListMonitoredResourceDescriptorsRequest",
+  is(o: any): o is ListMonitoredResourceDescriptorsRequest {
+    return o && (o.$typeUrl === ListMonitoredResourceDescriptorsRequest.typeUrl || typeof o.pageSize === "number" && typeof o.pageToken === "string");
+  },
+  isSDK(o: any): o is ListMonitoredResourceDescriptorsRequestSDKType {
+    return o && (o.$typeUrl === ListMonitoredResourceDescriptorsRequest.typeUrl || typeof o.page_size === "number" && typeof o.page_token === "string");
+  },
+  isAmino(o: any): o is ListMonitoredResourceDescriptorsRequestAmino {
+    return o && (o.$typeUrl === ListMonitoredResourceDescriptorsRequest.typeUrl || typeof o.page_size === "number" && typeof o.page_token === "string");
+  },
   encode(message: ListMonitoredResourceDescriptorsRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.pageSize !== 0) {
       writer.uint32(8).int32(message.pageSize);
@@ -2282,7 +2372,8 @@ export const ListMonitoredResourceDescriptorsRequest = {
       typeUrl: "/google.logging.v2.ListMonitoredResourceDescriptorsRequest",
       value: ListMonitoredResourceDescriptorsRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseListMonitoredResourceDescriptorsResponse(): ListMonitoredResourceDescriptorsResponse {
   return {
@@ -2298,6 +2389,15 @@ function createBaseListMonitoredResourceDescriptorsResponse(): ListMonitoredReso
  */
 export const ListMonitoredResourceDescriptorsResponse = {
   typeUrl: "/google.logging.v2.ListMonitoredResourceDescriptorsResponse",
+  is(o: any): o is ListMonitoredResourceDescriptorsResponse {
+    return o && (o.$typeUrl === ListMonitoredResourceDescriptorsResponse.typeUrl || Array.isArray(o.resourceDescriptors) && (!o.resourceDescriptors.length || MonitoredResourceDescriptor.is(o.resourceDescriptors[0])) && typeof o.nextPageToken === "string");
+  },
+  isSDK(o: any): o is ListMonitoredResourceDescriptorsResponseSDKType {
+    return o && (o.$typeUrl === ListMonitoredResourceDescriptorsResponse.typeUrl || Array.isArray(o.resource_descriptors) && (!o.resource_descriptors.length || MonitoredResourceDescriptor.isSDK(o.resource_descriptors[0])) && typeof o.next_page_token === "string");
+  },
+  isAmino(o: any): o is ListMonitoredResourceDescriptorsResponseAmino {
+    return o && (o.$typeUrl === ListMonitoredResourceDescriptorsResponse.typeUrl || Array.isArray(o.resource_descriptors) && (!o.resource_descriptors.length || MonitoredResourceDescriptor.isAmino(o.resource_descriptors[0])) && typeof o.next_page_token === "string");
+  },
   encode(message: ListMonitoredResourceDescriptorsResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.resourceDescriptors) {
       MonitoredResourceDescriptor.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -2397,6 +2497,12 @@ export const ListMonitoredResourceDescriptorsResponse = {
       typeUrl: "/google.logging.v2.ListMonitoredResourceDescriptorsResponse",
       value: ListMonitoredResourceDescriptorsResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ListMonitoredResourceDescriptorsResponse.typeUrl)) {
+      return;
+    }
+    MonitoredResourceDescriptor.registerTypeUrl();
   }
 };
 function createBaseListLogsRequest(): ListLogsRequest {
@@ -2415,6 +2521,15 @@ function createBaseListLogsRequest(): ListLogsRequest {
  */
 export const ListLogsRequest = {
   typeUrl: "/google.logging.v2.ListLogsRequest",
+  is(o: any): o is ListLogsRequest {
+    return o && (o.$typeUrl === ListLogsRequest.typeUrl || typeof o.parent === "string" && typeof o.pageSize === "number" && typeof o.pageToken === "string" && Array.isArray(o.resourceNames) && (!o.resourceNames.length || typeof o.resourceNames[0] === "string"));
+  },
+  isSDK(o: any): o is ListLogsRequestSDKType {
+    return o && (o.$typeUrl === ListLogsRequest.typeUrl || typeof o.parent === "string" && typeof o.page_size === "number" && typeof o.page_token === "string" && Array.isArray(o.resource_names) && (!o.resource_names.length || typeof o.resource_names[0] === "string"));
+  },
+  isAmino(o: any): o is ListLogsRequestAmino {
+    return o && (o.$typeUrl === ListLogsRequest.typeUrl || typeof o.parent === "string" && typeof o.page_size === "number" && typeof o.page_token === "string" && Array.isArray(o.resource_names) && (!o.resource_names.length || typeof o.resource_names[0] === "string"));
+  },
   encode(message: ListLogsRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.parent !== "") {
       writer.uint32(10).string(message.parent);
@@ -2544,7 +2659,8 @@ export const ListLogsRequest = {
       typeUrl: "/google.logging.v2.ListLogsRequest",
       value: ListLogsRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseListLogsResponse(): ListLogsResponse {
   return {
@@ -2560,6 +2676,15 @@ function createBaseListLogsResponse(): ListLogsResponse {
  */
 export const ListLogsResponse = {
   typeUrl: "/google.logging.v2.ListLogsResponse",
+  is(o: any): o is ListLogsResponse {
+    return o && (o.$typeUrl === ListLogsResponse.typeUrl || Array.isArray(o.logNames) && (!o.logNames.length || typeof o.logNames[0] === "string") && typeof o.nextPageToken === "string");
+  },
+  isSDK(o: any): o is ListLogsResponseSDKType {
+    return o && (o.$typeUrl === ListLogsResponse.typeUrl || Array.isArray(o.log_names) && (!o.log_names.length || typeof o.log_names[0] === "string") && typeof o.next_page_token === "string");
+  },
+  isAmino(o: any): o is ListLogsResponseAmino {
+    return o && (o.$typeUrl === ListLogsResponse.typeUrl || Array.isArray(o.log_names) && (!o.log_names.length || typeof o.log_names[0] === "string") && typeof o.next_page_token === "string");
+  },
   encode(message: ListLogsResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.logNames) {
       writer.uint32(26).string(v!);
@@ -2659,7 +2784,8 @@ export const ListLogsResponse = {
       typeUrl: "/google.logging.v2.ListLogsResponse",
       value: ListLogsResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseTailLogEntriesRequest(): TailLogEntriesRequest {
   return {
@@ -2676,6 +2802,15 @@ function createBaseTailLogEntriesRequest(): TailLogEntriesRequest {
  */
 export const TailLogEntriesRequest = {
   typeUrl: "/google.logging.v2.TailLogEntriesRequest",
+  is(o: any): o is TailLogEntriesRequest {
+    return o && (o.$typeUrl === TailLogEntriesRequest.typeUrl || Array.isArray(o.resourceNames) && (!o.resourceNames.length || typeof o.resourceNames[0] === "string") && typeof o.filter === "string");
+  },
+  isSDK(o: any): o is TailLogEntriesRequestSDKType {
+    return o && (o.$typeUrl === TailLogEntriesRequest.typeUrl || Array.isArray(o.resource_names) && (!o.resource_names.length || typeof o.resource_names[0] === "string") && typeof o.filter === "string");
+  },
+  isAmino(o: any): o is TailLogEntriesRequestAmino {
+    return o && (o.$typeUrl === TailLogEntriesRequest.typeUrl || Array.isArray(o.resource_names) && (!o.resource_names.length || typeof o.resource_names[0] === "string") && typeof o.filter === "string");
+  },
   encode(message: TailLogEntriesRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.resourceNames) {
       writer.uint32(10).string(v!);
@@ -2792,7 +2927,8 @@ export const TailLogEntriesRequest = {
       typeUrl: "/google.logging.v2.TailLogEntriesRequest",
       value: TailLogEntriesRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseTailLogEntriesResponse(): TailLogEntriesResponse {
   return {
@@ -2808,6 +2944,15 @@ function createBaseTailLogEntriesResponse(): TailLogEntriesResponse {
  */
 export const TailLogEntriesResponse = {
   typeUrl: "/google.logging.v2.TailLogEntriesResponse",
+  is(o: any): o is TailLogEntriesResponse {
+    return o && (o.$typeUrl === TailLogEntriesResponse.typeUrl || Array.isArray(o.entries) && (!o.entries.length || LogEntry.is(o.entries[0])) && Array.isArray(o.suppressionInfo) && (!o.suppressionInfo.length || TailLogEntriesResponse_SuppressionInfo.is(o.suppressionInfo[0])));
+  },
+  isSDK(o: any): o is TailLogEntriesResponseSDKType {
+    return o && (o.$typeUrl === TailLogEntriesResponse.typeUrl || Array.isArray(o.entries) && (!o.entries.length || LogEntry.isSDK(o.entries[0])) && Array.isArray(o.suppression_info) && (!o.suppression_info.length || TailLogEntriesResponse_SuppressionInfo.isSDK(o.suppression_info[0])));
+  },
+  isAmino(o: any): o is TailLogEntriesResponseAmino {
+    return o && (o.$typeUrl === TailLogEntriesResponse.typeUrl || Array.isArray(o.entries) && (!o.entries.length || LogEntry.isAmino(o.entries[0])) && Array.isArray(o.suppression_info) && (!o.suppression_info.length || TailLogEntriesResponse_SuppressionInfo.isAmino(o.suppression_info[0])));
+  },
   encode(message: TailLogEntriesResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.entries) {
       LogEntry.encode(v!, writer.uint32(10).fork()).ldelim();
@@ -2917,6 +3062,13 @@ export const TailLogEntriesResponse = {
       typeUrl: "/google.logging.v2.TailLogEntriesResponse",
       value: TailLogEntriesResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(TailLogEntriesResponse.typeUrl)) {
+      return;
+    }
+    LogEntry.registerTypeUrl();
+    TailLogEntriesResponse_SuppressionInfo.registerTypeUrl();
   }
 };
 function createBaseTailLogEntriesResponse_SuppressionInfo(): TailLogEntriesResponse_SuppressionInfo {
@@ -2933,6 +3085,15 @@ function createBaseTailLogEntriesResponse_SuppressionInfo(): TailLogEntriesRespo
  */
 export const TailLogEntriesResponse_SuppressionInfo = {
   typeUrl: "/google.logging.v2.SuppressionInfo",
+  is(o: any): o is TailLogEntriesResponse_SuppressionInfo {
+    return o && (o.$typeUrl === TailLogEntriesResponse_SuppressionInfo.typeUrl || isSet(o.reason) && typeof o.suppressedCount === "number");
+  },
+  isSDK(o: any): o is TailLogEntriesResponse_SuppressionInfoSDKType {
+    return o && (o.$typeUrl === TailLogEntriesResponse_SuppressionInfo.typeUrl || isSet(o.reason) && typeof o.suppressed_count === "number");
+  },
+  isAmino(o: any): o is TailLogEntriesResponse_SuppressionInfoAmino {
+    return o && (o.$typeUrl === TailLogEntriesResponse_SuppressionInfo.typeUrl || isSet(o.reason) && typeof o.suppressed_count === "number");
+  },
   encode(message: TailLogEntriesResponse_SuppressionInfo, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.reason !== 0) {
       writer.uint32(8).int32(message.reason);
@@ -3022,5 +3183,6 @@ export const TailLogEntriesResponse_SuppressionInfo = {
       typeUrl: "/google.logging.v2.SuppressionInfo",
       value: TailLogEntriesResponse_SuppressionInfo.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

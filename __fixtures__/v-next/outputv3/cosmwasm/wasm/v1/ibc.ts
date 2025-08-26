@@ -119,6 +119,15 @@ function createBaseMsgIBCSend(): MsgIBCSend {
 export const MsgIBCSend = {
   typeUrl: "/cosmwasm.wasm.v1.MsgIBCSend",
   aminoType: "wasm/MsgIBCSend",
+  is(o: any): o is MsgIBCSend {
+    return o && (o.$typeUrl === MsgIBCSend.typeUrl || typeof o.channel === "string" && typeof o.timeoutHeight === "bigint" && typeof o.timeoutTimestamp === "bigint" && (o.data instanceof Uint8Array || typeof o.data === "string"));
+  },
+  isSDK(o: any): o is MsgIBCSendSDKType {
+    return o && (o.$typeUrl === MsgIBCSend.typeUrl || typeof o.channel === "string" && typeof o.timeout_height === "bigint" && typeof o.timeout_timestamp === "bigint" && (o.data instanceof Uint8Array || typeof o.data === "string"));
+  },
+  isAmino(o: any): o is MsgIBCSendAmino {
+    return o && (o.$typeUrl === MsgIBCSend.typeUrl || typeof o.channel === "string" && typeof o.timeout_height === "bigint" && typeof o.timeout_timestamp === "bigint" && (o.data instanceof Uint8Array || typeof o.data === "string"));
+  },
   encode(message: MsgIBCSend, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.channel !== "") {
       writer.uint32(18).string(message.channel);
@@ -231,7 +240,8 @@ export const MsgIBCSend = {
       typeUrl: "/cosmwasm.wasm.v1.MsgIBCSend",
       value: MsgIBCSend.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseMsgIBCCloseChannel(): MsgIBCCloseChannel {
   return {
@@ -247,6 +257,15 @@ function createBaseMsgIBCCloseChannel(): MsgIBCCloseChannel {
 export const MsgIBCCloseChannel = {
   typeUrl: "/cosmwasm.wasm.v1.MsgIBCCloseChannel",
   aminoType: "wasm/MsgIBCCloseChannel",
+  is(o: any): o is MsgIBCCloseChannel {
+    return o && (o.$typeUrl === MsgIBCCloseChannel.typeUrl || typeof o.channel === "string");
+  },
+  isSDK(o: any): o is MsgIBCCloseChannelSDKType {
+    return o && (o.$typeUrl === MsgIBCCloseChannel.typeUrl || typeof o.channel === "string");
+  },
+  isAmino(o: any): o is MsgIBCCloseChannelAmino {
+    return o && (o.$typeUrl === MsgIBCCloseChannel.typeUrl || typeof o.channel === "string");
+  },
   encode(message: MsgIBCCloseChannel, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.channel !== "") {
       writer.uint32(18).string(message.channel);
@@ -313,5 +332,6 @@ export const MsgIBCCloseChannel = {
       typeUrl: "/cosmwasm.wasm.v1.MsgIBCCloseChannel",
       value: MsgIBCCloseChannel.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

@@ -14,7 +14,8 @@ const contractsDir = __dirname + '/../../../__fixtures__/wasm/';
 store.traverseAll();
 
 const options: TelescopeOptions = {
-
+  env: "default",
+  useInterchainJs: false,
   removeUnusedImports: false,
   classesUseArrowFunctions: false,
 
@@ -67,6 +68,7 @@ const options: TelescopeOptions = {
     fieldDefaultIsOptional: false,
     useOptionalNullable: true,
     allowUndefinedTypes: false,
+    enableRegistryLoader: true,
     excluded: {
       packages: [
         // 'cosmos.gov.v1',
@@ -84,7 +86,8 @@ const options: TelescopeOptions = {
       useDeepPartial: true,
       useExact: false,
       timestamp: 'date',
-      duration: 'duration'
+      duration: 'duration',
+      useTelescopeGeneratedType: false,
     }
   },
 
@@ -236,6 +239,9 @@ const options: TelescopeOptions = {
         aminoType: 'mymessage-testonly'
       }
     },
+    customTypes: {
+      useCosmosSDKDec: false,
+    },
     typeUrlToAmino: (typeUrl: string) => {
       const name = typeUrl.replace(/^\//, '');
       const elements = name.split('.');
@@ -253,6 +259,11 @@ const options: TelescopeOptions = {
     },
     useLegacyInlineEncoding: true
   },
+
+  helperFunctions: {
+    enabled: false,
+  },
+
   packages: {
     akash: {
       classesUseArrowFunctions: true,

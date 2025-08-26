@@ -3,6 +3,7 @@ import { Coin, CoinSDKType } from "../../cosmos/base/v1beta1/coin";
 import { Timestamp, TimestampSDKType } from "../../google/protobuf/timestamp";
 import { Duration, DurationSDKType } from "../../google/protobuf/duration";
 import { AminoMsg } from "@cosmjs/amino";
+import { Decimal } from "@interchainjs/math";
 import { MsgCreatePosition, MsgCreatePositionSDKType, MsgWithdrawPosition, MsgWithdrawPositionSDKType, MsgCollectFees, MsgCollectFeesSDKType, MsgCollectIncentives, MsgCollectIncentivesSDKType, MsgFungifyChargedPositions, MsgFungifyChargedPositionsSDKType } from "./tx";
 export interface MsgCreatePositionAminoType extends AminoMsg {
   type: "osmosis/concentratedliquidity/create-position";
@@ -120,7 +121,7 @@ export const AminoConverter = {
       return {
         position_id: positionId.toString(),
         sender,
-        liquidity_amount: liquidityAmount
+        liquidity_amount: Decimal.fromUserInput(liquidityAmount, 18).atomics
       };
     },
     fromAmino: ({

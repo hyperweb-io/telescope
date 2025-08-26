@@ -47,6 +47,15 @@ function createBaseParams(): Params {
 export const Params = {
   typeUrl: "/osmosis.lockup.Params",
   aminoType: "osmosis/lockup/params",
+  is(o: any): o is Params {
+    return o && (o.$typeUrl === Params.typeUrl || Array.isArray(o.forceUnlockAllowedAddresses) && (!o.forceUnlockAllowedAddresses.length || typeof o.forceUnlockAllowedAddresses[0] === "string"));
+  },
+  isSDK(o: any): o is ParamsSDKType {
+    return o && (o.$typeUrl === Params.typeUrl || Array.isArray(o.force_unlock_allowed_addresses) && (!o.force_unlock_allowed_addresses.length || typeof o.force_unlock_allowed_addresses[0] === "string"));
+  },
+  isAmino(o: any): o is ParamsAmino {
+    return o && (o.$typeUrl === Params.typeUrl || Array.isArray(o.force_unlock_allowed_addresses) && (!o.force_unlock_allowed_addresses.length || typeof o.force_unlock_allowed_addresses[0] === "string"));
+  },
   encode(message: Params, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.forceUnlockAllowedAddresses) {
       writer.uint32(10).string(v!);
@@ -137,5 +146,6 @@ export const Params = {
       typeUrl: "/osmosis.lockup.Params",
       value: Params.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

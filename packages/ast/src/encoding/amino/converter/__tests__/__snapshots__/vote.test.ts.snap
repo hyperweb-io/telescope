@@ -76,7 +76,7 @@ exports[`cosmos/gov/v1beta1/tx AminoConverter 1`] = `
         voter,
         options: options.map(el0 => ({
           option: el0.option,
-          weight: el0.weight
+          weight: Decimal.fromUserInput(el0.weight, 18).atomics
         }))
       };
     },

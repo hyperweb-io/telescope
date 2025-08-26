@@ -1,6 +1,7 @@
 import { PlacementRequirements, PlacementRequirementsAmino, PlacementRequirementsSDKType } from "../../base/v1beta2/attribute";
 import { Resource, ResourceAmino, ResourceSDKType } from "./resource";
 import { BinaryReader, BinaryWriter } from "../../../binary";
+import { GlobalDecoderRegistry } from "../../../registry";
 import { isSet, DeepPartial } from "../../../helpers";
 export const protobufPackage = "akash.deployment.v1beta2";
 /**
@@ -55,6 +56,15 @@ function createBaseGroupSpec(): GroupSpec {
  */
 export const GroupSpec = {
   typeUrl: "/akash.deployment.v1beta2.GroupSpec",
+  is(o: any): o is GroupSpec {
+    return o && (o.$typeUrl === GroupSpec.typeUrl || typeof o.name === "string" && PlacementRequirements.is(o.requirements) && Array.isArray(o.resources) && (!o.resources.length || Resource.is(o.resources[0])));
+  },
+  isSDK(o: any): o is GroupSpecSDKType {
+    return o && (o.$typeUrl === GroupSpec.typeUrl || typeof o.name === "string" && PlacementRequirements.isSDK(o.requirements) && Array.isArray(o.resources) && (!o.resources.length || Resource.isSDK(o.resources[0])));
+  },
+  isAmino(o: any): o is GroupSpecAmino {
+    return o && (o.$typeUrl === GroupSpec.typeUrl || typeof o.name === "string" && PlacementRequirements.isAmino(o.requirements) && Array.isArray(o.resources) && (!o.resources.length || Resource.isAmino(o.resources[0])));
+  },
   encode(message: GroupSpec, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
@@ -157,5 +167,12 @@ export const GroupSpec = {
       typeUrl: "/akash.deployment.v1beta2.GroupSpec",
       value: GroupSpec.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(GroupSpec.typeUrl)) {
+      return;
+    }
+    PlacementRequirements.registerTypeUrl();
+    Resource.registerTypeUrl();
   }
 };

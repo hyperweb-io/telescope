@@ -1,11 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`GenesisState interface 1`] = `
-"/** GenesisState defines the auth module's genesis state. */
+"/**
+ * GenesisState defines the auth module's genesis state.
+ * @name GenesisState
+ * @package cosmos.auth.v1beta1
+ * @see proto type: cosmos.auth.v1beta1.GenesisState
+ */
 export interface GenesisState {
-  /** params defines all the paramaters of the module. */
+  /**
+   * params defines all the paramaters of the module.
+   */
   params: Params;
-  /** accounts are the accounts present at genesis. */
+  /**
+   * accounts are the accounts present at genesis.
+   */
   accounts: Any[];
 }"
 `;
@@ -14,6 +23,9 @@ exports[`MsgDelegate interface 1`] = `
 "/**
  * MsgDelegate defines a SDK message for performing a delegation of coins
  * from a delegator to a validator.
+ * @name MsgDelegate
+ * @package cosmos.staking.v1beta1
+ * @see proto type: cosmos.staking.v1beta1.MsgDelegate
  */
 export interface MsgDelegate {
   delegatorAddress: string;
@@ -37,7 +49,12 @@ export interface MsgSendAmino {
 `;
 
 exports[`MsgSend api interface 1`] = `
-"/** MsgSend represents a message to send coins from one account to another. */
+"/**
+ * MsgSend represents a message to send coins from one account to another.
+ * @name MsgSendSDKType
+ * @package cosmos.bank.v1beta1
+ * @see proto type: cosmos.bank.v1beta1.MsgSend
+ */
 export interface MsgSendSDKType {
   from_address: string;
   to_address: string;
@@ -46,7 +63,12 @@ export interface MsgSendSDKType {
 `;
 
 exports[`MsgSend interface 1`] = `
-"/** MsgSend represents a message to send coins from one account to another. */
+"/**
+ * MsgSend represents a message to send coins from one account to another.
+ * @name MsgSend
+ * @package cosmos.bank.v1beta1
+ * @see proto type: cosmos.bank.v1beta1.MsgSend
+ */
 export interface MsgSend {
   fromAddress: string;
   toAddress: string;
@@ -70,6 +92,9 @@ exports[`PageRequest api interface 1`] = `
  *          Foo some_parameter = 1;
  *          PageRequest pagination = 2;
  *  }
+ * @name PageRequestSDKType
+ * @package cosmos.base.query.v1beta1
+ * @see proto type: cosmos.base.query.v1beta1.PageRequest
  */
 export interface PageRequestSDKType {
   key: Uint8Array;
@@ -89,6 +114,9 @@ exports[`PageRequest interface 1`] = `
  *          Foo some_parameter = 1;
  *          PageRequest pagination = 2;
  *  }
+ * @name PageRequest
+ * @package cosmos.base.query.v1beta1
+ * @see proto type: cosmos.base.query.v1beta1.PageRequest
  */
 export interface PageRequest {
   /**
@@ -133,6 +161,9 @@ exports[`PageResponse api interface 1`] = `
  *          repeated Bar results = 1;
  *          PageResponse page = 2;
  *  }
+ * @name PageResponseSDKType
+ * @package cosmos.base.query.v1beta1
+ * @see proto type: cosmos.base.query.v1beta1.PageResponse
  */
 export interface PageResponseSDKType {
   next_key: Uint8Array;
@@ -149,6 +180,9 @@ exports[`PageResponse interface 1`] = `
  *          repeated Bar results = 1;
  *          PageResponse page = 2;
  *  }
+ * @name PageResponse
+ * @package cosmos.base.query.v1beta1
+ * @see proto type: cosmos.base.query.v1beta1.PageResponse
  */
 export interface PageResponse {
   /**
@@ -186,6 +220,9 @@ exports[`confio/proofs.proto ExistenceProof 1`] = `
  * With LengthOp this is tricker but not impossible. Which is why the "leafPrefixEqual" field
  * in the ProofSpec is valuable to prevent this mutability. And why all trees should
  * length-prefix the data before hashing it.
+ * @name ExistenceProof
+ * @package ics23
+ * @see proto type: ics23.ExistenceProof
  */
 export interface ExistenceProof {
   key: Uint8Array;
@@ -200,6 +237,9 @@ exports[`cosmos/auth/v1beta1/auth.proto BaseAccount 1`] = `
  * BaseAccount defines a base account type. It contains all the necessary fields
  * for basic account functionality. Any custom account type should extend this
  * type for additional functionality (e.g. vesting).
+ * @name BaseAccount
+ * @package cosmos.auth.v1beta1
+ * @see proto type: cosmos.auth.v1beta1.BaseAccount
  */
 export interface BaseAccount {
   $typeUrl?: "/cosmos.auth.v1beta1.BaseAccount";
@@ -211,7 +251,12 @@ export interface BaseAccount {
 `;
 
 exports[`cosmos/auth/v1beta1/auth.proto ModuleAccount 1`] = `
-"/** ModuleAccount defines an account for modules that holds coins on a pool. */
+"/**
+ * ModuleAccount defines an account for modules that holds coins on a pool.
+ * @name ModuleAccount
+ * @package cosmos.auth.v1beta1
+ * @see proto type: cosmos.auth.v1beta1.ModuleAccount
+ */
 export interface ModuleAccount {
   $typeUrl?: "/cosmos.auth.v1beta1.ModuleAccount";
   baseAccount?: BaseAccount;
@@ -224,9 +269,12 @@ exports[`cosmos/authz/v1beta1/authz.proto Grant 1`] = `
 "/**
  * Grant gives permissions to execute
  * the provide method with expiration time.
+ * @name Grant
+ * @package cosmos.authz.v1beta1
+ * @see proto type: cosmos.authz.v1beta1.Grant
  */
 export interface Grant {
-  authorization?: (GenericAuthorization & DepositDeploymentAuthorization1 & DepositDeploymentAuthorization2 & SendAuthorization & StakeAuthorization & Any) | undefined;
+  authorization?: GenericAuthorization | DepositDeploymentAuthorization1 | DepositDeploymentAuthorization2 | SendAuthorization | StakeAuthorization | Any | undefined;
   /**
    * time when the grant will expire and will be pruned. If null, then the grant
    * doesn't have a time expiration (other conditions  in \`authorization\`
@@ -247,11 +295,14 @@ exports[`cosmos/authz/v1beta1/authz.proto GrantAuthorization 1`] = `
 "/**
  * GrantAuthorization extends a grant with both the addresses of the grantee and granter.
  * It is used in genesis.proto and query.proto
+ * @name GrantAuthorization
+ * @package cosmos.authz.v1beta1
+ * @see proto type: cosmos.authz.v1beta1.GrantAuthorization
  */
 export interface GrantAuthorization {
   granter: string;
   grantee: string;
-  authorization?: (GenericAuthorization & DepositDeploymentAuthorization1 & DepositDeploymentAuthorization2 & SendAuthorization & StakeAuthorization & Any) | undefined;
+  authorization?: GenericAuthorization | DepositDeploymentAuthorization1 | DepositDeploymentAuthorization2 | SendAuthorization | StakeAuthorization | Any | undefined;
   expiration?: Date;
 }"
 `;
@@ -264,13 +315,22 @@ exports[`cosmos/authz/v1beta1/authz.proto GrantAuthorization Type 1`] = `
 `;
 
 exports[`cosmos/authz/v1beta1/query.proto QueryGrantsRequest 1`] = `
-"/** QueryGrantsRequest is the request type for the Query/Grants RPC method. */
+"/**
+ * QueryGrantsRequest is the request type for the Query/Grants RPC method.
+ * @name QueryGrantsRequest
+ * @package cosmos.authz.v1beta1
+ * @see proto type: cosmos.authz.v1beta1.QueryGrantsRequest
+ */
 export interface QueryGrantsRequest {
   granter: string;
   grantee: string;
-  /** Optional, msg_type_url, when set, will query only grants matching given msg type. */
+  /**
+   * Optional, msg_type_url, when set, will query only grants matching given msg type.
+   */
   msgTypeUrl: string;
-  /** pagination defines an pagination for the request. */
+  /**
+   * pagination defines an pagination for the request.
+   */
   pagination?: PageRequest;
 }"
 `;

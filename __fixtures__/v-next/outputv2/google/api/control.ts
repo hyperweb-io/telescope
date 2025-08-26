@@ -66,6 +66,15 @@ function createBaseControl(): Control {
  */
 export const Control = {
   typeUrl: "/google.api.Control",
+  is(o: any): o is Control {
+    return o && (o.$typeUrl === Control.typeUrl || typeof o.environment === "string");
+  },
+  isSDK(o: any): o is ControlSDKType {
+    return o && (o.$typeUrl === Control.typeUrl || typeof o.environment === "string");
+  },
+  isAmino(o: any): o is ControlAmino {
+    return o && (o.$typeUrl === Control.typeUrl || typeof o.environment === "string");
+  },
   encode(message: Control, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.environment !== "") {
       writer.uint32(10).string(message.environment);
@@ -140,5 +149,6 @@ export const Control = {
       typeUrl: "/google.api.Control",
       value: Control.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

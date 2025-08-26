@@ -58,6 +58,15 @@ function createBaseGroupID(): GroupID {
  */
 export const GroupID = {
   typeUrl: "/akash.deployment.v1beta2.GroupID",
+  is(o: any): o is GroupID {
+    return o && (o.$typeUrl === GroupID.typeUrl || typeof o.owner === "string" && typeof o.dseq === "bigint" && typeof o.gseq === "number");
+  },
+  isSDK(o: any): o is GroupIDSDKType {
+    return o && (o.$typeUrl === GroupID.typeUrl || typeof o.owner === "string" && typeof o.dseq === "bigint" && typeof o.gseq === "number");
+  },
+  isAmino(o: any): o is GroupIDAmino {
+    return o && (o.$typeUrl === GroupID.typeUrl || typeof o.owner === "string" && typeof o.dseq === "bigint" && typeof o.gseq === "number");
+  },
   encode(message: GroupID, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.owner !== "") {
       writer.uint32(10).string(message.owner);
@@ -164,5 +173,6 @@ export const GroupID = {
       typeUrl: "/akash.deployment.v1beta2.GroupID",
       value: GroupID.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

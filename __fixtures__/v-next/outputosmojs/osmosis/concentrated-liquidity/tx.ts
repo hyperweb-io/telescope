@@ -4,7 +4,7 @@ import { Duration, DurationSDKType } from "../../google/protobuf/duration";
 import { BinaryReader, BinaryWriter } from "../../binary";
 import { isSet, DeepPartial, toTimestamp, fromTimestamp } from "../../helpers";
 import { JsonSafe } from "../../json-safe";
-import { Decimal } from "@cosmjs/math";
+import { Decimal } from "@interchainjs/math";
 export const protobufPackage = "osmosis.concentratedliquidity.v1beta1";
 /**
  * ===================== MsgCreatePosition
@@ -673,7 +673,7 @@ export const MsgCreatePositionResponse = {
     obj.amount0 = message.amount0 === "" ? undefined : message.amount0;
     obj.amount1 = message.amount1 === "" ? undefined : message.amount1;
     obj.join_time = message.joinTime ? Timestamp.toAmino(toTimestamp(message.joinTime)) : undefined;
-    obj.liquidity_created = message.liquidityCreated === "" ? undefined : message.liquidityCreated;
+    obj.liquidity_created = message.liquidityCreated === "" ? undefined : Decimal.fromUserInput(message.liquidityCreated, 18).atomics;
     return obj;
   },
   fromAminoMsg(object: MsgCreatePositionResponseAminoMsg): MsgCreatePositionResponse {
@@ -807,7 +807,7 @@ export const MsgWithdrawPosition = {
     const obj: any = {};
     obj.position_id = message.positionId !== BigInt(0) ? message.positionId?.toString() : undefined;
     obj.sender = message.sender === "" ? undefined : message.sender;
-    obj.liquidity_amount = message.liquidityAmount === "" ? undefined : message.liquidityAmount;
+    obj.liquidity_amount = message.liquidityAmount === "" ? undefined : Decimal.fromUserInput(message.liquidityAmount, 18).atomics;
     return obj;
   },
   fromAminoMsg(object: MsgWithdrawPositionAminoMsg): MsgWithdrawPosition {
@@ -1613,7 +1613,7 @@ export const MsgCreateIncentive = {
     obj.sender = message.sender === "" ? undefined : message.sender;
     obj.incentive_denom = message.incentiveDenom === "" ? undefined : message.incentiveDenom;
     obj.incentive_amount = message.incentiveAmount === "" ? undefined : message.incentiveAmount;
-    obj.emission_rate = message.emissionRate === "" ? undefined : message.emissionRate;
+    obj.emission_rate = message.emissionRate === "" ? undefined : Decimal.fromUserInput(message.emissionRate, 18).atomics;
     obj.start_time = message.startTime ? Timestamp.toAmino(toTimestamp(message.startTime)) : undefined;
     obj.min_uptime = message.minUptime ? Duration.toAmino(message.minUptime) : undefined;
     return obj;
@@ -1779,8 +1779,8 @@ export const MsgCreateIncentiveResponse = {
   toAmino(message: MsgCreateIncentiveResponse): MsgCreateIncentiveResponseAmino {
     const obj: any = {};
     obj.incentive_denom = message.incentiveDenom === "" ? undefined : message.incentiveDenom;
-    obj.incentive_amount = message.incentiveAmount === "" ? undefined : message.incentiveAmount;
-    obj.emission_rate = message.emissionRate === "" ? undefined : message.emissionRate;
+    obj.incentive_amount = message.incentiveAmount === "" ? undefined : Decimal.fromUserInput(message.incentiveAmount, 18).atomics;
+    obj.emission_rate = message.emissionRate === "" ? undefined : Decimal.fromUserInput(message.emissionRate, 18).atomics;
     obj.start_time = message.startTime ? Timestamp.toAmino(toTimestamp(message.startTime)) : undefined;
     obj.min_uptime = message.minUptime ? Duration.toAmino(message.minUptime) : undefined;
     return obj;

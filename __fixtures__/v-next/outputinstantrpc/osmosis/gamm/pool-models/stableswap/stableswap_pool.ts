@@ -1,6 +1,6 @@
 import { Coin, CoinSDKType } from "../../../../cosmos/base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { Decimal } from "@cosmjs/math";
+import { Decimal } from "@interchainjs/math";
 import { isSet, DeepPartial } from "../../../../helpers";
 import { JsonSafe } from "../../../../json-safe";
 export const protobufPackage = "osmosis.gamm.poolmodels.stableswap.v1beta1";
@@ -186,8 +186,8 @@ export const PoolParams = {
   },
   toAmino(message: PoolParams): PoolParamsAmino {
     const obj: any = {};
-    obj.swap_fee = message.swapFee === "" ? undefined : message.swapFee;
-    obj.exit_fee = message.exitFee === "" ? undefined : message.exitFee;
+    obj.swap_fee = message.swapFee === "" ? undefined : Decimal.fromUserInput(message.swapFee, 18).atomics;
+    obj.exit_fee = message.exitFee === "" ? undefined : Decimal.fromUserInput(message.exitFee, 18).atomics;
     return obj;
   },
   fromAminoMsg(object: PoolParamsAminoMsg): PoolParams {

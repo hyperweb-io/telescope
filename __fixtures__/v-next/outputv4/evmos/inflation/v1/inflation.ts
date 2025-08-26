@@ -1,5 +1,5 @@
 import { BinaryReader, BinaryWriter } from "../../../binary.js";
-import { Decimal } from "@cosmjs/math";
+import { Decimal } from "@interchainjs/math";
 import { isSet, DeepPartial } from "../../../helpers.js";
 import { JsonSafe } from "../../../json-safe.js";
 export const protobufPackage = "evmos.inflation.v1";
@@ -219,9 +219,9 @@ export const InflationDistribution = {
   },
   toAmino(message: InflationDistribution): InflationDistributionAmino {
     const obj: any = {};
-    obj.staking_rewards = message.stakingRewards === "" ? undefined : message.stakingRewards;
-    obj.usage_incentives = message.usageIncentives === "" ? undefined : message.usageIncentives;
-    obj.community_pool = message.communityPool === "" ? undefined : message.communityPool;
+    obj.staking_rewards = message.stakingRewards === "" ? undefined : Decimal.fromUserInput(message.stakingRewards, 18).atomics;
+    obj.usage_incentives = message.usageIncentives === "" ? undefined : Decimal.fromUserInput(message.usageIncentives, 18).atomics;
+    obj.community_pool = message.communityPool === "" ? undefined : Decimal.fromUserInput(message.communityPool, 18).atomics;
     return obj;
   },
   fromAminoMsg(object: InflationDistributionAminoMsg): InflationDistribution {
@@ -383,11 +383,11 @@ export const ExponentialCalculation = {
   },
   toAmino(message: ExponentialCalculation): ExponentialCalculationAmino {
     const obj: any = {};
-    obj.a = message.a === "" ? undefined : message.a;
-    obj.r = message.r === "" ? undefined : message.r;
-    obj.c = message.c === "" ? undefined : message.c;
-    obj.bonding_target = message.bondingTarget === "" ? undefined : message.bondingTarget;
-    obj.max_variance = message.maxVariance === "" ? undefined : message.maxVariance;
+    obj.a = message.a === "" ? undefined : Decimal.fromUserInput(message.a, 18).atomics;
+    obj.r = message.r === "" ? undefined : Decimal.fromUserInput(message.r, 18).atomics;
+    obj.c = message.c === "" ? undefined : Decimal.fromUserInput(message.c, 18).atomics;
+    obj.bonding_target = message.bondingTarget === "" ? undefined : Decimal.fromUserInput(message.bondingTarget, 18).atomics;
+    obj.max_variance = message.maxVariance === "" ? undefined : Decimal.fromUserInput(message.maxVariance, 18).atomics;
     return obj;
   },
   fromAminoMsg(object: ExponentialCalculationAminoMsg): ExponentialCalculation {

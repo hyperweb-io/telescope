@@ -1,6 +1,6 @@
 import { Timestamp, TimestampSDKType } from "../../google/protobuf/timestamp";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { Decimal } from "@cosmjs/math";
+import { Decimal } from "@interchainjs/math";
 import { toTimestamp, fromTimestamp, isSet, DeepPartial } from "../../helpers";
 import { JsonSafe } from "../../json-safe";
 export const protobufPackage = "osmosis.concentratedliquidity.v1beta1";
@@ -319,14 +319,14 @@ export const Pool = {
     obj.address = message.address === "" ? undefined : message.address;
     obj.incentives_address = message.incentivesAddress === "" ? undefined : message.incentivesAddress;
     obj.id = message.id !== BigInt(0) ? message.id?.toString() : undefined;
-    obj.current_tick_liquidity = message.currentTickLiquidity === "" ? undefined : message.currentTickLiquidity;
+    obj.current_tick_liquidity = message.currentTickLiquidity === "" ? undefined : Decimal.fromUserInput(message.currentTickLiquidity, 18).atomics;
     obj.token0 = message.token0 === "" ? undefined : message.token0;
     obj.token1 = message.token1 === "" ? undefined : message.token1;
-    obj.current_sqrt_price = message.currentSqrtPrice === "" ? undefined : message.currentSqrtPrice;
+    obj.current_sqrt_price = message.currentSqrtPrice === "" ? undefined : Decimal.fromUserInput(message.currentSqrtPrice, 18).atomics;
     obj.current_tick = message.currentTick === "" ? undefined : message.currentTick;
     obj.tick_spacing = message.tickSpacing !== BigInt(0) ? message.tickSpacing?.toString() : undefined;
     obj.exponent_at_price_one = message.exponentAtPriceOne === "" ? undefined : message.exponentAtPriceOne;
-    obj.swap_fee = message.swapFee === "" ? undefined : message.swapFee;
+    obj.swap_fee = message.swapFee === "" ? undefined : Decimal.fromUserInput(message.swapFee, 18).atomics;
     obj.last_liquidity_update = message.lastLiquidityUpdate ? Timestamp.toAmino(toTimestamp(message.lastLiquidityUpdate)) : undefined;
     return obj;
   },

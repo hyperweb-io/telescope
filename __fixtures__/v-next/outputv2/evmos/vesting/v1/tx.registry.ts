@@ -1,11 +1,6 @@
-import { GeneratedType, Registry } from "@cosmjs/proto-signing";
+import { TelescopeGeneratedType } from "../../../types";
 import { MsgCreateClawbackVestingAccount, MsgClawback } from "./tx";
-export const registry: ReadonlyArray<[string, GeneratedType]> = [["/evmos.vesting.v1.MsgCreateClawbackVestingAccount", MsgCreateClawbackVestingAccount], ["/evmos.vesting.v1.MsgClawback", MsgClawback]];
-export const load = (protoRegistry: Registry) => {
-  registry.forEach(([typeUrl, mod]) => {
-    protoRegistry.register(typeUrl, mod);
-  });
-};
+export const registry: ReadonlyArray<[string, TelescopeGeneratedType<any, any, any>]> = [["/evmos.vesting.v1.MsgCreateClawbackVestingAccount", MsgCreateClawbackVestingAccount], ["/evmos.vesting.v1.MsgClawback", MsgClawback]];
 export const MessageComposer = {
   encoded: {
     createClawbackVestingAccount(value: MsgCreateClawbackVestingAccount) {

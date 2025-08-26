@@ -1,5 +1,6 @@
 import { Coin, CoinAmino, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../binary";
+import { GlobalDecoderRegistry } from "../../../registry";
 import { isSet, DeepPartial } from "../../../helpers";
 export const protobufPackage = "akash.deployment.v1beta1";
 /**
@@ -61,6 +62,15 @@ function createBaseDepositDeploymentAuthorization(): DepositDeploymentAuthorizat
  */
 export const DepositDeploymentAuthorization = {
   typeUrl: "/akash.deployment.v1beta1.DepositDeploymentAuthorization",
+  is(o: any): o is DepositDeploymentAuthorization {
+    return o && (o.$typeUrl === DepositDeploymentAuthorization.typeUrl || Coin.is(o.spendLimit));
+  },
+  isSDK(o: any): o is DepositDeploymentAuthorizationSDKType {
+    return o && (o.$typeUrl === DepositDeploymentAuthorization.typeUrl || Coin.isSDK(o.spend_limit));
+  },
+  isAmino(o: any): o is DepositDeploymentAuthorizationAmino {
+    return o && (o.$typeUrl === DepositDeploymentAuthorization.typeUrl || Coin.isAmino(o.spend_limit));
+  },
   encode(message: DepositDeploymentAuthorization, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.spendLimit !== undefined) {
       Coin.encode(message.spendLimit, writer.uint32(10).fork()).ldelim();
@@ -129,5 +139,12 @@ export const DepositDeploymentAuthorization = {
       typeUrl: "/akash.deployment.v1beta1.DepositDeploymentAuthorization",
       value: DepositDeploymentAuthorization.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(DepositDeploymentAuthorization.typeUrl)) {
+      return;
+    }
+    GlobalDecoderRegistry.register(DepositDeploymentAuthorization.typeUrl, DepositDeploymentAuthorization);
+    Coin.registerTypeUrl();
   }
 };

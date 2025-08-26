@@ -1,7 +1,9 @@
-import { generateMnemonic } from '@confio/relayer/build/lib/helpers';
 import { DirectSecp256k1HdWallet } from '@cosmjs/proto-signing';
 import { assertIsDeliverTxSuccess } from '@cosmjs/stargate';
 import BigNumber from 'bignumber.js';
+// @ts-nocheck
+import { generateMnemonic } from '@interchainjs/crypto';
+import { waitUntil } from '@interchainjs/utils';
 
 //@ts-ignore
 import { getSigningIbcClient } from './codegen';
@@ -23,16 +25,6 @@ export const calcShareOutAmount = (poolInfo, coinsNeeded) => {
         .toString();
     })
     .sort((a, b) => (new BigNumber(a).lt(b) ? -1 : 1))[0];
-};
-
-export const waitUntil = (date, timeout = 90000) => {
-  return new Promise((resolve) => {
-    const delay = date.getTime() - Date.now();
-    if (delay > timeout) {
-      throw new Error('Timeout to wait until date');
-    }
-    setTimeout(resolve, delay + 3000);
-  });
 };
 
 export const transferIbcTokens = async (
@@ -112,3 +104,6 @@ export const transferIbcTokens = async (
 
   return token;
 };
+
+// Re-export utilities for starship tests
+export { generateMnemonic, waitUntil };

@@ -5,9 +5,14 @@ exports[`ListValue 1`] = `
  * \`ListValue\` is a wrapper around a repeated field of values.
  * 
  * The JSON representation for \`ListValue\` is JSON array.
+ * @name ListValue
+ * @package google.protobuf
+ * @see proto type: google.protobuf.ListValue
  */
 export interface ListValue {
-  /** Repeated field of dynamically typed values. */
+  /**
+   * Repeated field of dynamically typed values.
+   */
   values: Value[];
 }"
 `;
@@ -22,9 +27,14 @@ exports[`Struct 1`] = `
  * with the proto support for the language.
  * 
  * The JSON representation for \`Struct\` is JSON object.
+ * @name Struct
+ * @package google.protobuf
+ * @see proto type: google.protobuf.Struct
  */
 export interface Struct {
-  /** Unordered map of dynamically typed values. */
+  /**
+   * Unordered map of dynamically typed values.
+   */
   fields: {
     [key: string]: Value;
   };
@@ -35,6 +45,9 @@ exports[`authz 1`] = `
 "/**
  * Grant gives permissions to execute
  * the provide method with expiration time.
+ * @name authz
+ * @package cosmos.authz.v1beta1
+ * @see proto type: cosmos.authz.v1beta1.undefined
  */
 export interface authz {
   authorization?: Any;
@@ -126,19 +139,34 @@ exports[`oneofs Value 1`] = `
  * variants, absence of any variant indicates an error.
  * 
  * The JSON representation for \`Value\` is JSON value.
+ * @name Value
+ * @package google.protobuf
+ * @see proto type: google.protobuf.Value
  */
 export interface Value {
-  /** Represents a null value. */
+  /**
+   * Represents a null value.
+   */
   nullValue?: NullValue;
-  /** Represents a double value. */
+  /**
+   * Represents a double value.
+   */
   numberValue?: number;
-  /** Represents a string value. */
+  /**
+   * Represents a string value.
+   */
   stringValue?: string;
-  /** Represents a boolean value. */
+  /**
+   * Represents a boolean value.
+   */
   boolValue?: boolean;
-  /** Represents a structured value. */
+  /**
+   * Represents a structured value.
+   */
   structValue?: Struct;
-  /** Represents a repeated \`Value\`. */
+  /**
+   * Represents a repeated \`Value\`.
+   */
   listValue?: ListValue;
 }"
 `;
@@ -152,15 +180,25 @@ exports[`traversed cosmos/app/v1alpha1/config 1`] = `
  * allow a mixture of declarative and imperative app wiring, however, apps
  * that strive for the maximum ease of maintainability should be able to describe
  * their state machine with a config object alone.
+ * @name Config
+ * @package cosmos.app.v1alpha1
+ * @see proto type: cosmos.app.v1alpha1.Config
  */
 export interface Config {
-  /** modules are the module configurations for the app. */
+  /**
+   * modules are the module configurations for the app.
+   */
   modules: ModuleConfig[];
 }"
 `;
 
 exports[`traversed cosmos/app/v1alpha1/config 2`] = `
-"/** ModuleConfig is a module configuration for an app. */
+"/**
+ * ModuleConfig is a module configuration for an app.
+ * @name ModuleConfig
+ * @package cosmos.app.v1alpha1
+ * @see proto type: cosmos.app.v1alpha1.ModuleConfig
+ */
 export interface ModuleConfig {
   /**
    * name is the unique name of the module within the app. It should be a name
@@ -184,7 +222,12 @@ export interface ModuleConfig {
 `;
 
 exports[`traversed google/api/expr/v1alpha1/checked 1`] = `
-"/** A CEL expression which has been successfully type checked. */
+"/**
+ * A CEL expression which has been successfully type checked.
+ * @name CheckedExpr
+ * @package google.api.expr.v1alpha1
+ * @see proto type: google.api.expr.v1alpha1.CheckedExpr
+ */
 export interface CheckedExpr {
   /**
    * A map from expression ids to resolved references.
@@ -240,9 +283,16 @@ export interface CheckedExpr {
 `;
 
 exports[`traversed google/api/expr/v1alpha1/checked 2`] = `
-"/** Describes a resolved reference to a declaration. */
+"/**
+ * Describes a resolved reference to a declaration.
+ * @name Reference
+ * @package google.api.expr.v1alpha1
+ * @see proto type: google.api.expr.v1alpha1.Reference
+ */
 export interface Reference {
-  /** The fully qualified name of the declaration. */
+  /**
+   * The fully qualified name of the declaration.
+   */
   name: string;
   /**
    * For references to functions, this is a list of \`Overload.overload_id\`
@@ -264,7 +314,12 @@ export interface Reference {
 `;
 
 exports[`traversed misc/eval_request SDKType 1`] = `
-"export interface EvalRequestSDKType {
+"/**
+ * @name EvalRequestSDKType
+ * @package misc
+ * @see proto type: misc.EvalRequest
+ */
+export interface EvalRequestSDKType {
   bindings: {
     [key: string]: ExprValueSDKType;
   };
@@ -286,12 +341,19 @@ exports[`traversed misc/eval_request SDKType 1`] = `
 `;
 
 exports[`traversed osmosis/claim/v1beta1/params 1`] = `
-"/** Params defines the claim module's parameters. */
+"/**
+ * Params defines the claim module's parameters.
+ * @name Params
+ * @package osmosis.claim.v1beta1
+ * @see proto type: osmosis.claim.v1beta1.Params
+ */
 export interface Params {
   airdropStartTime: Date;
   durationUntilDecay: Duration;
   durationOfDecay: Duration;
-  /** denom of claimable asset */
+  /**
+   * denom of claimable asset
+   */
   claimDenom: string;
 }"
 `;

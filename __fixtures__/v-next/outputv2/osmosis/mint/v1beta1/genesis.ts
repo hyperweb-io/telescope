@@ -1,5 +1,6 @@
 import { Minter, MinterAmino, MinterSDKType, Params, ParamsAmino, ParamsSDKType } from "./mint";
 import { BinaryReader, BinaryWriter } from "../../../binary";
+import { GlobalDecoderRegistry } from "../../../registry";
 import { isSet, DeepPartial } from "../../../helpers";
 import { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "osmosis.mint.v1beta1";
@@ -80,6 +81,15 @@ function createBaseGenesisState(): GenesisState {
 export const GenesisState = {
   typeUrl: "/osmosis.mint.v1beta1.GenesisState",
   aminoType: "osmosis/mint/genesis-state",
+  is(o: any): o is GenesisState {
+    return o && (o.$typeUrl === GenesisState.typeUrl || Minter.is(o.minter) && Params.is(o.params) && typeof o.reductionStartedEpoch === "bigint");
+  },
+  isSDK(o: any): o is GenesisStateSDKType {
+    return o && (o.$typeUrl === GenesisState.typeUrl || Minter.isSDK(o.minter) && Params.isSDK(o.params) && typeof o.reduction_started_epoch === "bigint");
+  },
+  isAmino(o: any): o is GenesisStateAmino {
+    return o && (o.$typeUrl === GenesisState.typeUrl || Minter.isAmino(o.minter) && Params.isAmino(o.params) && typeof o.reduction_started_epoch === "bigint");
+  },
   encode(message: GenesisState, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.minter !== undefined) {
       Minter.encode(message.minter, writer.uint32(10).fork()).ldelim();
@@ -196,5 +206,12 @@ export const GenesisState = {
       typeUrl: "/osmosis.mint.v1beta1.GenesisState",
       value: GenesisState.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(GenesisState.typeUrl)) {
+      return;
+    }
+    Minter.registerTypeUrl();
+    Params.registerTypeUrl();
   }
 };

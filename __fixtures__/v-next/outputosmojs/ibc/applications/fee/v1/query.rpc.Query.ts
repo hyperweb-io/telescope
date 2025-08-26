@@ -2,7 +2,7 @@ import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } fr
 import { IdentifiedPacketFees, IdentifiedPacketFeesSDKType } from "./fee";
 import { Coin, CoinSDKType } from "../../../../cosmos/base/v1beta1/coin";
 import { FeeEnabledChannel, FeeEnabledChannelSDKType } from "./genesis";
-import { Rpc } from "../../../../helpers";
+import { TxRpc } from "../../../../types";
 import { BinaryReader } from "../../../../binary";
 import { QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
 import { QueryIncentivizedPacketsRequest, QueryIncentivizedPacketsRequestSDKType, QueryIncentivizedPacketsResponse, QueryIncentivizedPacketsResponseSDKType, QueryIncentivizedPacketRequest, QueryIncentivizedPacketRequestSDKType, QueryIncentivizedPacketResponse, QueryIncentivizedPacketResponseSDKType, QueryIncentivizedPacketsForChannelRequest, QueryIncentivizedPacketsForChannelRequestSDKType, QueryIncentivizedPacketsForChannelResponse, QueryIncentivizedPacketsForChannelResponseSDKType, QueryTotalRecvFeesRequest, QueryTotalRecvFeesRequestSDKType, QueryTotalRecvFeesResponse, QueryTotalRecvFeesResponseSDKType, QueryTotalAckFeesRequest, QueryTotalAckFeesRequestSDKType, QueryTotalAckFeesResponse, QueryTotalAckFeesResponseSDKType, QueryTotalTimeoutFeesRequest, QueryTotalTimeoutFeesRequestSDKType, QueryTotalTimeoutFeesResponse, QueryTotalTimeoutFeesResponseSDKType, QueryPayeeRequest, QueryPayeeRequestSDKType, QueryPayeeResponse, QueryPayeeResponseSDKType, QueryCounterpartyPayeeRequest, QueryCounterpartyPayeeRequestSDKType, QueryCounterpartyPayeeResponse, QueryCounterpartyPayeeResponseSDKType, QueryFeeEnabledChannelsRequest, QueryFeeEnabledChannelsRequestSDKType, QueryFeeEnabledChannelsResponse, QueryFeeEnabledChannelsResponseSDKType, QueryFeeEnabledChannelRequest, QueryFeeEnabledChannelRequestSDKType, QueryFeeEnabledChannelResponse, QueryFeeEnabledChannelResponseSDKType } from "./query";
@@ -30,8 +30,8 @@ export interface Query {
   feeEnabledChannel(request: QueryFeeEnabledChannelRequest): Promise<QueryFeeEnabledChannelResponse>;
 }
 export class QueryClientImpl implements Query {
-  private readonly rpc: Rpc;
-  constructor(rpc: Rpc) {
+  private readonly rpc: TxRpc;
+  constructor(rpc: TxRpc) {
     this.rpc = rpc;
     this.incentivizedPackets = this.incentivizedPackets.bind(this);
     this.incentivizedPacket = this.incentivizedPacket.bind(this);

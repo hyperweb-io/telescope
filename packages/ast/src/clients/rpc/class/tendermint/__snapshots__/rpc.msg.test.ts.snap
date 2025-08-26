@@ -12,8 +12,8 @@ export interface Msg {
 
 exports[`RPC Msg Client but Query implement 2`] = `
 "export class MsgClientImpl implements Msg {
-  private readonly rpc: Rpc;
-  constructor(rpc: Rpc) {
+  private readonly rpc: TxRpc;
+  constructor(rpc: TxRpc) {
     this.rpc = rpc;
     this.send = this.send.bind(this);
     this.multiSend = this.multiSend.bind(this);
@@ -43,14 +43,14 @@ export interface Msg {
   /** Send defines a method for sending coins from one account to another account. */
   send(request: MsgSend): Promise<MsgSendResponse>;
   /** MultiSend defines a method for sending coins from some accounts to other accounts. */
-  multiSend(signerAddress: string, message: MsgMultiSend, fee: number | StdFee | "auto", memo?: string): Promise<DeliverTxResponse>;
+  multiSend(signerAddress: string, message: MsgMultiSend, fee: number | StdFee | "auto", memo?: string): Promise<any>;
 }"
 `;
 
 exports[`RPC Msg Query mixed implement Client 2`] = `
 "export class MsgClientImpl implements Msg {
-  private readonly rpc: Rpc;
-  constructor(rpc: Rpc) {
+  private readonly rpc: TxRpc;
+  constructor(rpc: TxRpc) {
     this.rpc = rpc;
     this.send = this.send.bind(this);
     this.multiSend = this.multiSend.bind(this);
@@ -60,7 +60,7 @@ exports[`RPC Msg Query mixed implement Client 2`] = `
     const promise = this.rpc.request("cosmos.bank.v1beta1.Msg", "Send", data);
     return promise.then(data => MsgSendResponse.decode(new BinaryReader(data)));
   }
-  multiSend(signerAddress: string, message: MsgMultiSend, fee: number | StdFee | "auto" = "auto", memo: string = ""): Promise<DeliverTxResponse> {
+  multiSend(signerAddress: string, message: MsgMultiSend, fee: number | StdFee | "auto" = "auto", memo: string = ""): Promise<any> {
     const data = [{
       typeUrl: MsgMultiSend.typeUrl,
       value: message
@@ -74,28 +74,28 @@ exports[`RPC Msg implement Client 1`] = `
 "/** Msg defines the bank Msg service. */
 export interface Msg {
   /** Send defines a method for sending coins from one account to another account. */
-  send(signerAddress: string, message: MsgSend, fee: number | StdFee | "auto", memo?: string): Promise<DeliverTxResponse>;
+  send(signerAddress: string, message: MsgSend, fee: number | StdFee | "auto", memo?: string): Promise<any>;
   /** MultiSend defines a method for sending coins from some accounts to other accounts. */
-  multiSend(signerAddress: string, message: MsgMultiSend, fee: number | StdFee | "auto", memo?: string): Promise<DeliverTxResponse>;
+  multiSend(signerAddress: string, message: MsgMultiSend, fee: number | StdFee | "auto", memo?: string): Promise<any>;
 }"
 `;
 
 exports[`RPC Msg implement Client 2`] = `
 "export class MsgClientImpl implements Msg {
-  private readonly rpc: Rpc;
-  constructor(rpc: Rpc) {
+  private readonly rpc: TxRpc;
+  constructor(rpc: TxRpc) {
     this.rpc = rpc;
     this.send = this.send.bind(this);
     this.multiSend = this.multiSend.bind(this);
   }
-  send(signerAddress: string, message: MsgSend, fee: number | StdFee | "auto" = "auto", memo: string = ""): Promise<DeliverTxResponse> {
+  send(signerAddress: string, message: MsgSend, fee: number | StdFee | "auto" = "auto", memo: string = ""): Promise<any> {
     const data = [{
       typeUrl: MsgSend.typeUrl,
       value: message
     }];
     return this.rpc.signAndBroadcast!(signerAddress, data, fee, memo);
   }
-  multiSend(signerAddress: string, message: MsgMultiSend, fee: number | StdFee | "auto" = "auto", memo: string = ""): Promise<DeliverTxResponse> {
+  multiSend(signerAddress: string, message: MsgMultiSend, fee: number | StdFee | "auto" = "auto", memo: string = ""): Promise<any> {
     const data = [{
       typeUrl: MsgMultiSend.typeUrl,
       value: message

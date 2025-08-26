@@ -125,9 +125,9 @@ export const AkashInflationV1beta2Params = {
   },
   toAmino(message: AkashInflationV1beta2Params): AkashInflationV1beta2ParamsAmino {
     const obj: any = {};
-    obj.inflation_decay_factor = message.inflationDecayFactor ?? "";
-    obj.initial_inflation = message.initialInflation ?? "";
-    obj.variance = message.variance ?? "";
+    obj.inflation_decay_factor = Decimal.fromUserInput(message.inflationDecayFactor, 18).atomics ?? "";
+    obj.initial_inflation = Decimal.fromUserInput(message.initialInflation, 18).atomics ?? "";
+    obj.variance = Decimal.fromUserInput(message.variance, 18).atomics ?? "";
     return obj;
   },
   fromAminoMsg(object: AkashInflationV1beta2ParamsAminoMsg): AkashInflationV1beta2Params {

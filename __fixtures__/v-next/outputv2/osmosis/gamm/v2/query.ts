@@ -107,6 +107,15 @@ function createBaseQuerySpotPriceRequest(): QuerySpotPriceRequest {
 export const QuerySpotPriceRequest = {
   typeUrl: "/osmosis.gamm.v2.QuerySpotPriceRequest",
   aminoType: "osmosis/gamm/v2/query-spot-price-request",
+  is(o: any): o is QuerySpotPriceRequest {
+    return o && (o.$typeUrl === QuerySpotPriceRequest.typeUrl || typeof o.poolId === "bigint" && typeof o.baseAssetDenom === "string" && typeof o.quoteAssetDenom === "string");
+  },
+  isSDK(o: any): o is QuerySpotPriceRequestSDKType {
+    return o && (o.$typeUrl === QuerySpotPriceRequest.typeUrl || typeof o.pool_id === "bigint" && typeof o.base_asset_denom === "string" && typeof o.quote_asset_denom === "string");
+  },
+  isAmino(o: any): o is QuerySpotPriceRequestAmino {
+    return o && (o.$typeUrl === QuerySpotPriceRequest.typeUrl || typeof o.pool_id === "bigint" && typeof o.base_asset_denom === "string" && typeof o.quote_asset_denom === "string");
+  },
   encode(message: QuerySpotPriceRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.poolId !== BigInt(0)) {
       writer.uint32(8).uint64(message.poolId);
@@ -219,7 +228,8 @@ export const QuerySpotPriceRequest = {
       typeUrl: "/osmosis.gamm.v2.QuerySpotPriceRequest",
       value: QuerySpotPriceRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
 function createBaseQuerySpotPriceResponse(): QuerySpotPriceResponse {
   return {
@@ -236,6 +246,15 @@ function createBaseQuerySpotPriceResponse(): QuerySpotPriceResponse {
 export const QuerySpotPriceResponse = {
   typeUrl: "/osmosis.gamm.v2.QuerySpotPriceResponse",
   aminoType: "osmosis/gamm/v2/query-spot-price-response",
+  is(o: any): o is QuerySpotPriceResponse {
+    return o && (o.$typeUrl === QuerySpotPriceResponse.typeUrl || typeof o.spotPrice === "string");
+  },
+  isSDK(o: any): o is QuerySpotPriceResponseSDKType {
+    return o && (o.$typeUrl === QuerySpotPriceResponse.typeUrl || typeof o.spot_price === "string");
+  },
+  isAmino(o: any): o is QuerySpotPriceResponseAmino {
+    return o && (o.$typeUrl === QuerySpotPriceResponse.typeUrl || typeof o.spot_price === "string");
+  },
   encode(message: QuerySpotPriceResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.spotPrice !== "") {
       writer.uint32(10).string(message.spotPrice);
@@ -316,5 +335,6 @@ export const QuerySpotPriceResponse = {
       typeUrl: "/osmosis.gamm.v2.QuerySpotPriceResponse",
       value: QuerySpotPriceResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };

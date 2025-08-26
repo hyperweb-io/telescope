@@ -2,7 +2,7 @@ import { Description, DescriptionSDKType, CommissionRates, CommissionRatesSDKTyp
 import { Any, AnySDKType } from "../../../google/protobuf/any.js";
 import { Coin, CoinSDKType } from "../../base/v1beta1/coin.js";
 import { Timestamp, TimestampSDKType } from "../../../google/protobuf/timestamp.js";
-import { Rpc } from "../../../helpers.js";
+import { TxRpc } from "../../../types.js";
 import { BinaryReader } from "../../../binary.js";
 import { MsgCreateValidator, MsgCreateValidatorSDKType, MsgCreateValidatorResponse, MsgCreateValidatorResponseSDKType, MsgEditValidator, MsgEditValidatorSDKType, MsgEditValidatorResponse, MsgEditValidatorResponseSDKType, MsgDelegate, MsgDelegateSDKType, MsgDelegateResponse, MsgDelegateResponseSDKType, MsgBeginRedelegate, MsgBeginRedelegateSDKType, MsgBeginRedelegateResponse, MsgBeginRedelegateResponseSDKType, MsgUndelegate, MsgUndelegateSDKType, MsgUndelegateResponse, MsgUndelegateResponseSDKType } from "./tx.js";
 /** Msg defines the staking Msg service. */
@@ -28,8 +28,8 @@ export interface Msg {
   undelegate(request: MsgUndelegate): Promise<MsgUndelegateResponse>;
 }
 export class MsgClientImpl implements Msg {
-  private readonly rpc: Rpc;
-  constructor(rpc: Rpc) {
+  private readonly rpc: TxRpc;
+  constructor(rpc: TxRpc) {
     this.rpc = rpc;
     this.createValidator = this.createValidator.bind(this);
     this.editValidator = this.editValidator.bind(this);
@@ -63,6 +63,6 @@ export class MsgClientImpl implements Msg {
     return promise.then(data => MsgUndelegateResponse.decode(new BinaryReader(data)));
   }
 }
-export const createClientImpl = (rpc: Rpc) => {
+export const createClientImpl = (rpc: TxRpc) => {
   return new MsgClientImpl(rpc);
 };

@@ -1,7 +1,6 @@
 import { BinaryReader, BinaryWriter } from "../../binary";
 import { isSet, DeepPartial, fromJsonTimestamp, fromTimestamp } from "../../helpers";
 import { JsonSafe } from "../../json-safe";
-import { GlobalDecoderRegistry } from "../../registry";
 export const protobufPackage = "google.protobuf";
 /**
  * A Timestamp represents a point in time independent of any time zone or local
@@ -483,6 +482,6 @@ export const Timestamp = {
       typeUrl: "/google.protobuf.Timestamp",
       value: Timestamp.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(Timestamp.typeUrl, Timestamp);
