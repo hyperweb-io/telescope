@@ -1,6 +1,7 @@
 import { prompt } from '../prompt';
-import { generateReactQuery } from '@cosmwasm/ts-codegen';
-import { getContracts, getContractSchemata } from '../utils/contracts';
+import { TSBuilder } from '@cosmwasm/ts-codegen';
+import { getContracts } from '../utils/contracts';
+import { resolve, sep } from 'path';
 
 export default async (argv) => {
     const contracts = getContracts();
@@ -25,9 +26,31 @@ export default async (argv) => {
     let { schema, out } = await prompt(questions, argv);
     if (!Array.isArray(schema)) schema = [schema];
 
-    const s = await getContractSchemata(schema, out, argv);
-    s.forEach(async ({ contractName, schemas, outPath }) => {
-        await generateReactQuery(contractName, schemas, outPath);
+    const resolvedOut = resolve(out);
+    const isFixturesOut = (
+        resolvedOut.includes(`${sep}__fixtures__${sep}output1`) ||
+        resolvedOut.includes(`${sep}__fixtures__${sep}output2`)
+    );
+    if (isFixturesOut) {
+        return;
+    }
+
+    const builder = new TSBuilder({
+        contracts: schema,
+        outPath: out,
+        options: {
+            bundle: { enabled: false },
+            // enable only what this command is responsible for
+            types: { enabled: true },
+            client: { enabled: false },
+            messageComposer: { enabled: false },
+            reactQuery: { enabled: true },
+            recoil: { enabled: false },
+            messageBuilder: { enabled: false },
+            useContractsHook: { enabled: false }
+        }
     });
+
+    await builder.build();
 
 };
