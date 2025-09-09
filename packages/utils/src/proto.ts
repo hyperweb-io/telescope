@@ -1,6 +1,6 @@
 import { camel, variableSlug } from ".";
 import { pascal, snake } from "case";
-import minimatch from "minimatch";
+import { minimatch } from "minimatch";
 import {
   ProtoField,
   ProtoRef,
