@@ -1,7 +1,8 @@
 import * as t from "@babel/types";
 import { bundlePackages, getPackagesBundled } from "../src/bundle";
 import generate from "@babel/generator";
-import { recursiveModuleBundle } from "@cosmology/ast";
+import { exportAllFromRelPath, exportTypesWithAlias, recursiveModuleBundle } from "@cosmology/ast";
+import { restoreExtension } from "@cosmology/utils";
 import { getTestProtoStore } from "../test-utils";
 import { getImportStatements } from "../src/imports";
 
@@ -123,4 +124,48 @@ it("get import statements with ext without .", () => {
   );
 
   expect(importStat).toMatchSnapshot();
+});
+
+describe("module bundle type with restoreImportExtension", () => {
+  it("exportAllFromRelPath applies restoreExtension with .js", () => {
+    const relPath = "./auth/v1beta1/auth";
+    const restored = restoreExtension(relPath, ".js");
+    const node = exportAllFromRelPath(restored);
+    const code = generate(t.program([node])).code;
+    expect(code).toBe('export * from "./auth/v1beta1/auth.js";');
+  });
+
+  it("exportAllFromRelPath applies restoreExtension with .mjs", () => {
+    const relPath = "./bank/v1beta1/tx";
+    const restored = restoreExtension(relPath, ".mjs");
+    const node = exportAllFromRelPath(restored);
+    const code = generate(t.program([node])).code;
+    expect(code).toBe('export * from "./bank/v1beta1/tx.mjs";');
+  });
+
+  it("exportTypesWithAlias applies restoreExtension", () => {
+    const relPath = "./auth/v1beta1/auth";
+    const restored = restoreExtension(relPath, ".js");
+    const types = [
+      { name: "BaseAccount", alias: "BaseAccount" },
+      { name: "ModuleAccount", alias: "ModuleAccount" },
+    ];
+    const node = exportTypesWithAlias(types, restored);
+    const code = generate(t.program([node])).code;
+    expect(code).toBe(
+      'export { BaseAccount, ModuleAccount } from "./auth/v1beta1/auth.js";'
+    );
+  });
+
+  it("restoreExtension does not double-add extension", () => {
+    const relPath = "./auth/v1beta1/auth.js";
+    const restored = restoreExtension(relPath, ".js");
+    expect(restored).toBe("./auth/v1beta1/auth.js");
+  });
+
+  it("restoreExtension without ext returns original path", () => {
+    const relPath = "./auth/v1beta1/auth";
+    const restored = restoreExtension(relPath, undefined);
+    expect(restored).toBe("./auth/v1beta1/auth");
+  });
 });
