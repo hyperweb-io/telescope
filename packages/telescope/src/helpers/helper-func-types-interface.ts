@@ -1,9 +1,17 @@
 import { TelescopeOptions } from "@cosmology/types";
+import {
+  getBinaryRuntimeImport,
+  getReaderTypeRef,
+  getWriterTypeRef,
+} from "./binary-runtime";
 
 export const getHelperFuncTypesForInterface = (options: TelescopeOptions) => {
+  const readerType = getReaderTypeRef(options);
+  const writerType = getWriterTypeRef(options);
+
   return `
 import { HttpEndpoint } from "@interchainjs/types";
-import { BinaryReader, BinaryWriter } from "./binary${options.restoreImportExtension ?? ""}";${!options.isGeneratingCosmosTypes ? `
+${getBinaryRuntimeImport(options)}${!options.isGeneratingCosmosTypes ? `
 import { getRpcClient } from "./extern${options.restoreImportExtension ?? ""}";` : ''}
 import { isRpc, Rpc } from "./helpers${options.restoreImportExtension ?? ""}";${!options.isGeneratingCosmosTypes ? `
 import { TelescopeGeneratedCodec, DeliverTxResponse, Message, StdFee } from "./types${options.restoreImportExtension ?? ""}";` : ''}${!options.isGeneratingCosmosTypes ? `
@@ -11,8 +19,8 @@ import { toConverters, toEncoders } from "@interchainjs/cosmos";
 import { ISigningClient } from "@interchainjs/cosmos";` : ''}
 
 export interface QueryBuilderOptions<TReq, TRes> {
-  encode: (request: TReq, writer?: BinaryWriter) => BinaryWriter
-  decode: (input: BinaryReader | Uint8Array, length?: number) => TRes
+  encode: (request: TReq, writer?: ${writerType}) => ${writerType}
+  decode: (input: ${readerType} | Uint8Array, length?: number) => TRes
   service: string,
   method: string,
   deps?: TelescopeGeneratedCodec<any, any, any>[],

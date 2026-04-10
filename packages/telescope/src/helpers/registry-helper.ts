@@ -1,7 +1,14 @@
 import { TelescopeOptions } from "@cosmology/types";
+import {
+  getBinaryReaderImport,
+  getReaderInstanceExpr,
+  getReaderTypeRef,
+} from "./binary-runtime";
 
 export const getRegistryHelper = (options: TelescopeOptions) => {
-  return `import { BinaryReader } from "./binary${options.restoreImportExtension ?? ""}";
+  const readerType = getReaderTypeRef(options);
+
+  return `${getBinaryReaderImport(options)}
 import { Any, AnyAmino } from "./google/protobuf/any${options.restoreImportExtension ?? ""}";
 import { IProtoType, TelescopeGeneratedCodec } from "./types${options.restoreImportExtension ?? ""}";
 
@@ -105,14 +112,13 @@ export class GlobalDecoderRegistry {
       value: decoder.encode(obj).finish(),
     };
   }
-  static unwrapAny<T, SDK, Amino>(input: BinaryReader | Uint8Array | Any) {
+  static unwrapAny<T, SDK, Amino>(input: ${readerType} | Uint8Array | Any) {
     let data;
 
     if (Any.is(input)) {
       data = input;
     } else {
-      const reader =
-        input instanceof BinaryReader ? input : new BinaryReader(input);
+      const reader = ${getReaderInstanceExpr(options, "input")};
 
       data = Any.decode(reader, reader.uint32());
     }
