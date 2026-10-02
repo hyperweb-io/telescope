@@ -1,6 +1,6 @@
-import { Config, ConfigAmino, ConfigSDKType } from "./config";
+import { Config, type ConfigAmino, type ConfigSDKType } from "./config";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial, isSet } from "../../../helpers";
+import { type DeepPartial, isSet } from "../../../helpers";
 import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "cosmos.app.v1alpha1";
 /**

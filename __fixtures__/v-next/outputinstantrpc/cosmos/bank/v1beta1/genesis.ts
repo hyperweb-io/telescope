@@ -1,8 +1,8 @@
-import { Params, ParamsSDKType, Metadata, MetadataSDKType } from "./bank";
-import { Coin, CoinSDKType } from "../../base/v1beta1/coin";
+import { Params, type ParamsSDKType, Metadata, type MetadataSDKType } from "./bank";
+import { Coin, type CoinSDKType } from "../../base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet, DeepPartial } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { isSet, type DeepPartial } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "cosmos.bank.v1beta1";
 /**
  * GenesisState defines the bank module's genesis state.

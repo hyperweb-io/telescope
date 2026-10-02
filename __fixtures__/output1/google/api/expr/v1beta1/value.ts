@@ -1,8 +1,8 @@
-import { NullValue, NullValueSDKType, nullValueFromJSON, nullValueToJSON } from "../../../protobuf/struct";
-import { Any, AnySDKType } from "../../../protobuf/any";
-import { Long, isSet, bytesFromBase64, base64FromBytes, DeepPartial } from "../../../../helpers";
+import { type NullValue, NullValueSDKType, nullValueFromJSON, nullValueToJSON } from "../../../protobuf/struct";
+import { Any, type AnySDKType } from "../../../protobuf/any";
+import { Long, isSet, bytesFromBase64, base64FromBytes, type DeepPartial } from "../../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../../json-safe";
+import type { JsonSafe } from "../../../../json-safe";
 export const protobufPackage = "google.api.expr.v1beta1";
 /**
  * Represents a CEL value.

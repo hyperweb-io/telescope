@@ -1,8 +1,8 @@
-import { Coin, CoinAmino, CoinSDKType } from "../../base/v1beta1/coin";
-import { Any, AnyProtoMsg, AnyAmino, AnySDKType } from "../../../google/protobuf/any";
+import { Coin, type CoinAmino, type CoinSDKType } from "../../base/v1beta1/coin";
+import { Any, AnyProtoMsg, type AnyAmino, type AnySDKType } from "../../../google/protobuf/any";
 import { Timestamp, TimestampAmino, TimestampSDKType } from "../../../google/protobuf/timestamp";
-import { Duration, DurationAmino, DurationSDKType } from "../../../google/protobuf/duration";
-import { isSet, DeepPartial, toTimestamp, fromTimestamp } from "../../../helpers";
+import { Duration, type DurationAmino, type DurationSDKType } from "../../../google/protobuf/duration";
+import { isSet, type DeepPartial, toTimestamp, fromTimestamp } from "../../../helpers";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "cosmos.gov.v1";

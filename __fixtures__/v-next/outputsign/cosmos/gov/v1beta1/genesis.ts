@@ -1,6 +1,6 @@
-import { Deposit, DepositAmino, DepositSDKType, Vote, VoteAmino, VoteSDKType, Proposal, ProposalAmino, ProposalSDKType, DepositParams, DepositParamsAmino, DepositParamsSDKType, VotingParams, VotingParamsAmino, VotingParamsSDKType, TallyParams, TallyParamsAmino, TallyParamsSDKType } from "./gov";
+import { Deposit, type DepositAmino, type DepositSDKType, Vote, type VoteAmino, type VoteSDKType, Proposal, type ProposalAmino, type ProposalSDKType, DepositParams, type DepositParamsAmino, type DepositParamsSDKType, VotingParams, type VotingParamsAmino, type VotingParamsSDKType, TallyParams, type TallyParamsAmino, type TallyParamsSDKType } from "./gov";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 export const protobufPackage = "cosmos.gov.v1beta1";
 /**
  * GenesisState defines the gov module's genesis state.

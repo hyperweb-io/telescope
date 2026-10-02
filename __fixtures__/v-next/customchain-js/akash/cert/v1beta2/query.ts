@@ -1,7 +1,7 @@
-import { CertificateFilter, CertificateFilterAmino, Certificate, CertificateAmino } from "./cert";
-import { PageRequest, PageRequestAmino, PageResponse, PageResponseAmino } from "../../../cosmos/base/query/v1beta1/pagination";
+import { CertificateFilter, type CertificateFilterAmino, Certificate, type CertificateAmino } from "./cert";
+import { PageRequest, type PageRequestAmino, PageResponse, type PageResponseAmino } from "../../../cosmos/base/query/v1beta1/pagination";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * CertificateResponse contains a single X509 certificate and its serial number
  * @name CertificateResponse

@@ -1,6 +1,6 @@
-import { ParamChange, ParamChangeAmino } from "./params";
+import { ParamChange, type ParamChangeAmino } from "./params";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * QueryParamsRequest is request type for the Query/Params RPC method.
  * @name QueryParamsRequest

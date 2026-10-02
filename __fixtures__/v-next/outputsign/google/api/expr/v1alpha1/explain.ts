@@ -1,6 +1,6 @@
-import { Value, ValueAmino, ValueSDKType } from "./value";
+import { Value, type ValueAmino, type ValueSDKType } from "./value";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial } from "../../../../helpers";
+import type { DeepPartial } from "../../../../helpers";
 export const protobufPackage = "google.api.expr.v1alpha1";
 /**
  * Values of intermediate expressions produced when evaluating expression.

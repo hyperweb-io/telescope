@@ -33,7 +33,7 @@ export const utf8 = `
  * @param {string} string String
  * @returns {number} Byte length
  */
-export function utf8Length(str: string) {
+export function utf8Length(str: string): number {
   let len = 0,
     c = 0;
   for (let i = 0; i < str.length; ++i) {
@@ -62,7 +62,7 @@ export function utf8Read(
   buffer: ArrayLike<number>,
   start: number,
   end: number
-) {
+): string {
   const len = end - start;
   if (len < 1) return "";
   const chunk = [];
@@ -111,7 +111,7 @@ export function utf8Write(
   str: string,
   buffer: Uint8Array | Array<number>,
   offset: number
-) {
+): number {
   const start = offset;
   let c1, // character 1
     c2; // character 2

@@ -1,8 +1,8 @@
-import { ClaimsRecordAddress, ClaimsRecordAddressAmino } from "./claims";
+import { ClaimsRecordAddress, type ClaimsRecordAddressAmino } from "./claims";
 import { Timestamp } from "../../../google/protobuf/timestamp";
-import { Duration, DurationAmino } from "../../../google/protobuf/duration";
+import { Duration, type DurationAmino } from "../../../google/protobuf/duration";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial, toTimestamp, fromTimestamp } from "../../../helpers";
+import { type DeepPartial, toTimestamp, fromTimestamp } from "../../../helpers";
 /**
  * GenesisState define the claims module's genesis state.
  * @name GenesisState

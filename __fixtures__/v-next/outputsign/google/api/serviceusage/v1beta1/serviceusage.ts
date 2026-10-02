@@ -1,7 +1,7 @@
-import { QuotaView, QuotaViewSDKType, QuotaOverride, QuotaOverrideAmino, QuotaOverrideSDKType, QuotaSafetyCheck, QuotaSafetyCheckSDKType, OverrideInlineSource, OverrideInlineSourceAmino, OverrideInlineSourceSDKType, Service, ServiceAmino, ServiceSDKType, ConsumerQuotaMetric, ConsumerQuotaMetricAmino, ConsumerQuotaMetricSDKType, AdminQuotaPolicy, AdminQuotaPolicyAmino, AdminQuotaPolicySDKType, ServiceIdentity, ServiceIdentityAmino, ServiceIdentitySDKType } from "./resources";
-import { FieldMask, FieldMaskAmino, FieldMaskSDKType } from "../../../protobuf/field_mask";
+import { type QuotaView, QuotaViewSDKType, QuotaOverride, type QuotaOverrideAmino, type QuotaOverrideSDKType, type QuotaSafetyCheck, QuotaSafetyCheckSDKType, OverrideInlineSource, type OverrideInlineSourceAmino, type OverrideInlineSourceSDKType, Service, type ServiceAmino, type ServiceSDKType, ConsumerQuotaMetric, type ConsumerQuotaMetricAmino, type ConsumerQuotaMetricSDKType, AdminQuotaPolicy, type AdminQuotaPolicyAmino, type AdminQuotaPolicySDKType, ServiceIdentity, type ServiceIdentityAmino, type ServiceIdentitySDKType } from "./resources";
+import { FieldMask, type FieldMaskAmino, type FieldMaskSDKType } from "../../../protobuf/field_mask";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial } from "../../../../helpers";
+import type { DeepPartial } from "../../../../helpers";
 export const protobufPackage = "google.api.serviceusage.v1beta1";
 /** Enum for service identity state. */
 export enum GetServiceIdentityResponse_IdentityState {

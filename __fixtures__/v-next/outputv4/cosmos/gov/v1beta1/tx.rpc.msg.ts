@@ -1,7 +1,7 @@
 import { Any, AnySDKType } from "../../../google/protobuf/any.js";
 import { Coin, CoinSDKType } from "../../base/v1beta1/coin.js";
 import { VoteOption, VoteOptionSDKType, WeightedVoteOption, WeightedVoteOptionSDKType } from "./gov.js";
-import { TxRpc } from "../../../types.js";
+import type { TxRpc } from "../../../types.js";
 import { BinaryReader } from "../../../binary.js";
 import { MsgSubmitProposal, MsgSubmitProposalSDKType, MsgSubmitProposalResponse, MsgSubmitProposalResponseSDKType, MsgVote, MsgVoteSDKType, MsgVoteResponse, MsgVoteResponseSDKType, MsgVoteWeighted, MsgVoteWeightedSDKType, MsgVoteWeightedResponse, MsgVoteWeightedResponseSDKType, MsgDeposit, MsgDepositSDKType, MsgDepositResponse, MsgDepositResponseSDKType } from "./tx.js";
 /** Msg defines the bank Msg service. */

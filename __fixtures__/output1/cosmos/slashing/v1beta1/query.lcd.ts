@@ -1,8 +1,8 @@
 import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../base/query/v1beta1/pagination";
 import { Params, ParamsSDKType, ValidatorSigningInfo, ValidatorSigningInfoSDKType } from "./slashing";
 import { setPaginationParams } from "../../../helpers";
-import { LCDClient } from "@cosmology/lcd";
-import { QueryParamsRequest, QueryParamsRequestSDKType, QueryParamsResponse, QueryParamsResponseSDKType, QuerySigningInfoRequest, QuerySigningInfoRequestSDKType, QuerySigningInfoResponse, QuerySigningInfoResponseSDKType, QuerySigningInfosRequest, QuerySigningInfosRequestSDKType, QuerySigningInfosResponse, QuerySigningInfosResponseSDKType } from "./query";
+import type { LCDClient } from "@cosmology/lcd";
+import { type QueryParamsRequest, QueryParamsRequestSDKType, QueryParamsResponse, type QueryParamsResponseSDKType, type QuerySigningInfoRequest, QuerySigningInfoRequestSDKType, QuerySigningInfoResponse, type QuerySigningInfoResponseSDKType, type QuerySigningInfosRequest, QuerySigningInfosRequestSDKType, QuerySigningInfosResponse, type QuerySigningInfosResponseSDKType } from "./query";
 export class LCDQueryClient {
   req: LCDClient;
   constructor({

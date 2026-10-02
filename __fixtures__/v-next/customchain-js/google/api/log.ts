@@ -1,6 +1,6 @@
-import { LabelDescriptor, LabelDescriptorAmino } from "./label";
+import { LabelDescriptor, type LabelDescriptorAmino } from "./label";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { DeepPartial } from "../../helpers";
+import type { DeepPartial } from "../../helpers";
 /**
  * A description of a log type. Example in YAML format:
  * 

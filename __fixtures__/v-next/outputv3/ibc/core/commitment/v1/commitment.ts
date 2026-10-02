@@ -1,6 +1,6 @@
-import { CommitmentProof, CommitmentProofAmino, CommitmentProofSDKType } from "../../../../confio/proofs";
+import { CommitmentProof, type CommitmentProofAmino, type CommitmentProofSDKType } from "../../../../confio/proofs";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { isSet, bytesFromBase64, DeepPartial, base64FromBytes } from "../../../../helpers";
+import { isSet, bytesFromBase64, type DeepPartial, base64FromBytes } from "../../../../helpers";
 import { GlobalDecoderRegistry } from "../../../../registry";
 export const protobufPackage = "ibc.core.commitment.v1";
 /**

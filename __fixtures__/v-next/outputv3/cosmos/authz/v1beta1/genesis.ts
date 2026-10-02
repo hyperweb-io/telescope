@@ -1,6 +1,6 @@
-import { GrantAuthorization, GrantAuthorizationAmino, GrantAuthorizationSDKType } from "./authz";
+import { GrantAuthorization, type GrantAuthorizationAmino, type GrantAuthorizationSDKType } from "./authz";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "cosmos.authz.v1beta1";
 /**

@@ -1,5 +1,5 @@
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { isSet, DeepPartial } from "../../helpers";
+import { isSet, type DeepPartial } from "../../helpers";
 export const protobufPackage = "google.api";
 /**
  * Selects and configures the service controller used by the service.  The

@@ -1,6 +1,6 @@
-import { PoolParams, PoolParamsAmino, PoolParamsSDKType, PoolAsset, PoolAssetAmino, PoolAssetSDKType } from "../balancerPool";
+import { PoolParams, type PoolParamsAmino, type PoolParamsSDKType, PoolAsset, type PoolAssetAmino, type PoolAssetSDKType } from "../balancerPool";
 import { BinaryReader, BinaryWriter } from "../../../../../binary";
-import { DeepPartial } from "../../../../../helpers";
+import type { DeepPartial } from "../../../../../helpers";
 export const protobufPackage = "osmosis.gamm.poolmodels.balancer.v1beta1";
 /**
  * ===================== MsgCreatePool

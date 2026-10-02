@@ -1,9 +1,9 @@
 import { Timestamp, TimestampSDKType } from "../../../google/protobuf/timestamp";
-import { Duration, DurationSDKType } from "../../../google/protobuf/duration";
-import { Any, AnySDKType } from "../../../google/protobuf/any";
+import { Duration, type DurationSDKType } from "../../../google/protobuf/duration";
+import { Any, type AnySDKType } from "../../../google/protobuf/any";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { toTimestamp, fromTimestamp, isSet, DeepPartial } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { toTimestamp, fromTimestamp, isSet, type DeepPartial } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "cosmos.group.v1";
 /** VoteOption enumerates the valid vote options for a given proposal. */
 export enum VoteOption {

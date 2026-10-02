@@ -1,10 +1,10 @@
-import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageResponseAmino, PageResponseSDKType } from "../../../cosmos/base/query/v1beta1/pagination";
-import { Incentive, IncentiveAmino, IncentiveSDKType, GasMeter, GasMeterAmino, GasMeterSDKType } from "./incentives";
-import { DecCoin, DecCoinAmino, DecCoinSDKType } from "../../../cosmos/base/v1beta1/coin";
-import { Params, ParamsAmino, ParamsSDKType } from "./genesis";
+import { PageRequest, type PageRequestAmino, type PageRequestSDKType, PageResponse, type PageResponseAmino, type PageResponseSDKType } from "../../../cosmos/base/query/v1beta1/pagination";
+import { Incentive, type IncentiveAmino, type IncentiveSDKType, GasMeter, type GasMeterAmino, type GasMeterSDKType } from "./incentives";
+import { DecCoin, type DecCoinAmino, type DecCoinSDKType } from "../../../cosmos/base/v1beta1/coin";
+import { Params, type ParamsAmino, type ParamsSDKType } from "./genesis";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { GlobalDecoderRegistry } from "../../../registry";
-import { isSet, DeepPartial } from "../../../helpers";
+import { isSet, type DeepPartial } from "../../../helpers";
 export const protobufPackage = "evmos.incentives.v1";
 /**
  * QueryIncentivesRequest is the request type for the Query/Incentives RPC

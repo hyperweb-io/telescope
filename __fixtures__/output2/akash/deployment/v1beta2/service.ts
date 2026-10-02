@@ -4,7 +4,7 @@ import { DeploymentID } from "./deployment";
 import { GroupSpec } from "./groupspec";
 import { Coin } from "../../../cosmos/base/v1beta1/coin";
 import { GroupID } from "./groupid";
-import { Rpc } from "../../../helpers";
+import type { Rpc } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
 export const protobufPackage = "akash.deployment.v1beta2";
 /** Msg defines the deployment Msg service. */

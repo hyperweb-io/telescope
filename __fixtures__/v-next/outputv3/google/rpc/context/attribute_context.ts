@@ -1,10 +1,10 @@
-import { Struct, StructAmino, StructSDKType } from "../../protobuf/struct";
+import { Struct, type StructAmino, type StructSDKType } from "../../protobuf/struct";
 import { Timestamp, TimestampAmino, TimestampSDKType } from "../../protobuf/timestamp";
-import { Duration, DurationAmino, DurationSDKType } from "../../protobuf/duration";
-import { Any, AnyProtoMsg, AnyAmino, AnySDKType } from "../../protobuf/any";
+import { Duration, type DurationAmino, type DurationSDKType } from "../../protobuf/duration";
+import { Any, AnyProtoMsg, type AnyAmino, type AnySDKType } from "../../protobuf/any";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { GlobalDecoderRegistry } from "../../../registry";
-import { isSet, DeepPartial, isObject, toTimestamp, fromTimestamp } from "../../../helpers";
+import { isSet, type DeepPartial, isObject, toTimestamp, fromTimestamp } from "../../../helpers";
 export const protobufPackage = "google.rpc.context";
 /**
  * This message defines the standard attribute vocabulary for Google APIs.

@@ -1,5 +1,5 @@
 import { buildUseQuery } from "../../../react-query";
-import { QueryFeeTokensRequest, QueryFeeTokensResponse, QueryDenomSpotPriceRequest, QueryDenomSpotPriceResponse, QueryDenomPoolIdRequest, QueryDenomPoolIdResponse, QueryBaseDenomRequest, QueryBaseDenomResponse } from "./query";
+import type { QueryFeeTokensRequest, QueryFeeTokensResponse, QueryDenomSpotPriceRequest, QueryDenomSpotPriceResponse, QueryDenomPoolIdRequest, QueryDenomPoolIdResponse, QueryBaseDenomRequest, QueryBaseDenomResponse } from "./query";
 import { getFeeTokens, getDenomSpotPrice, getDenomPoolId, getBaseDenom } from "./query.rpc.func";
 /**
  * FeeTokens returns a list of all the whitelisted fee tokens and their

@@ -1,10 +1,10 @@
-import { ClaimsRecordAddress, ClaimsRecordAddressAmino, ClaimsRecordAddressSDKType } from "./claims";
+import { ClaimsRecordAddress, type ClaimsRecordAddressAmino, type ClaimsRecordAddressSDKType } from "./claims";
 import { Timestamp } from "../../../google/protobuf/timestamp";
-import { Duration, DurationAmino, DurationSDKType } from "../../../google/protobuf/duration";
+import { Duration, type DurationAmino, type DurationSDKType } from "../../../google/protobuf/duration";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { GlobalDecoderRegistry } from "../../../registry";
-import { isSet, DeepPartial, toTimestamp, fromTimestamp } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { isSet, type DeepPartial, toTimestamp, fromTimestamp } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "evmos.claims.v1";
 /**
  * GenesisState define the claims module's genesis state.

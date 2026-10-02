@@ -1,10 +1,10 @@
 //@ts-nocheck
 import { PoolParams, PoolParamsSDKType } from "./stableswap_pool";
 import { Coin, CoinSDKType } from "../../../../cosmos/base/v1beta1/coin";
-import { AminoMsg } from "@cosmjs/amino";
+import type { AminoMsg } from "@cosmjs/amino";
 import { Decimal } from "@interchainjs/math";
 import { omitDefault } from "../../../../helpers";
-import { MsgCreateStableswapPool, MsgCreateStableswapPoolSDKType, MsgStableSwapAdjustScalingFactors, MsgStableSwapAdjustScalingFactorsSDKType } from "./tx";
+import { type MsgCreateStableswapPool, MsgCreateStableswapPoolSDKType, type MsgStableSwapAdjustScalingFactors, MsgStableSwapAdjustScalingFactorsSDKType } from "./tx";
 export interface MsgCreateStableswapPoolAminoType extends AminoMsg {
   type: "osmosis/gamm/create-stableswap-pool";
   value: {

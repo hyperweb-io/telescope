@@ -2,9 +2,9 @@
 /* eslint-disable */
 import { FieldMask } from "../../protobuf/field_mask";
 import { Timestamp } from "../../protobuf/timestamp";
-import { Long, isSet, fromJsonTimestamp, fromTimestamp, DeepPartial } from "../../../helpers";
+import { Long, isSet, fromJsonTimestamp, fromTimestamp, type DeepPartial } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../json-safe";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "google.logging.v2";
 /** Deprecated. This is unused. */
 export enum LogSink_VersionFormat {

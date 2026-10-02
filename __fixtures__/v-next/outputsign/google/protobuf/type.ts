@@ -1,7 +1,7 @@
-import { SourceContext, SourceContextAmino, SourceContextSDKType } from "./source_context";
-import { Any, AnyProtoMsg, AnyAmino, AnySDKType } from "./any";
+import { SourceContext, type SourceContextAmino, type SourceContextSDKType } from "./source_context";
+import { Any, AnyProtoMsg, type AnyAmino, type AnySDKType } from "./any";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { DeepPartial } from "../../helpers";
+import type { DeepPartial } from "../../helpers";
 export const protobufPackage = "google.protobuf";
 /** Basic field types. */
 export enum Field_Kind {

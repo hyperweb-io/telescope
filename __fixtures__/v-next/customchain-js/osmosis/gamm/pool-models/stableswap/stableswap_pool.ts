@@ -1,7 +1,7 @@
-import { Coin, CoinAmino } from "../../../../cosmos/base/v1beta1/coin";
+import { Coin, type CoinAmino } from "../../../../cosmos/base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
 import { Decimal } from "@interchainjs/math";
-import { DeepPartial } from "../../../../helpers";
+import type { DeepPartial } from "../../../../helpers";
 /**
  * PoolParams defined the parameters that will be managed by the pool
  * governance in the future. This params are not managed by the chain

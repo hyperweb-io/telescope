@@ -1,9 +1,9 @@
-import { Any, AnyProtoMsg, AnyAmino, AnySDKType } from "../../../google/protobuf/any";
-import { SignMode, SignModeSDKType } from "../signing/v1beta1/signing";
-import { CompactBitArray, CompactBitArrayAmino, CompactBitArraySDKType } from "../../crypto/multisig/v1beta1/multisig";
-import { Coin, CoinAmino, CoinSDKType } from "../../base/v1beta1/coin";
+import { Any, AnyProtoMsg, type AnyAmino, type AnySDKType } from "../../../google/protobuf/any";
+import { type SignMode, SignModeSDKType } from "../signing/v1beta1/signing";
+import { CompactBitArray, type CompactBitArrayAmino, type CompactBitArraySDKType } from "../../crypto/multisig/v1beta1/multisig";
+import { Coin, type CoinAmino, type CoinSDKType } from "../../base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers";
+import { type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers";
 export const protobufPackage = "cosmos.tx.v1beta1";
 /**
  * Tx is the standard type used for broadcasting transactions.

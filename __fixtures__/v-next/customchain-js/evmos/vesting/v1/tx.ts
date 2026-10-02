@@ -1,7 +1,7 @@
 import { Timestamp } from "../../../google/protobuf/timestamp";
-import { Period, PeriodAmino } from "../../../cosmos/vesting/v1beta1/vesting";
+import { Period, type PeriodAmino } from "../../../cosmos/vesting/v1beta1/vesting";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { toTimestamp, fromTimestamp, DeepPartial } from "../../../helpers";
+import { toTimestamp, fromTimestamp, type DeepPartial } from "../../../helpers";
 /**
  * MsgCreateClawbackVestingAccount defines a message that enables creating a ClawbackVestingAccount.
  * @name MsgCreateClawbackVestingAccount

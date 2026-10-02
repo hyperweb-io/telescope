@@ -1,11 +1,11 @@
 import { Timestamp, TimestampSDKType } from "../../../protobuf/timestamp.js";
-import { LogSeverity, LogSeveritySDKType, logSeverityFromJSON, logSeverityToJSON } from "../../../logging/type/log_severity.js";
-import { HttpRequest, HttpRequestSDKType } from "./http_request.js";
-import { Any, AnySDKType } from "../../../protobuf/any.js";
-import { Struct, StructSDKType } from "../../../protobuf/struct.js";
+import { type LogSeverity, LogSeveritySDKType, logSeverityFromJSON, logSeverityToJSON } from "../../../logging/type/log_severity.js";
+import { HttpRequest, type HttpRequestSDKType } from "./http_request.js";
+import { Any, type AnySDKType } from "../../../protobuf/any.js";
+import { Struct, type StructSDKType } from "../../../protobuf/struct.js";
 import { BinaryReader, BinaryWriter } from "../../../../binary.js";
-import { isSet, DeepPartial, toTimestamp, fromTimestamp, isObject } from "../../../../helpers.js";
-import { JsonSafe } from "../../../../json-safe.js";
+import { isSet, type DeepPartial, toTimestamp, fromTimestamp, isObject } from "../../../../helpers.js";
+import type { JsonSafe } from "../../../../json-safe.js";
 export const protobufPackage = "google.api.servicecontrol.v1";
 /**
  * @name LogEntry_LabelsEntry

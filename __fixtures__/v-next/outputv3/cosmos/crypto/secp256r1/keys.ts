@@ -1,5 +1,5 @@
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet, bytesFromBase64, DeepPartial, base64FromBytes } from "../../../helpers";
+import { isSet, bytesFromBase64, type DeepPartial, base64FromBytes } from "../../../helpers";
 export const protobufPackage = "cosmos.crypto.secp256r1";
 /**
  * PubKey defines a secp256r1 ECDSA public key.

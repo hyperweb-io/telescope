@@ -1,7 +1,7 @@
 import { Timestamp, TimestampSDKType } from "../../../google/protobuf/timestamp";
 import { Period, PeriodSDKType } from "../../../cosmos/vesting/v1beta1/vesting";
 import * as fm from "../../../grpc-gateway";
-import { MsgCreateClawbackVestingAccount, MsgCreateClawbackVestingAccountSDKType, MsgCreateClawbackVestingAccountResponse, MsgCreateClawbackVestingAccountResponseSDKType, MsgClawback, MsgClawbackSDKType, MsgClawbackResponse, MsgClawbackResponseSDKType } from "./tx";
+import { type MsgCreateClawbackVestingAccount, MsgCreateClawbackVestingAccountSDKType, type MsgCreateClawbackVestingAccountResponse, MsgCreateClawbackVestingAccountResponseSDKType, type MsgClawback, MsgClawbackSDKType, type MsgClawbackResponse, MsgClawbackResponseSDKType } from "./tx";
 export class Msg {
   /**
    * CreateClawbackVestingAccount creats a vesting account that is subject to

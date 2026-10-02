@@ -1,7 +1,7 @@
-import { Incentive, IncentiveAmino, IncentiveSDKType, GasMeter, GasMeterAmino, GasMeterSDKType } from "./incentives";
+import { Incentive, type IncentiveAmino, type IncentiveSDKType, GasMeter, type GasMeterAmino, type GasMeterSDKType } from "./incentives";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { GlobalDecoderRegistry } from "../../../registry";
-import { isSet, DeepPartial } from "../../../helpers";
+import { isSet, type DeepPartial } from "../../../helpers";
 import { Decimal } from "@interchainjs/math";
 export const protobufPackage = "evmos.incentives.v1";
 /**

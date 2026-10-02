@@ -1,7 +1,7 @@
-import { Coin, CoinAmino, CoinSDKType } from "../../base/v1beta1/coin";
-import { Period, PeriodAmino, PeriodSDKType } from "./vesting";
+import { Coin, type CoinAmino, type CoinSDKType } from "../../base/v1beta1/coin";
+import { Period, type PeriodAmino, type PeriodSDKType } from "./vesting";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 export const protobufPackage = "cosmos.vesting.v1beta1";
 /**
  * MsgCreateVestingAccount defines a message that enables creating a vesting

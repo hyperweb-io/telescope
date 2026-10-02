@@ -1,5 +1,5 @@
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * ParameterChangeProposal defines a proposal to change one or more parameters.
  * @name ParameterChangeProposal

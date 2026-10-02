@@ -1,5 +1,5 @@
 import { Any, AnySDKType } from "../../../../google/protobuf/any.js";
-import { TxRpc } from "../../../../types.js";
+import type { TxRpc } from "../../../../types.js";
 import { BinaryReader } from "../../../../binary.js";
 import { MsgCreateClient, MsgCreateClientSDKType, MsgCreateClientResponse, MsgCreateClientResponseSDKType, MsgUpdateClient, MsgUpdateClientSDKType, MsgUpdateClientResponse, MsgUpdateClientResponseSDKType, MsgUpgradeClient, MsgUpgradeClientSDKType, MsgUpgradeClientResponse, MsgUpgradeClientResponseSDKType, MsgSubmitMisbehaviour, MsgSubmitMisbehaviourSDKType, MsgSubmitMisbehaviourResponse, MsgSubmitMisbehaviourResponseSDKType } from "./tx.js";
 /** Msg defines the ibc/client Msg service. */

@@ -1,8 +1,8 @@
-import { BaseVestingAccount, BaseVestingAccountSDKType, Period, PeriodSDKType } from "../../../cosmos/vesting/v1beta1/vesting";
+import { BaseVestingAccount, type BaseVestingAccountSDKType, Period, type PeriodSDKType } from "../../../cosmos/vesting/v1beta1/vesting";
 import { Timestamp, TimestampSDKType } from "../../../google/protobuf/timestamp";
 import * as _m0 from "protobufjs/minimal";
-import { toTimestamp, fromTimestamp, isSet, fromJsonTimestamp, DeepPartial } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { toTimestamp, fromTimestamp, isSet, fromJsonTimestamp, type DeepPartial } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "evmos.vesting.v1";
 /**
  * ClawbackVestingAccount implements the VestingAccount interface. It provides

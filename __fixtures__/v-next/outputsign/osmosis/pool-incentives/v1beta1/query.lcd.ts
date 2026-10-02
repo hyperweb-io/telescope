@@ -1,8 +1,8 @@
 import { Duration, DurationSDKType } from "../../../google/protobuf/duration";
 import { DistrInfo, DistrInfoSDKType, Params, ParamsSDKType } from "./incentives";
 import { Gauge, GaugeSDKType } from "../../incentives/gauge";
-import { LCDClient } from "@cosmology/lcd";
-import { QueryGaugeIdsRequest, QueryGaugeIdsRequestSDKType, QueryGaugeIdsResponse, QueryGaugeIdsResponseSDKType, QueryDistrInfoRequest, QueryDistrInfoRequestSDKType, QueryDistrInfoResponse, QueryDistrInfoResponseSDKType, QueryParamsRequest, QueryParamsRequestSDKType, QueryParamsResponse, QueryParamsResponseSDKType, QueryLockableDurationsRequest, QueryLockableDurationsRequestSDKType, QueryLockableDurationsResponse, QueryLockableDurationsResponseSDKType, QueryIncentivizedPoolsRequest, QueryIncentivizedPoolsRequestSDKType, QueryIncentivizedPoolsResponse, QueryIncentivizedPoolsResponseSDKType, QueryExternalIncentiveGaugesRequest, QueryExternalIncentiveGaugesRequestSDKType, QueryExternalIncentiveGaugesResponse, QueryExternalIncentiveGaugesResponseSDKType } from "./query";
+import type { LCDClient } from "@cosmology/lcd";
+import { type QueryGaugeIdsRequest, QueryGaugeIdsRequestSDKType, QueryGaugeIdsResponse, type QueryGaugeIdsResponseSDKType, type QueryDistrInfoRequest, QueryDistrInfoRequestSDKType, QueryDistrInfoResponse, type QueryDistrInfoResponseSDKType, type QueryParamsRequest, QueryParamsRequestSDKType, QueryParamsResponse, type QueryParamsResponseSDKType, type QueryLockableDurationsRequest, QueryLockableDurationsRequestSDKType, QueryLockableDurationsResponse, type QueryLockableDurationsResponseSDKType, type QueryIncentivizedPoolsRequest, QueryIncentivizedPoolsRequestSDKType, QueryIncentivizedPoolsResponse, type QueryIncentivizedPoolsResponseSDKType, type QueryExternalIncentiveGaugesRequest, QueryExternalIncentiveGaugesRequestSDKType, QueryExternalIncentiveGaugesResponse, type QueryExternalIncentiveGaugesResponseSDKType } from "./query";
 export class LCDQueryClient {
   req: LCDClient;
   constructor({

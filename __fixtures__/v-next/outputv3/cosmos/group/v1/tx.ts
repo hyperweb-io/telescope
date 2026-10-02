@@ -1,7 +1,7 @@
-import { Member, MemberAmino, MemberSDKType, VoteOption, VoteOptionSDKType, ThresholdDecisionPolicy, ThresholdDecisionPolicyProtoMsg, ThresholdDecisionPolicySDKType, PercentageDecisionPolicy, PercentageDecisionPolicyProtoMsg, PercentageDecisionPolicySDKType, voteOptionFromJSON, voteOptionToJSON } from "./types";
-import { Any, AnyProtoMsg, AnyAmino, AnySDKType } from "../../../google/protobuf/any";
+import { Member, type MemberAmino, type MemberSDKType, type VoteOption, VoteOptionSDKType, ThresholdDecisionPolicy, type ThresholdDecisionPolicyProtoMsg, type ThresholdDecisionPolicySDKType, PercentageDecisionPolicy, type PercentageDecisionPolicyProtoMsg, type PercentageDecisionPolicySDKType, voteOptionFromJSON, voteOptionToJSON } from "./types";
+import { Any, type AnyProtoMsg, type AnyAmino, type AnySDKType } from "../../../google/protobuf/any";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet, DeepPartial } from "../../../helpers";
+import { isSet, type DeepPartial } from "../../../helpers";
 import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "cosmos.group.v1";
 /** Exec defines modes of execution of a proposal on creation or on new vote. */

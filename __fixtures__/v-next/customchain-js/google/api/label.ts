@@ -1,5 +1,5 @@
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { DeepPartial } from "../../helpers";
+import type { DeepPartial } from "../../helpers";
 /** Value types that can be used as label values. */
 export enum LabelDescriptor_ValueType {
   /** STRING - A variable-length string. This is the default. */

@@ -1,13 +1,13 @@
-import { Any, AnyProtoMsg, AnyAmino, AnySDKType } from "../google/protobuf/any";
-import { Duration, DurationAmino, DurationSDKType } from "../google/protobuf/duration";
+import { Any, AnyProtoMsg, type AnyAmino, type AnySDKType } from "../google/protobuf/any";
+import { Duration, type DurationAmino, type DurationSDKType } from "../google/protobuf/duration";
 import { Timestamp, TimestampAmino, TimestampSDKType } from "../google/protobuf/timestamp";
 import { BinaryReader, BinaryWriter } from "../binary";
-import { toTimestamp, fromTimestamp, isSet, bytesFromBase64, base64FromBytes, DeepPartial } from "../helpers";
+import { toTimestamp, fromTimestamp, isSet, bytesFromBase64, base64FromBytes, type DeepPartial } from "../helpers";
 import { Decimal } from "@interchainjs/math";
-import { JsonSafe } from "../json-safe";
+import type { JsonSafe } from "../json-safe";
 import { toUtf8, fromBase64, fromUtf8, toBase64 } from "@interchainjs/encoding";
 import { encodePubkey, decodePubkey } from "@interchainjs/pubkey";
-import { MiscAccessConfig, MiscAccessConfigAmino, MiscAccessConfigSDKType, MiscVoteOption, MiscVoteOptionSDKType, miscVoteOptionFromJSON, miscVoteOptionToJSON } from "./eval_request";
+import { MiscAccessConfig, type MiscAccessConfigAmino, type MiscAccessConfigSDKType, type MiscVoteOption, MiscVoteOptionSDKType, miscVoteOptionFromJSON, miscVoteOptionToJSON } from "./eval_request";
 /**
  * @name EncodingTestForDontOmit
  * @package misc

@@ -3,7 +3,7 @@ import { Any, AnyProtoMsg, AnyAmino, AnySDKType } from "../../../google/protobuf
 import { Coin, CoinSDKType } from "../../base/v1beta1/coin";
 import { Timestamp, TimestampSDKType } from "../../../google/protobuf/timestamp";
 import * as fm from "../../../grpc-gateway";
-import { MsgCreateValidator, MsgCreateValidatorSDKType, MsgCreateValidatorResponse, MsgCreateValidatorResponseSDKType, MsgEditValidator, MsgEditValidatorSDKType, MsgEditValidatorResponse, MsgEditValidatorResponseSDKType, MsgDelegate, MsgDelegateSDKType, MsgDelegateResponse, MsgDelegateResponseSDKType, MsgBeginRedelegate, MsgBeginRedelegateSDKType, MsgBeginRedelegateResponse, MsgBeginRedelegateResponseSDKType, MsgUndelegate, MsgUndelegateSDKType, MsgUndelegateResponse, MsgUndelegateResponseSDKType } from "./tx";
+import { type MsgCreateValidator, MsgCreateValidatorSDKType, type MsgCreateValidatorResponse, MsgCreateValidatorResponseSDKType, type MsgEditValidator, MsgEditValidatorSDKType, type MsgEditValidatorResponse, MsgEditValidatorResponseSDKType, type MsgDelegate, MsgDelegateSDKType, type MsgDelegateResponse, MsgDelegateResponseSDKType, type MsgBeginRedelegate, MsgBeginRedelegateSDKType, type MsgBeginRedelegateResponse, MsgBeginRedelegateResponseSDKType, type MsgUndelegate, MsgUndelegateSDKType, type MsgUndelegateResponse, MsgUndelegateResponseSDKType } from "./tx";
 export class Msg {
   /** CreateValidator defines a method for creating a new validator. */
   static createValidator(request: MsgCreateValidator, initRequest?: fm.InitReq): Promise<MsgCreateValidatorResponse> {

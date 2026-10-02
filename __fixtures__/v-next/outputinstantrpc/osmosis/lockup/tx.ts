@@ -1,9 +1,9 @@
-import { Duration, DurationSDKType } from "../../google/protobuf/duration";
-import { Coin, CoinSDKType } from "../../cosmos/base/v1beta1/coin";
-import { PeriodLock, PeriodLockSDKType } from "./lock";
+import { Duration, type DurationSDKType } from "../../google/protobuf/duration";
+import { Coin, type CoinSDKType } from "../../cosmos/base/v1beta1/coin";
+import { PeriodLock, type PeriodLockSDKType } from "./lock";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { isSet, DeepPartial } from "../../helpers";
-import { JsonSafe } from "../../json-safe";
+import { isSet, type DeepPartial } from "../../helpers";
+import type { JsonSafe } from "../../json-safe";
 export const protobufPackage = "osmosis.lockup";
 /**
  * @name MsgLockTokens

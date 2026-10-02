@@ -1,6 +1,6 @@
-import { Height, HeightAmino } from "../../../core/client/v1/client";
+import { Height, type HeightAmino } from "../../../core/client/v1/client";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial } from "../../../../helpers";
+import type { DeepPartial } from "../../../../helpers";
 /**
  * ClientState defines a loopback (localhost) client. It requires (read-only)
  * access to keys outside the client prefix.

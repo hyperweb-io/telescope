@@ -1,12 +1,12 @@
 import { EncodingTestForDontOmit, EncodingTestForDontOmitSDKType, EncodingTestForOmit, EncodingTestForOmitSDKType } from "./all_fields";
-import { AminoMsg, Pubkey } from "@cosmjs/amino";
+import type { AminoMsg, Pubkey } from "@cosmjs/amino";
 import { fromUtf8, toBase64, toUtf8, fromBase64 } from "@interchainjs/encoding";
 import { decodePubkey, encodePubkey } from "@interchainjs/pubkey";
 import { Decimal } from "@interchainjs/math";
 import { AccessConfig, AccessConfigSDKType, voteOptionFromJSON } from "./eval_request";
 import { Any, AnySDKType } from "../google/protobuf/any";
 import { Duration, DurationSDKType } from "../google/protobuf/duration";
-import { InputMsg, InputMsgSDKType } from "./tx";
+import { type InputMsg, InputMsgSDKType } from "./tx";
 export interface InputMsgAminoType extends AminoMsg {
   type: "/misc.InputMsg";
   value: {

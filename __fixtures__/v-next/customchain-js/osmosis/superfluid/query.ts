@@ -1,11 +1,11 @@
-import { PageRequest, PageRequestAmino, PageResponse, PageResponseAmino } from "../../cosmos/base/query/v1beta1/pagination";
-import { SuperfluidAssetType, SuperfluidAsset, SuperfluidAssetAmino, OsmoEquivalentMultiplierRecord, OsmoEquivalentMultiplierRecordAmino, SuperfluidDelegationRecord, SuperfluidDelegationRecordAmino } from "./superfluid";
-import { Coin, CoinAmino } from "../../cosmos/base/v1beta1/coin";
-import { SyntheticLock, SyntheticLockAmino } from "../lockup/lock";
-import { DelegationResponse, DelegationResponseAmino } from "../../cosmos/staking/v1beta1/staking";
+import { PageRequest, type PageRequestAmino, PageResponse, type PageResponseAmino } from "../../cosmos/base/query/v1beta1/pagination";
+import { type SuperfluidAssetType, SuperfluidAsset, type SuperfluidAssetAmino, OsmoEquivalentMultiplierRecord, type OsmoEquivalentMultiplierRecordAmino, SuperfluidDelegationRecord, type SuperfluidDelegationRecordAmino } from "./superfluid";
+import { Coin, type CoinAmino } from "../../cosmos/base/v1beta1/coin";
+import { SyntheticLock, type SyntheticLockAmino } from "../lockup/lock";
+import { DelegationResponse, type DelegationResponseAmino } from "../../cosmos/staking/v1beta1/staking";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { DeepPartial } from "../../helpers";
-import { OsmosisSuperfluidParams, OsmosisSuperfluidParamsAmino } from "./params";
+import type { DeepPartial } from "../../helpers";
+import { OsmosisSuperfluidParams, type OsmosisSuperfluidParamsAmino } from "./params";
 /**
  * @name QueryParamsRequest
  * @package osmosis.superfluid

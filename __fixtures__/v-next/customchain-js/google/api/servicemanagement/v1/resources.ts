@@ -1,7 +1,7 @@
 import { Timestamp } from "../../../protobuf/timestamp";
-import { ConfigChange, ConfigChangeAmino } from "../../config_change";
+import { ConfigChange, type ConfigChangeAmino } from "../../config_change";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial, toTimestamp, fromTimestamp, bytesFromBase64, base64FromBytes } from "../../../../helpers";
+import { type DeepPartial, toTimestamp, fromTimestamp, bytesFromBase64, base64FromBytes } from "../../../../helpers";
 /** Code describes the status of the operation (or one of its steps). */
 export enum OperationMetadata_Status {
   /** STATUS_UNSPECIFIED - Unspecifed code. */

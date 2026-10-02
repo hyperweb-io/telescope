@@ -1,8 +1,8 @@
-import { Duration, DurationAmino, DurationSDKType } from "../../../protobuf/duration";
+import { Duration, type DurationAmino, type DurationSDKType } from "../../../protobuf/duration";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
 import { GlobalDecoderRegistry } from "../../../../registry";
-import { isSet, DeepPartial } from "../../../../helpers";
-import { JsonSafe } from "../../../../json-safe";
+import { isSet, type DeepPartial } from "../../../../helpers";
+import type { JsonSafe } from "../../../../json-safe";
 export const protobufPackage = "google.api.servicecontrol.v1";
 /**
  * A common proto for logging HTTP requests. Only contains semantics

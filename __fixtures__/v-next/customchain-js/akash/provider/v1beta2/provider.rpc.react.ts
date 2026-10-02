@@ -1,5 +1,5 @@
 import { buildUseMutation } from "../../../react-query";
-import { MsgCreateProvider, MsgUpdateProvider, MsgDeleteProvider } from "./provider";
+import type { MsgCreateProvider, MsgUpdateProvider, MsgDeleteProvider } from "./provider";
 import { createProvider, updateProvider, deleteProvider } from "./provider.rpc.func";
 /**
  * CreateProvider defines a method that creates a provider given the proper inputs

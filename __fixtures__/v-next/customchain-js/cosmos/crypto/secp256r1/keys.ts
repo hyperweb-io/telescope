@@ -1,5 +1,5 @@
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers";
+import { type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers";
 /**
  * PubKey defines a secp256r1 ECDSA public key.
  * @name PubKey

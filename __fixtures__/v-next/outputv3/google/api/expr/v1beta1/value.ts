@@ -1,8 +1,8 @@
-import { NullValue, NullValueSDKType, nullValueFromJSON, nullValueToJSON } from "../../../protobuf/struct";
-import { Any, AnyProtoMsg, AnyAmino, AnySDKType } from "../../../protobuf/any";
+import { type NullValue, NullValueSDKType, nullValueFromJSON, nullValueToJSON } from "../../../protobuf/struct";
+import { Any, AnyProtoMsg, type AnyAmino, type AnySDKType } from "../../../protobuf/any";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
 import { GlobalDecoderRegistry } from "../../../../registry";
-import { isSet, bytesFromBase64, DeepPartial, base64FromBytes } from "../../../../helpers";
+import { isSet, bytesFromBase64, type DeepPartial, base64FromBytes } from "../../../../helpers";
 export const protobufPackage = "google.api.expr.v1beta1";
 /**
  * Represents a CEL value.

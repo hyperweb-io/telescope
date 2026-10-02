@@ -1,6 +1,6 @@
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { JsonSafe } from "../../json-safe";
-import { DeepPartial, isSet } from "../../helpers";
+import type { JsonSafe } from "../../json-safe";
+import { type DeepPartial, isSet } from "../../helpers";
 export const protobufPackage = "google.api";
 /** Supported data type of the property values */
 export enum Property_PropertyType {

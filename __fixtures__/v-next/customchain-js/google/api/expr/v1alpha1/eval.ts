@@ -1,7 +1,7 @@
-import { Value, ValueAmino } from "./value";
-import { Status, StatusAmino } from "../../../rpc/status";
+import { Value, type ValueAmino } from "./value";
+import { Status, type StatusAmino } from "../../../rpc/status";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial } from "../../../../helpers";
+import type { DeepPartial } from "../../../../helpers";
 /**
  * The state of an evaluation.
  * 

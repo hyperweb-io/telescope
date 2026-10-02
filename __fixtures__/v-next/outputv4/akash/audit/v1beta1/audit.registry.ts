@@ -1,5 +1,5 @@
 import { Attribute, AttributeSDKType } from "../../base/v1beta1/attribute.js";
-import { TelescopeGeneratedType } from "../../../types.js";
+import type { TelescopeGeneratedType } from "../../../types.js";
 import { MsgSignProviderAttributes, MsgSignProviderAttributesSDKType, MsgDeleteProviderAttributes, MsgDeleteProviderAttributesSDKType } from "./audit.js";
 export const registry: ReadonlyArray<[string, TelescopeGeneratedType<any, any, any>]> = [["/akash.audit.v1beta1.MsgSignProviderAttributes", MsgSignProviderAttributes], ["/akash.audit.v1beta1.MsgDeleteProviderAttributes", MsgDeleteProviderAttributes]];
 export const MessageComposer = {

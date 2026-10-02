@@ -1,14 +1,14 @@
-import { Any, AnyProtoMsg, AnyAmino } from "../../../google/protobuf/any";
-import { Coin, CoinAmino } from "../../base/v1beta1/coin";
-import { VoteOption, WeightedVoteOption, WeightedVoteOptionAmino } from "./gov";
-import { TextProposal, TextProposalProtoMsg } from "../v1beta1/gov";
-import { RegisterIncentiveProposal, RegisterIncentiveProposalProtoMsg } from "../../../evmos/incentives/v1/incentives";
-import { ClientUpdateProposal, ClientUpdateProposalProtoMsg, UpgradeProposal, UpgradeProposalProtoMsg } from "../../../ibc/core/client/v1/client";
-import { ReplacePoolIncentivesProposal, ReplacePoolIncentivesProposalProtoMsg, UpdatePoolIncentivesProposal, UpdatePoolIncentivesProposalProtoMsg } from "../../../osmosis/pool-incentives/v1beta1/gov";
-import { SetSuperfluidAssetsProposal, SetSuperfluidAssetsProposalProtoMsg, RemoveSuperfluidAssetsProposal, RemoveSuperfluidAssetsProposalProtoMsg, UpdateUnpoolWhiteListProposal, UpdateUnpoolWhiteListProposalProtoMsg } from "../../../osmosis/superfluid/v1beta1/gov";
-import { UpdateFeeTokenProposal, UpdateFeeTokenProposalProtoMsg } from "../../../osmosis/txfees/v1beta1/gov";
+import { Any, type AnyProtoMsg, type AnyAmino } from "../../../google/protobuf/any";
+import { Coin, type CoinAmino } from "../../base/v1beta1/coin";
+import { type VoteOption, WeightedVoteOption, type WeightedVoteOptionAmino } from "./gov";
+import { TextProposal, type TextProposalProtoMsg } from "../v1beta1/gov";
+import { RegisterIncentiveProposal, type RegisterIncentiveProposalProtoMsg } from "../../../evmos/incentives/v1/incentives";
+import { ClientUpdateProposal, type ClientUpdateProposalProtoMsg, UpgradeProposal, type UpgradeProposalProtoMsg } from "../../../ibc/core/client/v1/client";
+import { ReplacePoolIncentivesProposal, type ReplacePoolIncentivesProposalProtoMsg, UpdatePoolIncentivesProposal, type UpdatePoolIncentivesProposalProtoMsg } from "../../../osmosis/pool-incentives/v1beta1/gov";
+import { SetSuperfluidAssetsProposal, type SetSuperfluidAssetsProposalProtoMsg, RemoveSuperfluidAssetsProposal, type RemoveSuperfluidAssetsProposalProtoMsg, UpdateUnpoolWhiteListProposal, type UpdateUnpoolWhiteListProposalProtoMsg } from "../../../osmosis/superfluid/v1beta1/gov";
+import { UpdateFeeTokenProposal, type UpdateFeeTokenProposalProtoMsg } from "../../../osmosis/txfees/v1beta1/gov";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * MsgSubmitProposal defines an sdk.Msg type that supports submitting arbitrary
  * proposal Content.

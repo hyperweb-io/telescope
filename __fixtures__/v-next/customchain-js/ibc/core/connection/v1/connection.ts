@@ -1,6 +1,6 @@
-import { MerklePrefix, MerklePrefixAmino } from "../../commitment/v1/commitment";
+import { MerklePrefix, type MerklePrefixAmino } from "../../commitment/v1/commitment";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial } from "../../../../helpers";
+import type { DeepPartial } from "../../../../helpers";
 /**
  * State defines if a connection is in one of the following states:
  * INIT, TRYOPEN, OPEN or UNINITIALIZED.

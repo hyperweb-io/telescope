@@ -1,5 +1,5 @@
 import { Fee, FeeSDKType, PacketFee, PacketFeeSDKType } from "./fee";
-import { TxRpc } from "../../../../types";
+import type { TxRpc } from "../../../../types";
 import { BinaryReader } from "../../../../binary";
 import { MsgRegisterPayee, MsgRegisterPayeeSDKType, MsgRegisterPayeeResponse, MsgRegisterPayeeResponseSDKType, MsgRegisterCounterpartyPayee, MsgRegisterCounterpartyPayeeSDKType, MsgRegisterCounterpartyPayeeResponse, MsgRegisterCounterpartyPayeeResponseSDKType, MsgPayPacketFee, MsgPayPacketFeeSDKType, MsgPayPacketFeeResponse, MsgPayPacketFeeResponseSDKType, MsgPayPacketFeeAsync, MsgPayPacketFeeAsyncSDKType, MsgPayPacketFeeAsyncResponse, MsgPayPacketFeeAsyncResponseSDKType } from "./tx";
 /** Msg defines the ICS29 Msg service. */

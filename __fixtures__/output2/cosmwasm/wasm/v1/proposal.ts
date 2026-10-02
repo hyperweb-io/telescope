@@ -2,9 +2,9 @@
 /* eslint-disable */
 import { AccessConfig } from "./types";
 import { Coin } from "../../../cosmos/base/v1beta1/coin";
-import { Long, isSet, bytesFromBase64, base64FromBytes, DeepPartial } from "../../../helpers";
+import { Long, isSet, bytesFromBase64, base64FromBytes, type DeepPartial } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../json-safe";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "cosmwasm.wasm.v1";
 /** StoreCodeProposal gov proposal content type to submit WASM code to the system */
 export interface StoreCodeProposal {

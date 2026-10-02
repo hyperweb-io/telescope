@@ -1,5 +1,5 @@
 import { buildUseMutation } from "../../../react-query";
-import { MsgUnjail } from "./tx";
+import type { MsgUnjail } from "./tx";
 import { unjail } from "./tx.rpc.func";
 /**
  * Unjail defines a method for unjailing a jailed validator, thus returning

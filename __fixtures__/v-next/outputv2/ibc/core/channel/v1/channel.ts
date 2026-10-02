@@ -1,8 +1,8 @@
-import { Height, HeightAmino, HeightSDKType } from "../../client/v1/client";
-import { isSet, DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers";
+import { Height, type HeightAmino, type HeightSDKType } from "../../client/v1/client";
+import { isSet, type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
 import { GlobalDecoderRegistry } from "../../../../registry";
-import { JsonSafe } from "../../../../json-safe";
+import type { JsonSafe } from "../../../../json-safe";
 export const protobufPackage = "ibc.core.channel.v1";
 /**
  * State defines if a channel is in one of the following states:

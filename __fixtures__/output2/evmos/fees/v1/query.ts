@@ -4,8 +4,8 @@ import { PageRequest, PageResponse } from "../../../cosmos/base/query/v1beta1/pa
 import { DevFeeInfo } from "./fees";
 import { Params } from "./genesis";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial, Rpc } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { isSet, type DeepPartial, type Rpc } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "evmos.fees.v1";
 /**
  * QueryDevFeeInfosRequest is the request type for the Query/DevFeeInfos RPC

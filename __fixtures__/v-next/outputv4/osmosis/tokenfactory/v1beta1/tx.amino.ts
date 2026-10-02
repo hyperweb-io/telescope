@@ -1,8 +1,8 @@
 //@ts-nocheck
 import { Coin, CoinSDKType } from "../../../cosmos/base/v1beta1/coin.js";
 import { Metadata, MetadataSDKType, DenomUnit, DenomUnitSDKType } from "../../../cosmos/bank/v1beta1/bank.js";
-import { AminoMsg } from "@cosmjs/amino";
-import { MsgCreateDenom, MsgCreateDenomSDKType, MsgMint, MsgMintSDKType, MsgBurn, MsgBurnSDKType, MsgChangeAdmin, MsgChangeAdminSDKType, MsgSetDenomMetadata, MsgSetDenomMetadataSDKType } from "./tx.js";
+import type { AminoMsg } from "@cosmjs/amino";
+import { type MsgCreateDenom, MsgCreateDenomSDKType, type MsgMint, MsgMintSDKType, type MsgBurn, MsgBurnSDKType, type MsgChangeAdmin, MsgChangeAdminSDKType, type MsgSetDenomMetadata, MsgSetDenomMetadataSDKType } from "./tx.js";
 export interface MsgCreateDenomAminoType extends AminoMsg {
   type: "osmosis/tokenfactory/create-denom";
   value: {

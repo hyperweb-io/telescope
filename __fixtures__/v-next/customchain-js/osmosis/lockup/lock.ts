@@ -1,8 +1,8 @@
-import { Duration, DurationAmino } from "../../google/protobuf/duration";
+import { Duration, type DurationAmino } from "../../google/protobuf/duration";
 import { Timestamp } from "../../google/protobuf/timestamp";
-import { Coin, CoinAmino } from "../../cosmos/base/v1beta1/coin";
+import { Coin, type CoinAmino } from "../../cosmos/base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { toTimestamp, fromTimestamp, DeepPartial } from "../../helpers";
+import { toTimestamp, fromTimestamp, type DeepPartial } from "../../helpers";
 /**
  * LockQueryType defines the type of the lock query that can
  * either be by duration or start time of the lock.

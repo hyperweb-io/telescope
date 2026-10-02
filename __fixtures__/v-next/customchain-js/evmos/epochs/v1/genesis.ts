@@ -1,7 +1,7 @@
 import { Timestamp } from "../../../google/protobuf/timestamp";
-import { Duration, DurationAmino } from "../../../google/protobuf/duration";
+import { Duration, type DurationAmino } from "../../../google/protobuf/duration";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { toTimestamp, fromTimestamp, DeepPartial } from "../../../helpers";
+import { toTimestamp, fromTimestamp, type DeepPartial } from "../../../helpers";
 /**
  * @name EpochInfo
  * @package evmos.epochs.v1

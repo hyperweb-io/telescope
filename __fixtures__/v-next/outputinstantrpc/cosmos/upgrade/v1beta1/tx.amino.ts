@@ -1,8 +1,8 @@
 import { Plan, PlanSDKType } from "./upgrade";
-import { AminoMsg } from "@cosmjs/amino";
+import type { AminoMsg } from "@cosmjs/amino";
 import { omitDefault } from "../../../helpers";
 import { Any, AnySDKType } from "../../../google/protobuf/any";
-import { MsgSoftwareUpgrade, MsgSoftwareUpgradeSDKType, MsgCancelUpgrade, MsgCancelUpgradeSDKType } from "./tx";
+import { type MsgSoftwareUpgrade, MsgSoftwareUpgradeSDKType, type MsgCancelUpgrade, MsgCancelUpgradeSDKType } from "./tx";
 export interface MsgSoftwareUpgradeAminoType extends AminoMsg {
   type: "cosmos-sdk/MsgSoftwareUpgrade";
   value: {

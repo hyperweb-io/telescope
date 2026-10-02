@@ -1,6 +1,6 @@
-import { FeeToken, FeeTokenAmino } from "./feetoken";
+import { FeeToken, type FeeTokenAmino } from "./feetoken";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * GenesisState defines the txfees module's genesis state.
  * @name GenesisState

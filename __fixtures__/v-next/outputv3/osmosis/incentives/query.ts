@@ -1,9 +1,9 @@
-import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageResponseAmino, PageResponseSDKType } from "../../cosmos/base/query/v1beta1/pagination";
-import { Coin, CoinAmino, CoinSDKType } from "../../cosmos/base/v1beta1/coin";
-import { Gauge, GaugeAmino, GaugeSDKType } from "./gauge";
-import { Duration, DurationAmino, DurationSDKType } from "../../google/protobuf/duration";
+import { PageRequest, type PageRequestAmino, type PageRequestSDKType, PageResponse, type PageResponseAmino, type PageResponseSDKType } from "../../cosmos/base/query/v1beta1/pagination";
+import { Coin, type CoinAmino, type CoinSDKType } from "../../cosmos/base/v1beta1/coin";
+import { Gauge, type GaugeAmino, type GaugeSDKType } from "./gauge";
+import { Duration, type DurationAmino, type DurationSDKType } from "../../google/protobuf/duration";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { DeepPartial, isSet } from "../../helpers";
+import { type DeepPartial, isSet } from "../../helpers";
 import { GlobalDecoderRegistry } from "../../registry";
 export const protobufPackage = "osmosis.incentives";
 /**

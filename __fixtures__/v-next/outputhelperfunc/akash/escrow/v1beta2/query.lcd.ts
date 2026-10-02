@@ -1,8 +1,8 @@
 import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../../cosmos/base/query/v1beta1/pagination";
 import { Account, AccountSDKType, FractionalPayment, FractionalPaymentSDKType } from "./types";
 import { setPaginationParams } from "../../../helpers";
-import { LCDClient } from "@cosmology/lcd";
-import { QueryAccountsRequest, QueryAccountsRequestSDKType, QueryAccountsResponse, QueryAccountsResponseSDKType, QueryPaymentsRequest, QueryPaymentsRequestSDKType, QueryPaymentsResponse, QueryPaymentsResponseSDKType } from "./query";
+import type { LCDClient } from "@cosmology/lcd";
+import { type QueryAccountsRequest, QueryAccountsRequestSDKType, QueryAccountsResponse, type QueryAccountsResponseSDKType, type QueryPaymentsRequest, QueryPaymentsRequestSDKType, QueryPaymentsResponse, type QueryPaymentsResponseSDKType } from "./query";
 export class LCDQueryClient {
   req: LCDClient;
   constructor({

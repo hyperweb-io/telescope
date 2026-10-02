@@ -1,5 +1,5 @@
 import { buildUseMutation } from "../../react-query";
-import { MsgLockTokens, MsgBeginUnlockingAll, MsgBeginUnlocking, MsgExtendLockup, MsgForceUnlock } from "./tx";
+import type { MsgLockTokens, MsgBeginUnlockingAll, MsgBeginUnlocking, MsgExtendLockup, MsgForceUnlock } from "./tx";
 import { lockTokens, beginUnlockingAll, beginUnlocking, extendLockup, forceUnlock } from "./tx.rpc.func";
 /**
  * LockTokens lock tokens

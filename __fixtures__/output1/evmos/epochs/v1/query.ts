@@ -1,8 +1,8 @@
-import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../../cosmos/base/query/v1beta1/pagination";
-import { EpochInfo, EpochInfoSDKType } from "./genesis";
-import { Long, isSet, DeepPartial } from "../../../helpers";
+import { PageRequest, type PageRequestSDKType, PageResponse, type PageResponseSDKType } from "../../../cosmos/base/query/v1beta1/pagination";
+import { EpochInfo, type EpochInfoSDKType } from "./genesis";
+import { Long, isSet, type DeepPartial } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../json-safe";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "evmos.epochs.v1";
 export interface QueryEpochsInfoRequest {
   pagination?: PageRequest;

@@ -1,7 +1,7 @@
-import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageResponseAmino, PageResponseSDKType } from "../../base/query/v1beta1/pagination";
-import { GroupInfo, GroupInfoAmino, GroupInfoSDKType, GroupPolicyInfo, GroupPolicyInfoAmino, GroupPolicyInfoSDKType, GroupMember, GroupMemberAmino, GroupMemberSDKType, Proposal, ProposalAmino, ProposalSDKType, Vote, VoteAmino, VoteSDKType, TallyResult, TallyResultAmino, TallyResultSDKType } from "./types";
+import { PageRequest, type PageRequestAmino, type PageRequestSDKType, PageResponse, type PageResponseAmino, type PageResponseSDKType } from "../../base/query/v1beta1/pagination";
+import { GroupInfo, type GroupInfoAmino, type GroupInfoSDKType, GroupPolicyInfo, type GroupPolicyInfoAmino, type GroupPolicyInfoSDKType, GroupMember, type GroupMemberAmino, type GroupMemberSDKType, Proposal, type ProposalAmino, type ProposalSDKType, Vote, type VoteAmino, type VoteSDKType, TallyResult, type TallyResultAmino, type TallyResultSDKType } from "./types";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 export const protobufPackage = "cosmos.group.v1";
 /**
  * QueryGroupInfoRequest is the Query/GroupInfo request type.

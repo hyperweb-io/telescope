@@ -1,7 +1,7 @@
-import { Attribute, AttributeSDKType } from "../../base/v1beta1/attribute";
+import { Attribute, type AttributeSDKType } from "../../base/v1beta1/attribute";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial, Exact } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { isSet, type DeepPartial, type Exact } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "akash.provider.v1beta1";
 /** ProviderInfo */
 export interface ProviderInfo {

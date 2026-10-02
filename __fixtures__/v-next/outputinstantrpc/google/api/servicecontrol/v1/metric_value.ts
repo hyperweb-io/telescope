@@ -1,8 +1,8 @@
 import { Timestamp, TimestampSDKType } from "../../../protobuf/timestamp";
-import { Distribution, DistributionSDKType } from "./distribution";
+import { Distribution, type DistributionSDKType } from "./distribution";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { isSet, DeepPartial, toTimestamp, fromTimestamp, isObject } from "../../../../helpers";
-import { JsonSafe } from "../../../../json-safe";
+import { isSet, type DeepPartial, toTimestamp, fromTimestamp, isObject } from "../../../../helpers";
+import type { JsonSafe } from "../../../../json-safe";
 export const protobufPackage = "google.api.servicecontrol.v1";
 /**
  * @name MetricValue_LabelsEntry

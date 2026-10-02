@@ -1,8 +1,8 @@
-import { MsgStoreCode, MsgStoreCodeSDKType, MsgInstantiateContract, MsgInstantiateContractSDKType, MsgExecuteContract, MsgExecuteContractSDKType } from "./tx.js";
-import { Params, ParamsSDKType, CodeInfo, CodeInfoSDKType, ContractInfo, ContractInfoSDKType, Model, ModelSDKType } from "./types.js";
+import { MsgStoreCode, type MsgStoreCodeSDKType, MsgInstantiateContract, type MsgInstantiateContractSDKType, MsgExecuteContract, type MsgExecuteContractSDKType } from "./tx.js";
+import { Params, type ParamsSDKType, CodeInfo, type CodeInfoSDKType, ContractInfo, type ContractInfoSDKType, Model, type ModelSDKType } from "./types.js";
 import { BinaryReader, BinaryWriter } from "../../../binary.js";
-import { isSet, DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers.js";
-import { JsonSafe } from "../../../json-safe.js";
+import { isSet, type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers.js";
+import type { JsonSafe } from "../../../json-safe.js";
 export const protobufPackage = "cosmwasm.wasm.v1";
 /**
  * GenesisState - genesis state of x/wasm

@@ -1,7 +1,7 @@
 import { Downtime, DowntimeSDKType } from "./downtime_duration";
 import { Duration, DurationSDKType } from "../../../google/protobuf/duration";
-import { LCDClient } from "@cosmology/lcd";
-import { RecoveredSinceDowntimeOfLengthRequest, RecoveredSinceDowntimeOfLengthRequestSDKType, RecoveredSinceDowntimeOfLengthResponse, RecoveredSinceDowntimeOfLengthResponseSDKType } from "./query";
+import type { LCDClient } from "@cosmology/lcd";
+import { type RecoveredSinceDowntimeOfLengthRequest, RecoveredSinceDowntimeOfLengthRequestSDKType, RecoveredSinceDowntimeOfLengthResponse, type RecoveredSinceDowntimeOfLengthResponseSDKType } from "./query";
 export class LCDQueryClient {
   req: LCDClient;
   constructor({

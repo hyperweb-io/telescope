@@ -2,9 +2,9 @@ import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } fr
 import { IdentifiedPacketFees, IdentifiedPacketFeesSDKType } from "./fee";
 import { Coin, CoinSDKType } from "../../../../cosmos/base/v1beta1/coin";
 import { FeeEnabledChannel, FeeEnabledChannelSDKType } from "./genesis";
-import { TxRpc } from "../../../../types";
+import type { TxRpc } from "../../../../types";
 import { BinaryReader } from "../../../../binary";
-import { QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
+import { type QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
 import { QueryIncentivizedPacketsRequest, QueryIncentivizedPacketsRequestSDKType, QueryIncentivizedPacketsResponse, QueryIncentivizedPacketsResponseSDKType, QueryIncentivizedPacketRequest, QueryIncentivizedPacketRequestSDKType, QueryIncentivizedPacketResponse, QueryIncentivizedPacketResponseSDKType, QueryIncentivizedPacketsForChannelRequest, QueryIncentivizedPacketsForChannelRequestSDKType, QueryIncentivizedPacketsForChannelResponse, QueryIncentivizedPacketsForChannelResponseSDKType, QueryTotalRecvFeesRequest, QueryTotalRecvFeesRequestSDKType, QueryTotalRecvFeesResponse, QueryTotalRecvFeesResponseSDKType, QueryTotalAckFeesRequest, QueryTotalAckFeesRequestSDKType, QueryTotalAckFeesResponse, QueryTotalAckFeesResponseSDKType, QueryTotalTimeoutFeesRequest, QueryTotalTimeoutFeesRequestSDKType, QueryTotalTimeoutFeesResponse, QueryTotalTimeoutFeesResponseSDKType, QueryPayeeRequest, QueryPayeeRequestSDKType, QueryPayeeResponse, QueryPayeeResponseSDKType, QueryCounterpartyPayeeRequest, QueryCounterpartyPayeeRequestSDKType, QueryCounterpartyPayeeResponse, QueryCounterpartyPayeeResponseSDKType, QueryFeeEnabledChannelsRequest, QueryFeeEnabledChannelsRequestSDKType, QueryFeeEnabledChannelsResponse, QueryFeeEnabledChannelsResponseSDKType, QueryFeeEnabledChannelRequest, QueryFeeEnabledChannelRequestSDKType, QueryFeeEnabledChannelResponse, QueryFeeEnabledChannelResponseSDKType } from "./query";
 /** Query defines the ICS29 gRPC querier service. */
 export interface Query {

@@ -1,5 +1,5 @@
 import { buildUseMutation } from "../../../react-query";
-import { MsgCreateDenom, MsgMint, MsgBurn, MsgChangeAdmin, MsgSetDenomMetadata } from "./tx";
+import type { MsgCreateDenom, MsgMint, MsgBurn, MsgChangeAdmin, MsgSetDenomMetadata } from "./tx";
 import { createDenom, mint, burn, changeAdmin, setDenomMetadata } from "./tx.rpc.func";
 /**
  * @name useCreateDenom

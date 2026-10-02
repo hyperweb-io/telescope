@@ -4,9 +4,9 @@ import { ParsedExpr, SourcePosition } from "../../v1alpha1/syntax";
 import { Decl, CheckedExpr } from "../../v1alpha1/checked";
 import { ExprValue } from "../../v1alpha1/eval";
 import { Status } from "../../../../rpc/status";
-import { Long, isSet, DeepPartial, isObject } from "../../../../../helpers";
+import { Long, isSet, type DeepPartial, isObject } from "../../../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../../../json-safe";
+import type { JsonSafe } from "../../../../../json-safe";
 export const protobufPackage = "google.api.expr.conformance.v1alpha1";
 /** Severities of issues. */
 export enum IssueDetails_Severity {

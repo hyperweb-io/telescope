@@ -1,6 +1,6 @@
-import { Order, Counterparty, CounterpartyAmino } from "../../channel/v1/channel";
+import { type Order, Counterparty, type CounterpartyAmino } from "../../channel/v1/channel";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial } from "../../../../helpers";
+import type { DeepPartial } from "../../../../helpers";
 /**
  * QueryAppVersionRequest is the request type for the Query/AppVersion RPC method
  * @name QueryAppVersionRequest

@@ -1,5 +1,5 @@
 import { buildUseMutation } from "../../react-query";
-import { MsgCreateGauge, MsgAddToGauge } from "./tx";
+import type { MsgCreateGauge, MsgAddToGauge } from "./tx";
 import { createGauge, addToGauge } from "./tx.rpc.func";
 /**
  * @name useCreateGauge

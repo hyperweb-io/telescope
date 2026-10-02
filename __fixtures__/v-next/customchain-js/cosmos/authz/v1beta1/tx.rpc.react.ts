@@ -1,5 +1,5 @@
 import { buildUseMutation } from "../../../react-query";
-import { MsgGrant, MsgExec, MsgRevoke } from "./tx";
+import type { MsgGrant, MsgExec, MsgRevoke } from "./tx";
 import { grant, exec, revoke } from "./tx.rpc.func";
 /**
  * Grant grants the provided authorization to the grantee on the granter's

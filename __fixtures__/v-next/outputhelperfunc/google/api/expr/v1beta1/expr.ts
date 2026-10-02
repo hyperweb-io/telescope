@@ -1,9 +1,9 @@
-import { SourceInfo, SourceInfoAmino, SourceInfoSDKType } from "./source";
-import { NullValue, NullValueSDKType, nullValueFromJSON, nullValueToJSON } from "../../../protobuf/struct";
+import { SourceInfo, type SourceInfoAmino, type SourceInfoSDKType } from "./source";
+import { type NullValue, NullValueSDKType, nullValueFromJSON, nullValueToJSON } from "../../../protobuf/struct";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
 import { GlobalDecoderRegistry } from "../../../../registry";
-import { isSet, DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers";
-import { JsonSafe } from "../../../../json-safe";
+import { isSet, type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers";
+import type { JsonSafe } from "../../../../json-safe";
 export const protobufPackage = "google.api.expr.v1beta1";
 /**
  * An expression together with source information as returned by the parser.

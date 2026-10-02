@@ -1,6 +1,6 @@
 import { Timestamp, TimestampSDKType } from "../../../google/protobuf/timestamp.js";
 import { Period, PeriodSDKType } from "../../../cosmos/vesting/v1beta1/vesting.js";
-import { TelescopeGeneratedType } from "../../../types.js";
+import type { TelescopeGeneratedType } from "../../../types.js";
 import { MsgCreateClawbackVestingAccount, MsgCreateClawbackVestingAccountSDKType, MsgClawback, MsgClawbackSDKType } from "./tx.js";
 export const registry: ReadonlyArray<[string, TelescopeGeneratedType<any, any, any>]> = [["/evmos.vesting.v1.MsgCreateClawbackVestingAccount", MsgCreateClawbackVestingAccount], ["/evmos.vesting.v1.MsgClawback", MsgClawback]];
 export const MessageComposer = {

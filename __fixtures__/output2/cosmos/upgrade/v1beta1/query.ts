@@ -1,9 +1,9 @@
 //@ts-nocheck
 /* eslint-disable */
 import { Plan, ModuleVersion } from "./upgrade";
-import { Long, DeepPartial, isSet, bytesFromBase64, base64FromBytes, Rpc } from "../../../helpers";
+import { Long, type DeepPartial, isSet, bytesFromBase64, base64FromBytes, type Rpc } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../json-safe";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "cosmos.upgrade.v1beta1";
 /**
  * QueryCurrentPlanRequest is the request type for the Query/CurrentPlan RPC

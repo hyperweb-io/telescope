@@ -1,6 +1,6 @@
 import { grpc } from "@improbable-eng/grpc-web";
-import { UnaryMethodDefinitionish } from "../../../grpc-web";
-import { DeepPartial } from "../../../helpers";
+import type { UnaryMethodDefinitionish } from "../../../grpc-web";
+import type { DeepPartial } from "../../../helpers";
 import { BrowserHeaders } from "browser-headers";
 import { QueryProposalRequest, QueryProposalResponse, QueryProposalsRequest, QueryProposalsResponse, QueryVoteRequest, QueryVoteResponse, QueryVotesRequest, QueryVotesResponse, QueryParamsRequest, QueryParamsResponse, QueryDepositRequest, QueryDepositResponse, QueryDepositsRequest, QueryDepositsResponse, QueryTallyResultRequest, QueryTallyResultResponse } from "./query";
 /** Query defines the gRPC querier service for gov module */

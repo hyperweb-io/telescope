@@ -3,9 +3,9 @@ import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } fr
 import { GroupID, GroupIDSDKType } from "./groupid.js";
 import { Group, GroupSDKType } from "./group.js";
 import { Account, AccountSDKType } from "../../escrow/v1beta2/types.js";
-import { TxRpc } from "../../../types.js";
+import type { TxRpc } from "../../../types.js";
 import { BinaryReader } from "../../../binary.js";
-import { QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
+import { type QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
 import { QueryDeploymentsRequest, QueryDeploymentsRequestSDKType, QueryDeploymentsResponse, QueryDeploymentsResponseSDKType, QueryDeploymentRequest, QueryDeploymentRequestSDKType, QueryDeploymentResponse, QueryDeploymentResponseSDKType, QueryGroupRequest, QueryGroupRequestSDKType, QueryGroupResponse, QueryGroupResponseSDKType } from "./query.js";
 /** Query defines the gRPC querier service */
 export interface Query {

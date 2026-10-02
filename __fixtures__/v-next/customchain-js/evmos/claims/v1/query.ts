@@ -1,9 +1,9 @@
-import { PageRequest, PageRequestAmino, PageResponse, PageResponseAmino } from "../../../cosmos/base/query/v1beta1/pagination";
-import { Coin, CoinAmino } from "../../../cosmos/base/v1beta1/coin";
-import { ClaimsRecordAddress, ClaimsRecordAddressAmino, Claim, ClaimAmino } from "./claims";
+import { PageRequest, type PageRequestAmino, PageResponse, type PageResponseAmino } from "../../../cosmos/base/query/v1beta1/pagination";
+import { Coin, type CoinAmino } from "../../../cosmos/base/v1beta1/coin";
+import { ClaimsRecordAddress, type ClaimsRecordAddressAmino, Claim, type ClaimAmino } from "./claims";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
-import { EvmosClaimsV1Params, EvmosClaimsV1ParamsAmino } from "./genesis";
+import type { DeepPartial } from "../../../helpers";
+import { EvmosClaimsV1Params, type EvmosClaimsV1ParamsAmino } from "./genesis";
 /**
  * QueryTotalUnclaimedRequest is the request type for the Query/TotalUnclaimed
  * RPC method.

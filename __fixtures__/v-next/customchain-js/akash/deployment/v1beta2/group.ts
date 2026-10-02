@@ -1,7 +1,7 @@
-import { GroupID, GroupIDAmino } from "./groupid";
-import { GroupSpec, GroupSpecAmino } from "./groupspec";
+import { GroupID, type GroupIDAmino } from "./groupid";
+import { GroupSpec, type GroupSpecAmino } from "./groupspec";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /** State is an enum which refers to state of group */
 export enum Group_State {
   /** invalid - Prefix should start with 0 in enum. So declaring dummy state */

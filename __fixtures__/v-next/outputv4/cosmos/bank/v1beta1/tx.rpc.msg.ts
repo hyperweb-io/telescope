@@ -1,6 +1,6 @@
 import { Coin, CoinSDKType } from "../../base/v1beta1/coin.js";
 import { Input, InputSDKType, Output, OutputSDKType } from "./bank.js";
-import { TxRpc } from "../../../types.js";
+import type { TxRpc } from "../../../types.js";
 import { BinaryReader } from "../../../binary.js";
 import { MsgSend, MsgSendSDKType, MsgSendResponse, MsgSendResponseSDKType, MsgMultiSend, MsgMultiSendSDKType, MsgMultiSendResponse, MsgMultiSendResponseSDKType } from "./tx.js";
 /** Msg defines the bank Msg service. */

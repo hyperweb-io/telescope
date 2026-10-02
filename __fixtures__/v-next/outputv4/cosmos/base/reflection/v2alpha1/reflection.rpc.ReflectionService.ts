@@ -1,6 +1,6 @@
-import { TxRpc } from "../../../../types.js";
+import type { TxRpc } from "../../../../types.js";
 import { BinaryReader } from "../../../../binary.js";
-import { QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
+import { type QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
 import { GetAuthnDescriptorRequest, GetAuthnDescriptorRequestSDKType, GetAuthnDescriptorResponse, GetAuthnDescriptorResponseSDKType, GetChainDescriptorRequest, GetChainDescriptorRequestSDKType, GetChainDescriptorResponse, GetChainDescriptorResponseSDKType, GetCodecDescriptorRequest, GetCodecDescriptorRequestSDKType, GetCodecDescriptorResponse, GetCodecDescriptorResponseSDKType, GetConfigurationDescriptorRequest, GetConfigurationDescriptorRequestSDKType, GetConfigurationDescriptorResponse, GetConfigurationDescriptorResponseSDKType, GetQueryServicesDescriptorRequest, GetQueryServicesDescriptorRequestSDKType, GetQueryServicesDescriptorResponse, GetQueryServicesDescriptorResponseSDKType, GetTxDescriptorRequest, GetTxDescriptorRequestSDKType, GetTxDescriptorResponse, GetTxDescriptorResponseSDKType } from "./reflection.js";
 /** ReflectionService defines a service for application reflection. */
 export interface ReflectionService {

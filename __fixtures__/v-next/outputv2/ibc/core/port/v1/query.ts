@@ -1,8 +1,8 @@
-import { Order, Counterparty, CounterpartyAmino, CounterpartySDKType, orderFromJSON, orderToJSON } from "../../channel/v1/channel";
-import { isSet, DeepPartial } from "../../../../helpers";
+import { type Order, Counterparty, type CounterpartyAmino, type CounterpartySDKType, orderFromJSON, orderToJSON } from "../../channel/v1/channel";
+import { isSet, type DeepPartial } from "../../../../helpers";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
 import { GlobalDecoderRegistry } from "../../../../registry";
-import { JsonSafe } from "../../../../json-safe";
+import type { JsonSafe } from "../../../../json-safe";
 export const protobufPackage = "ibc.core.port.v1";
 /**
  * QueryAppVersionRequest is the request type for the Query/AppVersion RPC method

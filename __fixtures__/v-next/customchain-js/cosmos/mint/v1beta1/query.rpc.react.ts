@@ -1,5 +1,5 @@
 import { buildUseQuery } from "../../../react-query";
-import { QueryParamsRequest, QueryParamsResponse, QueryInflationRequest, QueryInflationResponse, QueryAnnualProvisionsRequest, QueryAnnualProvisionsResponse } from "./query";
+import type { QueryParamsRequest, QueryParamsResponse, QueryInflationRequest, QueryInflationResponse, QueryAnnualProvisionsRequest, QueryAnnualProvisionsResponse } from "./query";
 import { getCosmosMintV1beta1Params, getInflation, getAnnualProvisions } from "./query.rpc.func";
 /**
  * Params returns the total set of minting parameters.

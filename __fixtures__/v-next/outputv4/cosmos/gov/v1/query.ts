@@ -1,8 +1,8 @@
-import { ProposalStatus, ProposalStatusSDKType, Proposal, ProposalSDKType, Vote, VoteSDKType, VotingParams, VotingParamsSDKType, DepositParams, DepositParamsSDKType, TallyParams, TallyParamsSDKType, Deposit, DepositSDKType, TallyResult, TallyResultSDKType, proposalStatusFromJSON, proposalStatusToJSON } from "./gov.js";
-import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../base/query/v1beta1/pagination.js";
+import { type ProposalStatus, ProposalStatusSDKType, Proposal, type ProposalSDKType, Vote, type VoteSDKType, VotingParams, type VotingParamsSDKType, DepositParams, type DepositParamsSDKType, TallyParams, type TallyParamsSDKType, Deposit, type DepositSDKType, TallyResult, type TallyResultSDKType, proposalStatusFromJSON, proposalStatusToJSON } from "./gov.js";
+import { PageRequest, type PageRequestSDKType, PageResponse, type PageResponseSDKType } from "../../base/query/v1beta1/pagination.js";
 import { BinaryReader, BinaryWriter } from "../../../binary.js";
-import { isSet, DeepPartial } from "../../../helpers.js";
-import { JsonSafe } from "../../../json-safe.js";
+import { isSet, type DeepPartial } from "../../../helpers.js";
+import type { JsonSafe } from "../../../json-safe.js";
 export const protobufPackage = "cosmos.gov.v1";
 /**
  * QueryProposalRequest is the request type for the Query/Proposal RPC method.

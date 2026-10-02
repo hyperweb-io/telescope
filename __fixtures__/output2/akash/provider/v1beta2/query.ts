@@ -3,8 +3,8 @@
 import { PageRequest, PageResponse } from "../../../cosmos/base/query/v1beta1/pagination";
 import { Provider } from "./provider";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial, Rpc } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { isSet, type DeepPartial, type Rpc } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "akash.provider.v1beta2";
 /** QueryProvidersRequest is request type for the Query/Providers RPC method */
 export interface QueryProvidersRequest {

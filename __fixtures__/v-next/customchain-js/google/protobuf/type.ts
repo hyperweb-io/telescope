@@ -1,7 +1,7 @@
-import { SourceContext, SourceContextAmino } from "./source_context";
-import { Any, AnyAmino } from "./any";
+import { SourceContext, type SourceContextAmino } from "./source_context";
+import { Any, type AnyAmino } from "./any";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { DeepPartial } from "../../helpers";
+import type { DeepPartial } from "../../helpers";
 /** Basic field types. */
 export enum Field_Kind {
   /** TYPE_UNKNOWN - Field type unknown. */

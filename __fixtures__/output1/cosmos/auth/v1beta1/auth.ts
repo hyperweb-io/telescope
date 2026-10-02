@@ -1,7 +1,7 @@
-import { Any, AnySDKType } from "../../../google/protobuf/any";
-import { Long, isSet, DeepPartial } from "../../../helpers";
+import { Any, type AnySDKType } from "../../../google/protobuf/any";
+import { Long, isSet, type DeepPartial } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../json-safe";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "cosmos.auth.v1beta1";
 /**
  * BaseAccount defines a base account type. It contains all the necessary fields

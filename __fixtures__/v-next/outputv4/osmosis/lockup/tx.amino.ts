@@ -2,8 +2,8 @@
 import { Duration, DurationSDKType } from "../../google/protobuf/duration.js";
 import { Coin, CoinSDKType } from "../../cosmos/base/v1beta1/coin.js";
 import { PeriodLock, PeriodLockSDKType } from "./lock.js";
-import { AminoMsg } from "@cosmjs/amino";
-import { MsgLockTokens, MsgLockTokensSDKType, MsgBeginUnlockingAll, MsgBeginUnlockingAllSDKType, MsgBeginUnlocking, MsgBeginUnlockingSDKType, MsgExtendLockup, MsgExtendLockupSDKType, MsgForceUnlock, MsgForceUnlockSDKType } from "./tx.js";
+import type { AminoMsg } from "@cosmjs/amino";
+import { type MsgLockTokens, MsgLockTokensSDKType, type MsgBeginUnlockingAll, MsgBeginUnlockingAllSDKType, type MsgBeginUnlocking, MsgBeginUnlockingSDKType, type MsgExtendLockup, MsgExtendLockupSDKType, type MsgForceUnlock, MsgForceUnlockSDKType } from "./tx.js";
 export interface MsgLockTokensAminoType extends AminoMsg {
   type: "osmosis/lockup/lock-tokens";
   value: {

@@ -1,7 +1,7 @@
-import { PageRequest, PageRequestAmino, PageResponse, PageResponseAmino } from "../../../cosmos/base/query/v1beta1/pagination";
-import { Account, AccountAmino, FractionalPayment, FractionalPaymentAmino } from "./types";
+import { PageRequest, type PageRequestAmino, PageResponse, type PageResponseAmino } from "../../../cosmos/base/query/v1beta1/pagination";
+import { Account, type AccountAmino, FractionalPayment, type FractionalPaymentAmino } from "./types";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * QueryAccountRequest is request type for the Query/Account RPC method
  * @name QueryAccountsRequest

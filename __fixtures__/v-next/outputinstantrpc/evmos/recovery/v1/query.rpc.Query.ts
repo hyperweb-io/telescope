@@ -1,5 +1,5 @@
 import { Params, ParamsSDKType } from "./genesis";
-import { TxRpc } from "../../../types";
+import type { TxRpc } from "../../../types";
 import { BinaryReader } from "../../../binary";
 import { QueryParamsRequest, QueryParamsRequestSDKType, QueryParamsResponse, QueryParamsResponseSDKType } from "./query";
 /** Query defines the gRPC querier service. */

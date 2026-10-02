@@ -1,7 +1,7 @@
 import { Timestamp } from "../../../google/protobuf/timestamp";
-import { Duration, DurationAmino } from "../../../google/protobuf/duration";
+import { Duration, type DurationAmino } from "../../../google/protobuf/duration";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { toTimestamp, fromTimestamp, DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers";
+import { toTimestamp, fromTimestamp, type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers";
 /**
  * ValidatorSigningInfo defines a validator's signing info for monitoring their
  * liveness activity.

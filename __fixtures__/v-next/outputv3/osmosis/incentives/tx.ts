@@ -1,9 +1,9 @@
-import { QueryCondition, QueryConditionAmino, QueryConditionSDKType } from "../lockup/lock";
-import { Coin, CoinAmino, CoinSDKType } from "../../cosmos/base/v1beta1/coin";
+import { QueryCondition, type QueryConditionAmino, type QueryConditionSDKType } from "../lockup/lock";
+import { Coin, type CoinAmino, type CoinSDKType } from "../../cosmos/base/v1beta1/coin";
 import { Timestamp, TimestampAmino, TimestampSDKType } from "../../google/protobuf/timestamp";
 import { BinaryReader, BinaryWriter } from "../../binary";
 import { GlobalDecoderRegistry } from "../../registry";
-import { toTimestamp, fromTimestamp, isSet, DeepPartial } from "../../helpers";
+import { toTimestamp, fromTimestamp, isSet, type DeepPartial } from "../../helpers";
 export const protobufPackage = "osmosis.incentives";
 /**
  * MsgCreateGauge creates a gague to distribute rewards to users

@@ -1,10 +1,10 @@
 import { Params as Params1 } from "../../controller/v1/controller";
-import { ParamsSDKType as Params1SDKType } from "../../controller/v1/controller";
+import type { ParamsSDKType as Params1SDKType } from "../../controller/v1/controller";
 import { Params as Params2 } from "../../host/v1/host";
-import { ParamsSDKType as Params2SDKType } from "../../host/v1/host";
+import type { ParamsSDKType as Params2SDKType } from "../../host/v1/host";
 import { BinaryReader, BinaryWriter } from "../../../../../binary";
-import { isSet, DeepPartial } from "../../../../../helpers";
-import { JsonSafe } from "../../../../../json-safe";
+import { isSet, type DeepPartial } from "../../../../../helpers";
+import type { JsonSafe } from "../../../../../json-safe";
 export const protobufPackage = "ibc.applications.interchain_accounts.genesis.v1";
 /**
  * GenesisState defines the interchain accounts genesis state

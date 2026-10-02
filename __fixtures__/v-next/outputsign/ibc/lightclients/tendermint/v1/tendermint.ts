@@ -1,12 +1,12 @@
-import { Duration, DurationAmino, DurationSDKType } from "../../../../google/protobuf/duration";
-import { Height, HeightAmino, HeightSDKType } from "../../../core/client/v1/client";
-import { ProofSpec, ProofSpecAmino, ProofSpecSDKType } from "../../../../confio/proofs";
+import { Duration, type DurationAmino, type DurationSDKType } from "../../../../google/protobuf/duration";
+import { Height, type HeightAmino, type HeightSDKType } from "../../../core/client/v1/client";
+import { ProofSpec, type ProofSpecAmino, type ProofSpecSDKType } from "../../../../confio/proofs";
 import { Timestamp, TimestampAmino, TimestampSDKType } from "../../../../google/protobuf/timestamp";
-import { MerkleRoot, MerkleRootAmino, MerkleRootSDKType } from "../../../core/commitment/v1/commitment";
-import { SignedHeader, SignedHeaderAmino, SignedHeaderSDKType } from "../../../../tendermint/types/types";
-import { ValidatorSet, ValidatorSetAmino, ValidatorSetSDKType } from "../../../../tendermint/types/validator";
+import { MerkleRoot, type MerkleRootAmino, type MerkleRootSDKType } from "../../../core/commitment/v1/commitment";
+import { SignedHeader, type SignedHeaderAmino, type SignedHeaderSDKType } from "../../../../tendermint/types/types";
+import { ValidatorSet, type ValidatorSetAmino, type ValidatorSetSDKType } from "../../../../tendermint/types/validator";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial, toTimestamp, fromTimestamp, bytesFromBase64, base64FromBytes } from "../../../../helpers";
+import { type DeepPartial, toTimestamp, fromTimestamp, bytesFromBase64, base64FromBytes } from "../../../../helpers";
 export const protobufPackage = "ibc.lightclients.tendermint.v1";
 /**
  * ClientState from Tendermint tracks the current validator set, latest height,

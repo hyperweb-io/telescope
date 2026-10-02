@@ -1,7 +1,7 @@
-import { MsgStoreCode, MsgStoreCodeAmino, MsgInstantiateContract, MsgInstantiateContractAmino, MsgExecuteContract, MsgExecuteContractAmino } from "./tx";
-import { CodeInfo, CodeInfoAmino, ContractInfo, ContractInfoAmino, Model, ModelAmino, CosmwasmWasmV1Params, CosmwasmWasmV1ParamsAmino } from "./types";
+import { MsgStoreCode, type MsgStoreCodeAmino, MsgInstantiateContract, type MsgInstantiateContractAmino, MsgExecuteContract, type MsgExecuteContractAmino } from "./tx";
+import { CodeInfo, type CodeInfoAmino, ContractInfo, type ContractInfoAmino, Model, type ModelAmino, CosmwasmWasmV1Params, type CosmwasmWasmV1ParamsAmino } from "./types";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers";
+import { type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers";
 /**
  * GenesisState - genesis state of x/wasm
  * @name GenesisState

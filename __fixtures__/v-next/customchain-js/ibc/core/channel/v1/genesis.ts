@@ -1,6 +1,6 @@
-import { IdentifiedChannel, IdentifiedChannelAmino, PacketState, PacketStateAmino } from "./channel";
+import { IdentifiedChannel, type IdentifiedChannelAmino, PacketState, type PacketStateAmino } from "./channel";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial } from "../../../../helpers";
+import type { DeepPartial } from "../../../../helpers";
 /**
  * GenesisState defines the ibc channel submodule's genesis state.
  * @name GenesisState

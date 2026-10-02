@@ -1,9 +1,9 @@
-import { Deployment, DeploymentSDKType } from "./deployment.js";
-import { Group, GroupSDKType } from "./group.js";
-import { Params, ParamsSDKType } from "./params.js";
+import { Deployment, type DeploymentSDKType } from "./deployment.js";
+import { Group, type GroupSDKType } from "./group.js";
+import { Params, type ParamsSDKType } from "./params.js";
 import { BinaryReader, BinaryWriter } from "../../../binary.js";
-import { isSet, Exact } from "../../../helpers.js";
-import { JsonSafe } from "../../../json-safe.js";
+import { isSet, type Exact } from "../../../helpers.js";
+import type { JsonSafe } from "../../../json-safe.js";
 export const protobufPackage = "akash.deployment.v1beta1";
 /**
  * GenesisDeployment defines the basic genesis state used by deployment module

@@ -1,8 +1,8 @@
-import { PageRequest, PageRequestAmino, PageResponse, PageResponseAmino } from "../../../../cosmos/base/query/v1beta1/pagination";
-import { Any, AnyAmino } from "../../../../google/protobuf/any";
-import { Height, HeightAmino, IdentifiedClientState, IdentifiedClientStateAmino, ConsensusStateWithHeight, ConsensusStateWithHeightAmino, IbcCoreClientV1Params, IbcCoreClientV1ParamsAmino } from "./client";
+import { PageRequest, type PageRequestAmino, PageResponse, type PageResponseAmino } from "../../../../cosmos/base/query/v1beta1/pagination";
+import { Any, type AnyAmino } from "../../../../google/protobuf/any";
+import { Height, type HeightAmino, IdentifiedClientState, type IdentifiedClientStateAmino, ConsensusStateWithHeight, type ConsensusStateWithHeightAmino, IbcCoreClientV1Params, type IbcCoreClientV1ParamsAmino } from "./client";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers";
+import { type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers";
 /**
  * QueryClientStateRequest is the request type for the Query/ClientState RPC
  * method

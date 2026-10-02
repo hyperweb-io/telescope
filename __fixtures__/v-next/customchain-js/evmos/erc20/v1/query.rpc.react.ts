@@ -1,5 +1,5 @@
 import { buildUseQuery } from "../../../react-query";
-import { QueryTokenPairsRequest, QueryTokenPairsResponse, QueryTokenPairRequest, QueryTokenPairResponse, QueryParamsRequest, QueryParamsResponse } from "./query";
+import type { QueryTokenPairsRequest, QueryTokenPairsResponse, QueryTokenPairRequest, QueryTokenPairResponse, QueryParamsRequest, QueryParamsResponse } from "./query";
 import { getTokenPairs, getTokenPair, getEvmosErc20V1Params } from "./query.rpc.func";
 /**
  * TokenPairs retrieves registered token pairs

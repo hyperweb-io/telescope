@@ -1,7 +1,7 @@
-import { InterchainAccountPacketData, InterchainAccountPacketDataSDKType } from "../../v1/packet";
+import { InterchainAccountPacketData, type InterchainAccountPacketDataSDKType } from "../../v1/packet";
 import { BinaryReader, BinaryWriter } from "../../../../../binary";
-import { isSet, DeepPartial } from "../../../../../helpers";
-import { JsonSafe } from "../../../../../json-safe";
+import { isSet, type DeepPartial } from "../../../../../helpers";
+import type { JsonSafe } from "../../../../../json-safe";
 export const protobufPackage = "ibc.applications.interchain_accounts.controller.v1";
 /**
  * MsgRegisterInterchainAccount defines the payload for Msg/RegisterAccount

@@ -1,6 +1,6 @@
-import { Certificate, CertificateAmino, CertificateSDKType } from "./cert";
+import { Certificate, type CertificateAmino, type CertificateSDKType } from "./cert";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial, Exact } from "../../../helpers";
+import type { DeepPartial, Exact } from "../../../helpers";
 export const protobufPackage = "akash.cert.v1beta2";
 /**
  * GenesisCertificate defines certificate entry at genesis

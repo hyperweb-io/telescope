@@ -1,8 +1,8 @@
-import { ResourceValue, ResourceValueAmino } from "./resourcevalue";
-import { Attribute, AttributeAmino } from "./attribute";
-import { Endpoint, EndpointAmino } from "./endpoint";
+import { ResourceValue, type ResourceValueAmino } from "./resourcevalue";
+import { Attribute, type AttributeAmino } from "./attribute";
+import { Endpoint, type EndpointAmino } from "./endpoint";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * CPU stores resource units and cpu config attributes
  * @name CPU

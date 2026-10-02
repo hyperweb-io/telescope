@@ -1,5 +1,5 @@
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { DeepPartial, isSet } from "../../helpers";
+import { type DeepPartial, isSet } from "../../helpers";
 import { GlobalDecoderRegistry } from "../../registry";
 export const protobufPackage = "google.api";
 /** Supported data type of the property values */

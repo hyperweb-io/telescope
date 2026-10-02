@@ -1,5 +1,5 @@
-import { MerklePrefix, MerklePrefixAmino, MerklePrefixSDKType } from "../../commitment/v1/commitment";
-import { isSet, DeepPartial } from "../../../../helpers";
+import { MerklePrefix, type MerklePrefixAmino, type MerklePrefixSDKType } from "../../commitment/v1/commitment";
+import { isSet, type DeepPartial } from "../../../../helpers";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
 import { GlobalDecoderRegistry } from "../../../../registry";
 export const protobufPackage = "ibc.core.connection.v1";

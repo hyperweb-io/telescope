@@ -1,8 +1,8 @@
 //@ts-nocheck
 import { Coin, CoinSDKType } from "../../cosmos/base/v1beta1/coin";
-import { AminoMsg } from "@cosmjs/amino";
+import type { AminoMsg } from "@cosmjs/amino";
 import { omitDefault } from "../../helpers";
-import { MsgSuperfluidDelegate, MsgSuperfluidDelegateSDKType, MsgSuperfluidUndelegate, MsgSuperfluidUndelegateSDKType, MsgSuperfluidUnbondLock, MsgSuperfluidUnbondLockSDKType, MsgLockAndSuperfluidDelegate, MsgLockAndSuperfluidDelegateSDKType, MsgUnPoolWhitelistedPool, MsgUnPoolWhitelistedPoolSDKType } from "./tx";
+import { type MsgSuperfluidDelegate, MsgSuperfluidDelegateSDKType, type MsgSuperfluidUndelegate, MsgSuperfluidUndelegateSDKType, type MsgSuperfluidUnbondLock, MsgSuperfluidUnbondLockSDKType, type MsgLockAndSuperfluidDelegate, MsgLockAndSuperfluidDelegateSDKType, type MsgUnPoolWhitelistedPool, MsgUnPoolWhitelistedPoolSDKType } from "./tx";
 export interface MsgSuperfluidDelegateAminoType extends AminoMsg {
   type: "osmosis/superfluid-delegate";
   value: {

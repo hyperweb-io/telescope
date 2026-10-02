@@ -4,8 +4,8 @@ import { ClaimsRecordAddress } from "./claims";
 import { Timestamp } from "../../../google/protobuf/timestamp";
 import { Duration } from "../../../google/protobuf/duration";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial, fromJsonTimestamp, fromTimestamp } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { isSet, type DeepPartial, fromJsonTimestamp, fromTimestamp } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "evmos.claims.v1";
 /** GenesisState define the claims module's genesis state. */
 export interface GenesisState {

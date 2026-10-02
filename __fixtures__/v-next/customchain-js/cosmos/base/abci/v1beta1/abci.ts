@@ -1,7 +1,7 @@
-import { Any, AnyAmino } from "../../../../google/protobuf/any";
-import { Event, EventAmino } from "../../../../tendermint/abci/types";
+import { Any, type AnyAmino } from "../../../../google/protobuf/any";
+import { Event, type EventAmino } from "../../../../tendermint/abci/types";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers";
+import { type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers";
 /**
  * TxResponse defines a structure containing relevant tx data and metadata. The
  * tags are stringified and the log is JSON decoded.

@@ -1,6 +1,6 @@
-import { DecCoin, DecCoinAmino, DecCoinSDKType, Coin, CoinAmino, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
+import { DecCoin, type DecCoinAmino, type DecCoinSDKType, Coin, type CoinAmino, type CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet, DeepPartial } from "../../../helpers";
+import { isSet, type DeepPartial } from "../../../helpers";
 import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "akash.escrow.v1beta2";
 /** State stores state for an escrow account */

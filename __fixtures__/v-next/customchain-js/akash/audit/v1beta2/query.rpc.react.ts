@@ -1,5 +1,5 @@
 import { buildUseQuery } from "../../../react-query";
-import { QueryAllProvidersAttributesRequest, QueryProvidersResponse, QueryProviderAttributesRequest, QueryProviderAuditorRequest, QueryAuditorAttributesRequest } from "./query";
+import type { QueryAllProvidersAttributesRequest, QueryProvidersResponse, QueryProviderAttributesRequest, QueryProviderAuditorRequest, QueryAuditorAttributesRequest } from "./query";
 import { getAllProvidersAttributes, getProviderAttributes, getProviderAuditorAttributes, getAuditorAttributes } from "./query.rpc.func";
 /**
  * AllProvidersAttributes queries all providers

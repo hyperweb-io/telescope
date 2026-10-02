@@ -1,8 +1,8 @@
-import { Deployment, DeploymentAmino, DeploymentSDKType } from "./deployment";
-import { Group, GroupAmino, GroupSDKType } from "./group";
-import { Params, ParamsAmino, ParamsSDKType } from "./params";
+import { Deployment, type DeploymentAmino, type DeploymentSDKType } from "./deployment";
+import { Group, type GroupAmino, type GroupSDKType } from "./group";
+import { Params, type ParamsAmino, type ParamsSDKType } from "./params";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial, Exact } from "../../../helpers";
+import type { DeepPartial, Exact } from "../../../helpers";
 export const protobufPackage = "akash.deployment.v1beta2";
 /**
  * GenesisDeployment defines the basic genesis state used by deployment module

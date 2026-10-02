@@ -1,5 +1,5 @@
-import { MsgCreateBid, MsgCloseBid } from "./bid";
-import { MsgWithdrawLease, MsgCreateLease, MsgCloseLease } from "./lease";
+import type { MsgCreateBid, MsgCloseBid } from "./bid";
+import type { MsgWithdrawLease, MsgCreateLease, MsgCloseLease } from "./lease";
 import { buildUseMutation } from "../../../react-query";
 import { createBid, closeBid, withdrawLease, createLease, closeLease } from "./service.rpc.func";
 /**

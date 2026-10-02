@@ -1,7 +1,7 @@
-import { GroupInfo, GroupInfoAmino, GroupInfoSDKType, GroupMember, GroupMemberAmino, GroupMemberSDKType, GroupPolicyInfo, GroupPolicyInfoAmino, GroupPolicyInfoSDKType, Proposal, ProposalAmino, ProposalSDKType, Vote, VoteAmino, VoteSDKType } from "./types";
+import { GroupInfo, type GroupInfoAmino, type GroupInfoSDKType, GroupMember, type GroupMemberAmino, type GroupMemberSDKType, GroupPolicyInfo, type GroupPolicyInfoAmino, type GroupPolicyInfoSDKType, Proposal, type ProposalAmino, type ProposalSDKType, Vote, type VoteAmino, type VoteSDKType } from "./types";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet, DeepPartial } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { isSet, type DeepPartial } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "cosmos.group.v1";
 /**

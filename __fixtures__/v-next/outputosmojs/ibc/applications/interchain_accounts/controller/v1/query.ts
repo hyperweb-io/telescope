@@ -1,7 +1,7 @@
-import { Params, ParamsSDKType } from "./controller";
+import { Params, type ParamsSDKType } from "./controller";
 import { BinaryReader, BinaryWriter } from "../../../../../binary";
-import { isSet, DeepPartial } from "../../../../../helpers";
-import { JsonSafe } from "../../../../../json-safe";
+import { isSet, type DeepPartial } from "../../../../../helpers";
+import type { JsonSafe } from "../../../../../json-safe";
 export const protobufPackage = "ibc.applications.interchain_accounts.controller.v1";
 /**
  * QueryInterchainAccountRequest is the request type for the Query/InterchainAccount RPC method.

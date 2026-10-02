@@ -1,9 +1,9 @@
 /* eslint-disable */
 import { OrderID, OrderIDSDKType } from "./order";
 import { DecCoin, DecCoinSDKType, Coin, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
-import { BidID, BidIDSDKType, MsgCreateBid, MsgCreateBidSDKType, MsgCloseBid, MsgCloseBidSDKType } from "./bid";
-import { LeaseID, LeaseIDSDKType, MsgWithdrawLease, MsgWithdrawLeaseSDKType, MsgCreateLease, MsgCreateLeaseSDKType, MsgCloseLease, MsgCloseLeaseSDKType } from "./lease";
-import { AminoMsg } from "@cosmjs/amino";
+import { BidID, BidIDSDKType, type MsgCreateBid, MsgCreateBidSDKType, type MsgCloseBid, MsgCloseBidSDKType } from "./bid";
+import { LeaseID, LeaseIDSDKType, type MsgWithdrawLease, MsgWithdrawLeaseSDKType, type MsgCreateLease, MsgCreateLeaseSDKType, type MsgCloseLease, MsgCloseLeaseSDKType } from "./lease";
+import type { AminoMsg } from "@cosmjs/amino";
 import { Long } from "../../../helpers";
 export interface MsgCreateBidAminoType extends AminoMsg {
   type: "akash/market/v1beta2/testonly-create-bid";

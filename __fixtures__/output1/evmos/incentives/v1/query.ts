@@ -1,10 +1,10 @@
-import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../../cosmos/base/query/v1beta1/pagination";
-import { Incentive, IncentiveSDKType, GasMeter, GasMeterSDKType } from "./incentives";
-import { DecCoin, DecCoinSDKType } from "../../../cosmos/base/v1beta1/coin";
-import { Params, ParamsSDKType } from "./genesis";
-import { Long, isSet, DeepPartial } from "../../../helpers";
+import { PageRequest, type PageRequestSDKType, PageResponse, type PageResponseSDKType } from "../../../cosmos/base/query/v1beta1/pagination";
+import { Incentive, type IncentiveSDKType, GasMeter, type GasMeterSDKType } from "./incentives";
+import { DecCoin, type DecCoinSDKType } from "../../../cosmos/base/v1beta1/coin";
+import { Params, type ParamsSDKType } from "./genesis";
+import { Long, isSet, type DeepPartial } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../json-safe";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "evmos.incentives.v1";
 /**
  * QueryIncentivesRequest is the request type for the Query/Incentives RPC

@@ -1,7 +1,7 @@
-import { Rpc } from "../../../../helpers";
+import type { Rpc } from "../../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { QueryClient, createProtobufRpcClient, ProtobufRpcClient } from "@cosmjs/stargate";
-import { ReactQueryParams } from "../../../../react-query";
+import { type QueryClient, createProtobufRpcClient, type ProtobufRpcClient } from "@cosmjs/stargate";
+import type { ReactQueryParams } from "../../../../react-query";
 import { useQuery } from "@tanstack/react-query";
 import { ListAllInterfacesRequest, ListAllInterfacesRequestSDKType, ListAllInterfacesResponse, ListAllInterfacesResponseSDKType, ListImplementationsRequest, ListImplementationsRequestSDKType, ListImplementationsResponse, ListImplementationsResponseSDKType } from "./reflection";
 /** ReflectionService defines a service for interface reflection. */

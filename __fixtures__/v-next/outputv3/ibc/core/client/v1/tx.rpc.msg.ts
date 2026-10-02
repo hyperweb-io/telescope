@@ -1,6 +1,6 @@
 import { Any, AnyProtoMsg, AnyAmino, AnySDKType } from "../../../../google/protobuf/any";
 import * as fm from "../../../../grpc-gateway";
-import { MsgCreateClient, MsgCreateClientSDKType, MsgCreateClientResponse, MsgCreateClientResponseSDKType, MsgUpdateClient, MsgUpdateClientSDKType, MsgUpdateClientResponse, MsgUpdateClientResponseSDKType, MsgUpgradeClient, MsgUpgradeClientSDKType, MsgUpgradeClientResponse, MsgUpgradeClientResponseSDKType, MsgSubmitMisbehaviour, MsgSubmitMisbehaviourSDKType, MsgSubmitMisbehaviourResponse, MsgSubmitMisbehaviourResponseSDKType } from "./tx";
+import { type MsgCreateClient, MsgCreateClientSDKType, type MsgCreateClientResponse, MsgCreateClientResponseSDKType, type MsgUpdateClient, MsgUpdateClientSDKType, type MsgUpdateClientResponse, MsgUpdateClientResponseSDKType, type MsgUpgradeClient, MsgUpgradeClientSDKType, type MsgUpgradeClientResponse, MsgUpgradeClientResponseSDKType, type MsgSubmitMisbehaviour, MsgSubmitMisbehaviourSDKType, type MsgSubmitMisbehaviourResponse, MsgSubmitMisbehaviourResponseSDKType } from "./tx";
 export class Msg {
   /** CreateClient defines a rpc handler method for MsgCreateClient. */
   static createClient(request: MsgCreateClient, initRequest?: fm.InitReq): Promise<MsgCreateClientResponse> {

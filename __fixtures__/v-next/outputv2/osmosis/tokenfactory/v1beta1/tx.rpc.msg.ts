@@ -1,6 +1,6 @@
-import { Metadata } from "../../../cosmos/bank/v1beta1/bank";
-import { UnaryMethodDefinitionish } from "../../../grpc-web";
-import { DeepPartial } from "../../../helpers";
+import type { Metadata } from "../../../cosmos/bank/v1beta1/bank";
+import type { UnaryMethodDefinitionish } from "../../../grpc-web";
+import type { DeepPartial } from "../../../helpers";
 import { grpc } from "@improbable-eng/grpc-web";
 import { BrowserHeaders } from "browser-headers";
 import { MsgCreateDenom, MsgCreateDenomResponse, MsgMint, MsgMintResponse, MsgBurn, MsgBurnResponse, MsgChangeAdmin, MsgChangeAdminResponse, MsgSetDenomMetadata, MsgSetDenomMetadataResponse } from "./tx";

@@ -1,7 +1,7 @@
-import { Duration, DurationAmino } from "../../../google/protobuf/duration";
-import { TwapRecord, TwapRecordAmino } from "./twap_record";
+import { Duration, type DurationAmino } from "../../../google/protobuf/duration";
+import { TwapRecord, type TwapRecordAmino } from "./twap_record";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * Params holds parameters for the twap module
  * @name OsmosisTwapV1beta1Params

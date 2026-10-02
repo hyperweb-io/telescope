@@ -1,5 +1,5 @@
 import { buildUseMutation } from "../../react-query";
-import { MsgSuperfluidDelegate, MsgSuperfluidUndelegate, MsgSuperfluidUnbondLock, MsgLockAndSuperfluidDelegate, MsgUnPoolWhitelistedPool } from "./tx";
+import type { MsgSuperfluidDelegate, MsgSuperfluidUndelegate, MsgSuperfluidUnbondLock, MsgLockAndSuperfluidDelegate, MsgUnPoolWhitelistedPool } from "./tx";
 import { superfluidDelegate, superfluidUndelegate, superfluidUnbondLock, lockAndSuperfluidDelegate, unPoolWhitelistedPool } from "./tx.rpc.func";
 /**
  * Execute superfluid delegation for a lockup

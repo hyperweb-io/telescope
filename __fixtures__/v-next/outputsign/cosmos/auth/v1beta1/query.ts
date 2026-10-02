@@ -1,8 +1,8 @@
-import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageResponseAmino, PageResponseSDKType } from "../../base/query/v1beta1/pagination";
-import { Any, AnyProtoMsg, AnyAmino, AnySDKType } from "../../../google/protobuf/any";
-import { Params, ParamsAmino, ParamsSDKType } from "./auth";
+import { PageRequest, type PageRequestAmino, type PageRequestSDKType, PageResponse, type PageResponseAmino, type PageResponseSDKType } from "../../base/query/v1beta1/pagination";
+import { Any, AnyProtoMsg, type AnyAmino, type AnySDKType } from "../../../google/protobuf/any";
+import { Params, type ParamsAmino, type ParamsSDKType } from "./auth";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers";
+import { type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers";
 export const protobufPackage = "cosmos.auth.v1beta1";
 /**
  * QueryAccountsRequest is the request type for the Query/Accounts RPC method.

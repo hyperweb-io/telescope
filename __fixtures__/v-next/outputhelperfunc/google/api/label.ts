@@ -1,6 +1,6 @@
-import { isSet, DeepPartial } from "../../helpers";
+import { isSet, type DeepPartial } from "../../helpers";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { JsonSafe } from "../../json-safe";
+import type { JsonSafe } from "../../json-safe";
 export const protobufPackage = "google.api";
 /** Value types that can be used as label values. */
 export enum LabelDescriptor_ValueType {

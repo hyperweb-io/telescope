@@ -1,6 +1,6 @@
-import { Plan, PlanAmino, PlanSDKType, ModuleVersion, ModuleVersionAmino, ModuleVersionSDKType } from "./upgrade";
+import { Plan, type PlanAmino, type PlanSDKType, ModuleVersion, type ModuleVersionAmino, type ModuleVersionSDKType } from "./upgrade";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial, isSet, bytesFromBase64, base64FromBytes } from "../../../helpers";
+import { type DeepPartial, isSet, bytesFromBase64, base64FromBytes } from "../../../helpers";
 import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "cosmos.upgrade.v1beta1";
 /**

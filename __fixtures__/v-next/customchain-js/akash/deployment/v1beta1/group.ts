@@ -1,8 +1,8 @@
-import { PlacementRequirements, PlacementRequirementsAmino } from "../../base/v1beta1/attribute";
-import { ResourceUnits, ResourceUnitsAmino } from "../../base/v1beta1/resource";
-import { Coin, CoinAmino } from "../../../cosmos/base/v1beta1/coin";
+import { PlacementRequirements, type PlacementRequirementsAmino } from "../../base/v1beta1/attribute";
+import { ResourceUnits, type ResourceUnitsAmino } from "../../base/v1beta1/resource";
+import { Coin, type CoinAmino } from "../../../cosmos/base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /** State is an enum which refers to state of group */
 export enum Group_State {
   /** invalid - Prefix should start with 0 in enum. So declaring dummy state */

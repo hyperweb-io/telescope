@@ -1,6 +1,6 @@
-import { Status, StatusAmino } from "../../../rpc/status";
+import { Status, type StatusAmino } from "../../../rpc/status";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial } from "../../../../helpers";
+import type { DeepPartial } from "../../../../helpers";
 /** Error codes for Check responses. */
 export enum CheckError_Code {
   /** ERROR_CODE_UNSPECIFIED - This is never used in `CheckResponse`. */

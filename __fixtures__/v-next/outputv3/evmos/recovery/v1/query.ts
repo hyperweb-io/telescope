@@ -1,6 +1,6 @@
-import { Params, ParamsAmino, ParamsSDKType } from "./genesis";
+import { Params, type ParamsAmino, type ParamsSDKType } from "./genesis";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial, isSet } from "../../../helpers";
+import { type DeepPartial, isSet } from "../../../helpers";
 import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "evmos.recovery.v1";
 /**

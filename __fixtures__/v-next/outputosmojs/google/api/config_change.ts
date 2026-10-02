@@ -1,6 +1,6 @@
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { isSet, DeepPartial } from "../../helpers";
-import { JsonSafe } from "../../json-safe";
+import { isSet, type DeepPartial } from "../../helpers";
+import type { JsonSafe } from "../../json-safe";
 export const protobufPackage = "google.api";
 /**
  * Classifies set of possible modifications to an object in the service

@@ -1,7 +1,7 @@
 import { Timestamp } from "../../../protobuf/timestamp";
-import { Distribution, DistributionAmino } from "./distribution";
+import { Distribution, type DistributionAmino } from "./distribution";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial, toTimestamp, fromTimestamp } from "../../../../helpers";
+import { type DeepPartial, toTimestamp, fromTimestamp } from "../../../../helpers";
 /**
  * @name MetricValue_LabelsEntry
  * @package google.api.servicecontrol.v1

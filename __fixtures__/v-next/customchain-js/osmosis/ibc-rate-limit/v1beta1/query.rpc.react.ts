@@ -1,5 +1,5 @@
 import { buildUseQuery } from "../../../react-query";
-import { QueryParamsRequest, QueryParamsResponse } from "./query";
+import type { QueryParamsRequest, QueryParamsResponse } from "./query";
 import { getOsmosisIbcratelimitV1beta1Params } from "./query.rpc.func";
 /**
  * Params defines a gRPC query method that returns the ibc-rate-limit module's

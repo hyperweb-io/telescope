@@ -1,5 +1,5 @@
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /** Action defines the list of available actions to claim the airdrop tokens. */
 export enum Action {
   /** ACTION_UNSPECIFIED - UNSPECIFIED defines an invalid action. */

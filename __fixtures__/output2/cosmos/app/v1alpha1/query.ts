@@ -2,8 +2,8 @@
 /* eslint-disable */
 import { Config } from "./config";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../json-safe";
-import { DeepPartial, isSet, Rpc } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
+import { type DeepPartial, isSet, type Rpc } from "../../../helpers";
 export const protobufPackage = "cosmos.app.v1alpha1";
 /** QueryConfigRequest is the Query/Config request type. */
 export interface QueryConfigRequest {}

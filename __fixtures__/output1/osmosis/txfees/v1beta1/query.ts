@@ -1,7 +1,7 @@
-import { FeeToken, FeeTokenSDKType } from "./feetoken";
-import { Long, DeepPartial, isSet } from "../../../helpers";
+import { FeeToken, type FeeTokenSDKType } from "./feetoken";
+import { Long, type DeepPartial, isSet } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../json-safe";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "osmosis.txfees.v1beta1";
 export interface QueryFeeTokensRequest {}
 export interface QueryFeeTokensRequestSDKType {}

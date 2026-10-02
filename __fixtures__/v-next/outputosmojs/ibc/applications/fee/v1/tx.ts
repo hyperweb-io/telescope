@@ -1,7 +1,7 @@
-import { Fee, FeeSDKType, PacketFee, PacketFeeSDKType } from "./fee";
+import { Fee, type FeeSDKType, PacketFee, type PacketFeeSDKType } from "./fee";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { isSet, DeepPartial } from "../../../../helpers";
-import { JsonSafe } from "../../../../json-safe";
+import { isSet, type DeepPartial } from "../../../../helpers";
+import type { JsonSafe } from "../../../../json-safe";
 export const protobufPackage = "ibc.applications.fee.v1";
 /**
  * MsgRegisterPayee defines the request type for the RegisterPayee rpc

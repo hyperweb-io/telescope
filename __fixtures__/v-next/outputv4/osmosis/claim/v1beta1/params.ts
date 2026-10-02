@@ -1,8 +1,8 @@
 import { Timestamp, TimestampSDKType } from "../../../google/protobuf/timestamp.js";
-import { Duration, DurationSDKType } from "../../../google/protobuf/duration.js";
+import { Duration, type DurationSDKType } from "../../../google/protobuf/duration.js";
 import { BinaryReader, BinaryWriter } from "../../../binary.js";
-import { toTimestamp, fromTimestamp, isSet, DeepPartial } from "../../../helpers.js";
-import { JsonSafe } from "../../../json-safe.js";
+import { toTimestamp, fromTimestamp, isSet, type DeepPartial } from "../../../helpers.js";
+import type { JsonSafe } from "../../../json-safe.js";
 export const protobufPackage = "osmosis.claim.v1beta1";
 /**
  * Params defines the claim module's parameters.

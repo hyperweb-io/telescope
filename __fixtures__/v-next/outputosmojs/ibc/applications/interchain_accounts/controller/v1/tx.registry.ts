@@ -1,5 +1,5 @@
 import { InterchainAccountPacketData, InterchainAccountPacketDataSDKType } from "../../v1/packet";
-import { TelescopeGeneratedType } from "../../../../../types";
+import type { TelescopeGeneratedType } from "../../../../../types";
 import { MsgRegisterInterchainAccount, MsgRegisterInterchainAccountSDKType, MsgSendTx, MsgSendTxSDKType } from "./tx";
 export const registry: ReadonlyArray<[string, TelescopeGeneratedType<any, any, any>]> = [["/ibc.applications.interchain_accounts.controller.v1.MsgRegisterInterchainAccount", MsgRegisterInterchainAccount], ["/ibc.applications.interchain_accounts.controller.v1.MsgSendTx", MsgSendTx]];
 export const MessageComposer = {

@@ -1,7 +1,7 @@
-import { Params, ParamsSDKType } from "./params";
+import { Params, type ParamsSDKType } from "./params";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet, DeepPartial } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { isSet, type DeepPartial } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "osmosis.ibcratelimit.v1beta1";
 /**
  * GenesisState defines the ibc-rate-limit module's genesis state.

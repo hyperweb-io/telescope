@@ -1,5 +1,5 @@
 import { Any, AnySDKType } from "../../../google/protobuf/any.js";
-import { TxRpc } from "../../../types.js";
+import type { TxRpc } from "../../../types.js";
 import { BinaryReader } from "../../../binary.js";
 import { MsgSubmitEvidence, MsgSubmitEvidenceSDKType, MsgSubmitEvidenceResponse, MsgSubmitEvidenceResponseSDKType } from "./tx.js";
 /** Msg defines the evidence Msg service. */

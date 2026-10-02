@@ -1,7 +1,7 @@
 import { Timestamp } from "../protobuf/timestamp";
-import { Any, AnyAmino } from "../protobuf/any";
+import { Any, type AnyAmino } from "../protobuf/any";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { DeepPartial, toTimestamp, fromTimestamp } from "../../helpers";
+import { type DeepPartial, toTimestamp, fromTimestamp } from "../../helpers";
 /**
  * `Distribution` contains summary statistics for a population of values. It
  * optionally contains a histogram representing the distribution of those values

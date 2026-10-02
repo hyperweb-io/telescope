@@ -1,12 +1,12 @@
-import { TickInfo, TickInfoSDKType } from "./tickInfo";
-import { Any, AnySDKType } from "../../google/protobuf/any";
-import { IncentiveRecord, IncentiveRecordSDKType } from "./incentive_record";
-import { Params, ParamsSDKType } from "./params";
-import { Position, PositionSDKType } from "./position";
-import { AccumulatorContent, AccumulatorContentSDKType } from "../accum/v1beta1/accum";
+import { TickInfo, type TickInfoSDKType } from "./tickInfo";
+import { Any, type AnySDKType } from "../../google/protobuf/any";
+import { IncentiveRecord, type IncentiveRecordSDKType } from "./incentive_record";
+import { Params, type ParamsSDKType } from "./params";
+import { Position, type PositionSDKType } from "./position";
+import { AccumulatorContent, type AccumulatorContentSDKType } from "../accum/v1beta1/accum";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { isSet, DeepPartial } from "../../helpers";
-import { JsonSafe } from "../../json-safe";
+import { isSet, type DeepPartial } from "../../helpers";
+import type { JsonSafe } from "../../json-safe";
 export const protobufPackage = "osmosis.concentratedliquidity.v1beta1";
 /**
  * FullTick contains tick index and pool id along with other tick model

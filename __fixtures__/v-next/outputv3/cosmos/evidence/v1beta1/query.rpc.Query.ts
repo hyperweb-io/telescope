@@ -1,7 +1,7 @@
 import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../base/query/v1beta1/pagination";
 import { Any, AnyProtoMsg, AnyAmino, AnySDKType } from "../../../google/protobuf/any";
 import * as fm from "../../../grpc-gateway";
-import { QueryEvidenceRequest, QueryEvidenceRequestSDKType, QueryEvidenceResponse, QueryEvidenceResponseSDKType, QueryAllEvidenceRequest, QueryAllEvidenceRequestSDKType, QueryAllEvidenceResponse, QueryAllEvidenceResponseSDKType } from "./query";
+import { type QueryEvidenceRequest, QueryEvidenceRequestSDKType, type QueryEvidenceResponse, QueryEvidenceResponseSDKType, type QueryAllEvidenceRequest, QueryAllEvidenceRequestSDKType, type QueryAllEvidenceResponse, QueryAllEvidenceResponseSDKType } from "./query";
 export class Query {
   /** Evidence queries evidence based on evidence hash. */
   static evidence(request: QueryEvidenceRequest, initRequest?: fm.InitReq): Promise<QueryEvidenceResponse> {

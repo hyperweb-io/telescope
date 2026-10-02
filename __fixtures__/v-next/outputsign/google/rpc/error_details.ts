@@ -1,6 +1,6 @@
-import { Duration, DurationAmino, DurationSDKType } from "../protobuf/duration";
+import { Duration, type DurationAmino, type DurationSDKType } from "../protobuf/duration";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { DeepPartial } from "../../helpers";
+import type { DeepPartial } from "../../helpers";
 export const protobufPackage = "google.rpc";
 /**
  * Describes when the clients can retry a failed request. Clients could ignore

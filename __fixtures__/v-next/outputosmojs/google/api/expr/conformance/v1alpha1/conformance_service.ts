@@ -1,10 +1,10 @@
-import { ParsedExpr, ParsedExprSDKType, SourcePosition, SourcePositionSDKType } from "../../v1alpha1/syntax";
-import { Decl, DeclSDKType, CheckedExpr, CheckedExprSDKType } from "../../v1alpha1/checked";
-import { ExprValue, ExprValueSDKType } from "../../v1alpha1/eval";
-import { Status, StatusSDKType } from "../../../../rpc/status";
+import { ParsedExpr, type ParsedExprSDKType, SourcePosition, type SourcePositionSDKType } from "../../v1alpha1/syntax";
+import { Decl, type DeclSDKType, CheckedExpr, type CheckedExprSDKType } from "../../v1alpha1/checked";
+import { ExprValue, type ExprValueSDKType } from "../../v1alpha1/eval";
+import { Status, type StatusSDKType } from "../../../../rpc/status";
 import { BinaryReader, BinaryWriter } from "../../../../../binary";
-import { isSet, DeepPartial, isObject } from "../../../../../helpers";
-import { JsonSafe } from "../../../../../json-safe";
+import { isSet, type DeepPartial, isObject } from "../../../../../helpers";
+import type { JsonSafe } from "../../../../../json-safe";
 export const protobufPackage = "google.api.expr.conformance.v1alpha1";
 /** Severities of issues. */
 export enum IssueDetails_Severity {

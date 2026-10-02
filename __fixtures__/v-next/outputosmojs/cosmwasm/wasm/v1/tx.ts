@@ -1,8 +1,8 @@
-import { AccessConfig, AccessConfigSDKType } from "./types";
-import { Coin, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
+import { AccessConfig, type AccessConfigSDKType } from "./types";
+import { Coin, type CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet, bytesFromBase64, base64FromBytes, DeepPartial } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { isSet, bytesFromBase64, base64FromBytes, type DeepPartial } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 import { fromBase64, toBase64, toUtf8, fromUtf8 } from "@interchainjs/encoding";
 export const protobufPackage = "cosmwasm.wasm.v1";
 /**

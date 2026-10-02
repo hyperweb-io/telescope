@@ -1,8 +1,8 @@
-import { PageRequest, PageRequestAmino, PageResponse, PageResponseAmino } from "../../base/query/v1beta1/pagination";
-import { ValidatorOutstandingRewards, ValidatorOutstandingRewardsAmino, ValidatorAccumulatedCommission, ValidatorAccumulatedCommissionAmino, ValidatorSlashEvent, ValidatorSlashEventAmino, DelegationDelegatorReward, DelegationDelegatorRewardAmino, CosmosDistributionV1beta1Params, CosmosDistributionV1beta1ParamsAmino } from "./distribution";
-import { DecCoin, DecCoinAmino } from "../../base/v1beta1/coin";
+import { PageRequest, type PageRequestAmino, PageResponse, type PageResponseAmino } from "../../base/query/v1beta1/pagination";
+import { ValidatorOutstandingRewards, type ValidatorOutstandingRewardsAmino, ValidatorAccumulatedCommission, type ValidatorAccumulatedCommissionAmino, ValidatorSlashEvent, type ValidatorSlashEventAmino, DelegationDelegatorReward, type DelegationDelegatorRewardAmino, CosmosDistributionV1beta1Params, type CosmosDistributionV1beta1ParamsAmino } from "./distribution";
+import { DecCoin, type DecCoinAmino } from "../../base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * QueryParamsRequest is the request type for the Query/Params RPC method.
  * @name QueryParamsRequest

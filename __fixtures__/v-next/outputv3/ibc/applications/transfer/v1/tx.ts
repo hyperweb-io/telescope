@@ -1,8 +1,8 @@
-import { Coin, CoinAmino, CoinSDKType } from "../../../../cosmos/base/v1beta1/coin";
-import { Height, HeightAmino, HeightSDKType } from "../../../core/client/v1/client";
+import { Coin, type CoinAmino, type CoinSDKType } from "../../../../cosmos/base/v1beta1/coin";
+import { Height, type HeightAmino, type HeightSDKType } from "../../../core/client/v1/client";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
 import { GlobalDecoderRegistry } from "../../../../registry";
-import { isSet, DeepPartial } from "../../../../helpers";
+import { isSet, type DeepPartial } from "../../../../helpers";
 export const protobufPackage = "ibc.applications.transfer.v1";
 /**
  * MsgTransfer defines a msg to transfer fungible tokens (i.e Coins) between

@@ -1,6 +1,6 @@
 import { Attribute, AttributeSDKType } from "../../base/v1beta2/attribute";
 import * as fm from "../../../grpc-gateway";
-import { MsgSignProviderAttributes, MsgSignProviderAttributesSDKType, MsgSignProviderAttributesResponse, MsgSignProviderAttributesResponseSDKType, MsgDeleteProviderAttributes, MsgDeleteProviderAttributesSDKType, MsgDeleteProviderAttributesResponse, MsgDeleteProviderAttributesResponseSDKType } from "./audit";
+import { type MsgSignProviderAttributes, MsgSignProviderAttributesSDKType, type MsgSignProviderAttributesResponse, MsgSignProviderAttributesResponseSDKType, type MsgDeleteProviderAttributes, MsgDeleteProviderAttributesSDKType, type MsgDeleteProviderAttributesResponse, MsgDeleteProviderAttributesResponseSDKType } from "./audit";
 export class Msg {
   /** SignProviderAttributes defines a method that signs provider attributes */
   static signProviderAttributes(request: MsgSignProviderAttributes, initRequest?: fm.InitReq): Promise<MsgSignProviderAttributesResponse> {

@@ -1,4 +1,4 @@
-import { ProtobufRpcClient } from "@cosmjs/stargate";
+import type { ProtobufRpcClient } from "@cosmjs/stargate";
 import * as _AkashCertV1beta2Querypinia from "./akash/cert/v1beta2/query.pinia.store.js";
 import * as _EvmosErc20V1Querypinia from "./evmos/erc20/v1/query.pinia.store.js";
 import * as _OsmosisGammV1beta1Querypinia from "./osmosis/gamm/v1beta1/query.pinia.store.js";

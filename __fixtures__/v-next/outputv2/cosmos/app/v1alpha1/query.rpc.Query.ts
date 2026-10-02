@@ -1,6 +1,6 @@
 import { grpc } from "@improbable-eng/grpc-web";
-import { UnaryMethodDefinitionish } from "../../../grpc-web";
-import { DeepPartial } from "../../../helpers";
+import type { UnaryMethodDefinitionish } from "../../../grpc-web";
+import type { DeepPartial } from "../../../helpers";
 import { BrowserHeaders } from "browser-headers";
 import { QueryConfigRequest, QueryConfigResponse } from "./query";
 /** Query is the app module query service. */

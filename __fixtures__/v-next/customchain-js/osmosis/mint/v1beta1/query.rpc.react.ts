@@ -1,5 +1,5 @@
 import { buildUseQuery } from "../../../react-query";
-import { QueryParamsRequest, QueryParamsResponse, QueryEpochProvisionsRequest, QueryEpochProvisionsResponse } from "./query";
+import type { QueryParamsRequest, QueryParamsResponse, QueryEpochProvisionsRequest, QueryEpochProvisionsResponse } from "./query";
 import { getOsmosisMintV1beta1Params, getEpochProvisions } from "./query.rpc.func";
 /**
  * Params returns the total set of minting parameters.

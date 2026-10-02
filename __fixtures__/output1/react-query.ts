@@ -7,10 +7,11 @@
 import { getRpcClient } from './extern'
 import {
     useQuery,
-    UseQueryOptions,
+    type UseQueryResult,
+    type UseQueryOptions,
 } from '@tanstack/react-query';
 
-import { HttpEndpoint, ProtobufRpcClient } from '@cosmjs/stargate';
+import { type HttpEndpoint, type ProtobufRpcClient } from '@cosmjs/stargate';
 import { Tendermint34Client } from '@cosmjs/tendermint-rpc';
 
 export interface ReactQueryParams<TResponse, TData = TResponse> {
@@ -28,7 +29,7 @@ export interface UseRpcEndpointQuery<TData> extends ReactQueryParams<string | Ht
 export const useRpcEndpoint = <TData = string | HttpEndpoint>({
     getter,
     options,
-}: UseRpcEndpointQuery<TData>) => {
+}: UseRpcEndpointQuery<TData>): UseQueryResult<TData, Error> => {
     return useQuery<string | HttpEndpoint, Error, TData>(['rpcEndpoint', getter], async () => {
         return await getter();
     }, options);
@@ -37,7 +38,7 @@ export const useRpcEndpoint = <TData = string | HttpEndpoint>({
 export const useRpcClient = <TData = ProtobufRpcClient>({
     rpcEndpoint,
     options,
-}: UseRpcClientQuery<TData>) => {
+}: UseRpcClientQuery<TData>): UseQueryResult<TData, Error> => {
     return useQuery<ProtobufRpcClient, Error, TData>(['rpcClient', rpcEndpoint], async () => {
         return await getRpcClient(rpcEndpoint);
     }, options);
@@ -53,7 +54,7 @@ interface UseTendermintClient extends ReactQueryParams<Tendermint34Client> {
 export const useTendermintClient = ({
     rpcEndpoint,
     options,
-}: UseTendermintClient) => {
+}: UseTendermintClient): { client: Tendermint34Client | undefined } => {
     const { data: client } = useQuery<Tendermint34Client, Error, Tendermint34Client>(
         ['client', 'tendermint', rpcEndpoint],
         () => Tendermint34Client.connect(rpcEndpoint),

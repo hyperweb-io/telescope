@@ -1,10 +1,10 @@
-import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../../../cosmos/base/query/v1beta1/pagination";
-import { IdentifiedPacketFees, IdentifiedPacketFeesSDKType } from "./fee";
-import { Coin, CoinSDKType } from "../../../../cosmos/base/v1beta1/coin";
-import { FeeEnabledChannel, FeeEnabledChannelSDKType } from "./genesis";
+import { PageRequest, type PageRequestSDKType, PageResponse, type PageResponseSDKType } from "../../../../cosmos/base/query/v1beta1/pagination";
+import { IdentifiedPacketFees, type IdentifiedPacketFeesSDKType } from "./fee";
+import { Coin, type CoinSDKType } from "../../../../cosmos/base/v1beta1/coin";
+import { FeeEnabledChannel, type FeeEnabledChannelSDKType } from "./genesis";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { isSet, DeepPartial } from "../../../../helpers";
-import { JsonSafe } from "../../../../json-safe";
+import { isSet, type DeepPartial } from "../../../../helpers";
+import type { JsonSafe } from "../../../../json-safe";
 export const protobufPackage = "ibc.applications.fee.v1";
 /**
  * QueryIncentivizedPacketsRequest defines the request type for the IncentivizedPackets rpc

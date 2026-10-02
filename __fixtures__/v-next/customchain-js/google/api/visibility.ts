@@ -1,5 +1,5 @@
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { DeepPartial } from "../../helpers";
+import type { DeepPartial } from "../../helpers";
 /**
  * `Visibility` defines restrictions for the visibility of service
  * elements.  Restrictions are specified using visibility labels

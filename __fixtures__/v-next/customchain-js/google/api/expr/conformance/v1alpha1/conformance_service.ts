@@ -1,9 +1,9 @@
-import { ParsedExpr, ParsedExprAmino, SourcePosition, SourcePositionAmino } from "../../v1alpha1/syntax";
-import { Decl, DeclAmino, CheckedExpr, CheckedExprAmino } from "../../v1alpha1/checked";
-import { ExprValue, ExprValueAmino } from "../../v1alpha1/eval";
-import { Status, StatusAmino } from "../../../../rpc/status";
+import { ParsedExpr, type ParsedExprAmino, SourcePosition, type SourcePositionAmino } from "../../v1alpha1/syntax";
+import { Decl, type DeclAmino, CheckedExpr, type CheckedExprAmino } from "../../v1alpha1/checked";
+import { ExprValue, type ExprValueAmino } from "../../v1alpha1/eval";
+import { Status, type StatusAmino } from "../../../../rpc/status";
 import { BinaryReader, BinaryWriter } from "../../../../../binary";
-import { DeepPartial } from "../../../../../helpers";
+import type { DeepPartial } from "../../../../../helpers";
 /** Severities of issues. */
 export enum IssueDetails_Severity {
   /** SEVERITY_UNSPECIFIED - An unspecified severity. */

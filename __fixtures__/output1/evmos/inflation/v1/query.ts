@@ -1,8 +1,8 @@
-import { DecCoin, DecCoinSDKType } from "../../../cosmos/base/v1beta1/coin";
-import { Params, ParamsSDKType } from "./genesis";
-import { Long, DeepPartial, isSet } from "../../../helpers";
+import { DecCoin, type DecCoinSDKType } from "../../../cosmos/base/v1beta1/coin";
+import { Params, type ParamsSDKType } from "./genesis";
+import { Long, type DeepPartial, isSet } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../json-safe";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "evmos.inflation.v1";
 /** QueryPeriodRequest is the request type for the Query/Period RPC method. */
 export interface QueryPeriodRequest {}

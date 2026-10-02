@@ -1,6 +1,6 @@
 import { LCDClient } from "@cosmology/lcd";
 import { useEndpoint } from "../../../pinia-endpoint.js";
-import { QuerySpotPriceRequest, QuerySpotPriceRequestSDKType, QuerySpotPriceResponse, QuerySpotPriceResponseSDKType } from "./query.js";
+import { QuerySpotPriceRequest, type QuerySpotPriceRequestSDKType, QuerySpotPriceResponse, type QuerySpotPriceResponseSDKType } from "./query.js";
 import { defineStore } from "pinia";
 import { LCDQueryClient } from "./query.lcd.js";
 export const usePiniaStore = defineStore('osmosis/gamm/v2/query.proto', {
@@ -12,11 +12,13 @@ export const usePiniaStore = defineStore('osmosis/gamm/v2/query.proto', {
   getters: {
     lcdClient() {
       const requestClient = useEndpoint().restClient;
-      return new LCDQueryClient({ requestClient });
+      return new LCDQueryClient({
+        requestClient
+      });
     }
   },
   actions: {
-    async fetchSpotPrice(param : QuerySpotPriceRequestSDKType) {
+    async fetchSpotPrice(param: QuerySpotPriceRequestSDKType) {
       this.spotPrice = await this.lcdClient.spotPrice(param);
       return this.spotPrice;
     }

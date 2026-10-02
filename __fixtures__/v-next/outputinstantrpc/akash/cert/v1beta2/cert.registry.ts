@@ -1,4 +1,4 @@
-import { TelescopeGeneratedType } from "../../../types";
+import type { TelescopeGeneratedType } from "../../../types";
 import { MsgCreateCertificate, MsgCreateCertificateSDKType, MsgRevokeCertificate, MsgRevokeCertificateSDKType } from "./cert";
 export const registry: ReadonlyArray<[string, TelescopeGeneratedType<any, any, any>]> = [["/akash.cert.v1beta2.MsgCreateCertificate", MsgCreateCertificate], ["/akash.cert.v1beta2.MsgRevokeCertificate", MsgRevokeCertificate]];
 export const MessageComposer = {

@@ -1,7 +1,7 @@
-import { Coin, CoinSDKType } from "../../../cosmos/base/v1beta1/coin.js";
+import { Coin, type CoinSDKType } from "../../../cosmos/base/v1beta1/coin.js";
 import { BinaryReader, BinaryWriter } from "../../../binary.js";
-import { isSet, Exact } from "../../../helpers.js";
-import { JsonSafe } from "../../../json-safe.js";
+import { isSet, type Exact } from "../../../helpers.js";
+import type { JsonSafe } from "../../../json-safe.js";
 export const protobufPackage = "akash.deployment.v1beta1";
 /**
  * DepositDeploymentAuthorization allows the grantee to deposit up to spend_limit coins from

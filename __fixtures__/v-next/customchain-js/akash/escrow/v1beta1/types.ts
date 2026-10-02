@@ -1,6 +1,6 @@
-import { Coin, CoinAmino } from "../../../cosmos/base/v1beta1/coin";
+import { Coin, type CoinAmino } from "../../../cosmos/base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /** State stores state for an escrow account */
 export enum Account_State {
   /** invalid - AccountStateInvalid is an invalid state */

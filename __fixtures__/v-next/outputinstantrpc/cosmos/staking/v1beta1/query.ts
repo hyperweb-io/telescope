@@ -1,8 +1,8 @@
-import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../base/query/v1beta1/pagination";
-import { Validator, ValidatorSDKType, DelegationResponse, DelegationResponseSDKType, UnbondingDelegation, UnbondingDelegationSDKType, RedelegationResponse, RedelegationResponseSDKType, HistoricalInfo, HistoricalInfoSDKType, Pool, PoolSDKType, Params, ParamsSDKType } from "./staking";
+import { PageRequest, type PageRequestSDKType, PageResponse, type PageResponseSDKType } from "../../base/query/v1beta1/pagination";
+import { Validator, type ValidatorSDKType, DelegationResponse, type DelegationResponseSDKType, UnbondingDelegation, type UnbondingDelegationSDKType, RedelegationResponse, type RedelegationResponseSDKType, HistoricalInfo, type HistoricalInfoSDKType, Pool, type PoolSDKType, Params, type ParamsSDKType } from "./staking";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet, DeepPartial } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { isSet, type DeepPartial } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "cosmos.staking.v1beta1";
 /**
  * QueryValidatorsRequest is request type for Query/Validators RPC method.

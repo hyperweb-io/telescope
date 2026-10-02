@@ -1,12 +1,12 @@
-import { AccessConfig, AccessConfigAmino, AccessConfigSDKType, VoteOption, VoteOptionSDKType, GenericAuthorization, GenericAuthorizationProtoMsg, GenericAuthorizationSDKType, voteOptionFromJSON, voteOptionToJSON } from "./eval_request";
-import { Any, AnyProtoMsg, AnyAmino, AnySDKType } from "../google/protobuf/any";
-import { Duration, DurationAmino, DurationSDKType } from "../google/protobuf/duration";
+import { AccessConfig, type AccessConfigAmino, type AccessConfigSDKType, type VoteOption, VoteOptionSDKType, GenericAuthorization, type GenericAuthorizationProtoMsg, type GenericAuthorizationSDKType, voteOptionFromJSON, voteOptionToJSON } from "./eval_request";
+import { Any, type AnyProtoMsg, type AnyAmino, type AnySDKType } from "../google/protobuf/any";
+import { Duration, type DurationAmino, type DurationSDKType } from "../google/protobuf/duration";
 import { Timestamp, TimestampAmino, TimestampSDKType } from "../google/protobuf/timestamp";
-import { isSet, toTimestamp, fromTimestamp, bytesFromBase64, base64FromBytes, DeepPartial } from "../helpers";
+import { isSet, toTimestamp, fromTimestamp, bytesFromBase64, base64FromBytes, type DeepPartial } from "../helpers";
 import { BinaryReader, BinaryWriter } from "../binary";
 import { GlobalDecoderRegistry } from "../registry";
 import { Decimal } from "@interchainjs/math";
-import { JsonSafe } from "../json-safe";
+import type { JsonSafe } from "../json-safe";
 import { toUtf8, fromBase64, fromUtf8, toBase64 } from "@interchainjs/encoding";
 import { encodePubkey, decodePubkey } from "@interchainjs/pubkey";
 export const protobufPackage = "misc";

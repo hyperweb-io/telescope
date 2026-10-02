@@ -1,7 +1,7 @@
-import { Any, AnyProtoMsg, AnyAmino } from "../../../google/protobuf/any";
-import { BasicAllowance, BasicAllowanceProtoMsg, PeriodicAllowance, PeriodicAllowanceProtoMsg, AllowedMsgAllowance, AllowedMsgAllowanceProtoMsg } from "./feegrant";
+import { Any, type AnyProtoMsg, type AnyAmino } from "../../../google/protobuf/any";
+import { BasicAllowance, type BasicAllowanceProtoMsg, PeriodicAllowance, type PeriodicAllowanceProtoMsg, AllowedMsgAllowance, type AllowedMsgAllowanceProtoMsg } from "./feegrant";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * MsgGrantAllowance adds permission for Grantee to spend up to Allowance
  * of fees from the account of Granter.

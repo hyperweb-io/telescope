@@ -1,5 +1,5 @@
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { DeepPartial } from "../../helpers";
+import type { DeepPartial } from "../../helpers";
 /**
  * `NullValue` is a singleton enumeration to represent the null value for the
  * `Value` type union.

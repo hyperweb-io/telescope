@@ -1,4 +1,4 @@
-import { Rpc } from "../../../helpers";
+import type { Rpc } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
 import { MsgSend, MsgSendSDKType, MsgSendResponse, MsgSendResponseSDKType } from "./tx";
 /** Msg defines the nft Msg service. */

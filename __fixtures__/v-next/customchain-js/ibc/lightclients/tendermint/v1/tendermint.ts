@@ -1,12 +1,12 @@
-import { Duration, DurationAmino } from "../../../../google/protobuf/duration";
-import { Height, HeightAmino } from "../../../core/client/v1/client";
-import { ProofSpec, ProofSpecAmino } from "../../../../confio/proofs";
+import { Duration, type DurationAmino } from "../../../../google/protobuf/duration";
+import { Height, type HeightAmino } from "../../../core/client/v1/client";
+import { ProofSpec, type ProofSpecAmino } from "../../../../confio/proofs";
 import { Timestamp } from "../../../../google/protobuf/timestamp";
-import { MerkleRoot, MerkleRootAmino } from "../../../core/commitment/v1/commitment";
-import { SignedHeader, SignedHeaderAmino } from "../../../../tendermint/types/types";
-import { ValidatorSet, ValidatorSetAmino } from "../../../../tendermint/types/validator";
+import { MerkleRoot, type MerkleRootAmino } from "../../../core/commitment/v1/commitment";
+import { SignedHeader, type SignedHeaderAmino } from "../../../../tendermint/types/types";
+import { ValidatorSet, type ValidatorSetAmino } from "../../../../tendermint/types/validator";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial, toTimestamp, fromTimestamp, bytesFromBase64, base64FromBytes } from "../../../../helpers";
+import { type DeepPartial, toTimestamp, fromTimestamp, bytesFromBase64, base64FromBytes } from "../../../../helpers";
 /**
  * ClientState from Tendermint tracks the current validator set, latest height,
  * and a possible frozen height.

@@ -1,9 +1,9 @@
-import { PoolParams, PoolParamsAmino, PoolParamsSDKType } from "./stableswap_pool";
-import { Coin, CoinAmino, CoinSDKType } from "../../../../cosmos/base/v1beta1/coin";
+import { PoolParams, type PoolParamsAmino, type PoolParamsSDKType } from "./stableswap_pool";
+import { Coin, type CoinAmino, type CoinSDKType } from "../../../../cosmos/base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
 import { GlobalDecoderRegistry } from "../../../../registry";
-import { isSet, DeepPartial } from "../../../../helpers";
-import { JsonSafe } from "../../../../json-safe";
+import { isSet, type DeepPartial } from "../../../../helpers";
+import type { JsonSafe } from "../../../../json-safe";
 export const protobufPackage = "osmosis.gamm.poolmodels.stableswap.v1beta1";
 /**
  * ===================== MsgCreatePool

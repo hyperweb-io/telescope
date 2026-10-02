@@ -1,7 +1,7 @@
-import { Channel, ChannelAmino, Packet, PacketAmino } from "./channel";
-import { Height, HeightAmino } from "../../client/v1/client";
+import { Channel, type ChannelAmino, Packet, type PacketAmino } from "./channel";
+import { Height, type HeightAmino } from "../../client/v1/client";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers";
+import { type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers";
 /**
  * MsgChannelOpenInit defines an sdk.Msg to initialize a channel handshake. It
  * is called by a relayer on Chain A.

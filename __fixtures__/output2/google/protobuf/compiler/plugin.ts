@@ -2,8 +2,8 @@
 /* eslint-disable */
 import { FileDescriptorProto } from "../descriptor";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { isSet, type DeepPartial } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "google.protobuf.compiler";
 /** The version number of protocol compiler. */
 export interface Version {

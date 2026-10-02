@@ -1,6 +1,6 @@
 import { Params, ParamsSDKType } from "./mint";
 import * as fm from "../../../grpc-gateway";
-import { QueryParamsRequest, QueryParamsRequestSDKType, QueryParamsResponse, QueryParamsResponseSDKType, QueryInflationRequest, QueryInflationRequestSDKType, QueryInflationResponse, QueryInflationResponseSDKType, QueryAnnualProvisionsRequest, QueryAnnualProvisionsRequestSDKType, QueryAnnualProvisionsResponse, QueryAnnualProvisionsResponseSDKType } from "./query";
+import { type QueryParamsRequest, QueryParamsRequestSDKType, type QueryParamsResponse, QueryParamsResponseSDKType, type QueryInflationRequest, QueryInflationRequestSDKType, type QueryInflationResponse, QueryInflationResponseSDKType, type QueryAnnualProvisionsRequest, QueryAnnualProvisionsRequestSDKType, type QueryAnnualProvisionsResponse, QueryAnnualProvisionsResponseSDKType } from "./query";
 export class Query {
   /** Params returns the total set of minting parameters. */
   static params(request: QueryParamsRequest, initRequest?: fm.InitReq): Promise<QueryParamsResponse> {

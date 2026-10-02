@@ -1,6 +1,6 @@
-import { Minter, MinterAmino, MinterSDKType, Params, ParamsAmino, ParamsSDKType } from "./mint";
+import { Minter, type MinterAmino, type MinterSDKType, Params, type ParamsAmino, type ParamsSDKType } from "./mint";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 export const protobufPackage = "cosmos.mint.v1beta1";
 /**
  * GenesisState defines the mint module's genesis state.

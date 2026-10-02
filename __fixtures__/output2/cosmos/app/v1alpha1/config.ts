@@ -2,8 +2,8 @@
 /* eslint-disable */
 import { Any } from "../../../google/protobuf/any";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../json-safe";
-import { DeepPartial, isSet } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
+import { type DeepPartial, isSet } from "../../../helpers";
 export const protobufPackage = "cosmos.app.v1alpha1";
 /**
  * Config represents the configuration for a Cosmos SDK ABCI app.

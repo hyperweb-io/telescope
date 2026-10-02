@@ -1,7 +1,7 @@
-import { IdentifiedClientState, IdentifiedClientStateSDKType, ClientConsensusStates, ClientConsensusStatesSDKType, Params, ParamsSDKType } from "./client.js";
+import { IdentifiedClientState, type IdentifiedClientStateSDKType, ClientConsensusStates, type ClientConsensusStatesSDKType, Params, type ParamsSDKType } from "./client.js";
 import { BinaryReader, BinaryWriter } from "../../../../binary.js";
-import { isSet, DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers.js";
-import { JsonSafe } from "../../../../json-safe.js";
+import { isSet, type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers.js";
+import type { JsonSafe } from "../../../../json-safe.js";
 export const protobufPackage = "ibc.core.client.v1";
 /**
  * GenesisState defines the ibc client submodule's genesis state.

@@ -1,5 +1,5 @@
 import { buildUseQuery } from "../../../react-query";
-import { SimulateRequest, SimulateResponse, GetTxRequest, GetTxResponse, BroadcastTxRequest, BroadcastTxResponse, GetTxsEventRequest, GetTxsEventResponse, GetBlockWithTxsRequest, GetBlockWithTxsResponse } from "./service";
+import type { SimulateRequest, SimulateResponse, GetTxRequest, GetTxResponse, BroadcastTxRequest, BroadcastTxResponse, GetTxsEventRequest, GetTxsEventResponse, GetBlockWithTxsRequest, GetBlockWithTxsResponse } from "./service";
 import { getSimulate, getGetTx, getBroadcastTx, getGetTxsEvent, getGetBlockWithTxs } from "./service.rpc.func";
 /**
  * Simulate simulates executing a transaction for estimating gas usage.

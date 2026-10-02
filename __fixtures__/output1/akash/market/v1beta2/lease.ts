@@ -1,8 +1,8 @@
-import { DecCoin, DecCoinSDKType } from "../../../cosmos/base/v1beta1/coin";
-import { BidID, BidIDSDKType } from "./bid";
-import { Long, isSet, DeepPartial, Exact } from "../../../helpers";
+import { DecCoin, type DecCoinSDKType } from "../../../cosmos/base/v1beta1/coin";
+import { BidID, type BidIDSDKType } from "./bid";
+import { Long, isSet, type DeepPartial, type Exact } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../json-safe";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "akash.market.v1beta2";
 /** State is an enum which refers to state of lease */
 export enum Lease_State {

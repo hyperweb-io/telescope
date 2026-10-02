@@ -3,8 +3,8 @@ import { GroupSpec, GroupSpecSDKType } from "./groupspec";
 import { Coin, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
 import { GroupID, GroupIDSDKType } from "./groupid";
 import * as fm from "../../../grpc-gateway";
-import { MsgCreateDeployment, MsgCreateDeploymentSDKType, MsgCreateDeploymentResponse, MsgCreateDeploymentResponseSDKType, MsgDepositDeployment, MsgDepositDeploymentSDKType, MsgDepositDeploymentResponse, MsgDepositDeploymentResponseSDKType, MsgUpdateDeployment, MsgUpdateDeploymentSDKType, MsgUpdateDeploymentResponse, MsgUpdateDeploymentResponseSDKType, MsgCloseDeployment, MsgCloseDeploymentSDKType, MsgCloseDeploymentResponse, MsgCloseDeploymentResponseSDKType } from "./deploymentmsg";
-import { MsgCloseGroup, MsgCloseGroupSDKType, MsgCloseGroupResponse, MsgCloseGroupResponseSDKType, MsgPauseGroup, MsgPauseGroupSDKType, MsgPauseGroupResponse, MsgPauseGroupResponseSDKType, MsgStartGroup, MsgStartGroupSDKType, MsgStartGroupResponse, MsgStartGroupResponseSDKType } from "./groupmsg";
+import { type MsgCreateDeployment, MsgCreateDeploymentSDKType, type MsgCreateDeploymentResponse, MsgCreateDeploymentResponseSDKType, type MsgDepositDeployment, MsgDepositDeploymentSDKType, type MsgDepositDeploymentResponse, MsgDepositDeploymentResponseSDKType, type MsgUpdateDeployment, MsgUpdateDeploymentSDKType, type MsgUpdateDeploymentResponse, MsgUpdateDeploymentResponseSDKType, type MsgCloseDeployment, MsgCloseDeploymentSDKType, type MsgCloseDeploymentResponse, MsgCloseDeploymentResponseSDKType } from "./deploymentmsg";
+import { type MsgCloseGroup, MsgCloseGroupSDKType, type MsgCloseGroupResponse, MsgCloseGroupResponseSDKType, type MsgPauseGroup, MsgPauseGroupSDKType, type MsgPauseGroupResponse, MsgPauseGroupResponseSDKType, type MsgStartGroup, MsgStartGroupSDKType, type MsgStartGroupResponse, MsgStartGroupResponseSDKType } from "./groupmsg";
 export class Msg {
   /** CreateDeployment defines a method to create new deployment given proper inputs. */
   static createDeployment(request: MsgCreateDeployment, initRequest?: fm.InitReq): Promise<MsgCreateDeploymentResponse> {

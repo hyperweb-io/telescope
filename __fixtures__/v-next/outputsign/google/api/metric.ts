@@ -1,8 +1,8 @@
-import { LaunchStage, LaunchStageSDKType } from "./launch_stage";
-import { Duration, DurationAmino, DurationSDKType } from "../protobuf/duration";
-import { LabelDescriptor, LabelDescriptorAmino, LabelDescriptorSDKType } from "./label";
+import { type LaunchStage, LaunchStageSDKType } from "./launch_stage";
+import { Duration, type DurationAmino, type DurationSDKType } from "../protobuf/duration";
+import { LabelDescriptor, type LabelDescriptorAmino, type LabelDescriptorSDKType } from "./label";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { DeepPartial } from "../../helpers";
+import type { DeepPartial } from "../../helpers";
 export const protobufPackage = "google.api";
 /**
  * The kind of measurement. It describes how the data is reported.

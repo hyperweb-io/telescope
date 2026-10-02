@@ -1,7 +1,7 @@
-import { IdentifiedChannel, IdentifiedChannelSDKType, PacketState, PacketStateSDKType } from "./channel.js";
+import { IdentifiedChannel, type IdentifiedChannelSDKType, PacketState, type PacketStateSDKType } from "./channel.js";
 import { BinaryReader, BinaryWriter } from "../../../../binary.js";
-import { isSet, DeepPartial } from "../../../../helpers.js";
-import { JsonSafe } from "../../../../json-safe.js";
+import { isSet, type DeepPartial } from "../../../../helpers.js";
+import type { JsonSafe } from "../../../../json-safe.js";
 export const protobufPackage = "ibc.core.channel.v1";
 /**
  * GenesisState defines the ibc channel submodule's genesis state.

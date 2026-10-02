@@ -1,9 +1,9 @@
-import { Counterparty, CounterpartySDKType, Version, VersionSDKType } from "./connection";
-import { Any, AnySDKType } from "../../../../google/protobuf/any";
-import { Height, HeightSDKType } from "../../client/v1/client";
+import { Counterparty, type CounterpartySDKType, Version, type VersionSDKType } from "./connection";
+import { Any, type AnySDKType } from "../../../../google/protobuf/any";
+import { Height, type HeightSDKType } from "../../client/v1/client";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { isSet, DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers";
-import { JsonSafe } from "../../../../json-safe";
+import { isSet, type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers";
+import type { JsonSafe } from "../../../../json-safe";
 export const protobufPackage = "ibc.core.connection.v1";
 /**
  * MsgConnectionOpenInit defines the msg sent by an account on Chain A to

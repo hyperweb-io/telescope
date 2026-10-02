@@ -1,8 +1,8 @@
-import { SourceContext, SourceContextSDKType } from "./source_context";
-import { Any, AnySDKType } from "./any";
+import { SourceContext, type SourceContextSDKType } from "./source_context";
+import { Any, type AnySDKType } from "./any";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { isSet, DeepPartial } from "../../helpers";
-import { JsonSafe } from "../../json-safe";
+import { isSet, type DeepPartial } from "../../helpers";
+import type { JsonSafe } from "../../json-safe";
 export const protobufPackage = "google.protobuf";
 /** Basic field types. */
 export enum Field_Kind {

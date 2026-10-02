@@ -1,5 +1,5 @@
 import { PoolParams, PoolParamsSDKType, PoolAsset, PoolAssetSDKType } from "../balancerPool";
-import { Rpc } from "../../../../../helpers";
+import type { Rpc } from "../../../../../helpers";
 import * as _m0 from "protobufjs/minimal";
 import { MsgCreateBalancerPool, MsgCreateBalancerPoolSDKType, MsgCreateBalancerPoolResponse, MsgCreateBalancerPoolResponseSDKType } from "./tx";
 export interface Msg {

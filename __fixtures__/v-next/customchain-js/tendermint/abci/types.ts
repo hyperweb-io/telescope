@@ -1,10 +1,10 @@
 import { Timestamp } from "../../google/protobuf/timestamp";
-import { Header, HeaderAmino } from "../types/types";
-import { ProofOps, ProofOpsAmino } from "../crypto/proof";
-import { EvidenceParams, EvidenceParamsAmino, ValidatorParams, ValidatorParamsAmino, VersionParams, VersionParamsAmino } from "../types/params";
-import { PublicKey, PublicKeyAmino } from "../crypto/keys";
+import { Header, type HeaderAmino } from "../types/types";
+import { ProofOps, type ProofOpsAmino } from "../crypto/proof";
+import { EvidenceParams, type EvidenceParamsAmino, ValidatorParams, type ValidatorParamsAmino, VersionParams, type VersionParamsAmino } from "../types/params";
+import { PublicKey, type PublicKeyAmino } from "../crypto/keys";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { DeepPartial, toTimestamp, fromTimestamp, bytesFromBase64, base64FromBytes } from "../../helpers";
+import { type DeepPartial, toTimestamp, fromTimestamp, bytesFromBase64, base64FromBytes } from "../../helpers";
 export enum CheckTxType {
   NEW = 0,
   RECHECK = 1,

@@ -1,6 +1,6 @@
-import { PeriodLock, PeriodLockAmino, SyntheticLock, SyntheticLockAmino } from "./lock";
+import { PeriodLock, type PeriodLockAmino, SyntheticLock, type SyntheticLockAmino } from "./lock";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { DeepPartial } from "../../helpers";
+import type { DeepPartial } from "../../helpers";
 /**
  * GenesisState defines the lockup module's genesis state.
  * @name GenesisState

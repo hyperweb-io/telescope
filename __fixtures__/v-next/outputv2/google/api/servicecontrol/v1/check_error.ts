@@ -1,8 +1,8 @@
-import { Status, StatusAmino, StatusSDKType } from "../../../rpc/status";
-import { isSet, DeepPartial } from "../../../../helpers";
+import { Status, type StatusAmino, type StatusSDKType } from "../../../rpc/status";
+import { isSet, type DeepPartial } from "../../../../helpers";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
 import { GlobalDecoderRegistry } from "../../../../registry";
-import { JsonSafe } from "../../../../json-safe";
+import type { JsonSafe } from "../../../../json-safe";
 export const protobufPackage = "google.api.servicecontrol.v1";
 /** Error codes for Check responses. */
 export enum CheckError_Code {

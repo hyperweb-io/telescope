@@ -1,6 +1,6 @@
 import { Grant, GrantSDKType } from "./authz.js";
 import { Any, AnySDKType } from "../../../google/protobuf/any.js";
-import { TxRpc } from "../../../types.js";
+import type { TxRpc } from "../../../types.js";
 import { BinaryReader } from "../../../binary.js";
 import { MsgGrant, MsgGrantSDKType, MsgGrantResponse, MsgGrantResponseSDKType, MsgExec, MsgExecSDKType, MsgExecResponse, MsgExecResponseSDKType, MsgRevoke, MsgRevokeSDKType, MsgRevokeResponse, MsgRevokeResponseSDKType } from "./tx.js";
 /** Msg defines the authz Msg service. */

@@ -1,7 +1,7 @@
 import { BinaryReader, BinaryWriter } from "../../binary";
 import { Decimal } from "@interchainjs/math";
-import { JsonSafe } from "../../json-safe";
-import { DeepPartial } from "../../helpers";
+import type { JsonSafe } from "../../json-safe";
+import type { DeepPartial } from "../../helpers";
 export const protobufPackage = "osmosis.concentratedliquidity";
 /**
  * @name Params

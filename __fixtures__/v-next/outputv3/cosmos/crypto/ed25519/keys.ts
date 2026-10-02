@@ -1,5 +1,5 @@
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet, bytesFromBase64, DeepPartial, base64FromBytes } from "../../../helpers";
+import { isSet, bytesFromBase64, type DeepPartial, base64FromBytes } from "../../../helpers";
 export const protobufPackage = "cosmos.crypto.ed25519";
 /**
  * PubKey is an ed25519 public key for handling Tendermint keys in SDK.

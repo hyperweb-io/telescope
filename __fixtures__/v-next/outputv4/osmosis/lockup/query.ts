@@ -1,11 +1,11 @@
 import { Timestamp, TimestampSDKType } from "../../google/protobuf/timestamp.js";
-import { Duration, DurationSDKType } from "../../google/protobuf/duration.js";
-import { Coin, CoinSDKType } from "../../cosmos/base/v1beta1/coin.js";
-import { PeriodLock, PeriodLockSDKType, SyntheticLock, SyntheticLockSDKType } from "./lock.js";
-import { Params, ParamsSDKType } from "./params.js";
+import { Duration, type DurationSDKType } from "../../google/protobuf/duration.js";
+import { Coin, type CoinSDKType } from "../../cosmos/base/v1beta1/coin.js";
+import { PeriodLock, type PeriodLockSDKType, SyntheticLock, type SyntheticLockSDKType } from "./lock.js";
+import { Params, type ParamsSDKType } from "./params.js";
 import { BinaryReader, BinaryWriter } from "../../binary.js";
-import { JsonSafe } from "../../json-safe.js";
-import { DeepPartial, isSet, toTimestamp, fromTimestamp } from "../../helpers.js";
+import type { JsonSafe } from "../../json-safe.js";
+import { type DeepPartial, isSet, toTimestamp, fromTimestamp } from "../../helpers.js";
 export const protobufPackage = "osmosis.lockup";
 /**
  * @name ModuleBalanceRequest

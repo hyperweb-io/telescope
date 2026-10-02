@@ -1,12 +1,12 @@
 import { GenesisState as GenesisState1 } from "../../client/v1/genesis.js";
-import { GenesisStateSDKType as GenesisState1SDKType } from "../../client/v1/genesis.js";
+import type { GenesisStateSDKType as GenesisState1SDKType } from "../../client/v1/genesis.js";
 import { GenesisState as GenesisState2 } from "../../connection/v1/genesis.js";
-import { GenesisStateSDKType as GenesisState2SDKType } from "../../connection/v1/genesis.js";
+import type { GenesisStateSDKType as GenesisState2SDKType } from "../../connection/v1/genesis.js";
 import { GenesisState as GenesisState3 } from "../../channel/v1/genesis.js";
-import { GenesisStateSDKType as GenesisState3SDKType } from "../../channel/v1/genesis.js";
+import type { GenesisStateSDKType as GenesisState3SDKType } from "../../channel/v1/genesis.js";
 import { BinaryReader, BinaryWriter } from "../../../../binary.js";
-import { isSet, DeepPartial } from "../../../../helpers.js";
-import { JsonSafe } from "../../../../json-safe.js";
+import { isSet, type DeepPartial } from "../../../../helpers.js";
+import type { JsonSafe } from "../../../../json-safe.js";
 export const protobufPackage = "ibc.core.types.v1";
 /**
  * GenesisState defines the ibc module's genesis state.

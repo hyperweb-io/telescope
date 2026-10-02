@@ -4,13 +4,13 @@
 * and run the transpile command or npm scripts command that is used to regenerate this bundle.
 */
 
-import { IBinaryReader, IBinaryWriter } from "./binary.js";
+import type { IBinaryReader, IBinaryWriter } from "./binary.js";
 import { Any } from "./google/protobuf/any.js";
 
-import { HttpEndpoint } from "@interchainjs/types";
+import { type HttpEndpoint } from "@interchainjs/types";
 
 
-import { DeliverTxResponse, Event, Attribute } from "@interchainjs/types";
+import { type DeliverTxResponse, type Event, type Attribute } from "@interchainjs/types";
 
 export type { DeliverTxResponse }
 

@@ -1,5 +1,5 @@
 import { buildUseQuery } from "../../../react-query";
-import { ParamsRequest, ParamsResponse, ArithmeticTwapRequest, ArithmeticTwapResponse, ArithmeticTwapToNowRequest, ArithmeticTwapToNowResponse } from "./query";
+import type { ParamsRequest, ParamsResponse, ArithmeticTwapRequest, ArithmeticTwapResponse, ArithmeticTwapToNowRequest, ArithmeticTwapToNowResponse } from "./query";
 import { getOsmosisTwapV1beta1Params, getArithmeticTwap, getArithmeticTwapToNow } from "./query.rpc.func";
 /**
  * @name useGetOsmosisTwapV1beta1Params

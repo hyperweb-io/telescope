@@ -1,9 +1,9 @@
-import { Params, ParamsAmino, ParamsSDKType } from "./params";
-import { SuperfluidAsset, SuperfluidAssetAmino, SuperfluidAssetSDKType, OsmoEquivalentMultiplierRecord, OsmoEquivalentMultiplierRecordAmino, OsmoEquivalentMultiplierRecordSDKType, SuperfluidIntermediaryAccount, SuperfluidIntermediaryAccountAmino, SuperfluidIntermediaryAccountSDKType, LockIdIntermediaryAccountConnection, LockIdIntermediaryAccountConnectionAmino, LockIdIntermediaryAccountConnectionSDKType } from "./superfluid";
+import { Params, type ParamsAmino, type ParamsSDKType } from "./params";
+import { SuperfluidAsset, type SuperfluidAssetAmino, type SuperfluidAssetSDKType, OsmoEquivalentMultiplierRecord, type OsmoEquivalentMultiplierRecordAmino, type OsmoEquivalentMultiplierRecordSDKType, SuperfluidIntermediaryAccount, type SuperfluidIntermediaryAccountAmino, type SuperfluidIntermediaryAccountSDKType, LockIdIntermediaryAccountConnection, type LockIdIntermediaryAccountConnectionAmino, type LockIdIntermediaryAccountConnectionSDKType } from "./superfluid";
 import { BinaryReader, BinaryWriter } from "../../binary";
 import { GlobalDecoderRegistry } from "../../registry";
-import { isSet, DeepPartial } from "../../helpers";
-import { JsonSafe } from "../../json-safe";
+import { isSet, type DeepPartial } from "../../helpers";
+import type { JsonSafe } from "../../json-safe";
 export const protobufPackage = "osmosis.superfluid";
 /**
  * GenesisState defines the module's genesis state.

@@ -1,7 +1,7 @@
 import { OrderID, OrderIDSDKType } from "./order";
 import { DecCoin, DecCoinSDKType, Coin, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
-import { BidID, BidIDSDKType, MsgCreateBid, MsgCreateBidSDKType, MsgCreateBidResponse, MsgCreateBidResponseSDKType, MsgCloseBid, MsgCloseBidSDKType, MsgCloseBidResponse, MsgCloseBidResponseSDKType } from "./bid";
-import { LeaseID, LeaseIDSDKType, MsgWithdrawLease, MsgWithdrawLeaseSDKType, MsgWithdrawLeaseResponse, MsgWithdrawLeaseResponseSDKType, MsgCreateLease, MsgCreateLeaseSDKType, MsgCreateLeaseResponse, MsgCreateLeaseResponseSDKType, MsgCloseLease, MsgCloseLeaseSDKType, MsgCloseLeaseResponse, MsgCloseLeaseResponseSDKType } from "./lease";
+import { BidID, BidIDSDKType, type MsgCreateBid, MsgCreateBidSDKType, type MsgCreateBidResponse, MsgCreateBidResponseSDKType, type MsgCloseBid, MsgCloseBidSDKType, type MsgCloseBidResponse, MsgCloseBidResponseSDKType } from "./bid";
+import { LeaseID, LeaseIDSDKType, type MsgWithdrawLease, MsgWithdrawLeaseSDKType, type MsgWithdrawLeaseResponse, MsgWithdrawLeaseResponseSDKType, type MsgCreateLease, MsgCreateLeaseSDKType, type MsgCreateLeaseResponse, MsgCreateLeaseResponseSDKType, type MsgCloseLease, MsgCloseLeaseSDKType, type MsgCloseLeaseResponse, MsgCloseLeaseResponseSDKType } from "./lease";
 import * as fm from "../../../grpc-gateway";
 export class Msg {
   /** CreateBid defines a method to create a bid given proper inputs. */

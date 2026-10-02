@@ -1,6 +1,6 @@
 import { InterchainAccountPacketData, InterchainAccountPacketDataSDKType, typeFromJSON } from "../../v1/packet";
-import { AminoMsg } from "@cosmjs/amino";
-import { MsgRegisterInterchainAccount, MsgRegisterInterchainAccountSDKType, MsgSendTx, MsgSendTxSDKType } from "./tx";
+import type { AminoMsg } from "@cosmjs/amino";
+import { type MsgRegisterInterchainAccount, MsgRegisterInterchainAccountSDKType, type MsgSendTx, MsgSendTxSDKType } from "./tx";
 export interface MsgRegisterInterchainAccountAminoType extends AminoMsg {
   type: "cosmos-sdk/MsgRegisterInterchainAccount";
   value: {

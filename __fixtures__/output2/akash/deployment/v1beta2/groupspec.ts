@@ -3,8 +3,8 @@
 import { PlacementRequirements } from "../../base/v1beta2/attribute";
 import { Resource } from "./resource";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { isSet, type DeepPartial } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "akash.deployment.v1beta2";
 /** GroupSpec stores group specifications */
 export interface GroupSpec {

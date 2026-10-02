@@ -1,6 +1,6 @@
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { JsonSafe } from "../../../../json-safe";
-import { DeepPartial, isSet } from "../../../../helpers";
+import type { JsonSafe } from "../../../../json-safe";
+import { type DeepPartial, isSet } from "../../../../helpers";
 export const protobufPackage = "cosmos.base.node.v1beta1";
 /**
  * ConfigRequest defines the request structure for the Config gRPC query.

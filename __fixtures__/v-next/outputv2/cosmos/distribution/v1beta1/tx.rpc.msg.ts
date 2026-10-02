@@ -1,5 +1,5 @@
-import { UnaryMethodDefinitionish } from "../../../grpc-web";
-import { DeepPartial } from "../../../helpers";
+import type { UnaryMethodDefinitionish } from "../../../grpc-web";
+import type { DeepPartial } from "../../../helpers";
 import { grpc } from "@improbable-eng/grpc-web";
 import { BrowserHeaders } from "browser-headers";
 import { MsgSetWithdrawAddress, MsgSetWithdrawAddressResponse, MsgWithdrawDelegatorReward, MsgWithdrawDelegatorRewardResponse, MsgWithdrawValidatorCommission, MsgWithdrawValidatorCommissionResponse, MsgFundCommunityPool, MsgFundCommunityPoolResponse } from "./tx";

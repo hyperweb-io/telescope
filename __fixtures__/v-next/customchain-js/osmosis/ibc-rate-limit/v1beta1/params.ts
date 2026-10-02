@@ -1,5 +1,5 @@
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * Params defines the parameters for the ibc-rate-limit module.
  * @name OsmosisIbcratelimitV1beta1Params

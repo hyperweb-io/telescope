@@ -1,11 +1,11 @@
-import { OrderFilters, OrderFiltersAmino, OrderFiltersSDKType, OrderID, OrderIDAmino, OrderIDSDKType, Order, OrderAmino, OrderSDKType } from "./order";
-import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageResponseAmino, PageResponseSDKType } from "../../../cosmos/base/query/v1beta1/pagination";
-import { BidFilters, BidFiltersAmino, BidFiltersSDKType, BidID, BidIDAmino, BidIDSDKType, Bid, BidAmino, BidSDKType } from "./bid";
-import { LeaseFilters, LeaseFiltersAmino, LeaseFiltersSDKType, LeaseID, LeaseIDAmino, LeaseIDSDKType, Lease, LeaseAmino, LeaseSDKType } from "./lease";
-import { Account, AccountAmino, AccountSDKType, FractionalPayment, FractionalPaymentAmino, FractionalPaymentSDKType } from "../../escrow/v1beta2/types";
+import { OrderFilters, type OrderFiltersAmino, type OrderFiltersSDKType, OrderID, type OrderIDAmino, type OrderIDSDKType, Order, type OrderAmino, type OrderSDKType } from "./order";
+import { PageRequest, type PageRequestAmino, type PageRequestSDKType, PageResponse, type PageResponseAmino, type PageResponseSDKType } from "../../../cosmos/base/query/v1beta1/pagination";
+import { BidFilters, type BidFiltersAmino, type BidFiltersSDKType, BidID, type BidIDAmino, type BidIDSDKType, Bid, type BidAmino, type BidSDKType } from "./bid";
+import { LeaseFilters, type LeaseFiltersAmino, type LeaseFiltersSDKType, LeaseID, type LeaseIDAmino, type LeaseIDSDKType, Lease, type LeaseAmino, type LeaseSDKType } from "./lease";
+import { Account, type AccountAmino, type AccountSDKType, FractionalPayment, type FractionalPaymentAmino, type FractionalPaymentSDKType } from "../../escrow/v1beta2/types";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { GlobalDecoderRegistry } from "../../../registry";
-import { isSet, DeepPartial } from "../../../helpers";
+import { isSet, type DeepPartial } from "../../../helpers";
 export const protobufPackage = "akash.market.v1beta2";
 /**
  * QueryOrdersRequest is request type for the Query/Orders RPC method

@@ -1,11 +1,11 @@
-import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../../cosmos/base/query/v1beta1/pagination";
-import { PositionWithUnderlyingAssetBreakdown, PositionWithUnderlyingAssetBreakdownSDKType } from "../position";
-import { Any, AnySDKType } from "../../../google/protobuf/any";
-import { Params, ParamsSDKType } from "../params";
-import { Coin, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
+import { PageRequest, type PageRequestSDKType, PageResponse, type PageResponseSDKType } from "../../../cosmos/base/query/v1beta1/pagination";
+import { PositionWithUnderlyingAssetBreakdown, type PositionWithUnderlyingAssetBreakdownSDKType } from "../position";
+import { Any, type AnySDKType } from "../../../google/protobuf/any";
+import { Params, type ParamsSDKType } from "../params";
+import { Coin, type CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet, DeepPartial } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { isSet, type DeepPartial } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 import { Decimal } from "@interchainjs/math";
 export const protobufPackage = "osmosis.concentratedliquidity.v1beta1";
 /**

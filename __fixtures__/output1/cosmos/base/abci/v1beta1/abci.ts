@@ -1,8 +1,8 @@
-import { Any, AnySDKType } from "../../../../google/protobuf/any";
-import { Event, EventSDKType } from "../../../../tendermint/abci/types";
-import { Long, isSet, DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers";
+import { Any, type AnySDKType } from "../../../../google/protobuf/any";
+import { Event, type EventSDKType } from "../../../../tendermint/abci/types";
+import { Long, isSet, type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../../json-safe";
+import type { JsonSafe } from "../../../../json-safe";
 export const protobufPackage = "cosmos.base.abci.v1beta1";
 /**
  * TxResponse defines a structure containing relevant tx data and metadata. The

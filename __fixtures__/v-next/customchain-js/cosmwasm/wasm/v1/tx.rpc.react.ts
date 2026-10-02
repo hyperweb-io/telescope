@@ -1,5 +1,5 @@
 import { buildUseMutation } from "../../../react-query";
-import { MsgStoreCode, MsgInstantiateContract, MsgExecuteContract, MsgMigrateContract, MsgUpdateAdmin, MsgClearAdmin } from "./tx";
+import type { MsgStoreCode, MsgInstantiateContract, MsgExecuteContract, MsgMigrateContract, MsgUpdateAdmin, MsgClearAdmin } from "./tx";
 import { storeCode, instantiateContract, executeContract, migrateContract, updateAdmin, clearAdmin } from "./tx.rpc.func";
 /**
  * StoreCode to submit Wasm code to the system

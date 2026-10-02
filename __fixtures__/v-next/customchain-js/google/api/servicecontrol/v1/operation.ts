@@ -1,9 +1,9 @@
 import { Timestamp } from "../../../protobuf/timestamp";
-import { MetricValueSet, MetricValueSetAmino } from "./metric_value";
-import { LogEntry, LogEntryAmino } from "./log_entry";
-import { Any, AnyAmino } from "../../../protobuf/any";
+import { MetricValueSet, type MetricValueSetAmino } from "./metric_value";
+import { LogEntry, type LogEntryAmino } from "./log_entry";
+import { Any, type AnyAmino } from "../../../protobuf/any";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial, toTimestamp, fromTimestamp } from "../../../../helpers";
+import { type DeepPartial, toTimestamp, fromTimestamp } from "../../../../helpers";
 /** Defines the importance of the data contained in the operation. */
 export enum Operation_Importance {
   /**

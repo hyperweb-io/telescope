@@ -1,8 +1,8 @@
-import { Any, AnyProtoMsg, AnyAmino, AnySDKType } from "../../../../google/protobuf/any";
-import { Plan, PlanAmino, PlanSDKType } from "../../../../cosmos/upgrade/v1beta1/upgrade";
+import { Any, AnyProtoMsg, type AnyAmino, type AnySDKType } from "../../../../google/protobuf/any";
+import { Plan, type PlanAmino, type PlanSDKType } from "../../../../cosmos/upgrade/v1beta1/upgrade";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
 import { GlobalDecoderRegistry } from "../../../../registry";
-import { isSet, DeepPartial } from "../../../../helpers";
+import { isSet, type DeepPartial } from "../../../../helpers";
 export const protobufPackage = "ibc.core.client.v1";
 /**
  * IdentifiedClientState defines a client state with an additional client

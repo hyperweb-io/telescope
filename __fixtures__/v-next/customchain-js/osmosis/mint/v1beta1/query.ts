@@ -1,6 +1,6 @@
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers";
-import { OsmosisMintV1beta1Params, OsmosisMintV1beta1ParamsAmino } from "./mint";
+import { type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers";
+import { OsmosisMintV1beta1Params, type OsmosisMintV1beta1ParamsAmino } from "./mint";
 /**
  * QueryParamsRequest is the request type for the Query/Params RPC method.
  * @name QueryParamsRequest

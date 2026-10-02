@@ -1,6 +1,6 @@
 import { Timestamp } from "../../../google/protobuf/timestamp";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { toTimestamp, fromTimestamp, DeepPartial } from "../../../helpers";
+import { toTimestamp, fromTimestamp, type DeepPartial } from "../../../helpers";
 import { Decimal } from "@interchainjs/math";
 /**
  * A TWAP record should be indexed in state by pool_id, (asset pair), timestamp

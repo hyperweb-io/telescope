@@ -1,6 +1,6 @@
-import { Order, OrderSDKType, Counterparty, CounterpartyAmino, CounterpartySDKType } from "../../channel/v1/channel";
+import { type Order, OrderSDKType, Counterparty, type CounterpartyAmino, type CounterpartySDKType } from "../../channel/v1/channel";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial } from "../../../../helpers";
+import type { DeepPartial } from "../../../../helpers";
 export const protobufPackage = "ibc.core.port.v1";
 /**
  * QueryAppVersionRequest is the request type for the Query/AppVersion RPC method

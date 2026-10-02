@@ -1,5 +1,5 @@
 import { buildUseQuery } from "../../../../react-query";
-import { ListAllInterfacesRequest, ListAllInterfacesResponse, ListImplementationsRequest, ListImplementationsResponse } from "./reflection";
+import type { ListAllInterfacesRequest, ListAllInterfacesResponse, ListImplementationsRequest, ListImplementationsResponse } from "./reflection";
 import { getListAllInterfaces, getListImplementations } from "./reflection.rpc.func";
 /**
  * ListAllInterfaces lists all the interfaces registered in the interface

@@ -1,7 +1,7 @@
-import { Any, AnySDKType } from "../../../google/protobuf/any";
+import { Any, type AnySDKType } from "../../../google/protobuf/any";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { JsonSafe } from "../../../json-safe";
-import { DeepPartial } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
+import type { DeepPartial } from "../../../helpers";
 export const protobufPackage = "cosmos.evidence.v1beta1";
 /**
  * GenesisState defines the evidence module's genesis state.

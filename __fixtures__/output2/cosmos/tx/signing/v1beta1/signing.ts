@@ -2,9 +2,9 @@
 /* eslint-disable */
 import { CompactBitArray } from "../../../crypto/multisig/v1beta1/multisig";
 import { Any } from "../../../../google/protobuf/any";
-import { Long, DeepPartial, isSet, bytesFromBase64, base64FromBytes } from "../../../../helpers";
+import { Long, type DeepPartial, isSet, bytesFromBase64, base64FromBytes } from "../../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../../json-safe";
+import type { JsonSafe } from "../../../../json-safe";
 export const protobufPackage = "cosmos.tx.signing.v1beta1";
 /** SignMode represents a signing mode with its own security guarantees. */
 export enum SignMode {

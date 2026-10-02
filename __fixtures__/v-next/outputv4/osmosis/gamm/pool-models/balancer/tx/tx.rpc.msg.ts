@@ -1,5 +1,5 @@
 import { PoolParams, PoolParamsSDKType, PoolAsset, PoolAssetSDKType } from "../balancerPool.js";
-import { TxRpc } from "../../../../../types.js";
+import type { TxRpc } from "../../../../../types.js";
 import { BinaryReader } from "../../../../../binary.js";
 import { MsgCreateBalancerPool, MsgCreateBalancerPoolSDKType, MsgCreateBalancerPoolResponse, MsgCreateBalancerPoolResponseSDKType } from "./tx.js";
 export interface Msg {

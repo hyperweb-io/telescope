@@ -1,8 +1,8 @@
 //@ts-nocheck
 /* eslint-disable */
-import { Long, isSet, DeepPartial, Rpc } from "../../../helpers";
+import { Long, isSet, type DeepPartial, type Rpc } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../json-safe";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "evmos.fees.v1";
 /** MsgRegisterFeesContract defines a message that registers a DevFeeInfo */
 export interface MsgRegisterDevFeeInfo {

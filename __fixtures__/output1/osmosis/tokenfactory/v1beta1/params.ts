@@ -1,7 +1,7 @@
-import { Coin, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
+import { Coin, type CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../json-safe";
-import { DeepPartial } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
+import type { DeepPartial } from "../../../helpers";
 export const protobufPackage = "osmosis.tokenfactory.v1beta1";
 /** Params defines the parameters for the tokenfactory module. */
 export interface Params {

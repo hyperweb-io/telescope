@@ -1,8 +1,8 @@
 import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../base/query/v1beta1/pagination";
 import { Grant, GrantSDKType, GrantAuthorization, GrantAuthorizationSDKType } from "./authz";
 import { setPaginationParams } from "../../../helpers";
-import { LCDClient } from "@cosmology/lcd";
-import { QueryGrantsRequest, QueryGrantsRequestSDKType, QueryGrantsResponse, QueryGrantsResponseSDKType, QueryGranterGrantsRequest, QueryGranterGrantsRequestSDKType, QueryGranterGrantsResponse, QueryGranterGrantsResponseSDKType, QueryGranteeGrantsRequest, QueryGranteeGrantsRequestSDKType, QueryGranteeGrantsResponse, QueryGranteeGrantsResponseSDKType } from "./query";
+import type { LCDClient } from "@cosmology/lcd";
+import { type QueryGrantsRequest, QueryGrantsRequestSDKType, QueryGrantsResponse, type QueryGrantsResponseSDKType, type QueryGranterGrantsRequest, QueryGranterGrantsRequestSDKType, QueryGranterGrantsResponse, type QueryGranterGrantsResponseSDKType, type QueryGranteeGrantsRequest, QueryGranteeGrantsRequestSDKType, QueryGranteeGrantsResponse, type QueryGranteeGrantsResponseSDKType } from "./query";
 export class LCDQueryClient {
   req: LCDClient;
   constructor({

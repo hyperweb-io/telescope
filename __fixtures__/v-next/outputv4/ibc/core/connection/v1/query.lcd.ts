@@ -3,8 +3,8 @@ import { ConnectionEnd, ConnectionEndSDKType, IdentifiedConnection, IdentifiedCo
 import { Height, HeightSDKType, IdentifiedClientState, IdentifiedClientStateSDKType } from "../../client/v1/client.js";
 import { Any, AnySDKType } from "../../../../google/protobuf/any.js";
 import { setPaginationParams } from "../../../../helpers.js";
-import { LCDClient } from "@cosmology/lcd";
-import { QueryConnectionRequest, QueryConnectionRequestSDKType, QueryConnectionResponse, QueryConnectionResponseSDKType, QueryConnectionsRequest, QueryConnectionsRequestSDKType, QueryConnectionsResponse, QueryConnectionsResponseSDKType, QueryClientConnectionsRequest, QueryClientConnectionsRequestSDKType, QueryClientConnectionsResponse, QueryClientConnectionsResponseSDKType, QueryConnectionClientStateRequest, QueryConnectionClientStateRequestSDKType, QueryConnectionClientStateResponse, QueryConnectionClientStateResponseSDKType, QueryConnectionConsensusStateRequest, QueryConnectionConsensusStateRequestSDKType, QueryConnectionConsensusStateResponse, QueryConnectionConsensusStateResponseSDKType } from "./query.js";
+import type { LCDClient } from "@cosmology/lcd";
+import { type QueryConnectionRequest, QueryConnectionRequestSDKType, QueryConnectionResponse, type QueryConnectionResponseSDKType, type QueryConnectionsRequest, QueryConnectionsRequestSDKType, QueryConnectionsResponse, type QueryConnectionsResponseSDKType, type QueryClientConnectionsRequest, QueryClientConnectionsRequestSDKType, QueryClientConnectionsResponse, type QueryClientConnectionsResponseSDKType, type QueryConnectionClientStateRequest, QueryConnectionClientStateRequestSDKType, QueryConnectionClientStateResponse, type QueryConnectionClientStateResponseSDKType, type QueryConnectionConsensusStateRequest, QueryConnectionConsensusStateRequestSDKType, QueryConnectionConsensusStateResponse, type QueryConnectionConsensusStateResponseSDKType } from "./query.js";
 export class LCDQueryClient {
   req: LCDClient;
   constructor({

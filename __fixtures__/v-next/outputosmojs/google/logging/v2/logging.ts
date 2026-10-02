@@ -1,10 +1,10 @@
-import { MonitoredResource, MonitoredResourceSDKType, MonitoredResourceDescriptor, MonitoredResourceDescriptorSDKType } from "../../api/monitored_resource";
-import { LogEntry, LogEntrySDKType } from "./log_entry";
-import { Duration, DurationSDKType } from "../../protobuf/duration";
-import { Status, StatusSDKType } from "../../rpc/status";
+import { MonitoredResource, type MonitoredResourceSDKType, MonitoredResourceDescriptor, type MonitoredResourceDescriptorSDKType } from "../../api/monitored_resource";
+import { LogEntry, type LogEntrySDKType } from "./log_entry";
+import { Duration, type DurationSDKType } from "../../protobuf/duration";
+import { Status, type StatusSDKType } from "../../rpc/status";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet, DeepPartial, isObject } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { isSet, type DeepPartial, isObject } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "google.logging.v2";
 /** An indicator of why entries were omitted. */
 export enum TailLogEntriesResponse_SuppressionInfo_Reason {

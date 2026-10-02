@@ -1,9 +1,9 @@
-import { Any, AnySDKType } from "../../../../google/protobuf/any";
-import { ConnectionEnd, ConnectionEndSDKType } from "../../../core/connection/v1/connection";
-import { Channel, ChannelSDKType } from "../../../core/channel/v1/channel";
-import { Long, isSet, DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers";
+import { Any, type AnySDKType } from "../../../../google/protobuf/any";
+import { ConnectionEnd, type ConnectionEndSDKType } from "../../../core/connection/v1/connection";
+import { Channel, type ChannelSDKType } from "../../../core/channel/v1/channel";
+import { Long, isSet, type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../../json-safe";
+import type { JsonSafe } from "../../../../json-safe";
 export const protobufPackage = "ibc.lightclients.solomachine.v1";
 /**
  * DataType defines the type of solo machine proof being created. This is done

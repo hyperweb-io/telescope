@@ -1,7 +1,7 @@
-import { Any, AnyAmino } from "../../../../google/protobuf/any";
-import { BIP44Params, BIP44ParamsAmino } from "../../hd/v1/hd";
+import { Any, type AnyAmino } from "../../../../google/protobuf/any";
+import { BIP44Params, type BIP44ParamsAmino } from "../../hd/v1/hd";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial } from "../../../../helpers";
+import type { DeepPartial } from "../../../../helpers";
 /**
  * Record is used for representing a key in the keyring.
  * @name Record

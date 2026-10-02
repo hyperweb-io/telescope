@@ -1,7 +1,7 @@
-import { CompactBitArray, CompactBitArrayAmino, CompactBitArraySDKType } from "../../../crypto/multisig/v1beta1/multisig";
-import { Any, AnyProtoMsg, AnyAmino, AnySDKType } from "../../../../google/protobuf/any";
+import { CompactBitArray, type CompactBitArrayAmino, type CompactBitArraySDKType } from "../../../crypto/multisig/v1beta1/multisig";
+import { Any, AnyProtoMsg, type AnyAmino, type AnySDKType } from "../../../../google/protobuf/any";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial, isSet, bytesFromBase64, base64FromBytes } from "../../../../helpers";
+import { type DeepPartial, isSet, bytesFromBase64, base64FromBytes } from "../../../../helpers";
 import { GlobalDecoderRegistry } from "../../../../registry";
 export const protobufPackage = "cosmos.tx.signing.v1beta1";
 /**

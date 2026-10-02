@@ -1,8 +1,8 @@
-import { Counterparty, CounterpartyAmino, Version, VersionAmino } from "./connection";
-import { Any, AnyAmino } from "../../../../google/protobuf/any";
-import { Height, HeightAmino } from "../../client/v1/client";
+import { Counterparty, type CounterpartyAmino, Version, type VersionAmino } from "./connection";
+import { Any, type AnyAmino } from "../../../../google/protobuf/any";
+import { Height, type HeightAmino } from "../../client/v1/client";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers";
+import { type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers";
 /**
  * MsgConnectionOpenInit defines the msg sent by an account on Chain A to
  * initialize a connection with Chain B.

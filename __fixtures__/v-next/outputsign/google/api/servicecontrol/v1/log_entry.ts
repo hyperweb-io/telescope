@@ -1,10 +1,10 @@
 import { Timestamp, TimestampAmino, TimestampSDKType } from "../../../protobuf/timestamp";
-import { LogSeverity, LogSeveritySDKType } from "../../../logging/type/log_severity";
-import { HttpRequest, HttpRequestAmino, HttpRequestSDKType } from "./http_request";
-import { Any, AnyProtoMsg, AnyAmino, AnySDKType } from "../../../protobuf/any";
-import { Struct, StructAmino, StructSDKType } from "../../../protobuf/struct";
+import { type LogSeverity, LogSeveritySDKType } from "../../../logging/type/log_severity";
+import { HttpRequest, type HttpRequestAmino, type HttpRequestSDKType } from "./http_request";
+import { Any, AnyProtoMsg, type AnyAmino, type AnySDKType } from "../../../protobuf/any";
+import { Struct, type StructAmino, type StructSDKType } from "../../../protobuf/struct";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial, toTimestamp, fromTimestamp } from "../../../../helpers";
+import { type DeepPartial, toTimestamp, fromTimestamp } from "../../../../helpers";
 export const protobufPackage = "google.api.servicecontrol.v1";
 /**
  * @name LogEntry_LabelsEntry

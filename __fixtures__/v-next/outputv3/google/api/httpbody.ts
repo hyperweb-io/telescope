@@ -1,6 +1,6 @@
-import { Any, AnyProtoMsg, AnyAmino, AnySDKType } from "../protobuf/any";
+import { Any, AnyProtoMsg, type AnyAmino, type AnySDKType } from "../protobuf/any";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { isSet, bytesFromBase64, DeepPartial, base64FromBytes } from "../../helpers";
+import { isSet, bytesFromBase64, type DeepPartial, base64FromBytes } from "../../helpers";
 export const protobufPackage = "google.api";
 /**
  * Message that represents an arbitrary HTTP body. It should only be used for

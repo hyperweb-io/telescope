@@ -1,12 +1,12 @@
 import { Timestamp, TimestampAmino, TimestampSDKType } from "../../google/protobuf/timestamp";
-import { Header, HeaderAmino, HeaderSDKType } from "../types/types";
-import { ProofOps, ProofOpsAmino, ProofOpsSDKType } from "../crypto/proof";
-import { EvidenceParams, EvidenceParamsAmino, EvidenceParamsSDKType, ValidatorParams, ValidatorParamsAmino, ValidatorParamsSDKType, VersionParams, VersionParamsAmino, VersionParamsSDKType } from "../types/params";
-import { PublicKey, PublicKeyAmino, PublicKeySDKType } from "../crypto/keys";
+import { Header, type HeaderAmino, type HeaderSDKType } from "../types/types";
+import { ProofOps, type ProofOpsAmino, type ProofOpsSDKType } from "../crypto/proof";
+import { EvidenceParams, type EvidenceParamsAmino, type EvidenceParamsSDKType, ValidatorParams, type ValidatorParamsAmino, type ValidatorParamsSDKType, VersionParams, type VersionParamsAmino, type VersionParamsSDKType } from "../types/params";
+import { PublicKey, type PublicKeyAmino, type PublicKeySDKType } from "../crypto/keys";
 import { BinaryReader, BinaryWriter } from "../../binary";
 import { GlobalDecoderRegistry } from "../../registry";
-import { isSet, DeepPartial, toTimestamp, fromTimestamp, bytesFromBase64, base64FromBytes } from "../../helpers";
-import { JsonSafe } from "../../json-safe";
+import { isSet, type DeepPartial, toTimestamp, fromTimestamp, bytesFromBase64, base64FromBytes } from "../../helpers";
+import type { JsonSafe } from "../../json-safe";
 export const protobufPackage = "tendermint.abci";
 export enum CheckTxType {
   NEW = 0,

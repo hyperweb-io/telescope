@@ -1,10 +1,10 @@
-import { DeploymentFilters, DeploymentFiltersAmino, DeploymentFiltersSDKType, DeploymentID, DeploymentIDAmino, DeploymentIDSDKType, Deployment, DeploymentAmino, DeploymentSDKType } from "./deployment";
-import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageResponseAmino, PageResponseSDKType } from "../../../cosmos/base/query/v1beta1/pagination";
-import { GroupID, GroupIDAmino, GroupIDSDKType, Group, GroupAmino, GroupSDKType } from "./group";
-import { Account, AccountAmino, AccountSDKType } from "../../escrow/v1beta1/types";
+import { DeploymentFilters, type DeploymentFiltersAmino, type DeploymentFiltersSDKType, DeploymentID, type DeploymentIDAmino, type DeploymentIDSDKType, Deployment, type DeploymentAmino, type DeploymentSDKType } from "./deployment";
+import { PageRequest, type PageRequestAmino, type PageRequestSDKType, PageResponse, type PageResponseAmino, type PageResponseSDKType } from "../../../cosmos/base/query/v1beta1/pagination";
+import { GroupID, type GroupIDAmino, type GroupIDSDKType, Group, type GroupAmino, type GroupSDKType } from "./group";
+import { Account, type AccountAmino, type AccountSDKType } from "../../escrow/v1beta1/types";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { GlobalDecoderRegistry } from "../../../registry";
-import { isSet, DeepPartial } from "../../../helpers";
+import { isSet, type DeepPartial } from "../../../helpers";
 export const protobufPackage = "akash.deployment.v1beta1";
 /**
  * QueryDeploymentsRequest is request type for the Query/Deployments RPC method

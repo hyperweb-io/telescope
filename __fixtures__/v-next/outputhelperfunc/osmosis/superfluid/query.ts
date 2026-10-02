@@ -1,12 +1,12 @@
-import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageResponseAmino, PageResponseSDKType } from "../../cosmos/base/query/v1beta1/pagination";
-import { Params, ParamsAmino, ParamsSDKType } from "./params";
-import { SuperfluidAssetType, SuperfluidAssetTypeSDKType, SuperfluidAsset, SuperfluidAssetAmino, SuperfluidAssetSDKType, OsmoEquivalentMultiplierRecord, OsmoEquivalentMultiplierRecordAmino, OsmoEquivalentMultiplierRecordSDKType, SuperfluidDelegationRecord, SuperfluidDelegationRecordAmino, SuperfluidDelegationRecordSDKType, superfluidAssetTypeFromJSON, superfluidAssetTypeToJSON } from "./superfluid";
-import { Coin, CoinAmino, CoinSDKType } from "../../cosmos/base/v1beta1/coin";
-import { SyntheticLock, SyntheticLockAmino, SyntheticLockSDKType } from "../lockup/lock";
-import { DelegationResponse, DelegationResponseAmino, DelegationResponseSDKType } from "../../cosmos/staking/v1beta1/staking";
+import { PageRequest, type PageRequestAmino, type PageRequestSDKType, PageResponse, type PageResponseAmino, type PageResponseSDKType } from "../../cosmos/base/query/v1beta1/pagination";
+import { Params, type ParamsAmino, type ParamsSDKType } from "./params";
+import { type SuperfluidAssetType, SuperfluidAssetTypeSDKType, SuperfluidAsset, type SuperfluidAssetAmino, type SuperfluidAssetSDKType, OsmoEquivalentMultiplierRecord, type OsmoEquivalentMultiplierRecordAmino, type OsmoEquivalentMultiplierRecordSDKType, SuperfluidDelegationRecord, type SuperfluidDelegationRecordAmino, type SuperfluidDelegationRecordSDKType, superfluidAssetTypeFromJSON, superfluidAssetTypeToJSON } from "./superfluid";
+import { Coin, type CoinAmino, type CoinSDKType } from "../../cosmos/base/v1beta1/coin";
+import { SyntheticLock, type SyntheticLockAmino, type SyntheticLockSDKType } from "../lockup/lock";
+import { DelegationResponse, type DelegationResponseAmino, type DelegationResponseSDKType } from "../../cosmos/staking/v1beta1/staking";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { JsonSafe } from "../../json-safe";
-import { DeepPartial, isSet } from "../../helpers";
+import type { JsonSafe } from "../../json-safe";
+import { type DeepPartial, isSet } from "../../helpers";
 import { GlobalDecoderRegistry } from "../../registry";
 export const protobufPackage = "osmosis.superfluid";
 /**

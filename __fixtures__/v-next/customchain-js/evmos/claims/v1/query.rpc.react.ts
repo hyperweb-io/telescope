@@ -1,5 +1,5 @@
 import { buildUseQuery } from "../../../react-query";
-import { QueryTotalUnclaimedRequest, QueryTotalUnclaimedResponse, QueryParamsRequest, QueryParamsResponse, QueryClaimsRecordsRequest, QueryClaimsRecordsResponse, QueryClaimsRecordRequest, QueryClaimsRecordResponse } from "./query";
+import type { QueryTotalUnclaimedRequest, QueryTotalUnclaimedResponse, QueryParamsRequest, QueryParamsResponse, QueryClaimsRecordsRequest, QueryClaimsRecordsResponse, QueryClaimsRecordRequest, QueryClaimsRecordResponse } from "./query";
 import { getTotalUnclaimed, getEvmosClaimsV1Params, getClaimsRecords, getClaimsRecord } from "./query.rpc.func";
 /**
  * TotalUnclaimed queries the total unclaimed tokens from the airdrop

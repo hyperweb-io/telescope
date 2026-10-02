@@ -1,10 +1,10 @@
-import { MonitoredResource, MonitoredResourceAmino, MonitoredResourceSDKType, MonitoredResourceDescriptor, MonitoredResourceDescriptorAmino, MonitoredResourceDescriptorSDKType } from "../../api/monitored_resource";
-import { LogEntry, LogEntryAmino, LogEntrySDKType } from "./log_entry";
-import { Duration, DurationAmino, DurationSDKType } from "../../protobuf/duration";
-import { Status, StatusAmino, StatusSDKType } from "../../rpc/status";
+import { MonitoredResource, type MonitoredResourceAmino, type MonitoredResourceSDKType, MonitoredResourceDescriptor, type MonitoredResourceDescriptorAmino, type MonitoredResourceDescriptorSDKType } from "../../api/monitored_resource";
+import { LogEntry, type LogEntryAmino, type LogEntrySDKType } from "./log_entry";
+import { Duration, type DurationAmino, type DurationSDKType } from "../../protobuf/duration";
+import { Status, type StatusAmino, type StatusSDKType } from "../../rpc/status";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet, DeepPartial, isObject } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { isSet, type DeepPartial, isObject } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "google.logging.v2";
 /** An indicator of why entries were omitted. */

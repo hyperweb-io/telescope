@@ -1,6 +1,6 @@
-import { DistrRecord, DistrRecordAmino, DistrRecordSDKType } from "./incentives";
+import { DistrRecord, type DistrRecordAmino, type DistrRecordSDKType } from "./incentives";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet, DeepPartial } from "../../../helpers";
+import { isSet, type DeepPartial } from "../../../helpers";
 import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "osmosis.poolincentives.v1beta1";
 /**

@@ -1,5 +1,5 @@
 import { buildUseMutation } from "../../../../../react-query";
-import { MsgCreateBalancerPool } from "./tx";
+import type { MsgCreateBalancerPool } from "./tx";
 import { createBalancerPool } from "./tx.rpc.func";
 /**
  * @name useCreateBalancerPool

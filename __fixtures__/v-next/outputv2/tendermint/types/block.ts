@@ -1,9 +1,9 @@
-import { Header, HeaderAmino, HeaderSDKType, Data, DataAmino, DataSDKType, Commit, CommitAmino, CommitSDKType } from "./types";
-import { EvidenceList, EvidenceListAmino, EvidenceListSDKType } from "./evidence";
+import { Header, type HeaderAmino, type HeaderSDKType, Data, type DataAmino, type DataSDKType, Commit, type CommitAmino, type CommitSDKType } from "./types";
+import { EvidenceList, type EvidenceListAmino, type EvidenceListSDKType } from "./evidence";
 import { BinaryReader, BinaryWriter } from "../../binary";
 import { GlobalDecoderRegistry } from "../../registry";
-import { isSet, DeepPartial } from "../../helpers";
-import { JsonSafe } from "../../json-safe";
+import { isSet, type DeepPartial } from "../../helpers";
+import type { JsonSafe } from "../../json-safe";
 export const protobufPackage = "tendermint.types";
 /**
  * @name Block

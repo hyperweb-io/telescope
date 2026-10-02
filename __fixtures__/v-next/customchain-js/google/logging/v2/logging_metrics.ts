@@ -1,8 +1,8 @@
-import { MetricDescriptor, MetricDescriptorAmino } from "../../api/metric";
-import { Distribution_BucketOptions, Distribution_BucketOptionsAmino } from "../../api/distribution";
+import { MetricDescriptor, type MetricDescriptorAmino } from "../../api/metric";
+import { Distribution_BucketOptions, type Distribution_BucketOptionsAmino } from "../../api/distribution";
 import { Timestamp } from "../../protobuf/timestamp";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial, toTimestamp, fromTimestamp } from "../../../helpers";
+import { type DeepPartial, toTimestamp, fromTimestamp } from "../../../helpers";
 /** Logging API version. */
 export enum LogMetric_ApiVersion {
   /** V2 - Logging API v2. */

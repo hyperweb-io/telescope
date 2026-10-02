@@ -1,7 +1,7 @@
-import { ResourceUnits, ResourceUnitsAmino } from "../../base/v1beta2/resourceunits";
-import { DecCoin, DecCoinAmino } from "../../../cosmos/base/v1beta1/coin";
+import { ResourceUnits, type ResourceUnitsAmino } from "../../base/v1beta2/resourceunits";
+import { DecCoin, type DecCoinAmino } from "../../../cosmos/base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * Resource stores unit, total count and price of resource
  * @name Resource

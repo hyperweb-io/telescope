@@ -1,5 +1,5 @@
 import { buildUseMutation } from "../../../react-query";
-import { MsgCreateCertificate, MsgRevokeCertificate } from "./cert";
+import type { MsgCreateCertificate, MsgRevokeCertificate } from "./cert";
 import { createCertificate, revokeCertificate } from "./cert.rpc.func";
 /**
  * CreateCertificate defines a method to create new certificate given proper inputs.

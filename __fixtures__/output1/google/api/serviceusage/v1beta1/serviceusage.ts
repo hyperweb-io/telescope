@@ -1,8 +1,8 @@
-import { QuotaView, QuotaViewSDKType, QuotaOverride, QuotaOverrideSDKType, QuotaSafetyCheck, QuotaSafetyCheckSDKType, OverrideInlineSource, OverrideInlineSourceSDKType, Service, ServiceSDKType, ConsumerQuotaMetric, ConsumerQuotaMetricSDKType, AdminQuotaPolicy, AdminQuotaPolicySDKType, ServiceIdentity, ServiceIdentitySDKType, quotaViewFromJSON, quotaViewToJSON, quotaSafetyCheckFromJSON, quotaSafetyCheckToJSON } from "./resources";
-import { FieldMask, FieldMaskSDKType } from "../../../protobuf/field_mask";
+import { type QuotaView, QuotaViewSDKType, QuotaOverride, type QuotaOverrideSDKType, type QuotaSafetyCheck, QuotaSafetyCheckSDKType, OverrideInlineSource, type OverrideInlineSourceSDKType, Service, type ServiceSDKType, ConsumerQuotaMetric, type ConsumerQuotaMetricSDKType, AdminQuotaPolicy, type AdminQuotaPolicySDKType, ServiceIdentity, type ServiceIdentitySDKType, quotaViewFromJSON, quotaViewToJSON, quotaSafetyCheckFromJSON, quotaSafetyCheckToJSON } from "./resources";
+import { FieldMask, type FieldMaskSDKType } from "../../../protobuf/field_mask";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial } from "../../../../helpers";
-import { JsonSafe } from "../../../../json-safe";
+import { isSet, type DeepPartial } from "../../../../helpers";
+import type { JsonSafe } from "../../../../json-safe";
 export const protobufPackage = "google.api.serviceusage.v1beta1";
 /** Enum for service identity state. */
 export enum GetServiceIdentityResponse_IdentityState {

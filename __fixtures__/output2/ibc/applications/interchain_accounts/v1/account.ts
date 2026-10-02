@@ -2,8 +2,8 @@
 /* eslint-disable */
 import { BaseAccount } from "../../../../cosmos/auth/v1beta1/auth";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial } from "../../../../helpers";
-import { JsonSafe } from "../../../../json-safe";
+import { isSet, type DeepPartial } from "../../../../helpers";
+import type { JsonSafe } from "../../../../json-safe";
 export const protobufPackage = "ibc.applications.interchain_accounts.v1";
 /** An InterchainAccount is defined as a BaseAccount & the address of the account owner on the controller chain */
 export interface InterchainAccount {

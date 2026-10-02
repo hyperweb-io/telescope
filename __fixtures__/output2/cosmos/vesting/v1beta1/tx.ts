@@ -1,9 +1,9 @@
 //@ts-nocheck
 /* eslint-disable */
 import { Coin } from "../../base/v1beta1/coin";
-import { Long, isSet, DeepPartial, Rpc } from "../../../helpers";
+import { Long, isSet, type DeepPartial, type Rpc } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../json-safe";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "cosmos.vesting.v1beta1";
 /**
  * MsgCreateVestingAccount defines a message that enables creating a vesting

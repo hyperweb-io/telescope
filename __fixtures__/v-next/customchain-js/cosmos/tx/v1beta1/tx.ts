@@ -1,9 +1,9 @@
-import { Any, AnyAmino } from "../../../google/protobuf/any";
-import { SignMode } from "../signing/v1beta1/signing";
-import { CompactBitArray, CompactBitArrayAmino } from "../../crypto/multisig/v1beta1/multisig";
-import { Coin, CoinAmino } from "../../base/v1beta1/coin";
+import { Any, type AnyAmino } from "../../../google/protobuf/any";
+import type { SignMode } from "../signing/v1beta1/signing";
+import { CompactBitArray, type CompactBitArrayAmino } from "../../crypto/multisig/v1beta1/multisig";
+import { Coin, type CoinAmino } from "../../base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers";
+import { type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers";
 /**
  * Tx is the standard type used for broadcasting transactions.
  * @name Tx

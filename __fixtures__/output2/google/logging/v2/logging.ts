@@ -5,8 +5,8 @@ import { LogEntry } from "./log_entry";
 import { Duration } from "../../protobuf/duration";
 import { Status } from "../../rpc/status";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial, isObject } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { isSet, type DeepPartial, isObject } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "google.logging.v2";
 /** An indicator of why entries were omitted. */
 export enum TailLogEntriesResponse_SuppressionInfo_Reason {

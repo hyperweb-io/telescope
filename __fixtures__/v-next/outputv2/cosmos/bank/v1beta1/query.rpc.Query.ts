@@ -1,11 +1,11 @@
 import { PageRequest } from "../../base/query/v1beta1/pagination";
-import { Metadata } from "./bank";
+import type { Metadata } from "./bank";
 import { grpc } from "@improbable-eng/grpc-web";
-import { UnaryMethodDefinitionish } from "../../../grpc-web";
-import { DeepPartial } from "../../../helpers";
+import type { UnaryMethodDefinitionish } from "../../../grpc-web";
+import type { DeepPartial } from "../../../helpers";
 import { BrowserHeaders } from "browser-headers";
-import { ReactQueryParams } from "../../../react-query";
-import { ProtobufRpcClient } from "@cosmjs/stargate";
+import type { ReactQueryParams } from "../../../react-query";
+import type { ProtobufRpcClient } from "@cosmjs/stargate";
 import { useQuery } from "@tanstack/react-query";
 import { QueryBalanceRequest, QueryBalanceResponse, QueryAllBalancesRequest, QueryAllBalancesResponse, QuerySpendableBalancesRequest, QuerySpendableBalancesResponse, QueryTotalSupplyRequest, QueryTotalSupplyResponse, QuerySupplyOfRequest, QuerySupplyOfResponse, QueryParamsRequest, QueryParamsResponse, QueryDenomMetadataRequest, QueryDenomMetadataResponse, QueryDenomsMetadataRequest, QueryDenomsMetadataResponse, QueryDenomOwnersRequest, QueryDenomOwnersResponse } from "./query";
 /** Query defines the gRPC querier service. */

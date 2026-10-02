@@ -1,7 +1,7 @@
-import { Any, AnySDKType } from "../../../../google/protobuf/any.js";
+import { Any, type AnySDKType } from "../../../../google/protobuf/any.js";
 import { BinaryReader, BinaryWriter } from "../../../../binary.js";
-import { isSet, DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers.js";
-import { JsonSafe } from "../../../../json-safe.js";
+import { isSet, type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers.js";
+import type { JsonSafe } from "../../../../json-safe.js";
 export const protobufPackage = "ibc.core.client.v1";
 /**
  * MsgCreateClient defines a message to create an IBC client

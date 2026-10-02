@@ -1,7 +1,7 @@
-import { FileDescriptorProto, FileDescriptorProtoSDKType } from "../descriptor";
+import { FileDescriptorProto, type FileDescriptorProtoSDKType } from "../descriptor";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet, DeepPartial } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { isSet, type DeepPartial } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "google.protobuf.compiler";
 /**
  * The version number of protocol compiler.

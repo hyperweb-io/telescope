@@ -1,5 +1,5 @@
 import * as fm from "../../../grpc-gateway";
-import { MsgVerifyInvariant, MsgVerifyInvariantSDKType, MsgVerifyInvariantResponse, MsgVerifyInvariantResponseSDKType } from "./tx";
+import { type MsgVerifyInvariant, MsgVerifyInvariantSDKType, type MsgVerifyInvariantResponse, MsgVerifyInvariantResponseSDKType } from "./tx";
 export class Msg {
   /** VerifyInvariant defines a method to verify a particular invariance. */
   static verifyInvariant(request: MsgVerifyInvariant, initRequest?: fm.InitReq): Promise<MsgVerifyInvariantResponse> {

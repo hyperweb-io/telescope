@@ -1,9 +1,9 @@
 //@ts-nocheck
 /* eslint-disable */
 import { Duration } from "../../../protobuf/duration";
-import { Long, isSet, DeepPartial } from "../../../../helpers";
+import { Long, isSet, type DeepPartial } from "../../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../../json-safe";
+import type { JsonSafe } from "../../../../json-safe";
 export const protobufPackage = "google.api.servicecontrol.v1";
 /**
  * A common proto for logging HTTP requests. Only contains semantics

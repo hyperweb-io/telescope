@@ -1,5 +1,5 @@
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial, Exact, bytesFromBase64, base64FromBytes } from "../../../helpers";
+import { type DeepPartial, type Exact, bytesFromBase64, base64FromBytes } from "../../../helpers";
 export const protobufPackage = "akash.base.v1beta2";
 /**
  * Unit stores cpu, memory and storage metrics

@@ -1,6 +1,6 @@
-import { Account, AccountAmino, Payment, PaymentAmino } from "./types";
+import { Account, type AccountAmino, Payment, type PaymentAmino } from "./types";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * GenesisState defines the basic genesis state used by escrow module
  * @name GenesisState

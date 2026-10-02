@@ -1,7 +1,7 @@
-import { PageRequest, PageRequestAmino, PageResponse, PageResponseAmino } from "../../../../cosmos/base/query/v1beta1/pagination";
-import { DenomTrace, DenomTraceAmino, IbcApplicationsTransferV1Params, IbcApplicationsTransferV1ParamsAmino } from "./transfer";
+import { PageRequest, type PageRequestAmino, PageResponse, type PageResponseAmino } from "../../../../cosmos/base/query/v1beta1/pagination";
+import { DenomTrace, type DenomTraceAmino, IbcApplicationsTransferV1Params, type IbcApplicationsTransferV1ParamsAmino } from "./transfer";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial } from "../../../../helpers";
+import type { DeepPartial } from "../../../../helpers";
 /**
  * QueryDenomTraceRequest is the request type for the Query/DenomTrace RPC
  * method

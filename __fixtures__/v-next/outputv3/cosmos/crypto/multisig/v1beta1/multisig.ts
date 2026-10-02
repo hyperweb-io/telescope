@@ -1,5 +1,5 @@
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { bytesFromBase64, DeepPartial, base64FromBytes, isSet } from "../../../../helpers";
+import { bytesFromBase64, type DeepPartial, base64FromBytes, isSet } from "../../../../helpers";
 export const protobufPackage = "cosmos.crypto.multisig.v1beta1";
 /**
  * MultiSignature wraps the signatures from a multisig.LegacyAminoPubKey.

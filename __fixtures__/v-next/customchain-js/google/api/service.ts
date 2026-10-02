@@ -1,25 +1,25 @@
-import { Api, ApiAmino } from "../protobuf/api";
-import { Type, TypeAmino, Enum, EnumAmino } from "../protobuf/type";
-import { Documentation, DocumentationAmino } from "./documentation";
-import { Backend, BackendAmino } from "./backend";
-import { Http, HttpAmino } from "./http";
-import { Quota, QuotaAmino } from "./quota";
-import { Authentication, AuthenticationAmino } from "./auth";
-import { Context, ContextAmino } from "./context";
-import { Usage, UsageAmino } from "./usage";
-import { Endpoint, EndpointAmino } from "./endpoint";
-import { Control, ControlAmino } from "./control";
-import { LogDescriptor, LogDescriptorAmino } from "./log";
-import { MetricDescriptor, MetricDescriptorAmino } from "./metric";
-import { MonitoredResourceDescriptor, MonitoredResourceDescriptorAmino } from "./monitored_resource";
-import { Billing, BillingAmino } from "./billing";
-import { Logging, LoggingAmino } from "./logging";
-import { Monitoring, MonitoringAmino } from "./monitoring";
-import { SystemParameters, SystemParametersAmino } from "./system_parameter";
-import { SourceInfo, SourceInfoAmino } from "./source_info";
-import { UInt32Value, UInt32ValueAmino } from "../protobuf/wrappers";
+import { Api, type ApiAmino } from "../protobuf/api";
+import { Type, type TypeAmino, Enum, type EnumAmino } from "../protobuf/type";
+import { Documentation, type DocumentationAmino } from "./documentation";
+import { Backend, type BackendAmino } from "./backend";
+import { Http, type HttpAmino } from "./http";
+import { Quota, type QuotaAmino } from "./quota";
+import { Authentication, type AuthenticationAmino } from "./auth";
+import { Context, type ContextAmino } from "./context";
+import { Usage, type UsageAmino } from "./usage";
+import { Endpoint, type EndpointAmino } from "./endpoint";
+import { Control, type ControlAmino } from "./control";
+import { LogDescriptor, type LogDescriptorAmino } from "./log";
+import { MetricDescriptor, type MetricDescriptorAmino } from "./metric";
+import { MonitoredResourceDescriptor, type MonitoredResourceDescriptorAmino } from "./monitored_resource";
+import { Billing, type BillingAmino } from "./billing";
+import { Logging, type LoggingAmino } from "./logging";
+import { Monitoring, type MonitoringAmino } from "./monitoring";
+import { SystemParameters, type SystemParametersAmino } from "./system_parameter";
+import { SourceInfo, type SourceInfoAmino } from "./source_info";
+import { UInt32Value, type UInt32ValueAmino } from "../protobuf/wrappers";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { DeepPartial } from "../../helpers";
+import type { DeepPartial } from "../../helpers";
 /**
  * `Service` is the root object of Google service configuration schema. It
  * describes basic information about a service, such as the name and the

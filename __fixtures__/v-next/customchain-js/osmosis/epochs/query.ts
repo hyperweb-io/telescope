@@ -1,6 +1,6 @@
-import { EpochInfo, EpochInfoAmino } from "./genesis";
+import { EpochInfo, type EpochInfoAmino } from "./genesis";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { DeepPartial } from "../../helpers";
+import type { DeepPartial } from "../../helpers";
 /**
  * @name QueryEpochsInfoRequest
  * @package osmosis.epochs.v1beta1

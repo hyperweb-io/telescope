@@ -3,7 +3,7 @@ import { DeploymentID, DeploymentIDSDKType } from "./deployment";
 import { GroupSpec, GroupSpecSDKType } from "./groupspec";
 import { Coin, CoinSDKType, DecCoin, DecCoinSDKType } from "../../../cosmos/base/v1beta1/coin";
 import { GroupID, GroupIDSDKType } from "./groupid";
-import { AminoMsg } from "@cosmjs/amino";
+import type { AminoMsg } from "@cosmjs/amino";
 import { Long } from "../../../helpers";
 import { PlacementRequirements, PlacementRequirementsSDKType, SignedBy, SignedBySDKType, Attribute, AttributeSDKType } from "../../base/v1beta2/attribute";
 import { Resource, ResourceSDKType } from "./resource";
@@ -11,8 +11,8 @@ import { ResourceUnits, ResourceUnitsSDKType } from "../../base/v1beta2/resource
 import { CPU, CPUSDKType, Memory, MemorySDKType, Storage, StorageSDKType } from "../../base/v1beta2/resource";
 import { ResourceValue, ResourceValueSDKType } from "../../base/v1beta2/resourcevalue";
 import { Endpoint, EndpointSDKType, endpoint_KindFromJSON } from "../../base/v1beta2/endpoint";
-import { MsgCreateDeployment, MsgCreateDeploymentSDKType, MsgDepositDeployment, MsgDepositDeploymentSDKType, MsgUpdateDeployment, MsgUpdateDeploymentSDKType, MsgCloseDeployment, MsgCloseDeploymentSDKType } from "./deploymentmsg";
-import { MsgCloseGroup, MsgCloseGroupSDKType, MsgPauseGroup, MsgPauseGroupSDKType, MsgStartGroup, MsgStartGroupSDKType } from "./groupmsg";
+import { type MsgCreateDeployment, MsgCreateDeploymentSDKType, type MsgDepositDeployment, MsgDepositDeploymentSDKType, type MsgUpdateDeployment, MsgUpdateDeploymentSDKType, type MsgCloseDeployment, MsgCloseDeploymentSDKType } from "./deploymentmsg";
+import { type MsgCloseGroup, MsgCloseGroupSDKType, type MsgPauseGroup, MsgPauseGroupSDKType, type MsgStartGroup, MsgStartGroupSDKType } from "./groupmsg";
 export interface MsgCreateDeploymentAminoType extends AminoMsg {
   type: "akash/deployment/v1beta2/testonly-create-deployment";
   value: {

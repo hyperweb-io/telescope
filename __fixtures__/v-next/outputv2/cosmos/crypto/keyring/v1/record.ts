@@ -1,9 +1,9 @@
-import { Any, AnyAmino, AnySDKType } from "../../../../google/protobuf/any";
-import { BIP44Params, BIP44ParamsAmino, BIP44ParamsSDKType } from "../../hd/v1/hd";
+import { Any, type AnyAmino, type AnySDKType } from "../../../../google/protobuf/any";
+import { BIP44Params, type BIP44ParamsAmino, type BIP44ParamsSDKType } from "../../hd/v1/hd";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
 import { GlobalDecoderRegistry } from "../../../../registry";
-import { isSet, DeepPartial } from "../../../../helpers";
-import { JsonSafe } from "../../../../json-safe";
+import { isSet, type DeepPartial } from "../../../../helpers";
+import type { JsonSafe } from "../../../../json-safe";
 export const protobufPackage = "cosmos.crypto.keyring.v1";
 /**
  * Record is used for representing a key in the keyring.

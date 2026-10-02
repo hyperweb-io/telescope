@@ -1,5 +1,5 @@
-import { AminoMsg } from "@cosmjs/amino";
-import { MsgUnjail, MsgUnjailSDKType } from "./tx";
+import type { AminoMsg } from "@cosmjs/amino";
+import { type MsgUnjail, MsgUnjailSDKType } from "./tx";
 export interface MsgUnjailAminoType extends AminoMsg {
   type: "cosmos-sdk/MsgUnjail";
   value: {

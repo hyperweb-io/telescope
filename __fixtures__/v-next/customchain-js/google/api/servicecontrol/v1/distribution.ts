@@ -1,6 +1,6 @@
-import { Distribution_Exemplar, Distribution_ExemplarAmino } from "../../distribution";
+import { Distribution_Exemplar, type Distribution_ExemplarAmino } from "../../distribution";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial } from "../../../../helpers";
+import type { DeepPartial } from "../../../../helpers";
 /**
  * Distribution represents a frequency distribution of double-valued sample
  * points. It contains the size of the population of sample points plus

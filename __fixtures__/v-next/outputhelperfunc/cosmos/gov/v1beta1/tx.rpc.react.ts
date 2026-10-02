@@ -9,7 +9,7 @@ import { UpdateFeeTokenProposal, UpdateFeeTokenProposalSDKType } from "../../../
 import { buildTx } from "../../../helper-func-types";
 import { buildUseMutation } from "../../../react-query";
 import { buildUseVueMutation } from "../../../vue-query";
-import { MsgSubmitProposal, MsgSubmitProposalSDKType, MsgSubmitProposalResponse, MsgSubmitProposalResponseSDKType, MsgVote, MsgVoteSDKType, MsgVoteResponse, MsgVoteResponseSDKType, MsgVoteWeighted, MsgVoteWeightedSDKType, MsgVoteWeightedResponse, MsgVoteWeightedResponseSDKType, MsgDeposit, MsgDepositSDKType, MsgDepositResponse, MsgDepositResponseSDKType } from "./tx";
+import { type MsgSubmitProposal, MsgSubmitProposalSDKType, MsgSubmitProposalResponse, MsgSubmitProposalResponseSDKType, type MsgVote, MsgVoteSDKType, MsgVoteResponse, MsgVoteResponseSDKType, type MsgVoteWeighted, MsgVoteWeightedSDKType, MsgVoteWeightedResponse, MsgVoteWeightedResponseSDKType, type MsgDeposit, MsgDepositSDKType, MsgDepositResponse, MsgDepositResponseSDKType } from "./tx";
 import { submitProposal, helperVote, letsVoteWeighted, toDeposit } from "./tx.rpc.func";
 /**
  * SubmitProposal defines a method to create new proposal given a content.

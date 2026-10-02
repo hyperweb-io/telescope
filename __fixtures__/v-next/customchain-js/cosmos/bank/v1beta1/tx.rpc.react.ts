@@ -1,5 +1,5 @@
 import { buildUseMutation } from "../../../react-query";
-import { MsgSend, MsgMultiSend } from "./tx";
+import type { MsgSend, MsgMultiSend } from "./tx";
 import { send, multiSend } from "./tx.rpc.func";
 /**
  * Send defines a method for sending coins from one account to another account.

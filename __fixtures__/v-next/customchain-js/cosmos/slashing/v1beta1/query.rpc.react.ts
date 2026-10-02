@@ -1,5 +1,5 @@
 import { buildUseQuery } from "../../../react-query";
-import { QueryParamsRequest, QueryParamsResponse, QuerySigningInfoRequest, QuerySigningInfoResponse, QuerySigningInfosRequest, QuerySigningInfosResponse } from "./query";
+import type { QueryParamsRequest, QueryParamsResponse, QuerySigningInfoRequest, QuerySigningInfoResponse, QuerySigningInfosRequest, QuerySigningInfosResponse } from "./query";
 import { getCosmosSlashingV1beta1Params, getSigningInfo, getSigningInfos } from "./query.rpc.func";
 /**
  * Params queries the parameters of slashing module

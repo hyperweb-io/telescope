@@ -1,7 +1,7 @@
-import { DecCoin, DecCoinAmino, Coin, CoinAmino } from "../../base/v1beta1/coin";
+import { DecCoin, type DecCoinAmino, Coin, type CoinAmino } from "../../base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { Decimal } from "@interchainjs/math";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * Params defines the set of params for the distribution module.
  * @name CosmosDistributionV1beta1Params

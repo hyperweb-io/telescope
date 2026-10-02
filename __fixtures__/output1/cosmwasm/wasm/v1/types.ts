@@ -1,7 +1,7 @@
-import { Any, AnySDKType } from "../../../google/protobuf/any";
-import { Long, isSet, DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers";
+import { Any, type AnySDKType } from "../../../google/protobuf/any";
+import { Long, isSet, type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../json-safe";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "cosmwasm.wasm.v1";
 /** AccessType permission types */
 export enum AccessType {

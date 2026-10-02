@@ -1,7 +1,7 @@
 import { Member, MemberSDKType, VoteOption, VoteOptionSDKType, voteOptionFromJSON } from "./types.js";
 import { Any, AnySDKType } from "../../../google/protobuf/any.js";
-import { AminoMsg } from "@cosmjs/amino";
-import { execFromJSON, MsgCreateGroup, MsgCreateGroupSDKType, MsgUpdateGroupMembers, MsgUpdateGroupMembersSDKType, MsgUpdateGroupAdmin, MsgUpdateGroupAdminSDKType, MsgUpdateGroupMetadata, MsgUpdateGroupMetadataSDKType, MsgCreateGroupPolicy, MsgCreateGroupPolicySDKType, MsgCreateGroupWithPolicy, MsgCreateGroupWithPolicySDKType, MsgUpdateGroupPolicyAdmin, MsgUpdateGroupPolicyAdminSDKType, MsgUpdateGroupPolicyDecisionPolicy, MsgUpdateGroupPolicyDecisionPolicySDKType, MsgUpdateGroupPolicyMetadata, MsgUpdateGroupPolicyMetadataSDKType, MsgSubmitProposal, MsgSubmitProposalSDKType, MsgWithdrawProposal, MsgWithdrawProposalSDKType, MsgVote, MsgVoteSDKType, MsgExec, MsgExecSDKType, MsgLeaveGroup, MsgLeaveGroupSDKType } from "./tx.js";
+import type { AminoMsg } from "@cosmjs/amino";
+import { execFromJSON, type MsgCreateGroup, MsgCreateGroupSDKType, type MsgUpdateGroupMembers, MsgUpdateGroupMembersSDKType, type MsgUpdateGroupAdmin, MsgUpdateGroupAdminSDKType, type MsgUpdateGroupMetadata, MsgUpdateGroupMetadataSDKType, type MsgCreateGroupPolicy, MsgCreateGroupPolicySDKType, type MsgCreateGroupWithPolicy, MsgCreateGroupWithPolicySDKType, type MsgUpdateGroupPolicyAdmin, MsgUpdateGroupPolicyAdminSDKType, type MsgUpdateGroupPolicyDecisionPolicy, MsgUpdateGroupPolicyDecisionPolicySDKType, type MsgUpdateGroupPolicyMetadata, MsgUpdateGroupPolicyMetadataSDKType, type MsgSubmitProposal, MsgSubmitProposalSDKType, type MsgWithdrawProposal, MsgWithdrawProposalSDKType, type MsgVote, MsgVoteSDKType, type MsgExec, MsgExecSDKType, type MsgLeaveGroup, MsgLeaveGroupSDKType } from "./tx.js";
 export interface MsgCreateGroupAminoType extends AminoMsg {
   type: "cosmos-sdk/MsgCreateGroup";
   value: {

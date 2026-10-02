@@ -1,10 +1,10 @@
-import { ParsedExpr, ParsedExprAmino, ParsedExprSDKType, SourcePosition, SourcePositionAmino, SourcePositionSDKType } from "../../v1alpha1/syntax";
-import { Decl, DeclAmino, DeclSDKType, CheckedExpr, CheckedExprAmino, CheckedExprSDKType } from "../../v1alpha1/checked";
-import { ExprValue, ExprValueAmino, ExprValueSDKType } from "../../v1alpha1/eval";
-import { Status, StatusAmino, StatusSDKType } from "../../../../rpc/status";
+import { ParsedExpr, type ParsedExprAmino, type ParsedExprSDKType, SourcePosition, type SourcePositionAmino, type SourcePositionSDKType } from "../../v1alpha1/syntax";
+import { Decl, type DeclAmino, type DeclSDKType, CheckedExpr, type CheckedExprAmino, type CheckedExprSDKType } from "../../v1alpha1/checked";
+import { ExprValue, type ExprValueAmino, type ExprValueSDKType } from "../../v1alpha1/eval";
+import { Status, type StatusAmino, type StatusSDKType } from "../../../../rpc/status";
 import { BinaryReader, BinaryWriter } from "../../../../../binary";
-import { isSet, DeepPartial, isObject } from "../../../../../helpers";
-import { JsonSafe } from "../../../../../json-safe";
+import { isSet, type DeepPartial, isObject } from "../../../../../helpers";
+import type { JsonSafe } from "../../../../../json-safe";
 import { GlobalDecoderRegistry } from "../../../../../registry";
 export const protobufPackage = "google.api.expr.conformance.v1alpha1";
 /** Severities of issues. */

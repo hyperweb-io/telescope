@@ -1,6 +1,6 @@
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
-import { EvmosRecoveryV1Params, EvmosRecoveryV1ParamsAmino } from "./genesis";
+import type { DeepPartial } from "../../../helpers";
+import { EvmosRecoveryV1Params, type EvmosRecoveryV1ParamsAmino } from "./genesis";
 /**
  * QueryParamsRequest is the request type for the Query/Params RPC method.
  * @name QueryParamsRequest

@@ -1,7 +1,7 @@
-import { Coin, CoinAmino } from "../../../cosmos/base/v1beta1/coin";
-import { Metadata, MetadataAmino } from "../../../cosmos/bank/v1beta1/bank";
+import { Coin, type CoinAmino } from "../../../cosmos/base/v1beta1/coin";
+import { Metadata, type MetadataAmino } from "../../../cosmos/bank/v1beta1/bank";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * MsgCreateDenom defines the message structure for the CreateDenom gRPC service
  * method. It allows an account to create a new denom. It requires a sender

@@ -1,6 +1,6 @@
 import { BinaryReader, BinaryWriter } from "../../binary.js";
-import { JsonSafe } from "../../json-safe.js";
-import { DeepPartial, isSet, isObject } from "../../helpers.js";
+import type { JsonSafe } from "../../json-safe.js";
+import { type DeepPartial, isSet, isObject } from "../../helpers.js";
 export const protobufPackage = "google.api";
 /**
  * Quota configuration helps to achieve fairness and budgeting in service

@@ -1,7 +1,7 @@
-import { GroupInfo, GroupInfoSDKType, GroupMember, GroupMemberSDKType, GroupPolicyInfo, GroupPolicyInfoSDKType, Proposal, ProposalSDKType, Vote, VoteSDKType } from "./types";
-import { Long, isSet, DeepPartial } from "../../../helpers";
+import { GroupInfo, type GroupInfoSDKType, GroupMember, type GroupMemberSDKType, GroupPolicyInfo, type GroupPolicyInfoSDKType, Proposal, type ProposalSDKType, Vote, type VoteSDKType } from "./types";
+import { Long, isSet, type DeepPartial } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../json-safe";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "cosmos.group.v1";
 /** GenesisState defines the group module's genesis state. */
 export interface GenesisState {

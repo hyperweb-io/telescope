@@ -1,7 +1,7 @@
-import { ProposalStatus, Proposal, ProposalAmino, Vote, VoteAmino, VotingParams, VotingParamsAmino, DepositParams, DepositParamsAmino, TallyParams, TallyParamsAmino, Deposit, DepositAmino, TallyResult, TallyResultAmino } from "./gov";
-import { PageRequest, PageRequestAmino, PageResponse, PageResponseAmino } from "../../base/query/v1beta1/pagination";
+import { type ProposalStatus, Proposal, type ProposalAmino, Vote, type VoteAmino, VotingParams, type VotingParamsAmino, DepositParams, type DepositParamsAmino, TallyParams, type TallyParamsAmino, Deposit, type DepositAmino, TallyResult, type TallyResultAmino } from "./gov";
+import { PageRequest, type PageRequestAmino, PageResponse, type PageResponseAmino } from "../../base/query/v1beta1/pagination";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * QueryProposalRequest is the request type for the Query/Proposal RPC method.
  * @name QueryProposalRequest

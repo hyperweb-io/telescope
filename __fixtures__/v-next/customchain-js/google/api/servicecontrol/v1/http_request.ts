@@ -1,6 +1,6 @@
-import { Duration, DurationAmino } from "../../../protobuf/duration";
+import { Duration, type DurationAmino } from "../../../protobuf/duration";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial } from "../../../../helpers";
+import type { DeepPartial } from "../../../../helpers";
 /**
  * A common proto for logging HTTP requests. Only contains semantics
  * defined by the HTTP specification. Product-specific logging

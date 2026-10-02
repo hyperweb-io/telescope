@@ -1,8 +1,8 @@
 import { Timestamp, TimestampSDKType } from "../../../google/protobuf/timestamp";
-import { Params, ParamsSDKType } from "./genesis";
+import { Params, type ParamsSDKType } from "./genesis";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { toTimestamp, fromTimestamp, isSet, DeepPartial } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { toTimestamp, fromTimestamp, isSet, type DeepPartial } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 import { Decimal } from "@interchainjs/math";
 export const protobufPackage = "osmosis.twap.v1beta1";
 /**

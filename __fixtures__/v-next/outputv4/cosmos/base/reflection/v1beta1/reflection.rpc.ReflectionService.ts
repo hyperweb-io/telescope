@@ -1,6 +1,6 @@
-import { TxRpc } from "../../../../types.js";
+import type { TxRpc } from "../../../../types.js";
 import { BinaryReader } from "../../../../binary.js";
-import { QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
+import { type QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
 import { ListAllInterfacesRequest, ListAllInterfacesRequestSDKType, ListAllInterfacesResponse, ListAllInterfacesResponseSDKType, ListImplementationsRequest, ListImplementationsRequestSDKType, ListImplementationsResponse, ListImplementationsResponseSDKType } from "./reflection.js";
 /** ReflectionService defines a service for interface reflection. */
 export interface ReflectionService {

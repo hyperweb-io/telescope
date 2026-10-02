@@ -1,15 +1,15 @@
-import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageResponseAmino, PageResponseSDKType } from "../../../cosmos/base/query/v1beta1/pagination";
-import { Coin, CoinAmino, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
-import { SwapAmountInRoute, SwapAmountInRouteAmino, SwapAmountInRouteSDKType, SwapAmountOutRoute, SwapAmountOutRouteAmino, SwapAmountOutRouteSDKType } from "./tx";
-import { Any, AnyProtoMsg, AnyAmino, AnySDKType } from "../../../google/protobuf/any";
+import { PageRequest, type PageRequestAmino, type PageRequestSDKType, PageResponse, type PageResponseAmino, type PageResponseSDKType } from "../../../cosmos/base/query/v1beta1/pagination";
+import { Coin, type CoinAmino, type CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
+import { SwapAmountInRoute, type SwapAmountInRouteAmino, type SwapAmountInRouteSDKType, SwapAmountOutRoute, type SwapAmountOutRouteAmino, type SwapAmountOutRouteSDKType } from "./tx";
+import { Any, type AnyProtoMsg, type AnyAmino, type AnySDKType } from "../../../google/protobuf/any";
 import { Pool as Pool1 } from "../pool-models/balancer/balancerPool";
-import { PoolProtoMsg as Pool1ProtoMsg } from "../pool-models/balancer/balancerPool";
-import { PoolSDKType as Pool1SDKType } from "../pool-models/balancer/balancerPool";
+import type { PoolProtoMsg as Pool1ProtoMsg } from "../pool-models/balancer/balancerPool";
+import type { PoolSDKType as Pool1SDKType } from "../pool-models/balancer/balancerPool";
 import { Pool as Pool2 } from "../pool-models/stableswap/stableswap_pool";
-import { PoolProtoMsg as Pool2ProtoMsg } from "../pool-models/stableswap/stableswap_pool";
-import { PoolSDKType as Pool2SDKType } from "../pool-models/stableswap/stableswap_pool";
+import type { PoolProtoMsg as Pool2ProtoMsg } from "../pool-models/stableswap/stableswap_pool";
+import type { PoolSDKType as Pool2SDKType } from "../pool-models/stableswap/stableswap_pool";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet, DeepPartial } from "../../../helpers";
+import { isSet, type DeepPartial } from "../../../helpers";
 import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "osmosis.gamm.v1beta1";
 /**

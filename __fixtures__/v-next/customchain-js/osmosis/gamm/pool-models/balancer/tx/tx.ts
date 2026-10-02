@@ -1,6 +1,6 @@
-import { PoolParams, PoolParamsAmino, PoolAsset, PoolAssetAmino } from "../balancerPool";
+import { PoolParams, type PoolParamsAmino, PoolAsset, type PoolAssetAmino } from "../balancerPool";
 import { BinaryReader, BinaryWriter } from "../../../../../binary";
-import { DeepPartial } from "../../../../../helpers";
+import type { DeepPartial } from "../../../../../helpers";
 /**
  * ===================== MsgCreatePool
  * @name MsgCreateBalancerPool

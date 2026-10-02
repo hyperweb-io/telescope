@@ -5,13 +5,13 @@
 */
 
 
-import { HttpEndpoint } from "@interchainjs/types";
+import { type HttpEndpoint } from "@interchainjs/types";
 import { BinaryReader, BinaryWriter } from "./binary";
 import { getRpcClient } from "./extern";
-import { isRpc, Rpc } from "./helpers";
-import { TelescopeGeneratedCodec, DeliverTxResponse, Message, StdFee } from "./types";
+import { isRpc, type Rpc } from "./helpers";
+import { type TelescopeGeneratedCodec, type DeliverTxResponse, type Message, type StdFee } from "./types";
 import { toConverters, toEncoders } from "@interchainjs/cosmos";
-import { ISigningClient } from "@interchainjs/cosmos";
+import { type ISigningClient } from "@interchainjs/cosmos";
 
 export interface QueryBuilderOptions<TReq, TRes> {
   encode: (request: TReq, writer?: BinaryWriter) => BinaryWriter
@@ -21,7 +21,7 @@ export interface QueryBuilderOptions<TReq, TRes> {
   deps?: TelescopeGeneratedCodec<any, any, any>[],
 }
 
-export function buildQuery<TReq, TRes>(opts: QueryBuilderOptions<TReq, TRes>) {
+export function buildQuery<TReq, TRes>(opts: QueryBuilderOptions<TReq, TRes>): (client: EndpointOrRpc, request: TReq) => Promise<TRes> {
     registerDependencies(opts.deps ?? []);
 
     return async (client: EndpointOrRpc, request: TReq) => {

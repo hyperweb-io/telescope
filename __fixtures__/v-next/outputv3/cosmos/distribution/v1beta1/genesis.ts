@@ -1,7 +1,7 @@
-import { DecCoin, DecCoinAmino, DecCoinSDKType } from "../../base/v1beta1/coin";
-import { ValidatorAccumulatedCommission, ValidatorAccumulatedCommissionAmino, ValidatorAccumulatedCommissionSDKType, ValidatorHistoricalRewards, ValidatorHistoricalRewardsAmino, ValidatorHistoricalRewardsSDKType, ValidatorCurrentRewards, ValidatorCurrentRewardsAmino, ValidatorCurrentRewardsSDKType, DelegatorStartingInfo, DelegatorStartingInfoAmino, DelegatorStartingInfoSDKType, ValidatorSlashEvent, ValidatorSlashEventAmino, ValidatorSlashEventSDKType, Params, ParamsAmino, ParamsSDKType, FeePool, FeePoolAmino, FeePoolSDKType } from "./distribution";
+import { DecCoin, type DecCoinAmino, type DecCoinSDKType } from "../../base/v1beta1/coin";
+import { ValidatorAccumulatedCommission, type ValidatorAccumulatedCommissionAmino, type ValidatorAccumulatedCommissionSDKType, ValidatorHistoricalRewards, type ValidatorHistoricalRewardsAmino, type ValidatorHistoricalRewardsSDKType, ValidatorCurrentRewards, type ValidatorCurrentRewardsAmino, type ValidatorCurrentRewardsSDKType, DelegatorStartingInfo, type DelegatorStartingInfoAmino, type DelegatorStartingInfoSDKType, ValidatorSlashEvent, type ValidatorSlashEventAmino, type ValidatorSlashEventSDKType, Params, type ParamsAmino, type ParamsSDKType, FeePool, type FeePoolAmino, type FeePoolSDKType } from "./distribution";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet, DeepPartial } from "../../../helpers";
+import { isSet, type DeepPartial } from "../../../helpers";
 import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "cosmos.distribution.v1beta1";
 /**

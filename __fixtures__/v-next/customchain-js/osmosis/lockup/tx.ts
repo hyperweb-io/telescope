@@ -1,8 +1,8 @@
-import { Duration, DurationAmino } from "../../google/protobuf/duration";
-import { Coin, CoinAmino } from "../../cosmos/base/v1beta1/coin";
-import { PeriodLock, PeriodLockAmino } from "./lock";
+import { Duration, type DurationAmino } from "../../google/protobuf/duration";
+import { Coin, type CoinAmino } from "../../cosmos/base/v1beta1/coin";
+import { PeriodLock, type PeriodLockAmino } from "./lock";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { DeepPartial } from "../../helpers";
+import type { DeepPartial } from "../../helpers";
 /**
  * @name MsgLockTokens
  * @package osmosis.lockup

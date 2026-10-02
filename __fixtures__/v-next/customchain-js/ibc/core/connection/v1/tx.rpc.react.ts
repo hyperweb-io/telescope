@@ -1,5 +1,5 @@
 import { buildUseMutation } from "../../../../react-query";
-import { MsgConnectionOpenInit, MsgConnectionOpenTry, MsgConnectionOpenAck, MsgConnectionOpenConfirm } from "./tx";
+import type { MsgConnectionOpenInit, MsgConnectionOpenTry, MsgConnectionOpenAck, MsgConnectionOpenConfirm } from "./tx";
 import { connectionOpenInit, connectionOpenTry, connectionOpenAck, connectionOpenConfirm } from "./tx.rpc.func";
 /**
  * ConnectionOpenInit defines a rpc handler method for MsgConnectionOpenInit.

@@ -1,10 +1,10 @@
-import { OrderFilters, OrderFiltersAmino, OrderID, OrderIDAmino, Order, OrderAmino } from "./order";
-import { PageRequest, PageRequestAmino, PageResponse, PageResponseAmino } from "../../../cosmos/base/query/v1beta1/pagination";
-import { BidFilters, BidFiltersAmino, BidID, BidIDAmino, Bid, BidAmino } from "./bid";
-import { LeaseFilters, LeaseFiltersAmino, LeaseID, LeaseIDAmino, Lease, LeaseAmino } from "./lease";
-import { Account, AccountAmino, FractionalPayment, FractionalPaymentAmino } from "../../escrow/v1beta2/types";
+import { OrderFilters, type OrderFiltersAmino, OrderID, type OrderIDAmino, Order, type OrderAmino } from "./order";
+import { PageRequest, type PageRequestAmino, PageResponse, type PageResponseAmino } from "../../../cosmos/base/query/v1beta1/pagination";
+import { BidFilters, type BidFiltersAmino, BidID, type BidIDAmino, Bid, type BidAmino } from "./bid";
+import { LeaseFilters, type LeaseFiltersAmino, LeaseID, type LeaseIDAmino, Lease, type LeaseAmino } from "./lease";
+import { Account, type AccountAmino, FractionalPayment, type FractionalPaymentAmino } from "../../escrow/v1beta2/types";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * QueryOrdersRequest is request type for the Query/Orders RPC method
  * @name QueryOrdersRequest

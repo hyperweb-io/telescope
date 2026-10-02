@@ -1,9 +1,9 @@
-import { PageRequest, PageRequestAmino, PageResponse, PageResponseAmino } from "../../../../cosmos/base/query/v1beta1/pagination";
-import { Channel, ChannelAmino, IdentifiedChannel, IdentifiedChannelAmino, PacketState, PacketStateAmino } from "./channel";
-import { Height, HeightAmino, IdentifiedClientState, IdentifiedClientStateAmino } from "../../client/v1/client";
-import { Any, AnyAmino } from "../../../../google/protobuf/any";
+import { PageRequest, type PageRequestAmino, PageResponse, type PageResponseAmino } from "../../../../cosmos/base/query/v1beta1/pagination";
+import { Channel, type ChannelAmino, IdentifiedChannel, type IdentifiedChannelAmino, PacketState, type PacketStateAmino } from "./channel";
+import { Height, type HeightAmino, IdentifiedClientState, type IdentifiedClientStateAmino } from "../../client/v1/client";
+import { Any, type AnyAmino } from "../../../../google/protobuf/any";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers";
+import { type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers";
 /**
  * QueryChannelRequest is the request type for the Query/Channel RPC method
  * @name QueryChannelRequest

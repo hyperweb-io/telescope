@@ -1,8 +1,8 @@
-import { QuotaView, QuotaViewSDKType, QuotaOverride, QuotaOverrideSDKType, QuotaSafetyCheck, QuotaSafetyCheckSDKType, OverrideInlineSource, OverrideInlineSourceSDKType, Service, ServiceSDKType, ConsumerQuotaMetric, ConsumerQuotaMetricSDKType, AdminQuotaPolicy, AdminQuotaPolicySDKType, ServiceIdentity, ServiceIdentitySDKType, quotaViewFromJSON, quotaViewToJSON, quotaSafetyCheckFromJSON, quotaSafetyCheckToJSON } from "./resources.js";
-import { FieldMask, FieldMaskSDKType } from "../../../protobuf/field_mask.js";
+import { type QuotaView, QuotaViewSDKType, QuotaOverride, type QuotaOverrideSDKType, type QuotaSafetyCheck, QuotaSafetyCheckSDKType, OverrideInlineSource, type OverrideInlineSourceSDKType, Service, type ServiceSDKType, ConsumerQuotaMetric, type ConsumerQuotaMetricSDKType, AdminQuotaPolicy, type AdminQuotaPolicySDKType, ServiceIdentity, type ServiceIdentitySDKType, quotaViewFromJSON, quotaViewToJSON, quotaSafetyCheckFromJSON, quotaSafetyCheckToJSON } from "./resources.js";
+import { FieldMask, type FieldMaskSDKType } from "../../../protobuf/field_mask.js";
 import { BinaryReader, BinaryWriter } from "../../../../binary.js";
-import { isSet, DeepPartial } from "../../../../helpers.js";
-import { JsonSafe } from "../../../../json-safe.js";
+import { isSet, type DeepPartial } from "../../../../helpers.js";
+import type { JsonSafe } from "../../../../json-safe.js";
 export const protobufPackage = "google.api.serviceusage.v1beta1";
 /** Enum for service identity state. */
 export enum GetServiceIdentityResponse_IdentityState {

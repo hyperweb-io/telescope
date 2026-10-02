@@ -1,7 +1,7 @@
-import { Provider, ProviderSDKType } from "./provider";
+import { Provider, type ProviderSDKType } from "./provider";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { JsonSafe } from "../../../json-safe";
-import { DeepPartial, Exact } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
+import type { DeepPartial, Exact } from "../../../helpers";
 export const protobufPackage = "akash.provider.v1beta2";
 /**
  * GenesisState defines the basic genesis state used by provider module

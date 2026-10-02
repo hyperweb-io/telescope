@@ -1,7 +1,7 @@
-import { PoolParams, PoolParamsSDKType, PoolAsset, PoolAssetSDKType } from "../balancerPool";
-import { Long, isSet, DeepPartial } from "../../../../../helpers";
+import { PoolParams, type PoolParamsSDKType, PoolAsset, type PoolAssetSDKType } from "../balancerPool";
+import { Long, isSet, type DeepPartial } from "../../../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../../../json-safe";
+import type { JsonSafe } from "../../../../../json-safe";
 export const protobufPackage = "osmosis.gamm.poolmodels.balancer.v1beta1";
 /** ===================== MsgCreatePool */
 export interface MsgCreateBalancerPool {

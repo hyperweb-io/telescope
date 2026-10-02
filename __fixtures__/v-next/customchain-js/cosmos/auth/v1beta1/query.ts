@@ -1,8 +1,8 @@
-import { PageRequest, PageRequestAmino, PageResponse, PageResponseAmino } from "../../base/query/v1beta1/pagination";
-import { Any, AnyProtoMsg, AnyAmino } from "../../../google/protobuf/any";
-import { BaseAccount, BaseAccountProtoMsg, ModuleAccount, ModuleAccountProtoMsg, CosmosAuthV1beta1Params, CosmosAuthV1beta1ParamsAmino } from "./auth";
+import { PageRequest, type PageRequestAmino, PageResponse, type PageResponseAmino } from "../../base/query/v1beta1/pagination";
+import { Any, type AnyProtoMsg, type AnyAmino } from "../../../google/protobuf/any";
+import { BaseAccount, type BaseAccountProtoMsg, ModuleAccount, type ModuleAccountProtoMsg, CosmosAuthV1beta1Params, type CosmosAuthV1beta1ParamsAmino } from "./auth";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers";
+import { type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers";
 /**
  * QueryAccountsRequest is the request type for the Query/Accounts RPC method.
  * 

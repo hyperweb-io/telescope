@@ -4,9 +4,9 @@ import { Proof } from "../crypto/proof";
 import { Consensus } from "../version/types";
 import { Timestamp } from "../../google/protobuf/timestamp";
 import { ValidatorSet } from "./validator";
-import { Long, isSet, bytesFromBase64, base64FromBytes, DeepPartial, fromJsonTimestamp, fromTimestamp } from "../../helpers";
+import { Long, isSet, bytesFromBase64, base64FromBytes, type DeepPartial, fromJsonTimestamp, fromTimestamp } from "../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../json-safe";
+import type { JsonSafe } from "../../json-safe";
 export const protobufPackage = "tendermint.types";
 /** BlockIdFlag indicates which BlcokID the signature is for */
 export enum BlockIDFlag {

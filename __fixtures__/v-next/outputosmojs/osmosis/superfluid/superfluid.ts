@@ -1,7 +1,7 @@
-import { Coin, CoinSDKType } from "../../cosmos/base/v1beta1/coin";
+import { Coin, type CoinSDKType } from "../../cosmos/base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { isSet, DeepPartial } from "../../helpers";
-import { JsonSafe } from "../../json-safe";
+import { isSet, type DeepPartial } from "../../helpers";
+import type { JsonSafe } from "../../json-safe";
 import { Decimal } from "@interchainjs/math";
 export const protobufPackage = "osmosis.superfluid";
 /**

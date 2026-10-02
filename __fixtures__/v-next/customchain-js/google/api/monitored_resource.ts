@@ -1,8 +1,8 @@
-import { LabelDescriptor, LabelDescriptorAmino } from "./label";
-import { LaunchStage } from "./launch_stage";
-import { Struct, StructAmino } from "../protobuf/struct";
+import { LabelDescriptor, type LabelDescriptorAmino } from "./label";
+import type { LaunchStage } from "./launch_stage";
+import { Struct, type StructAmino } from "../protobuf/struct";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { DeepPartial } from "../../helpers";
+import type { DeepPartial } from "../../helpers";
 /**
  * An object that describes the schema of a [MonitoredResource][google.api.MonitoredResource] object using a
  * type name and a set of labels.  For example, the monitored resource

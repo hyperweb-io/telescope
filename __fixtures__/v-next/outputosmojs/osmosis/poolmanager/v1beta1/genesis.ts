@@ -1,8 +1,8 @@
-import { Coin, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
-import { ModuleRoute, ModuleRouteSDKType } from "./module_route";
+import { Coin, type CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
+import { ModuleRoute, type ModuleRouteSDKType } from "./module_route";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { JsonSafe } from "../../../json-safe";
-import { DeepPartial, isSet } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
+import { type DeepPartial, isSet } from "../../../helpers";
 export const protobufPackage = "osmosis.poolmanager.v1beta1";
 /**
  * Params holds parameters for the poolmanager module

@@ -1,5 +1,5 @@
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial } from "../../../../helpers";
+import type { DeepPartial } from "../../../../helpers";
 /**
  * ListAllInterfacesRequest is the request type of the ListAllInterfaces RPC.
  * @name ListAllInterfacesRequest

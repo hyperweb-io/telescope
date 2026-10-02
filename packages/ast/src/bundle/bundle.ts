@@ -104,12 +104,19 @@ export const exportAllFromRelPath = (relPath: string) => {
  * @param relPath
  */
 export const exportTypesWithAlias = (
-    types: { name: string; alias: string }[],
+    types: { name: string; alias: string; isType?: boolean }[],
     relPath: string
 ) => {
-    const exportSpecifiers = types.map((type) =>
-        t.exportSpecifier(t.identifier(type.name), t.identifier(type.alias))
-    );
+    const exportSpecifiers = types.map((type) => {
+        const specifier = t.exportSpecifier(
+            t.identifier(type.name),
+            t.identifier(type.alias)
+        );
+        if (type.isType) {
+            specifier.exportKind = "type";
+        }
+        return specifier;
+    });
     return t.exportNamedDeclaration(
         null,
         exportSpecifiers,

@@ -1,7 +1,7 @@
-import { Deposit, DepositSDKType, Vote, VoteSDKType, Proposal, ProposalSDKType, DepositParams, DepositParamsSDKType, VotingParams, VotingParamsSDKType, TallyParams, TallyParamsSDKType } from "./gov";
-import { Long, isSet, DeepPartial } from "../../../helpers";
+import { Deposit, type DepositSDKType, Vote, type VoteSDKType, Proposal, type ProposalSDKType, DepositParams, type DepositParamsSDKType, VotingParams, type VotingParamsSDKType, TallyParams, type TallyParamsSDKType } from "./gov";
+import { Long, isSet, type DeepPartial } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../json-safe";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "cosmos.gov.v1beta1";
 /** GenesisState defines the gov module's genesis state. */
 export interface GenesisState {

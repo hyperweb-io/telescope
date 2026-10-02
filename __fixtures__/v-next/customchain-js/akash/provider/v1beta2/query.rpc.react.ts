@@ -1,5 +1,5 @@
 import { buildUseQuery } from "../../../react-query";
-import { QueryProvidersRequest, QueryProvidersResponse, QueryProviderRequest, QueryProviderResponse } from "./query";
+import type { QueryProvidersRequest, QueryProvidersResponse, QueryProviderRequest, QueryProviderResponse } from "./query";
 import { getProviders, getProvider } from "./query.rpc.func";
 /**
  * Providers queries providers

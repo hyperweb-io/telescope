@@ -4,8 +4,8 @@ import { TxResponse, TxResponseSDKType, GasInfo, GasInfoSDKType, Result, ResultS
 import { BlockID, BlockIDSDKType } from "../../../tendermint/types/types";
 import { Block, BlockSDKType } from "../../../tendermint/types/block";
 import { setPaginationParams } from "../../../helpers";
-import { LCDClient } from "@cosmology/lcd";
-import { SimulateRequest, SimulateRequestSDKType, SimulateResponse, SimulateResponseSDKType, GetTxRequest, GetTxRequestSDKType, GetTxResponse, GetTxResponseSDKType, BroadcastTxRequest, BroadcastTxRequestSDKType, BroadcastTxResponse, BroadcastTxResponseSDKType, GetTxsEventRequest, GetTxsEventRequestSDKType, GetTxsEventResponse, GetTxsEventResponseSDKType, GetBlockWithTxsRequest, GetBlockWithTxsRequestSDKType, GetBlockWithTxsResponse, GetBlockWithTxsResponseSDKType } from "./service";
+import type { LCDClient } from "@cosmology/lcd";
+import { SimulateRequest, SimulateRequestSDKType, SimulateResponse, SimulateResponseSDKType, type GetTxRequest, GetTxRequestSDKType, GetTxResponse, type GetTxResponseSDKType, BroadcastTxRequest, BroadcastTxRequestSDKType, BroadcastTxResponse, BroadcastTxResponseSDKType, type GetTxsEventRequest, GetTxsEventRequestSDKType, GetTxsEventResponse, type GetTxsEventResponseSDKType, type GetBlockWithTxsRequest, GetBlockWithTxsRequestSDKType, GetBlockWithTxsResponse, type GetBlockWithTxsResponseSDKType } from "./service";
 export class LCDQueryClient {
   req: LCDClient;
   constructor({

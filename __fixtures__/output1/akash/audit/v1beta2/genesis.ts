@@ -1,7 +1,7 @@
-import { AuditedAttributes, AuditedAttributesSDKType } from "./audit";
+import { AuditedAttributes, type AuditedAttributesSDKType } from "./audit";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../json-safe";
-import { DeepPartial, Exact } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
+import type { DeepPartial, Exact } from "../../../helpers";
 export const protobufPackage = "akash.audit.v1beta2";
 /** GenesisState defines the basic genesis state used by audit module */
 export interface GenesisState {

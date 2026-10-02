@@ -5,9 +5,9 @@ import { Header } from "../types/types";
 import { ProofOps } from "../crypto/proof";
 import { EvidenceParams, ValidatorParams, VersionParams } from "../types/params";
 import { PublicKey } from "../crypto/keys";
-import { Long, isSet, DeepPartial, fromJsonTimestamp, bytesFromBase64, fromTimestamp, base64FromBytes, Rpc } from "../../helpers";
+import { Long, isSet, type DeepPartial, fromJsonTimestamp, bytesFromBase64, fromTimestamp, base64FromBytes, type Rpc } from "../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../json-safe";
+import type { JsonSafe } from "../../json-safe";
 export const protobufPackage = "tendermint.abci";
 export enum CheckTxType {
   NEW = 0,

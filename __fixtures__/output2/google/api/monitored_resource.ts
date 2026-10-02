@@ -1,11 +1,11 @@
 //@ts-nocheck
 /* eslint-disable */
 import { LabelDescriptor } from "./label";
-import { LaunchStage, launchStageFromJSON, launchStageToJSON } from "./launch_stage";
+import { type LaunchStage, launchStageFromJSON, launchStageToJSON } from "./launch_stage";
 import { Struct } from "../protobuf/struct";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial, isObject } from "../../helpers";
-import { JsonSafe } from "../../json-safe";
+import { isSet, type DeepPartial, isObject } from "../../helpers";
+import type { JsonSafe } from "../../json-safe";
 export const protobufPackage = "google.api";
 /**
  * An object that describes the schema of a [MonitoredResource][google.api.MonitoredResource] object using a

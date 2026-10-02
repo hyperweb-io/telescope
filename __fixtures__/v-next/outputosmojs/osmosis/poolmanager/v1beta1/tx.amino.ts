@@ -1,8 +1,8 @@
 //@ts-nocheck
 import { SwapAmountInRoute, SwapAmountInRouteSDKType, SwapAmountOutRoute, SwapAmountOutRouteSDKType } from "./swap_route";
 import { Coin, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
-import { AminoMsg } from "@cosmjs/amino";
-import { MsgSwapExactAmountIn, MsgSwapExactAmountInSDKType, MsgSwapExactAmountOut, MsgSwapExactAmountOutSDKType } from "./tx";
+import type { AminoMsg } from "@cosmjs/amino";
+import { type MsgSwapExactAmountIn, MsgSwapExactAmountInSDKType, type MsgSwapExactAmountOut, MsgSwapExactAmountOutSDKType } from "./tx";
 export interface MsgSwapExactAmountInAminoType extends AminoMsg {
   type: "osmosis/poolmanager/swap-exact-amount-in";
   value: {

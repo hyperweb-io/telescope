@@ -1,7 +1,7 @@
-import { CapabilityOwners, CapabilityOwnersSDKType } from "./capability";
-import { Long, isSet, DeepPartial } from "../../../helpers";
+import { CapabilityOwners, type CapabilityOwnersSDKType } from "./capability";
+import { Long, isSet, type DeepPartial } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../json-safe";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "cosmos.capability.v1beta1";
 /** GenesisOwners defines the capability owners with their corresponding index. */
 export interface GenesisOwners {

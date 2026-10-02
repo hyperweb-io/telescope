@@ -1,7 +1,7 @@
-import { GroupInfo, GroupInfoSDKType, GroupMember, GroupMemberSDKType, GroupPolicyInfo, GroupPolicyInfoSDKType, Proposal, ProposalSDKType, Vote, VoteSDKType } from "./types.js";
+import { GroupInfo, type GroupInfoSDKType, GroupMember, type GroupMemberSDKType, GroupPolicyInfo, type GroupPolicyInfoSDKType, Proposal, type ProposalSDKType, Vote, type VoteSDKType } from "./types.js";
 import { BinaryReader, BinaryWriter } from "../../../binary.js";
-import { isSet, DeepPartial } from "../../../helpers.js";
-import { JsonSafe } from "../../../json-safe.js";
+import { isSet, type DeepPartial } from "../../../helpers.js";
+import type { JsonSafe } from "../../../json-safe.js";
 export const protobufPackage = "cosmos.group.v1";
 /**
  * GenesisState defines the group module's genesis state.

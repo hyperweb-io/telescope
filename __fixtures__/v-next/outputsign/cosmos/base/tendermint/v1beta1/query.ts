@@ -1,10 +1,10 @@
-import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageResponseAmino, PageResponseSDKType } from "../../query/v1beta1/pagination";
-import { Any, AnyProtoMsg, AnyAmino, AnySDKType } from "../../../../google/protobuf/any";
-import { BlockID, BlockIDAmino, BlockIDSDKType } from "../../../../tendermint/types/types";
-import { Block, BlockAmino, BlockSDKType } from "../../../../tendermint/types/block";
-import { NodeInfo, NodeInfoAmino, NodeInfoSDKType } from "../../../../tendermint/p2p/types";
+import { PageRequest, type PageRequestAmino, type PageRequestSDKType, PageResponse, type PageResponseAmino, type PageResponseSDKType } from "../../query/v1beta1/pagination";
+import { Any, AnyProtoMsg, type AnyAmino, type AnySDKType } from "../../../../google/protobuf/any";
+import { BlockID, type BlockIDAmino, type BlockIDSDKType } from "../../../../tendermint/types/types";
+import { Block, type BlockAmino, type BlockSDKType } from "../../../../tendermint/types/block";
+import { NodeInfo, type NodeInfoAmino, type NodeInfoSDKType } from "../../../../tendermint/p2p/types";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial } from "../../../../helpers";
+import type { DeepPartial } from "../../../../helpers";
 export const protobufPackage = "cosmos.base.tendermint.v1beta1";
 /**
  * GetValidatorSetByHeightRequest is the request type for the Query/GetValidatorSetByHeight RPC method.

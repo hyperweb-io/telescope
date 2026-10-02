@@ -1,10 +1,10 @@
 //@ts-nocheck
 /* eslint-disable */
-import { NullValue, nullValueFromJSON, nullValueToJSON } from "../../../protobuf/struct";
+import { type NullValue, nullValueFromJSON, nullValueToJSON } from "../../../protobuf/struct";
 import { Any } from "../../../protobuf/any";
-import { Long, isSet, bytesFromBase64, base64FromBytes, DeepPartial } from "../../../../helpers";
+import { Long, isSet, bytesFromBase64, base64FromBytes, type DeepPartial } from "../../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../../json-safe";
+import type { JsonSafe } from "../../../../json-safe";
 export const protobufPackage = "google.api.expr.v1beta1";
 /**
  * Represents a CEL value.

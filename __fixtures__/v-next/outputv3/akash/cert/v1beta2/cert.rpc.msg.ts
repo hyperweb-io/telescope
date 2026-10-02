@@ -1,5 +1,5 @@
 import * as fm from "../../../grpc-gateway";
-import { MsgCreateCertificate, MsgCreateCertificateSDKType, MsgCreateCertificateResponse, MsgCreateCertificateResponseSDKType, MsgRevokeCertificate, MsgRevokeCertificateSDKType, MsgRevokeCertificateResponse, MsgRevokeCertificateResponseSDKType } from "./cert";
+import { type MsgCreateCertificate, MsgCreateCertificateSDKType, type MsgCreateCertificateResponse, MsgCreateCertificateResponseSDKType, type MsgRevokeCertificate, MsgRevokeCertificateSDKType, type MsgRevokeCertificateResponse, MsgRevokeCertificateResponseSDKType } from "./cert";
 export class Msg {
   /** CreateCertificate defines a method to create new certificate given proper inputs. */
   static createCertificate(request: MsgCreateCertificate, initRequest?: fm.InitReq): Promise<MsgCreateCertificateResponse> {

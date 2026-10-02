@@ -1,5 +1,5 @@
 import { buildUseQuery } from "../../../react-query";
-import { QueryConfigRequest, QueryConfigResponse } from "./query";
+import type { QueryConfigRequest, QueryConfigResponse } from "./query";
 import { getConfig } from "./query.rpc.func";
 /**
  * Config returns the current app config.

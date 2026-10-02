@@ -1,12 +1,12 @@
-import { Header, HeaderAmino, HeaderSDKType } from "../../../tendermint/types/types";
+import { Header, type HeaderAmino, type HeaderSDKType } from "../../../tendermint/types/types";
 import { Timestamp } from "../../../google/protobuf/timestamp";
-import { Any, AnyProtoMsg, AnyAmino, AnySDKType } from "../../../google/protobuf/any";
-import { Duration, DurationAmino, DurationSDKType } from "../../../google/protobuf/duration";
-import { Coin, CoinAmino, CoinSDKType } from "../../base/v1beta1/coin";
+import { Any, type AnyProtoMsg, type AnyAmino, type AnySDKType } from "../../../google/protobuf/any";
+import { Duration, type DurationAmino, type DurationSDKType } from "../../../google/protobuf/duration";
+import { Coin, type CoinAmino, type CoinSDKType } from "../../base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { GlobalDecoderRegistry } from "../../../registry";
-import { isSet, DeepPartial, toTimestamp, fromTimestamp } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { isSet, type DeepPartial, toTimestamp, fromTimestamp } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 import { Decimal } from "@interchainjs/math";
 import { encodePubkey, decodePubkey } from "@interchainjs/pubkey";
 export const protobufPackage = "cosmos.staking.v1beta1";

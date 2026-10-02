@@ -1,6 +1,6 @@
 import { Timestamp, TimestampAmino, TimestampSDKType } from "../../../google/protobuf/timestamp";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { toTimestamp, fromTimestamp, isSet, DeepPartial } from "../../../helpers";
+import { toTimestamp, fromTimestamp, isSet, type DeepPartial } from "../../../helpers";
 import { Decimal } from "@interchainjs/math";
 export const protobufPackage = "osmosis.twap.v1beta1";
 /**

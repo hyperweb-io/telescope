@@ -1,8 +1,8 @@
-import { ManagedService, ManagedServiceAmino, ManagedServiceSDKType, ConfigSource, ConfigSourceAmino, ConfigSourceSDKType, Rollout, RolloutAmino, RolloutSDKType, ChangeReport, ChangeReportAmino, ChangeReportSDKType, Diagnostic, DiagnosticAmino, DiagnosticSDKType } from "./resources";
-import { Service, ServiceAmino, ServiceSDKType } from "../../service";
-import { Any, AnyProtoMsg, AnyAmino, AnySDKType } from "../../../protobuf/any";
+import { ManagedService, type ManagedServiceAmino, type ManagedServiceSDKType, ConfigSource, type ConfigSourceAmino, type ConfigSourceSDKType, Rollout, type RolloutAmino, type RolloutSDKType, ChangeReport, type ChangeReportAmino, type ChangeReportSDKType, Diagnostic, type DiagnosticAmino, type DiagnosticSDKType } from "./resources";
+import { Service, type ServiceAmino, type ServiceSDKType } from "../../service";
+import { Any, AnyProtoMsg, type AnyAmino, type AnySDKType } from "../../../protobuf/any";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial } from "../../../../helpers";
+import type { DeepPartial } from "../../../../helpers";
 export const protobufPackage = "google.api.servicemanagement.v1";
 export enum GetServiceConfigRequest_ConfigView {
   /** BASIC - Server response includes all fields except SourceInfo. */

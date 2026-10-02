@@ -1,6 +1,6 @@
-import { CapabilityOwners, CapabilityOwnersAmino } from "./capability";
+import { CapabilityOwners, type CapabilityOwnersAmino } from "./capability";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * GenesisOwners defines the capability owners with their corresponding index.
  * @name GenesisOwners

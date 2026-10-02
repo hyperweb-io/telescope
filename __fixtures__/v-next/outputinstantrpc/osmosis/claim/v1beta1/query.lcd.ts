@@ -1,8 +1,8 @@
 import { Action, ActionSDKType, ClaimRecord, ClaimRecordSDKType } from "./claim";
 import { Coin, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
 import { Params, ParamsSDKType } from "./params";
-import { LCDClient } from "@cosmology/lcd";
-import { QueryModuleAccountBalanceRequest, QueryModuleAccountBalanceRequestSDKType, QueryModuleAccountBalanceResponse, QueryModuleAccountBalanceResponseSDKType, QueryParamsRequest, QueryParamsRequestSDKType, QueryParamsResponse, QueryParamsResponseSDKType, QueryClaimRecordRequest, QueryClaimRecordRequestSDKType, QueryClaimRecordResponse, QueryClaimRecordResponseSDKType, QueryClaimableForActionRequest, QueryClaimableForActionRequestSDKType, QueryClaimableForActionResponse, QueryClaimableForActionResponseSDKType, QueryTotalClaimableRequest, QueryTotalClaimableRequestSDKType, QueryTotalClaimableResponse, QueryTotalClaimableResponseSDKType } from "./query";
+import type { LCDClient } from "@cosmology/lcd";
+import { type QueryModuleAccountBalanceRequest, QueryModuleAccountBalanceRequestSDKType, QueryModuleAccountBalanceResponse, type QueryModuleAccountBalanceResponseSDKType, type QueryParamsRequest, QueryParamsRequestSDKType, QueryParamsResponse, type QueryParamsResponseSDKType, type QueryClaimRecordRequest, QueryClaimRecordRequestSDKType, QueryClaimRecordResponse, type QueryClaimRecordResponseSDKType, type QueryClaimableForActionRequest, QueryClaimableForActionRequestSDKType, QueryClaimableForActionResponse, type QueryClaimableForActionResponseSDKType, type QueryTotalClaimableRequest, QueryTotalClaimableRequestSDKType, QueryTotalClaimableResponse, type QueryTotalClaimableResponseSDKType } from "./query";
 export class LCDQueryClient {
   req: LCDClient;
   constructor({

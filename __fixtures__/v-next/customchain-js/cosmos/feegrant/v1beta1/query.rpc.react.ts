@@ -1,5 +1,5 @@
 import { buildUseQuery } from "../../../react-query";
-import { QueryAllowanceRequest, QueryAllowanceResponse, QueryAllowancesRequest, QueryAllowancesResponse, QueryAllowancesByGranterRequest, QueryAllowancesByGranterResponse } from "./query";
+import type { QueryAllowanceRequest, QueryAllowanceResponse, QueryAllowancesRequest, QueryAllowancesResponse, QueryAllowancesByGranterRequest, QueryAllowancesByGranterResponse } from "./query";
 import { getAllowance, getAllowances, getAllowancesByGranter } from "./query.rpc.func";
 /**
  * Allowance returns fee granted to the grantee by the granter.

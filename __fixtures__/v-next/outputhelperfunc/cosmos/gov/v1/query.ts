@@ -1,8 +1,8 @@
-import { ProposalStatus, ProposalStatusSDKType, Proposal, ProposalAmino, ProposalSDKType, Vote, VoteAmino, VoteSDKType, VotingParams, VotingParamsAmino, VotingParamsSDKType, DepositParams, DepositParamsAmino, DepositParamsSDKType, TallyParams, TallyParamsAmino, TallyParamsSDKType, Deposit, DepositAmino, DepositSDKType, TallyResult, TallyResultAmino, TallyResultSDKType, proposalStatusFromJSON, proposalStatusToJSON } from "./gov";
-import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageResponseAmino, PageResponseSDKType } from "../../base/query/v1beta1/pagination";
+import { type ProposalStatus, ProposalStatusSDKType, Proposal, type ProposalAmino, type ProposalSDKType, Vote, type VoteAmino, type VoteSDKType, VotingParams, type VotingParamsAmino, type VotingParamsSDKType, DepositParams, type DepositParamsAmino, type DepositParamsSDKType, TallyParams, type TallyParamsAmino, type TallyParamsSDKType, Deposit, type DepositAmino, type DepositSDKType, TallyResult, type TallyResultAmino, type TallyResultSDKType, proposalStatusFromJSON, proposalStatusToJSON } from "./gov";
+import { PageRequest, type PageRequestAmino, type PageRequestSDKType, PageResponse, type PageResponseAmino, type PageResponseSDKType } from "../../base/query/v1beta1/pagination";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet, DeepPartial } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { isSet, type DeepPartial } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "cosmos.gov.v1";
 /**

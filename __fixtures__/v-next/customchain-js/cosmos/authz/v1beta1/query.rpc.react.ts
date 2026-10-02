@@ -1,5 +1,5 @@
 import { buildUseQuery } from "../../../react-query";
-import { QueryGrantsRequest, QueryGrantsResponse, QueryGranterGrantsRequest, QueryGranterGrantsResponse, QueryGranteeGrantsRequest, QueryGranteeGrantsResponse } from "./query";
+import type { QueryGrantsRequest, QueryGrantsResponse, QueryGranterGrantsRequest, QueryGranterGrantsResponse, QueryGranteeGrantsRequest, QueryGranteeGrantsResponse } from "./query";
 import { getGrants, getGranterGrants, getGranteeGrants } from "./query.rpc.func";
 /**
  * Returns list of `Authorization`, granted to the grantee by the granter.

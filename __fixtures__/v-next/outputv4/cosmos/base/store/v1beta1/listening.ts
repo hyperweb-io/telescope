@@ -1,6 +1,6 @@
 import { BinaryReader, BinaryWriter } from "../../../../binary.js";
-import { isSet, bytesFromBase64, base64FromBytes, DeepPartial } from "../../../../helpers.js";
-import { JsonSafe } from "../../../../json-safe.js";
+import { isSet, bytesFromBase64, base64FromBytes, type DeepPartial } from "../../../../helpers.js";
+import type { JsonSafe } from "../../../../json-safe.js";
 export const protobufPackage = "cosmos.base.store.v1beta1";
 /**
  * StoreKVPair is a KVStore KVPair used for listening to state changes (Sets and Deletes)

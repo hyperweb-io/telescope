@@ -1,7 +1,7 @@
-import { AttributeContext, AttributeContextAmino } from "../../../rpc/context/attribute_context";
-import { Status, StatusAmino } from "../../../rpc/status";
+import { AttributeContext, type AttributeContextAmino } from "../../../rpc/context/attribute_context";
+import { Status, type StatusAmino } from "../../../rpc/status";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial } from "../../../../helpers";
+import type { DeepPartial } from "../../../../helpers";
 /**
  * Request message for the Check method.
  * @name CheckRequest

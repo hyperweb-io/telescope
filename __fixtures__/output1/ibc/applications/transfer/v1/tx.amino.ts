@@ -1,8 +1,8 @@
 import { Coin, CoinSDKType } from "../../../../cosmos/base/v1beta1/coin";
 import { Height, HeightSDKType } from "../../../core/client/v1/client";
-import { AminoMsg } from "@cosmjs/amino";
-import { AminoHeight, Long, omitDefault } from "../../../../helpers";
-import { MsgTransfer, MsgTransferSDKType } from "./tx";
+import type { AminoMsg } from "@cosmjs/amino";
+import { type AminoHeight, Long, omitDefault } from "../../../../helpers";
+import { type MsgTransfer, MsgTransferSDKType } from "./tx";
 export interface MsgTransferAminoType extends AminoMsg {
   type: "cosmos-sdk/MsgTransfer";
   value: {

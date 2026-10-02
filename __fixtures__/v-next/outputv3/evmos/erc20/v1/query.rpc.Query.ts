@@ -2,7 +2,7 @@ import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } fr
 import { TokenPair, TokenPairSDKType } from "./erc20";
 import { Params, ParamsSDKType } from "./genesis";
 import * as fm from "../../../grpc-gateway";
-import { QueryTokenPairsRequest, QueryTokenPairsRequestSDKType, QueryTokenPairsResponse, QueryTokenPairsResponseSDKType, QueryTokenPairRequest, QueryTokenPairRequestSDKType, QueryTokenPairResponse, QueryTokenPairResponseSDKType, QueryParamsRequest, QueryParamsRequestSDKType, QueryParamsResponse, QueryParamsResponseSDKType } from "./query";
+import { type QueryTokenPairsRequest, QueryTokenPairsRequestSDKType, type QueryTokenPairsResponse, QueryTokenPairsResponseSDKType, type QueryTokenPairRequest, QueryTokenPairRequestSDKType, type QueryTokenPairResponse, QueryTokenPairResponseSDKType, type QueryParamsRequest, QueryParamsRequestSDKType, type QueryParamsResponse, QueryParamsResponseSDKType } from "./query";
 export class Query {
   /** TokenPairs retrieves registered token pairs */
   static tokenPairs(request: QueryTokenPairsRequest, initRequest?: fm.InitReq): Promise<QueryTokenPairsResponse> {

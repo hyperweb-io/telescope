@@ -1,8 +1,8 @@
-import { Duration, DurationSDKType } from "../../google/protobuf/duration";
+import { Duration, type DurationSDKType } from "../../google/protobuf/duration";
 import { Timestamp, TimestampSDKType } from "../../google/protobuf/timestamp";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { isSet, DeepPartial, toTimestamp, fromTimestamp } from "../../helpers";
-import { JsonSafe } from "../../json-safe";
+import { isSet, type DeepPartial, toTimestamp, fromTimestamp } from "../../helpers";
+import type { JsonSafe } from "../../json-safe";
 import { Decimal } from "@interchainjs/math";
 export const protobufPackage = "osmosis.concentratedliquidity.v1beta1";
 /**

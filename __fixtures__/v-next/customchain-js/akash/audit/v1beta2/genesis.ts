@@ -1,6 +1,6 @@
-import { AuditedAttributes, AuditedAttributesAmino } from "./audit";
+import { AuditedAttributes, type AuditedAttributesAmino } from "./audit";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * GenesisState defines the basic genesis state used by audit module
  * @name GenesisState

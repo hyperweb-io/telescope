@@ -1,8 +1,8 @@
-import { ProposalStatus, ProposalStatusSDKType, Proposal, ProposalSDKType, Vote, VoteSDKType, VotingParams, VotingParamsSDKType, DepositParams, DepositParamsSDKType, TallyParams, TallyParamsSDKType, Deposit, DepositSDKType, TallyResult, TallyResultSDKType, proposalStatusFromJSON, proposalStatusToJSON } from "./gov";
-import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../base/query/v1beta1/pagination";
-import { Long, isSet, DeepPartial } from "../../../helpers";
+import { type ProposalStatus, ProposalStatusSDKType, Proposal, type ProposalSDKType, Vote, type VoteSDKType, VotingParams, type VotingParamsSDKType, DepositParams, type DepositParamsSDKType, TallyParams, type TallyParamsSDKType, Deposit, type DepositSDKType, TallyResult, type TallyResultSDKType, proposalStatusFromJSON, proposalStatusToJSON } from "./gov";
+import { PageRequest, type PageRequestSDKType, PageResponse, type PageResponseSDKType } from "../../base/query/v1beta1/pagination";
+import { Long, isSet, type DeepPartial } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../json-safe";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "cosmos.gov.v1beta1";
 /** QueryProposalRequest is the request type for the Query/Proposal RPC method. */
 export interface QueryProposalRequest {

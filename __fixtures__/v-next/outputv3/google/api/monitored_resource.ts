@@ -1,7 +1,7 @@
-import { LabelDescriptor, LabelDescriptorAmino, LabelDescriptorSDKType } from "./label";
-import { LaunchStage, LaunchStageSDKType, launchStageFromJSON, launchStageToJSON } from "./launch_stage";
-import { Struct, StructAmino, StructSDKType } from "../protobuf/struct";
-import { isSet, DeepPartial, isObject } from "../../helpers";
+import { LabelDescriptor, type LabelDescriptorAmino, type LabelDescriptorSDKType } from "./label";
+import { type LaunchStage, LaunchStageSDKType, launchStageFromJSON, launchStageToJSON } from "./launch_stage";
+import { Struct, type StructAmino, type StructSDKType } from "../protobuf/struct";
+import { isSet, type DeepPartial, isObject } from "../../helpers";
 import { BinaryReader, BinaryWriter } from "../../binary";
 import { GlobalDecoderRegistry } from "../../registry";
 export const protobufPackage = "google.api";

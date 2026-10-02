@@ -1,7 +1,7 @@
-import { GroupID, GroupIDAmino, GroupIDSDKType } from "./groupid";
-import { GroupSpec, GroupSpecAmino, GroupSpecSDKType } from "./groupspec";
+import { GroupID, type GroupIDAmino, type GroupIDSDKType } from "./groupid";
+import { GroupSpec, type GroupSpecAmino, type GroupSpecSDKType } from "./groupspec";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial, Exact } from "../../../helpers";
+import type { DeepPartial, Exact } from "../../../helpers";
 export const protobufPackage = "akash.deployment.v1beta2";
 /** State is an enum which refers to state of group */
 export enum Group_State {

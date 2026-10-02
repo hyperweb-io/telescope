@@ -1,6 +1,6 @@
 import { BinaryReader, BinaryWriter } from "../../binary.js";
-import { JsonSafe } from "../../json-safe.js";
-import { DeepPartial, isSet } from "../../helpers.js";
+import type { JsonSafe } from "../../json-safe.js";
+import { type DeepPartial, isSet } from "../../helpers.js";
 export const protobufPackage = "google.api";
 /**
  * Path Translation specifies how to combine the backend address with the

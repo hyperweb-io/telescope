@@ -1,7 +1,7 @@
-import { ParamChange, ParamChangeSDKType } from "./params.js";
+import { ParamChange, type ParamChangeSDKType } from "./params.js";
 import { BinaryReader, BinaryWriter } from "../../../binary.js";
-import { isSet, DeepPartial } from "../../../helpers.js";
-import { JsonSafe } from "../../../json-safe.js";
+import { isSet, type DeepPartial } from "../../../helpers.js";
+import type { JsonSafe } from "../../../json-safe.js";
 export const protobufPackage = "cosmos.params.v1beta1";
 /**
  * QueryParamsRequest is request type for the Query/Params RPC method.

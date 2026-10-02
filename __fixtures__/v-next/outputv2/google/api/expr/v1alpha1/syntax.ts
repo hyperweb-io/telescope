@@ -1,10 +1,10 @@
-import { NullValue, nullValueFromJSON, nullValueToJSON } from "../../../protobuf/struct";
-import { Duration, DurationAmino, DurationSDKType } from "../../../protobuf/duration";
+import { type NullValue, nullValueFromJSON, nullValueToJSON } from "../../../protobuf/struct";
+import { Duration, type DurationAmino, type DurationSDKType } from "../../../protobuf/duration";
 import { Timestamp } from "../../../protobuf/timestamp";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
 import { GlobalDecoderRegistry } from "../../../../registry";
-import { isSet, DeepPartial, toTimestamp, fromTimestamp, bytesFromBase64, base64FromBytes, isObject } from "../../../../helpers";
-import { JsonSafe } from "../../../../json-safe";
+import { isSet, type DeepPartial, toTimestamp, fromTimestamp, bytesFromBase64, base64FromBytes, isObject } from "../../../../helpers";
+import type { JsonSafe } from "../../../../json-safe";
 export const protobufPackage = "google.api.expr.v1alpha1";
 /**
  * An expression together with source information as returned by the parser.

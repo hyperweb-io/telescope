@@ -1,11 +1,11 @@
 //@ts-nocheck
 /* eslint-disable */
-import { GroupSpec, GroupSpecSDKType, GroupID, GroupIDSDKType } from "./group.js";
-import { Coin, CoinSDKType } from "../../../cosmos/base/v1beta1/coin.js";
+import { GroupSpec, type GroupSpecSDKType, GroupID, GroupIDSDKType } from "./group.js";
+import { Coin, type CoinSDKType } from "../../../cosmos/base/v1beta1/coin.js";
 import { BinaryReader, BinaryWriter } from "../../../binary.js";
-import { isSet, bytesFromBase64, base64FromBytes, Exact } from "../../../helpers.js";
-import { JsonSafe } from "../../../json-safe.js";
-import { TxRpc } from "../../../types.js";
+import { isSet, bytesFromBase64, base64FromBytes, type Exact } from "../../../helpers.js";
+import type { JsonSafe } from "../../../json-safe.js";
+import type { TxRpc } from "../../../types.js";
 export const protobufPackage = "akash.deployment.v1beta1";
 /** State is an enum which refers to state of deployment */
 export enum Deployment_State {

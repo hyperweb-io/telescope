@@ -1,7 +1,7 @@
-import { FeeToken, FeeTokenSDKType } from "./feetoken";
+import { FeeToken, type FeeTokenSDKType } from "./feetoken";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet, DeepPartial } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { isSet, type DeepPartial } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "osmosis.txfees.v1beta1";
 /**
  * GenesisState defines the txfees module's genesis state.

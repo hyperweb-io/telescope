@@ -1,10 +1,10 @@
-import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../cosmos/base/query/v1beta1/pagination";
-import { Coin, CoinSDKType } from "../../cosmos/base/v1beta1/coin";
-import { Gauge, GaugeSDKType } from "./gauge";
-import { Duration, DurationSDKType } from "../../google/protobuf/duration";
-import { Long, DeepPartial, isSet } from "../../helpers";
+import { PageRequest, type PageRequestSDKType, PageResponse, type PageResponseSDKType } from "../../cosmos/base/query/v1beta1/pagination";
+import { Coin, type CoinSDKType } from "../../cosmos/base/v1beta1/coin";
+import { Gauge, type GaugeSDKType } from "./gauge";
+import { Duration, type DurationSDKType } from "../../google/protobuf/duration";
+import { Long, type DeepPartial, isSet } from "../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../json-safe";
+import type { JsonSafe } from "../../json-safe";
 export const protobufPackage = "osmosis.incentives";
 export interface ModuleToDistributeCoinsRequest {}
 export interface ModuleToDistributeCoinsRequestSDKType {}

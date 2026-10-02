@@ -1,6 +1,6 @@
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { isSet, DeepPartial, fromJsonTimestamp, fromTimestamp } from "../../helpers";
-import { JsonSafe } from "../../json-safe";
+import { isSet, type DeepPartial, fromJsonTimestamp, fromTimestamp } from "../../helpers";
+import type { JsonSafe } from "../../json-safe";
 /**
  * A Timestamp represents a point in time independent of any time zone or local
  * calendar, encoded as a count of seconds and fractions of seconds at

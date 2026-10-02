@@ -1,10 +1,10 @@
-import { DeploymentID, DeploymentIDAmino, DeploymentIDSDKType } from "./deployment";
-import { GroupSpec, GroupSpecAmino, GroupSpecSDKType } from "./groupspec";
-import { Coin, CoinAmino, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
+import { DeploymentID, type DeploymentIDAmino, type DeploymentIDSDKType } from "./deployment";
+import { GroupSpec, type GroupSpecAmino, type GroupSpecSDKType } from "./groupspec";
+import { Coin, type CoinAmino, type CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { GlobalDecoderRegistry } from "../../../registry";
-import { isSet, bytesFromBase64, base64FromBytes, DeepPartial, Exact } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { isSet, bytesFromBase64, base64FromBytes, type DeepPartial, type Exact } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "akash.deployment.v1beta2";
 /**
  * MsgCreateDeployment defines an SDK message for creating deployment

@@ -1,5 +1,5 @@
 import { BinaryReader, BinaryWriter } from "../binary";
-import { DeepPartial } from "../helpers";
+import type { DeepPartial } from "../helpers";
 export enum ScalarType {
   SCALAR_TYPE_UNSPECIFIED = 0,
   SCALAR_TYPE_STRING = 1,

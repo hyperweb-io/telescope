@@ -1,8 +1,8 @@
-import { Vote, VoteAmino, LightBlock, LightBlockAmino } from "./types";
+import { Vote, type VoteAmino, LightBlock, type LightBlockAmino } from "./types";
 import { Timestamp } from "../../google/protobuf/timestamp";
-import { Validator, ValidatorAmino } from "./validator";
+import { Validator, type ValidatorAmino } from "./validator";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { DeepPartial, toTimestamp, fromTimestamp } from "../../helpers";
+import { type DeepPartial, toTimestamp, fromTimestamp } from "../../helpers";
 /**
  * @name Evidence
  * @package tendermint.types

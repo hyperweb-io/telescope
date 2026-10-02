@@ -1,6 +1,6 @@
-import { isSet, DeepPartial, Exact } from "../../../helpers";
+import { isSet, type DeepPartial, type Exact } from "../../../helpers";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { JsonSafe } from "../../../json-safe";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "akash.base.v1beta1";
 /** This describes how the endpoint is implemented when the lease is deployed */
 export enum Endpoint_Kind {

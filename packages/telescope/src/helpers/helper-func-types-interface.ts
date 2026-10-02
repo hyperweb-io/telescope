@@ -10,13 +10,13 @@ export const getHelperFuncTypesForInterface = (options: TelescopeOptions) => {
   const writerType = getWriterTypeRef(options);
 
   return `
-import { HttpEndpoint } from "@interchainjs/types";
+import { type HttpEndpoint } from "@interchainjs/types";
 ${getBinaryRuntimeImport(options)}${!options.isGeneratingCosmosTypes ? `
 import { getRpcClient } from "./extern${options.restoreImportExtension ?? ""}";` : ''}
-import { isRpc, Rpc } from "./helpers${options.restoreImportExtension ?? ""}";${!options.isGeneratingCosmosTypes ? `
-import { TelescopeGeneratedCodec, DeliverTxResponse, Message, StdFee } from "./types${options.restoreImportExtension ?? ""}";` : ''}${!options.isGeneratingCosmosTypes ? `
+import { isRpc, type Rpc } from "./helpers${options.restoreImportExtension ?? ""}";${!options.isGeneratingCosmosTypes ? `
+import { type TelescopeGeneratedCodec, type DeliverTxResponse, type Message, type StdFee } from "./types${options.restoreImportExtension ?? ""}";` : ''}${!options.isGeneratingCosmosTypes ? `
 import { toConverters, toEncoders } from "@interchainjs/cosmos";
-import { ISigningClient } from "@interchainjs/cosmos";` : ''}
+import { type ISigningClient } from "@interchainjs/cosmos";` : ''}
 
 export interface QueryBuilderOptions<TReq, TRes> {
   encode: (request: TReq, writer?: ${writerType}) => ${writerType}
@@ -26,7 +26,7 @@ export interface QueryBuilderOptions<TReq, TRes> {
   deps?: TelescopeGeneratedCodec<any, any, any>[],
 }
 
-export function buildQuery<TReq, TRes>(opts: QueryBuilderOptions<TReq, TRes>) {
+export function buildQuery<TReq, TRes>(opts: QueryBuilderOptions<TReq, TRes>): (client: EndpointOrRpc, request: TReq) => Promise<TRes> {
     registerDependencies(opts.deps ?? []);
 
     return async (client: EndpointOrRpc, request: TReq) => {

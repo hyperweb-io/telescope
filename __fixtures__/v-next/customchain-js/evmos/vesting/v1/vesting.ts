@@ -1,7 +1,7 @@
-import { BaseVestingAccount, BaseVestingAccountAmino, Period, PeriodAmino } from "../../../cosmos/vesting/v1beta1/vesting";
+import { BaseVestingAccount, type BaseVestingAccountAmino, Period, type PeriodAmino } from "../../../cosmos/vesting/v1beta1/vesting";
 import { Timestamp } from "../../../google/protobuf/timestamp";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { toTimestamp, fromTimestamp, DeepPartial } from "../../../helpers";
+import { toTimestamp, fromTimestamp, type DeepPartial } from "../../../helpers";
 /**
  * ClawbackVestingAccount implements the VestingAccount interface. It provides
  * an account that can hold contributions subject to "lockup" (like a

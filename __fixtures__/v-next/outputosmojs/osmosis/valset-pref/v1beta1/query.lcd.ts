@@ -1,6 +1,6 @@
 import { ValidatorPreference, ValidatorPreferenceSDKType } from "./state";
-import { LCDClient } from "@cosmology/lcd";
-import { UserValidatorPreferencesRequest, UserValidatorPreferencesRequestSDKType, UserValidatorPreferencesResponse, UserValidatorPreferencesResponseSDKType } from "./query";
+import type { LCDClient } from "@cosmology/lcd";
+import { type UserValidatorPreferencesRequest, UserValidatorPreferencesRequestSDKType, UserValidatorPreferencesResponse, type UserValidatorPreferencesResponseSDKType } from "./query";
 export class LCDQueryClient {
   req: LCDClient;
   constructor({

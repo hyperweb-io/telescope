@@ -3,9 +3,9 @@
 import { QueryCondition } from "../lockup/lock";
 import { Coin } from "../../cosmos/base/v1beta1/coin";
 import { Timestamp } from "../../google/protobuf/timestamp";
-import { Long, isSet, fromJsonTimestamp, fromTimestamp, DeepPartial, Rpc } from "../../helpers";
+import { Long, isSet, fromJsonTimestamp, fromTimestamp, type DeepPartial, type Rpc } from "../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../json-safe";
+import type { JsonSafe } from "../../json-safe";
 export const protobufPackage = "osmosis.incentives";
 /** MsgCreateGauge creates a gague to distribute rewards to users */
 export interface MsgCreateGauge {

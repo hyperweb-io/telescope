@@ -1,6 +1,6 @@
 import { Attribute, AttributeSDKType } from "../../base/v1beta2/attribute";
 import * as fm from "../../../grpc-gateway";
-import { MsgCreateProvider, MsgCreateProviderSDKType, MsgCreateProviderResponse, MsgCreateProviderResponseSDKType, MsgUpdateProvider, MsgUpdateProviderSDKType, MsgUpdateProviderResponse, MsgUpdateProviderResponseSDKType, MsgDeleteProvider, MsgDeleteProviderSDKType, MsgDeleteProviderResponse, MsgDeleteProviderResponseSDKType } from "./provider";
+import { type MsgCreateProvider, MsgCreateProviderSDKType, type MsgCreateProviderResponse, MsgCreateProviderResponseSDKType, type MsgUpdateProvider, MsgUpdateProviderSDKType, type MsgUpdateProviderResponse, MsgUpdateProviderResponseSDKType, type MsgDeleteProvider, MsgDeleteProviderSDKType, type MsgDeleteProviderResponse, MsgDeleteProviderResponseSDKType } from "./provider";
 export class Msg {
   /** CreateProvider defines a method that creates a provider given the proper inputs */
   static createProvider(request: MsgCreateProvider, initRequest?: fm.InitReq): Promise<MsgCreateProviderResponse> {

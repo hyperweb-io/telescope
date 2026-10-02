@@ -1,6 +1,6 @@
-import { Account, AccountAmino, AccountSDKType, FractionalPayment, FractionalPaymentAmino, FractionalPaymentSDKType } from "./types";
+import { Account, type AccountAmino, type AccountSDKType, FractionalPayment, type FractionalPaymentAmino, type FractionalPaymentSDKType } from "./types";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "akash.escrow.v1beta2";
 /**

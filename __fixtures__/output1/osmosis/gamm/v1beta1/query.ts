@@ -1,10 +1,10 @@
-import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../../cosmos/base/query/v1beta1/pagination";
-import { Coin, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
-import { SwapAmountInRoute, SwapAmountInRouteSDKType, SwapAmountOutRoute, SwapAmountOutRouteSDKType } from "./tx";
-import { Any, AnySDKType } from "../../../google/protobuf/any";
-import { Long, isSet, DeepPartial } from "../../../helpers";
+import { PageRequest, type PageRequestSDKType, PageResponse, type PageResponseSDKType } from "../../../cosmos/base/query/v1beta1/pagination";
+import { Coin, type CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
+import { SwapAmountInRoute, type SwapAmountInRouteSDKType, SwapAmountOutRoute, type SwapAmountOutRouteSDKType } from "./tx";
+import { Any, type AnySDKType } from "../../../google/protobuf/any";
+import { Long, isSet, type DeepPartial } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../json-safe";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "osmosis.gamm.v1beta1";
 /** =============================== Pool */
 export interface QueryPoolRequest {

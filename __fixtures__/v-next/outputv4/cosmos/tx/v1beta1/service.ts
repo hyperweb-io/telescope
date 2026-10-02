@@ -1,11 +1,11 @@
-import { Tx, TxSDKType } from "./tx.js";
-import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../base/query/v1beta1/pagination.js";
-import { TxResponse, TxResponseSDKType, GasInfo, GasInfoSDKType, Result, ResultSDKType } from "../../base/abci/v1beta1/abci.js";
-import { BlockID, BlockIDSDKType } from "../../../tendermint/types/types.js";
-import { Block, BlockSDKType } from "../../../tendermint/types/block.js";
+import { Tx, type TxSDKType } from "./tx.js";
+import { PageRequest, type PageRequestSDKType, PageResponse, type PageResponseSDKType } from "../../base/query/v1beta1/pagination.js";
+import { TxResponse, type TxResponseSDKType, GasInfo, type GasInfoSDKType, Result, type ResultSDKType } from "../../base/abci/v1beta1/abci.js";
+import { BlockID, type BlockIDSDKType } from "../../../tendermint/types/types.js";
+import { Block, type BlockSDKType } from "../../../tendermint/types/block.js";
 import { BinaryReader, BinaryWriter } from "../../../binary.js";
-import { isSet, DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers.js";
-import { JsonSafe } from "../../../json-safe.js";
+import { isSet, type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers.js";
+import type { JsonSafe } from "../../../json-safe.js";
 export const protobufPackage = "cosmos.tx.v1beta1";
 /** OrderBy defines the sorting order */
 export enum OrderBy {

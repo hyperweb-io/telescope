@@ -1,6 +1,6 @@
-import { PublicKey, PublicKeyAmino } from "../crypto/keys";
+import { PublicKey, type PublicKeyAmino } from "../crypto/keys";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { DeepPartial, bytesFromBase64, base64FromBytes } from "../../helpers";
+import { type DeepPartial, bytesFromBase64, base64FromBytes } from "../../helpers";
 /**
  * @name ValidatorSet
  * @package tendermint.types

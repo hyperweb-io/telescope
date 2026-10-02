@@ -1,6 +1,6 @@
-import { Expr, ExprAmino } from "./expr";
+import { Expr, type ExprAmino } from "./expr";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial } from "../../../../helpers";
+import type { DeepPartial } from "../../../../helpers";
 /**
  * A declaration.
  * @name Decl

@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { Attribute, AttributeSDKType } from "../../base/v1beta2/attribute.js";
-import { AminoMsg } from "@cosmjs/amino";
-import { ProviderInfo, ProviderInfoSDKType, MsgCreateProvider, MsgCreateProviderSDKType, MsgUpdateProvider, MsgUpdateProviderSDKType, MsgDeleteProvider, MsgDeleteProviderSDKType } from "./provider.js";
+import type { AminoMsg } from "@cosmjs/amino";
+import { ProviderInfo, ProviderInfoSDKType, type MsgCreateProvider, MsgCreateProviderSDKType, type MsgUpdateProvider, MsgUpdateProviderSDKType, type MsgDeleteProvider, MsgDeleteProviderSDKType } from "./provider.js";
 export interface MsgCreateProviderAminoType extends AminoMsg {
   type: "akash/provider/v1beta2/testonly-create-provider";
   value: {

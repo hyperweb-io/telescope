@@ -1,7 +1,7 @@
-import { NullValue } from "../../../protobuf/struct";
-import { Any, AnyAmino } from "../../../protobuf/any";
+import type { NullValue } from "../../../protobuf/struct";
+import { Any, type AnyAmino } from "../../../protobuf/any";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers";
+import { type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers";
 /**
  * Represents a CEL value.
  * 

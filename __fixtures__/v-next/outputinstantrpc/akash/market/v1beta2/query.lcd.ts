@@ -4,8 +4,8 @@ import { BidFilters, BidFiltersSDKType, BidID, BidIDSDKType, Bid, BidSDKType } f
 import { LeaseFilters, LeaseFiltersSDKType, LeaseID, LeaseIDSDKType, Lease, LeaseSDKType } from "./lease";
 import { Account, AccountSDKType, FractionalPayment, FractionalPaymentSDKType } from "../../escrow/v1beta2/types";
 import { setPaginationParams } from "../../../helpers";
-import { LCDClient } from "@cosmology/lcd";
-import { QueryOrdersRequest, QueryOrdersRequestSDKType, QueryOrdersResponse, QueryOrdersResponseSDKType, QueryOrderRequest, QueryOrderRequestSDKType, QueryOrderResponse, QueryOrderResponseSDKType, QueryBidsRequest, QueryBidsRequestSDKType, QueryBidsResponse, QueryBidsResponseSDKType, QueryBidRequest, QueryBidRequestSDKType, QueryBidResponse, QueryBidResponseSDKType, QueryLeasesRequest, QueryLeasesRequestSDKType, QueryLeasesResponse, QueryLeasesResponseSDKType, QueryLeaseRequest, QueryLeaseRequestSDKType, QueryLeaseResponse, QueryLeaseResponseSDKType } from "./query";
+import type { LCDClient } from "@cosmology/lcd";
+import { type QueryOrdersRequest, QueryOrdersRequestSDKType, QueryOrdersResponse, type QueryOrdersResponseSDKType, type QueryOrderRequest, QueryOrderRequestSDKType, QueryOrderResponse, type QueryOrderResponseSDKType, type QueryBidsRequest, QueryBidsRequestSDKType, QueryBidsResponse, type QueryBidsResponseSDKType, type QueryBidRequest, QueryBidRequestSDKType, QueryBidResponse, type QueryBidResponseSDKType, type QueryLeasesRequest, QueryLeasesRequestSDKType, QueryLeasesResponse, type QueryLeasesResponseSDKType, type QueryLeaseRequest, QueryLeaseRequestSDKType, QueryLeaseResponse, type QueryLeaseResponseSDKType } from "./query";
 export class LCDQueryClient {
   req: LCDClient;
   constructor({

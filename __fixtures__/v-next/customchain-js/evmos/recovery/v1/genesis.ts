@@ -1,6 +1,6 @@
-import { Duration, DurationAmino } from "../../../google/protobuf/duration";
+import { Duration, type DurationAmino } from "../../../google/protobuf/duration";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * GenesisState defines the recovery module's genesis state.
  * @name GenesisState

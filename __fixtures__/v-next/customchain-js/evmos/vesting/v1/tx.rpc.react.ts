@@ -1,5 +1,5 @@
 import { buildUseMutation } from "../../../react-query";
-import { MsgCreateClawbackVestingAccount, MsgClawback } from "./tx";
+import type { MsgCreateClawbackVestingAccount, MsgClawback } from "./tx";
 import { createClawbackVestingAccount, clawback } from "./tx.rpc.func";
 /**
  * CreateClawbackVestingAccount creats a vesting account that is subject to

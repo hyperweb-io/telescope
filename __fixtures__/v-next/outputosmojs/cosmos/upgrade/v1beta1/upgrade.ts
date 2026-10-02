@@ -1,8 +1,8 @@
 import { Timestamp, TimestampSDKType } from "../../../google/protobuf/timestamp";
-import { Any, AnySDKType } from "../../../google/protobuf/any";
+import { Any, type AnySDKType } from "../../../google/protobuf/any";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { toTimestamp, fromTimestamp, isSet, DeepPartial } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { toTimestamp, fromTimestamp, isSet, type DeepPartial } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "cosmos.upgrade.v1beta1";
 /**
  * Plan specifies information about a planned upgrade and when it should occur.

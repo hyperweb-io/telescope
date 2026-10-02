@@ -1,7 +1,7 @@
-import { Any, AnySDKType } from "../protobuf/any.js";
+import { Any, type AnySDKType } from "../protobuf/any.js";
 import { BinaryReader, BinaryWriter } from "../../binary.js";
-import { isSet, DeepPartial } from "../../helpers.js";
-import { JsonSafe } from "../../json-safe.js";
+import { isSet, type DeepPartial } from "../../helpers.js";
+import type { JsonSafe } from "../../json-safe.js";
 export const protobufPackage = "google.rpc";
 /**
  * The `Status` type defines a logical error model that is suitable for

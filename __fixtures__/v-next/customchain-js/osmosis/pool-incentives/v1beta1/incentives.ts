@@ -1,6 +1,6 @@
-import { Duration, DurationAmino } from "../../../google/protobuf/duration";
+import { Duration, type DurationAmino } from "../../../google/protobuf/duration";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * @name OsmosisPoolincentivesV1beta1Params
  * @package osmosis.poolincentives.v1beta1

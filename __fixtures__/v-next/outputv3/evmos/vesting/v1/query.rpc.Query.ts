@@ -1,6 +1,6 @@
 import { Coin, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
 import * as fm from "../../../grpc-gateway";
-import { QueryBalancesRequest, QueryBalancesRequestSDKType, QueryBalancesResponse, QueryBalancesResponseSDKType } from "./query";
+import { type QueryBalancesRequest, QueryBalancesRequestSDKType, type QueryBalancesResponse, QueryBalancesResponseSDKType } from "./query";
 export class Query {
   /** Retrieves the unvested, vested and locked tokens for a vesting account */
   static balances(request: QueryBalancesRequest, initRequest?: fm.InitReq): Promise<QueryBalancesResponse> {

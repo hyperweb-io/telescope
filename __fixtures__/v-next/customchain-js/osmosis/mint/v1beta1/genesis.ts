@@ -1,6 +1,6 @@
-import { Minter, MinterAmino, OsmosisMintV1beta1Params, OsmosisMintV1beta1ParamsAmino } from "./mint";
+import { Minter, type MinterAmino, OsmosisMintV1beta1Params, type OsmosisMintV1beta1ParamsAmino } from "./mint";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * GenesisState defines the mint module's genesis state.
  * @name GenesisState

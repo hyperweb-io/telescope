@@ -1,6 +1,6 @@
-import { GeneratedType, Registry, OfflineSigner } from "@cosmjs/proto-signing";
+import { type GeneratedType, Registry, type OfflineSigner } from "@cosmjs/proto-signing";
 import { defaultRegistryTypes, AminoTypes, SigningStargateClient } from "@cosmjs/stargate";
-import { HttpEndpoint } from "@cosmjs/tendermint-rpc";
+import type { HttpEndpoint } from "@cosmjs/tendermint-rpc";
 import * as ibcApplicationsTransferV1TxRegistry from "./applications/transfer/v1/tx.registry";
 import * as ibcCoreChannelV1TxRegistry from "./core/channel/v1/tx.registry";
 import * as ibcCoreClientV1TxRegistry from "./core/client/v1/tx.registry";

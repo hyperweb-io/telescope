@@ -1,5 +1,5 @@
 import { EncodingTestForDontOmit, EncodingTestForDontOmitSDKType, EncodingTestForOmit, EncodingTestForOmitSDKType } from "./all_fields";
-import { TxRpc } from "../types";
+import type { TxRpc } from "../types";
 import { BinaryReader } from "../binary";
 import { InputMsg, InputMsgSDKType, MsgResponse, MsgResponseSDKType } from "./tx";
 export interface Msg {

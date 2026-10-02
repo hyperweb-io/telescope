@@ -1,7 +1,7 @@
 import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../../cosmos/base/query/v1beta1/pagination";
 import { EpochInfo, EpochInfoSDKType } from "./genesis";
 import * as fm from "../../../grpc-gateway";
-import { QueryEpochsInfoRequest, QueryEpochsInfoRequestSDKType, QueryEpochsInfoResponse, QueryEpochsInfoResponseSDKType, QueryCurrentEpochRequest, QueryCurrentEpochRequestSDKType, QueryCurrentEpochResponse, QueryCurrentEpochResponseSDKType } from "./query";
+import { type QueryEpochsInfoRequest, QueryEpochsInfoRequestSDKType, type QueryEpochsInfoResponse, QueryEpochsInfoResponseSDKType, type QueryCurrentEpochRequest, QueryCurrentEpochRequestSDKType, type QueryCurrentEpochResponse, QueryCurrentEpochResponseSDKType } from "./query";
 export class Query {
   /** EpochInfos provide running epochInfos */
   static epochInfos(request: QueryEpochsInfoRequest, initRequest?: fm.InitReq): Promise<QueryEpochsInfoResponse> {

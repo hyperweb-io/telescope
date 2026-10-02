@@ -5,7 +5,7 @@ import { createFileBundle } from "./bundle";
 import { TelescopeBuilder } from "./builder";
 import { ProtoRef } from "@cosmology/types";
 import { Bundle, BundlerFile } from "./types";
-import { writeAstToFile } from "./utils/files";
+import { ExportedNames, writeAstToFile } from "./utils/files";
 import { toPosixPath } from "@cosmology/utils";
 
 export class Bundler {
@@ -118,7 +118,7 @@ export class Bundler {
   addExportObjToBundle(
     pkg: string,
     localname: string,
-    exportedIdentifiers: string[],
+    { names, typeNames }: ExportedNames,
     isHelperFunc?: boolean
   ) {
     if (!this.bundle.exportObjs) {
@@ -137,7 +137,10 @@ export class Bundler {
     if (existing) {
       // use Set to avoid duplicates
       existing.exportedIdentifiers = [
-        ...new Set([...existing.exportedIdentifiers, ...exportedIdentifiers]),
+        ...new Set([...existing.exportedIdentifiers, ...names]),
+      ];
+      existing.typeIdentifiers = [
+        ...new Set([...existing.typeIdentifiers, ...typeNames]),
       ];
       return;
     }
@@ -145,7 +148,8 @@ export class Bundler {
     this.bundle.exportObjs.push({
       localname,
       relativePath: rel,
-      exportedIdentifiers: [...new Set(exportedIdentifiers)],
+      exportedIdentifiers: [...new Set(names)],
+      typeIdentifiers: [...new Set(typeNames)],
       isHelperFunc,
       pkg,
     });

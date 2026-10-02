@@ -1,7 +1,7 @@
-import { MetricValueSet, MetricValueSetAmino } from "./metric_value";
-import { Status, StatusAmino } from "../../../rpc/status";
+import { MetricValueSet, type MetricValueSetAmino } from "./metric_value";
+import { Status, type StatusAmino } from "../../../rpc/status";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial } from "../../../../helpers";
+import type { DeepPartial } from "../../../../helpers";
 /** Supported quota modes. */
 export enum QuotaOperation_QuotaMode {
   /** UNSPECIFIED - Guard against implicit default. Must not be used. */

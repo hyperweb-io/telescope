@@ -1,8 +1,8 @@
 import { Any, AnySDKType } from "../../../google/protobuf/any";
 import { Coin, CoinSDKType } from "../../base/v1beta1/coin";
 import { VoteOption, VoteOptionSDKType, WeightedVoteOption, WeightedVoteOptionSDKType, voteOptionFromJSON } from "./gov";
-import { AminoMsg } from "@cosmjs/amino";
-import { MsgSubmitProposal, MsgSubmitProposalSDKType, MsgExecLegacyContent, MsgExecLegacyContentSDKType, MsgVote, MsgVoteSDKType, MsgVoteWeighted, MsgVoteWeightedSDKType, MsgDeposit, MsgDepositSDKType } from "./tx";
+import type { AminoMsg } from "@cosmjs/amino";
+import { type MsgSubmitProposal, MsgSubmitProposalSDKType, type MsgExecLegacyContent, MsgExecLegacyContentSDKType, type MsgVote, MsgVoteSDKType, type MsgVoteWeighted, MsgVoteWeightedSDKType, type MsgDeposit, MsgDepositSDKType } from "./tx";
 export interface MsgSubmitProposalAminoType extends AminoMsg {
   type: "cosmos-sdk/v1/MsgSubmitProposal";
   value: {

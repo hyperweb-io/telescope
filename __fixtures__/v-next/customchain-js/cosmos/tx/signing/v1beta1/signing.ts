@@ -1,7 +1,7 @@
-import { CompactBitArray, CompactBitArrayAmino } from "../../../crypto/multisig/v1beta1/multisig";
-import { Any, AnyAmino } from "../../../../google/protobuf/any";
+import { CompactBitArray, type CompactBitArrayAmino } from "../../../crypto/multisig/v1beta1/multisig";
+import { Any, type AnyAmino } from "../../../../google/protobuf/any";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers";
+import { type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers";
 /**
  * SignMode represents a signing mode with its own security guarantees.
  * 

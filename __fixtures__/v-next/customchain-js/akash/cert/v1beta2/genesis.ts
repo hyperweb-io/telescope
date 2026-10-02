@@ -1,6 +1,6 @@
-import { Certificate, CertificateAmino } from "./cert";
+import { Certificate, type CertificateAmino } from "./cert";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * GenesisCertificate defines certificate entry at genesis
  * @name GenesisCertificate

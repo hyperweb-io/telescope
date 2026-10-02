@@ -1,5 +1,5 @@
 import { buildUseMutation } from "../../../react-query";
-import { MsgCreateValidator, MsgEditValidator, MsgDelegate, MsgBeginRedelegate, MsgUndelegate } from "./tx";
+import type { MsgCreateValidator, MsgEditValidator, MsgDelegate, MsgBeginRedelegate, MsgUndelegate } from "./tx";
 import { createValidator, editValidator, delegate, beginRedelegate, undelegate } from "./tx.rpc.func";
 /**
  * CreateValidator defines a method for creating a new validator.

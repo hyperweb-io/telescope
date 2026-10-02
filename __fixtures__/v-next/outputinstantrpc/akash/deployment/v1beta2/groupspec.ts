@@ -1,8 +1,8 @@
-import { PlacementRequirements, PlacementRequirementsSDKType } from "../../base/v1beta2/attribute";
-import { Resource, ResourceSDKType } from "./resource";
+import { PlacementRequirements, type PlacementRequirementsSDKType } from "../../base/v1beta2/attribute";
+import { Resource, type ResourceSDKType } from "./resource";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet, DeepPartial, Exact } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { isSet, type DeepPartial, type Exact } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "akash.deployment.v1beta2";
 /**
  * GroupSpec stores group specifications

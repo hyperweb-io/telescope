@@ -1,7 +1,7 @@
-import { EncodingTestForDontOmit, EncodingTestForDontOmitAmino, EncodingTestForDontOmitSDKType, MiscEncodingTestForOmit, MiscEncodingTestForOmitAmino, MiscEncodingTestForOmitSDKType } from "./all_fields";
+import { EncodingTestForDontOmit, type EncodingTestForDontOmitAmino, type EncodingTestForDontOmitSDKType, MiscEncodingTestForOmit, type MiscEncodingTestForOmitAmino, type MiscEncodingTestForOmitSDKType } from "./all_fields";
 import { BinaryReader, BinaryWriter } from "../binary";
-import { isSet, DeepPartial } from "../helpers";
-import { JsonSafe } from "../json-safe";
+import { isSet, type DeepPartial } from "../helpers";
+import type { JsonSafe } from "../json-safe";
 /**
  * MsgGrant is a request type for Grant method. It declares authorization to the grantee
  * on behalf of the granter with the provided expiration time.

@@ -1,6 +1,6 @@
-import { Params, ParamsAmino, ParamsSDKType } from "./mint";
+import { Params, type ParamsAmino, type ParamsSDKType } from "./mint";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial, isSet, bytesFromBase64, base64FromBytes } from "../../../helpers";
+import { type DeepPartial, isSet, bytesFromBase64, base64FromBytes } from "../../../helpers";
 import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "osmosis.mint.v1beta1";
 /**

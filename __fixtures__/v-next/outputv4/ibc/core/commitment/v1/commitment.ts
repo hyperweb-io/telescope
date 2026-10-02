@@ -1,7 +1,7 @@
-import { CommitmentProof, CommitmentProofSDKType } from "../../../../confio/proofs.js";
+import { CommitmentProof, type CommitmentProofSDKType } from "../../../../confio/proofs.js";
 import { BinaryReader, BinaryWriter } from "../../../../binary.js";
-import { isSet, bytesFromBase64, base64FromBytes, DeepPartial } from "../../../../helpers.js";
-import { JsonSafe } from "../../../../json-safe.js";
+import { isSet, bytesFromBase64, base64FromBytes, type DeepPartial } from "../../../../helpers.js";
+import type { JsonSafe } from "../../../../json-safe.js";
 export const protobufPackage = "ibc.core.commitment.v1";
 /**
  * MerkleRoot defines a merkle root hash.

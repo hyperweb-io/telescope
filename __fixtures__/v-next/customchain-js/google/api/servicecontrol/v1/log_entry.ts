@@ -1,10 +1,10 @@
 import { Timestamp } from "../../../protobuf/timestamp";
-import { LogSeverity } from "../../../logging/type/log_severity";
-import { HttpRequest, HttpRequestAmino } from "./http_request";
-import { Any, AnyAmino } from "../../../protobuf/any";
-import { Struct, StructAmino } from "../../../protobuf/struct";
+import type { LogSeverity } from "../../../logging/type/log_severity";
+import { HttpRequest, type HttpRequestAmino } from "./http_request";
+import { Any, type AnyAmino } from "../../../protobuf/any";
+import { Struct, type StructAmino } from "../../../protobuf/struct";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial, toTimestamp, fromTimestamp } from "../../../../helpers";
+import { type DeepPartial, toTimestamp, fromTimestamp } from "../../../../helpers";
 /**
  * @name LogEntry_LabelsEntry
  * @package google.api.servicecontrol.v1

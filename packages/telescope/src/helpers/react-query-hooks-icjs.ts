@@ -5,28 +5,30 @@ export const getReactQueryHelperHooksIcJs = (options: TelescopeOptions) => {
   import { getRpcClient } from './extern${options.restoreImportExtension ?? ""}'
 import {
   isRpc,
-  Rpc,
+  type Rpc,
 } from './helpers${options.restoreImportExtension ?? ""}'
 import {
-  ITxArgs,
-  EndpointOrRpc,
+  type ITxArgs,
+  type EndpointOrRpc,
 } from './helper-func-types${options.restoreImportExtension ?? ""}'
-import { ISigningClient, isISigningClient } from "@interchainjs/cosmos";
+import { type ISigningClient, isISigningClient } from "@interchainjs/cosmos";
 import {
-  StdFee,
-  DeliverTxResponse,
+  type StdFee,
+  type DeliverTxResponse,
 } from './types${options.restoreImportExtension ?? ""}'
 import {
     useQuery,
+    type UseQueryResult,
     useQueryClient,
-    UseQueryOptions,
+    type UseQueryOptions,
     useMutation,
-    UseMutationOptions,
-    QueryKey,
+    type UseMutationResult,
+    type UseMutationOptions,
+    type QueryKey,
 } from '@tanstack/react-query';
 
-import { HttpEndpoint } from "@interchainjs/types";
-import { Rpc as ProtobufRpcClient } from "./helpers${options.restoreImportExtension ?? ""}";
+import { type HttpEndpoint } from "@interchainjs/types";
+import { type Rpc as ProtobufRpcClient } from "./helpers${options.restoreImportExtension ?? ""}";
 
 export const DEFAULT_RPC_CLIENT_QUERY_KEY = 'rpcClient';
 export const DEFAULT_RPC_ENDPOINT_QUERY_KEY = 'rpcEndPoint';
@@ -63,7 +65,7 @@ export const useRpcEndpoint = <TData = string | HttpEndpoint>({
     options,
     rpcEndPointKey,
     extraKey
-}: UseRpcEndpointQuery<TData>) => {
+}: UseRpcEndpointQuery<TData>): UseQueryResult<TData, Error> => {
     const key = rpcEndPointKey || DEFAULT_RPC_ENDPOINT_QUERY_KEY;
     return useQuery<string | HttpEndpoint, Error, TData>([key, extraKey], async () => {
         return await getter();
@@ -78,7 +80,7 @@ export const useRpcEndpoint = <TData = string | HttpEndpoint>({
     getter,
     options,
     rpcEndPointKey,
-}: UseRpcEndpointQuery<TData>) => {
+}: UseRpcEndpointQuery<TData>): UseQueryResult<TData, Error> => {
     const key = rpcEndPointKey || DEFAULT_RPC_ENDPOINT_QUERY_KEY;
     return useQuery<string | HttpEndpoint, Error, TData>([key, getter], async () => {
         return await getter();
@@ -89,7 +91,7 @@ export const useRpcEndpoint = <TData = string | HttpEndpoint>({
 export const useRpcClient = <TData = ProtobufRpcClient>({
     options,
     clientResolver
-}: UseRpcClientQuery<TData>) => {
+}: UseRpcClientQuery<TData>): UseQueryResult<TData, Error> => {
     const queryClient = useQueryClient({
       context: options?.context
     });
@@ -132,7 +134,7 @@ export function buildUseQuery<TReq, TRes>(opts: UseQueryBuilderOptions<TReq, TRe
     options,
     clientResolver,
     customizedQueryKey,
-  }: UseQueryParams<TReq, TRes, TData>) => {
+  }: UseQueryParams<TReq, TRes, TData>): UseQueryResult<TData, Error> => {
     const queryClient = useQueryClient({
       context: options?.context
     });
@@ -193,7 +195,7 @@ export function buildUseMutation<TMsg, TError>(opts: UseMutationBuilderOptions<T
   return ({
     options,
     clientResolver
-  }: ReactMutationParams<DeliverTxResponse, TError, ITxArgs<TMsg>>) => {
+  }: ReactMutationParams<DeliverTxResponse, TError, ITxArgs<TMsg>>): UseMutationResult<DeliverTxResponse, Error, ITxArgs<TMsg>> => {
     const queryClient = useQueryClient({
       context: options?.context
     });

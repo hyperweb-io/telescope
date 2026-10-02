@@ -1,8 +1,8 @@
 import { Timestamp } from "../../../../google/protobuf/timestamp";
-import { Duration, DurationAmino } from "../../../../google/protobuf/duration";
-import { Coin, CoinAmino } from "../../../../cosmos/base/v1beta1/coin";
+import { Duration, type DurationAmino } from "../../../../google/protobuf/duration";
+import { Coin, type CoinAmino } from "../../../../cosmos/base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { toTimestamp, fromTimestamp, DeepPartial } from "../../../../helpers";
+import { toTimestamp, fromTimestamp, type DeepPartial } from "../../../../helpers";
 import { Decimal } from "@interchainjs/math";
 /**
  * Parameters for changing the weights in a balancer pool smoothly from

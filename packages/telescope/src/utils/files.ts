@@ -7,11 +7,20 @@ import { dirname } from "path";
 import minimatch from "minimatch";
 import generate from "@babel/generator";
 import { unused } from "./unused";
+import { typeOnlyImports } from "./type-only-imports";
 import traverse from "@babel/traverse";
 import { toPosixPath } from "@cosmology/utils";
 
-export function getExportedTypeNames(program: t.Statement[]): string[] {
-  const exportedNames: string[] = [];
+export interface ExportedNames {
+  names: string[];
+  typeNames: string[];
+}
+
+const TYPE_ONLY_DECLARATIONS = ["TSTypeAliasDeclaration", "TSInterfaceDeclaration"];
+
+export function getExportedNames(program: t.Statement[]): ExportedNames {
+  const names: string[] = [];
+  const typeNames: string[] = [];
   const ast = t.program(program);
   const content = generate(ast).code;
   const plugins: ParserPlugin[] = ["typescript"];
@@ -23,48 +32,46 @@ export function getExportedTypeNames(program: t.Statement[]): string[] {
   traverse(newAst, {
     ExportNamedDeclaration(path) {
       const node = path.node;
+      const isTypeExport = node.exportKind === "type";
 
-      // Handle direct declarations (type aliases, interfaces, enums)
       if (node.declaration) {
         const decl = node.declaration;
-        const isTypeExport = node.exportKind === "type";
-        const isTypeDecl = [
-          "TSTypeAliasDeclaration",
-          "TSInterfaceDeclaration",
-          "TSEnumDeclaration",
-        ].includes(decl.type);
+        const isTypeOnlyDecl = TYPE_ONLY_DECLARATIONS.includes(decl.type);
+        const isTypeDecl = isTypeOnlyDecl || decl.type === "TSEnumDeclaration";
 
         if (isTypeExport || isTypeDecl) {
           if ("id" in decl && decl.id?.type === "Identifier") {
-            exportedNames.push(decl.id.name);
+            names.push(decl.id.name);
+            if (isTypeOnlyDecl || (isTypeExport && decl.type !== "TSEnumDeclaration")) {
+              typeNames.push(decl.id.name);
+            }
           }
         }
 
-        // Handle const declarations that might be types (e.g., const schemas)
         if (decl.type === "VariableDeclaration" && decl.kind === "const") {
           decl.declarations.forEach((declarator) => {
             if (declarator.id?.type === "Identifier") {
-              exportedNames.push(declarator.id.name);
+              names.push(declarator.id.name);
             }
           });
         }
       }
 
-      // Handle export specifiers (e.g., export { SomeType })
-      if (node.specifiers && node.specifiers.length > 0) {
-        const isTypeExport = node.exportKind === "type";
-        if (isTypeExport) {
-          node.specifiers.forEach((spec) => {
-            if (spec.type === "ExportSpecifier" && spec.exported.type === "Identifier") {
-              exportedNames.push(spec.exported.name);
-            }
-          });
-        }
+      if (node.specifiers && node.specifiers.length > 0 && isTypeExport) {
+        node.specifiers.forEach((spec) => {
+          if (
+            spec.type === "ExportSpecifier" &&
+            spec.exported.type === "Identifier"
+          ) {
+            names.push(spec.exported.name);
+            typeNames.push(spec.exported.name);
+          }
+        });
       }
     },
   });
 
-  return exportedNames;
+  return { names, typeNames };
 }
 
 export const writeAstToFile = (
@@ -74,30 +81,21 @@ export const writeAstToFile = (
   filename: string
 ) => {
   const ast = t.program(program);
-  const content = generate(ast).code;
-
+  const plugins: ParserPlugin[] = ["typescript"];
+  const newAst = parse(generate(ast).code, {
+    sourceType: "module",
+    plugins,
+  });
   if (options.removeUnusedImports) {
-    const plugins: ParserPlugin[] = ["typescript"];
-    const newAst = parse(content, {
-      sourceType: "module",
-      plugins,
-    });
     traverse(newAst, unused);
-    const content2 = generate(newAst).code;
-    writeContentToFile(
-      toPosixPath(outPath),
-      options,
-      content2,
-      toPosixPath(filename)
-    );
-  } else {
-    writeContentToFile(
-      toPosixPath(outPath),
-      options,
-      content,
-      toPosixPath(filename)
-    );
   }
+  traverse(newAst, typeOnlyImports);
+  writeContentToFile(
+    toPosixPath(outPath),
+    options,
+    generate(newAst).code,
+    toPosixPath(filename)
+  );
 };
 
 export const writeContentToFile = (

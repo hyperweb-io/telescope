@@ -1,13 +1,13 @@
-import { Duration, DurationSDKType } from "../../../../google/protobuf/duration.js";
-import { Height, HeightSDKType } from "../../../core/client/v1/client.js";
-import { ProofSpec, ProofSpecSDKType } from "../../../../confio/proofs.js";
+import { Duration, type DurationSDKType } from "../../../../google/protobuf/duration.js";
+import { Height, type HeightSDKType } from "../../../core/client/v1/client.js";
+import { ProofSpec, type ProofSpecSDKType } from "../../../../confio/proofs.js";
 import { Timestamp, TimestampSDKType } from "../../../../google/protobuf/timestamp.js";
-import { MerkleRoot, MerkleRootSDKType } from "../../../core/commitment/v1/commitment.js";
-import { SignedHeader, SignedHeaderSDKType } from "../../../../tendermint/types/types.js";
-import { ValidatorSet, ValidatorSetSDKType } from "../../../../tendermint/types/validator.js";
+import { MerkleRoot, type MerkleRootSDKType } from "../../../core/commitment/v1/commitment.js";
+import { SignedHeader, type SignedHeaderSDKType } from "../../../../tendermint/types/types.js";
+import { ValidatorSet, type ValidatorSetSDKType } from "../../../../tendermint/types/validator.js";
 import { BinaryReader, BinaryWriter } from "../../../../binary.js";
-import { isSet, DeepPartial, toTimestamp, fromTimestamp, bytesFromBase64, base64FromBytes } from "../../../../helpers.js";
-import { JsonSafe } from "../../../../json-safe.js";
+import { isSet, type DeepPartial, toTimestamp, fromTimestamp, bytesFromBase64, base64FromBytes } from "../../../../helpers.js";
+import type { JsonSafe } from "../../../../json-safe.js";
 export const protobufPackage = "ibc.lightclients.tendermint.v1";
 /**
  * ClientState from Tendermint tracks the current validator set, latest height,

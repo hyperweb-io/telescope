@@ -1,7 +1,7 @@
-import { DecCoin, DecCoinAmino } from "../../base/v1beta1/coin";
-import { ValidatorAccumulatedCommission, ValidatorAccumulatedCommissionAmino, ValidatorHistoricalRewards, ValidatorHistoricalRewardsAmino, ValidatorCurrentRewards, ValidatorCurrentRewardsAmino, DelegatorStartingInfo, DelegatorStartingInfoAmino, ValidatorSlashEvent, ValidatorSlashEventAmino, FeePool, FeePoolAmino, CosmosDistributionV1beta1Params, CosmosDistributionV1beta1ParamsAmino } from "./distribution";
+import { DecCoin, type DecCoinAmino } from "../../base/v1beta1/coin";
+import { ValidatorAccumulatedCommission, type ValidatorAccumulatedCommissionAmino, ValidatorHistoricalRewards, type ValidatorHistoricalRewardsAmino, ValidatorCurrentRewards, type ValidatorCurrentRewardsAmino, DelegatorStartingInfo, type DelegatorStartingInfoAmino, ValidatorSlashEvent, type ValidatorSlashEventAmino, FeePool, type FeePoolAmino, CosmosDistributionV1beta1Params, type CosmosDistributionV1beta1ParamsAmino } from "./distribution";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * DelegatorWithdrawInfo is the address for where distributions rewards are
  * withdrawn to by default this struct is only used at genesis to feed in

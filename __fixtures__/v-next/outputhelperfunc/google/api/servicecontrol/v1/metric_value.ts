@@ -1,8 +1,8 @@
 import { Timestamp, TimestampAmino, TimestampSDKType } from "../../../protobuf/timestamp";
-import { Distribution, DistributionAmino, DistributionSDKType } from "./distribution";
+import { Distribution, type DistributionAmino, type DistributionSDKType } from "./distribution";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { isSet, DeepPartial, toTimestamp, fromTimestamp, isObject } from "../../../../helpers";
-import { JsonSafe } from "../../../../json-safe";
+import { isSet, type DeepPartial, toTimestamp, fromTimestamp, isObject } from "../../../../helpers";
+import type { JsonSafe } from "../../../../json-safe";
 import { GlobalDecoderRegistry } from "../../../../registry";
 export const protobufPackage = "google.api.servicecontrol.v1";
 /**

@@ -1,7 +1,7 @@
-import { PageRequest, PageRequestAmino, PageResponse, PageResponseAmino } from "../../base/query/v1beta1/pagination";
-import { Any, AnyAmino } from "../../../google/protobuf/any";
+import { PageRequest, type PageRequestAmino, PageResponse, type PageResponseAmino } from "../../base/query/v1beta1/pagination";
+import { Any, type AnyAmino } from "../../../google/protobuf/any";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers";
+import { type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers";
 /**
  * QueryEvidenceRequest is the request type for the Query/Evidence RPC method.
  * @name QueryEvidenceRequest

@@ -1,9 +1,9 @@
-import { PageRequest, PageRequestAmino, PageResponse, PageResponseAmino } from "../../../cosmos/base/query/v1beta1/pagination";
-import { Incentive, IncentiveAmino, GasMeter, GasMeterAmino } from "./incentives";
-import { DecCoin, DecCoinAmino } from "../../../cosmos/base/v1beta1/coin";
+import { PageRequest, type PageRequestAmino, PageResponse, type PageResponseAmino } from "../../../cosmos/base/query/v1beta1/pagination";
+import { Incentive, type IncentiveAmino, GasMeter, type GasMeterAmino } from "./incentives";
+import { DecCoin, type DecCoinAmino } from "../../../cosmos/base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
-import { EvmosIncentivesV1Params, EvmosIncentivesV1ParamsAmino } from "./genesis";
+import type { DeepPartial } from "../../../helpers";
+import { EvmosIncentivesV1Params, type EvmosIncentivesV1ParamsAmino } from "./genesis";
 /**
  * QueryIncentivesRequest is the request type for the Query/Incentives RPC
  * method.

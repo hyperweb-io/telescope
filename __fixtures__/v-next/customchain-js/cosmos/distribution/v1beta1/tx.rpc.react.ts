@@ -1,5 +1,5 @@
 import { buildUseMutation } from "../../../react-query";
-import { MsgSetWithdrawAddress, MsgWithdrawDelegatorReward, MsgWithdrawValidatorCommission, MsgFundCommunityPool } from "./tx";
+import type { MsgSetWithdrawAddress, MsgWithdrawDelegatorReward, MsgWithdrawValidatorCommission, MsgFundCommunityPool } from "./tx";
 import { setWithdrawAddress, withdrawDelegatorReward, withdrawValidatorCommission, fundCommunityPool } from "./tx.rpc.func";
 /**
  * SetWithdrawAddress defines a method to change the withdraw address

@@ -1,8 +1,8 @@
-import { Deployment, DeploymentAmino } from "./deployment";
-import { Group, GroupAmino } from "./group";
+import { Deployment, type DeploymentAmino } from "./deployment";
+import { Group, type GroupAmino } from "./group";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
-import { AkashDeploymentV1beta2Params, AkashDeploymentV1beta2ParamsAmino } from "./params";
+import type { DeepPartial } from "../../../helpers";
+import { AkashDeploymentV1beta2Params, type AkashDeploymentV1beta2ParamsAmino } from "./params";
 /**
  * GenesisDeployment defines the basic genesis state used by deployment module
  * @name GenesisDeployment

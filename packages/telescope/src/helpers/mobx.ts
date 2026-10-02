@@ -4,7 +4,7 @@ import {
   runInAction
 } from 'mobx';
 
-import { QueryStatus } from '@tanstack/react-query';
+import { type QueryStatus } from '@tanstack/react-query';
 
 export interface MobxResponse<T> {
   data: T | undefined;
@@ -24,11 +24,11 @@ export class QueryStore<Request, Response> {
     makeAutoObservable(this)
   }
 
-  get isLoading() {
+  get isLoading(): boolean {
     return this.state === 'loading';
   }
 
-  get isSuccess() {
+  get isSuccess(): boolean {
     return this.state === 'success';
   }
 

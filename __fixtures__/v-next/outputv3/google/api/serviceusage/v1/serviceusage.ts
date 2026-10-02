@@ -1,6 +1,6 @@
-import { Service, ServiceAmino, ServiceSDKType } from "./resources";
+import { Service, type ServiceAmino, type ServiceSDKType } from "./resources";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { isSet, DeepPartial } from "../../../../helpers";
+import { isSet, type DeepPartial } from "../../../../helpers";
 import { GlobalDecoderRegistry } from "../../../../registry";
 export const protobufPackage = "google.api.serviceusage.v1";
 /**

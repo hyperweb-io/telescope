@@ -1,8 +1,8 @@
 import { Timestamp, TimestampAmino, TimestampSDKType } from "../protobuf/timestamp";
-import { Any, AnyProtoMsg, AnyAmino, AnySDKType } from "../protobuf/any";
+import { Any, AnyProtoMsg, type AnyAmino, type AnySDKType } from "../protobuf/any";
 import { BinaryReader, BinaryWriter } from "../../binary";
 import { GlobalDecoderRegistry } from "../../registry";
-import { isSet, DeepPartial, toTimestamp, fromTimestamp } from "../../helpers";
+import { isSet, type DeepPartial, toTimestamp, fromTimestamp } from "../../helpers";
 export const protobufPackage = "google.api";
 /**
  * `Distribution` contains summary statistics for a population of values. It

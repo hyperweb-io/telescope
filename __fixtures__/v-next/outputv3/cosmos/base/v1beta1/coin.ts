@@ -1,5 +1,5 @@
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet, DeepPartial } from "../../../helpers";
+import { isSet, type DeepPartial } from "../../../helpers";
 import { Decimal } from "@interchainjs/math";
 export const protobufPackage = "cosmos.base.v1beta1";
 /**

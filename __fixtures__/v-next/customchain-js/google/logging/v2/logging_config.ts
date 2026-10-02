@@ -1,7 +1,7 @@
-import { FieldMask, FieldMaskAmino } from "../../protobuf/field_mask";
+import { FieldMask, type FieldMaskAmino } from "../../protobuf/field_mask";
 import { Timestamp } from "../../protobuf/timestamp";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { toTimestamp, fromTimestamp, DeepPartial } from "../../../helpers";
+import { toTimestamp, fromTimestamp, type DeepPartial } from "../../../helpers";
 /** Deprecated. This is unused. */
 export enum LogSink_VersionFormat {
   /** VERSION_FORMAT_UNSPECIFIED - An unspecified format version that will default to V2. */

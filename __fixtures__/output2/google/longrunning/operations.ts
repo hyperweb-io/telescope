@@ -4,8 +4,8 @@ import { Duration } from "../protobuf/duration";
 import { Any } from "../protobuf/any";
 import { Status } from "../rpc/status";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial } from "../../helpers";
-import { JsonSafe } from "../../json-safe";
+import { isSet, type DeepPartial } from "../../helpers";
+import type { JsonSafe } from "../../json-safe";
 export const protobufPackage = "google.longrunning";
 /**
  * This resource represents a long-running operation that is the result of a

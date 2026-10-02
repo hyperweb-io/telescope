@@ -1,8 +1,8 @@
-import { ManagedService, ManagedServiceAmino, ConfigSource, ConfigSourceAmino, Rollout, RolloutAmino, ChangeReport, ChangeReportAmino, Diagnostic, DiagnosticAmino } from "./resources";
-import { Service, ServiceAmino } from "../../service";
-import { Any, AnyAmino } from "../../../protobuf/any";
+import { ManagedService, type ManagedServiceAmino, ConfigSource, type ConfigSourceAmino, Rollout, type RolloutAmino, ChangeReport, type ChangeReportAmino, Diagnostic, type DiagnosticAmino } from "./resources";
+import { Service, type ServiceAmino } from "../../service";
+import { Any, type AnyAmino } from "../../../protobuf/any";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial } from "../../../../helpers";
+import type { DeepPartial } from "../../../../helpers";
 export enum GetServiceConfigRequest_ConfigView {
   /** BASIC - Server response includes all fields except SourceInfo. */
   BASIC = 0,

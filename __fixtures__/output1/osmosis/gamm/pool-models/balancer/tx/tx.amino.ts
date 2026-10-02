@@ -1,10 +1,10 @@
 //@ts-nocheck
 import { PoolParams, PoolParamsSDKType, PoolAsset, PoolAssetSDKType, SmoothWeightChangeParams, SmoothWeightChangeParamsSDKType } from "../balancerPool";
-import { AminoMsg } from "@cosmjs/amino";
+import type { AminoMsg } from "@cosmjs/amino";
 import { Long } from "../../../../../helpers";
 import { Duration, DurationSDKType } from "../../../../../google/protobuf/duration";
 import { Coin, CoinSDKType } from "../../../../../cosmos/base/v1beta1/coin";
-import { MsgCreateBalancerPool, MsgCreateBalancerPoolSDKType } from "./tx";
+import { type MsgCreateBalancerPool, MsgCreateBalancerPoolSDKType } from "./tx";
 export interface MsgCreateBalancerPoolAminoType extends AminoMsg {
   type: "osmosis/gamm/poolmodels/balancer/create-balancer-pool";
   value: {

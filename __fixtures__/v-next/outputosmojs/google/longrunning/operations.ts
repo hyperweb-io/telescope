@@ -1,9 +1,9 @@
-import { Duration, DurationSDKType } from "../protobuf/duration";
-import { Any, AnySDKType } from "../protobuf/any";
-import { Status, StatusSDKType } from "../rpc/status";
+import { Duration, type DurationSDKType } from "../protobuf/duration";
+import { Any, type AnySDKType } from "../protobuf/any";
+import { Status, type StatusSDKType } from "../rpc/status";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { isSet, DeepPartial } from "../../helpers";
-import { JsonSafe } from "../../json-safe";
+import { isSet, type DeepPartial } from "../../helpers";
+import type { JsonSafe } from "../../json-safe";
 export const protobufPackage = "google.longrunning";
 /**
  * This resource represents a long-running operation that is the result of a

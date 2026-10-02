@@ -1,10 +1,10 @@
-import { LaunchStage, launchStageFromJSON, launchStageToJSON } from "./launch_stage";
-import { Duration, DurationAmino, DurationSDKType } from "../protobuf/duration";
-import { LabelDescriptor, LabelDescriptorAmino, LabelDescriptorSDKType } from "./label";
-import { isSet, DeepPartial, isObject } from "../../helpers";
+import { type LaunchStage, launchStageFromJSON, launchStageToJSON } from "./launch_stage";
+import { Duration, type DurationAmino, type DurationSDKType } from "../protobuf/duration";
+import { LabelDescriptor, type LabelDescriptorAmino, type LabelDescriptorSDKType } from "./label";
+import { isSet, type DeepPartial, isObject } from "../../helpers";
 import { BinaryReader, BinaryWriter } from "../../binary";
 import { GlobalDecoderRegistry } from "../../registry";
-import { JsonSafe } from "../../json-safe";
+import type { JsonSafe } from "../../json-safe";
 export const protobufPackage = "google.api";
 /**
  * The kind of measurement. It describes how the data is reported.

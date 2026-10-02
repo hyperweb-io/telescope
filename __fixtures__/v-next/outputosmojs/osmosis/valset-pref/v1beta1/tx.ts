@@ -1,8 +1,8 @@
-import { ValidatorPreference, ValidatorPreferenceSDKType } from "./state";
-import { Coin, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
+import { ValidatorPreference, type ValidatorPreferenceSDKType } from "./state";
+import { Coin, type CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet, DeepPartial } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { isSet, type DeepPartial } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "osmosis.valsetpref.v1beta1";
 /**
  * MsgCreateValidatorSetPreference is a list that holds validator-set.

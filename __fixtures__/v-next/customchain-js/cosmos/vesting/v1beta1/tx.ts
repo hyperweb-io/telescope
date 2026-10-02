@@ -1,7 +1,7 @@
-import { Coin, CoinAmino } from "../../base/v1beta1/coin";
-import { Period, PeriodAmino } from "./vesting";
+import { Coin, type CoinAmino } from "../../base/v1beta1/coin";
+import { Period, type PeriodAmino } from "./vesting";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * MsgCreateVestingAccount defines a message that enables creating a vesting
  * account.

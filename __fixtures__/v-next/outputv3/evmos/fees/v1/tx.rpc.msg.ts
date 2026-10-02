@@ -1,5 +1,5 @@
 import * as fm from "../../../grpc-gateway";
-import { MsgRegisterDevFeeInfo, MsgRegisterDevFeeInfoSDKType, MsgRegisterDevFeeInfoResponse, MsgRegisterDevFeeInfoResponseSDKType, MsgCancelDevFeeInfo, MsgCancelDevFeeInfoSDKType, MsgCancelDevFeeInfoResponse, MsgCancelDevFeeInfoResponseSDKType, MsgUpdateDevFeeInfo, MsgUpdateDevFeeInfoSDKType, MsgUpdateDevFeeInfoResponse, MsgUpdateDevFeeInfoResponseSDKType } from "./tx";
+import { type MsgRegisterDevFeeInfo, MsgRegisterDevFeeInfoSDKType, type MsgRegisterDevFeeInfoResponse, MsgRegisterDevFeeInfoResponseSDKType, type MsgCancelDevFeeInfo, MsgCancelDevFeeInfoSDKType, type MsgCancelDevFeeInfoResponse, MsgCancelDevFeeInfoResponseSDKType, type MsgUpdateDevFeeInfo, MsgUpdateDevFeeInfoSDKType, type MsgUpdateDevFeeInfoResponse, MsgUpdateDevFeeInfoResponseSDKType } from "./tx";
 export class Msg {
   /**
    * RegisterDevFeeInfo is used by a deployer to register a new contract for

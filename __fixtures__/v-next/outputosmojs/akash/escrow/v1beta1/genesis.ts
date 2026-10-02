@@ -1,7 +1,7 @@
-import { Account, AccountSDKType, Payment, PaymentSDKType } from "./types";
+import { Account, type AccountSDKType, Payment, type PaymentSDKType } from "./types";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { JsonSafe } from "../../../json-safe";
-import { DeepPartial, Exact } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
+import type { DeepPartial, Exact } from "../../../helpers";
 export const protobufPackage = "akash.escrow.v1beta1";
 /**
  * GenesisState defines the basic genesis state used by escrow module

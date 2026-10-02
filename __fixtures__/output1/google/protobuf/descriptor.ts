@@ -1,6 +1,6 @@
-import { Long, DeepPartial, isSet, bytesFromBase64, base64FromBytes } from "../../helpers";
+import { Long, type DeepPartial, isSet, bytesFromBase64, base64FromBytes } from "../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../json-safe";
+import type { JsonSafe } from "../../json-safe";
 export const protobufPackage = "google.protobuf";
 export enum FieldDescriptorProto_Type {
   /**

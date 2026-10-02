@@ -1,6 +1,6 @@
 import { BinaryReader, BinaryWriter } from "../../binary.js";
-import { JsonSafe } from "../../json-safe.js";
-import { DeepPartial, isSet } from "../../helpers.js";
+import type { JsonSafe } from "../../json-safe.js";
+import { type DeepPartial, isSet } from "../../helpers.js";
 export const protobufPackage = "google.api";
 /**
  * Specifies the routing information that should be sent along with the request

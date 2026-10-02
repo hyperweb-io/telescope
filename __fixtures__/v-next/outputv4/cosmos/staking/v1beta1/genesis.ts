@@ -1,7 +1,7 @@
-import { Params, ParamsSDKType, Validator, ValidatorSDKType, Delegation, DelegationSDKType, UnbondingDelegation, UnbondingDelegationSDKType, Redelegation, RedelegationSDKType } from "./staking.js";
+import { Params, type ParamsSDKType, Validator, type ValidatorSDKType, Delegation, type DelegationSDKType, UnbondingDelegation, type UnbondingDelegationSDKType, Redelegation, type RedelegationSDKType } from "./staking.js";
 import { BinaryReader, BinaryWriter } from "../../../binary.js";
-import { isSet, bytesFromBase64, base64FromBytes, DeepPartial } from "../../../helpers.js";
-import { JsonSafe } from "../../../json-safe.js";
+import { isSet, bytesFromBase64, base64FromBytes, type DeepPartial } from "../../../helpers.js";
+import type { JsonSafe } from "../../../json-safe.js";
 export const protobufPackage = "cosmos.staking.v1beta1";
 /**
  * GenesisState defines the staking module's genesis state.

@@ -2,9 +2,9 @@
 /* eslint-disable */
 import { Timestamp } from "../../../protobuf/timestamp";
 import { Distribution } from "./distribution";
-import { Long, isSet, DeepPartial, isObject, fromJsonTimestamp, fromTimestamp } from "../../../../helpers";
+import { Long, isSet, type DeepPartial, isObject, fromJsonTimestamp, fromTimestamp } from "../../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../../json-safe";
+import type { JsonSafe } from "../../../../json-safe";
 export const protobufPackage = "google.api.servicecontrol.v1";
 export interface MetricValue_LabelsEntry {
   key: string;

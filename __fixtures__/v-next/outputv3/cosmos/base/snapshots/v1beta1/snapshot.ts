@@ -1,6 +1,6 @@
 import { BinaryReader, BinaryWriter } from "../../../../binary";
 import { GlobalDecoderRegistry } from "../../../../registry";
-import { isSet, bytesFromBase64, DeepPartial, base64FromBytes } from "../../../../helpers";
+import { isSet, bytesFromBase64, type DeepPartial, base64FromBytes } from "../../../../helpers";
 export const protobufPackage = "cosmos.base.snapshots.v1beta1";
 /**
  * Snapshot contains Tendermint state sync snapshot info.

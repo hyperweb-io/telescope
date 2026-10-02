@@ -1,7 +1,7 @@
-import { PageRequest, PageRequestAmino, PageResponse, PageResponseAmino } from "../../../cosmos/base/query/v1beta1/pagination";
-import { Provider, ProviderAmino } from "./audit";
+import { PageRequest, type PageRequestAmino, PageResponse, type PageResponseAmino } from "../../../cosmos/base/query/v1beta1/pagination";
+import { Provider, type ProviderAmino } from "./audit";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * QueryProvidersResponse is response type for the Query/Providers RPC method
  * @name QueryProvidersResponse

@@ -1,8 +1,8 @@
-import { Duration, DurationAmino } from "../../../google/protobuf/duration";
-import { DistrInfo, DistrInfoAmino, OsmosisPoolincentivesV1beta1Params, OsmosisPoolincentivesV1beta1ParamsAmino } from "./incentives";
-import { Gauge, GaugeAmino } from "../../incentives/gauge";
+import { Duration, type DurationAmino } from "../../../google/protobuf/duration";
+import { DistrInfo, type DistrInfoAmino, OsmosisPoolincentivesV1beta1Params, type OsmosisPoolincentivesV1beta1ParamsAmino } from "./incentives";
+import { Gauge, type GaugeAmino } from "../../incentives/gauge";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * @name QueryGaugeIdsRequest
  * @package osmosis.poolincentives.v1beta1

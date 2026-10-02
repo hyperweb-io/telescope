@@ -1,8 +1,8 @@
-import { NullValue, NullValueSDKType } from "../../../protobuf/struct";
-import { Duration, DurationAmino, DurationSDKType } from "../../../protobuf/duration";
+import { type NullValue, NullValueSDKType } from "../../../protobuf/struct";
+import { Duration, type DurationAmino, type DurationSDKType } from "../../../protobuf/duration";
 import { Timestamp, TimestampAmino, TimestampSDKType } from "../../../protobuf/timestamp";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial, toTimestamp, fromTimestamp, bytesFromBase64, base64FromBytes } from "../../../../helpers";
+import { type DeepPartial, toTimestamp, fromTimestamp, bytesFromBase64, base64FromBytes } from "../../../../helpers";
 export const protobufPackage = "google.api.expr.v1alpha1";
 /**
  * An expression together with source information as returned by the parser.

@@ -1,7 +1,7 @@
-import { Params, ParamsAmino, ParamsSDKType } from "./params";
+import { Params, type ParamsAmino, type ParamsSDKType } from "./params";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { JsonSafe } from "../../../json-safe";
-import { DeepPartial, isSet } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
+import { type DeepPartial, isSet } from "../../../helpers";
 import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "osmosis.ibcratelimit.v1beta1";
 /**

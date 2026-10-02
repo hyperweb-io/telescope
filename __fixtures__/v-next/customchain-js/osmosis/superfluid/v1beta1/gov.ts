@@ -1,6 +1,6 @@
-import { SuperfluidAsset, SuperfluidAssetAmino } from "../superfluid";
+import { SuperfluidAsset, type SuperfluidAssetAmino } from "../superfluid";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * SetSuperfluidAssetsProposal is a gov Content type to update the superfluid
  * assets

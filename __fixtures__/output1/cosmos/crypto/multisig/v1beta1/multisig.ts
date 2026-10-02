@@ -1,6 +1,6 @@
 import * as _m0 from "protobufjs/minimal";
-import { bytesFromBase64, base64FromBytes, DeepPartial, isSet } from "../../../../helpers";
-import { JsonSafe } from "../../../../json-safe";
+import { bytesFromBase64, base64FromBytes, type DeepPartial, isSet } from "../../../../helpers";
+import type { JsonSafe } from "../../../../json-safe";
 export const protobufPackage = "cosmos.crypto.multisig.v1beta1";
 /**
  * MultiSignature wraps the signatures from a multisig.LegacyAminoPubKey.

@@ -1,8 +1,8 @@
-import { DecCoin, DecCoinAmino } from "../../../cosmos/base/v1beta1/coin";
+import { DecCoin, type DecCoinAmino } from "../../../cosmos/base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 import { Decimal } from "@interchainjs/math";
-import { EvmosInflationV1Params, EvmosInflationV1ParamsAmino } from "./genesis";
+import { EvmosInflationV1Params, type EvmosInflationV1ParamsAmino } from "./genesis";
 /**
  * QueryPeriodRequest is the request type for the Query/Period RPC method.
  * @name QueryPeriodRequest

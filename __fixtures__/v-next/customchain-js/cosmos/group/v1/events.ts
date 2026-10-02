@@ -1,6 +1,6 @@
-import { ProposalExecutorResult } from "./types";
+import type { ProposalExecutorResult } from "./types";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * EventCreateGroup is an event emitted when a group is created.
  * @name EventCreateGroup

@@ -1,5 +1,5 @@
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet, DeepPartial } from "../../../helpers";
+import { isSet, type DeepPartial } from "../../../helpers";
 export const protobufPackage = "osmosis.ibcratelimit.v1beta1";
 /**
  * Params defines the parameters for the ibc-rate-limit module.

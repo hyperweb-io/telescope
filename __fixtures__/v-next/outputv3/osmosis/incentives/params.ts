@@ -1,5 +1,5 @@
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { isSet, DeepPartial } from "../../helpers";
+import { isSet, type DeepPartial } from "../../helpers";
 export const protobufPackage = "osmosis.incentives";
 /**
  * Params holds parameters for the incentives module

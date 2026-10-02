@@ -2,10 +2,10 @@
 /* eslint-disable */
 import { SourceInfo, Expr, Constant } from "./syntax";
 import { Empty } from "../../../protobuf/empty";
-import { NullValue, nullValueFromJSON, nullValueToJSON } from "../../../protobuf/struct";
-import { Long, isSet, DeepPartial, isObject } from "../../../../helpers";
+import { type NullValue, nullValueFromJSON, nullValueToJSON } from "../../../protobuf/struct";
+import { Long, isSet, type DeepPartial, isObject } from "../../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../../json-safe";
+import type { JsonSafe } from "../../../../json-safe";
 export const protobufPackage = "google.api.expr.v1alpha1";
 /** CEL primitive types. */
 export enum Type_PrimitiveType {

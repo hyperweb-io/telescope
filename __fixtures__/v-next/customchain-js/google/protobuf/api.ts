@@ -1,7 +1,7 @@
-import { Option, OptionAmino, Syntax } from "./type";
-import { SourceContext, SourceContextAmino } from "./source_context";
+import { Option, type OptionAmino, type Syntax } from "./type";
+import { SourceContext, type SourceContextAmino } from "./source_context";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { DeepPartial } from "../../helpers";
+import type { DeepPartial } from "../../helpers";
 /**
  * Api is a light-weight descriptor for an API Interface.
  * 

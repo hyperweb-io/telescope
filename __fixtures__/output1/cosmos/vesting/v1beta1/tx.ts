@@ -1,8 +1,8 @@
-import { Coin, CoinSDKType } from "../../base/v1beta1/coin";
-import { Period, PeriodSDKType } from "./vesting";
-import { Long, isSet, DeepPartial } from "../../../helpers";
+import { Coin, type CoinSDKType } from "../../base/v1beta1/coin";
+import { Period, type PeriodSDKType } from "./vesting";
+import { Long, isSet, type DeepPartial } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../json-safe";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "cosmos.vesting.v1beta1";
 /**
  * MsgCreateVestingAccount defines a message that enables creating a vesting

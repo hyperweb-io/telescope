@@ -1,7 +1,7 @@
-import { IdentifiedPacketFees, IdentifiedPacketFeesSDKType } from "./fee";
+import { IdentifiedPacketFees, type IdentifiedPacketFeesSDKType } from "./fee";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { JsonSafe } from "../../../../json-safe";
-import { DeepPartial, isSet } from "../../../../helpers";
+import type { JsonSafe } from "../../../../json-safe";
+import { type DeepPartial, isSet } from "../../../../helpers";
 export const protobufPackage = "ibc.applications.fee.v1";
 /**
  * GenesisState defines the ICS29 fee middleware genesis state

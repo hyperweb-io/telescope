@@ -1,7 +1,7 @@
-import { Order, OrderSDKType, Counterparty, CounterpartySDKType, orderFromJSON, orderToJSON } from "../../channel/v1/channel.js";
+import { type Order, OrderSDKType, Counterparty, type CounterpartySDKType, orderFromJSON, orderToJSON } from "../../channel/v1/channel.js";
 import { BinaryReader, BinaryWriter } from "../../../../binary.js";
-import { isSet, DeepPartial } from "../../../../helpers.js";
-import { JsonSafe } from "../../../../json-safe.js";
+import { isSet, type DeepPartial } from "../../../../helpers.js";
+import type { JsonSafe } from "../../../../json-safe.js";
 export const protobufPackage = "ibc.core.port.v1";
 /**
  * QueryAppVersionRequest is the request type for the Query/AppVersion RPC method

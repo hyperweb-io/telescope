@@ -1,7 +1,7 @@
 //@ts-nocheck
 import { TokenPairArbRoutes, TokenPairArbRoutesSDKType, PoolWeights, PoolWeightsSDKType, BaseDenom, BaseDenomSDKType, Route, RouteSDKType, Trade, TradeSDKType } from "./protorev";
-import { AminoMsg } from "@cosmjs/amino";
-import { MsgSetHotRoutes, MsgSetHotRoutesSDKType, MsgSetDeveloperAccount, MsgSetDeveloperAccountSDKType, MsgSetMaxPoolPointsPerTx, MsgSetMaxPoolPointsPerTxSDKType, MsgSetMaxPoolPointsPerBlock, MsgSetMaxPoolPointsPerBlockSDKType, MsgSetPoolWeights, MsgSetPoolWeightsSDKType, MsgSetBaseDenoms, MsgSetBaseDenomsSDKType } from "./tx";
+import type { AminoMsg } from "@cosmjs/amino";
+import { type MsgSetHotRoutes, MsgSetHotRoutesSDKType, type MsgSetDeveloperAccount, MsgSetDeveloperAccountSDKType, type MsgSetMaxPoolPointsPerTx, MsgSetMaxPoolPointsPerTxSDKType, type MsgSetMaxPoolPointsPerBlock, MsgSetMaxPoolPointsPerBlockSDKType, type MsgSetPoolWeights, MsgSetPoolWeightsSDKType, type MsgSetBaseDenoms, MsgSetBaseDenomsSDKType } from "./tx";
 export interface MsgSetHotRoutesAminoType extends AminoMsg {
   type: "osmosis/MsgSetHotRoutes";
   value: {

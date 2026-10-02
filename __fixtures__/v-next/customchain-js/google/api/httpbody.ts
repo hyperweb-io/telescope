@@ -1,6 +1,6 @@
-import { Any, AnyAmino } from "../protobuf/any";
+import { Any, type AnyAmino } from "../protobuf/any";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { DeepPartial, bytesFromBase64, base64FromBytes } from "../../helpers";
+import { type DeepPartial, bytesFromBase64, base64FromBytes } from "../../helpers";
 /**
  * Message that represents an arbitrary HTTP body. It should only be used for
  * payload formats that can't be represented as JSON, such as raw binary or

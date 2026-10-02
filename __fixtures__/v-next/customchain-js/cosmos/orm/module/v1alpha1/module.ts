@@ -1,5 +1,5 @@
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial } from "../../../../helpers";
+import type { DeepPartial } from "../../../../helpers";
 /**
  * Module defines the ORM module which adds providers to the app container for
  * module-scoped DB's. In the future it may provide gRPC services for interacting

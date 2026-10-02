@@ -1,6 +1,6 @@
-import { Expr, ExprAmino, ExprSDKType } from "./expr";
+import { Expr, type ExprAmino, type ExprSDKType } from "./expr";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial } from "../../../../helpers";
+import type { DeepPartial } from "../../../../helpers";
 export const protobufPackage = "google.api.expr.v1beta1";
 /**
  * A declaration.

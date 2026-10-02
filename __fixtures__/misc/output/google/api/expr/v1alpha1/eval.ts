@@ -1,6 +1,6 @@
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { JsonSafe } from "../../../../json-safe";
-import { DeepPartial, isSet } from "../../../../helpers";
+import type { JsonSafe } from "../../../../json-safe";
+import { type DeepPartial, isSet } from "../../../../helpers";
 /**
  * @name ExprValue
  * @package google.api.expr.v1alpha1

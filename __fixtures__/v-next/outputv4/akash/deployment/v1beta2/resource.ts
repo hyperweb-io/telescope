@@ -1,8 +1,8 @@
-import { ResourceUnits, ResourceUnitsSDKType } from "../../base/v1beta2/resourceunits.js";
-import { DecCoin, DecCoinSDKType } from "../../../cosmos/base/v1beta1/coin.js";
+import { ResourceUnits, type ResourceUnitsSDKType } from "../../base/v1beta2/resourceunits.js";
+import { DecCoin, type DecCoinSDKType } from "../../../cosmos/base/v1beta1/coin.js";
 import { BinaryReader, BinaryWriter } from "../../../binary.js";
-import { isSet, DeepPartial, Exact } from "../../../helpers.js";
-import { JsonSafe } from "../../../json-safe.js";
+import { isSet, type DeepPartial, type Exact } from "../../../helpers.js";
+import type { JsonSafe } from "../../../json-safe.js";
 export const protobufPackage = "akash.deployment.v1beta2";
 /**
  * Resource stores unit, total count and price of resource

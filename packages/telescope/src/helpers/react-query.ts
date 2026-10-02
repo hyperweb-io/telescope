@@ -4,13 +4,14 @@ export const getReactQueryHelper = (options: TelescopeOptions) => {
   return `import { getRpcClient } from './extern${options.restoreImportExtension ?? ""}'
 import {
     useQuery,
-    UseQueryOptions,
+    type UseQueryResult,
+    type UseQueryOptions,
 } from '@tanstack/react-query';
 
-import { HttpEndpoint, ProtobufRpcClient } from '@cosmjs/stargate';
+import { type HttpEndpoint, type ProtobufRpcClient } from '@cosmjs/stargate';
 ${
   options.rpcClients.useConnectComet
-    ? "import { CometClient, connectComet, Tendermint34Client, Tendermint37Client } from '@cosmjs/tendermint-rpc';"
+    ? "import { type CometClient, connectComet, Tendermint34Client, Tendermint37Client } from '@cosmjs/tendermint-rpc';"
     : "import { Tendermint34Client } from '@cosmjs/tendermint-rpc';"
 }
 
@@ -33,7 +34,7 @@ export const useRpcEndpoint = <TData = string | HttpEndpoint>({
     getter,
     options,
     extraKey
-}: UseRpcEndpointQuery<TData>) => {
+}: UseRpcEndpointQuery<TData>): UseQueryResult<TData, Error> => {
     return useQuery<string | HttpEndpoint, Error, TData>(['rpcEndpoint', extraKey], async () => {
         return await getter();
     }, options);
@@ -45,7 +46,7 @@ export const useRpcEndpoint = <TData = string | HttpEndpoint>({
 export const useRpcEndpoint = <TData = string | HttpEndpoint>({
     getter,
     options,
-}: UseRpcEndpointQuery<TData>) => {
+}: UseRpcEndpointQuery<TData>): UseQueryResult<TData, Error> => {
     return useQuery<string | HttpEndpoint, Error, TData>(['rpcEndpoint', getter], async () => {
         return await getter();
     }, options);
@@ -55,7 +56,7 @@ export const useRpcEndpoint = <TData = string | HttpEndpoint>({
 export const useRpcClient = <TData = ProtobufRpcClient>({
     rpcEndpoint,
     options,
-}: UseRpcClientQuery<TData>) => {
+}: UseRpcClientQuery<TData>): UseQueryResult<TData, Error> => {
     return useQuery<ProtobufRpcClient, Error, TData>(['rpcClient', rpcEndpoint], async () => {
         return await getRpcClient(rpcEndpoint);
     }, options);
@@ -75,7 +76,11 @@ ${
 export const useTendermintClient = ({
     rpcEndpoint,
     options,
-}: UseTendermintClient) => {
+}: UseTendermintClient): { client: ${
+  options.rpcClients.useConnectComet
+    ? "Tendermint34Client | Tendermint37Client | CometClient"
+    : "Tendermint34Client"
+} | undefined } => {
 ${
   options.rpcClients.useConnectComet
     ? "    const { data: client } = useQuery<Tendermint34Client | Tendermint37Client | CometClient, Error, Tendermint34Client | Tendermint37Client | CometClient>("

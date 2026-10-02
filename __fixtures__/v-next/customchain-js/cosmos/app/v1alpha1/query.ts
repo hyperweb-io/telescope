@@ -1,6 +1,6 @@
-import { Config, ConfigAmino } from "./config";
+import { Config, type ConfigAmino } from "./config";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * QueryConfigRequest is the Query/Config request type.
  * @name QueryConfigRequest

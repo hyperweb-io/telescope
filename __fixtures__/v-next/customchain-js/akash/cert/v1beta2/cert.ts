@@ -1,5 +1,5 @@
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers";
+import { type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers";
 /** State is an enum which refers to state of deployment */
 export enum Certificate_State {
   /** invalid - Prefix should start with 0 in enum. So declaring dummy state */

@@ -1,8 +1,8 @@
-import { PageRequest, PageRequestAmino, PageResponse, PageResponseAmino } from "../../base/query/v1beta1/pagination";
-import { Coin, CoinAmino } from "../../base/v1beta1/coin";
-import { Metadata, MetadataAmino, CosmosBankV1beta1Params, CosmosBankV1beta1ParamsAmino } from "./bank";
+import { PageRequest, type PageRequestAmino, PageResponse, type PageResponseAmino } from "../../base/query/v1beta1/pagination";
+import { Coin, type CoinAmino } from "../../base/v1beta1/coin";
+import { Metadata, type MetadataAmino, CosmosBankV1beta1Params, type CosmosBankV1beta1ParamsAmino } from "./bank";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * QueryBalanceRequest is the request type for the Query/Balance RPC method.
  * @name QueryBalanceRequest

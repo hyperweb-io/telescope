@@ -1,9 +1,9 @@
-import { Proof, ProofAmino, ProofSDKType } from "../crypto/proof";
-import { Consensus, ConsensusAmino, ConsensusSDKType } from "../version/types";
+import { Proof, type ProofAmino, type ProofSDKType } from "../crypto/proof";
+import { Consensus, type ConsensusAmino, type ConsensusSDKType } from "../version/types";
 import { Timestamp, TimestampAmino, TimestampSDKType } from "../../google/protobuf/timestamp";
-import { ValidatorSet, ValidatorSetAmino, ValidatorSetSDKType } from "./validator";
+import { ValidatorSet, type ValidatorSetAmino, type ValidatorSetSDKType } from "./validator";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { isSet, bytesFromBase64, DeepPartial, base64FromBytes, toTimestamp, fromTimestamp } from "../../helpers";
+import { isSet, bytesFromBase64, type DeepPartial, base64FromBytes, toTimestamp, fromTimestamp } from "../../helpers";
 import { GlobalDecoderRegistry } from "../../registry";
 export const protobufPackage = "tendermint.types";
 /** BlockIdFlag indicates which BlcokID the signature is for */

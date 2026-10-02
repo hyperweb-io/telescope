@@ -1,6 +1,6 @@
-import { GroupID, GroupIDAmino, GroupIDSDKType } from "./groupid";
+import { GroupID, type GroupIDAmino, type GroupIDSDKType } from "./groupid";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial, Exact } from "../../../helpers";
+import type { DeepPartial, Exact } from "../../../helpers";
 export const protobufPackage = "akash.deployment.v1beta2";
 /**
  * MsgCloseGroup defines SDK message to close a single Group within a Deployment.

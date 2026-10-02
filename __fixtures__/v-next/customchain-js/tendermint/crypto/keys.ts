@@ -1,5 +1,5 @@
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { DeepPartial, bytesFromBase64, base64FromBytes } from "../../helpers";
+import { type DeepPartial, bytesFromBase64, base64FromBytes } from "../../helpers";
 /**
  * PublicKey defines the keys available for use with Tendermint Validators
  * @name PublicKey

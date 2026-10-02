@@ -1,10 +1,10 @@
-import { Proof, ProofSDKType } from "../crypto/proof.js";
-import { Consensus, ConsensusSDKType } from "../version/types.js";
+import { Proof, type ProofSDKType } from "../crypto/proof.js";
+import { Consensus, type ConsensusSDKType } from "../version/types.js";
 import { Timestamp, TimestampSDKType } from "../../google/protobuf/timestamp.js";
-import { ValidatorSet, ValidatorSetSDKType } from "./validator.js";
+import { ValidatorSet, type ValidatorSetSDKType } from "./validator.js";
 import { BinaryReader, BinaryWriter } from "../../binary.js";
-import { isSet, bytesFromBase64, base64FromBytes, DeepPartial, toTimestamp, fromTimestamp } from "../../helpers.js";
-import { JsonSafe } from "../../json-safe.js";
+import { isSet, bytesFromBase64, base64FromBytes, type DeepPartial, toTimestamp, fromTimestamp } from "../../helpers.js";
+import type { JsonSafe } from "../../json-safe.js";
 export const protobufPackage = "tendermint.types";
 /** BlockIdFlag indicates which BlcokID the signature is for */
 export enum BlockIDFlag {

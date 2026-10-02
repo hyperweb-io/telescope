@@ -1,7 +1,7 @@
-import { PageRequest, PageRequestAmino, PageResponse, PageResponseAmino } from "../../base/query/v1beta1/pagination";
-import { Validator, ValidatorAmino, DelegationResponse, DelegationResponseAmino, UnbondingDelegation, UnbondingDelegationAmino, RedelegationResponse, RedelegationResponseAmino, HistoricalInfo, HistoricalInfoAmino, Pool, PoolAmino, CosmosStakingV1beta1Params, CosmosStakingV1beta1ParamsAmino } from "./staking";
+import { PageRequest, type PageRequestAmino, PageResponse, type PageResponseAmino } from "../../base/query/v1beta1/pagination";
+import { Validator, type ValidatorAmino, DelegationResponse, type DelegationResponseAmino, UnbondingDelegation, type UnbondingDelegationAmino, RedelegationResponse, type RedelegationResponseAmino, HistoricalInfo, type HistoricalInfoAmino, Pool, type PoolAmino, CosmosStakingV1beta1Params, type CosmosStakingV1beta1ParamsAmino } from "./staking";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * QueryValidatorsRequest is request type for Query/Validators RPC method.
  * @name QueryValidatorsRequest

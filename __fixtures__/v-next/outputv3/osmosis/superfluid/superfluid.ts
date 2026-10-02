@@ -1,5 +1,5 @@
-import { Coin, CoinAmino, CoinSDKType } from "../../cosmos/base/v1beta1/coin";
-import { isSet, DeepPartial } from "../../helpers";
+import { Coin, type CoinAmino, type CoinSDKType } from "../../cosmos/base/v1beta1/coin";
+import { isSet, type DeepPartial } from "../../helpers";
 import { BinaryReader, BinaryWriter } from "../../binary";
 import { Decimal } from "@interchainjs/math";
 import { GlobalDecoderRegistry } from "../../registry";

@@ -1,6 +1,6 @@
-import { Any, AnyAmino } from "../../../../google/protobuf/any";
+import { Any, type AnyAmino } from "../../../../google/protobuf/any";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers";
+import { type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers";
 /**
  * MsgCreateClient defines a message to create an IBC client
  * @name MsgCreateClient

@@ -1,10 +1,10 @@
-import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../../../cosmos/base/query/v1beta1/pagination.js";
-import { Channel, ChannelSDKType, IdentifiedChannel, IdentifiedChannelSDKType, PacketState, PacketStateSDKType } from "./channel.js";
-import { Height, HeightSDKType, IdentifiedClientState, IdentifiedClientStateSDKType } from "../../client/v1/client.js";
-import { Any, AnySDKType } from "../../../../google/protobuf/any.js";
+import { PageRequest, type PageRequestSDKType, PageResponse, type PageResponseSDKType } from "../../../../cosmos/base/query/v1beta1/pagination.js";
+import { Channel, type ChannelSDKType, IdentifiedChannel, type IdentifiedChannelSDKType, PacketState, type PacketStateSDKType } from "./channel.js";
+import { Height, type HeightSDKType, IdentifiedClientState, type IdentifiedClientStateSDKType } from "../../client/v1/client.js";
+import { Any, type AnySDKType } from "../../../../google/protobuf/any.js";
 import { BinaryReader, BinaryWriter } from "../../../../binary.js";
-import { isSet, DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers.js";
-import { JsonSafe } from "../../../../json-safe.js";
+import { isSet, type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers.js";
+import type { JsonSafe } from "../../../../json-safe.js";
 export const protobufPackage = "ibc.core.channel.v1";
 /**
  * QueryChannelRequest is the request type for the Query/Channel RPC method

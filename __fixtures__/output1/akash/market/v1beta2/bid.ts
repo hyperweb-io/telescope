@@ -1,8 +1,8 @@
-import { OrderID, OrderIDSDKType } from "./order";
-import { DecCoin, DecCoinSDKType, Coin, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
-import { Long, isSet, DeepPartial, Exact } from "../../../helpers";
+import { OrderID, type OrderIDSDKType } from "./order";
+import { DecCoin, type DecCoinSDKType, Coin, type CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
+import { Long, isSet, type DeepPartial, type Exact } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../json-safe";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "akash.market.v1beta2";
 /** State is an enum which refers to state of bid */
 export enum Bid_State {

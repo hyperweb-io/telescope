@@ -1,7 +1,7 @@
 import { Coin, CoinSDKType } from "../../cosmos/base/v1beta1/coin";
 import { Timestamp, TimestampSDKType } from "../../google/protobuf/timestamp";
 import { Duration, DurationSDKType } from "../../google/protobuf/duration";
-import { TelescopeGeneratedType } from "../../types";
+import type { TelescopeGeneratedType } from "../../types";
 import { MsgCreatePosition, MsgCreatePositionSDKType, MsgWithdrawPosition, MsgWithdrawPositionSDKType, MsgCollectFees, MsgCollectFeesSDKType, MsgCollectIncentives, MsgCollectIncentivesSDKType, MsgFungifyChargedPositions, MsgFungifyChargedPositionsSDKType } from "./tx";
 export const registry: ReadonlyArray<[string, TelescopeGeneratedType<any, any, any>]> = [["/osmosis.concentratedliquidity.v1beta1.MsgCreatePosition", MsgCreatePosition], ["/osmosis.concentratedliquidity.v1beta1.MsgWithdrawPosition", MsgWithdrawPosition], ["/osmosis.concentratedliquidity.v1beta1.MsgCollectFees", MsgCollectFees], ["/osmosis.concentratedliquidity.v1beta1.MsgCollectIncentives", MsgCollectIncentives], ["/osmosis.concentratedliquidity.v1beta1.MsgFungifyChargedPositions", MsgFungifyChargedPositions]];
 export const MessageComposer = {

@@ -2,7 +2,7 @@ import { buildAllImports, getDepsFromMutations } from '../imports';
 import { Bundler } from '../bundler';
 import { parse } from '../parse';
 import { TelescopeBuilder } from '../builder';
-import { getExportedTypeNames } from '../utils/files';
+import { getExportedNames } from '../utils/files';
 
 export const plugin = (
   builder: TelescopeBuilder,
@@ -46,13 +46,13 @@ export const plugin = (
       .concat(imports)
       .concat(ctx.body);
 
-    const exportedTypeNames = getExportedTypeNames(prog);
+    const exportedNames = getExportedNames(prog);
 
-    exportedTypeNames.forEach((name) => {
+    exportedNames.names.forEach((name) => {
       builder.store.setTypeFilesMapping(name, localname);
     });
 
-    bundler.addExportObjToBundle(c.ref.proto.package, localname, exportedTypeNames);
+    bundler.addExportObjToBundle(c.ref.proto.package, localname, exportedNames);
 
     bundler.writeAst(prog, filename);
     bundler.addToBundle(c, localname);

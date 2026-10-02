@@ -4,7 +4,7 @@ import { OrderID } from "./order";
 import { DecCoin, Coin } from "../../../cosmos/base/v1beta1/coin";
 import { BidID } from "./bid";
 import { LeaseID } from "./lease";
-import { Rpc } from "../../../helpers";
+import type { Rpc } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
 export const protobufPackage = "akash.market.v1beta2";
 /** Msg defines the market Msg service */

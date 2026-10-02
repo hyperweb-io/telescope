@@ -133,7 +133,7 @@ export interface Params {
     params: PageRequestParams;
 };
 
-export const setPaginationParams = (options: Params, pagination?: PageRequest) => {
+export const setPaginationParams = (options: Params, pagination?: PageRequest): Params => {
 
     if (!pagination) {
         return options;

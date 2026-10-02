@@ -1,6 +1,6 @@
 import { Coin, CoinSDKType } from "../../../../cosmos/base/v1beta1/coin.js";
 import { Height, HeightSDKType } from "../../../core/client/v1/client.js";
-import { TelescopeGeneratedType } from "../../../../types.js";
+import type { TelescopeGeneratedType } from "../../../../types.js";
 import { MsgTransfer, MsgTransferSDKType } from "./tx.js";
 export const registry: ReadonlyArray<[string, TelescopeGeneratedType<any, any, any>]> = [["/ibc.applications.transfer.v1.MsgTransfer", MsgTransfer]];
 export const MessageComposer = {

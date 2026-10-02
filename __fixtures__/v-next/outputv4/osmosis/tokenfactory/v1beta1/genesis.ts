@@ -1,8 +1,8 @@
-import { Params, ParamsSDKType } from "./params.js";
-import { DenomAuthorityMetadata, DenomAuthorityMetadataSDKType } from "./authorityMetadata.js";
+import { Params, type ParamsSDKType } from "./params.js";
+import { DenomAuthorityMetadata, type DenomAuthorityMetadataSDKType } from "./authorityMetadata.js";
 import { BinaryReader, BinaryWriter } from "../../../binary.js";
-import { isSet, DeepPartial } from "../../../helpers.js";
-import { JsonSafe } from "../../../json-safe.js";
+import { isSet, type DeepPartial } from "../../../helpers.js";
+import type { JsonSafe } from "../../../json-safe.js";
 export const protobufPackage = "osmosis.tokenfactory.v1beta1";
 /**
  * GenesisState defines the tokenfactory module's genesis state.

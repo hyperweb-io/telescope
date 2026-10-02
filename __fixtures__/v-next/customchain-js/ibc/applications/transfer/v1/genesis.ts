@@ -1,6 +1,6 @@
-import { DenomTrace, DenomTraceAmino, IbcApplicationsTransferV1Params, IbcApplicationsTransferV1ParamsAmino } from "./transfer";
+import { DenomTrace, type DenomTraceAmino, IbcApplicationsTransferV1Params, type IbcApplicationsTransferV1ParamsAmino } from "./transfer";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial } from "../../../../helpers";
+import type { DeepPartial } from "../../../../helpers";
 /**
  * GenesisState defines the ibc-transfer genesis state
  * @name GenesisState

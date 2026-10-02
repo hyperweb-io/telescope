@@ -1,7 +1,7 @@
-import { Account, AccountAmino, AccountSDKType, FractionalPayment, FractionalPaymentAmino, FractionalPaymentSDKType } from "./types";
+import { Account, type AccountAmino, type AccountSDKType, FractionalPayment, type FractionalPaymentAmino, type FractionalPaymentSDKType } from "./types";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { JsonSafe } from "../../../json-safe";
-import { DeepPartial, Exact } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
+import type { DeepPartial, Exact } from "../../../helpers";
 import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "akash.escrow.v1beta2";
 /**

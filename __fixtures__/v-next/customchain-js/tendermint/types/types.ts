@@ -1,9 +1,9 @@
-import { Proof, ProofAmino } from "../crypto/proof";
-import { Consensus, ConsensusAmino } from "../version/types";
+import { Proof, type ProofAmino } from "../crypto/proof";
+import { Consensus, type ConsensusAmino } from "../version/types";
 import { Timestamp } from "../../google/protobuf/timestamp";
-import { ValidatorSet, ValidatorSetAmino } from "./validator";
+import { ValidatorSet, type ValidatorSetAmino } from "./validator";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { DeepPartial, bytesFromBase64, base64FromBytes, toTimestamp, fromTimestamp } from "../../helpers";
+import { type DeepPartial, bytesFromBase64, base64FromBytes, toTimestamp, fromTimestamp } from "../../helpers";
 /** BlockIdFlag indicates which BlcokID the signature is for */
 export enum BlockIDFlag {
   BLOCK_ID_FLAG_UNKNOWN = 0,

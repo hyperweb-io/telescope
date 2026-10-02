@@ -1,5 +1,5 @@
 import { Any, AnySDKType } from "../../../google/protobuf/any.js";
-import { TelescopeGeneratedType } from "../../../types.js";
+import type { TelescopeGeneratedType } from "../../../types.js";
 import { MsgSubmitEvidence, MsgSubmitEvidenceSDKType } from "./tx.js";
 export const registry: ReadonlyArray<[string, TelescopeGeneratedType<any, any, any>]> = [["/cosmos.evidence.v1beta1.MsgSubmitEvidence", MsgSubmitEvidence]];
 export const MessageComposer = {

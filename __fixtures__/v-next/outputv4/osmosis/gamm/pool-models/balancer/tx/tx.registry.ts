@@ -1,5 +1,5 @@
 import { PoolParams, PoolParamsSDKType, PoolAsset, PoolAssetSDKType } from "../balancerPool.js";
-import { TelescopeGeneratedType } from "../../../../../types.js";
+import type { TelescopeGeneratedType } from "../../../../../types.js";
 import { MsgCreateBalancerPool, MsgCreateBalancerPoolSDKType } from "./tx.js";
 export const registry: ReadonlyArray<[string, TelescopeGeneratedType<any, any, any>]> = [["/osmosis.gamm.poolmodels.balancer.v1beta1.MsgCreateBalancerPool", MsgCreateBalancerPool]];
 export const MessageComposer = {

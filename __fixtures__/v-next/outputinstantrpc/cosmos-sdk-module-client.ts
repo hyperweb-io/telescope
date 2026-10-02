@@ -1,8 +1,8 @@
-import { GeneratedType, Registry, OfflineSigner } from "@cosmjs/proto-signing";
+import { type GeneratedType, Registry, type OfflineSigner } from "@cosmjs/proto-signing";
 import { AminoTypes, SigningStargateClient } from "@cosmjs/stargate";
-import { HttpEndpoint } from "@cosmjs/tendermint-rpc";
+import type { HttpEndpoint } from "@cosmjs/tendermint-rpc";
 import { createRpcClient } from "./extern";
-import { EncodeObject, StdFee, TxRpc, SigningClientParams } from "./types";
+import type { EncodeObject, StdFee, TxRpc, SigningClientParams } from "./types";
 import * as cosmosAuthzV1beta1TxRegistry from "./cosmos/authz/v1beta1/tx.registry";
 import * as cosmosBankV1beta1TxRegistry from "./cosmos/bank/v1beta1/tx.registry";
 import * as cosmosCrisisV1beta1TxRegistry from "./cosmos/crisis/v1beta1/tx.registry";

@@ -1,4 +1,4 @@
-import { GeneratedType, Registry } from "@cosmjs/proto-signing";
+import type { GeneratedType, Registry } from "@cosmjs/proto-signing";
 import { MsgVerifyInvariant, MsgVerifyInvariantSDKType } from "./tx";
 export const registry: ReadonlyArray<[string, GeneratedType]> = [["/cosmos.crisis.v1beta1.MsgVerifyInvariant", MsgVerifyInvariant]];
 export const load = (protoRegistry: Registry) => {

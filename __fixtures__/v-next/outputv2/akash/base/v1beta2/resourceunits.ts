@@ -1,9 +1,9 @@
-import { CPU, CPUAmino, CPUSDKType, Memory, MemoryAmino, MemorySDKType, Storage, StorageAmino, StorageSDKType } from "./resource";
-import { Endpoint, EndpointAmino, EndpointSDKType } from "./endpoint";
+import { CPU, type CPUAmino, type CPUSDKType, Memory, type MemoryAmino, type MemorySDKType, Storage, type StorageAmino, type StorageSDKType } from "./resource";
+import { Endpoint, type EndpointAmino, type EndpointSDKType } from "./endpoint";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { GlobalDecoderRegistry } from "../../../registry";
-import { isSet, DeepPartial } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { isSet, type DeepPartial } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "akash.base.v1beta2";
 /**
  * ResourceUnits describes all available resources types for deployment/node etc

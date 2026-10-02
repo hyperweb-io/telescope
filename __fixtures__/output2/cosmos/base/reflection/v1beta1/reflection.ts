@@ -1,8 +1,8 @@
 //@ts-nocheck
 /* eslint-disable */
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../../json-safe";
-import { DeepPartial, isSet, Rpc } from "../../../../helpers";
+import type { JsonSafe } from "../../../../json-safe";
+import { type DeepPartial, isSet, type Rpc } from "../../../../helpers";
 export const protobufPackage = "cosmos.base.reflection.v1beta1";
 /** ListAllInterfacesRequest is the request type of the ListAllInterfaces RPC. */
 export interface ListAllInterfacesRequest {}

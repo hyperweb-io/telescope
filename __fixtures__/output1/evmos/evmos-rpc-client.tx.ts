@@ -1,4 +1,4 @@
-import { Rpc } from "../helpers";
+import type { Rpc } from "../helpers";
 export const createEvmosRPCTxClient = async ({
   rpc
 }: {

@@ -1,4 +1,4 @@
-import { isSet, DeepPartial } from "../../helpers";
+import { isSet, type DeepPartial } from "../../helpers";
 import { BinaryReader, BinaryWriter } from "../../binary";
 import { GlobalDecoderRegistry } from "../../registry";
 export const protobufPackage = "google.api";

@@ -1,7 +1,7 @@
-import { Expr, ExprSDKType } from "./expr";
+import { Expr, type ExprSDKType } from "./expr";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { isSet, DeepPartial } from "../../../../helpers";
-import { JsonSafe } from "../../../../json-safe";
+import { isSet, type DeepPartial } from "../../../../helpers";
+import type { JsonSafe } from "../../../../json-safe";
 export const protobufPackage = "google.api.expr.v1beta1";
 /**
  * A declaration.

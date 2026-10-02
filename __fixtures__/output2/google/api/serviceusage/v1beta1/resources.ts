@@ -8,9 +8,9 @@ import { Usage } from "../../usage";
 import { Endpoint } from "../../endpoint";
 import { MonitoredResourceDescriptor } from "../../monitored_resource";
 import { Monitoring } from "../../monitoring";
-import { Long, isSet, DeepPartial, isObject, Rpc } from "../../../../helpers";
+import { Long, isSet, type DeepPartial, isObject, type Rpc } from "../../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../../json-safe";
+import type { JsonSafe } from "../../../../json-safe";
 export const protobufPackage = "google.api.serviceusage.v1beta1";
 /** Whether or not a service has been enabled for use by a consumer. */
 export enum State {

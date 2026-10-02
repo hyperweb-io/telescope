@@ -371,7 +371,7 @@ type ReaderLike = {
 /**
  * encode zig zag
  */
-export function zzEncode(lo: number, hi: number) {
+export function zzEncode(lo: number, hi: number): [number, number] {
   let mask = hi >> 31;
   hi = (((hi << 1) | (lo >>> 31)) ^ mask) >>> 0;
   lo = ((lo << 1) ^ mask) >>> 0;
@@ -381,7 +381,7 @@ export function zzEncode(lo: number, hi: number) {
 /**
  * decode zig zag
  */
-export function zzDecode(lo: number, hi: number) {
+export function zzDecode(lo: number, hi: number): [number, number] {
   let mask = -(lo & 1);
   lo = (((lo >>> 1) | (hi << 31)) ^ mask) >>> 0;
   hi = ((hi >>> 1) ^ mask) >>> 0;
@@ -391,7 +391,7 @@ export function zzDecode(lo: number, hi: number) {
 /**
  * unsigned int32 without moving pos.
  */
-export function readUInt32(buf: Uint8Array, pos: number) {
+export function readUInt32(buf: Uint8Array, pos: number): number {
   return (
     (buf[pos] | (buf[pos + 1] << 8) | (buf[pos + 2] << 16)) +
     buf[pos + 3] * 0x1000000
@@ -401,7 +401,7 @@ export function readUInt32(buf: Uint8Array, pos: number) {
 /**
  * signed int32 without moving pos.
  */
-export function readInt32(buf: Uint8Array, pos: number) {
+export function readInt32(buf: Uint8Array, pos: number): number {
   return (
     (buf[pos] | (buf[pos + 1] << 8) | (buf[pos + 2] << 16)) +
     (buf[pos + 3] << 24)
@@ -415,7 +415,7 @@ export function writeVarint32(
   val: number,
   buf: Uint8Array | number[],
   pos: number
-) {
+): void {
   while (val > 127) {
     buf[pos++] = (val & 127) | 128;
     val >>>= 7;
@@ -430,7 +430,7 @@ export function writeVarint64(
   val: { lo: number; hi: number },
   buf: Uint8Array | number[],
   pos: number
-) {
+): void {
   while (val.hi) {
     buf[pos++] = (val.lo & 127) | 128;
     val.lo = ((val.lo >>> 7) | (val.hi << 25)) >>> 0;
@@ -443,7 +443,7 @@ export function writeVarint64(
   buf[pos++] = val.lo;
 }
 
-export function int64Length(lo: number, hi: number) {
+export function int64Length(lo: number, hi: number): number {
   let part0 = lo,
     part1 = ((lo >>> 28) | (hi << 4)) >>> 0,
     part2 = hi >>> 24;
@@ -472,7 +472,7 @@ export function writeFixed32(
   val: number,
   buf: Uint8Array | number[],
   pos: number
-) {
+): void {
   buf[pos] = val & 255;
   buf[pos + 1] = (val >>> 8) & 255;
   buf[pos + 2] = (val >>> 16) & 255;
@@ -483,6 +483,6 @@ export function writeByte(
   val: number,
   buf: Uint8Array | number[],
   pos: number
-) {
+): void {
   buf[pos] = val & 255;
 }

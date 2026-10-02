@@ -1,5 +1,5 @@
-import { Metadata, MetadataAmino, MetadataSDKType } from "../../../cosmos/bank/v1beta1/bank";
-import { isSet, DeepPartial } from "../../../helpers";
+import { Metadata, type MetadataAmino, type MetadataSDKType } from "../../../cosmos/bank/v1beta1/bank";
+import { isSet, type DeepPartial } from "../../../helpers";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "evmos.erc20.v1";

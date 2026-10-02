@@ -1,7 +1,7 @@
-import { ExponentialCalculation, ExponentialCalculationSDKType, InflationDistribution, InflationDistributionSDKType } from "./inflation";
+import { ExponentialCalculation, type ExponentialCalculationSDKType, InflationDistribution, type InflationDistributionSDKType } from "./inflation";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet, DeepPartial } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { isSet, type DeepPartial } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "evmos.inflation.v1";
 /**
  * GenesisState defines the inflation module's genesis state.

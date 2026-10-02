@@ -1,5 +1,5 @@
 import { buildUseQuery } from "../../../react-query";
-import { QueryModuleAccountBalanceRequest, QueryModuleAccountBalanceResponse, QueryParamsRequest, QueryParamsResponse, QueryClaimRecordRequest, QueryClaimRecordResponse, QueryClaimableForActionRequest, QueryClaimableForActionResponse, QueryTotalClaimableRequest, QueryTotalClaimableResponse } from "./query";
+import type { QueryModuleAccountBalanceRequest, QueryModuleAccountBalanceResponse, QueryParamsRequest, QueryParamsResponse, QueryClaimRecordRequest, QueryClaimRecordResponse, QueryClaimableForActionRequest, QueryClaimableForActionResponse, QueryTotalClaimableRequest, QueryTotalClaimableResponse } from "./query";
 import { getModuleAccountBalance, getOsmosisClaimV1beta1Params, getClaimRecord, getClaimableForAction, getTotalClaimable } from "./query.rpc.func";
 /**
  * @name useGetModuleAccountBalance

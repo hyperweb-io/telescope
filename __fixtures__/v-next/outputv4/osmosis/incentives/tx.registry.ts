@@ -1,7 +1,7 @@
 import { QueryCondition, QueryConditionSDKType } from "../lockup/lock.js";
 import { Coin, CoinSDKType } from "../../cosmos/base/v1beta1/coin.js";
 import { Timestamp, TimestampSDKType } from "../../google/protobuf/timestamp.js";
-import { TelescopeGeneratedType } from "../../types.js";
+import type { TelescopeGeneratedType } from "../../types.js";
 import { MsgCreateGauge, MsgCreateGaugeSDKType, MsgAddToGauge, MsgAddToGaugeSDKType } from "./tx.js";
 export const registry: ReadonlyArray<[string, TelescopeGeneratedType<any, any, any>]> = [["/osmosis.incentives.MsgCreateGauge", MsgCreateGauge], ["/osmosis.incentives.MsgAddToGauge", MsgAddToGauge]];
 export const MessageComposer = {

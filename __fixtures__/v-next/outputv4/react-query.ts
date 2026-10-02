@@ -7,11 +7,12 @@
 import { getRpcClient } from './extern.js'
 import {
     useQuery,
-    UseQueryOptions,
+    type UseQueryResult,
+    type UseQueryOptions,
 } from '@tanstack/react-query';
 
-import { HttpEndpoint, ProtobufRpcClient } from '@cosmjs/stargate';
-import { CometClient, connectComet, Tendermint34Client, Tendermint37Client } from '@cosmjs/tendermint-rpc';
+import { type HttpEndpoint, type ProtobufRpcClient } from '@cosmjs/stargate';
+import { type CometClient, connectComet, Tendermint34Client, Tendermint37Client } from '@cosmjs/tendermint-rpc';
 
 export interface ReactQueryParams<TResponse, TData = TResponse> {
     options?: UseQueryOptions<TResponse, Error, TData>;
@@ -30,7 +31,7 @@ export const useRpcEndpoint = <TData = string | HttpEndpoint>({
     getter,
     options,
     extraKey
-}: UseRpcEndpointQuery<TData>) => {
+}: UseRpcEndpointQuery<TData>): UseQueryResult<TData, Error> => {
     return useQuery<string | HttpEndpoint, Error, TData>(['rpcEndpoint', extraKey], async () => {
         return await getter();
     }, options);
@@ -39,7 +40,7 @@ export const useRpcEndpoint = <TData = string | HttpEndpoint>({
 export const useRpcClient = <TData = ProtobufRpcClient>({
     rpcEndpoint,
     options,
-}: UseRpcClientQuery<TData>) => {
+}: UseRpcClientQuery<TData>): UseQueryResult<TData, Error> => {
     return useQuery<ProtobufRpcClient, Error, TData>(['rpcClient', rpcEndpoint], async () => {
         return await getRpcClient(rpcEndpoint);
     }, options);
@@ -55,7 +56,7 @@ interface UseTendermintClient extends ReactQueryParams<Tendermint34Client | Tend
 export const useTendermintClient = ({
     rpcEndpoint,
     options,
-}: UseTendermintClient) => {
+}: UseTendermintClient): { client: Tendermint34Client | Tendermint37Client | CometClient | undefined } => {
     const { data: client } = useQuery<Tendermint34Client | Tendermint37Client | CometClient, Error, Tendermint34Client | Tendermint37Client | CometClient>(
         ['client', 'tendermint', rpcEndpoint],
         () => connectComet(rpcEndpoint),

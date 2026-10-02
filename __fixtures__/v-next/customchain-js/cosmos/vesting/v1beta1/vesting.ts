@@ -1,7 +1,7 @@
-import { BaseAccount, BaseAccountAmino } from "../../auth/v1beta1/auth";
-import { Coin, CoinAmino } from "../../base/v1beta1/coin";
+import { BaseAccount, type BaseAccountAmino } from "../../auth/v1beta1/auth";
+import { Coin, type CoinAmino } from "../../base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * BaseVestingAccount implements the VestingAccount interface. It contains all
  * the necessary fields needed for any vesting account implementation.

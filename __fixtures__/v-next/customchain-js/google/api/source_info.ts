@@ -1,6 +1,6 @@
-import { Any, AnyAmino } from "../protobuf/any";
+import { Any, type AnyAmino } from "../protobuf/any";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { DeepPartial } from "../../helpers";
+import type { DeepPartial } from "../../helpers";
 /**
  * Source information used to create a Service Config
  * @name SourceInfo

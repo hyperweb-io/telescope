@@ -1,7 +1,7 @@
 import { BinaryReader, BinaryWriter } from "../../binary.js";
 import { Decimal } from "@interchainjs/math";
-import { isSet, DeepPartial } from "../../helpers.js";
-import { JsonSafe } from "../../json-safe.js";
+import { isSet, type DeepPartial } from "../../helpers.js";
+import type { JsonSafe } from "../../json-safe.js";
 export const protobufPackage = "osmosis.superfluid";
 /**
  * Params holds parameters for the superfluid module

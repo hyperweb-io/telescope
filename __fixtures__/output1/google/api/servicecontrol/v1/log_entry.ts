@@ -1,11 +1,11 @@
 import { Timestamp, TimestampSDKType } from "../../../protobuf/timestamp";
-import { LogSeverity, LogSeveritySDKType, logSeverityFromJSON, logSeverityToJSON } from "../../../logging/type/log_severity";
-import { HttpRequest, HttpRequestSDKType } from "./http_request";
-import { Any, AnySDKType } from "../../../protobuf/any";
-import { Struct, StructSDKType } from "../../../protobuf/struct";
-import { Long, isSet, DeepPartial, toTimestamp, fromTimestamp, fromJsonTimestamp, isObject } from "../../../../helpers";
+import { type LogSeverity, LogSeveritySDKType, logSeverityFromJSON, logSeverityToJSON } from "../../../logging/type/log_severity";
+import { HttpRequest, type HttpRequestSDKType } from "./http_request";
+import { Any, type AnySDKType } from "../../../protobuf/any";
+import { Struct, type StructSDKType } from "../../../protobuf/struct";
+import { Long, isSet, type DeepPartial, toTimestamp, fromTimestamp, fromJsonTimestamp, isObject } from "../../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../../json-safe";
+import type { JsonSafe } from "../../../../json-safe";
 export const protobufPackage = "google.api.servicecontrol.v1";
 export interface LogEntry_LabelsEntry {
   key: string;

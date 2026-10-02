@@ -1,8 +1,8 @@
-import { CompactBitArray, CompactBitArraySDKType } from "../../../crypto/multisig/v1beta1/multisig";
-import { Any, AnySDKType } from "../../../../google/protobuf/any";
-import { Long, DeepPartial, isSet, bytesFromBase64, base64FromBytes } from "../../../../helpers";
+import { CompactBitArray, type CompactBitArraySDKType } from "../../../crypto/multisig/v1beta1/multisig";
+import { Any, type AnySDKType } from "../../../../google/protobuf/any";
+import { Long, type DeepPartial, isSet, bytesFromBase64, base64FromBytes } from "../../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../../json-safe";
+import type { JsonSafe } from "../../../../json-safe";
 export const protobufPackage = "cosmos.tx.signing.v1beta1";
 /**
  * SignMode represents a signing mode with its own security guarantees.

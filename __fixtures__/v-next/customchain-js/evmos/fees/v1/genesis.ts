@@ -1,6 +1,6 @@
-import { DevFeeInfo, DevFeeInfoAmino } from "./fees";
+import { DevFeeInfo, type DevFeeInfoAmino } from "./fees";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 import { Decimal } from "@interchainjs/math";
 /**
  * GenesisState defines the module's genesis state.

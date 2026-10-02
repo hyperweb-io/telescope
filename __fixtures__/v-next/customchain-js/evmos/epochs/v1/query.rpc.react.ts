@@ -1,5 +1,5 @@
 import { buildUseQuery } from "../../../react-query";
-import { QueryEpochsInfoRequest, QueryEpochsInfoResponse, QueryCurrentEpochRequest, QueryCurrentEpochResponse } from "./query";
+import type { QueryEpochsInfoRequest, QueryEpochsInfoResponse, QueryCurrentEpochRequest, QueryCurrentEpochResponse } from "./query";
 import { getEpochInfos, getCurrentEpoch } from "./query.rpc.func";
 /**
  * EpochInfos provide running epochInfos

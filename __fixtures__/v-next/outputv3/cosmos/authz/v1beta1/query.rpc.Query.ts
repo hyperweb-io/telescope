@@ -1,7 +1,7 @@
 import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../base/query/v1beta1/pagination";
 import { Grant, GrantSDKType, GrantAuthorization, GrantAuthorizationSDKType } from "./authz";
 import * as fm from "../../../grpc-gateway";
-import { QueryGrantsRequest, QueryGrantsRequestSDKType, QueryGrantsResponse, QueryGrantsResponseSDKType, QueryGranterGrantsRequest, QueryGranterGrantsRequestSDKType, QueryGranterGrantsResponse, QueryGranterGrantsResponseSDKType, QueryGranteeGrantsRequest, QueryGranteeGrantsRequestSDKType, QueryGranteeGrantsResponse, QueryGranteeGrantsResponseSDKType } from "./query";
+import { type QueryGrantsRequest, QueryGrantsRequestSDKType, type QueryGrantsResponse, QueryGrantsResponseSDKType, type QueryGranterGrantsRequest, QueryGranterGrantsRequestSDKType, type QueryGranterGrantsResponse, QueryGranterGrantsResponseSDKType, type QueryGranteeGrantsRequest, QueryGranteeGrantsRequestSDKType, type QueryGranteeGrantsResponse, QueryGranteeGrantsResponseSDKType } from "./query";
 export class Query {
   /** Returns list of `Authorization`, granted to the grantee by the granter. */
   static grants(request: QueryGrantsRequest, initRequest?: fm.InitReq): Promise<QueryGrantsResponse> {

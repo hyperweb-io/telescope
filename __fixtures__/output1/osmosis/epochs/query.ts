@@ -1,7 +1,7 @@
-import { EpochInfo, EpochInfoSDKType } from "./genesis";
-import { Long, DeepPartial, isSet } from "../../helpers";
+import { EpochInfo, type EpochInfoSDKType } from "./genesis";
+import { Long, type DeepPartial, isSet } from "../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../json-safe";
+import type { JsonSafe } from "../../json-safe";
 export const protobufPackage = "osmosis.epochs.v1beta1";
 export interface QueryEpochsInfoRequest {}
 export interface QueryEpochsInfoRequestSDKType {}

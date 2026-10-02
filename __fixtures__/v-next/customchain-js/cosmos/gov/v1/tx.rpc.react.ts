@@ -1,5 +1,5 @@
 import { buildUseMutation } from "../../../react-query";
-import { MsgSubmitProposal, MsgExecLegacyContent, MsgVote, MsgVoteWeighted, MsgDeposit } from "./tx";
+import type { MsgSubmitProposal, MsgExecLegacyContent, MsgVote, MsgVoteWeighted, MsgDeposit } from "./tx";
 import { submitProposal, execLegacyContent, vote, voteWeighted, deposit } from "./tx.rpc.func";
 /**
  * SubmitProposal defines a method to create new proposal given a content.
