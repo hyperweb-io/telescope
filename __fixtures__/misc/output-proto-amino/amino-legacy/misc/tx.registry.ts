@@ -1,5 +1,5 @@
 import { EncodingTestForDontOmit, EncodingTestForDontOmitSDKType, EncodingTestForOmit, EncodingTestForOmitSDKType } from "./all_fields";
-import { TelescopeGeneratedType } from "../types";
+import type { TelescopeGeneratedType } from "../types";
 import { InputMsg, InputMsgSDKType } from "./tx";
 export const registry: ReadonlyArray<[string, TelescopeGeneratedType<any, any, any>]> = [["/misc.InputMsg", InputMsg]];
 export const MessageComposer = {

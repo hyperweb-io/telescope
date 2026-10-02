@@ -1,7 +1,7 @@
-import { Grant, GrantAmino, GrantSDKType } from "./feegrant";
+import { Grant, type GrantAmino, type GrantSDKType } from "./feegrant";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { JsonSafe } from "../../../json-safe";
-import { DeepPartial } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
+import type { DeepPartial } from "../../../helpers";
 import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "cosmos.feegrant.v1beta1";
 /**

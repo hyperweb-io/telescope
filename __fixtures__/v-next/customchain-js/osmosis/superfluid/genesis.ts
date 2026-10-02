@@ -1,7 +1,7 @@
-import { SuperfluidAsset, SuperfluidAssetAmino, OsmoEquivalentMultiplierRecord, OsmoEquivalentMultiplierRecordAmino, SuperfluidIntermediaryAccount, SuperfluidIntermediaryAccountAmino, LockIdIntermediaryAccountConnection, LockIdIntermediaryAccountConnectionAmino } from "./superfluid";
+import { SuperfluidAsset, type SuperfluidAssetAmino, OsmoEquivalentMultiplierRecord, type OsmoEquivalentMultiplierRecordAmino, SuperfluidIntermediaryAccount, type SuperfluidIntermediaryAccountAmino, LockIdIntermediaryAccountConnection, type LockIdIntermediaryAccountConnectionAmino } from "./superfluid";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { DeepPartial } from "../../helpers";
-import { OsmosisSuperfluidParams, OsmosisSuperfluidParamsAmino } from "./params";
+import type { DeepPartial } from "../../helpers";
+import { OsmosisSuperfluidParams, type OsmosisSuperfluidParamsAmino } from "./params";
 /**
  * GenesisState defines the module's genesis state.
  * @name GenesisState

@@ -1,8 +1,8 @@
 import { Timestamp } from "../../../google/protobuf/timestamp";
-import { Duration, DurationAmino } from "../../../google/protobuf/duration";
-import { Any, AnyProtoMsg, AnyAmino } from "../../../google/protobuf/any";
+import { Duration, type DurationAmino } from "../../../google/protobuf/duration";
+import { Any, type AnyProtoMsg, type AnyAmino } from "../../../google/protobuf/any";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { toTimestamp, fromTimestamp, DeepPartial } from "../../../helpers";
+import { toTimestamp, fromTimestamp, type DeepPartial } from "../../../helpers";
 /** VoteOption enumerates the valid vote options for a given proposal. */
 export enum VoteOption {
   /** VOTE_OPTION_UNSPECIFIED - VOTE_OPTION_UNSPECIFIED defines a no-op vote option. */

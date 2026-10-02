@@ -12,7 +12,7 @@ import {
 } from "@cosmology/utils";
 import { BundlerFile } from "../types";
 import { ProtoService, TX_SVC_TYPES } from "@cosmology/types";
-import { getExportedTypeNames } from "../utils/files";
+import { getExportedNames } from "../utils/files";
 
 export const plugin = (builder: TelescopeBuilder, bundler: Bundler) => {
   const mutationContexts = bundler.contexts.filter(
@@ -183,29 +183,29 @@ export const plugin = (builder: TelescopeBuilder, bundler: Bundler) => {
       const progReact = [].concat(importsReact).concat(reactAsts);
       const progVue = [].concat(importsVue).concat(vueAsts);
 
-      const exportedTypeNames = getExportedTypeNames(prog);
-      const exportedTypeNamesReact = getExportedTypeNames(progReact);
-      const exportedTypeNamesVue = getExportedTypeNames(progVue);
+      const exportedNames = getExportedNames(prog);
+      const exportedNamesReact = getExportedNames(progReact);
+      const exportedNamesVue = getExportedNames(progVue);
 
-      exportedTypeNames.forEach((name) => {
+      exportedNames.names.forEach((name) => {
         builder.store.setHelperFuncFilesMapping(name, localname);
       });
-      exportedTypeNamesReact.forEach((name) => {
+      exportedNamesReact.names.forEach((name) => {
         builder.store.setHelperFuncFilesMapping(name, localnameReact);
       });
-      exportedTypeNamesVue.forEach((name) => {
+      exportedNamesVue.names.forEach((name) => {
         builder.store.setHelperFuncFilesMapping(name, localnameVue);
       });
 
       bundler.writeAst(prog, filename);
-      bundler.addExportObjToBundle(c.ref.proto.package, localname, exportedTypeNames, true);
+      bundler.addExportObjToBundle(c.ref.proto.package, localname, exportedNames, true);
       if (reactAsts.length) {
         bundler.writeAst(progReact, filenameReact);
-        bundler.addExportObjToBundle(c.ref.proto.package, localnameReact, exportedTypeNamesReact, true);
+        bundler.addExportObjToBundle(c.ref.proto.package, localnameReact, exportedNamesReact, true);
       }
       if (vueAsts.length) {
         bundler.writeAst(progVue, filenameVue);
-        bundler.addExportObjToBundle(c.ref.proto.package, localnameVue, exportedTypeNamesVue, true);
+        bundler.addExportObjToBundle(c.ref.proto.package, localnameVue, exportedNamesVue, true);
       }
       bundler.addToBundle(c, localname);
 

@@ -1,7 +1,7 @@
-import { Duration, DurationSDKType } from "../protobuf/duration";
+import { Duration, type DurationSDKType } from "../protobuf/duration";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial, isObject } from "../../helpers";
-import { JsonSafe } from "../../json-safe";
+import { isSet, type DeepPartial, isObject } from "../../helpers";
+import type { JsonSafe } from "../../json-safe";
 export const protobufPackage = "google.rpc";
 /**
  * Describes when the clients can retry a failed request. Clients could ignore

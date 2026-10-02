@@ -1,11 +1,11 @@
 import { Timestamp, TimestampAmino, TimestampSDKType } from "../../google/protobuf/timestamp";
-import { Duration, DurationAmino, DurationSDKType } from "../../google/protobuf/duration";
-import { Coin, CoinAmino, CoinSDKType } from "../../cosmos/base/v1beta1/coin";
-import { PeriodLock, PeriodLockAmino, PeriodLockSDKType, SyntheticLock, SyntheticLockAmino, SyntheticLockSDKType } from "./lock";
-import { Params, ParamsAmino, ParamsSDKType } from "./params";
+import { Duration, type DurationAmino, type DurationSDKType } from "../../google/protobuf/duration";
+import { Coin, type CoinAmino, type CoinSDKType } from "../../cosmos/base/v1beta1/coin";
+import { PeriodLock, type PeriodLockAmino, type PeriodLockSDKType, SyntheticLock, type SyntheticLockAmino, type SyntheticLockSDKType } from "./lock";
+import { Params, type ParamsAmino, type ParamsSDKType } from "./params";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { JsonSafe } from "../../json-safe";
-import { DeepPartial, isSet, toTimestamp, fromTimestamp } from "../../helpers";
+import type { JsonSafe } from "../../json-safe";
+import { type DeepPartial, isSet, toTimestamp, fromTimestamp } from "../../helpers";
 import { GlobalDecoderRegistry } from "../../registry";
 export const protobufPackage = "osmosis.lockup";
 /**

@@ -1,8 +1,8 @@
-import { CPU, CPUSDKType, Memory, MemorySDKType, Storage, StorageSDKType } from "./resource.js";
-import { Endpoint, EndpointSDKType } from "./endpoint.js";
+import { CPU, type CPUSDKType, Memory, type MemorySDKType, Storage, type StorageSDKType } from "./resource.js";
+import { Endpoint, type EndpointSDKType } from "./endpoint.js";
 import { BinaryReader, BinaryWriter } from "../../../binary.js";
-import { isSet, DeepPartial, Exact } from "../../../helpers.js";
-import { JsonSafe } from "../../../json-safe.js";
+import { isSet, type DeepPartial, type Exact } from "../../../helpers.js";
+import type { JsonSafe } from "../../../json-safe.js";
 export const protobufPackage = "akash.base.v1beta2";
 /**
  * ResourceUnits describes all available resources types for deployment/node etc

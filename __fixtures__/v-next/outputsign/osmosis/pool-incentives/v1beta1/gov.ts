@@ -1,6 +1,6 @@
-import { DistrRecord, DistrRecordAmino, DistrRecordSDKType } from "./incentives";
+import { DistrRecord, type DistrRecordAmino, type DistrRecordSDKType } from "./incentives";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 export const protobufPackage = "osmosis.poolincentives.v1beta1";
 /**
  * ReplacePoolIncentivesProposal is a gov Content type for updating the pool

@@ -1,6 +1,6 @@
 import { buildUseMutation } from "../../../react-query";
-import { MsgCreateDeployment, MsgDepositDeployment, MsgUpdateDeployment, MsgCloseDeployment } from "./deploymentmsg";
-import { MsgCloseGroup, MsgPauseGroup, MsgStartGroup } from "./groupmsg";
+import type { MsgCreateDeployment, MsgDepositDeployment, MsgUpdateDeployment, MsgCloseDeployment } from "./deploymentmsg";
+import type { MsgCloseGroup, MsgPauseGroup, MsgStartGroup } from "./groupmsg";
 import { createDeployment, depositDeployment, updateDeployment, closeDeployment, closeGroup, pauseGroup, startGroup } from "./service.rpc.func";
 /**
  * CreateDeployment defines a method to create new deployment given proper inputs.

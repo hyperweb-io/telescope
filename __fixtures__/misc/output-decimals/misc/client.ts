@@ -1,6 +1,6 @@
-import { GeneratedType, Registry, OfflineSigner } from "@cosmjs/proto-signing";
+import { type GeneratedType, Registry, type OfflineSigner } from "@cosmjs/proto-signing";
 import { defaultRegistryTypes, AminoTypes, SigningStargateClient } from "@cosmjs/stargate";
-import { HttpEndpoint } from "@cosmjs/tendermint-rpc";
+import type { HttpEndpoint } from "@cosmjs/tendermint-rpc";
 import * as miscTxRegistry from "./tx.registry";
 import * as miscTxAmino from "./tx.amino";
 export const miscAminoConverters = {

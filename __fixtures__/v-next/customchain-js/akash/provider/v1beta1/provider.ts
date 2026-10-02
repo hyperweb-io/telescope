@@ -1,6 +1,6 @@
-import { Attribute, AttributeAmino } from "../../base/v1beta1/attribute";
+import { Attribute, type AttributeAmino } from "../../base/v1beta1/attribute";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * ProviderInfo
  * @name ProviderInfo

@@ -1,8 +1,8 @@
-import { Order, OrderAmino } from "./order";
-import { Lease, LeaseAmino } from "./lease";
+import { Order, type OrderAmino } from "./order";
+import { Lease, type LeaseAmino } from "./lease";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
-import { AkashMarketV1beta2Params, AkashMarketV1beta2ParamsAmino } from "./params";
+import type { DeepPartial } from "../../../helpers";
+import { AkashMarketV1beta2Params, type AkashMarketV1beta2ParamsAmino } from "./params";
 /**
  * GenesisState defines the basic genesis state used by market module
  * @name GenesisState

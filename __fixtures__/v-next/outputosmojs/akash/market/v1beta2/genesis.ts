@@ -1,9 +1,9 @@
-import { Order, OrderSDKType } from "./order";
-import { Lease, LeaseSDKType } from "./lease";
-import { Params, ParamsSDKType } from "./params";
+import { Order, type OrderSDKType } from "./order";
+import { Lease, type LeaseSDKType } from "./lease";
+import { Params, type ParamsSDKType } from "./params";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet, DeepPartial, Exact } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { isSet, type DeepPartial, type Exact } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "akash.market.v1beta2";
 /**
  * GenesisState defines the basic genesis state used by market module

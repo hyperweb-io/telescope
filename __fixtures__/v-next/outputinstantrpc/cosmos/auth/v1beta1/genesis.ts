@@ -1,8 +1,8 @@
-import { Params, ParamsSDKType } from "./auth";
-import { Any, AnySDKType } from "../../../google/protobuf/any";
+import { Params, type ParamsSDKType } from "./auth";
+import { Any, type AnySDKType } from "../../../google/protobuf/any";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet, DeepPartial } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { isSet, type DeepPartial } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "cosmos.auth.v1beta1";
 /**
  * GenesisState defines the auth module's genesis state.

@@ -1,7 +1,7 @@
-import { Value, ValueSDKType } from "./value.js";
+import { Value, type ValueSDKType } from "./value.js";
 import { BinaryReader, BinaryWriter } from "../../../../binary.js";
-import { JsonSafe } from "../../../../json-safe.js";
-import { DeepPartial, isSet } from "../../../../helpers.js";
+import type { JsonSafe } from "../../../../json-safe.js";
+import { type DeepPartial, isSet } from "../../../../helpers.js";
 export const protobufPackage = "google.api.expr.v1alpha1";
 /**
  * Values of intermediate expressions produced when evaluating expression.

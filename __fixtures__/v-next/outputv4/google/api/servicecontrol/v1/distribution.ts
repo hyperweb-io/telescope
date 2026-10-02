@@ -1,7 +1,7 @@
-import { Distribution_Exemplar, Distribution_ExemplarSDKType } from "../../distribution.js";
+import { Distribution_Exemplar, type Distribution_ExemplarSDKType } from "../../distribution.js";
 import { BinaryReader, BinaryWriter } from "../../../../binary.js";
-import { isSet, DeepPartial } from "../../../../helpers.js";
-import { JsonSafe } from "../../../../json-safe.js";
+import { isSet, type DeepPartial } from "../../../../helpers.js";
+import type { JsonSafe } from "../../../../json-safe.js";
 export const protobufPackage = "google.api.servicecontrol.v1";
 /**
  * Distribution represents a frequency distribution of double-valued sample

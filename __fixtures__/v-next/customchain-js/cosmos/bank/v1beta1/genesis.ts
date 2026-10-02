@@ -1,7 +1,7 @@
-import { Metadata, MetadataAmino, CosmosBankV1beta1Params, CosmosBankV1beta1ParamsAmino } from "./bank";
-import { Coin, CoinAmino } from "../../base/v1beta1/coin";
+import { Metadata, type MetadataAmino, CosmosBankV1beta1Params, type CosmosBankV1beta1ParamsAmino } from "./bank";
+import { Coin, type CoinAmino } from "../../base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * GenesisState defines the bank module's genesis state.
  * @name GenesisState

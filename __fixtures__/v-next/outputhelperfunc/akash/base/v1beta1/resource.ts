@@ -1,10 +1,10 @@
-import { ResourceValue, ResourceValueAmino, ResourceValueSDKType } from "./resourcevalue";
-import { Attribute, AttributeAmino, AttributeSDKType } from "./attribute";
-import { Endpoint, EndpointAmino, EndpointSDKType } from "./endpoint";
+import { ResourceValue, type ResourceValueAmino, type ResourceValueSDKType } from "./resourcevalue";
+import { Attribute, type AttributeAmino, type AttributeSDKType } from "./attribute";
+import { Endpoint, type EndpointAmino, type EndpointSDKType } from "./endpoint";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { GlobalDecoderRegistry } from "../../../registry";
-import { isSet, DeepPartial, Exact } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { isSet, type DeepPartial, type Exact } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "akash.base.v1beta1";
 /**
  * CPU stores resource units and cpu config attributes

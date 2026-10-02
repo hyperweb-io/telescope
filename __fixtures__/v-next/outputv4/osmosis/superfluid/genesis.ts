@@ -1,8 +1,8 @@
-import { Params, ParamsSDKType } from "./params.js";
-import { SuperfluidAsset, SuperfluidAssetSDKType, OsmoEquivalentMultiplierRecord, OsmoEquivalentMultiplierRecordSDKType, SuperfluidIntermediaryAccount, SuperfluidIntermediaryAccountSDKType, LockIdIntermediaryAccountConnection, LockIdIntermediaryAccountConnectionSDKType } from "./superfluid.js";
+import { Params, type ParamsSDKType } from "./params.js";
+import { SuperfluidAsset, type SuperfluidAssetSDKType, OsmoEquivalentMultiplierRecord, type OsmoEquivalentMultiplierRecordSDKType, SuperfluidIntermediaryAccount, type SuperfluidIntermediaryAccountSDKType, LockIdIntermediaryAccountConnection, type LockIdIntermediaryAccountConnectionSDKType } from "./superfluid.js";
 import { BinaryReader, BinaryWriter } from "../../binary.js";
-import { isSet, DeepPartial } from "../../helpers.js";
-import { JsonSafe } from "../../json-safe.js";
+import { isSet, type DeepPartial } from "../../helpers.js";
+import type { JsonSafe } from "../../json-safe.js";
 export const protobufPackage = "osmosis.superfluid";
 /**
  * GenesisState defines the module's genesis state.

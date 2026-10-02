@@ -1,8 +1,8 @@
-import { Coin, CoinSDKType } from "../../../cosmos/base/v1beta1/coin.js";
-import { Metadata, MetadataSDKType } from "../../../cosmos/bank/v1beta1/bank.js";
+import { Coin, type CoinSDKType } from "../../../cosmos/base/v1beta1/coin.js";
+import { Metadata, type MetadataSDKType } from "../../../cosmos/bank/v1beta1/bank.js";
 import { BinaryReader, BinaryWriter } from "../../../binary.js";
-import { isSet, DeepPartial } from "../../../helpers.js";
-import { JsonSafe } from "../../../json-safe.js";
+import { isSet, type DeepPartial } from "../../../helpers.js";
+import type { JsonSafe } from "../../../json-safe.js";
 export const protobufPackage = "osmosis.tokenfactory.v1beta1";
 /**
  * MsgCreateDenom defines the message structure for the CreateDenom gRPC service

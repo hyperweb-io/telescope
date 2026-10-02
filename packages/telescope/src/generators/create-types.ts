@@ -15,7 +15,7 @@ import {
 } from "@cosmology/ast";
 import { BundlerFile } from "../types";
 import { camel, getQueryMethodNames, swapKeyValue } from "@cosmology/utils";
-import { getExportedTypeNames } from "../utils/files";
+import { getExportedNames } from "../utils/files";
 
 export const plugin = (builder: TelescopeBuilder, bundler: Bundler) => {
   const instantRpcBundlerFiles: {
@@ -210,14 +210,14 @@ export const plugin = (builder: TelescopeBuilder, bundler: Bundler) => {
       prog.push.apply(prog, context.body);
 
       if (context.body.length > 0) {
-        const exportedTypeNames = getExportedTypeNames(prog);
+        const exportedNames = getExportedNames(prog);
 
-        exportedTypeNames.forEach((name) => {
+        exportedNames.names.forEach((name) => {
           context.store.setTypeFilesMapping(name, localname);
         });
 
         bundler.writeAst(prog, filename);
-        bundler.addExportObjToBundle(context.ref.proto.package, localname, exportedTypeNames);
+        bundler.addExportObjToBundle(context.ref.proto.package, localname, exportedNames);
       } else {
         mkdirp.sync(dirname(filename));
         writeFileSync(filename, `export {}`);

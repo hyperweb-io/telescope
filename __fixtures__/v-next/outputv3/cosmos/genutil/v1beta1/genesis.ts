@@ -1,5 +1,5 @@
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { bytesFromBase64, DeepPartial, base64FromBytes } from "../../../helpers";
+import { bytesFromBase64, type DeepPartial, base64FromBytes } from "../../../helpers";
 export const protobufPackage = "cosmos.genutil.v1beta1";
 /**
  * GenesisState defines the raw genesis transaction in JSON.

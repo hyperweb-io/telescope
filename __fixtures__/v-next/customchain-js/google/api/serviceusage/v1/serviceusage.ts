@@ -1,6 +1,6 @@
-import { Service, ServiceAmino } from "./resources";
+import { Service, type ServiceAmino } from "./resources";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial } from "../../../../helpers";
+import type { DeepPartial } from "../../../../helpers";
 /**
  * Enum to determine if service usage should be checked when disabling a
  * service.

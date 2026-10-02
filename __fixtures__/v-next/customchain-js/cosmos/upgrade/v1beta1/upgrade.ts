@@ -1,7 +1,7 @@
 import { Timestamp } from "../../../google/protobuf/timestamp";
-import { Any, AnyAmino } from "../../../google/protobuf/any";
+import { Any, type AnyAmino } from "../../../google/protobuf/any";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { toTimestamp, fromTimestamp, DeepPartial } from "../../../helpers";
+import { toTimestamp, fromTimestamp, type DeepPartial } from "../../../helpers";
 /**
  * Plan specifies information about a planned upgrade and when it should occur.
  * @name Plan

@@ -1,5 +1,5 @@
 import { Order, OrderSDKType, Counterparty, CounterpartySDKType } from "../../channel/v1/channel";
-import { TxRpc } from "../../../../types";
+import type { TxRpc } from "../../../../types";
 import { BinaryReader } from "../../../../binary";
 import { QueryAppVersionRequest, QueryAppVersionRequestSDKType, QueryAppVersionResponse, QueryAppVersionResponseSDKType } from "./query";
 /** Query defines the gRPC querier service */

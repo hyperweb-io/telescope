@@ -1,7 +1,7 @@
-import { GroupSpec, GroupSpecSDKType } from "../../deployment/v1beta2/groupspec";
-import { Long, isSet, DeepPartial, Exact } from "../../../helpers";
+import { GroupSpec, type GroupSpecSDKType } from "../../deployment/v1beta2/groupspec";
+import { Long, isSet, type DeepPartial, type Exact } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../json-safe";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "akash.market.v1beta2";
 /** State is an enum which refers to state of order */
 export enum Order_State {

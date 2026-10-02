@@ -1,5 +1,5 @@
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * MsgVerifyInvariant represents a message to verify a particular invariance.
  * @name MsgVerifyInvariant

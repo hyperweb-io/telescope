@@ -1,10 +1,10 @@
-import { ParsedExpr, ParsedExprSDKType, SourcePosition, SourcePositionSDKType } from "../../v1alpha1/syntax";
-import { Decl, DeclSDKType, CheckedExpr, CheckedExprSDKType } from "../../v1alpha1/checked";
-import { ExprValue, ExprValueSDKType } from "../../v1alpha1/eval";
-import { Status, StatusSDKType } from "../../../../rpc/status";
-import { Long, isSet, DeepPartial, isObject } from "../../../../../helpers";
+import { ParsedExpr, type ParsedExprSDKType, SourcePosition, type SourcePositionSDKType } from "../../v1alpha1/syntax";
+import { Decl, type DeclSDKType, CheckedExpr, type CheckedExprSDKType } from "../../v1alpha1/checked";
+import { ExprValue, type ExprValueSDKType } from "../../v1alpha1/eval";
+import { Status, type StatusSDKType } from "../../../../rpc/status";
+import { Long, isSet, type DeepPartial, isObject } from "../../../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../../../json-safe";
+import type { JsonSafe } from "../../../../../json-safe";
 export const protobufPackage = "google.api.expr.conformance.v1alpha1";
 /** Severities of issues. */
 export enum IssueDetails_Severity {

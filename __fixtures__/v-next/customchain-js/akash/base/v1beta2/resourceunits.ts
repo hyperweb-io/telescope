@@ -1,7 +1,7 @@
-import { CPU, CPUAmino, Memory, MemoryAmino, Storage, StorageAmino } from "./resource";
-import { Endpoint, EndpointAmino } from "./endpoint";
+import { CPU, type CPUAmino, Memory, type MemoryAmino, Storage, type StorageAmino } from "./resource";
+import { Endpoint, type EndpointAmino } from "./endpoint";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * ResourceUnits describes all available resources types for deployment/node etc
  * if field is nil resource is not present in the given data-structure

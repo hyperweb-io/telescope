@@ -1,12 +1,12 @@
-import { DeploymentFilters, DeploymentFiltersSDKType, DeploymentID, DeploymentIDSDKType, Deployment, DeploymentSDKType } from "./deployment.js";
-import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../../cosmos/base/query/v1beta1/pagination.js";
-import { GroupID, GroupIDSDKType, Group, GroupSDKType } from "./group.js";
-import { Account, AccountSDKType } from "../../escrow/v1beta1/types.js";
+import { DeploymentFilters, type DeploymentFiltersSDKType, DeploymentID, type DeploymentIDSDKType, Deployment, type DeploymentSDKType } from "./deployment.js";
+import { PageRequest, type PageRequestSDKType, PageResponse, type PageResponseSDKType } from "../../../cosmos/base/query/v1beta1/pagination.js";
+import { GroupID, type GroupIDSDKType, Group, type GroupSDKType } from "./group.js";
+import { Account, type AccountSDKType } from "../../escrow/v1beta1/types.js";
 import { BinaryReader, BinaryWriter } from "../../../binary.js";
-import { isSet, Exact } from "../../../helpers.js";
-import { JsonSafe } from "../../../json-safe.js";
-import { TxRpc } from "../../../types.js";
-import { QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
+import { isSet, type Exact } from "../../../helpers.js";
+import type { JsonSafe } from "../../../json-safe.js";
+import type { TxRpc } from "../../../types.js";
+import { type QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
 export const protobufPackage = "akash.deployment.v1beta1";
 /**
  * QueryDeploymentsRequest is request type for the Query/Deployments RPC method

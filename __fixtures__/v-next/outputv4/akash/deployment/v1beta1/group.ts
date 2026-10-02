@@ -1,9 +1,9 @@
-import { PlacementRequirements, PlacementRequirementsSDKType } from "../../base/v1beta1/attribute.js";
-import { ResourceUnits, ResourceUnitsSDKType } from "../../base/v1beta1/resource.js";
-import { Coin, CoinSDKType } from "../../../cosmos/base/v1beta1/coin.js";
+import { PlacementRequirements, type PlacementRequirementsSDKType } from "../../base/v1beta1/attribute.js";
+import { ResourceUnits, type ResourceUnitsSDKType } from "../../base/v1beta1/resource.js";
+import { Coin, type CoinSDKType } from "../../../cosmos/base/v1beta1/coin.js";
 import { BinaryReader, BinaryWriter } from "../../../binary.js";
-import { isSet, Exact } from "../../../helpers.js";
-import { JsonSafe } from "../../../json-safe.js";
+import { isSet, type Exact } from "../../../helpers.js";
+import type { JsonSafe } from "../../../json-safe.js";
 export const protobufPackage = "akash.deployment.v1beta1";
 /** State is an enum which refers to state of group */
 export enum Group_State {

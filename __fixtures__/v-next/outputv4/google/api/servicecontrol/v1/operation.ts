@@ -1,10 +1,10 @@
 import { Timestamp, TimestampSDKType } from "../../../protobuf/timestamp.js";
-import { MetricValueSet, MetricValueSetSDKType } from "./metric_value.js";
-import { LogEntry, LogEntrySDKType } from "./log_entry.js";
-import { Any, AnySDKType } from "../../../protobuf/any.js";
+import { MetricValueSet, type MetricValueSetSDKType } from "./metric_value.js";
+import { LogEntry, type LogEntrySDKType } from "./log_entry.js";
+import { Any, type AnySDKType } from "../../../protobuf/any.js";
 import { BinaryReader, BinaryWriter } from "../../../../binary.js";
-import { isSet, DeepPartial, toTimestamp, fromTimestamp, isObject } from "../../../../helpers.js";
-import { JsonSafe } from "../../../../json-safe.js";
+import { isSet, type DeepPartial, toTimestamp, fromTimestamp, isObject } from "../../../../helpers.js";
+import type { JsonSafe } from "../../../../json-safe.js";
 export const protobufPackage = "google.api.servicecontrol.v1";
 /** Defines the importance of the data contained in the operation. */
 export enum Operation_Importance {

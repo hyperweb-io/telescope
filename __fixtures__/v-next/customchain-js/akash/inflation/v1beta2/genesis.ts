@@ -1,6 +1,6 @@
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
-import { AkashInflationV1beta2Params, AkashInflationV1beta2ParamsAmino } from "./params";
+import type { DeepPartial } from "../../../helpers";
+import { AkashInflationV1beta2Params, type AkashInflationV1beta2ParamsAmino } from "./params";
 /**
  * GenesisState stores slice of genesis deployment instance
  * @name GenesisState

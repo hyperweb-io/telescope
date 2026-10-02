@@ -1,7 +1,7 @@
-import { Value, ValueAmino, ValueSDKType } from "./value";
+import { Value, type ValueAmino, type ValueSDKType } from "./value";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { JsonSafe } from "../../../../json-safe";
-import { DeepPartial, isSet } from "../../../../helpers";
+import type { JsonSafe } from "../../../../json-safe";
+import { type DeepPartial, isSet } from "../../../../helpers";
 import { GlobalDecoderRegistry } from "../../../../registry";
 export const protobufPackage = "google.api.expr.v1alpha1";
 /**

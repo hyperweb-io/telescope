@@ -1,8 +1,8 @@
-import { MetricValueSet, MetricValueSetSDKType } from "./metric_value.js";
-import { Status, StatusSDKType } from "../../../rpc/status.js";
+import { MetricValueSet, type MetricValueSetSDKType } from "./metric_value.js";
+import { Status, type StatusSDKType } from "../../../rpc/status.js";
 import { BinaryReader, BinaryWriter } from "../../../../binary.js";
-import { isSet, DeepPartial, isObject } from "../../../../helpers.js";
-import { JsonSafe } from "../../../../json-safe.js";
+import { isSet, type DeepPartial, isObject } from "../../../../helpers.js";
+import type { JsonSafe } from "../../../../json-safe.js";
 export const protobufPackage = "google.api.servicecontrol.v1";
 /** Supported quota modes. */
 export enum QuotaOperation_QuotaMode {

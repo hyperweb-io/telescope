@@ -1,6 +1,6 @@
 import { BinaryReader, BinaryWriter } from "../../binary.js";
-import { JsonSafe } from "../../json-safe.js";
-import { DeepPartial, isSet, bytesFromBase64, base64FromBytes } from "../../helpers.js";
+import type { JsonSafe } from "../../json-safe.js";
+import { type DeepPartial, isSet, bytesFromBase64, base64FromBytes } from "../../helpers.js";
 export const protobufPackage = "google.protobuf";
 export enum FieldDescriptorProto_Type {
   /**

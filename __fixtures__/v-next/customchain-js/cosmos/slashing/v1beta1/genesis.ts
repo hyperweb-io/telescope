@@ -1,6 +1,6 @@
-import { ValidatorSigningInfo, ValidatorSigningInfoAmino, CosmosSlashingV1beta1Params, CosmosSlashingV1beta1ParamsAmino } from "./slashing";
+import { ValidatorSigningInfo, type ValidatorSigningInfoAmino, CosmosSlashingV1beta1Params, type CosmosSlashingV1beta1ParamsAmino } from "./slashing";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * GenesisState defines the slashing module's genesis state.
  * @name GenesisState

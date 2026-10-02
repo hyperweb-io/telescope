@@ -121,7 +121,7 @@ export class BinaryReader implements IBinaryReader {
     return [fieldNo, wireType, tag];
   }
 
-  skip(length?: number) {
+  skip(length?: number): this {
     if (typeof length === "number") {
       if (this.pos + length > this.len) throw indexOutOfRange(this, length);
       this.pos += length;
@@ -133,7 +133,7 @@ export class BinaryReader implements IBinaryReader {
     return this;
   }
 
-  skipType(wireType: number) {
+  skipType(wireType: number): this {
     switch (wireType) {
       case WireType.Varint:
         this.skip();
@@ -329,7 +329,7 @@ export class BinaryWriter implements IBinaryWriter {
     this.states = null;
   }
 
-  static create() {
+  static create(): BinaryWriter {
     return new BinaryWriter();
   }
 
@@ -437,7 +437,7 @@ export class BinaryWriter implements IBinaryWriter {
   }
 
   // uint64 is the same with int64
-  uint64 = BinaryWriter.prototype.int64;
+  uint64: (value: string | number | bigint) => BinaryWriter = BinaryWriter.prototype.int64;
 
   sint64(value: string | number | bigint): BinaryWriter {
     let { lo, hi } = int64FromString(value.toString());
@@ -452,7 +452,7 @@ export class BinaryWriter implements IBinaryWriter {
   }
 
   // sfixed64 is the same with fixed64
-  sfixed64 = BinaryWriter.prototype.fixed64;
+  sfixed64: (value: string | number | bigint) => BinaryWriter = BinaryWriter.prototype.fixed64;
 
   bool(value: boolean): BinaryWriter {
     return this._push(writeByte, 1, value ? 1 : 0);
@@ -463,7 +463,7 @@ export class BinaryWriter implements IBinaryWriter {
   }
 
   // sfixed32 is the same with fixed32
-  sfixed32 = BinaryWriter.prototype.fixed32;
+  sfixed32: (value: number) => BinaryWriter = BinaryWriter.prototype.fixed32;
 
   float(value: number): BinaryWriter {
     throw new Error("float not supported" + value);

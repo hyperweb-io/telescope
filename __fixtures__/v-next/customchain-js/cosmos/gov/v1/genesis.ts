@@ -1,6 +1,6 @@
-import { Deposit, DepositAmino, Vote, VoteAmino, Proposal, ProposalAmino, DepositParams, DepositParamsAmino, VotingParams, VotingParamsAmino, TallyParams, TallyParamsAmino } from "./gov";
+import { Deposit, type DepositAmino, Vote, type VoteAmino, Proposal, type ProposalAmino, DepositParams, type DepositParamsAmino, VotingParams, type VotingParamsAmino, TallyParams, type TallyParamsAmino } from "./gov";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * GenesisState defines the gov module's genesis state.
  * @name GenesisState

@@ -1,6 +1,6 @@
-import { Service, ServiceAmino, ServiceSDKType } from "./resources";
+import { Service, type ServiceAmino, type ServiceSDKType } from "./resources";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial } from "../../../../helpers";
+import type { DeepPartial } from "../../../../helpers";
 export const protobufPackage = "google.api.serviceusage.v1";
 /**
  * Enum to determine if service usage should be checked when disabling a

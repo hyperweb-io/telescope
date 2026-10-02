@@ -1,6 +1,6 @@
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
-import { OsmosisIbcratelimitV1beta1Params, OsmosisIbcratelimitV1beta1ParamsAmino } from "./params";
+import type { DeepPartial } from "../../../helpers";
+import { OsmosisIbcratelimitV1beta1Params, type OsmosisIbcratelimitV1beta1ParamsAmino } from "./params";
 /**
  * QueryParamsRequest is the request type for the Query/Params RPC method.
  * @name QueryParamsRequest

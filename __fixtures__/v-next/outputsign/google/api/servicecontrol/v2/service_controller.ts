@@ -1,7 +1,7 @@
-import { AttributeContext, AttributeContextAmino, AttributeContextSDKType } from "../../../rpc/context/attribute_context";
-import { Status, StatusAmino, StatusSDKType } from "../../../rpc/status";
+import { AttributeContext, type AttributeContextAmino, type AttributeContextSDKType } from "../../../rpc/context/attribute_context";
+import { Status, type StatusAmino, type StatusSDKType } from "../../../rpc/status";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial } from "../../../../helpers";
+import type { DeepPartial } from "../../../../helpers";
 export const protobufPackage = "google.api.servicecontrol.v2";
 /**
  * Request message for the Check method.

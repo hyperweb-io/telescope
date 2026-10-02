@@ -1,10 +1,10 @@
-import { Operation, OperationAmino, OperationSDKType } from "./operation";
-import { CheckError, CheckErrorAmino, CheckErrorSDKType } from "./check_error";
-import { Status, StatusAmino, StatusSDKType } from "../../../rpc/status";
+import { Operation, type OperationAmino, type OperationSDKType } from "./operation";
+import { CheckError, type CheckErrorAmino, type CheckErrorSDKType } from "./check_error";
+import { Status, type StatusAmino, type StatusSDKType } from "../../../rpc/status";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
 import { GlobalDecoderRegistry } from "../../../../registry";
-import { isSet, DeepPartial } from "../../../../helpers";
-import { JsonSafe } from "../../../../json-safe";
+import { isSet, type DeepPartial } from "../../../../helpers";
+import type { JsonSafe } from "../../../../json-safe";
 export const protobufPackage = "google.api.servicecontrol.v1";
 /**
  * The type of the consumer as defined in

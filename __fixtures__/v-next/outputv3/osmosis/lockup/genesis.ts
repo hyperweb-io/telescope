@@ -1,6 +1,6 @@
-import { PeriodLock, PeriodLockAmino, PeriodLockSDKType, SyntheticLock, SyntheticLockAmino, SyntheticLockSDKType } from "./lock";
+import { PeriodLock, type PeriodLockAmino, type PeriodLockSDKType, SyntheticLock, type SyntheticLockAmino, type SyntheticLockSDKType } from "./lock";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { isSet, DeepPartial } from "../../helpers";
+import { isSet, type DeepPartial } from "../../helpers";
 import { GlobalDecoderRegistry } from "../../registry";
 export const protobufPackage = "osmosis.lockup";
 /**

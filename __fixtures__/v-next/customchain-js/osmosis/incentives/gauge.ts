@@ -1,9 +1,9 @@
-import { QueryCondition, QueryConditionAmino } from "../lockup/lock";
-import { Coin, CoinAmino } from "../../cosmos/base/v1beta1/coin";
+import { QueryCondition, type QueryConditionAmino } from "../lockup/lock";
+import { Coin, type CoinAmino } from "../../cosmos/base/v1beta1/coin";
 import { Timestamp } from "../../google/protobuf/timestamp";
-import { Duration, DurationAmino } from "../../google/protobuf/duration";
+import { Duration, type DurationAmino } from "../../google/protobuf/duration";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { toTimestamp, fromTimestamp, DeepPartial } from "../../helpers";
+import { toTimestamp, fromTimestamp, type DeepPartial } from "../../helpers";
 /**
  * Gauge is an object that stores and distributes yields to recipients who
  * satisfy certain conditions. Currently gauges support conditions around the

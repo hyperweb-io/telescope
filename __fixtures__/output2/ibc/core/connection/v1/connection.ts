@@ -1,9 +1,9 @@
 //@ts-nocheck
 /* eslint-disable */
 import { MerklePrefix } from "../../commitment/v1/commitment";
-import { Long, isSet, DeepPartial } from "../../../../helpers";
+import { Long, isSet, type DeepPartial } from "../../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../../json-safe";
+import type { JsonSafe } from "../../../../json-safe";
 export const protobufPackage = "ibc.core.connection.v1";
 /**
  * State defines if a connection is in one of the following states:

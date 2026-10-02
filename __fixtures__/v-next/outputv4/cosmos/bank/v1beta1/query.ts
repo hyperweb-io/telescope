@@ -1,9 +1,9 @@
-import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../base/query/v1beta1/pagination.js";
-import { Coin, CoinSDKType } from "../../base/v1beta1/coin.js";
-import { Params, ParamsSDKType, Metadata, MetadataSDKType } from "./bank.js";
+import { PageRequest, type PageRequestSDKType, PageResponse, type PageResponseSDKType } from "../../base/query/v1beta1/pagination.js";
+import { Coin, type CoinSDKType } from "../../base/v1beta1/coin.js";
+import { Params, type ParamsSDKType, Metadata, type MetadataSDKType } from "./bank.js";
 import { BinaryReader, BinaryWriter } from "../../../binary.js";
-import { isSet, DeepPartial } from "../../../helpers.js";
-import { JsonSafe } from "../../../json-safe.js";
+import { isSet, type DeepPartial } from "../../../helpers.js";
+import type { JsonSafe } from "../../../json-safe.js";
 export const protobufPackage = "cosmos.bank.v1beta1";
 /**
  * QueryBalanceRequest is the request type for the Query/Balance RPC method.

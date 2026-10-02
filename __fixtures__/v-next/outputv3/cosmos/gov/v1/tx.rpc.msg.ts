@@ -8,7 +8,7 @@ import { ReplacePoolIncentivesProposal, ReplacePoolIncentivesProposalSDKType, Up
 import { SetSuperfluidAssetsProposal, SetSuperfluidAssetsProposalSDKType, RemoveSuperfluidAssetsProposal, RemoveSuperfluidAssetsProposalSDKType, UpdateUnpoolWhiteListProposal, UpdateUnpoolWhiteListProposalSDKType } from "../../../osmosis/superfluid/v1beta1/gov";
 import { UpdateFeeTokenProposal, UpdateFeeTokenProposalSDKType } from "../../../osmosis/txfees/v1beta1/gov";
 import * as fm from "../../../grpc-gateway";
-import { MsgSubmitProposal, MsgSubmitProposalSDKType, MsgSubmitProposalResponse, MsgSubmitProposalResponseSDKType, MsgExecLegacyContent, MsgExecLegacyContentSDKType, MsgExecLegacyContentResponse, MsgExecLegacyContentResponseSDKType, MsgVote, MsgVoteSDKType, MsgVoteResponse, MsgVoteResponseSDKType, MsgVoteWeighted, MsgVoteWeightedSDKType, MsgVoteWeightedResponse, MsgVoteWeightedResponseSDKType, MsgDeposit, MsgDepositSDKType, MsgDepositResponse, MsgDepositResponseSDKType } from "./tx";
+import { type MsgSubmitProposal, MsgSubmitProposalSDKType, type MsgSubmitProposalResponse, MsgSubmitProposalResponseSDKType, type MsgExecLegacyContent, MsgExecLegacyContentSDKType, type MsgExecLegacyContentResponse, MsgExecLegacyContentResponseSDKType, type MsgVote, MsgVoteSDKType, type MsgVoteResponse, MsgVoteResponseSDKType, type MsgVoteWeighted, MsgVoteWeightedSDKType, type MsgVoteWeightedResponse, MsgVoteWeightedResponseSDKType, type MsgDeposit, MsgDepositSDKType, type MsgDepositResponse, MsgDepositResponseSDKType } from "./tx";
 export class Msg {
   /** SubmitProposal defines a method to create new proposal given a content. */
   static submitProposal(request: MsgSubmitProposal, initRequest?: fm.InitReq): Promise<MsgSubmitProposalResponse> {

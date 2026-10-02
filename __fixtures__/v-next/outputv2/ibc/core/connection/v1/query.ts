@@ -1,10 +1,10 @@
-import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageResponseAmino, PageResponseSDKType } from "../../../../cosmos/base/query/v1beta1/pagination";
-import { ConnectionEnd, ConnectionEndAmino, ConnectionEndSDKType, IdentifiedConnection, IdentifiedConnectionAmino, IdentifiedConnectionSDKType } from "./connection";
-import { Height, HeightAmino, HeightSDKType, IdentifiedClientState, IdentifiedClientStateAmino, IdentifiedClientStateSDKType } from "../../client/v1/client";
-import { Any, AnyAmino, AnySDKType } from "../../../../google/protobuf/any";
+import { PageRequest, type PageRequestAmino, type PageRequestSDKType, PageResponse, type PageResponseAmino, type PageResponseSDKType } from "../../../../cosmos/base/query/v1beta1/pagination";
+import { ConnectionEnd, type ConnectionEndAmino, type ConnectionEndSDKType, IdentifiedConnection, type IdentifiedConnectionAmino, type IdentifiedConnectionSDKType } from "./connection";
+import { Height, type HeightAmino, type HeightSDKType, IdentifiedClientState, type IdentifiedClientStateAmino, type IdentifiedClientStateSDKType } from "../../client/v1/client";
+import { Any, type AnyAmino, type AnySDKType } from "../../../../google/protobuf/any";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { isSet, DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers";
-import { JsonSafe } from "../../../../json-safe";
+import { isSet, type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers";
+import type { JsonSafe } from "../../../../json-safe";
 import { GlobalDecoderRegistry } from "../../../../registry";
 export const protobufPackage = "ibc.core.connection.v1";
 /**

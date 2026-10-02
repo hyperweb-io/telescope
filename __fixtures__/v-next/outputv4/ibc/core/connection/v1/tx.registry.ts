@@ -1,7 +1,7 @@
 import { Counterparty, CounterpartySDKType, Version, VersionSDKType } from "./connection.js";
 import { Any, AnySDKType } from "../../../../google/protobuf/any.js";
 import { Height, HeightSDKType } from "../../client/v1/client.js";
-import { TelescopeGeneratedType } from "../../../../types.js";
+import type { TelescopeGeneratedType } from "../../../../types.js";
 import { MsgConnectionOpenInit, MsgConnectionOpenInitSDKType, MsgConnectionOpenTry, MsgConnectionOpenTrySDKType, MsgConnectionOpenAck, MsgConnectionOpenAckSDKType, MsgConnectionOpenConfirm, MsgConnectionOpenConfirmSDKType } from "./tx.js";
 export const registry: ReadonlyArray<[string, TelescopeGeneratedType<any, any, any>]> = [["/ibc.core.connection.v1.MsgConnectionOpenInit", MsgConnectionOpenInit], ["/ibc.core.connection.v1.MsgConnectionOpenTry", MsgConnectionOpenTry], ["/ibc.core.connection.v1.MsgConnectionOpenAck", MsgConnectionOpenAck], ["/ibc.core.connection.v1.MsgConnectionOpenConfirm", MsgConnectionOpenConfirm]];
 export const MessageComposer = {

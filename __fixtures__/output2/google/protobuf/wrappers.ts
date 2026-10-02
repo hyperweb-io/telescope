@@ -1,8 +1,8 @@
 //@ts-nocheck
 /* eslint-disable */
-import { Long, isSet, DeepPartial, bytesFromBase64, base64FromBytes } from "../../helpers";
+import { Long, isSet, type DeepPartial, bytesFromBase64, base64FromBytes } from "../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../json-safe";
+import type { JsonSafe } from "../../json-safe";
 export const protobufPackage = "google.protobuf";
 /**
  * Wrapper message for `double`.

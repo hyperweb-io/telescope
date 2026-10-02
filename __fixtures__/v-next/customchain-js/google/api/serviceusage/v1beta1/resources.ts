@@ -1,13 +1,13 @@
-import { Api, ApiAmino } from "../../../protobuf/api";
-import { Documentation, DocumentationAmino } from "../../documentation";
-import { Quota, QuotaAmino } from "../../quota";
-import { Authentication, AuthenticationAmino } from "../../auth";
-import { Usage, UsageAmino } from "../../usage";
-import { Endpoint, EndpointAmino } from "../../endpoint";
-import { MonitoredResourceDescriptor, MonitoredResourceDescriptorAmino } from "../../monitored_resource";
-import { Monitoring, MonitoringAmino } from "../../monitoring";
+import { Api, type ApiAmino } from "../../../protobuf/api";
+import { Documentation, type DocumentationAmino } from "../../documentation";
+import { Quota, type QuotaAmino } from "../../quota";
+import { Authentication, type AuthenticationAmino } from "../../auth";
+import { Usage, type UsageAmino } from "../../usage";
+import { Endpoint, type EndpointAmino } from "../../endpoint";
+import { MonitoredResourceDescriptor, type MonitoredResourceDescriptorAmino } from "../../monitored_resource";
+import { Monitoring, type MonitoringAmino } from "../../monitoring";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial } from "../../../../helpers";
+import type { DeepPartial } from "../../../../helpers";
 /** Whether or not a service has been enabled for use by a consumer. */
 export enum State {
   /**

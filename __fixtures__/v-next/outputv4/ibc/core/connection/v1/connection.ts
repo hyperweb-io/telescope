@@ -1,7 +1,7 @@
-import { MerklePrefix, MerklePrefixSDKType } from "../../commitment/v1/commitment.js";
+import { MerklePrefix, type MerklePrefixSDKType } from "../../commitment/v1/commitment.js";
 import { BinaryReader, BinaryWriter } from "../../../../binary.js";
-import { isSet, DeepPartial } from "../../../../helpers.js";
-import { JsonSafe } from "../../../../json-safe.js";
+import { isSet, type DeepPartial } from "../../../../helpers.js";
+import type { JsonSafe } from "../../../../json-safe.js";
 export const protobufPackage = "ibc.core.connection.v1";
 /**
  * State defines if a connection is in one of the following states:

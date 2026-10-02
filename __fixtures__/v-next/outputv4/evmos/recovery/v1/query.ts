@@ -1,7 +1,7 @@
-import { Params, ParamsSDKType } from "./genesis.js";
+import { Params, type ParamsSDKType } from "./genesis.js";
 import { BinaryReader, BinaryWriter } from "../../../binary.js";
-import { JsonSafe } from "../../../json-safe.js";
-import { DeepPartial, isSet } from "../../../helpers.js";
+import type { JsonSafe } from "../../../json-safe.js";
+import { type DeepPartial, isSet } from "../../../helpers.js";
 export const protobufPackage = "evmos.recovery.v1";
 /**
  * QueryParamsRequest is the request type for the Query/Params RPC method.

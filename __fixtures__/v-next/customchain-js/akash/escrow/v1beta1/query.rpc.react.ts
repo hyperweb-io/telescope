@@ -1,5 +1,5 @@
 import { buildUseQuery } from "../../../react-query";
-import { QueryAccountsRequest, QueryAccountsResponse, QueryPaymentsRequest, QueryPaymentsResponse } from "./query";
+import type { QueryAccountsRequest, QueryAccountsResponse, QueryPaymentsRequest, QueryPaymentsResponse } from "./query";
 import { getAccounts, getPayments } from "./query.rpc.func";
 /**
  * buf:lint:ignore RPC_REQUEST_RESPONSE_UNIQUE

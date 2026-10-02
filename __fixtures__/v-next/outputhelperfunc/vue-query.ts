@@ -10,30 +10,32 @@
 import { getRpcClient } from './extern'
 import {
   isRpc,
-  Rpc,
+  type Rpc,
 } from './helpers'
 import {
-  ITxArgs,
-  EndpointOrRpc,
+  type ITxArgs,
+  type EndpointOrRpc,
 } from './helper-func-types'
-import { ISigningClient, isISigningClient } from "@interchainjs/cosmos/types/signing-client";
+import { type ISigningClient, isISigningClient } from "@interchainjs/cosmos/types/signing-client";
 import {
-  StdFee,
+  type StdFee,
 
 } from './types'
 import {
     useQuery,
+    type UseQueryReturnType,
     useQueryClient,
-    UseQueryOptions,
+    type UseQueryOptions,
     useMutation,
-    UseMutationOptions,
-    QueryKey,
+    type UseMutationReturnType,
+    type UseMutationOptions,
+    type QueryKey,
 } from '@tanstack/vue-query';
 
-import { HttpEndpoint } from "@interchainjs/types";
-import { Rpc as ProtobufRpcClient } from "./helpers";
+import { type HttpEndpoint } from "@interchainjs/types";
+import { type Rpc as ProtobufRpcClient } from "./helpers";
 
-import {Ref} from 'vue'
+import {type Ref} from 'vue'
 
 export const DEFAULT_RPC_CLIENT_QUERY_KEY = 'rpcClient';
 export const DEFAULT_RPC_ENDPOINT_QUERY_KEY = 'rpcEndPoint';
@@ -72,7 +74,7 @@ export function useRpcEndpoint<TData = string | HttpEndpoint>({
   options,
   rpcEndPointKey,
   extraKey,
-}: UseRpcEndpointQuery<TData>) {
+}: UseRpcEndpointQuery<TData>): UseQueryReturnType<TData, Error> {
   const key = rpcEndPointKey || DEFAULT_RPC_ENDPOINT_QUERY_KEY;
   return useQuery<string | HttpEndpoint, Error, TData>(
     {
@@ -87,7 +89,7 @@ export function useRpcEndpoint<TData = string | HttpEndpoint>({
 export function useRpcClient<TData = ProtobufRpcClient>({
   options,
   clientResolver,
-}: UseRpcClientQuery<TData>) {
+}: UseRpcClientQuery<TData>): UseQueryReturnType<TData, Error> {
   const queryClient = useQueryClient();
 
   const key = clientResolver?.clientQueryKey || DEFAULT_RPC_CLIENT_QUERY_KEY;
@@ -125,7 +127,7 @@ export function buildUseVueQuery<TReq, TRes>(
     options,
     clientResolver,
     customizedQueryKey,
-  }: UseQueryParams<TReq, TRes, TData>) {
+  }: UseQueryParams<TReq, TRes, TData>): UseQueryReturnType<TData, Error> {
     const queryClient = useQueryClient();
     let rpcResolver: EndpointOrRpc | undefined;
     if (isRpc(clientResolver)) {
@@ -188,7 +190,7 @@ export function buildUseVueMutation<TMsg, TError>(
   return function useBuiltMutation({
     options,
     clientResolver,
-  }: VueMutationParams<any, TError, ITxArgs<TMsg>>) {
+  }: VueMutationParams<any, TError, ITxArgs<TMsg>>): UseMutationReturnType<any, TError, ITxArgs<TMsg>, unknown> {
     const queryClient = useQueryClient();
 
     let signingClientResolver: ISigningClient | undefined;

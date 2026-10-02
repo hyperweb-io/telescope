@@ -1,9 +1,9 @@
 //@ts-nocheck
 import { ValidatorPreference, ValidatorPreferenceSDKType } from "./state";
 import { Coin, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
-import { AminoMsg } from "@cosmjs/amino";
+import type { AminoMsg } from "@cosmjs/amino";
 import { Decimal } from "@interchainjs/math";
-import { MsgSetValidatorSetPreference, MsgSetValidatorSetPreferenceSDKType, MsgDelegateToValidatorSet, MsgDelegateToValidatorSetSDKType, MsgUndelegateFromValidatorSet, MsgUndelegateFromValidatorSetSDKType, MsgRedelegateValidatorSet, MsgRedelegateValidatorSetSDKType, MsgWithdrawDelegationRewards, MsgWithdrawDelegationRewardsSDKType, MsgDelegateBondedTokens, MsgDelegateBondedTokensSDKType } from "./tx";
+import { type MsgSetValidatorSetPreference, MsgSetValidatorSetPreferenceSDKType, type MsgDelegateToValidatorSet, MsgDelegateToValidatorSetSDKType, type MsgUndelegateFromValidatorSet, MsgUndelegateFromValidatorSetSDKType, type MsgRedelegateValidatorSet, MsgRedelegateValidatorSetSDKType, type MsgWithdrawDelegationRewards, MsgWithdrawDelegationRewardsSDKType, type MsgDelegateBondedTokens, MsgDelegateBondedTokensSDKType } from "./tx";
 export interface MsgSetValidatorSetPreferenceAminoType extends AminoMsg {
   type: "osmosis/valset-pref/MsgSetValidatorSetPreference";
   value: {

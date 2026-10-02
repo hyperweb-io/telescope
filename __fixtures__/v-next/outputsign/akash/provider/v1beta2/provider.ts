@@ -1,6 +1,6 @@
-import { Attribute, AttributeAmino, AttributeSDKType } from "../../base/v1beta2/attribute";
+import { Attribute, type AttributeAmino, type AttributeSDKType } from "../../base/v1beta2/attribute";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial, Exact } from "../../../helpers";
+import type { DeepPartial, Exact } from "../../../helpers";
 export const protobufPackage = "akash.provider.v1beta2";
 /**
  * ProviderInfo

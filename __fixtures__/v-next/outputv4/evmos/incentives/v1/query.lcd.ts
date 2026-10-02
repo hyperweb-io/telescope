@@ -3,8 +3,8 @@ import { Incentive, IncentiveSDKType, GasMeter, GasMeterSDKType } from "./incent
 import { DecCoin, DecCoinSDKType } from "../../../cosmos/base/v1beta1/coin.js";
 import { Params, ParamsSDKType } from "./genesis.js";
 import { setPaginationParams } from "../../../helpers.js";
-import { LCDClient } from "@cosmology/lcd";
-import { QueryIncentivesRequest, QueryIncentivesRequestSDKType, QueryIncentivesResponse, QueryIncentivesResponseSDKType, QueryIncentiveRequest, QueryIncentiveRequestSDKType, QueryIncentiveResponse, QueryIncentiveResponseSDKType, QueryGasMetersRequest, QueryGasMetersRequestSDKType, QueryGasMetersResponse, QueryGasMetersResponseSDKType, QueryGasMeterRequest, QueryGasMeterRequestSDKType, QueryGasMeterResponse, QueryGasMeterResponseSDKType, QueryAllocationMetersRequest, QueryAllocationMetersRequestSDKType, QueryAllocationMetersResponse, QueryAllocationMetersResponseSDKType, QueryAllocationMeterRequest, QueryAllocationMeterRequestSDKType, QueryAllocationMeterResponse, QueryAllocationMeterResponseSDKType, QueryParamsRequest, QueryParamsRequestSDKType, QueryParamsResponse, QueryParamsResponseSDKType } from "./query.js";
+import type { LCDClient } from "@cosmology/lcd";
+import { type QueryIncentivesRequest, QueryIncentivesRequestSDKType, QueryIncentivesResponse, type QueryIncentivesResponseSDKType, type QueryIncentiveRequest, QueryIncentiveRequestSDKType, QueryIncentiveResponse, type QueryIncentiveResponseSDKType, type QueryGasMetersRequest, QueryGasMetersRequestSDKType, QueryGasMetersResponse, type QueryGasMetersResponseSDKType, type QueryGasMeterRequest, QueryGasMeterRequestSDKType, QueryGasMeterResponse, type QueryGasMeterResponseSDKType, type QueryAllocationMetersRequest, QueryAllocationMetersRequestSDKType, QueryAllocationMetersResponse, type QueryAllocationMetersResponseSDKType, type QueryAllocationMeterRequest, QueryAllocationMeterRequestSDKType, QueryAllocationMeterResponse, type QueryAllocationMeterResponseSDKType, type QueryParamsRequest, QueryParamsRequestSDKType, QueryParamsResponse, type QueryParamsResponseSDKType } from "./query.js";
 export class LCDQueryClient {
   req: LCDClient;
   constructor({

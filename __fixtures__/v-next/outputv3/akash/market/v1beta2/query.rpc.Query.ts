@@ -4,7 +4,7 @@ import { BidFilters, BidFiltersSDKType, BidID, BidIDSDKType, Bid, BidSDKType } f
 import { LeaseFilters, LeaseFiltersSDKType, LeaseID, LeaseIDSDKType, Lease, LeaseSDKType } from "./lease";
 import { Account, AccountSDKType, FractionalPayment, FractionalPaymentSDKType } from "../../escrow/v1beta2/types";
 import * as fm from "../../../grpc-gateway";
-import { QueryOrdersRequest, QueryOrdersRequestSDKType, QueryOrdersResponse, QueryOrdersResponseSDKType, QueryOrderRequest, QueryOrderRequestSDKType, QueryOrderResponse, QueryOrderResponseSDKType, QueryBidsRequest, QueryBidsRequestSDKType, QueryBidsResponse, QueryBidsResponseSDKType, QueryBidRequest, QueryBidRequestSDKType, QueryBidResponse, QueryBidResponseSDKType, QueryLeasesRequest, QueryLeasesRequestSDKType, QueryLeasesResponse, QueryLeasesResponseSDKType, QueryLeaseRequest, QueryLeaseRequestSDKType, QueryLeaseResponse, QueryLeaseResponseSDKType } from "./query";
+import { type QueryOrdersRequest, QueryOrdersRequestSDKType, type QueryOrdersResponse, QueryOrdersResponseSDKType, type QueryOrderRequest, QueryOrderRequestSDKType, type QueryOrderResponse, QueryOrderResponseSDKType, type QueryBidsRequest, QueryBidsRequestSDKType, type QueryBidsResponse, QueryBidsResponseSDKType, type QueryBidRequest, QueryBidRequestSDKType, type QueryBidResponse, QueryBidResponseSDKType, type QueryLeasesRequest, QueryLeasesRequestSDKType, type QueryLeasesResponse, QueryLeasesResponseSDKType, type QueryLeaseRequest, QueryLeaseRequestSDKType, type QueryLeaseResponse, QueryLeaseResponseSDKType } from "./query";
 export class Query {
   /** Orders queries orders with filters */
   static orders(request: QueryOrdersRequest, initRequest?: fm.InitReq): Promise<QueryOrdersResponse> {

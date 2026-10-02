@@ -1,7 +1,7 @@
-import { Coin, CoinSDKType } from "../../../../cosmos/base/v1beta1/coin";
+import { Coin, type CoinSDKType } from "../../../../cosmos/base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { JsonSafe } from "../../../../json-safe";
-import { DeepPartial, isSet } from "../../../../helpers";
+import type { JsonSafe } from "../../../../json-safe";
+import { type DeepPartial, isSet } from "../../../../helpers";
 export const protobufPackage = "ibc.applications.fee.v1";
 /**
  * Fee defines the ICS29 receive, acknowledgement and timeout fees

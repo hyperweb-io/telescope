@@ -1,7 +1,7 @@
 import { QueryCondition, QueryConditionSDKType } from "../lockup/lock.js";
 import { Coin, CoinSDKType } from "../../cosmos/base/v1beta1/coin.js";
 import { Timestamp, TimestampSDKType } from "../../google/protobuf/timestamp.js";
-import { TxRpc } from "../../types.js";
+import type { TxRpc } from "../../types.js";
 import { BinaryReader } from "../../binary.js";
 import { MsgCreateGauge, MsgCreateGaugeSDKType, MsgCreateGaugeResponse, MsgCreateGaugeResponseSDKType, MsgAddToGauge, MsgAddToGaugeSDKType, MsgAddToGaugeResponse, MsgAddToGaugeResponseSDKType } from "./tx.js";
 export interface Msg {

@@ -1,5 +1,5 @@
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { DeepPartial } from "../../helpers";
+import type { DeepPartial } from "../../helpers";
 /** Supported data type of the property values */
 export enum Property_PropertyType {
   /** UNSPECIFIED - The type is unspecified, and will result in an error. */

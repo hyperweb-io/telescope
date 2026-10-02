@@ -1,7 +1,7 @@
 import { Coin, CoinSDKType } from "../../base/v1beta1/coin";
 import { Period, PeriodSDKType } from "./vesting";
 import * as fm from "../../../grpc-gateway";
-import { MsgCreateVestingAccount, MsgCreateVestingAccountSDKType, MsgCreateVestingAccountResponse, MsgCreateVestingAccountResponseSDKType, MsgCreatePermanentLockedAccount, MsgCreatePermanentLockedAccountSDKType, MsgCreatePermanentLockedAccountResponse, MsgCreatePermanentLockedAccountResponseSDKType, MsgCreatePeriodicVestingAccount, MsgCreatePeriodicVestingAccountSDKType, MsgCreatePeriodicVestingAccountResponse, MsgCreatePeriodicVestingAccountResponseSDKType } from "./tx";
+import { type MsgCreateVestingAccount, MsgCreateVestingAccountSDKType, type MsgCreateVestingAccountResponse, MsgCreateVestingAccountResponseSDKType, type MsgCreatePermanentLockedAccount, MsgCreatePermanentLockedAccountSDKType, type MsgCreatePermanentLockedAccountResponse, MsgCreatePermanentLockedAccountResponseSDKType, type MsgCreatePeriodicVestingAccount, MsgCreatePeriodicVestingAccountSDKType, type MsgCreatePeriodicVestingAccountResponse, MsgCreatePeriodicVestingAccountResponseSDKType } from "./tx";
 export class Msg {
   /**
    * CreateVestingAccount defines a method that enables creating a vesting

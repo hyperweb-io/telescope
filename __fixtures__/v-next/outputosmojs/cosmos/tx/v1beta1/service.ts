@@ -1,11 +1,11 @@
-import { Tx, TxSDKType } from "./tx";
-import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../base/query/v1beta1/pagination";
-import { TxResponse, TxResponseSDKType, GasInfo, GasInfoSDKType, Result, ResultSDKType } from "../../base/abci/v1beta1/abci";
-import { BlockID, BlockIDSDKType } from "../../../tendermint/types/types";
-import { Block, BlockSDKType } from "../../../tendermint/types/block";
+import { Tx, type TxSDKType } from "./tx";
+import { PageRequest, type PageRequestSDKType, PageResponse, type PageResponseSDKType } from "../../base/query/v1beta1/pagination";
+import { TxResponse, type TxResponseSDKType, GasInfo, type GasInfoSDKType, Result, type ResultSDKType } from "../../base/abci/v1beta1/abci";
+import { BlockID, type BlockIDSDKType } from "../../../tendermint/types/types";
+import { Block, type BlockSDKType } from "../../../tendermint/types/block";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet, DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { isSet, type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "cosmos.tx.v1beta1";
 /** OrderBy defines the sorting order */
 export enum OrderBy {

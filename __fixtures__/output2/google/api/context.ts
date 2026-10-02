@@ -1,8 +1,8 @@
 //@ts-nocheck
 /* eslint-disable */
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../json-safe";
-import { DeepPartial, isSet } from "../../helpers";
+import type { JsonSafe } from "../../json-safe";
+import { type DeepPartial, isSet } from "../../helpers";
 export const protobufPackage = "google.api";
 /**
  * `Context` defines which contexts an API requests.

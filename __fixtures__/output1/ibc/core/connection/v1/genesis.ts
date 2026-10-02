@@ -1,7 +1,7 @@
-import { IdentifiedConnection, IdentifiedConnectionSDKType, ConnectionPaths, ConnectionPathsSDKType, Params, ParamsSDKType } from "./connection";
-import { Long, isSet, DeepPartial } from "../../../../helpers";
+import { IdentifiedConnection, type IdentifiedConnectionSDKType, ConnectionPaths, type ConnectionPathsSDKType, Params, type ParamsSDKType } from "./connection";
+import { Long, isSet, type DeepPartial } from "../../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../../json-safe";
+import type { JsonSafe } from "../../../../json-safe";
 export const protobufPackage = "ibc.core.connection.v1";
 /** GenesisState defines the ibc connection submodule's genesis state. */
 export interface GenesisState {

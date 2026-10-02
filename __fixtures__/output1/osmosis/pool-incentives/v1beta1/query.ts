@@ -1,9 +1,9 @@
-import { Duration, DurationSDKType } from "../../../google/protobuf/duration";
-import { DistrInfo, DistrInfoSDKType, Params, ParamsSDKType } from "./incentives";
-import { Gauge, GaugeSDKType } from "../../incentives/gauge";
-import { Long, isSet, DeepPartial } from "../../../helpers";
+import { Duration, type DurationSDKType } from "../../../google/protobuf/duration";
+import { DistrInfo, type DistrInfoSDKType, Params, type ParamsSDKType } from "./incentives";
+import { Gauge, type GaugeSDKType } from "../../incentives/gauge";
+import { Long, isSet, type DeepPartial } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../json-safe";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "osmosis.poolincentives.v1beta1";
 export interface QueryGaugeIdsRequest {
   poolId: Long;

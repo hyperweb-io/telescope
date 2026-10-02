@@ -1,11 +1,11 @@
-import { MonitoredResource, MonitoredResourceAmino, MonitoredResourceSDKType } from "../../api/monitored_resource";
-import { Any, AnyProtoMsg, AnyAmino, AnySDKType } from "../../protobuf/any";
-import { Struct, StructAmino, StructSDKType } from "../../protobuf/struct";
+import { MonitoredResource, type MonitoredResourceAmino, type MonitoredResourceSDKType } from "../../api/monitored_resource";
+import { Any, AnyProtoMsg, type AnyAmino, type AnySDKType } from "../../protobuf/any";
+import { Struct, type StructAmino, type StructSDKType } from "../../protobuf/struct";
 import { Timestamp, TimestampAmino, TimestampSDKType } from "../../protobuf/timestamp";
-import { LogSeverity, LogSeveritySDKType, logSeverityFromJSON, logSeverityToJSON } from "../type/log_severity";
-import { HttpRequest, HttpRequestAmino, HttpRequestSDKType } from "../type/http_request";
+import { type LogSeverity, LogSeveritySDKType, logSeverityFromJSON, logSeverityToJSON } from "../type/log_severity";
+import { HttpRequest, type HttpRequestAmino, type HttpRequestSDKType } from "../type/http_request";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet, DeepPartial, toTimestamp, fromTimestamp, isObject } from "../../../helpers";
+import { isSet, type DeepPartial, toTimestamp, fromTimestamp, isObject } from "../../../helpers";
 import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "google.logging.v2";
 /**

@@ -1,5 +1,5 @@
 import { buildUseMutation } from "../../../react-query";
-import { MsgSubmitEvidence } from "./tx";
+import type { MsgSubmitEvidence } from "./tx";
 import { submitEvidence } from "./tx.rpc.func";
 /**
  * SubmitEvidence submits an arbitrary Evidence of misbehavior such as equivocation or

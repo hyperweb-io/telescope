@@ -1,5 +1,5 @@
-import { Order, OrderSDKType, Counterparty, CounterpartyAmino, CounterpartySDKType, orderFromJSON, orderToJSON } from "../../channel/v1/channel";
-import { isSet, DeepPartial } from "../../../../helpers";
+import { type Order, OrderSDKType, Counterparty, type CounterpartyAmino, type CounterpartySDKType, orderFromJSON, orderToJSON } from "../../channel/v1/channel";
+import { isSet, type DeepPartial } from "../../../../helpers";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
 import { GlobalDecoderRegistry } from "../../../../registry";
 export const protobufPackage = "ibc.core.port.v1";

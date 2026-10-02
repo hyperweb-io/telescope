@@ -1,6 +1,6 @@
-import { Validator, ValidatorAmino, Delegation, DelegationAmino, UnbondingDelegation, UnbondingDelegationAmino, Redelegation, RedelegationAmino, CosmosStakingV1beta1Params, CosmosStakingV1beta1ParamsAmino } from "./staking";
+import { Validator, type ValidatorAmino, Delegation, type DelegationAmino, UnbondingDelegation, type UnbondingDelegationAmino, Redelegation, type RedelegationAmino, CosmosStakingV1beta1Params, type CosmosStakingV1beta1ParamsAmino } from "./staking";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers";
+import { type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers";
 /**
  * GenesisState defines the staking module's genesis state.
  * @name GenesisState

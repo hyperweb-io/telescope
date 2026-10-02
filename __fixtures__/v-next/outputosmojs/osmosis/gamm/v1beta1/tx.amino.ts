@@ -1,7 +1,7 @@
 //@ts-nocheck
 import { Coin, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
-import { AminoMsg } from "@cosmjs/amino";
-import { SwapAmountInRoute, SwapAmountInRouteSDKType, SwapAmountOutRoute, SwapAmountOutRouteSDKType, MsgJoinPool, MsgJoinPoolSDKType, MsgExitPool, MsgExitPoolSDKType, MsgSwapExactAmountIn, MsgSwapExactAmountInSDKType, MsgSwapExactAmountOut, MsgSwapExactAmountOutSDKType, MsgJoinSwapExternAmountIn, MsgJoinSwapExternAmountInSDKType, MsgJoinSwapShareAmountOut, MsgJoinSwapShareAmountOutSDKType, MsgExitSwapExternAmountOut, MsgExitSwapExternAmountOutSDKType, MsgExitSwapShareAmountIn, MsgExitSwapShareAmountInSDKType } from "./tx";
+import type { AminoMsg } from "@cosmjs/amino";
+import { SwapAmountInRoute, SwapAmountInRouteSDKType, SwapAmountOutRoute, SwapAmountOutRouteSDKType, type MsgJoinPool, MsgJoinPoolSDKType, type MsgExitPool, MsgExitPoolSDKType, type MsgSwapExactAmountIn, MsgSwapExactAmountInSDKType, type MsgSwapExactAmountOut, MsgSwapExactAmountOutSDKType, type MsgJoinSwapExternAmountIn, MsgJoinSwapExternAmountInSDKType, type MsgJoinSwapShareAmountOut, MsgJoinSwapShareAmountOutSDKType, type MsgExitSwapExternAmountOut, MsgExitSwapExternAmountOutSDKType, type MsgExitSwapShareAmountIn, MsgExitSwapShareAmountInSDKType } from "./tx";
 export interface MsgJoinPoolAminoType extends AminoMsg {
   type: "osmosis/gamm/join-pool";
   value: {

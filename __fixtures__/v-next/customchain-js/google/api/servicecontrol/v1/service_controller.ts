@@ -1,8 +1,8 @@
-import { Operation, OperationAmino } from "./operation";
-import { CheckError, CheckErrorAmino } from "./check_error";
-import { Status, StatusAmino } from "../../../rpc/status";
+import { Operation, type OperationAmino } from "./operation";
+import { CheckError, type CheckErrorAmino } from "./check_error";
+import { Status, type StatusAmino } from "../../../rpc/status";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial } from "../../../../helpers";
+import type { DeepPartial } from "../../../../helpers";
 /**
  * The type of the consumer as defined in
  * [Google Resource Manager](https://cloud.google.com/resource-manager/).

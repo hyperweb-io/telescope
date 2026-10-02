@@ -1,8 +1,8 @@
 import { Timestamp, TimestampSDKType } from "../../../google/protobuf/timestamp.js";
 import { BinaryReader, BinaryWriter } from "../../../binary.js";
-import { toTimestamp, fromTimestamp, isSet, DeepPartial } from "../../../helpers.js";
+import { toTimestamp, fromTimestamp, isSet, type DeepPartial } from "../../../helpers.js";
 import { Decimal } from "@interchainjs/math";
-import { JsonSafe } from "../../../json-safe.js";
+import type { JsonSafe } from "../../../json-safe.js";
 export const protobufPackage = "osmosis.twap.v1beta1";
 /**
  * A TWAP record should be indexed in state by pool_id, (asset pair), timestamp

@@ -4,8 +4,8 @@ import { PageRequest, PageResponse } from "../../../cosmos/base/query/v1beta1/pa
 import { TokenPair } from "./erc20";
 import { Params } from "./genesis";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial, Rpc } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { isSet, type DeepPartial, type Rpc } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "evmos.erc20.v1";
 /**
  * QueryTokenPairsRequest is the request type for the Query/TokenPairs RPC

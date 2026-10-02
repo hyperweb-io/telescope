@@ -2,9 +2,9 @@
 /* eslint-disable */
 import { Value } from "./value";
 import { Status } from "../../../rpc/status";
-import { Long, DeepPartial, isSet } from "../../../../helpers";
+import { Long, type DeepPartial, isSet } from "../../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../../json-safe";
+import type { JsonSafe } from "../../../../json-safe";
 export const protobufPackage = "google.api.expr.v1alpha1";
 /**
  * The state of an evaluation.

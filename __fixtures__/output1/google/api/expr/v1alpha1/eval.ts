@@ -1,8 +1,8 @@
-import { Value, ValueSDKType } from "./value";
-import { Status, StatusSDKType } from "../../../rpc/status";
-import { Long, DeepPartial, isSet } from "../../../../helpers";
+import { Value, type ValueSDKType } from "./value";
+import { Status, type StatusSDKType } from "../../../rpc/status";
+import { Long, type DeepPartial, isSet } from "../../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../../json-safe";
+import type { JsonSafe } from "../../../../json-safe";
 export const protobufPackage = "google.api.expr.v1alpha1";
 /**
  * The state of an evaluation.

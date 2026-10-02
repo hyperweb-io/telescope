@@ -1,8 +1,8 @@
 import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../base/query/v1beta1/pagination";
 import { NFT, NFTSDKType, Class, ClassSDKType } from "./nft";
 import { setPaginationParams } from "../../../helpers";
-import { LCDClient } from "@cosmology/lcd";
-import { QueryBalanceRequest, QueryBalanceRequestSDKType, QueryBalanceResponse, QueryBalanceResponseSDKType, QueryOwnerRequest, QueryOwnerRequestSDKType, QueryOwnerResponse, QueryOwnerResponseSDKType, QuerySupplyRequest, QuerySupplyRequestSDKType, QuerySupplyResponse, QuerySupplyResponseSDKType, QueryNFTsRequest, QueryNFTsRequestSDKType, QueryNFTsResponse, QueryNFTsResponseSDKType, QueryNFTRequest, QueryNFTRequestSDKType, QueryNFTResponse, QueryNFTResponseSDKType, QueryClassRequest, QueryClassRequestSDKType, QueryClassResponse, QueryClassResponseSDKType, QueryClassesRequest, QueryClassesRequestSDKType, QueryClassesResponse, QueryClassesResponseSDKType } from "./query";
+import type { LCDClient } from "@cosmology/lcd";
+import { type QueryBalanceRequest, QueryBalanceRequestSDKType, QueryBalanceResponse, type QueryBalanceResponseSDKType, type QueryOwnerRequest, QueryOwnerRequestSDKType, QueryOwnerResponse, type QueryOwnerResponseSDKType, type QuerySupplyRequest, QuerySupplyRequestSDKType, QuerySupplyResponse, type QuerySupplyResponseSDKType, type QueryNFTsRequest, QueryNFTsRequestSDKType, QueryNFTsResponse, type QueryNFTsResponseSDKType, type QueryNFTRequest, QueryNFTRequestSDKType, QueryNFTResponse, type QueryNFTResponseSDKType, type QueryClassRequest, QueryClassRequestSDKType, QueryClassResponse, type QueryClassResponseSDKType, type QueryClassesRequest, QueryClassesRequestSDKType, QueryClassesResponse, type QueryClassesResponseSDKType } from "./query";
 export class LCDQueryClient {
   req: LCDClient;
   constructor({

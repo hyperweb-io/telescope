@@ -1,5 +1,5 @@
 import { Fee, FeeSDKType, PacketFee, PacketFeeSDKType } from "./fee";
-import { TelescopeGeneratedType } from "../../../../types";
+import type { TelescopeGeneratedType } from "../../../../types";
 import { MsgRegisterPayee, MsgRegisterPayeeSDKType, MsgRegisterCounterpartyPayee, MsgRegisterCounterpartyPayeeSDKType, MsgPayPacketFee, MsgPayPacketFeeSDKType, MsgPayPacketFeeAsync, MsgPayPacketFeeAsyncSDKType } from "./tx";
 export const registry: ReadonlyArray<[string, TelescopeGeneratedType<any, any, any>]> = [["/ibc.applications.fee.v1.MsgRegisterPayee", MsgRegisterPayee], ["/ibc.applications.fee.v1.MsgRegisterCounterpartyPayee", MsgRegisterCounterpartyPayee], ["/ibc.applications.fee.v1.MsgPayPacketFee", MsgPayPacketFee], ["/ibc.applications.fee.v1.MsgPayPacketFeeAsync", MsgPayPacketFeeAsync]];
 export const MessageComposer = {

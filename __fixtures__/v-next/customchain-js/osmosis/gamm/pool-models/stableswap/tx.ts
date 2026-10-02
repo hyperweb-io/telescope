@@ -1,7 +1,7 @@
-import { PoolParams, PoolParamsAmino } from "./stableswap_pool";
-import { Coin, CoinAmino } from "../../../../cosmos/base/v1beta1/coin";
+import { PoolParams, type PoolParamsAmino } from "./stableswap_pool";
+import { Coin, type CoinAmino } from "../../../../cosmos/base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial } from "../../../../helpers";
+import type { DeepPartial } from "../../../../helpers";
 /**
  * ===================== MsgCreatePool
  * @name MsgCreateStableswapPool

@@ -3,9 +3,9 @@
 import { Duration } from "../../../google/protobuf/duration";
 import { DistrInfo, Params } from "./incentives";
 import { Gauge } from "../../incentives/gauge";
-import { Long, isSet, DeepPartial, Rpc } from "../../../helpers";
+import { Long, isSet, type DeepPartial, type Rpc } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../json-safe";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "osmosis.poolincentives.v1beta1";
 export interface QueryGaugeIdsRequest {
   poolId: Long;

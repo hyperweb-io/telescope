@@ -1,7 +1,7 @@
 import { Grant, GrantSDKType } from "./authz.js";
 import { Any, AnySDKType } from "../../../google/protobuf/any.js";
-import { AminoMsg } from "@cosmjs/amino";
-import { MsgGrant, MsgGrantSDKType, MsgExec, MsgExecSDKType, MsgRevoke, MsgRevokeSDKType } from "./tx.js";
+import type { AminoMsg } from "@cosmjs/amino";
+import { type MsgGrant, MsgGrantSDKType, type MsgExec, MsgExecSDKType, type MsgRevoke, MsgRevokeSDKType } from "./tx.js";
 export interface MsgGrantAminoType extends AminoMsg {
   type: "cosmos-sdk/MsgGrant";
   value: {

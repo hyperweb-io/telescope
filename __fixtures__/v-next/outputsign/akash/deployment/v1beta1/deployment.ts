@@ -1,10 +1,10 @@
 //@ts-nocheck
 /* eslint-disable */
-import { GroupSpec, GroupSpecAmino, GroupSpecSDKType, GroupID, GroupIDSDKType } from "./group";
-import { Coin, CoinAmino, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
+import { GroupSpec, type GroupSpecAmino, type GroupSpecSDKType, GroupID, GroupIDSDKType } from "./group";
+import { Coin, type CoinAmino, type CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { Exact } from "../../../helpers";
-import { TxRpc } from "../../../types";
+import type { Exact } from "../../../helpers";
+import type { TxRpc } from "../../../types";
 export const protobufPackage = "akash.deployment.v1beta1";
 /** State is an enum which refers to state of deployment */
 export enum Deployment_State {

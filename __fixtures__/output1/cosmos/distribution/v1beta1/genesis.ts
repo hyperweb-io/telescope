@@ -1,8 +1,8 @@
-import { DecCoin, DecCoinSDKType } from "../../base/v1beta1/coin";
-import { ValidatorAccumulatedCommission, ValidatorAccumulatedCommissionSDKType, ValidatorHistoricalRewards, ValidatorHistoricalRewardsSDKType, ValidatorCurrentRewards, ValidatorCurrentRewardsSDKType, DelegatorStartingInfo, DelegatorStartingInfoSDKType, ValidatorSlashEvent, ValidatorSlashEventSDKType, Params, ParamsSDKType, FeePool, FeePoolSDKType } from "./distribution";
-import { Long, isSet, DeepPartial } from "../../../helpers";
+import { DecCoin, type DecCoinSDKType } from "../../base/v1beta1/coin";
+import { ValidatorAccumulatedCommission, type ValidatorAccumulatedCommissionSDKType, ValidatorHistoricalRewards, type ValidatorHistoricalRewardsSDKType, ValidatorCurrentRewards, type ValidatorCurrentRewardsSDKType, DelegatorStartingInfo, type DelegatorStartingInfoSDKType, ValidatorSlashEvent, type ValidatorSlashEventSDKType, Params, type ParamsSDKType, FeePool, type FeePoolSDKType } from "./distribution";
+import { Long, isSet, type DeepPartial } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../json-safe";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "cosmos.distribution.v1beta1";
 /**
  * DelegatorWithdrawInfo is the address for where distributions rewards are

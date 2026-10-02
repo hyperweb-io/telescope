@@ -1,7 +1,7 @@
-import { DevFeeInfo, DevFeeInfoSDKType } from "./fees.js";
+import { DevFeeInfo, type DevFeeInfoSDKType } from "./fees.js";
 import { BinaryReader, BinaryWriter } from "../../../binary.js";
-import { isSet, DeepPartial } from "../../../helpers.js";
-import { JsonSafe } from "../../../json-safe.js";
+import { isSet, type DeepPartial } from "../../../helpers.js";
+import type { JsonSafe } from "../../../json-safe.js";
 import { Decimal } from "@interchainjs/math";
 export const protobufPackage = "evmos.fees.v1";
 /**

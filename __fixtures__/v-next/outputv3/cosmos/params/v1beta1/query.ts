@@ -1,6 +1,6 @@
-import { ParamChange, ParamChangeAmino, ParamChangeSDKType } from "./params";
+import { ParamChange, type ParamChangeAmino, type ParamChangeSDKType } from "./params";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet, DeepPartial } from "../../../helpers";
+import { isSet, type DeepPartial } from "../../../helpers";
 import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "cosmos.params.v1beta1";
 /**

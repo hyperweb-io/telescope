@@ -1,8 +1,8 @@
-import { Gauge, GaugeAmino } from "./gauge";
-import { Duration, DurationAmino } from "../../google/protobuf/duration";
+import { Gauge, type GaugeAmino } from "./gauge";
+import { Duration, type DurationAmino } from "../../google/protobuf/duration";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { DeepPartial } from "../../helpers";
-import { OsmosisIncentivesParams, OsmosisIncentivesParamsAmino } from "./params";
+import type { DeepPartial } from "../../helpers";
+import { OsmosisIncentivesParams, type OsmosisIncentivesParamsAmino } from "./params";
 /**
  * GenesisState defines the incentives module's various parameters when first
  * initialized

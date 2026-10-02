@@ -1,7 +1,7 @@
-import { DecCoin, DecCoinAmino } from "../../../cosmos/base/v1beta1/coin";
-import { BidID, BidIDAmino } from "./bid";
+import { DecCoin, type DecCoinAmino } from "../../../cosmos/base/v1beta1/coin";
+import { BidID, type BidIDAmino } from "./bid";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /** State is an enum which refers to state of lease */
 export enum Lease_State {
   /** invalid - Prefix should start with 0 in enum. So declaring dummy state */

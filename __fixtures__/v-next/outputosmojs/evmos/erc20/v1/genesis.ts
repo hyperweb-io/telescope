@@ -1,7 +1,7 @@
-import { TokenPair, TokenPairSDKType } from "./erc20";
+import { TokenPair, type TokenPairSDKType } from "./erc20";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet, DeepPartial } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { isSet, type DeepPartial } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "evmos.erc20.v1";
 /**
  * GenesisState defines the module's genesis state.

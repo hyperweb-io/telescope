@@ -1,6 +1,6 @@
-import { Metadata, MetadataAmino } from "../../../cosmos/bank/v1beta1/bank";
+import { Metadata, type MetadataAmino } from "../../../cosmos/bank/v1beta1/bank";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /** Owner enumerates the ownership of a ERC20 contract. */
 export enum Owner {
   /** OWNER_UNSPECIFIED - OWNER_UNSPECIFIED defines an invalid/undefined owner. */

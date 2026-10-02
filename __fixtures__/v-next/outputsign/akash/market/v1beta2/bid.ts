@@ -1,7 +1,7 @@
-import { OrderID, OrderIDAmino, OrderIDSDKType } from "./order";
-import { DecCoin, DecCoinAmino, DecCoinSDKType, Coin, CoinAmino, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
+import { OrderID, type OrderIDAmino, type OrderIDSDKType } from "./order";
+import { DecCoin, type DecCoinAmino, type DecCoinSDKType, Coin, type CoinAmino, type CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial, Exact } from "../../../helpers";
+import type { DeepPartial, Exact } from "../../../helpers";
 export const protobufPackage = "akash.market.v1beta2";
 /** State is an enum which refers to state of bid */
 export enum Bid_State {

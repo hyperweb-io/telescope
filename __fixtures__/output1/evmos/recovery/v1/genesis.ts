@@ -1,11 +1,11 @@
-import { Duration, DurationSDKType } from "../../../google/protobuf/duration";
+import { Duration, type DurationSDKType } from "../../../google/protobuf/duration";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { isSet, type DeepPartial } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "evmos.recovery.v1";
 /** GenesisState defines the recovery module's genesis state. */
 export interface GenesisState {
-  /** params defines all the parameters of the module. */
+  /** params defines all the paramaters of the module. */
   params: Params;
 }
 /** GenesisState defines the recovery module's genesis state. */

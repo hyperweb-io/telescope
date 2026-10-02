@@ -1,6 +1,6 @@
-import { Params, ParamsAmino, ParamsSDKType } from "./params";
+import { Params, type ParamsAmino, type ParamsSDKType } from "./params";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial, Exact } from "../../../helpers";
+import type { DeepPartial, Exact } from "../../../helpers";
 export const protobufPackage = "akash.inflation.v1beta2";
 /**
  * GenesisState stores slice of genesis deployment instance

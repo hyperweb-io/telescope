@@ -1,5 +1,5 @@
 import { Any, AnySDKType } from "../../../google/protobuf/any";
-import { GeneratedType, Registry } from "@cosmjs/proto-signing";
+import type { GeneratedType, Registry } from "@cosmjs/proto-signing";
 import { MsgSubmitEvidence, MsgSubmitEvidenceSDKType } from "./tx";
 export const registry: ReadonlyArray<[string, GeneratedType]> = [["/cosmos.evidence.v1beta1.MsgSubmitEvidence", MsgSubmitEvidence]];
 export const load = (protoRegistry: Registry) => {

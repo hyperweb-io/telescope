@@ -97,7 +97,7 @@ export interface Params {
 export const setPaginationParams = (
   options: Params,
   pagination?: PageRequest
-) => {
+): Params => {
   if (!pagination) {
     return options;
   }

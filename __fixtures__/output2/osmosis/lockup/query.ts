@@ -5,9 +5,9 @@ import { Duration } from "../../google/protobuf/duration";
 import { Coin } from "../../cosmos/base/v1beta1/coin";
 import { PeriodLock, SyntheticLock } from "./lock";
 import { Params } from "./params";
-import { Long, DeepPartial, isSet, fromJsonTimestamp, fromTimestamp, Rpc } from "../../helpers";
+import { Long, type DeepPartial, isSet, fromJsonTimestamp, fromTimestamp, type Rpc } from "../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../json-safe";
+import type { JsonSafe } from "../../json-safe";
 export const protobufPackage = "osmosis.lockup";
 export interface ModuleBalanceRequest {}
 export interface ModuleBalanceResponse {

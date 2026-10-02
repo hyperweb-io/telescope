@@ -1,7 +1,7 @@
-import { Coin, CoinAmino } from "../../base/v1beta1/coin";
-import { Input, InputAmino, Output, OutputAmino } from "./bank";
+import { Coin, type CoinAmino } from "../../base/v1beta1/coin";
+import { Input, type InputAmino, Output, type OutputAmino } from "./bank";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * MsgSend represents a message to send coins from one account to another.
  * @name MsgSend

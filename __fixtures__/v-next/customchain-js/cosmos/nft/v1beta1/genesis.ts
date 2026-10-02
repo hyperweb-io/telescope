@@ -1,6 +1,6 @@
-import { Class, ClassAmino, NFT, NFTAmino } from "./nft";
+import { Class, type ClassAmino, NFT, type NFTAmino } from "./nft";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * GenesisState defines the nft module's genesis state.
  * @name GenesisState

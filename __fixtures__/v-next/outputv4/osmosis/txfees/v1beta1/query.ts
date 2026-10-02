@@ -1,7 +1,7 @@
-import { FeeToken, FeeTokenSDKType } from "./feetoken.js";
+import { FeeToken, type FeeTokenSDKType } from "./feetoken.js";
 import { BinaryReader, BinaryWriter } from "../../../binary.js";
-import { JsonSafe } from "../../../json-safe.js";
-import { DeepPartial, isSet } from "../../../helpers.js";
+import type { JsonSafe } from "../../../json-safe.js";
+import { type DeepPartial, isSet } from "../../../helpers.js";
 import { Decimal } from "@interchainjs/math";
 export const protobufPackage = "osmosis.txfees.v1beta1";
 /**

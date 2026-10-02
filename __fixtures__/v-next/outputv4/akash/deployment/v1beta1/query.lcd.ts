@@ -3,8 +3,8 @@ import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } fr
 import { GroupID, GroupIDSDKType, Group, GroupSDKType } from "./group.js";
 import { Account, AccountSDKType } from "../../escrow/v1beta1/types.js";
 import { setPaginationParams } from "../../../helpers.js";
-import { LCDClient } from "@cosmology/lcd";
-import { QueryDeploymentsRequest, QueryDeploymentsRequestSDKType, QueryDeploymentsResponse, QueryDeploymentsResponseSDKType, QueryDeploymentRequest, QueryDeploymentRequestSDKType, QueryDeploymentResponse, QueryDeploymentResponseSDKType, QueryGroupRequest, QueryGroupRequestSDKType, QueryGroupResponse, QueryGroupResponseSDKType } from "./query.js";
+import type { LCDClient } from "@cosmology/lcd";
+import { type QueryDeploymentsRequest, QueryDeploymentsRequestSDKType, QueryDeploymentsResponse, type QueryDeploymentsResponseSDKType, type QueryDeploymentRequest, QueryDeploymentRequestSDKType, QueryDeploymentResponse, type QueryDeploymentResponseSDKType, type QueryGroupRequest, QueryGroupRequestSDKType, QueryGroupResponse, type QueryGroupResponseSDKType } from "./query.js";
 export class LCDQueryClient {
   req: LCDClient;
   constructor({

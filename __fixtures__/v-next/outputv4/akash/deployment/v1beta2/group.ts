@@ -1,8 +1,8 @@
-import { GroupID, GroupIDSDKType } from "./groupid.js";
-import { GroupSpec, GroupSpecSDKType } from "./groupspec.js";
+import { GroupID, type GroupIDSDKType } from "./groupid.js";
+import { GroupSpec, type GroupSpecSDKType } from "./groupspec.js";
 import { BinaryReader, BinaryWriter } from "../../../binary.js";
-import { isSet, DeepPartial, Exact } from "../../../helpers.js";
-import { JsonSafe } from "../../../json-safe.js";
+import { isSet, type DeepPartial, type Exact } from "../../../helpers.js";
+import type { JsonSafe } from "../../../json-safe.js";
 export const protobufPackage = "akash.deployment.v1beta2";
 /** State is an enum which refers to state of group */
 export enum Group_State {

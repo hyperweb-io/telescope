@@ -1,11 +1,11 @@
-import { Header, HeaderSDKType } from "../../../tendermint/types/types";
+import { Header, type HeaderSDKType } from "../../../tendermint/types/types";
 import { Timestamp, TimestampSDKType } from "../../../google/protobuf/timestamp";
-import { Any, AnySDKType } from "../../../google/protobuf/any";
-import { Duration, DurationSDKType } from "../../../google/protobuf/duration";
-import { Coin, CoinSDKType } from "../../base/v1beta1/coin";
+import { Any, type AnySDKType } from "../../../google/protobuf/any";
+import { Duration, type DurationSDKType } from "../../../google/protobuf/duration";
+import { Coin, type CoinSDKType } from "../../base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet, DeepPartial, toTimestamp, fromTimestamp } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { isSet, type DeepPartial, toTimestamp, fromTimestamp } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 import { Decimal } from "@interchainjs/math";
 import { encodePubkey, decodePubkey } from "@interchainjs/pubkey";
 export const protobufPackage = "cosmos.staking.v1beta1";

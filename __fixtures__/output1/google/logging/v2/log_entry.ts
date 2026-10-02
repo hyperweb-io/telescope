@@ -1,12 +1,12 @@
-import { MonitoredResource, MonitoredResourceSDKType } from "../../api/monitored_resource";
-import { Any, AnySDKType } from "../../protobuf/any";
-import { Struct, StructSDKType } from "../../protobuf/struct";
+import { MonitoredResource, type MonitoredResourceSDKType } from "../../api/monitored_resource";
+import { Any, type AnySDKType } from "../../protobuf/any";
+import { Struct, type StructSDKType } from "../../protobuf/struct";
 import { Timestamp, TimestampSDKType } from "../../protobuf/timestamp";
-import { LogSeverity, LogSeveritySDKType, logSeverityFromJSON, logSeverityToJSON } from "../type/log_severity";
-import { HttpRequest, HttpRequestSDKType } from "../type/http_request";
-import { Long, isSet, DeepPartial, toTimestamp, fromTimestamp, fromJsonTimestamp, isObject } from "../../../helpers";
+import { type LogSeverity, LogSeveritySDKType, logSeverityFromJSON, logSeverityToJSON } from "../type/log_severity";
+import { HttpRequest, type HttpRequestSDKType } from "../type/http_request";
+import { Long, isSet, type DeepPartial, toTimestamp, fromTimestamp, fromJsonTimestamp, isObject } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../json-safe";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "google.logging.v2";
 export interface LogEntry_LabelsEntry {
   key: string;

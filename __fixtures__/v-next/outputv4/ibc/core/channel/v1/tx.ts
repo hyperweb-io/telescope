@@ -1,8 +1,8 @@
-import { Channel, ChannelSDKType, Packet, PacketSDKType } from "./channel.js";
-import { Height, HeightSDKType } from "../../client/v1/client.js";
+import { Channel, type ChannelSDKType, Packet, type PacketSDKType } from "./channel.js";
+import { Height, type HeightSDKType } from "../../client/v1/client.js";
 import { BinaryReader, BinaryWriter } from "../../../../binary.js";
-import { isSet, DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers.js";
-import { JsonSafe } from "../../../../json-safe.js";
+import { isSet, type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers.js";
+import type { JsonSafe } from "../../../../json-safe.js";
 export const protobufPackage = "ibc.core.channel.v1";
 /**
  * MsgChannelOpenInit defines an sdk.Msg to initialize a channel handshake. It

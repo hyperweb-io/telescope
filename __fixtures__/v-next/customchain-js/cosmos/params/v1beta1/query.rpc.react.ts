@@ -1,5 +1,5 @@
 import { buildUseQuery } from "../../../react-query";
-import { QueryParamsRequest, QueryParamsResponse, QuerySubspacesRequest, QuerySubspacesResponse } from "./query";
+import type { QueryParamsRequest, QueryParamsResponse, QuerySubspacesRequest, QuerySubspacesResponse } from "./query";
 import { getCosmosParamsV1beta1Params, getSubspaces } from "./query.rpc.func";
 /**
  * Params queries a specific parameter of a module, given its subspace and

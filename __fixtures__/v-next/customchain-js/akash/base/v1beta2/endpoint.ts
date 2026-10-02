@@ -1,5 +1,5 @@
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /** This describes how the endpoint is implemented when the lease is deployed */
 export enum Endpoint_Kind {
   /** SHARED_HTTP - Describes an endpoint that becomes a Kubernetes Ingress */

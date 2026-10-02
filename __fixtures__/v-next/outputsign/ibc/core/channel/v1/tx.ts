@@ -1,7 +1,7 @@
-import { Channel, ChannelAmino, ChannelSDKType, Packet, PacketAmino, PacketSDKType } from "./channel";
-import { Height, HeightAmino, HeightSDKType } from "../../client/v1/client";
+import { Channel, type ChannelAmino, type ChannelSDKType, Packet, type PacketAmino, type PacketSDKType } from "./channel";
+import { Height, type HeightAmino, type HeightSDKType } from "../../client/v1/client";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers";
+import { type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers";
 export const protobufPackage = "ibc.core.channel.v1";
 /**
  * MsgChannelOpenInit defines an sdk.Msg to initialize a channel handshake. It

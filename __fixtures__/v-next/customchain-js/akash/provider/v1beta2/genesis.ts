@@ -1,6 +1,6 @@
-import { Provider, ProviderAmino } from "./provider";
+import { Provider, type ProviderAmino } from "./provider";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * GenesisState defines the basic genesis state used by provider module
  * @name GenesisState

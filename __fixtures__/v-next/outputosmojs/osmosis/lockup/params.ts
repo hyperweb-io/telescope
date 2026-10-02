@@ -1,6 +1,6 @@
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { JsonSafe } from "../../json-safe";
-import { DeepPartial } from "../../helpers";
+import type { JsonSafe } from "../../json-safe";
+import type { DeepPartial } from "../../helpers";
 export const protobufPackage = "osmosis.lockup";
 /**
  * @name Params

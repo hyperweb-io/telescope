@@ -1,5 +1,5 @@
 import { buildUseMutation } from "../../../../react-query";
-import { MsgCreateClient, MsgUpdateClient, MsgUpgradeClient, MsgSubmitMisbehaviour } from "./tx";
+import type { MsgCreateClient, MsgUpdateClient, MsgUpgradeClient, MsgSubmitMisbehaviour } from "./tx";
 import { createClient, updateClient, upgradeClient, submitMisbehaviour } from "./tx.rpc.func";
 /**
  * CreateClient defines a rpc handler method for MsgCreateClient.

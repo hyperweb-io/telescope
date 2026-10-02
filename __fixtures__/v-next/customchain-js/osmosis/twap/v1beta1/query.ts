@@ -1,8 +1,8 @@
 import { Timestamp } from "../../../google/protobuf/timestamp";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { toTimestamp, fromTimestamp, DeepPartial } from "../../../helpers";
+import { toTimestamp, fromTimestamp, type DeepPartial } from "../../../helpers";
 import { Decimal } from "@interchainjs/math";
-import { OsmosisTwapV1beta1Params, OsmosisTwapV1beta1ParamsAmino } from "./genesis";
+import { OsmosisTwapV1beta1Params, type OsmosisTwapV1beta1ParamsAmino } from "./genesis";
 /**
  * @name ArithmeticTwapRequest
  * @package osmosis.twap.v1beta1

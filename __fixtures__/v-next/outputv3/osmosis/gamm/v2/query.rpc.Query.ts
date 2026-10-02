@@ -1,5 +1,5 @@
 import * as fm from "../../../grpc-gateway";
-import { QuerySpotPriceRequest, QuerySpotPriceRequestSDKType, QuerySpotPriceResponse, QuerySpotPriceResponseSDKType } from "./query";
+import { type QuerySpotPriceRequest, QuerySpotPriceRequestSDKType, type QuerySpotPriceResponse, QuerySpotPriceResponseSDKType } from "./query";
 export class Query {
   /**
    * SpotPrice defines a gRPC query handler that returns the spot price given

@@ -1,9 +1,9 @@
 //@ts-nocheck
 /* eslint-disable */
 import { SuperfluidAsset } from "../superfluid";
-import { Long, isSet, DeepPartial } from "../../../helpers";
+import { Long, isSet, type DeepPartial } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../json-safe";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "osmosis.superfluid.v1beta1";
 /**
  * SetSuperfluidAssetsProposal is a gov Content type to update the superfluid

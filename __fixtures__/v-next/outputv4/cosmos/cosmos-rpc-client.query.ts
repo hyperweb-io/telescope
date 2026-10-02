@@ -1,6 +1,6 @@
 import { Rpc } from "../helpers.js";
-import { connectComet, HttpEndpoint } from "@cosmjs/tendermint-rpc";
-import { QueryClient } from "@cosmjs/stargate";
+import { connectComet, type HttpEndpoint } from "@cosmjs/tendermint-rpc";
+import type { QueryClient } from "@cosmjs/stargate";
 import { createConnectCometQueryClient } from "../extern.js";
 export const createCosmicRPCQueryClient = async ({
   rpcEndpoint,

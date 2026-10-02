@@ -1,7 +1,7 @@
-import { QuotaView, QuotaOverride, QuotaOverrideAmino, QuotaSafetyCheck, OverrideInlineSource, OverrideInlineSourceAmino, Service, ServiceAmino, ConsumerQuotaMetric, ConsumerQuotaMetricAmino, AdminQuotaPolicy, AdminQuotaPolicyAmino, ServiceIdentity, ServiceIdentityAmino } from "./resources";
-import { FieldMask, FieldMaskAmino } from "../../../protobuf/field_mask";
+import { type QuotaView, QuotaOverride, type QuotaOverrideAmino, type QuotaSafetyCheck, OverrideInlineSource, type OverrideInlineSourceAmino, Service, type ServiceAmino, ConsumerQuotaMetric, type ConsumerQuotaMetricAmino, AdminQuotaPolicy, type AdminQuotaPolicyAmino, ServiceIdentity, type ServiceIdentityAmino } from "./resources";
+import { FieldMask, type FieldMaskAmino } from "../../../protobuf/field_mask";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial } from "../../../../helpers";
+import type { DeepPartial } from "../../../../helpers";
 /** Enum for service identity state. */
 export enum GetServiceIdentityResponse_IdentityState {
   /**

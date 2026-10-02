@@ -1,10 +1,10 @@
-import { ParsedExpr, ParsedExprSDKType, SourcePosition, SourcePositionSDKType } from "../../v1alpha1/syntax.js";
-import { Decl, DeclSDKType, CheckedExpr, CheckedExprSDKType } from "../../v1alpha1/checked.js";
-import { ExprValue, ExprValueSDKType } from "../../v1alpha1/eval.js";
-import { Status, StatusSDKType } from "../../../../rpc/status.js";
+import { ParsedExpr, type ParsedExprSDKType, SourcePosition, type SourcePositionSDKType } from "../../v1alpha1/syntax.js";
+import { Decl, type DeclSDKType, CheckedExpr, type CheckedExprSDKType } from "../../v1alpha1/checked.js";
+import { ExprValue, type ExprValueSDKType } from "../../v1alpha1/eval.js";
+import { Status, type StatusSDKType } from "../../../../rpc/status.js";
 import { BinaryReader, BinaryWriter } from "../../../../../binary.js";
-import { isSet, DeepPartial, isObject } from "../../../../../helpers.js";
-import { JsonSafe } from "../../../../../json-safe.js";
+import { isSet, type DeepPartial, isObject } from "../../../../../helpers.js";
+import type { JsonSafe } from "../../../../../json-safe.js";
 export const protobufPackage = "google.api.expr.conformance.v1alpha1";
 /** Severities of issues. */
 export enum IssueDetails_Severity {

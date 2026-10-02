@@ -1,7 +1,7 @@
-import { Params, ParamsSDKType } from "./host";
+import { Params, type ParamsSDKType } from "./host";
 import { BinaryReader, BinaryWriter } from "../../../../../binary";
-import { JsonSafe } from "../../../../../json-safe";
-import { DeepPartial, isSet } from "../../../../../helpers";
+import type { JsonSafe } from "../../../../../json-safe";
+import { type DeepPartial, isSet } from "../../../../../helpers";
 export const protobufPackage = "ibc.applications.interchain_accounts.host.v1";
 /**
  * QueryParamsRequest is the request type for the Query/Params RPC method.

@@ -1,7 +1,7 @@
-import { Params, ParamsSDKType } from "./genesis";
+import { Params, type ParamsSDKType } from "./genesis";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { JsonSafe } from "../../../json-safe";
-import { DeepPartial, isSet } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
+import { type DeepPartial, isSet } from "../../../helpers";
 export const protobufPackage = "osmosis.cosmwasmpool.v1beta1";
 /**
  * =============================== Params

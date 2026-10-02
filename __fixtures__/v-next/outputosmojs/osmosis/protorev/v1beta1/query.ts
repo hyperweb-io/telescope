@@ -1,9 +1,9 @@
-import { Params, ParamsSDKType } from "./params";
-import { Coin, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
-import { RouteStatistics, RouteStatisticsSDKType, TokenPairArbRoutes, TokenPairArbRoutesSDKType, PoolWeights, PoolWeightsSDKType, BaseDenom, BaseDenomSDKType } from "./protorev";
+import { Params, type ParamsSDKType } from "./params";
+import { Coin, type CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
+import { RouteStatistics, type RouteStatisticsSDKType, TokenPairArbRoutes, type TokenPairArbRoutesSDKType, PoolWeights, type PoolWeightsSDKType, BaseDenom, type BaseDenomSDKType } from "./protorev";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { JsonSafe } from "../../../json-safe";
-import { DeepPartial, isSet } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
+import { type DeepPartial, isSet } from "../../../helpers";
 export const protobufPackage = "osmosis.protorev.v1beta1";
 /**
  * QueryParamsRequest is request type for the Query/Params RPC method.

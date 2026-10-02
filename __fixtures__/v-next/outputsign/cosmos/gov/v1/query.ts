@@ -1,7 +1,7 @@
-import { ProposalStatus, ProposalStatusSDKType, Proposal, ProposalAmino, ProposalSDKType, Vote, VoteAmino, VoteSDKType, VotingParams, VotingParamsAmino, VotingParamsSDKType, DepositParams, DepositParamsAmino, DepositParamsSDKType, TallyParams, TallyParamsAmino, TallyParamsSDKType, Deposit, DepositAmino, DepositSDKType, TallyResult, TallyResultAmino, TallyResultSDKType } from "./gov";
-import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageResponseAmino, PageResponseSDKType } from "../../base/query/v1beta1/pagination";
+import { type ProposalStatus, ProposalStatusSDKType, Proposal, type ProposalAmino, type ProposalSDKType, Vote, type VoteAmino, type VoteSDKType, VotingParams, type VotingParamsAmino, type VotingParamsSDKType, DepositParams, type DepositParamsAmino, type DepositParamsSDKType, TallyParams, type TallyParamsAmino, type TallyParamsSDKType, Deposit, type DepositAmino, type DepositSDKType, TallyResult, type TallyResultAmino, type TallyResultSDKType } from "./gov";
+import { PageRequest, type PageRequestAmino, type PageRequestSDKType, PageResponse, type PageResponseAmino, type PageResponseSDKType } from "../../base/query/v1beta1/pagination";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 export const protobufPackage = "cosmos.gov.v1";
 /**
  * QueryProposalRequest is the request type for the Query/Proposal RPC method.

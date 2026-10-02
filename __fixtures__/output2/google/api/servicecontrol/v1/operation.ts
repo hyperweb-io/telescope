@@ -5,8 +5,8 @@ import { MetricValueSet } from "./metric_value";
 import { LogEntry } from "./log_entry";
 import { Any } from "../../../protobuf/any";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial, fromJsonTimestamp, isObject, fromTimestamp } from "../../../../helpers";
-import { JsonSafe } from "../../../../json-safe";
+import { isSet, type DeepPartial, fromJsonTimestamp, isObject, fromTimestamp } from "../../../../helpers";
+import type { JsonSafe } from "../../../../json-safe";
 export const protobufPackage = "google.api.servicecontrol.v1";
 /** Defines the importance of the data contained in the operation. */
 export enum Operation_Importance {

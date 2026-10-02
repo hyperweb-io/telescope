@@ -1,7 +1,7 @@
-import { TokenPairArbRoutes, TokenPairArbRoutesSDKType, PoolWeights, PoolWeightsSDKType, BaseDenom, BaseDenomSDKType } from "./protorev";
+import { TokenPairArbRoutes, type TokenPairArbRoutesSDKType, PoolWeights, type PoolWeightsSDKType, BaseDenom, type BaseDenomSDKType } from "./protorev";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet, DeepPartial } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { isSet, type DeepPartial } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "osmosis.protorev.v1beta1";
 /**
  * MsgSetHotRoutes defines the Msg/SetHotRoutes request type.

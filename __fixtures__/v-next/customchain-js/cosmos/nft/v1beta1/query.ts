@@ -1,7 +1,7 @@
-import { PageRequest, PageRequestAmino, PageResponse, PageResponseAmino } from "../../base/query/v1beta1/pagination";
-import { NFT, NFTAmino, Class, ClassAmino } from "./nft";
+import { PageRequest, type PageRequestAmino, PageResponse, type PageResponseAmino } from "../../base/query/v1beta1/pagination";
+import { NFT, type NFTAmino, Class, type ClassAmino } from "./nft";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * QueryBalanceRequest is the request type for the Query/Balance RPC method
  * @name QueryBalanceRequest

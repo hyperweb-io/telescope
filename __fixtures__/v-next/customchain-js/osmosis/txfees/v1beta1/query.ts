@@ -1,6 +1,6 @@
-import { FeeToken, FeeTokenAmino } from "./feetoken";
+import { FeeToken, type FeeTokenAmino } from "./feetoken";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 import { Decimal } from "@interchainjs/math";
 /**
  * @name QueryFeeTokensRequest

@@ -1,14 +1,14 @@
-import { Any, AnyProtoMsg, AnyAmino, AnySDKType } from "../../../google/protobuf/any";
-import { Coin, CoinAmino, CoinSDKType } from "../../base/v1beta1/coin";
-import { VoteOption, WeightedVoteOption, WeightedVoteOptionAmino, WeightedVoteOptionSDKType, voteOptionFromJSON, voteOptionToJSON } from "./gov";
-import { TextProposal, TextProposalProtoMsg, TextProposalSDKType } from "../v1beta1/gov";
-import { RegisterIncentiveProposal, RegisterIncentiveProposalProtoMsg, RegisterIncentiveProposalSDKType } from "../../../evmos/incentives/v1/incentives";
-import { ClientUpdateProposal, ClientUpdateProposalProtoMsg, ClientUpdateProposalSDKType, UpgradeProposal, UpgradeProposalProtoMsg, UpgradeProposalSDKType } from "../../../ibc/core/client/v1/client";
-import { ReplacePoolIncentivesProposal, ReplacePoolIncentivesProposalProtoMsg, ReplacePoolIncentivesProposalSDKType, UpdatePoolIncentivesProposal, UpdatePoolIncentivesProposalProtoMsg, UpdatePoolIncentivesProposalSDKType } from "../../../osmosis/pool-incentives/v1beta1/gov";
-import { UpdateFeeTokenProposal, UpdateFeeTokenProposalProtoMsg, UpdateFeeTokenProposalSDKType } from "../../../osmosis/txfees/v1beta1/gov";
+import { Any, type AnyProtoMsg, type AnyAmino, type AnySDKType } from "../../../google/protobuf/any";
+import { Coin, type CoinAmino, type CoinSDKType } from "../../base/v1beta1/coin";
+import { type VoteOption, WeightedVoteOption, type WeightedVoteOptionAmino, type WeightedVoteOptionSDKType, voteOptionFromJSON, voteOptionToJSON } from "./gov";
+import { TextProposal, type TextProposalProtoMsg, type TextProposalSDKType } from "../v1beta1/gov";
+import { RegisterIncentiveProposal, type RegisterIncentiveProposalProtoMsg, type RegisterIncentiveProposalSDKType } from "../../../evmos/incentives/v1/incentives";
+import { ClientUpdateProposal, type ClientUpdateProposalProtoMsg, type ClientUpdateProposalSDKType, UpgradeProposal, type UpgradeProposalProtoMsg, type UpgradeProposalSDKType } from "../../../ibc/core/client/v1/client";
+import { ReplacePoolIncentivesProposal, type ReplacePoolIncentivesProposalProtoMsg, type ReplacePoolIncentivesProposalSDKType, UpdatePoolIncentivesProposal, type UpdatePoolIncentivesProposalProtoMsg, type UpdatePoolIncentivesProposalSDKType } from "../../../osmosis/pool-incentives/v1beta1/gov";
+import { UpdateFeeTokenProposal, type UpdateFeeTokenProposalProtoMsg, type UpdateFeeTokenProposalSDKType } from "../../../osmosis/txfees/v1beta1/gov";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet, DeepPartial } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { isSet, type DeepPartial } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "cosmos.gov.v1";
 /**

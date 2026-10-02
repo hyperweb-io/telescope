@@ -1,6 +1,6 @@
-import { ProposalExecutorResult, ProposalExecutorResultSDKType } from "./types";
+import { type ProposalExecutorResult, ProposalExecutorResultSDKType } from "./types";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 export const protobufPackage = "cosmos.group.v1";
 /**
  * EventCreateGroup is an event emitted when a group is created.

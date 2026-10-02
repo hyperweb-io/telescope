@@ -5,8 +5,8 @@ import { PageRequest, PageResponse } from "../../../cosmos/base/query/v1beta1/pa
 import { GroupID, Group } from "./group";
 import { Account } from "../../escrow/v1beta1/types";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial, Rpc } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { isSet, type DeepPartial, type Rpc } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "akash.deployment.v1beta1";
 /** QueryDeploymentsRequest is request type for the Query/Deployments RPC method */
 export interface QueryDeploymentsRequest {

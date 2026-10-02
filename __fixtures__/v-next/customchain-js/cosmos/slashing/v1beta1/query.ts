@@ -1,7 +1,7 @@
-import { PageRequest, PageRequestAmino, PageResponse, PageResponseAmino } from "../../base/query/v1beta1/pagination";
-import { ValidatorSigningInfo, ValidatorSigningInfoAmino, CosmosSlashingV1beta1Params, CosmosSlashingV1beta1ParamsAmino } from "./slashing";
+import { PageRequest, type PageRequestAmino, PageResponse, type PageResponseAmino } from "../../base/query/v1beta1/pagination";
+import { ValidatorSigningInfo, type ValidatorSigningInfoAmino, CosmosSlashingV1beta1Params, type CosmosSlashingV1beta1ParamsAmino } from "./slashing";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * QueryParamsRequest is the request type for the Query/Params RPC method
  * @name QueryParamsRequest

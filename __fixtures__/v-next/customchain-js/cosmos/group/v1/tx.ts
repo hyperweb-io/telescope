@@ -1,7 +1,7 @@
-import { Member, MemberAmino, VoteOption, ThresholdDecisionPolicy, ThresholdDecisionPolicyProtoMsg, PercentageDecisionPolicy, PercentageDecisionPolicyProtoMsg } from "./types";
-import { Any, AnyProtoMsg, AnyAmino } from "../../../google/protobuf/any";
+import { Member, type MemberAmino, type VoteOption, ThresholdDecisionPolicy, type ThresholdDecisionPolicyProtoMsg, PercentageDecisionPolicy, type PercentageDecisionPolicyProtoMsg } from "./types";
+import { Any, type AnyProtoMsg, type AnyAmino } from "../../../google/protobuf/any";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /** Exec defines modes of execution of a proposal on creation or on new vote. */
 export enum Exec {
   /**

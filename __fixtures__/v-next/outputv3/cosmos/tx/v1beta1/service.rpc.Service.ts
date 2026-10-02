@@ -4,7 +4,7 @@ import { TxResponse, TxResponseSDKType, GasInfo, GasInfoSDKType, Result, ResultS
 import { BlockID, BlockIDSDKType } from "../../../tendermint/types/types";
 import { Block, BlockSDKType } from "../../../tendermint/types/block";
 import * as fm from "../../../grpc-gateway";
-import { SimulateRequest, SimulateRequestSDKType, SimulateResponse, SimulateResponseSDKType, GetTxRequest, GetTxRequestSDKType, GetTxResponse, GetTxResponseSDKType, BroadcastTxRequest, BroadcastTxRequestSDKType, BroadcastTxResponse, BroadcastTxResponseSDKType, GetTxsEventRequest, GetTxsEventRequestSDKType, GetTxsEventResponse, GetTxsEventResponseSDKType, GetBlockWithTxsRequest, GetBlockWithTxsRequestSDKType, GetBlockWithTxsResponse, GetBlockWithTxsResponseSDKType } from "./service";
+import { type SimulateRequest, SimulateRequestSDKType, type SimulateResponse, SimulateResponseSDKType, type GetTxRequest, GetTxRequestSDKType, type GetTxResponse, GetTxResponseSDKType, type BroadcastTxRequest, BroadcastTxRequestSDKType, type BroadcastTxResponse, BroadcastTxResponseSDKType, type GetTxsEventRequest, GetTxsEventRequestSDKType, type GetTxsEventResponse, GetTxsEventResponseSDKType, type GetBlockWithTxsRequest, GetBlockWithTxsRequestSDKType, type GetBlockWithTxsResponse, GetBlockWithTxsResponseSDKType } from "./service";
 export class Service {
   /** Simulate simulates executing a transaction for estimating gas usage. */
   static simulate(request: SimulateRequest, initRequest?: fm.InitReq): Promise<SimulateResponse> {

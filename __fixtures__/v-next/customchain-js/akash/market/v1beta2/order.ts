@@ -1,6 +1,6 @@
-import { GroupSpec, GroupSpecAmino } from "../../deployment/v1beta2/groupspec";
+import { GroupSpec, type GroupSpecAmino } from "../../deployment/v1beta2/groupspec";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /** State is an enum which refers to state of order */
 export enum Order_State {
   /** invalid - Prefix should start with 0 in enum. So declaring dummy state */

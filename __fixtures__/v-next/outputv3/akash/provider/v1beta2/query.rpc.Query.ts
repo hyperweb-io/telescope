@@ -1,7 +1,7 @@
 import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../../cosmos/base/query/v1beta1/pagination";
 import { Provider, ProviderSDKType } from "./provider";
 import * as fm from "../../../grpc-gateway";
-import { QueryProvidersRequest, QueryProvidersRequestSDKType, QueryProvidersResponse, QueryProvidersResponseSDKType, QueryProviderRequest, QueryProviderRequestSDKType, QueryProviderResponse, QueryProviderResponseSDKType } from "./query";
+import { type QueryProvidersRequest, QueryProvidersRequestSDKType, type QueryProvidersResponse, QueryProvidersResponseSDKType, type QueryProviderRequest, QueryProviderRequestSDKType, type QueryProviderResponse, QueryProviderResponseSDKType } from "./query";
 export class Query {
   /** Providers queries providers */
   static providers(request: QueryProvidersRequest, initRequest?: fm.InitReq): Promise<QueryProvidersResponse> {

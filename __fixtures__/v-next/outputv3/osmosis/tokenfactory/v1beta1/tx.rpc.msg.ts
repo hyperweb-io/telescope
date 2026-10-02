@@ -1,7 +1,7 @@
 import { Coin, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
 import { Metadata, MetadataSDKType } from "../../../cosmos/bank/v1beta1/bank";
 import * as fm from "../../../grpc-gateway";
-import { MsgCreateDenom, MsgCreateDenomSDKType, MsgCreateDenomResponse, MsgCreateDenomResponseSDKType, MsgMint, MsgMintSDKType, MsgMintResponse, MsgMintResponseSDKType, MsgBurn, MsgBurnSDKType, MsgBurnResponse, MsgBurnResponseSDKType, MsgChangeAdmin, MsgChangeAdminSDKType, MsgChangeAdminResponse, MsgChangeAdminResponseSDKType, MsgSetDenomMetadata, MsgSetDenomMetadataSDKType, MsgSetDenomMetadataResponse, MsgSetDenomMetadataResponseSDKType } from "./tx";
+import { type MsgCreateDenom, MsgCreateDenomSDKType, type MsgCreateDenomResponse, MsgCreateDenomResponseSDKType, type MsgMint, MsgMintSDKType, type MsgMintResponse, MsgMintResponseSDKType, type MsgBurn, MsgBurnSDKType, type MsgBurnResponse, MsgBurnResponseSDKType, type MsgChangeAdmin, MsgChangeAdminSDKType, type MsgChangeAdminResponse, MsgChangeAdminResponseSDKType, type MsgSetDenomMetadata, MsgSetDenomMetadataSDKType, type MsgSetDenomMetadataResponse, MsgSetDenomMetadataResponseSDKType } from "./tx";
 export class Msg {
   static createDenom(request: MsgCreateDenom, initRequest?: fm.InitReq): Promise<MsgCreateDenomResponse> {
     return fm.fetchReq(`/osmosis.tokenfactory.v1beta1/createDenom`, {

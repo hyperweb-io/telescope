@@ -1,7 +1,7 @@
 import { PageRequest } from "../../query/v1beta1/pagination";
 import { grpc } from "@improbable-eng/grpc-web";
-import { UnaryMethodDefinitionish } from "../../../../grpc-web";
-import { DeepPartial } from "../../../../helpers";
+import type { UnaryMethodDefinitionish } from "../../../../grpc-web";
+import type { DeepPartial } from "../../../../helpers";
 import { BrowserHeaders } from "browser-headers";
 import { GetNodeInfoRequest, GetNodeInfoResponse, GetSyncingRequest, GetSyncingResponse, GetLatestBlockRequest, GetLatestBlockResponse, GetBlockByHeightRequest, GetBlockByHeightResponse, GetLatestValidatorSetRequest, GetLatestValidatorSetResponse, GetValidatorSetByHeightRequest, GetValidatorSetByHeightResponse } from "./query";
 /** Service defines the gRPC querier service for tendermint queries. */

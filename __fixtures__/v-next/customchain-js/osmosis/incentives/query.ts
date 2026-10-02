@@ -1,9 +1,9 @@
-import { PageRequest, PageRequestAmino, PageResponse, PageResponseAmino } from "../../cosmos/base/query/v1beta1/pagination";
-import { Coin, CoinAmino } from "../../cosmos/base/v1beta1/coin";
-import { Gauge, GaugeAmino } from "./gauge";
-import { Duration, DurationAmino } from "../../google/protobuf/duration";
+import { PageRequest, type PageRequestAmino, PageResponse, type PageResponseAmino } from "../../cosmos/base/query/v1beta1/pagination";
+import { Coin, type CoinAmino } from "../../cosmos/base/v1beta1/coin";
+import { Gauge, type GaugeAmino } from "./gauge";
+import { Duration, type DurationAmino } from "../../google/protobuf/duration";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { DeepPartial } from "../../helpers";
+import type { DeepPartial } from "../../helpers";
 /**
  * @name ModuleToDistributeCoinsRequest
  * @package osmosis.incentives

@@ -1,5 +1,5 @@
 import { buildUseQuery } from "../../../../react-query";
-import { QueryDenomTraceRequest, QueryDenomTraceResponse, QueryDenomTracesRequest, QueryDenomTracesResponse, QueryParamsRequest, QueryParamsResponse } from "./query";
+import type { QueryDenomTraceRequest, QueryDenomTraceResponse, QueryDenomTracesRequest, QueryDenomTracesResponse, QueryParamsRequest, QueryParamsResponse } from "./query";
 import { getDenomTrace, getDenomTraces, getIbcApplicationsTransferV1Params } from "./query.rpc.func";
 /**
  * DenomTrace queries a denomination trace information.

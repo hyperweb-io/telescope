@@ -1,7 +1,7 @@
-import { DecCoin, DecCoinAmino } from "../../../cosmos/base/v1beta1/coin";
+import { DecCoin, type DecCoinAmino } from "../../../cosmos/base/v1beta1/coin";
 import { Timestamp } from "../../../google/protobuf/timestamp";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { toTimestamp, fromTimestamp, DeepPartial } from "../../../helpers";
+import { toTimestamp, fromTimestamp, type DeepPartial } from "../../../helpers";
 /**
  * Incentive defines an instance that organizes distribution conditions for a
  * given smart contract

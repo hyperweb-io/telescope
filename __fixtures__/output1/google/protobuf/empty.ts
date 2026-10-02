@@ -1,6 +1,6 @@
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../json-safe";
-import { DeepPartial } from "../../helpers";
+import type { JsonSafe } from "../../json-safe";
+import type { DeepPartial } from "../../helpers";
 export const protobufPackage = "google.protobuf";
 /**
  * A generic empty message that you can re-use to avoid defining duplicated

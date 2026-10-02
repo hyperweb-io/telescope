@@ -1,6 +1,6 @@
-import { TokenPair, TokenPairAmino } from "./erc20";
+import { TokenPair, type TokenPairAmino } from "./erc20";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * GenesisState defines the module's genesis state.
  * @name GenesisState

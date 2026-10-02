@@ -1,8 +1,8 @@
-import { SourceInfo, SourceInfoAmino, Expr, ExprAmino, Constant, ConstantAmino } from "./syntax";
-import { Empty, EmptyAmino } from "../../../protobuf/empty";
-import { NullValue } from "../../../protobuf/struct";
+import { SourceInfo, type SourceInfoAmino, Expr, type ExprAmino, Constant, type ConstantAmino } from "./syntax";
+import { Empty, type EmptyAmino } from "../../../protobuf/empty";
+import type { NullValue } from "../../../protobuf/struct";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial } from "../../../../helpers";
+import type { DeepPartial } from "../../../../helpers";
 /** CEL primitive types. */
 export enum Type_PrimitiveType {
   /** PRIMITIVE_TYPE_UNSPECIFIED - Unspecified type. */

@@ -1,6 +1,6 @@
-import { Coin, CoinAmino } from "../../base/v1beta1/coin";
+import { Coin, type CoinAmino } from "../../base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * AuthorizationType defines the type of staking module authorization type
  * 

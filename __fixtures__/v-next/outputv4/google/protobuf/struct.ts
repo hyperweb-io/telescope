@@ -1,6 +1,6 @@
 import { BinaryReader, BinaryWriter } from "../../binary.js";
-import { isSet, DeepPartial, isObject } from "../../helpers.js";
-import { JsonSafe } from "../../json-safe.js";
+import { isSet, type DeepPartial, isObject } from "../../helpers.js";
+import type { JsonSafe } from "../../json-safe.js";
 export const protobufPackage = "google.protobuf";
 /**
  * `NullValue` is a singleton enumeration to represent the null value for the

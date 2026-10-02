@@ -1,9 +1,9 @@
-import { ExprValue, ExprValueAmino, ExprValueSDKType, IdRef, IdRefAmino, IdRefSDKType } from "../google/api/expr/v1alpha1/eval";
-import { FeatureSet_Utf8Validation, FeatureSet_Utf8ValidationSDKType, featureSet_Utf8ValidationFromJSON, featureSet_Utf8ValidationToJSON } from "../google/protobuf/descriptor";
-import { TestNest_Graph, TestNest_GraphAmino, TestNest_GraphSDKType } from "./nest";
+import { ExprValue, type ExprValueAmino, type ExprValueSDKType, IdRef, type IdRefAmino, type IdRefSDKType } from "../google/api/expr/v1alpha1/eval";
+import { type FeatureSet_Utf8Validation, FeatureSet_Utf8ValidationSDKType, featureSet_Utf8ValidationFromJSON, featureSet_Utf8ValidationToJSON } from "../google/protobuf/descriptor";
+import { TestNest_Graph, type TestNest_GraphAmino, type TestNest_GraphSDKType } from "./nest";
 import { BinaryReader, BinaryWriter } from "../binary";
-import { isSet, DeepPartial, isObject } from "../helpers";
-import { JsonSafe } from "../json-safe";
+import { isSet, type DeepPartial, isObject } from "../helpers";
+import type { JsonSafe } from "../json-safe";
 export const protobufPackage = "misc";
 /** VoteOption enumerates the valid vote options for a given governance proposal. */
 export enum VoteOption {

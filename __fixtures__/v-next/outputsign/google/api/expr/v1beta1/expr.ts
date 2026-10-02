@@ -1,7 +1,7 @@
-import { SourceInfo, SourceInfoAmino, SourceInfoSDKType } from "./source";
-import { NullValue, NullValueSDKType } from "../../../protobuf/struct";
+import { SourceInfo, type SourceInfoAmino, type SourceInfoSDKType } from "./source";
+import { type NullValue, NullValueSDKType } from "../../../protobuf/struct";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers";
+import { type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers";
 export const protobufPackage = "google.api.expr.v1beta1";
 /**
  * An expression together with source information as returned by the parser.

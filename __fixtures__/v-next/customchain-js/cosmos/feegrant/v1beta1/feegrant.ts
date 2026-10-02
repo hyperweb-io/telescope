@@ -1,9 +1,9 @@
-import { Coin, CoinAmino } from "../../base/v1beta1/coin";
+import { Coin, type CoinAmino } from "../../base/v1beta1/coin";
 import { Timestamp } from "../../../google/protobuf/timestamp";
-import { Duration, DurationAmino } from "../../../google/protobuf/duration";
-import { Any, AnyProtoMsg, AnyAmino } from "../../../google/protobuf/any";
+import { Duration, type DurationAmino } from "../../../google/protobuf/duration";
+import { Any, type AnyProtoMsg, type AnyAmino } from "../../../google/protobuf/any";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { toTimestamp, fromTimestamp, DeepPartial } from "../../../helpers";
+import { toTimestamp, fromTimestamp, type DeepPartial } from "../../../helpers";
 /**
  * BasicAllowance implements Allowance with a one-time grant of tokens
  * that optionally expires. The grantee can use up to SpendLimit to cover fees.

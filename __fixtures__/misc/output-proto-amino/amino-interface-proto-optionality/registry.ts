@@ -5,8 +5,8 @@
 */
 
 import { BinaryReader } from "./binary";
-import { Any, AnyAmino } from "./google/protobuf/any";
-import { IProtoType, TelescopeGeneratedCodec } from "./types";
+import { Any, type AnyAmino } from "./google/protobuf/any";
+import { type IProtoType, type TelescopeGeneratedCodec } from "./types";
 
 export class GlobalDecoderRegistry {
   static registry: {
@@ -27,14 +27,14 @@ export class GlobalDecoderRegistry {
     return true;
   }
 
-  static registerAminoProtoMapping(aminoType: string, typeUrl: string) {
+  static registerAminoProtoMapping(aminoType: string, typeUrl: string): void {
     GlobalDecoderRegistry.aminoProtoMapping[aminoType] = typeUrl;
   }
 
   static register<T, SDK, Amino>(
     key: string,
     decoder: TelescopeGeneratedCodec<T, SDK, Amino>
-  ) {
+  ): void {
     GlobalDecoderRegistry.registry[key] = decoder;
   }
   static getDecoder<T, SDK, Amino>(
@@ -108,7 +108,7 @@ export class GlobalDecoderRegistry {
       value: decoder.encode(obj).finish(),
     };
   }
-  static unwrapAny<T, SDK, Amino>(input: BinaryReader | Uint8Array | Any) {
+  static unwrapAny<T, SDK, Amino>(input: BinaryReader | Uint8Array | Any): T | Any {
     let data;
 
     if (Any.is(input)) {

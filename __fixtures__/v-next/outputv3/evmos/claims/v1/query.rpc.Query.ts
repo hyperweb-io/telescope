@@ -3,7 +3,7 @@ import { Coin, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
 import { Params, ParamsSDKType } from "./genesis";
 import { ClaimsRecordAddress, ClaimsRecordAddressSDKType, Claim, ClaimSDKType } from "./claims";
 import * as fm from "../../../grpc-gateway";
-import { QueryTotalUnclaimedRequest, QueryTotalUnclaimedRequestSDKType, QueryTotalUnclaimedResponse, QueryTotalUnclaimedResponseSDKType, QueryParamsRequest, QueryParamsRequestSDKType, QueryParamsResponse, QueryParamsResponseSDKType, QueryClaimsRecordsRequest, QueryClaimsRecordsRequestSDKType, QueryClaimsRecordsResponse, QueryClaimsRecordsResponseSDKType, QueryClaimsRecordRequest, QueryClaimsRecordRequestSDKType, QueryClaimsRecordResponse, QueryClaimsRecordResponseSDKType } from "./query";
+import { type QueryTotalUnclaimedRequest, QueryTotalUnclaimedRequestSDKType, type QueryTotalUnclaimedResponse, QueryTotalUnclaimedResponseSDKType, type QueryParamsRequest, QueryParamsRequestSDKType, type QueryParamsResponse, QueryParamsResponseSDKType, type QueryClaimsRecordsRequest, QueryClaimsRecordsRequestSDKType, type QueryClaimsRecordsResponse, QueryClaimsRecordsResponseSDKType, type QueryClaimsRecordRequest, QueryClaimsRecordRequestSDKType, type QueryClaimsRecordResponse, QueryClaimsRecordResponseSDKType } from "./query";
 export class Query {
   /** TotalUnclaimed queries the total unclaimed tokens from the airdrop */
   static totalUnclaimed(request: QueryTotalUnclaimedRequest, initRequest?: fm.InitReq): Promise<QueryTotalUnclaimedResponse> {

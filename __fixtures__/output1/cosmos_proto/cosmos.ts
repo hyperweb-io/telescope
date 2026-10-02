@@ -1,6 +1,6 @@
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial } from "../helpers";
-import { JsonSafe } from "../json-safe";
+import { isSet, type DeepPartial } from "../helpers";
+import type { JsonSafe } from "../json-safe";
 export const protobufPackage = "cosmos_proto";
 export enum ScalarType {
   SCALAR_TYPE_UNSPECIFIED = 0,

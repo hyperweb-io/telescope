@@ -1,8 +1,8 @@
-import { PublicKey, PublicKeyAmino, PublicKeySDKType } from "../crypto/keys";
+import { PublicKey, type PublicKeyAmino, type PublicKeySDKType } from "../crypto/keys";
 import { BinaryReader, BinaryWriter } from "../../binary";
 import { GlobalDecoderRegistry } from "../../registry";
-import { isSet, DeepPartial, bytesFromBase64, base64FromBytes } from "../../helpers";
-import { JsonSafe } from "../../json-safe";
+import { isSet, type DeepPartial, bytesFromBase64, base64FromBytes } from "../../helpers";
+import type { JsonSafe } from "../../json-safe";
 export const protobufPackage = "tendermint.types";
 /**
  * @name ValidatorSet

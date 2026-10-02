@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { Attribute, AttributeSDKType } from "../../base/v1beta2/attribute.js";
-import { AminoMsg } from "@cosmjs/amino";
-import { MsgSignProviderAttributes, MsgSignProviderAttributesSDKType, MsgDeleteProviderAttributes, MsgDeleteProviderAttributesSDKType } from "./audit.js";
+import type { AminoMsg } from "@cosmjs/amino";
+import { type MsgSignProviderAttributes, MsgSignProviderAttributesSDKType, type MsgDeleteProviderAttributes, MsgDeleteProviderAttributesSDKType } from "./audit.js";
 export interface MsgSignProviderAttributesAminoType extends AminoMsg {
   type: "mymessage-testonly";
   value: {

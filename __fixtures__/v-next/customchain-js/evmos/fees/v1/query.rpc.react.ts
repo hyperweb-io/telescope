@@ -1,5 +1,5 @@
 import { buildUseQuery } from "../../../react-query";
-import { QueryDevFeeInfosRequest, QueryDevFeeInfosResponse, QueryDevFeeInfoRequest, QueryDevFeeInfoResponse, QueryParamsRequest, QueryParamsResponse, QueryDevFeeInfosPerDeployerRequest, QueryDevFeeInfosPerDeployerResponse } from "./query";
+import type { QueryDevFeeInfosRequest, QueryDevFeeInfosResponse, QueryDevFeeInfoRequest, QueryDevFeeInfoResponse, QueryParamsRequest, QueryParamsResponse, QueryDevFeeInfosPerDeployerRequest, QueryDevFeeInfosPerDeployerResponse } from "./query";
 import { getDevFeeInfos, getDevFeeInfo, getEvmosFeesV1Params, getDevFeeInfosPerDeployer } from "./query.rpc.func";
 /**
  * DevFeeInfos retrieves all registered contracts for fee distribution

@@ -1,4 +1,4 @@
-import { ProtobufRpcClient } from "@cosmjs/stargate";
+import type { ProtobufRpcClient } from "@cosmjs/stargate";
 import * as _AkashCertV1beta2Queryrpc from "./akash/cert/v1beta2/query.rpc.Query.js";
 import * as _CosmosAuthV1beta1Queryrpc from "./cosmos/auth/v1beta1/query.rpc.Query.js";
 import * as _CosmosBankV1beta1Queryrpc from "./cosmos/bank/v1beta1/query.rpc.Query.js";

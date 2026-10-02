@@ -1,6 +1,6 @@
-import { DevFeeInfo, DevFeeInfoAmino, DevFeeInfoSDKType } from "./fees";
+import { DevFeeInfo, type DevFeeInfoAmino, type DevFeeInfoSDKType } from "./fees";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 import { Decimal } from "@interchainjs/math";
 export const protobufPackage = "evmos.fees.v1";
 /**

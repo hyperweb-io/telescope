@@ -1,5 +1,5 @@
 import { buildUseMutation } from "../../../react-query";
-import { MsgJoinPool, MsgExitPool, MsgSwapExactAmountIn, MsgSwapExactAmountOut, MsgJoinSwapExternAmountIn, MsgJoinSwapShareAmountOut, MsgExitSwapExternAmountOut, MsgExitSwapShareAmountIn } from "./tx";
+import type { MsgJoinPool, MsgExitPool, MsgSwapExactAmountIn, MsgSwapExactAmountOut, MsgJoinSwapExternAmountIn, MsgJoinSwapShareAmountOut, MsgExitSwapExternAmountOut, MsgExitSwapShareAmountIn } from "./tx";
 import { joinPool, exitPool, swapExactAmountIn, swapExactAmountOut, joinSwapExternAmountIn, joinSwapShareAmountOut, exitSwapExternAmountOut, exitSwapShareAmountIn } from "./tx.rpc.func";
 /**
  * @name useJoinPool

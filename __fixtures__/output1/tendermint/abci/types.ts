@@ -1,11 +1,11 @@
 import { Timestamp, TimestampSDKType } from "../../google/protobuf/timestamp";
-import { Header, HeaderSDKType } from "../types/types";
-import { ProofOps, ProofOpsSDKType } from "../crypto/proof";
-import { EvidenceParams, EvidenceParamsSDKType, ValidatorParams, ValidatorParamsSDKType, VersionParams, VersionParamsSDKType } from "../types/params";
-import { PublicKey, PublicKeySDKType } from "../crypto/keys";
-import { Long, isSet, DeepPartial, toTimestamp, fromTimestamp, fromJsonTimestamp, bytesFromBase64, base64FromBytes } from "../../helpers";
+import { Header, type HeaderSDKType } from "../types/types";
+import { ProofOps, type ProofOpsSDKType } from "../crypto/proof";
+import { EvidenceParams, type EvidenceParamsSDKType, ValidatorParams, type ValidatorParamsSDKType, VersionParams, type VersionParamsSDKType } from "../types/params";
+import { PublicKey, type PublicKeySDKType } from "../crypto/keys";
+import { Long, isSet, type DeepPartial, toTimestamp, fromTimestamp, fromJsonTimestamp, bytesFromBase64, base64FromBytes } from "../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../json-safe";
+import type { JsonSafe } from "../../json-safe";
 export const protobufPackage = "tendermint.abci";
 export enum CheckTxType {
   NEW = 0,

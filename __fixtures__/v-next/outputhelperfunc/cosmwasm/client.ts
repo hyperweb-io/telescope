@@ -1,8 +1,8 @@
-import { GeneratedType, Registry, OfflineSigner } from "@cosmjs/proto-signing";
+import { type GeneratedType, Registry, type OfflineSigner } from "@cosmjs/proto-signing";
 import { defaultRegistryTypes, AminoTypes, SigningStargateClient } from "@cosmjs/stargate";
-import { HttpEndpoint } from "@cosmjs/tendermint-rpc";
+import type { HttpEndpoint } from "@cosmjs/tendermint-rpc";
 import { createRpcClient } from "../extern";
-import { EncodeObject, StdFee, TxRpc, SigningClientParams } from "../types";
+import type { EncodeObject, StdFee, TxRpc, SigningClientParams } from "../types";
 import * as cosmwasmWasmV1TxRegistry from "./wasm/v1/tx.registry";
 import * as cosmwasmWasmV1TxAmino from "./wasm/v1/tx.amino";
 export const cosmwasmAminoConverters = {

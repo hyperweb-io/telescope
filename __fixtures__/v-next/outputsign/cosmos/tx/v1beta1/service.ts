@@ -1,10 +1,10 @@
-import { Tx, TxAmino, TxSDKType } from "./tx";
-import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageResponseAmino, PageResponseSDKType } from "../../base/query/v1beta1/pagination";
-import { TxResponse, TxResponseAmino, TxResponseSDKType, GasInfo, GasInfoAmino, GasInfoSDKType, Result, ResultAmino, ResultSDKType } from "../../base/abci/v1beta1/abci";
-import { BlockID, BlockIDAmino, BlockIDSDKType } from "../../../tendermint/types/types";
-import { Block, BlockAmino, BlockSDKType } from "../../../tendermint/types/block";
+import { Tx, type TxAmino, type TxSDKType } from "./tx";
+import { PageRequest, type PageRequestAmino, type PageRequestSDKType, PageResponse, type PageResponseAmino, type PageResponseSDKType } from "../../base/query/v1beta1/pagination";
+import { TxResponse, type TxResponseAmino, type TxResponseSDKType, GasInfo, type GasInfoAmino, type GasInfoSDKType, Result, type ResultAmino, type ResultSDKType } from "../../base/abci/v1beta1/abci";
+import { BlockID, type BlockIDAmino, type BlockIDSDKType } from "../../../tendermint/types/types";
+import { Block, type BlockAmino, type BlockSDKType } from "../../../tendermint/types/block";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers";
+import { type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers";
 export const protobufPackage = "cosmos.tx.v1beta1";
 /** OrderBy defines the sorting order */
 export enum OrderBy {

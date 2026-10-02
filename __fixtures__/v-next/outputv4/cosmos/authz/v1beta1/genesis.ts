@@ -1,7 +1,7 @@
-import { GrantAuthorization, GrantAuthorizationSDKType } from "./authz.js";
+import { GrantAuthorization, type GrantAuthorizationSDKType } from "./authz.js";
 import { BinaryReader, BinaryWriter } from "../../../binary.js";
-import { JsonSafe } from "../../../json-safe.js";
-import { DeepPartial } from "../../../helpers.js";
+import type { JsonSafe } from "../../../json-safe.js";
+import type { DeepPartial } from "../../../helpers.js";
 export const protobufPackage = "cosmos.authz.v1beta1";
 /**
  * GenesisState defines the authz module's genesis state.

@@ -1,8 +1,8 @@
-import { NullValue } from "../../../protobuf/struct";
-import { Duration, DurationAmino } from "../../../protobuf/duration";
+import type { NullValue } from "../../../protobuf/struct";
+import { Duration, type DurationAmino } from "../../../protobuf/duration";
 import { Timestamp } from "../../../protobuf/timestamp";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial, toTimestamp, fromTimestamp, bytesFromBase64, base64FromBytes } from "../../../../helpers";
+import { type DeepPartial, toTimestamp, fromTimestamp, bytesFromBase64, base64FromBytes } from "../../../../helpers";
 /**
  * An expression together with source information as returned by the parser.
  * @name ParsedExpr

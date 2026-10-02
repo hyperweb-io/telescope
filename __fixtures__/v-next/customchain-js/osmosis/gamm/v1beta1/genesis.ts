@@ -1,11 +1,11 @@
-import { Coin, CoinAmino } from "../../../cosmos/base/v1beta1/coin";
-import { Any, AnyProtoMsg, AnyAmino } from "../../../google/protobuf/any";
+import { Coin, type CoinAmino } from "../../../cosmos/base/v1beta1/coin";
+import { Any, type AnyProtoMsg, type AnyAmino } from "../../../google/protobuf/any";
 import { Pool as Pool1 } from "../pool-models/balancer/balancerPool";
-import { PoolProtoMsg as Pool1ProtoMsg } from "../pool-models/balancer/balancerPool";
+import type { PoolProtoMsg as Pool1ProtoMsg } from "../pool-models/balancer/balancerPool";
 import { Pool as Pool2 } from "../pool-models/stableswap/stableswap_pool";
-import { PoolProtoMsg as Pool2ProtoMsg } from "../pool-models/stableswap/stableswap_pool";
+import type { PoolProtoMsg as Pool2ProtoMsg } from "../pool-models/stableswap/stableswap_pool";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * Params holds parameters for the incentives module
  * @name OsmosisGammV1beta1Params

@@ -1,6 +1,6 @@
 import { Coin, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
 import * as fm from "../../../grpc-gateway";
-import { MsgConvertCoin, MsgConvertCoinSDKType, MsgConvertCoinResponse, MsgConvertCoinResponseSDKType, MsgConvertERC20, MsgConvertERC20SDKType, MsgConvertERC20Response, MsgConvertERC20ResponseSDKType } from "./tx";
+import { type MsgConvertCoin, MsgConvertCoinSDKType, type MsgConvertCoinResponse, MsgConvertCoinResponseSDKType, type MsgConvertERC20, MsgConvertERC20SDKType, type MsgConvertERC20Response, MsgConvertERC20ResponseSDKType } from "./tx";
 export class Msg {
   /**
    * ConvertCoin mints a ERC20 representation of the native Cosmos coin denom

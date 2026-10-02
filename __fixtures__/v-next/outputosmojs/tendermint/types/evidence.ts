@@ -1,9 +1,9 @@
-import { Vote, VoteSDKType, LightBlock, LightBlockSDKType } from "./types";
+import { Vote, type VoteSDKType, LightBlock, type LightBlockSDKType } from "./types";
 import { Timestamp, TimestampSDKType } from "../../google/protobuf/timestamp";
-import { Validator, ValidatorSDKType } from "./validator";
+import { Validator, type ValidatorSDKType } from "./validator";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { isSet, DeepPartial, toTimestamp, fromTimestamp } from "../../helpers";
-import { JsonSafe } from "../../json-safe";
+import { isSet, type DeepPartial, toTimestamp, fromTimestamp } from "../../helpers";
+import type { JsonSafe } from "../../json-safe";
 export const protobufPackage = "tendermint.types";
 /**
  * @name Evidence

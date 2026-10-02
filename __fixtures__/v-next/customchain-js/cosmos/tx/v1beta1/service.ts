@@ -1,10 +1,10 @@
-import { Tx, TxAmino } from "./tx";
-import { PageRequest, PageRequestAmino, PageResponse, PageResponseAmino } from "../../base/query/v1beta1/pagination";
-import { TxResponse, TxResponseAmino, GasInfo, GasInfoAmino, Result, ResultAmino } from "../../base/abci/v1beta1/abci";
-import { BlockID, BlockIDAmino } from "../../../tendermint/types/types";
-import { Block, BlockAmino } from "../../../tendermint/types/block";
+import { Tx, type TxAmino } from "./tx";
+import { PageRequest, type PageRequestAmino, PageResponse, type PageResponseAmino } from "../../base/query/v1beta1/pagination";
+import { TxResponse, type TxResponseAmino, GasInfo, type GasInfoAmino, Result, type ResultAmino } from "../../base/abci/v1beta1/abci";
+import { BlockID, type BlockIDAmino } from "../../../tendermint/types/types";
+import { Block, type BlockAmino } from "../../../tendermint/types/block";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers";
+import { type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers";
 /** OrderBy defines the sorting order */
 export enum OrderBy {
   /** ORDER_BY_UNSPECIFIED - ORDER_BY_UNSPECIFIED specifies an unknown sorting order. OrderBy defaults to ASC in this case. */

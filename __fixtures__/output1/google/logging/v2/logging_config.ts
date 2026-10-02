@@ -1,8 +1,8 @@
-import { FieldMask, FieldMaskSDKType } from "../../protobuf/field_mask";
+import { FieldMask, type FieldMaskSDKType } from "../../protobuf/field_mask";
 import { Timestamp, TimestampSDKType } from "../../protobuf/timestamp";
-import { Long, toTimestamp, fromTimestamp, isSet, fromJsonTimestamp, DeepPartial } from "../../../helpers";
+import { Long, toTimestamp, fromTimestamp, isSet, fromJsonTimestamp, type DeepPartial } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../json-safe";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "google.logging.v2";
 /** Deprecated. This is unused. */
 export enum LogSink_VersionFormat {

@@ -3,7 +3,7 @@ import { Input, InputSDKType, Output, OutputSDKType } from "./bank";
 import { buildTx } from "../../../helper-func-types";
 import { buildUseMutation } from "../../../react-query";
 import { buildUseVueMutation } from "../../../vue-query";
-import { MsgSend, MsgSendSDKType, MsgSendResponse, MsgSendResponseSDKType, MsgMultiSend, MsgMultiSendSDKType, MsgMultiSendResponse, MsgMultiSendResponseSDKType } from "./tx";
+import { type MsgSend, MsgSendSDKType, MsgSendResponse, MsgSendResponseSDKType, type MsgMultiSend, MsgMultiSendSDKType, MsgMultiSendResponse, MsgMultiSendResponseSDKType } from "./tx";
 import { send, multiSend } from "./tx.rpc.func";
 /**
  * Send defines a method for sending coins from one account to another account.

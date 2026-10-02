@@ -1,7 +1,7 @@
-import { PublicKey, PublicKeySDKType } from "../crypto/keys";
-import { Long, isSet, DeepPartial, bytesFromBase64, base64FromBytes } from "../../helpers";
+import { PublicKey, type PublicKeySDKType } from "../crypto/keys";
+import { Long, isSet, type DeepPartial, bytesFromBase64, base64FromBytes } from "../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../json-safe";
+import type { JsonSafe } from "../../json-safe";
 export const protobufPackage = "tendermint.types";
 export interface ValidatorSet {
   validators: Validator[];

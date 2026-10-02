@@ -1,11 +1,11 @@
-import { DeploymentFilters, DeploymentFiltersSDKType, DeploymentID, DeploymentIDSDKType, Deployment, DeploymentSDKType } from "./deployment";
-import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../../cosmos/base/query/v1beta1/pagination";
-import { GroupID, GroupIDSDKType } from "./groupid";
-import { Group, GroupSDKType } from "./group";
-import { Account, AccountSDKType } from "../../escrow/v1beta2/types";
+import { DeploymentFilters, type DeploymentFiltersSDKType, DeploymentID, type DeploymentIDSDKType, Deployment, type DeploymentSDKType } from "./deployment";
+import { PageRequest, type PageRequestSDKType, PageResponse, type PageResponseSDKType } from "../../../cosmos/base/query/v1beta1/pagination";
+import { GroupID, type GroupIDSDKType } from "./groupid";
+import { Group, type GroupSDKType } from "./group";
+import { Account, type AccountSDKType } from "../../escrow/v1beta2/types";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial, Exact } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { isSet, type DeepPartial, type Exact } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "akash.deployment.v1beta2";
 /** QueryDeploymentsRequest is request type for the Query/Deployments RPC method */
 export interface QueryDeploymentsRequest {

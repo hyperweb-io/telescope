@@ -1,10 +1,10 @@
-import { Description, DescriptionSDKType, CommissionRates, CommissionRatesSDKType } from "./staking.js";
-import { Any, AnySDKType } from "../../../google/protobuf/any.js";
-import { Coin, CoinSDKType } from "../../base/v1beta1/coin.js";
+import { Description, type DescriptionSDKType, CommissionRates, type CommissionRatesSDKType } from "./staking.js";
+import { Any, type AnySDKType } from "../../../google/protobuf/any.js";
+import { Coin, type CoinSDKType } from "../../base/v1beta1/coin.js";
 import { Timestamp, TimestampSDKType } from "../../../google/protobuf/timestamp.js";
 import { BinaryReader, BinaryWriter } from "../../../binary.js";
-import { isSet, DeepPartial, toTimestamp, fromTimestamp } from "../../../helpers.js";
-import { JsonSafe } from "../../../json-safe.js";
+import { isSet, type DeepPartial, toTimestamp, fromTimestamp } from "../../../helpers.js";
+import type { JsonSafe } from "../../../json-safe.js";
 import { encodePubkey, decodePubkey } from "@interchainjs/pubkey";
 import { Decimal } from "@interchainjs/math";
 export const protobufPackage = "cosmos.staking.v1beta1";

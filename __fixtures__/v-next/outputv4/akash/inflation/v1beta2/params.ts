@@ -1,7 +1,7 @@
 import { BinaryReader, BinaryWriter } from "../../../binary.js";
 import { Decimal } from "@interchainjs/math";
-import { isSet, DeepPartial, Exact } from "../../../helpers.js";
-import { JsonSafe } from "../../../json-safe.js";
+import { isSet, type DeepPartial, type Exact } from "../../../helpers.js";
+import type { JsonSafe } from "../../../json-safe.js";
 export const protobufPackage = "akash.inflation.v1beta2";
 /**
  * Params defines the parameters for the x/deployment package

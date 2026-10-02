@@ -1,9 +1,9 @@
 //@ts-nocheck
 /* eslint-disable */
 import { PeriodLock, SyntheticLock } from "./lock";
-import { Long, isSet, DeepPartial } from "../../helpers";
+import { Long, isSet, type DeepPartial } from "../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../json-safe";
+import type { JsonSafe } from "../../json-safe";
 export const protobufPackage = "osmosis.lockup";
 /** GenesisState defines the lockup module's genesis state. */
 export interface GenesisState {

@@ -1,6 +1,6 @@
-import { Plan, PlanAmino, ModuleVersion, ModuleVersionAmino } from "./upgrade";
+import { Plan, type PlanAmino, ModuleVersion, type ModuleVersionAmino } from "./upgrade";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers";
+import { type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers";
 /**
  * QueryCurrentPlanRequest is the request type for the Query/CurrentPlan RPC
  * method.

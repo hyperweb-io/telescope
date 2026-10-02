@@ -1,8 +1,8 @@
-import { Option, OptionSDKType, Syntax, SyntaxSDKType, syntaxFromJSON, syntaxToJSON } from "./type";
-import { SourceContext, SourceContextSDKType } from "./source_context";
+import { Option, type OptionSDKType, type Syntax, SyntaxSDKType, syntaxFromJSON, syntaxToJSON } from "./type";
+import { SourceContext, type SourceContextSDKType } from "./source_context";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial } from "../../helpers";
-import { JsonSafe } from "../../json-safe";
+import { isSet, type DeepPartial } from "../../helpers";
+import type { JsonSafe } from "../../json-safe";
 export const protobufPackage = "google.protobuf";
 /**
  * Api is a light-weight descriptor for an API Interface.

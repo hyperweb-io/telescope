@@ -1,7 +1,7 @@
-import { Grant, GrantSDKType } from "./feegrant.js";
+import { Grant, type GrantSDKType } from "./feegrant.js";
 import { BinaryReader, BinaryWriter } from "../../../binary.js";
-import { JsonSafe } from "../../../json-safe.js";
-import { DeepPartial } from "../../../helpers.js";
+import type { JsonSafe } from "../../../json-safe.js";
+import type { DeepPartial } from "../../../helpers.js";
 export const protobufPackage = "cosmos.feegrant.v1beta1";
 /**
  * GenesisState contains a set of fee allowances, persisted from the store

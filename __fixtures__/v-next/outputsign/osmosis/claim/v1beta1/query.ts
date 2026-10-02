@@ -1,8 +1,8 @@
-import { Action, ActionSDKType, ClaimRecord, ClaimRecordAmino, ClaimRecordSDKType } from "./claim";
-import { Coin, CoinAmino, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
-import { Params, ParamsAmino, ParamsSDKType } from "./params";
+import { type Action, ActionSDKType, ClaimRecord, type ClaimRecordAmino, type ClaimRecordSDKType } from "./claim";
+import { Coin, type CoinAmino, type CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
+import { Params, type ParamsAmino, type ParamsSDKType } from "./params";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 export const protobufPackage = "osmosis.claim.v1beta1";
 /**
  * QueryParamsRequest is the request type for the Query/Params RPC method.

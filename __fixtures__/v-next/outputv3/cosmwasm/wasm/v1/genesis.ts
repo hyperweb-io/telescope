@@ -1,8 +1,8 @@
-import { MsgStoreCode, MsgStoreCodeAmino, MsgStoreCodeSDKType, MsgInstantiateContract, MsgInstantiateContractAmino, MsgInstantiateContractSDKType, MsgExecuteContract, MsgExecuteContractAmino, MsgExecuteContractSDKType } from "./tx";
-import { Params, ParamsAmino, ParamsSDKType, CodeInfo, CodeInfoAmino, CodeInfoSDKType, ContractInfo, ContractInfoAmino, ContractInfoSDKType, Model, ModelAmino, ModelSDKType } from "./types";
+import { MsgStoreCode, type MsgStoreCodeAmino, type MsgStoreCodeSDKType, MsgInstantiateContract, type MsgInstantiateContractAmino, type MsgInstantiateContractSDKType, MsgExecuteContract, type MsgExecuteContractAmino, type MsgExecuteContractSDKType } from "./tx";
+import { Params, type ParamsAmino, type ParamsSDKType, CodeInfo, type CodeInfoAmino, type CodeInfoSDKType, ContractInfo, type ContractInfoAmino, type ContractInfoSDKType, Model, type ModelAmino, type ModelSDKType } from "./types";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { GlobalDecoderRegistry } from "../../../registry";
-import { isSet, DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers";
+import { isSet, type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers";
 export const protobufPackage = "cosmwasm.wasm.v1";
 /**
  * GenesisState - genesis state of x/wasm

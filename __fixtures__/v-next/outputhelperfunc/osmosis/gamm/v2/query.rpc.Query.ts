@@ -1,7 +1,7 @@
-import { TxRpc } from "../../../types";
+import type { TxRpc } from "../../../types";
 import { BinaryReader } from "../../../binary";
-import { ReactQueryParams } from "../../../react-query";
-import { QueryClient, createProtobufRpcClient, ProtobufRpcClient } from "@cosmjs/stargate";
+import type { ReactQueryParams } from "../../../react-query";
+import { QueryClient, createProtobufRpcClient, type ProtobufRpcClient } from "@cosmjs/stargate";
 import { useQuery } from "@tanstack/react-query";
 import { QueryStore, MobxResponse } from "../../../mobx";
 import { makeObservable, override } from "mobx";

@@ -1,5 +1,5 @@
 import { buildUseMutation } from "../../../react-query";
-import { MsgSoftwareUpgrade, MsgCancelUpgrade } from "./tx";
+import type { MsgSoftwareUpgrade, MsgCancelUpgrade } from "./tx";
 import { softwareUpgrade, cancelUpgrade } from "./tx.rpc.func";
 /**
  * SoftwareUpgrade is a governance operation for initiating a software upgrade.

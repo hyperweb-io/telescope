@@ -1,12 +1,12 @@
-import { Description, DescriptionAmino, CommissionRates, CommissionRatesAmino } from "./staking";
-import { Any, AnyProtoMsg, AnyAmino } from "../../../google/protobuf/any";
-import { Coin, CoinAmino } from "../../base/v1beta1/coin";
+import { Description, type DescriptionAmino, CommissionRates, type CommissionRatesAmino } from "./staking";
+import { Any, type AnyProtoMsg, type AnyAmino } from "../../../google/protobuf/any";
+import { Coin, type CoinAmino } from "../../base/v1beta1/coin";
 import { Timestamp } from "../../../google/protobuf/timestamp";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial, toTimestamp, fromTimestamp } from "../../../helpers";
+import { type DeepPartial, toTimestamp, fromTimestamp } from "../../../helpers";
 import { encodePubkey, decodePubkey } from "@interchainjs/pubkey";
 import { Decimal } from "@interchainjs/math";
-import { Pubkey } from "@cosmjs/amino";
+import type { Pubkey } from "@cosmjs/amino";
 /**
  * MsgCreateValidator defines a SDK message for creating a new validator.
  * @name MsgCreateValidator

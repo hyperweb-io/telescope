@@ -1,11 +1,11 @@
-import { DeploymentFilters, DeploymentFiltersAmino, DeploymentFiltersSDKType, DeploymentID, DeploymentIDAmino, DeploymentIDSDKType, Deployment, DeploymentAmino, DeploymentSDKType } from "./deployment";
-import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageResponseAmino, PageResponseSDKType } from "../../../cosmos/base/query/v1beta1/pagination";
-import { GroupID, GroupIDAmino, GroupIDSDKType, Group, GroupAmino, GroupSDKType } from "./group";
-import { Account, AccountAmino, AccountSDKType } from "../../escrow/v1beta1/types";
+import { DeploymentFilters, type DeploymentFiltersAmino, type DeploymentFiltersSDKType, DeploymentID, type DeploymentIDAmino, type DeploymentIDSDKType, Deployment, type DeploymentAmino, type DeploymentSDKType } from "./deployment";
+import { PageRequest, type PageRequestAmino, type PageRequestSDKType, PageResponse, type PageResponseAmino, type PageResponseSDKType } from "../../../cosmos/base/query/v1beta1/pagination";
+import { GroupID, type GroupIDAmino, type GroupIDSDKType, Group, type GroupAmino, type GroupSDKType } from "./group";
+import { Account, type AccountAmino, type AccountSDKType } from "../../escrow/v1beta1/types";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { Exact } from "../../../helpers";
-import { TxRpc } from "../../../types";
-import { QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
+import type { Exact } from "../../../helpers";
+import type { TxRpc } from "../../../types";
+import { type QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
 export const protobufPackage = "akash.deployment.v1beta1";
 /**
  * QueryDeploymentsRequest is request type for the Query/Deployments RPC method

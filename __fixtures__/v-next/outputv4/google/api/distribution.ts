@@ -1,8 +1,8 @@
 import { Timestamp, TimestampSDKType } from "../protobuf/timestamp.js";
-import { Any, AnySDKType } from "../protobuf/any.js";
+import { Any, type AnySDKType } from "../protobuf/any.js";
 import { BinaryReader, BinaryWriter } from "../../binary.js";
-import { isSet, DeepPartial, toTimestamp, fromTimestamp } from "../../helpers.js";
-import { JsonSafe } from "../../json-safe.js";
+import { isSet, type DeepPartial, toTimestamp, fromTimestamp } from "../../helpers.js";
+import type { JsonSafe } from "../../json-safe.js";
 export const protobufPackage = "google.api";
 /**
  * `Distribution` contains summary statistics for a population of values. It

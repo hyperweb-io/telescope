@@ -1,5 +1,5 @@
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial } from "../../../../helpers";
+import type { DeepPartial } from "../../../../helpers";
 export const protobufPackage = "cosmos.base.reflection.v2alpha1";
 /**
  * AppDescriptor describes a cosmos-sdk based application

@@ -1,6 +1,6 @@
-import { IdentifiedChannel, IdentifiedChannelAmino, IdentifiedChannelSDKType, PacketState, PacketStateAmino, PacketStateSDKType } from "./channel";
+import { IdentifiedChannel, type IdentifiedChannelAmino, type IdentifiedChannelSDKType, PacketState, type PacketStateAmino, type PacketStateSDKType } from "./channel";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { isSet, DeepPartial } from "../../../../helpers";
+import { isSet, type DeepPartial } from "../../../../helpers";
 import { GlobalDecoderRegistry } from "../../../../registry";
 export const protobufPackage = "ibc.core.channel.v1";
 /**

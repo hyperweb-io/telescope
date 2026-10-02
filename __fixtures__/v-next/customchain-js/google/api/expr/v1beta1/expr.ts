@@ -1,7 +1,7 @@
-import { SourceInfo, SourceInfoAmino } from "./source";
-import { NullValue } from "../../../protobuf/struct";
+import { SourceInfo, type SourceInfoAmino } from "./source";
+import type { NullValue } from "../../../protobuf/struct";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers";
+import { type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers";
 /**
  * An expression together with source information as returned by the parser.
  * @name ParsedExpr

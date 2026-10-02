@@ -1,11 +1,11 @@
-import { MonitoredResource, MonitoredResourceAmino } from "../../api/monitored_resource";
-import { Any, AnyAmino } from "../../protobuf/any";
-import { Struct, StructAmino } from "../../protobuf/struct";
+import { MonitoredResource, type MonitoredResourceAmino } from "../../api/monitored_resource";
+import { Any, type AnyAmino } from "../../protobuf/any";
+import { Struct, type StructAmino } from "../../protobuf/struct";
 import { Timestamp } from "../../protobuf/timestamp";
-import { LogSeverity } from "../type/log_severity";
-import { HttpRequest, HttpRequestAmino } from "../type/http_request";
+import type { LogSeverity } from "../type/log_severity";
+import { HttpRequest, type HttpRequestAmino } from "../type/http_request";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial, toTimestamp, fromTimestamp } from "../../../helpers";
+import { type DeepPartial, toTimestamp, fromTimestamp } from "../../../helpers";
 /**
  * @name LogEntry_LabelsEntry
  * @package google.logging.v2

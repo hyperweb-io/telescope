@@ -1,8 +1,8 @@
-import { MetricValueSet, MetricValueSetAmino, MetricValueSetSDKType } from "./metric_value";
-import { Status, StatusAmino, StatusSDKType } from "../../../rpc/status";
+import { MetricValueSet, type MetricValueSetAmino, type MetricValueSetSDKType } from "./metric_value";
+import { Status, type StatusAmino, type StatusSDKType } from "../../../rpc/status";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
 import { GlobalDecoderRegistry } from "../../../../registry";
-import { isSet, DeepPartial, isObject } from "../../../../helpers";
+import { isSet, type DeepPartial, isObject } from "../../../../helpers";
 export const protobufPackage = "google.api.servicecontrol.v1";
 /** Supported quota modes. */
 export enum QuotaOperation_QuotaMode {

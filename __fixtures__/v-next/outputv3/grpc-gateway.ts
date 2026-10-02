@@ -138,7 +138,7 @@ export type NotifyStreamEntityArrival<T> = (resp: T) => void
  * it takes NotifyStreamEntityArrival that lets users respond to entity arrival during the call
  * all entities will be returned as an array after the call finishes.
  **/
-export async function fetchStreamingRequest<S, R>(path: string, callback?: NotifyStreamEntityArrival<R>, init?: InitReq) {
+export async function fetchStreamingRequest<S, R>(path: string, callback?: NotifyStreamEntityArrival<R>, init?: InitReq): Promise<void> {
   const {pathPrefix, ...req} = init || {}
   const url = pathPrefix ? `${pathPrefix}${path}` : path
   const result = await fetch(url, req)

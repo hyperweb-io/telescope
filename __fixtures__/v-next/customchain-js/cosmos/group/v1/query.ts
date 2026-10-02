@@ -1,7 +1,7 @@
-import { PageRequest, PageRequestAmino, PageResponse, PageResponseAmino } from "../../base/query/v1beta1/pagination";
-import { GroupInfo, GroupInfoAmino, GroupPolicyInfo, GroupPolicyInfoAmino, GroupMember, GroupMemberAmino, Proposal, ProposalAmino, Vote, VoteAmino, TallyResult, TallyResultAmino } from "./types";
+import { PageRequest, type PageRequestAmino, PageResponse, type PageResponseAmino } from "../../base/query/v1beta1/pagination";
+import { GroupInfo, type GroupInfoAmino, GroupPolicyInfo, type GroupPolicyInfoAmino, GroupMember, type GroupMemberAmino, Proposal, type ProposalAmino, Vote, type VoteAmino, TallyResult, type TallyResultAmino } from "./types";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * QueryGroupInfoRequest is the Query/GroupInfo request type.
  * @name QueryGroupInfoRequest

@@ -1,4 +1,4 @@
-import { GeneratedType, Registry } from "@cosmjs/proto-signing";
+import type { GeneratedType, Registry } from "@cosmjs/proto-signing";
 import { MsgUnjail, MsgUnjailSDKType } from "./tx";
 export const registry: ReadonlyArray<[string, GeneratedType]> = [["/cosmos.slashing.v1beta1.MsgUnjail", MsgUnjail]];
 export const load = (protoRegistry: Registry) => {

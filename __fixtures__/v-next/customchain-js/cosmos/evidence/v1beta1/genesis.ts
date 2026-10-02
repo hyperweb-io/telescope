@@ -1,6 +1,6 @@
-import { Any, AnyAmino } from "../../../google/protobuf/any";
+import { Any, type AnyAmino } from "../../../google/protobuf/any";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * GenesisState defines the evidence module's genesis state.
  * @name GenesisState

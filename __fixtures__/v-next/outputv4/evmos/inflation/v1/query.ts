@@ -1,8 +1,8 @@
-import { DecCoin, DecCoinSDKType } from "../../../cosmos/base/v1beta1/coin.js";
-import { Params, ParamsSDKType } from "./genesis.js";
+import { DecCoin, type DecCoinSDKType } from "../../../cosmos/base/v1beta1/coin.js";
+import { Params, type ParamsSDKType } from "./genesis.js";
 import { BinaryReader, BinaryWriter } from "../../../binary.js";
-import { JsonSafe } from "../../../json-safe.js";
-import { DeepPartial, isSet } from "../../../helpers.js";
+import type { JsonSafe } from "../../../json-safe.js";
+import { type DeepPartial, isSet } from "../../../helpers.js";
 import { Decimal } from "@interchainjs/math";
 export const protobufPackage = "evmos.inflation.v1";
 /**

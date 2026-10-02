@@ -1,7 +1,7 @@
-import { Any, AnyAmino } from "../../../google/protobuf/any";
+import { Any, type AnyAmino } from "../../../google/protobuf/any";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
-import { CosmosAuthV1beta1Params, CosmosAuthV1beta1ParamsAmino } from "./auth";
+import type { DeepPartial } from "../../../helpers";
+import { CosmosAuthV1beta1Params, type CosmosAuthV1beta1ParamsAmino } from "./auth";
 /**
  * GenesisState defines the auth module's genesis state.
  * @name GenesisState

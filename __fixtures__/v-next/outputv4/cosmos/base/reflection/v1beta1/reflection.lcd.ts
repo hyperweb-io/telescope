@@ -1,5 +1,5 @@
-import { LCDClient } from "@cosmology/lcd";
-import { ListAllInterfacesRequest, ListAllInterfacesRequestSDKType, ListAllInterfacesResponse, ListAllInterfacesResponseSDKType, ListImplementationsRequest, ListImplementationsRequestSDKType, ListImplementationsResponse, ListImplementationsResponseSDKType } from "./reflection.js";
+import type { LCDClient } from "@cosmology/lcd";
+import { type ListAllInterfacesRequest, ListAllInterfacesRequestSDKType, ListAllInterfacesResponse, type ListAllInterfacesResponseSDKType, type ListImplementationsRequest, ListImplementationsRequestSDKType, ListImplementationsResponse, type ListImplementationsResponseSDKType } from "./reflection.js";
 export class LCDQueryClient {
   req: LCDClient;
   constructor({

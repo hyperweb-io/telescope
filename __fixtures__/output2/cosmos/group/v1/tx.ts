@@ -1,10 +1,10 @@
 //@ts-nocheck
 /* eslint-disable */
-import { Member, VoteOption, voteOptionFromJSON, voteOptionToJSON } from "./types";
+import { Member, type VoteOption, voteOptionFromJSON, voteOptionToJSON } from "./types";
 import { Any } from "../../../google/protobuf/any";
-import { Long, isSet, DeepPartial, Rpc } from "../../../helpers";
+import { Long, isSet, type DeepPartial, type Rpc } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../json-safe";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "cosmos.group.v1";
 /** Exec defines modes of execution of a proposal on creation or on new vote. */
 export enum Exec {

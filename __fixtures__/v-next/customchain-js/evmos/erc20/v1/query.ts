@@ -1,8 +1,8 @@
-import { PageRequest, PageRequestAmino, PageResponse, PageResponseAmino } from "../../../cosmos/base/query/v1beta1/pagination";
-import { TokenPair, TokenPairAmino } from "./erc20";
+import { PageRequest, type PageRequestAmino, PageResponse, type PageResponseAmino } from "../../../cosmos/base/query/v1beta1/pagination";
+import { TokenPair, type TokenPairAmino } from "./erc20";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
-import { EvmosErc20V1Params, EvmosErc20V1ParamsAmino } from "./genesis";
+import type { DeepPartial } from "../../../helpers";
+import { EvmosErc20V1Params, type EvmosErc20V1ParamsAmino } from "./genesis";
 /**
  * QueryTokenPairsRequest is the request type for the Query/TokenPairs RPC
  * method.

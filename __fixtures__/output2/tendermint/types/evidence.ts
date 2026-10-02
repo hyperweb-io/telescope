@@ -3,9 +3,9 @@
 import { Vote, LightBlock } from "./types";
 import { Timestamp } from "../../google/protobuf/timestamp";
 import { Validator } from "./validator";
-import { Long, isSet, DeepPartial, fromJsonTimestamp, fromTimestamp } from "../../helpers";
+import { Long, isSet, type DeepPartial, fromJsonTimestamp, fromTimestamp } from "../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../json-safe";
+import type { JsonSafe } from "../../json-safe";
 export const protobufPackage = "tendermint.types";
 export interface Evidence {
   duplicateVoteEvidence?: DuplicateVoteEvidence;

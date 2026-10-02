@@ -1,13 +1,13 @@
-import { Header, HeaderAmino } from "../../../tendermint/types/types";
+import { Header, type HeaderAmino } from "../../../tendermint/types/types";
 import { Timestamp } from "../../../google/protobuf/timestamp";
-import { Any, AnyProtoMsg, AnyAmino } from "../../../google/protobuf/any";
-import { Duration, DurationAmino } from "../../../google/protobuf/duration";
-import { Coin, CoinAmino } from "../../base/v1beta1/coin";
+import { Any, type AnyProtoMsg, type AnyAmino } from "../../../google/protobuf/any";
+import { Duration, type DurationAmino } from "../../../google/protobuf/duration";
+import { Coin, type CoinAmino } from "../../base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial, toTimestamp, fromTimestamp } from "../../../helpers";
+import { type DeepPartial, toTimestamp, fromTimestamp } from "../../../helpers";
 import { Decimal } from "@interchainjs/math";
 import { encodePubkey, decodePubkey } from "@interchainjs/pubkey";
-import { Pubkey } from "@cosmjs/amino";
+import type { Pubkey } from "@cosmjs/amino";
 /** BondStatus is the status of a validator. */
 export enum BondStatus {
   /** BOND_STATUS_UNSPECIFIED - UNSPECIFIED defines an invalid validator status. */

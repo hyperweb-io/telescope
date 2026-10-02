@@ -1,11 +1,11 @@
 import { GenesisState as GenesisState1 } from "../../client/v1/genesis";
-import { GenesisStateAmino as GenesisState1Amino } from "../../client/v1/genesis";
+import type { GenesisStateAmino as GenesisState1Amino } from "../../client/v1/genesis";
 import { GenesisState as GenesisState2 } from "../../connection/v1/genesis";
-import { GenesisStateAmino as GenesisState2Amino } from "../../connection/v1/genesis";
+import type { GenesisStateAmino as GenesisState2Amino } from "../../connection/v1/genesis";
 import { GenesisState as GenesisState3 } from "../../channel/v1/genesis";
-import { GenesisStateAmino as GenesisState3Amino } from "../../channel/v1/genesis";
+import type { GenesisStateAmino as GenesisState3Amino } from "../../channel/v1/genesis";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial } from "../../../../helpers";
+import type { DeepPartial } from "../../../../helpers";
 /**
  * GenesisState defines the ibc module's genesis state.
  * @name GenesisState

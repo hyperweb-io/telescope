@@ -1,6 +1,6 @@
-import { IdentifiedClientState, IdentifiedClientStateAmino, ClientConsensusStates, ClientConsensusStatesAmino, IbcCoreClientV1Params, IbcCoreClientV1ParamsAmino } from "./client";
+import { IdentifiedClientState, type IdentifiedClientStateAmino, ClientConsensusStates, type ClientConsensusStatesAmino, IbcCoreClientV1Params, type IbcCoreClientV1ParamsAmino } from "./client";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers";
+import { type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers";
 /**
  * GenesisState defines the ibc client submodule's genesis state.
  * @name GenesisState

@@ -1,11 +1,11 @@
-import { AccessConfig, AccessConfigSDKType, VoteOption, VoteOptionSDKType, voteOptionFromJSON, voteOptionToJSON } from "./eval_request";
-import { Any, AnySDKType } from "../google/protobuf/any";
-import { Duration, DurationSDKType } from "../google/protobuf/duration";
+import { AccessConfig, type AccessConfigSDKType, type VoteOption, VoteOptionSDKType, voteOptionFromJSON, voteOptionToJSON } from "./eval_request";
+import { Any, type AnySDKType } from "../google/protobuf/any";
+import { Duration, type DurationSDKType } from "../google/protobuf/duration";
 import { Timestamp, TimestampSDKType } from "../google/protobuf/timestamp";
 import { BinaryReader, BinaryWriter } from "../binary";
-import { toTimestamp, fromTimestamp, isSet, bytesFromBase64, base64FromBytes, DeepPartial } from "../helpers";
+import { toTimestamp, fromTimestamp, isSet, bytesFromBase64, base64FromBytes, type DeepPartial } from "../helpers";
 import { Decimal } from "@interchainjs/math";
-import { JsonSafe } from "../json-safe";
+import type { JsonSafe } from "../json-safe";
 export const protobufPackage = "misc";
 /**
  * @name EncodingTestForDontOmit

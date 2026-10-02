@@ -1,7 +1,7 @@
-import { Coin, CoinSDKType } from "../../cosmos/base/v1beta1/coin";
-import { Long, isSet, DeepPartial } from "../../helpers";
+import { Coin, type CoinSDKType } from "../../cosmos/base/v1beta1/coin";
+import { Long, isSet, type DeepPartial } from "../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../json-safe";
+import type { JsonSafe } from "../../json-safe";
 export const protobufPackage = "osmosis.superfluid";
 /**
  * SuperfluidAssetType indicates whether the superfluid asset is

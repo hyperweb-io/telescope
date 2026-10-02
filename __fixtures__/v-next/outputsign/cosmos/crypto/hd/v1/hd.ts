@@ -1,5 +1,5 @@
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial } from "../../../../helpers";
+import type { DeepPartial } from "../../../../helpers";
 export const protobufPackage = "cosmos.crypto.hd.v1";
 /**
  * BIP44Params is used as path field in ledger item in Record.

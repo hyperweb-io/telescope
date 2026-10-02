@@ -1,10 +1,10 @@
 import { Counterparty, CounterpartySDKType, Version, VersionSDKType } from "./connection.js";
 import { Any, AnySDKType } from "../../../../google/protobuf/any.js";
 import { Height, HeightSDKType } from "../../client/v1/client.js";
-import { AminoMsg } from "@cosmjs/amino";
-import { AminoHeight, omitDefault } from "../../../../helpers.js";
+import type { AminoMsg } from "@cosmjs/amino";
+import { type AminoHeight, omitDefault } from "../../../../helpers.js";
 import { MerklePrefix, MerklePrefixSDKType } from "../../commitment/v1/commitment.js";
-import { MsgConnectionOpenInit, MsgConnectionOpenInitSDKType, MsgConnectionOpenTry, MsgConnectionOpenTrySDKType, MsgConnectionOpenAck, MsgConnectionOpenAckSDKType, MsgConnectionOpenConfirm, MsgConnectionOpenConfirmSDKType } from "./tx.js";
+import { type MsgConnectionOpenInit, MsgConnectionOpenInitSDKType, type MsgConnectionOpenTry, MsgConnectionOpenTrySDKType, type MsgConnectionOpenAck, MsgConnectionOpenAckSDKType, type MsgConnectionOpenConfirm, MsgConnectionOpenConfirmSDKType } from "./tx.js";
 export interface MsgConnectionOpenInitAminoType extends AminoMsg {
   type: "cosmos-sdk/MsgConnectionOpenInit";
   value: {

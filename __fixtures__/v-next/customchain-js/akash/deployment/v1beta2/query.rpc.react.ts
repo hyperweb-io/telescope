@@ -1,5 +1,5 @@
 import { buildUseQuery } from "../../../react-query";
-import { QueryDeploymentsRequest, QueryDeploymentsResponse, QueryDeploymentRequest, QueryDeploymentResponse, QueryGroupRequest, QueryGroupResponse } from "./query";
+import type { QueryDeploymentsRequest, QueryDeploymentsResponse, QueryDeploymentRequest, QueryDeploymentResponse, QueryGroupRequest, QueryGroupResponse } from "./query";
 import { getDeployments, getDeployment, getGroup } from "./query.rpc.func";
 /**
  * Deployments queries deployments

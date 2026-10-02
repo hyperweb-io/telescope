@@ -1,6 +1,6 @@
-import { ExponentialCalculation, ExponentialCalculationAmino, InflationDistribution, InflationDistributionAmino } from "./inflation";
+import { ExponentialCalculation, type ExponentialCalculationAmino, InflationDistribution, type InflationDistributionAmino } from "./inflation";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * GenesisState defines the inflation module's genesis state.
  * @name GenesisState

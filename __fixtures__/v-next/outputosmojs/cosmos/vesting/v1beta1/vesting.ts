@@ -1,8 +1,8 @@
-import { BaseAccount, BaseAccountSDKType } from "../../auth/v1beta1/auth";
-import { Coin, CoinSDKType } from "../../base/v1beta1/coin";
+import { BaseAccount, type BaseAccountSDKType } from "../../auth/v1beta1/auth";
+import { Coin, type CoinSDKType } from "../../base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet, DeepPartial } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { isSet, type DeepPartial } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "cosmos.vesting.v1beta1";
 /**
  * BaseVestingAccount implements the VestingAccount interface. It contains all

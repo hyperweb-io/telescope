@@ -22,7 +22,7 @@ export const getBinaryReaderImport = (options: TelescopeOptions) =>
 
 export const getBinaryTypesImport = (options: TelescopeOptions) =>
   isBigint64(options)
-    ? `import { IBinaryReader, IBinaryWriter } from "./binary${restoreImportExtension(
+    ? `import type { IBinaryReader, IBinaryWriter } from "./binary${restoreImportExtension(
         options
       )}";`
     : 'import * as _m0 from "protobufjs/minimal";';

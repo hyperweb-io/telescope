@@ -1,6 +1,6 @@
-import { Provider, ProviderAmino, ProviderSDKType } from "./provider";
+import { Provider, type ProviderAmino, type ProviderSDKType } from "./provider";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "akash.provider.v1beta2";
 /**

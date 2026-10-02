@@ -1,8 +1,8 @@
-import { Any, AnySDKType } from "../../../../google/protobuf/any.js";
-import { Plan, PlanSDKType } from "../../../../cosmos/upgrade/v1beta1/upgrade.js";
+import { Any, type AnySDKType } from "../../../../google/protobuf/any.js";
+import { Plan, type PlanSDKType } from "../../../../cosmos/upgrade/v1beta1/upgrade.js";
 import { BinaryReader, BinaryWriter } from "../../../../binary.js";
-import { isSet, DeepPartial } from "../../../../helpers.js";
-import { JsonSafe } from "../../../../json-safe.js";
+import { isSet, type DeepPartial } from "../../../../helpers.js";
+import type { JsonSafe } from "../../../../json-safe.js";
 export const protobufPackage = "ibc.core.client.v1";
 /**
  * IdentifiedClientState defines a client state with an additional client

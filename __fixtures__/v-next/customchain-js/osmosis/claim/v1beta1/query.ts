@@ -1,8 +1,8 @@
-import { Action, ClaimRecord, ClaimRecordAmino } from "./claim";
-import { Coin, CoinAmino } from "../../../cosmos/base/v1beta1/coin";
+import { type Action, ClaimRecord, type ClaimRecordAmino } from "./claim";
+import { Coin, type CoinAmino } from "../../../cosmos/base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
-import { OsmosisClaimV1beta1Params, OsmosisClaimV1beta1ParamsAmino } from "./params";
+import type { DeepPartial } from "../../../helpers";
+import { OsmosisClaimV1beta1Params, type OsmosisClaimV1beta1ParamsAmino } from "./params";
 /**
  * QueryParamsRequest is the request type for the Query/Params RPC method.
  * @name QueryModuleAccountBalanceRequest

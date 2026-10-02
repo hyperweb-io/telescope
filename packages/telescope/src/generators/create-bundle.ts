@@ -100,6 +100,7 @@ export const plugin = (builder: TelescopeBuilder, bundler: Bundler) => {
         // export each, some duplicated with alias
         const typesWithAlias = exportObj.exportedIdentifiers.map(
           (identifier) => {
+            const isType = exportObj.typeIdentifiers.includes(identifier);
             const duplicatedType = duplicatedTypeNames.find(
               (type) => type === identifier
             );
@@ -123,9 +124,9 @@ export const plugin = (builder: TelescopeBuilder, bundler: Bundler) => {
                   });
                 }
               }
-              return { name: identifier, alias: alias };
+              return { name: identifier, alias: alias, isType };
             }
-            return { name: identifier, alias: identifier };
+            return { name: identifier, alias: identifier, isType };
           }
         );
         const relPath = restoreExtension(exportObj.relativePath, restoreImportExt);

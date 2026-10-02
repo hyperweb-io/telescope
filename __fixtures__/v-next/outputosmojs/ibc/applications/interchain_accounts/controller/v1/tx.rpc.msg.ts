@@ -1,5 +1,5 @@
 import { InterchainAccountPacketData, InterchainAccountPacketDataSDKType } from "../../v1/packet";
-import { TxRpc } from "../../../../../types";
+import type { TxRpc } from "../../../../../types";
 import { BinaryReader } from "../../../../../binary";
 import { MsgRegisterInterchainAccount, MsgRegisterInterchainAccountSDKType, MsgRegisterInterchainAccountResponse, MsgRegisterInterchainAccountResponseSDKType, MsgSendTx, MsgSendTxSDKType, MsgSendTxResponse, MsgSendTxResponseSDKType } from "./tx";
 /** Msg defines the 27-interchain-accounts/controller Msg service. */

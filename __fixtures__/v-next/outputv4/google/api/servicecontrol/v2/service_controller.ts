@@ -1,8 +1,8 @@
-import { AttributeContext, AttributeContextSDKType } from "../../../rpc/context/attribute_context.js";
-import { Status, StatusSDKType } from "../../../rpc/status.js";
+import { AttributeContext, type AttributeContextSDKType } from "../../../rpc/context/attribute_context.js";
+import { Status, type StatusSDKType } from "../../../rpc/status.js";
 import { BinaryReader, BinaryWriter } from "../../../../binary.js";
-import { isSet, DeepPartial, isObject } from "../../../../helpers.js";
-import { JsonSafe } from "../../../../json-safe.js";
+import { isSet, type DeepPartial, isObject } from "../../../../helpers.js";
+import type { JsonSafe } from "../../../../json-safe.js";
 export const protobufPackage = "google.api.servicecontrol.v2";
 /**
  * Request message for the Check method.

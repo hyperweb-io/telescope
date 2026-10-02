@@ -1,8 +1,8 @@
-import { QueryCondition, QueryConditionAmino } from "../lockup/lock";
-import { Coin, CoinAmino } from "../../cosmos/base/v1beta1/coin";
+import { QueryCondition, type QueryConditionAmino } from "../lockup/lock";
+import { Coin, type CoinAmino } from "../../cosmos/base/v1beta1/coin";
 import { Timestamp } from "../../google/protobuf/timestamp";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { toTimestamp, fromTimestamp, DeepPartial } from "../../helpers";
+import { toTimestamp, fromTimestamp, type DeepPartial } from "../../helpers";
 /**
  * MsgCreateGauge creates a gague to distribute rewards to users
  * @name MsgCreateGauge

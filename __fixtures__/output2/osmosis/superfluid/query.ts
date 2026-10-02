@@ -2,13 +2,13 @@
 /* eslint-disable */
 import { PageRequest, PageResponse } from "../../cosmos/base/query/v1beta1/pagination";
 import { Params } from "./params";
-import { SuperfluidAssetType, SuperfluidAsset, OsmoEquivalentMultiplierRecord, SuperfluidDelegationRecord, superfluidAssetTypeFromJSON, superfluidAssetTypeToJSON } from "./superfluid";
+import { type SuperfluidAssetType, SuperfluidAsset, OsmoEquivalentMultiplierRecord, SuperfluidDelegationRecord, superfluidAssetTypeFromJSON, superfluidAssetTypeToJSON } from "./superfluid";
 import { Coin } from "../../cosmos/base/v1beta1/coin";
 import { SyntheticLock } from "../lockup/lock";
 import { DelegationResponse } from "../../cosmos/staking/v1beta1/staking";
-import { Long, DeepPartial, isSet, Rpc } from "../../helpers";
+import { Long, type DeepPartial, isSet, type Rpc } from "../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../json-safe";
+import type { JsonSafe } from "../../json-safe";
 export const protobufPackage = "osmosis.superfluid";
 export interface QueryParamsRequest {}
 export interface QueryParamsResponse {

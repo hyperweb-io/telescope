@@ -1,7 +1,7 @@
-import { DevFeeInfo, DevFeeInfoSDKType } from "./fees";
-import { Long, isSet, DeepPartial } from "../../../helpers";
+import { DevFeeInfo, type DevFeeInfoSDKType } from "./fees";
+import { Long, isSet, type DeepPartial } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../json-safe";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "evmos.fees.v1";
 /** GenesisState defines the module's genesis state. */
 export interface GenesisState {

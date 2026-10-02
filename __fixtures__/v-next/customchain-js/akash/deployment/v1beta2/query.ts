@@ -1,10 +1,10 @@
-import { DeploymentFilters, DeploymentFiltersAmino, DeploymentID, DeploymentIDAmino, Deployment, DeploymentAmino } from "./deployment";
-import { PageRequest, PageRequestAmino, PageResponse, PageResponseAmino } from "../../../cosmos/base/query/v1beta1/pagination";
-import { GroupID, GroupIDAmino } from "./groupid";
-import { Group, GroupAmino } from "./group";
-import { Account, AccountAmino } from "../../escrow/v1beta2/types";
+import { DeploymentFilters, type DeploymentFiltersAmino, DeploymentID, type DeploymentIDAmino, Deployment, type DeploymentAmino } from "./deployment";
+import { PageRequest, type PageRequestAmino, PageResponse, type PageResponseAmino } from "../../../cosmos/base/query/v1beta1/pagination";
+import { GroupID, type GroupIDAmino } from "./groupid";
+import { Group, type GroupAmino } from "./group";
+import { Account, type AccountAmino } from "../../escrow/v1beta2/types";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * QueryDeploymentsRequest is request type for the Query/Deployments RPC method
  * @name QueryDeploymentsRequest

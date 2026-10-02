@@ -1,7 +1,7 @@
-import { Any, AnyAmino } from "../../../../google/protobuf/any";
-import { Plan, PlanAmino } from "../../../../cosmos/upgrade/v1beta1/upgrade";
+import { Any, type AnyAmino } from "../../../../google/protobuf/any";
+import { Plan, type PlanAmino } from "../../../../cosmos/upgrade/v1beta1/upgrade";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial } from "../../../../helpers";
+import type { DeepPartial } from "../../../../helpers";
 /**
  * IdentifiedClientState defines a client state with an additional client
  * identifier field.

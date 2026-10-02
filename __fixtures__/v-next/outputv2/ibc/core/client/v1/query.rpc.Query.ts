@@ -1,7 +1,7 @@
 import { PageRequest } from "../../../../cosmos/base/query/v1beta1/pagination";
 import { grpc } from "@improbable-eng/grpc-web";
-import { UnaryMethodDefinitionish } from "../../../../grpc-web";
-import { DeepPartial } from "../../../../helpers";
+import type { UnaryMethodDefinitionish } from "../../../../grpc-web";
+import type { DeepPartial } from "../../../../helpers";
 import { BrowserHeaders } from "browser-headers";
 import { QueryClientStateRequest, QueryClientStateResponse, QueryClientStatesRequest, QueryClientStatesResponse, QueryConsensusStateRequest, QueryConsensusStateResponse, QueryConsensusStatesRequest, QueryConsensusStatesResponse, QueryClientStatusRequest, QueryClientStatusResponse, QueryClientParamsRequest, QueryClientParamsResponse, QueryUpgradedClientStateRequest, QueryUpgradedClientStateResponse, QueryUpgradedConsensusStateRequest, QueryUpgradedConsensusStateResponse } from "./query";
 /** Query provides defines the gRPC querier service */

@@ -1,7 +1,7 @@
-import { Option, OptionAmino, OptionSDKType, Syntax, SyntaxSDKType } from "./type";
-import { SourceContext, SourceContextAmino, SourceContextSDKType } from "./source_context";
+import { Option, type OptionAmino, type OptionSDKType, type Syntax, SyntaxSDKType } from "./type";
+import { SourceContext, type SourceContextAmino, type SourceContextSDKType } from "./source_context";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { DeepPartial } from "../../helpers";
+import type { DeepPartial } from "../../helpers";
 export const protobufPackage = "google.protobuf";
 /**
  * Api is a light-weight descriptor for an API Interface.

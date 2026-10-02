@@ -1,8 +1,8 @@
 import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../base/query/v1beta1/pagination";
 import { Any, AnySDKType } from "../../../google/protobuf/any";
 import { setPaginationParams } from "../../../helpers";
-import { LCDClient } from "@cosmology/lcd";
-import { QueryEvidenceRequest, QueryEvidenceRequestSDKType, QueryEvidenceResponse, QueryEvidenceResponseSDKType, QueryAllEvidenceRequest, QueryAllEvidenceRequestSDKType, QueryAllEvidenceResponse, QueryAllEvidenceResponseSDKType } from "./query";
+import type { LCDClient } from "@cosmology/lcd";
+import { type QueryEvidenceRequest, QueryEvidenceRequestSDKType, QueryEvidenceResponse, type QueryEvidenceResponseSDKType, type QueryAllEvidenceRequest, QueryAllEvidenceRequestSDKType, QueryAllEvidenceResponse, type QueryAllEvidenceResponseSDKType } from "./query";
 export class LCDQueryClient {
   req: LCDClient;
   constructor({

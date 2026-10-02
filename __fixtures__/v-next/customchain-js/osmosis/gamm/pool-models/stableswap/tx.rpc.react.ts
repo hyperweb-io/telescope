@@ -1,5 +1,5 @@
 import { buildUseMutation } from "../../../../react-query";
-import { MsgCreateStableswapPool, MsgStableSwapAdjustScalingFactors } from "./tx";
+import type { MsgCreateStableswapPool, MsgStableSwapAdjustScalingFactors } from "./tx";
 import { createStableswapPool, stableSwapAdjustScalingFactors } from "./tx.rpc.func";
 /**
  * @name useCreateStableswapPool

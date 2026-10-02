@@ -1,6 +1,6 @@
-import { Incentive, IncentiveAmino, GasMeter, GasMeterAmino } from "./incentives";
+import { Incentive, type IncentiveAmino, GasMeter, type GasMeterAmino } from "./incentives";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 import { Decimal } from "@interchainjs/math";
 /**
  * GenesisState defines the module's genesis state.

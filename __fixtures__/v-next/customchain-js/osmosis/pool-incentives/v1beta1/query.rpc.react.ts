@@ -1,5 +1,5 @@
 import { buildUseQuery } from "../../../react-query";
-import { QueryGaugeIdsRequest, QueryGaugeIdsResponse, QueryDistrInfoRequest, QueryDistrInfoResponse, QueryParamsRequest, QueryParamsResponse, QueryLockableDurationsRequest, QueryLockableDurationsResponse, QueryIncentivizedPoolsRequest, QueryIncentivizedPoolsResponse, QueryExternalIncentiveGaugesRequest, QueryExternalIncentiveGaugesResponse } from "./query";
+import type { QueryGaugeIdsRequest, QueryGaugeIdsResponse, QueryDistrInfoRequest, QueryDistrInfoResponse, QueryParamsRequest, QueryParamsResponse, QueryLockableDurationsRequest, QueryLockableDurationsResponse, QueryIncentivizedPoolsRequest, QueryIncentivizedPoolsResponse, QueryExternalIncentiveGaugesRequest, QueryExternalIncentiveGaugesResponse } from "./query";
 import { getGaugeIds, getDistrInfo, getOsmosisPoolincentivesV1beta1Params, getLockableDurations, getIncentivizedPools, getExternalIncentiveGauges } from "./query.rpc.func";
 /**
  * GaugeIds takes the pool id and returns the matching gauge ids and durations

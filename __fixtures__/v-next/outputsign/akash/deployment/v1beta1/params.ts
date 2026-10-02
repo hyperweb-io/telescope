@@ -1,6 +1,6 @@
-import { Coin, CoinAmino, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
+import { Coin, type CoinAmino, type CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { Exact } from "../../../helpers";
+import type { Exact } from "../../../helpers";
 export const protobufPackage = "akash.deployment.v1beta1";
 /**
  * Params defines the parameters for the x/deployment package

@@ -1,7 +1,7 @@
-import { Params, ParamsSDKType, Validator, ValidatorSDKType, Delegation, DelegationSDKType, UnbondingDelegation, UnbondingDelegationSDKType, Redelegation, RedelegationSDKType } from "./staking";
-import { Long, isSet, bytesFromBase64, base64FromBytes, DeepPartial } from "../../../helpers";
+import { Params, type ParamsSDKType, Validator, type ValidatorSDKType, Delegation, type DelegationSDKType, UnbondingDelegation, type UnbondingDelegationSDKType, Redelegation, type RedelegationSDKType } from "./staking";
+import { Long, isSet, bytesFromBase64, base64FromBytes, type DeepPartial } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../json-safe";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "cosmos.staking.v1beta1";
 /** GenesisState defines the staking module's genesis state. */
 export interface GenesisState {

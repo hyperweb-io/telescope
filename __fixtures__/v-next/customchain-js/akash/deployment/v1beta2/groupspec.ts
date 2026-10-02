@@ -1,7 +1,7 @@
-import { PlacementRequirements, PlacementRequirementsAmino } from "../../base/v1beta2/attribute";
-import { Resource, ResourceAmino } from "./resource";
+import { PlacementRequirements, type PlacementRequirementsAmino } from "../../base/v1beta2/attribute";
+import { Resource, type ResourceAmino } from "./resource";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * GroupSpec stores group specifications
  * @name GroupSpec

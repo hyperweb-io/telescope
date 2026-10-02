@@ -1,6 +1,6 @@
 import { BinaryReader, BinaryWriter } from "../../../binary.js";
-import { bytesFromBase64, base64FromBytes, DeepPartial } from "../../../helpers.js";
-import { JsonSafe } from "../../../json-safe.js";
+import { bytesFromBase64, base64FromBytes, type DeepPartial } from "../../../helpers.js";
+import type { JsonSafe } from "../../../json-safe.js";
 export const protobufPackage = "cosmos.genutil.v1beta1";
 /**
  * GenesisState defines the raw genesis transaction in JSON.

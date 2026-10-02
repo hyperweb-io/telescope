@@ -1,6 +1,6 @@
-import { IdentifiedConnection, IdentifiedConnectionAmino, ConnectionPaths, ConnectionPathsAmino, IbcCoreConnectionV1Params, IbcCoreConnectionV1ParamsAmino } from "./connection";
+import { IdentifiedConnection, type IdentifiedConnectionAmino, ConnectionPaths, type ConnectionPathsAmino, IbcCoreConnectionV1Params, type IbcCoreConnectionV1ParamsAmino } from "./connection";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial } from "../../../../helpers";
+import type { DeepPartial } from "../../../../helpers";
 /**
  * GenesisState defines the ibc connection submodule's genesis state.
  * @name GenesisState

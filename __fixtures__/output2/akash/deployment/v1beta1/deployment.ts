@@ -2,9 +2,9 @@
 /* eslint-disable */
 import { GroupSpec, GroupID } from "./group";
 import { Coin } from "../../../cosmos/base/v1beta1/coin";
-import { Long, isSet, bytesFromBase64, base64FromBytes, DeepPartial, Rpc } from "../../../helpers";
+import { Long, isSet, bytesFromBase64, base64FromBytes, type DeepPartial, type Rpc } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../json-safe";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "akash.deployment.v1beta1";
 /** State is an enum which refers to state of deployment */
 export enum Deployment_State {

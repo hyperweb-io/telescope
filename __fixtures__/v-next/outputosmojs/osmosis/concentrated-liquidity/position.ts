@@ -1,9 +1,9 @@
 import { Timestamp, TimestampSDKType } from "../../google/protobuf/timestamp";
-import { Coin, CoinSDKType } from "../../cosmos/base/v1beta1/coin";
+import { Coin, type CoinSDKType } from "../../cosmos/base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { toTimestamp, fromTimestamp, isSet, DeepPartial } from "../../helpers";
+import { toTimestamp, fromTimestamp, isSet, type DeepPartial } from "../../helpers";
 import { Decimal } from "@interchainjs/math";
-import { JsonSafe } from "../../json-safe";
+import type { JsonSafe } from "../../json-safe";
 export const protobufPackage = "osmosis.concentratedliquidity.v1beta1";
 /**
  * Position contains position's id, address, pool id, lower tick, upper tick

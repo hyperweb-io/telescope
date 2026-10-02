@@ -1,6 +1,6 @@
 import { FeeToken, FeeTokenSDKType } from "./feetoken";
-import { LCDClient } from "@cosmology/lcd";
-import { QueryFeeTokensRequest, QueryFeeTokensRequestSDKType, QueryFeeTokensResponse, QueryFeeTokensResponseSDKType, QueryDenomSpotPriceRequest, QueryDenomSpotPriceRequestSDKType, QueryDenomSpotPriceResponse, QueryDenomSpotPriceResponseSDKType, QueryDenomPoolIdRequest, QueryDenomPoolIdRequestSDKType, QueryDenomPoolIdResponse, QueryDenomPoolIdResponseSDKType, QueryBaseDenomRequest, QueryBaseDenomRequestSDKType, QueryBaseDenomResponse, QueryBaseDenomResponseSDKType } from "./query";
+import type { LCDClient } from "@cosmology/lcd";
+import { type QueryFeeTokensRequest, QueryFeeTokensRequestSDKType, QueryFeeTokensResponse, type QueryFeeTokensResponseSDKType, type QueryDenomSpotPriceRequest, QueryDenomSpotPriceRequestSDKType, QueryDenomSpotPriceResponse, type QueryDenomSpotPriceResponseSDKType, type QueryDenomPoolIdRequest, QueryDenomPoolIdRequestSDKType, QueryDenomPoolIdResponse, type QueryDenomPoolIdResponseSDKType, type QueryBaseDenomRequest, QueryBaseDenomRequestSDKType, QueryBaseDenomResponse, type QueryBaseDenomResponseSDKType } from "./query";
 export class LCDQueryClient {
   req: LCDClient;
   constructor({

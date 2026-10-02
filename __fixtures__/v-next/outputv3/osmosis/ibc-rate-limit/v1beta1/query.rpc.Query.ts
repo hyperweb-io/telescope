@@ -1,6 +1,6 @@
 import { Params, ParamsSDKType } from "./params";
 import * as fm from "../../../grpc-gateway";
-import { QueryParamsRequest, QueryParamsRequestSDKType, QueryParamsResponse, QueryParamsResponseSDKType } from "./query";
+import { type QueryParamsRequest, QueryParamsRequestSDKType, type QueryParamsResponse, QueryParamsResponseSDKType } from "./query";
 export class Query {
   /**
    * Params defines a gRPC query method that returns the ibc-rate-limit module's

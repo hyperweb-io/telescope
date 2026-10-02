@@ -3,7 +3,7 @@ import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } fr
 import { GroupID, GroupIDSDKType, Group, GroupSDKType } from "./group";
 import { Account, AccountSDKType } from "../../escrow/v1beta1/types";
 import * as fm from "../../../grpc-gateway";
-import { QueryDeploymentsRequest, QueryDeploymentsRequestSDKType, QueryDeploymentsResponse, QueryDeploymentsResponseSDKType, QueryDeploymentRequest, QueryDeploymentRequestSDKType, QueryDeploymentResponse, QueryDeploymentResponseSDKType, QueryGroupRequest, QueryGroupRequestSDKType, QueryGroupResponse, QueryGroupResponseSDKType } from "./query";
+import { type QueryDeploymentsRequest, QueryDeploymentsRequestSDKType, type QueryDeploymentsResponse, QueryDeploymentsResponseSDKType, type QueryDeploymentRequest, QueryDeploymentRequestSDKType, type QueryDeploymentResponse, QueryDeploymentResponseSDKType, type QueryGroupRequest, QueryGroupRequestSDKType, type QueryGroupResponse, QueryGroupResponseSDKType } from "./query";
 export class Query {
   /** Deployments queries deployments */
   static deployments(request: QueryDeploymentsRequest, initRequest?: fm.InitReq): Promise<QueryDeploymentsResponse> {

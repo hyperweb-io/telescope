@@ -1,7 +1,7 @@
-import { OrderID, OrderIDAmino } from "./order";
-import { DecCoin, DecCoinAmino, Coin, CoinAmino } from "../../../cosmos/base/v1beta1/coin";
+import { OrderID, type OrderIDAmino } from "./order";
+import { DecCoin, type DecCoinAmino, Coin, type CoinAmino } from "../../../cosmos/base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /** State is an enum which refers to state of bid */
 export enum Bid_State {
   /** invalid - Prefix should start with 0 in enum. So declaring dummy state */

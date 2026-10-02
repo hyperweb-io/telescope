@@ -1,7 +1,7 @@
-import { Certificate, CertificateSDKType } from "./cert.js";
+import { Certificate, type CertificateSDKType } from "./cert.js";
 import { BinaryReader, BinaryWriter } from "../../../binary.js";
-import { isSet, DeepPartial, Exact } from "../../../helpers.js";
-import { JsonSafe } from "../../../json-safe.js";
+import { isSet, type DeepPartial, type Exact } from "../../../helpers.js";
+import type { JsonSafe } from "../../../json-safe.js";
 export const protobufPackage = "akash.cert.v1beta2";
 /**
  * GenesisCertificate defines certificate entry at genesis

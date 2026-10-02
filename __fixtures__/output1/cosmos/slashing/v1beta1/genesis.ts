@@ -1,7 +1,7 @@
-import { Params, ParamsSDKType, ValidatorSigningInfo, ValidatorSigningInfoSDKType } from "./slashing";
-import { Long, isSet, DeepPartial } from "../../../helpers";
+import { Params, type ParamsSDKType, ValidatorSigningInfo, type ValidatorSigningInfoSDKType } from "./slashing";
+import { Long, isSet, type DeepPartial } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../json-safe";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "cosmos.slashing.v1beta1";
 /** GenesisState defines the slashing module's genesis state. */
 export interface GenesisState {

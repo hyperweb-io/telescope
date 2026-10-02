@@ -1,14 +1,14 @@
-import { Api, ApiSDKType } from "../../../protobuf/api";
-import { Documentation, DocumentationSDKType } from "../../documentation";
-import { Quota, QuotaSDKType } from "../../quota";
-import { Authentication, AuthenticationSDKType } from "../../auth";
-import { Usage, UsageSDKType } from "../../usage";
-import { Endpoint, EndpointSDKType } from "../../endpoint";
-import { MonitoredResourceDescriptor, MonitoredResourceDescriptorSDKType } from "../../monitored_resource";
-import { Monitoring, MonitoringSDKType } from "../../monitoring";
+import { Api, type ApiSDKType } from "../../../protobuf/api";
+import { Documentation, type DocumentationSDKType } from "../../documentation";
+import { Quota, type QuotaSDKType } from "../../quota";
+import { Authentication, type AuthenticationSDKType } from "../../auth";
+import { Usage, type UsageSDKType } from "../../usage";
+import { Endpoint, type EndpointSDKType } from "../../endpoint";
+import { MonitoredResourceDescriptor, type MonitoredResourceDescriptorSDKType } from "../../monitored_resource";
+import { Monitoring, type MonitoringSDKType } from "../../monitoring";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial } from "../../../../helpers";
-import { JsonSafe } from "../../../../json-safe";
+import { isSet, type DeepPartial } from "../../../../helpers";
+import type { JsonSafe } from "../../../../json-safe";
 export const protobufPackage = "google.api.serviceusage.v1";
 /** Whether or not a service has been enabled for use by a consumer. */
 export enum State {

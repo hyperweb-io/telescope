@@ -2,9 +2,9 @@
 /* eslint-disable */
 import { DecCoin } from "../../../cosmos/base/v1beta1/coin";
 import { Params } from "./genesis";
-import { Long, DeepPartial, isSet, Rpc } from "../../../helpers";
+import { Long, type DeepPartial, isSet, type Rpc } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../json-safe";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "evmos.inflation.v1";
 /** QueryPeriodRequest is the request type for the Query/Period RPC method. */
 export interface QueryPeriodRequest {}

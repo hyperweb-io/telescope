@@ -1,11 +1,11 @@
-import { QueryCondition, QueryConditionAmino, QueryConditionSDKType } from "../lockup/lock";
-import { Coin, CoinAmino, CoinSDKType } from "../../cosmos/base/v1beta1/coin";
+import { QueryCondition, type QueryConditionAmino, type QueryConditionSDKType } from "../lockup/lock";
+import { Coin, type CoinAmino, type CoinSDKType } from "../../cosmos/base/v1beta1/coin";
 import { Timestamp, TimestampAmino, TimestampSDKType } from "../../google/protobuf/timestamp";
-import { Duration, DurationAmino, DurationSDKType } from "../../google/protobuf/duration";
+import { Duration, type DurationAmino, type DurationSDKType } from "../../google/protobuf/duration";
 import { BinaryReader, BinaryWriter } from "../../binary";
 import { GlobalDecoderRegistry } from "../../registry";
-import { toTimestamp, fromTimestamp, isSet, DeepPartial } from "../../helpers";
-import { JsonSafe } from "../../json-safe";
+import { toTimestamp, fromTimestamp, isSet, type DeepPartial } from "../../helpers";
+import type { JsonSafe } from "../../json-safe";
 export const protobufPackage = "osmosis.incentives";
 /**
  * Gauge is an object that stores and distributes yields to recipients who

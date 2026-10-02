@@ -1,6 +1,6 @@
-import { GroupID, GroupIDAmino, GroupIDSDKType } from "./groupid";
-import { GroupSpec, GroupSpecAmino, GroupSpecSDKType } from "./groupspec";
-import { isSet, DeepPartial } from "../../../helpers";
+import { GroupID, type GroupIDAmino, type GroupIDSDKType } from "./groupid";
+import { GroupSpec, type GroupSpecAmino, type GroupSpecSDKType } from "./groupspec";
+import { isSet, type DeepPartial } from "../../../helpers";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "akash.deployment.v1beta2";

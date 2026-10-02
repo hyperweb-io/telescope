@@ -1,9 +1,9 @@
-import { ManagedService, ManagedServiceSDKType, ConfigSource, ConfigSourceSDKType, Rollout, RolloutSDKType, ChangeReport, ChangeReportSDKType, Diagnostic, DiagnosticSDKType } from "./resources.js";
-import { Service, ServiceSDKType } from "../../service.js";
-import { Any, AnySDKType } from "../../../protobuf/any.js";
+import { ManagedService, type ManagedServiceSDKType, ConfigSource, type ConfigSourceSDKType, Rollout, type RolloutSDKType, ChangeReport, type ChangeReportSDKType, Diagnostic, type DiagnosticSDKType } from "./resources.js";
+import { Service, type ServiceSDKType } from "../../service.js";
+import { Any, type AnySDKType } from "../../../protobuf/any.js";
 import { BinaryReader, BinaryWriter } from "../../../../binary.js";
-import { isSet, DeepPartial } from "../../../../helpers.js";
-import { JsonSafe } from "../../../../json-safe.js";
+import { isSet, type DeepPartial } from "../../../../helpers.js";
+import type { JsonSafe } from "../../../../json-safe.js";
 export const protobufPackage = "google.api.servicemanagement.v1";
 export enum GetServiceConfigRequest_ConfigView {
   /** BASIC - Server response includes all fields except SourceInfo. */

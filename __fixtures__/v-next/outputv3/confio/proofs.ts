@@ -1,6 +1,6 @@
 import { BinaryReader, BinaryWriter } from "../binary";
 import { GlobalDecoderRegistry } from "../registry";
-import { isSet, bytesFromBase64, DeepPartial, base64FromBytes } from "../helpers";
+import { isSet, bytesFromBase64, type DeepPartial, base64FromBytes } from "../helpers";
 export const protobufPackage = "ics23";
 export enum HashOp {
   /** NO_HASH - NO_HASH is the default if no data passed. Note this is an illegal argument some places. */

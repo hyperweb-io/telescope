@@ -1,9 +1,9 @@
-import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../base/query/v1beta1/pagination";
-import { Params, ParamsSDKType, ValidatorOutstandingRewards, ValidatorOutstandingRewardsSDKType, ValidatorAccumulatedCommission, ValidatorAccumulatedCommissionSDKType, ValidatorSlashEvent, ValidatorSlashEventSDKType, DelegationDelegatorReward, DelegationDelegatorRewardSDKType } from "./distribution";
-import { DecCoin, DecCoinSDKType } from "../../base/v1beta1/coin";
-import { Long, DeepPartial, isSet } from "../../../helpers";
+import { PageRequest, type PageRequestSDKType, PageResponse, type PageResponseSDKType } from "../../base/query/v1beta1/pagination";
+import { Params, type ParamsSDKType, ValidatorOutstandingRewards, type ValidatorOutstandingRewardsSDKType, ValidatorAccumulatedCommission, type ValidatorAccumulatedCommissionSDKType, ValidatorSlashEvent, type ValidatorSlashEventSDKType, DelegationDelegatorReward, type DelegationDelegatorRewardSDKType } from "./distribution";
+import { DecCoin, type DecCoinSDKType } from "../../base/v1beta1/coin";
+import { Long, type DeepPartial, isSet } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../json-safe";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "cosmos.distribution.v1beta1";
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
 export interface QueryParamsRequest {}

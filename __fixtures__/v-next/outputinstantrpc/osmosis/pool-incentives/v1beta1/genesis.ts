@@ -1,8 +1,8 @@
-import { Params, ParamsSDKType, DistrInfo, DistrInfoSDKType, PoolToGauges, PoolToGaugesSDKType } from "./incentives";
-import { Duration, DurationSDKType } from "../../../google/protobuf/duration";
+import { Params, type ParamsSDKType, DistrInfo, type DistrInfoSDKType, PoolToGauges, type PoolToGaugesSDKType } from "./incentives";
+import { Duration, type DurationSDKType } from "../../../google/protobuf/duration";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet, DeepPartial } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { isSet, type DeepPartial } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "osmosis.poolincentives.v1beta1";
 /**
  * GenesisState defines the pool incentives module's genesis state.

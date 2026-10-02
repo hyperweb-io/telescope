@@ -1,6 +1,6 @@
-import { GroupInfo, GroupInfoAmino, GroupMember, GroupMemberAmino, GroupPolicyInfo, GroupPolicyInfoAmino, Proposal, ProposalAmino, Vote, VoteAmino } from "./types";
+import { GroupInfo, type GroupInfoAmino, GroupMember, type GroupMemberAmino, GroupPolicyInfo, type GroupPolicyInfoAmino, Proposal, type ProposalAmino, Vote, type VoteAmino } from "./types";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * GenesisState defines the group module's genesis state.
  * @name GenesisState

@@ -1,8 +1,8 @@
-import { PageRequest, PageRequestAmino, PageResponse, PageResponseAmino } from "../../../cosmos/base/query/v1beta1/pagination";
-import { DevFeeInfo, DevFeeInfoAmino } from "./fees";
+import { PageRequest, type PageRequestAmino, PageResponse, type PageResponseAmino } from "../../../cosmos/base/query/v1beta1/pagination";
+import { DevFeeInfo, type DevFeeInfoAmino } from "./fees";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
-import { EvmosFeesV1Params, EvmosFeesV1ParamsAmino } from "./genesis";
+import type { DeepPartial } from "../../../helpers";
+import { EvmosFeesV1Params, type EvmosFeesV1ParamsAmino } from "./genesis";
 /**
  * QueryDevFeeInfosRequest is the request type for the Query/DevFeeInfos RPC
  * method.

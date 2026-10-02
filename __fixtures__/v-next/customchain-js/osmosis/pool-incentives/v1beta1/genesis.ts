@@ -1,7 +1,7 @@
-import { DistrInfo, DistrInfoAmino, PoolToGauges, PoolToGaugesAmino, OsmosisPoolincentivesV1beta1Params, OsmosisPoolincentivesV1beta1ParamsAmino } from "./incentives";
-import { Duration, DurationAmino } from "../../../google/protobuf/duration";
+import { DistrInfo, type DistrInfoAmino, PoolToGauges, type PoolToGaugesAmino, OsmosisPoolincentivesV1beta1Params, type OsmosisPoolincentivesV1beta1ParamsAmino } from "./incentives";
+import { Duration, type DurationAmino } from "../../../google/protobuf/duration";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * GenesisState defines the pool incentives module's genesis state.
  * @name GenesisState

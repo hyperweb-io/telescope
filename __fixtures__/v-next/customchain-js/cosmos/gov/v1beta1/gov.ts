@@ -1,15 +1,15 @@
-import { Coin, CoinAmino } from "../../base/v1beta1/coin";
-import { Any, AnyProtoMsg, AnyAmino } from "../../../google/protobuf/any";
+import { Coin, type CoinAmino } from "../../base/v1beta1/coin";
+import { Any, type AnyProtoMsg, type AnyAmino } from "../../../google/protobuf/any";
 import { Timestamp } from "../../../google/protobuf/timestamp";
-import { Duration, DurationAmino } from "../../../google/protobuf/duration";
-import { RegisterIncentiveProposal, RegisterIncentiveProposalProtoMsg } from "../../../evmos/incentives/v1/incentives";
-import { ClientUpdateProposal, ClientUpdateProposalProtoMsg, UpgradeProposal, UpgradeProposalProtoMsg } from "../../../ibc/core/client/v1/client";
-import { ReplacePoolIncentivesProposal, ReplacePoolIncentivesProposalProtoMsg, UpdatePoolIncentivesProposal, UpdatePoolIncentivesProposalProtoMsg } from "../../../osmosis/pool-incentives/v1beta1/gov";
-import { SetSuperfluidAssetsProposal, SetSuperfluidAssetsProposalProtoMsg, RemoveSuperfluidAssetsProposal, RemoveSuperfluidAssetsProposalProtoMsg, UpdateUnpoolWhiteListProposal, UpdateUnpoolWhiteListProposalProtoMsg } from "../../../osmosis/superfluid/v1beta1/gov";
-import { UpdateFeeTokenProposal, UpdateFeeTokenProposalProtoMsg } from "../../../osmosis/txfees/v1beta1/gov";
+import { Duration, type DurationAmino } from "../../../google/protobuf/duration";
+import { RegisterIncentiveProposal, type RegisterIncentiveProposalProtoMsg } from "../../../evmos/incentives/v1/incentives";
+import { ClientUpdateProposal, type ClientUpdateProposalProtoMsg, UpgradeProposal, type UpgradeProposalProtoMsg } from "../../../ibc/core/client/v1/client";
+import { ReplacePoolIncentivesProposal, type ReplacePoolIncentivesProposalProtoMsg, UpdatePoolIncentivesProposal, type UpdatePoolIncentivesProposalProtoMsg } from "../../../osmosis/pool-incentives/v1beta1/gov";
+import { SetSuperfluidAssetsProposal, type SetSuperfluidAssetsProposalProtoMsg, RemoveSuperfluidAssetsProposal, type RemoveSuperfluidAssetsProposalProtoMsg, UpdateUnpoolWhiteListProposal, type UpdateUnpoolWhiteListProposalProtoMsg } from "../../../osmosis/superfluid/v1beta1/gov";
+import { UpdateFeeTokenProposal, type UpdateFeeTokenProposalProtoMsg } from "../../../osmosis/txfees/v1beta1/gov";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { Decimal } from "@interchainjs/math";
-import { DeepPartial, toTimestamp, fromTimestamp, bytesFromBase64, base64FromBytes } from "../../../helpers";
+import { type DeepPartial, toTimestamp, fromTimestamp, bytesFromBase64, base64FromBytes } from "../../../helpers";
 /** VoteOption enumerates the valid vote options for a given governance proposal. */
 export enum VoteOption {
   /** VOTE_OPTION_UNSPECIFIED - VOTE_OPTION_UNSPECIFIED defines a no-op vote option. */

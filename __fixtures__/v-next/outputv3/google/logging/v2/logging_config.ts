@@ -1,6 +1,6 @@
-import { FieldMask, FieldMaskAmino, FieldMaskSDKType } from "../../protobuf/field_mask";
+import { FieldMask, type FieldMaskAmino, type FieldMaskSDKType } from "../../protobuf/field_mask";
 import { Timestamp, TimestampAmino, TimestampSDKType } from "../../protobuf/timestamp";
-import { isSet, toTimestamp, fromTimestamp, DeepPartial } from "../../../helpers";
+import { isSet, toTimestamp, fromTimestamp, type DeepPartial } from "../../../helpers";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "google.logging.v2";

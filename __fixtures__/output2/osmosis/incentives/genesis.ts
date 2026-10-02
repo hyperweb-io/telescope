@@ -3,9 +3,9 @@
 import { Params } from "./params";
 import { Gauge } from "./gauge";
 import { Duration } from "../../google/protobuf/duration";
-import { Long, isSet, DeepPartial } from "../../helpers";
+import { Long, isSet, type DeepPartial } from "../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../json-safe";
+import type { JsonSafe } from "../../json-safe";
 export const protobufPackage = "osmosis.incentives";
 /**
  * GenesisState defines the incentives module's various parameters when first

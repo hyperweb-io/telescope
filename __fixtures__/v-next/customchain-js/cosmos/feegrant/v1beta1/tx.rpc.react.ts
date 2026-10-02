@@ -1,5 +1,5 @@
 import { buildUseMutation } from "../../../react-query";
-import { MsgGrantAllowance, MsgRevokeAllowance } from "./tx";
+import type { MsgGrantAllowance, MsgRevokeAllowance } from "./tx";
 import { grantAllowance, revokeAllowance } from "./tx.rpc.func";
 /**
  * GrantAllowance grants fee allowance to the grantee on the granter's

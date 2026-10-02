@@ -1,5 +1,5 @@
 import { buildUseQuery } from "../../../react-query";
-import { QueryCertificatesRequest, QueryCertificatesResponse } from "./query";
+import type { QueryCertificatesRequest, QueryCertificatesResponse } from "./query";
 import { getCertificates } from "./query.rpc.func";
 /**
  * Certificates queries certificates

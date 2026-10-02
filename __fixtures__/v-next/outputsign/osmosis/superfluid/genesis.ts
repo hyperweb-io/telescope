@@ -1,7 +1,7 @@
-import { Params, ParamsAmino, ParamsSDKType } from "./params";
-import { SuperfluidAsset, SuperfluidAssetAmino, SuperfluidAssetSDKType, OsmoEquivalentMultiplierRecord, OsmoEquivalentMultiplierRecordAmino, OsmoEquivalentMultiplierRecordSDKType, SuperfluidIntermediaryAccount, SuperfluidIntermediaryAccountAmino, SuperfluidIntermediaryAccountSDKType, LockIdIntermediaryAccountConnection, LockIdIntermediaryAccountConnectionAmino, LockIdIntermediaryAccountConnectionSDKType } from "./superfluid";
+import { Params, type ParamsAmino, type ParamsSDKType } from "./params";
+import { SuperfluidAsset, type SuperfluidAssetAmino, type SuperfluidAssetSDKType, OsmoEquivalentMultiplierRecord, type OsmoEquivalentMultiplierRecordAmino, type OsmoEquivalentMultiplierRecordSDKType, SuperfluidIntermediaryAccount, type SuperfluidIntermediaryAccountAmino, type SuperfluidIntermediaryAccountSDKType, LockIdIntermediaryAccountConnection, type LockIdIntermediaryAccountConnectionAmino, type LockIdIntermediaryAccountConnectionSDKType } from "./superfluid";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { DeepPartial } from "../../helpers";
+import type { DeepPartial } from "../../helpers";
 export const protobufPackage = "osmosis.superfluid";
 /**
  * GenesisState defines the module's genesis state.

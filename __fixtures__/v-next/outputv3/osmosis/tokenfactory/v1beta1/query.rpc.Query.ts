@@ -1,7 +1,7 @@
 import { Params, ParamsSDKType } from "./params";
 import { DenomAuthorityMetadata, DenomAuthorityMetadataSDKType } from "./authorityMetadata";
 import * as fm from "../../../grpc-gateway";
-import { QueryParamsRequest, QueryParamsRequestSDKType, QueryParamsResponse, QueryParamsResponseSDKType, QueryDenomAuthorityMetadataRequest, QueryDenomAuthorityMetadataRequestSDKType, QueryDenomAuthorityMetadataResponse, QueryDenomAuthorityMetadataResponseSDKType, QueryDenomsFromCreatorRequest, QueryDenomsFromCreatorRequestSDKType, QueryDenomsFromCreatorResponse, QueryDenomsFromCreatorResponseSDKType } from "./query";
+import { type QueryParamsRequest, QueryParamsRequestSDKType, type QueryParamsResponse, QueryParamsResponseSDKType, type QueryDenomAuthorityMetadataRequest, QueryDenomAuthorityMetadataRequestSDKType, type QueryDenomAuthorityMetadataResponse, QueryDenomAuthorityMetadataResponseSDKType, type QueryDenomsFromCreatorRequest, QueryDenomsFromCreatorRequestSDKType, type QueryDenomsFromCreatorResponse, QueryDenomsFromCreatorResponseSDKType } from "./query";
 export class Query {
   /**
    * Params defines a gRPC query method that returns the tokenfactory module's

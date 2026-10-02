@@ -1,10 +1,10 @@
-import { PageRequest, PageRequestAmino, PageResponse, PageResponseAmino } from "../../query/v1beta1/pagination";
-import { Any, AnyAmino } from "../../../../google/protobuf/any";
-import { BlockID, BlockIDAmino } from "../../../../tendermint/types/types";
-import { Block, BlockAmino } from "../../../../tendermint/types/block";
-import { NodeInfo, NodeInfoAmino } from "../../../../tendermint/p2p/types";
+import { PageRequest, type PageRequestAmino, PageResponse, type PageResponseAmino } from "../../query/v1beta1/pagination";
+import { Any, type AnyAmino } from "../../../../google/protobuf/any";
+import { BlockID, type BlockIDAmino } from "../../../../tendermint/types/types";
+import { Block, type BlockAmino } from "../../../../tendermint/types/block";
+import { NodeInfo, type NodeInfoAmino } from "../../../../tendermint/p2p/types";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial } from "../../../../helpers";
+import type { DeepPartial } from "../../../../helpers";
 /**
  * GetValidatorSetByHeightRequest is the request type for the Query/GetValidatorSetByHeight RPC method.
  * @name GetValidatorSetByHeightRequest

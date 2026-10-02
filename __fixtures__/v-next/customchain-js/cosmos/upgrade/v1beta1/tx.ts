@@ -1,6 +1,6 @@
-import { Plan, PlanAmino } from "./upgrade";
+import { Plan, type PlanAmino } from "./upgrade";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * MsgSoftwareUpgrade is the Msg/SoftwareUpgrade request type.
  * 

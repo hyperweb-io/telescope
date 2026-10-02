@@ -1,7 +1,7 @@
-import { ValidatorPreference, ValidatorPreferenceSDKType } from "./state";
+import { ValidatorPreference, type ValidatorPreferenceSDKType } from "./state";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet, DeepPartial } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { isSet, type DeepPartial } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "osmosis.valsetpref.v1beta1";
 /**
  * Request type for UserValidatorPreferences.

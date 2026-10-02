@@ -2,8 +2,8 @@
 /* eslint-disable */
 import { Attribute } from "../../base/v1beta1/attribute";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial, Rpc } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { isSet, type DeepPartial, type Rpc } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "akash.audit.v1beta1";
 /** Provider stores owner auditor and attributes details */
 export interface Provider {

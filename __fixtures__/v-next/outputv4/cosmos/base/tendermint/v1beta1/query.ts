@@ -1,11 +1,11 @@
-import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../query/v1beta1/pagination.js";
-import { Any, AnySDKType } from "../../../../google/protobuf/any.js";
-import { BlockID, BlockIDSDKType } from "../../../../tendermint/types/types.js";
-import { Block, BlockSDKType } from "../../../../tendermint/types/block.js";
-import { NodeInfo, NodeInfoSDKType } from "../../../../tendermint/p2p/types.js";
+import { PageRequest, type PageRequestSDKType, PageResponse, type PageResponseSDKType } from "../../query/v1beta1/pagination.js";
+import { Any, type AnySDKType } from "../../../../google/protobuf/any.js";
+import { BlockID, type BlockIDSDKType } from "../../../../tendermint/types/types.js";
+import { Block, type BlockSDKType } from "../../../../tendermint/types/block.js";
+import { NodeInfo, type NodeInfoSDKType } from "../../../../tendermint/p2p/types.js";
 import { BinaryReader, BinaryWriter } from "../../../../binary.js";
-import { isSet, DeepPartial } from "../../../../helpers.js";
-import { JsonSafe } from "../../../../json-safe.js";
+import { isSet, type DeepPartial } from "../../../../helpers.js";
+import type { JsonSafe } from "../../../../json-safe.js";
 export const protobufPackage = "cosmos.base.tendermint.v1beta1";
 /**
  * GetValidatorSetByHeightRequest is the request type for the Query/GetValidatorSetByHeight RPC method.

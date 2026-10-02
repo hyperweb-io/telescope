@@ -1,6 +1,6 @@
-import { GroupID, GroupIDAmino } from "./groupid";
+import { GroupID, type GroupIDAmino } from "./groupid";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * MsgCloseGroup defines SDK message to close a single Group within a Deployment.
  * @name MsgCloseGroup

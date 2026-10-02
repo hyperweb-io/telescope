@@ -1,8 +1,8 @@
-import { CertificateFilter, CertificateFilterSDKType, Certificate, CertificateSDKType } from "./cert";
-import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../../cosmos/base/query/v1beta1/pagination";
+import { CertificateFilter, type CertificateFilterSDKType, Certificate, type CertificateSDKType } from "./cert";
+import { PageRequest, type PageRequestSDKType, PageResponse, type PageResponseSDKType } from "../../../cosmos/base/query/v1beta1/pagination";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet, DeepPartial, Exact } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { isSet, type DeepPartial, type Exact } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "akash.cert.v1beta2";
 /**
  * CertificateResponse contains a single X509 certificate and its serial number

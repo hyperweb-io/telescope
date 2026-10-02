@@ -1,6 +1,6 @@
 import { Coin, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
-import { LCDClient } from "@cosmology/lcd";
-import { QueryBalancesRequest, QueryBalancesRequestSDKType, QueryBalancesResponse, QueryBalancesResponseSDKType } from "./query";
+import type { LCDClient } from "@cosmology/lcd";
+import { type QueryBalancesRequest, QueryBalancesRequestSDKType, QueryBalancesResponse, type QueryBalancesResponseSDKType } from "./query";
 export class LCDQueryClient {
   req: LCDClient;
   constructor({

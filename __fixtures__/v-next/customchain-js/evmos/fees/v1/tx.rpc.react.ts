@@ -1,5 +1,5 @@
 import { buildUseMutation } from "../../../react-query";
-import { MsgRegisterDevFeeInfo, MsgCancelDevFeeInfo, MsgUpdateDevFeeInfo } from "./tx";
+import type { MsgRegisterDevFeeInfo, MsgCancelDevFeeInfo, MsgUpdateDevFeeInfo } from "./tx";
 import { registerDevFeeInfo, cancelDevFeeInfo, updateDevFeeInfo } from "./tx.rpc.func";
 /**
  * RegisterDevFeeInfo is used by a deployer to register a new contract for

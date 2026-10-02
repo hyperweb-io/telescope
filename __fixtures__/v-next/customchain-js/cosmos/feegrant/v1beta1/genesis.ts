@@ -1,6 +1,6 @@
-import { Grant, GrantAmino } from "./feegrant";
+import { Grant, type GrantAmino } from "./feegrant";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * GenesisState contains a set of fee allowances, persisted from the store
  * @name GenesisState

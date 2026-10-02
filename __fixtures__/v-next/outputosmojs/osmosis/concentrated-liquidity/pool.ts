@@ -1,8 +1,8 @@
 import { Timestamp, TimestampSDKType } from "../../google/protobuf/timestamp";
 import { BinaryReader, BinaryWriter } from "../../binary";
 import { Decimal } from "@interchainjs/math";
-import { toTimestamp, fromTimestamp, isSet, DeepPartial } from "../../helpers";
-import { JsonSafe } from "../../json-safe";
+import { toTimestamp, fromTimestamp, isSet, type DeepPartial } from "../../helpers";
+import type { JsonSafe } from "../../json-safe";
 export const protobufPackage = "osmosis.concentratedliquidity.v1beta1";
 /**
  * @name Pool

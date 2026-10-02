@@ -1,6 +1,6 @@
 import { Coin, CoinSDKType } from "../../base/v1beta1/coin";
-import { AminoMsg } from "@cosmjs/amino";
-import { MsgSetWithdrawAddress, MsgSetWithdrawAddressSDKType, MsgWithdrawDelegatorReward, MsgWithdrawDelegatorRewardSDKType, MsgWithdrawValidatorCommission, MsgWithdrawValidatorCommissionSDKType, MsgFundCommunityPool, MsgFundCommunityPoolSDKType } from "./tx";
+import type { AminoMsg } from "@cosmjs/amino";
+import { type MsgSetWithdrawAddress, MsgSetWithdrawAddressSDKType, type MsgWithdrawDelegatorReward, MsgWithdrawDelegatorRewardSDKType, type MsgWithdrawValidatorCommission, MsgWithdrawValidatorCommissionSDKType, type MsgFundCommunityPool, MsgFundCommunityPoolSDKType } from "./tx";
 export interface MsgSetWithdrawAddressAminoType extends AminoMsg {
   type: "cosmos-sdk/MsgModifyWithdrawAddress";
   value: {

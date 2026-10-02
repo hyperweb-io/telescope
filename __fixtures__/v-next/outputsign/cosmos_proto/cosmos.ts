@@ -1,5 +1,5 @@
 import { BinaryReader, BinaryWriter } from "../binary";
-import { DeepPartial } from "../helpers";
+import type { DeepPartial } from "../helpers";
 export const protobufPackage = "cosmos_proto";
 export enum ScalarType {
   SCALAR_TYPE_UNSPECIFIED = 0,

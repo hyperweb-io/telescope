@@ -1,11 +1,11 @@
-import { OrderFilters, OrderFiltersSDKType, OrderID, OrderIDSDKType, Order, OrderSDKType } from "./order.js";
-import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../../cosmos/base/query/v1beta1/pagination.js";
-import { BidFilters, BidFiltersSDKType, BidID, BidIDSDKType, Bid, BidSDKType } from "./bid.js";
-import { LeaseFilters, LeaseFiltersSDKType, LeaseID, LeaseIDSDKType, Lease, LeaseSDKType } from "./lease.js";
-import { Account, AccountSDKType, FractionalPayment, FractionalPaymentSDKType } from "../../escrow/v1beta2/types.js";
+import { OrderFilters, type OrderFiltersSDKType, OrderID, type OrderIDSDKType, Order, type OrderSDKType } from "./order.js";
+import { PageRequest, type PageRequestSDKType, PageResponse, type PageResponseSDKType } from "../../../cosmos/base/query/v1beta1/pagination.js";
+import { BidFilters, type BidFiltersSDKType, BidID, type BidIDSDKType, Bid, type BidSDKType } from "./bid.js";
+import { LeaseFilters, type LeaseFiltersSDKType, LeaseID, type LeaseIDSDKType, Lease, type LeaseSDKType } from "./lease.js";
+import { Account, type AccountSDKType, FractionalPayment, type FractionalPaymentSDKType } from "../../escrow/v1beta2/types.js";
 import { BinaryReader, BinaryWriter } from "../../../binary.js";
-import { isSet, DeepPartial, Exact } from "../../../helpers.js";
-import { JsonSafe } from "../../../json-safe.js";
+import { isSet, type DeepPartial, type Exact } from "../../../helpers.js";
+import type { JsonSafe } from "../../../json-safe.js";
 export const protobufPackage = "akash.market.v1beta2";
 /**
  * QueryOrdersRequest is request type for the Query/Orders RPC method

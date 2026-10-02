@@ -1,6 +1,6 @@
-import { Class, ClassAmino, ClassSDKType, NFT, NFTAmino, NFTSDKType } from "./nft";
+import { Class, type ClassAmino, type ClassSDKType, NFT, type NFTAmino, type NFTSDKType } from "./nft";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial, isSet } from "../../../helpers";
+import { type DeepPartial, isSet } from "../../../helpers";
 import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "cosmos.nft.v1beta1";
 /**

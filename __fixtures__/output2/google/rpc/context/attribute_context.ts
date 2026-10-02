@@ -4,9 +4,9 @@ import { Struct } from "../../protobuf/struct";
 import { Timestamp } from "../../protobuf/timestamp";
 import { Duration } from "../../protobuf/duration";
 import { Any } from "../../protobuf/any";
-import { Long, isSet, DeepPartial, isObject, fromJsonTimestamp, fromTimestamp } from "../../../helpers";
+import { Long, isSet, type DeepPartial, isObject, fromJsonTimestamp, fromTimestamp } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../json-safe";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "google.rpc.context";
 /**
  * This message defines the standard attribute vocabulary for Google APIs.

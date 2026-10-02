@@ -1,6 +1,6 @@
 import { Params, ParamsSDKType } from "./genesis";
 import * as fm from "../../../grpc-gateway";
-import { QueryParamsRequest, QueryParamsRequestSDKType, QueryParamsResponse, QueryParamsResponseSDKType } from "./query";
+import { type QueryParamsRequest, QueryParamsRequestSDKType, type QueryParamsResponse, QueryParamsResponseSDKType } from "./query";
 export class Query {
   /** Params retrieves the total set of recovery parameters. */
   static params(request: QueryParamsRequest, initRequest?: fm.InitReq): Promise<QueryParamsResponse> {

@@ -1,6 +1,6 @@
-import { PeriodLock, PeriodLockAmino, PeriodLockSDKType, SyntheticLock, SyntheticLockAmino, SyntheticLockSDKType } from "./lock";
+import { PeriodLock, type PeriodLockAmino, type PeriodLockSDKType, SyntheticLock, type SyntheticLockAmino, type SyntheticLockSDKType } from "./lock";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { DeepPartial } from "../../helpers";
+import type { DeepPartial } from "../../helpers";
 export const protobufPackage = "osmosis.lockup";
 /**
  * GenesisState defines the lockup module's genesis state.

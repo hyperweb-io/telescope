@@ -1,8 +1,8 @@
-import { LaunchStage } from "./launch_stage";
-import { Duration, DurationAmino } from "../protobuf/duration";
-import { LabelDescriptor, LabelDescriptorAmino } from "./label";
+import type { LaunchStage } from "./launch_stage";
+import { Duration, type DurationAmino } from "../protobuf/duration";
+import { LabelDescriptor, type LabelDescriptorAmino } from "./label";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { DeepPartial } from "../../helpers";
+import type { DeepPartial } from "../../helpers";
 /**
  * The kind of measurement. It describes how the data is reported.
  * For information on setting the start time and end time based on

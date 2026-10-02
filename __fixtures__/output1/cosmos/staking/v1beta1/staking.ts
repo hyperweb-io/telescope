@@ -1,11 +1,11 @@
-import { Header, HeaderSDKType } from "../../../tendermint/types/types";
+import { Header, type HeaderSDKType } from "../../../tendermint/types/types";
 import { Timestamp, TimestampSDKType } from "../../../google/protobuf/timestamp";
-import { Any, AnySDKType } from "../../../google/protobuf/any";
-import { Duration, DurationSDKType } from "../../../google/protobuf/duration";
-import { Coin, CoinSDKType } from "../../base/v1beta1/coin";
-import { Long, isSet, DeepPartial, toTimestamp, fromTimestamp, fromJsonTimestamp } from "../../../helpers";
+import { Any, type AnySDKType } from "../../../google/protobuf/any";
+import { Duration, type DurationSDKType } from "../../../google/protobuf/duration";
+import { Coin, type CoinSDKType } from "../../base/v1beta1/coin";
+import { Long, isSet, type DeepPartial, toTimestamp, fromTimestamp, fromJsonTimestamp } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../json-safe";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "cosmos.staking.v1beta1";
 /** BondStatus is the status of a validator. */
 export enum BondStatus {

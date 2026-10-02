@@ -1,7 +1,7 @@
-import { Any, AnySDKType } from "../protobuf/any.js";
+import { Any, type AnySDKType } from "../protobuf/any.js";
 import { BinaryReader, BinaryWriter } from "../../binary.js";
-import { JsonSafe } from "../../json-safe.js";
-import { DeepPartial } from "../../helpers.js";
+import type { JsonSafe } from "../../json-safe.js";
+import type { DeepPartial } from "../../helpers.js";
 export const protobufPackage = "google.api";
 /**
  * Source information used to create a Service Config

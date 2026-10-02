@@ -1,6 +1,6 @@
-import { CommitmentProof, CommitmentProofAmino } from "../../../../confio/proofs";
+import { CommitmentProof, type CommitmentProofAmino } from "../../../../confio/proofs";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers";
+import { type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers";
 /**
  * MerkleRoot defines a merkle root hash.
  * In the Cosmos SDK, the AppHash of a block header becomes the root.

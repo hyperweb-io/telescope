@@ -1,7 +1,7 @@
-import { DecCoin, DecCoinSDKType, Coin, CoinSDKType } from "../../base/v1beta1/coin";
-import { Long, isSet, DeepPartial } from "../../../helpers";
+import { DecCoin, type DecCoinSDKType, Coin, type CoinSDKType } from "../../base/v1beta1/coin";
+import { Long, isSet, type DeepPartial } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../json-safe";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "cosmos.distribution.v1beta1";
 /** Params defines the set of params for the distribution module. */
 export interface Params {

@@ -1,7 +1,7 @@
-import { PageRequest, PageRequestAmino, PageResponse, PageResponseAmino } from "../../../cosmos/base/query/v1beta1/pagination";
-import { ContractInfo, ContractInfoAmino, ContractCodeHistoryEntry, ContractCodeHistoryEntryAmino, Model, ModelAmino } from "./types";
+import { PageRequest, type PageRequestAmino, PageResponse, type PageResponseAmino } from "../../../cosmos/base/query/v1beta1/pagination";
+import { ContractInfo, type ContractInfoAmino, ContractCodeHistoryEntry, type ContractCodeHistoryEntryAmino, Model, type ModelAmino } from "./types";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers";
+import { type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers";
 import { toUtf8, fromUtf8 } from "@interchainjs/encoding";
 /**
  * QueryContractInfoRequest is the request type for the Query/ContractInfo RPC

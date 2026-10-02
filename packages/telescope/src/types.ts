@@ -5,6 +5,7 @@ export interface ExportObj {
   localname: string;
   relativePath: string;
   exportedIdentifiers: string[];
+  typeIdentifiers: string[];
   isHelperFunc?: boolean;
 }
 export interface Bundle {

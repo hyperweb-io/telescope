@@ -1,10 +1,10 @@
 import { Timestamp } from "../../google/protobuf/timestamp";
-import { Duration, DurationAmino } from "../../google/protobuf/duration";
-import { Coin, CoinAmino } from "../../cosmos/base/v1beta1/coin";
-import { PeriodLock, PeriodLockAmino, SyntheticLock, SyntheticLockAmino } from "./lock";
+import { Duration, type DurationAmino } from "../../google/protobuf/duration";
+import { Coin, type CoinAmino } from "../../cosmos/base/v1beta1/coin";
+import { PeriodLock, type PeriodLockAmino, SyntheticLock, type SyntheticLockAmino } from "./lock";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { DeepPartial, toTimestamp, fromTimestamp } from "../../helpers";
-import { OsmosisLockupParams, OsmosisLockupParamsAmino } from "./params";
+import { type DeepPartial, toTimestamp, fromTimestamp } from "../../helpers";
+import { OsmosisLockupParams, type OsmosisLockupParamsAmino } from "./params";
 /**
  * @name ModuleBalanceRequest
  * @package osmosis.lockup

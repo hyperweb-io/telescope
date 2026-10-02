@@ -2,8 +2,8 @@ import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } fr
 import { Any, AnySDKType } from "../../../google/protobuf/any.js";
 import { Params, ParamsSDKType } from "./auth.js";
 import { setPaginationParams } from "../../../helpers.js";
-import { LCDClient } from "@cosmology/lcd";
-import { QueryAccountsRequest, QueryAccountsRequestSDKType, QueryAccountsResponse, QueryAccountsResponseSDKType, QueryAccountRequest, QueryAccountRequestSDKType, QueryAccountResponse, QueryAccountResponseSDKType, QueryParamsRequest, QueryParamsRequestSDKType, QueryParamsResponse, QueryParamsResponseSDKType, QueryModuleAccountsRequest, QueryModuleAccountsRequestSDKType, QueryModuleAccountsResponse, QueryModuleAccountsResponseSDKType, Bech32PrefixRequest, Bech32PrefixRequestSDKType, Bech32PrefixResponse, Bech32PrefixResponseSDKType, AddressBytesToStringRequest, AddressBytesToStringRequestSDKType, AddressBytesToStringResponse, AddressBytesToStringResponseSDKType, AddressStringToBytesRequest, AddressStringToBytesRequestSDKType, AddressStringToBytesResponse, AddressStringToBytesResponseSDKType } from "./query.js";
+import type { LCDClient } from "@cosmology/lcd";
+import { type QueryAccountsRequest, QueryAccountsRequestSDKType, QueryAccountsResponse, type QueryAccountsResponseSDKType, type QueryAccountRequest, QueryAccountRequestSDKType, QueryAccountResponse, type QueryAccountResponseSDKType, type QueryParamsRequest, QueryParamsRequestSDKType, QueryParamsResponse, type QueryParamsResponseSDKType, type QueryModuleAccountsRequest, QueryModuleAccountsRequestSDKType, QueryModuleAccountsResponse, type QueryModuleAccountsResponseSDKType, type Bech32PrefixRequest, Bech32PrefixRequestSDKType, Bech32PrefixResponse, type Bech32PrefixResponseSDKType, type AddressBytesToStringRequest, AddressBytesToStringRequestSDKType, AddressBytesToStringResponse, type AddressBytesToStringResponseSDKType, type AddressStringToBytesRequest, AddressStringToBytesRequestSDKType, AddressStringToBytesResponse, type AddressStringToBytesResponseSDKType } from "./query.js";
 export class LCDQueryClient {
   req: LCDClient;
   constructor({

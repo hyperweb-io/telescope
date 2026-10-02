@@ -1,7 +1,7 @@
-import { Value, ValueAmino, ValueSDKType } from "./value";
-import { Status, StatusAmino, StatusSDKType } from "../../../rpc/status";
+import { Value, type ValueAmino, type ValueSDKType } from "./value";
+import { Status, type StatusAmino, type StatusSDKType } from "../../../rpc/status";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial, isSet } from "../../../../helpers";
+import { type DeepPartial, isSet } from "../../../../helpers";
 import { GlobalDecoderRegistry } from "../../../../registry";
 export const protobufPackage = "google.api.expr.v1beta1";
 /**

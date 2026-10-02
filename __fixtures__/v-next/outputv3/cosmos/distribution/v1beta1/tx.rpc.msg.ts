@@ -1,6 +1,6 @@
 import { Coin, CoinSDKType } from "../../base/v1beta1/coin";
 import * as fm from "../../../grpc-gateway";
-import { MsgSetWithdrawAddress, MsgSetWithdrawAddressSDKType, MsgSetWithdrawAddressResponse, MsgSetWithdrawAddressResponseSDKType, MsgWithdrawDelegatorReward, MsgWithdrawDelegatorRewardSDKType, MsgWithdrawDelegatorRewardResponse, MsgWithdrawDelegatorRewardResponseSDKType, MsgWithdrawValidatorCommission, MsgWithdrawValidatorCommissionSDKType, MsgWithdrawValidatorCommissionResponse, MsgWithdrawValidatorCommissionResponseSDKType, MsgFundCommunityPool, MsgFundCommunityPoolSDKType, MsgFundCommunityPoolResponse, MsgFundCommunityPoolResponseSDKType } from "./tx";
+import { type MsgSetWithdrawAddress, MsgSetWithdrawAddressSDKType, type MsgSetWithdrawAddressResponse, MsgSetWithdrawAddressResponseSDKType, type MsgWithdrawDelegatorReward, MsgWithdrawDelegatorRewardSDKType, type MsgWithdrawDelegatorRewardResponse, MsgWithdrawDelegatorRewardResponseSDKType, type MsgWithdrawValidatorCommission, MsgWithdrawValidatorCommissionSDKType, type MsgWithdrawValidatorCommissionResponse, MsgWithdrawValidatorCommissionResponseSDKType, type MsgFundCommunityPool, MsgFundCommunityPoolSDKType, type MsgFundCommunityPoolResponse, MsgFundCommunityPoolResponseSDKType } from "./tx";
 export class Msg {
   /**
    * SetWithdrawAddress defines a method to change the withdraw address

@@ -1,14 +1,14 @@
-import { Api, ApiSDKType } from "../../../protobuf/api.js";
-import { Documentation, DocumentationSDKType } from "../../documentation.js";
-import { Quota, QuotaSDKType } from "../../quota.js";
-import { Authentication, AuthenticationSDKType } from "../../auth.js";
-import { Usage, UsageSDKType } from "../../usage.js";
-import { Endpoint, EndpointSDKType } from "../../endpoint.js";
-import { MonitoredResourceDescriptor, MonitoredResourceDescriptorSDKType } from "../../monitored_resource.js";
-import { Monitoring, MonitoringSDKType } from "../../monitoring.js";
+import { Api, type ApiSDKType } from "../../../protobuf/api.js";
+import { Documentation, type DocumentationSDKType } from "../../documentation.js";
+import { Quota, type QuotaSDKType } from "../../quota.js";
+import { Authentication, type AuthenticationSDKType } from "../../auth.js";
+import { Usage, type UsageSDKType } from "../../usage.js";
+import { Endpoint, type EndpointSDKType } from "../../endpoint.js";
+import { MonitoredResourceDescriptor, type MonitoredResourceDescriptorSDKType } from "../../monitored_resource.js";
+import { Monitoring, type MonitoringSDKType } from "../../monitoring.js";
 import { BinaryReader, BinaryWriter } from "../../../../binary.js";
-import { isSet, DeepPartial, isObject } from "../../../../helpers.js";
-import { JsonSafe } from "../../../../json-safe.js";
+import { isSet, type DeepPartial, isObject } from "../../../../helpers.js";
+import type { JsonSafe } from "../../../../json-safe.js";
 export const protobufPackage = "google.api.serviceusage.v1beta1";
 /** Whether or not a service has been enabled for use by a consumer. */
 export enum State {

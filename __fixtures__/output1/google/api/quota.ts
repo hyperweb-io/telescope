@@ -1,6 +1,6 @@
-import { Long, DeepPartial, isSet, isObject } from "../../helpers";
+import { Long, type DeepPartial, isSet, isObject } from "../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../json-safe";
+import type { JsonSafe } from "../../json-safe";
 export const protobufPackage = "google.api";
 /**
  * Quota configuration helps to achieve fairness and budgeting in service

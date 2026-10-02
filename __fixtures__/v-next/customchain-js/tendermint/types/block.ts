@@ -1,7 +1,7 @@
-import { Header, HeaderAmino, Data, DataAmino, Commit, CommitAmino } from "./types";
-import { EvidenceList, EvidenceListAmino } from "./evidence";
+import { Header, type HeaderAmino, Data, type DataAmino, Commit, type CommitAmino } from "./types";
+import { EvidenceList, type EvidenceListAmino } from "./evidence";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { DeepPartial } from "../../helpers";
+import type { DeepPartial } from "../../helpers";
 /**
  * @name Block
  * @package tendermint.types

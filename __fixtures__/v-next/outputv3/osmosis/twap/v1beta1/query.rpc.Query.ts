@@ -1,7 +1,7 @@
 import { Timestamp, TimestampSDKType } from "../../../google/protobuf/timestamp";
 import { Params, ParamsSDKType } from "./genesis";
 import * as fm from "../../../grpc-gateway";
-import { ParamsRequest, ParamsRequestSDKType, ParamsResponse, ParamsResponseSDKType, ArithmeticTwapRequest, ArithmeticTwapRequestSDKType, ArithmeticTwapResponse, ArithmeticTwapResponseSDKType, ArithmeticTwapToNowRequest, ArithmeticTwapToNowRequestSDKType, ArithmeticTwapToNowResponse, ArithmeticTwapToNowResponseSDKType } from "./query";
+import { type ParamsRequest, ParamsRequestSDKType, type ParamsResponse, ParamsResponseSDKType, type ArithmeticTwapRequest, ArithmeticTwapRequestSDKType, type ArithmeticTwapResponse, ArithmeticTwapResponseSDKType, type ArithmeticTwapToNowRequest, ArithmeticTwapToNowRequestSDKType, type ArithmeticTwapToNowResponse, ArithmeticTwapToNowResponseSDKType } from "./query";
 export class Query {
   static params(request: ParamsRequest, initRequest?: fm.InitReq): Promise<ParamsResponse> {
     return fm.fetchReq(`/osmosis/twap/v1beta1/Params?${fm.renderURLSearchParams({

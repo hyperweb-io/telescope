@@ -2,10 +2,10 @@ import { Description, DescriptionSDKType, CommissionRates, CommissionRatesSDKTyp
 import { Any, AnySDKType } from "../../../google/protobuf/any";
 import { Coin, CoinSDKType } from "../../base/v1beta1/coin";
 import { Timestamp, TimestampSDKType } from "../../../google/protobuf/timestamp";
-import { AminoMsg, Pubkey } from "@cosmjs/amino";
+import type { AminoMsg, Pubkey } from "@cosmjs/amino";
 import { decodePubkey, encodePubkey } from "@cosmjs/proto-signing";
 import { Long } from "../../../helpers";
-import { MsgCreateValidator, MsgCreateValidatorSDKType, MsgEditValidator, MsgEditValidatorSDKType, MsgDelegate, MsgDelegateSDKType, MsgBeginRedelegate, MsgBeginRedelegateSDKType, MsgUndelegate, MsgUndelegateSDKType } from "./tx";
+import { type MsgCreateValidator, MsgCreateValidatorSDKType, type MsgEditValidator, MsgEditValidatorSDKType, type MsgDelegate, MsgDelegateSDKType, type MsgBeginRedelegate, MsgBeginRedelegateSDKType, type MsgUndelegate, MsgUndelegateSDKType } from "./tx";
 export interface MsgCreateValidatorAminoType extends AminoMsg {
   type: "cosmos-sdk/MsgCreateValidator";
   value: {

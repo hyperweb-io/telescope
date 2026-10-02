@@ -1,8 +1,8 @@
 import { Timestamp, TimestampSDKType } from "../../../google/protobuf/timestamp.js";
-import { Duration, DurationSDKType } from "../../../google/protobuf/duration.js";
+import { Duration, type DurationSDKType } from "../../../google/protobuf/duration.js";
 import { BinaryReader, BinaryWriter } from "../../../binary.js";
-import { toTimestamp, fromTimestamp, isSet, DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers.js";
-import { JsonSafe } from "../../../json-safe.js";
+import { toTimestamp, fromTimestamp, isSet, type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers.js";
+import type { JsonSafe } from "../../../json-safe.js";
 export const protobufPackage = "cosmos.slashing.v1beta1";
 /**
  * ValidatorSigningInfo defines a validator's signing info for monitoring their

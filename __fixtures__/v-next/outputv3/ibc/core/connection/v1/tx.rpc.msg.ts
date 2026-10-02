@@ -2,7 +2,7 @@ import { Counterparty, CounterpartySDKType, Version, VersionSDKType } from "./co
 import { Any, AnyProtoMsg, AnyAmino, AnySDKType } from "../../../../google/protobuf/any";
 import { Height, HeightSDKType } from "../../client/v1/client";
 import * as fm from "../../../../grpc-gateway";
-import { MsgConnectionOpenInit, MsgConnectionOpenInitSDKType, MsgConnectionOpenInitResponse, MsgConnectionOpenInitResponseSDKType, MsgConnectionOpenTry, MsgConnectionOpenTrySDKType, MsgConnectionOpenTryResponse, MsgConnectionOpenTryResponseSDKType, MsgConnectionOpenAck, MsgConnectionOpenAckSDKType, MsgConnectionOpenAckResponse, MsgConnectionOpenAckResponseSDKType, MsgConnectionOpenConfirm, MsgConnectionOpenConfirmSDKType, MsgConnectionOpenConfirmResponse, MsgConnectionOpenConfirmResponseSDKType } from "./tx";
+import { type MsgConnectionOpenInit, MsgConnectionOpenInitSDKType, type MsgConnectionOpenInitResponse, MsgConnectionOpenInitResponseSDKType, type MsgConnectionOpenTry, MsgConnectionOpenTrySDKType, type MsgConnectionOpenTryResponse, MsgConnectionOpenTryResponseSDKType, type MsgConnectionOpenAck, MsgConnectionOpenAckSDKType, type MsgConnectionOpenAckResponse, MsgConnectionOpenAckResponseSDKType, type MsgConnectionOpenConfirm, MsgConnectionOpenConfirmSDKType, type MsgConnectionOpenConfirmResponse, MsgConnectionOpenConfirmResponseSDKType } from "./tx";
 export class Msg {
   /** ConnectionOpenInit defines a rpc handler method for MsgConnectionOpenInit. */
   static connectionOpenInit(request: MsgConnectionOpenInit, initRequest?: fm.InitReq): Promise<MsgConnectionOpenInitResponse> {

@@ -1,5 +1,5 @@
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { isSet, DeepPartial } from "../../helpers";
+import { isSet, type DeepPartial } from "../../helpers";
 export const protobufPackage = "google.protobuf";
 /**
  * `SourceContext` represents information about the source of a

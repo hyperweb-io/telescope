@@ -1,6 +1,6 @@
-import { DistrRecord, DistrRecordAmino } from "./incentives";
+import { DistrRecord, type DistrRecordAmino } from "./incentives";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * ReplacePoolIncentivesProposal is a gov Content type for updating the pool
  * incentives. If a ReplacePoolIncentivesProposal passes, the proposal’s records

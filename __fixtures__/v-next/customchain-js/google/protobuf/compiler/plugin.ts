@@ -1,6 +1,6 @@
-import { FileDescriptorProto, FileDescriptorProtoAmino } from "../descriptor";
+import { FileDescriptorProto, type FileDescriptorProtoAmino } from "../descriptor";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * The version number of protocol compiler.
  * @name Version

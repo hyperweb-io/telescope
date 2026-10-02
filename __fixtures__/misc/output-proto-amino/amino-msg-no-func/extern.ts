@@ -5,13 +5,13 @@
 */
 
 
-import { HttpEndpoint } from "@interchainjs/types";
-import { Rpc } from "./helpers";
-import { ClientOptions, createCosmosQueryClient } from "@interchainjs/cosmos";
+import { type HttpEndpoint } from "@interchainjs/types";
+import { type Rpc } from "./helpers";
+import { type ClientOptions, createCosmosQueryClient, type ICosmosQueryClient } from "@interchainjs/cosmos";
 
 const _rpcClients: Record<string, Rpc> = {};
 
-export const getRpcEndpointKey = (rpcEndpoint: string | HttpEndpoint) => {
+export const getRpcEndpointKey = (rpcEndpoint: string | HttpEndpoint): string | undefined => {
   if (typeof rpcEndpoint === 'string') {
     return rpcEndpoint;
   } else if (!!rpcEndpoint) {
@@ -20,7 +20,7 @@ export const getRpcEndpointKey = (rpcEndpoint: string | HttpEndpoint) => {
   }
 }
 
-export const getRpcClient = async (rpcEndpoint: string | HttpEndpoint) => {
+export const getRpcClient = async (rpcEndpoint: string | HttpEndpoint): Promise<Rpc | undefined> => {
   const key = getRpcEndpointKey(rpcEndpoint);
   if (!key) return;
   if (_rpcClients.hasOwnProperty(key)) {
@@ -33,7 +33,7 @@ export const getRpcClient = async (rpcEndpoint: string | HttpEndpoint) => {
 
 export const createRpcClient = async (rpcEndpoint: string | HttpEndpoint,
   options?: ClientOptions
-) => {
+): Promise<ICosmosQueryClient> => {
   if (typeof rpcEndpoint === 'string') {
     return createCosmosQueryClient(rpcEndpoint, options);
   } else {

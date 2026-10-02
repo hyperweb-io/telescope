@@ -1,8 +1,8 @@
-import { Duration, DurationAmino, DurationSDKType } from "../../../google/protobuf/duration";
-import { DistrInfo, DistrInfoAmino, DistrInfoSDKType, Params, ParamsAmino, ParamsSDKType } from "./incentives";
-import { Gauge, GaugeAmino, GaugeSDKType } from "../../incentives/gauge";
+import { Duration, type DurationAmino, type DurationSDKType } from "../../../google/protobuf/duration";
+import { DistrInfo, type DistrInfoAmino, type DistrInfoSDKType, Params, type ParamsAmino, type ParamsSDKType } from "./incentives";
+import { Gauge, type GaugeAmino, type GaugeSDKType } from "../../incentives/gauge";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet, DeepPartial } from "../../../helpers";
+import { isSet, type DeepPartial } from "../../../helpers";
 import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "osmosis.poolincentives.v1beta1";
 /**

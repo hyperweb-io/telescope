@@ -1,9 +1,9 @@
-import { MonitoredResource, MonitoredResourceAmino, MonitoredResourceDescriptor, MonitoredResourceDescriptorAmino } from "../../api/monitored_resource";
-import { LogEntry, LogEntryAmino } from "./log_entry";
-import { Duration, DurationAmino } from "../../protobuf/duration";
-import { Status, StatusAmino } from "../../rpc/status";
+import { MonitoredResource, type MonitoredResourceAmino, MonitoredResourceDescriptor, type MonitoredResourceDescriptorAmino } from "../../api/monitored_resource";
+import { LogEntry, type LogEntryAmino } from "./log_entry";
+import { Duration, type DurationAmino } from "../../protobuf/duration";
+import { Status, type StatusAmino } from "../../rpc/status";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /** An indicator of why entries were omitted. */
 export enum TailLogEntriesResponse_SuppressionInfo_Reason {
   /** REASON_UNSPECIFIED - Unexpected default. */

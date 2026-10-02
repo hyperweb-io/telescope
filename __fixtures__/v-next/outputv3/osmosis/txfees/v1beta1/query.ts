@@ -1,6 +1,6 @@
-import { FeeToken, FeeTokenAmino, FeeTokenSDKType } from "./feetoken";
+import { FeeToken, type FeeTokenAmino, type FeeTokenSDKType } from "./feetoken";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial, isSet } from "../../../helpers";
+import { type DeepPartial, isSet } from "../../../helpers";
 import { GlobalDecoderRegistry } from "../../../registry";
 import { Decimal } from "@interchainjs/math";
 export const protobufPackage = "osmosis.txfees.v1beta1";

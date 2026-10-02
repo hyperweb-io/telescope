@@ -1,5 +1,5 @@
 import { buildUseQuery } from "../../../react-query";
-import { QueryEvidenceRequest, QueryEvidenceResponse, QueryAllEvidenceRequest, QueryAllEvidenceResponse } from "./query";
+import type { QueryEvidenceRequest, QueryEvidenceResponse, QueryAllEvidenceRequest, QueryAllEvidenceResponse } from "./query";
 import { getEvidence, getAllEvidence } from "./query.rpc.func";
 /**
  * Evidence queries evidence based on evidence hash.

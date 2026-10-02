@@ -1,6 +1,6 @@
-import { FeeToken, FeeTokenAmino } from "./feetoken";
+import { FeeToken, type FeeTokenAmino } from "./feetoken";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * UpdateFeeTokenProposal is a gov Content type for adding a new whitelisted fee
  * token. It must specify a denom along with gamm pool ID to use as a spot price

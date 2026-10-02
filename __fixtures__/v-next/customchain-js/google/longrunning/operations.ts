@@ -1,8 +1,8 @@
-import { Duration, DurationAmino } from "../protobuf/duration";
-import { Any, AnyAmino } from "../protobuf/any";
-import { Status, StatusAmino } from "../rpc/status";
+import { Duration, type DurationAmino } from "../protobuf/duration";
+import { Any, type AnyAmino } from "../protobuf/any";
+import { Status, type StatusAmino } from "../rpc/status";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { DeepPartial } from "../../helpers";
+import type { DeepPartial } from "../../helpers";
 /**
  * This resource represents a long-running operation that is the result of a
  * network API call.

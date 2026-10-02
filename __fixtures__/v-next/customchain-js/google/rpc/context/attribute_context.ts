@@ -1,9 +1,9 @@
-import { Struct, StructAmino } from "../../protobuf/struct";
+import { Struct, type StructAmino } from "../../protobuf/struct";
 import { Timestamp } from "../../protobuf/timestamp";
-import { Duration, DurationAmino } from "../../protobuf/duration";
-import { Any, AnyAmino } from "../../protobuf/any";
+import { Duration, type DurationAmino } from "../../protobuf/duration";
+import { Any, type AnyAmino } from "../../protobuf/any";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial, toTimestamp, fromTimestamp } from "../../../helpers";
+import { type DeepPartial, toTimestamp, fromTimestamp } from "../../../helpers";
 /**
  * This message defines the standard attribute vocabulary for Google APIs.
  * 

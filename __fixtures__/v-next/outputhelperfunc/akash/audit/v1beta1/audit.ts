@@ -1,7 +1,7 @@
-import { Attribute, AttributeAmino, AttributeSDKType } from "../../base/v1beta1/attribute";
+import { Attribute, type AttributeAmino, type AttributeSDKType } from "../../base/v1beta1/attribute";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet, DeepPartial, Exact } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { isSet, type DeepPartial, type Exact } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 import { GlobalDecoderRegistry } from "../../../registry";
 export const protobufPackage = "akash.audit.v1beta1";
 /**

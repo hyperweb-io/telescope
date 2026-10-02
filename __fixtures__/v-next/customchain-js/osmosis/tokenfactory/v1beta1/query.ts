@@ -1,7 +1,7 @@
-import { DenomAuthorityMetadata, DenomAuthorityMetadataAmino } from "./authorityMetadata";
+import { DenomAuthorityMetadata, type DenomAuthorityMetadataAmino } from "./authorityMetadata";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
-import { OsmosisTokenfactoryV1beta1Params, OsmosisTokenfactoryV1beta1ParamsAmino } from "./params";
+import type { DeepPartial } from "../../../helpers";
+import { OsmosisTokenfactoryV1beta1Params, type OsmosisTokenfactoryV1beta1ParamsAmino } from "./params";
 /**
  * QueryParamsRequest is the request type for the Query/Params RPC method.
  * @name QueryParamsRequest

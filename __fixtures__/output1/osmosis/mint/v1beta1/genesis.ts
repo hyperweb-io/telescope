@@ -1,7 +1,7 @@
-import { Minter, MinterSDKType, Params, ParamsSDKType } from "./mint";
-import { Long, isSet, DeepPartial } from "../../../helpers";
+import { Minter, type MinterSDKType, Params, type ParamsSDKType } from "./mint";
+import { Long, isSet, type DeepPartial } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../json-safe";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "osmosis.mint.v1beta1";
 /** GenesisState defines the mint module's genesis state. */
 export interface GenesisState {

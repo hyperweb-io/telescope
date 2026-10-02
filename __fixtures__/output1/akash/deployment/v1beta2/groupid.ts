@@ -1,6 +1,6 @@
-import { Long, isSet, DeepPartial, Exact } from "../../../helpers";
+import { Long, isSet, type DeepPartial, type Exact } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../json-safe";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "akash.deployment.v1beta2";
 /** GroupID stores owner, deployment sequence number and group sequence number */
 export interface GroupID {

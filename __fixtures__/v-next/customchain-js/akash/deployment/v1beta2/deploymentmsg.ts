@@ -1,8 +1,8 @@
-import { DeploymentID, DeploymentIDAmino } from "./deployment";
-import { GroupSpec, GroupSpecAmino } from "./groupspec";
-import { Coin, CoinAmino } from "../../../cosmos/base/v1beta1/coin";
+import { DeploymentID, type DeploymentIDAmino } from "./deployment";
+import { GroupSpec, type GroupSpecAmino } from "./groupspec";
+import { Coin, type CoinAmino } from "../../../cosmos/base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers";
+import { type DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers";
 /**
  * MsgCreateDeployment defines an SDK message for creating deployment
  * @name MsgCreateDeployment

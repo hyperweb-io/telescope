@@ -1,6 +1,6 @@
-import { Value, ValueAmino } from "./value";
+import { Value, type ValueAmino } from "./value";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { DeepPartial } from "../../../../helpers";
+import type { DeepPartial } from "../../../../helpers";
 /**
  * Values of intermediate expressions produced when evaluating expression.
  * Deprecated, use `EvalState` instead.

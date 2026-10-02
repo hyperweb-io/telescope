@@ -1,6 +1,6 @@
 import { BinaryReader, BinaryWriter } from "../../../../binary";
 import { GlobalDecoderRegistry } from "../../../../registry";
-import { isSet, DeepPartial } from "../../../../helpers";
+import { isSet, type DeepPartial } from "../../../../helpers";
 export const protobufPackage = "cosmos.base.reflection.v2alpha1";
 /**
  * AppDescriptor describes a cosmos-sdk based application

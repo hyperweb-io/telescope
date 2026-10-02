@@ -14,12 +14,12 @@ import { Any } from "./google/protobuf/any${
     options.restoreImportExtension ?? ""
   }";
 ${options.useInterchainJs ? '' : `import { OfflineSigner } from "@cosmjs/proto-signing";`}
-import { HttpEndpoint } from "${
+import { type HttpEndpoint } from "${
     options.useInterchainJs ? "@interchainjs/types" : "@cosmjs/tendermint-rpc"
   }";
 ${options.useInterchainJs ? `
 
-import { DeliverTxResponse, Event, Attribute } from "@interchainjs/types";
+import { type DeliverTxResponse, type Event, type Attribute } from "@interchainjs/types";
 
 export type { DeliverTxResponse }
 

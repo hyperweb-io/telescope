@@ -1,6 +1,6 @@
-import { GrantAuthorization, GrantAuthorizationAmino } from "./authz";
+import { GrantAuthorization, type GrantAuthorizationAmino } from "./authz";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 /**
  * GenesisState defines the authz module's genesis state.
  * @name GenesisState

@@ -1,8 +1,8 @@
-import { PoolParams, PoolParamsSDKType } from "./stableswap_pool";
-import { Coin, CoinSDKType } from "../../../../cosmos/base/v1beta1/coin";
-import { Long, isSet, DeepPartial } from "../../../../helpers";
+import { PoolParams, type PoolParamsSDKType } from "./stableswap_pool";
+import { Coin, type CoinSDKType } from "../../../../cosmos/base/v1beta1/coin";
+import { Long, isSet, type DeepPartial } from "../../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../../../json-safe";
+import type { JsonSafe } from "../../../../json-safe";
 export const protobufPackage = "osmosis.gamm.poolmodels.stableswap.v1beta1";
 /** ===================== MsgCreatePool */
 export interface MsgCreateStableswapPool {

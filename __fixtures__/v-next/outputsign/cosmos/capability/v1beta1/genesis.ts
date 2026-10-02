@@ -1,6 +1,6 @@
-import { CapabilityOwners, CapabilityOwnersAmino, CapabilityOwnersSDKType } from "./capability";
+import { CapabilityOwners, type CapabilityOwnersAmino, type CapabilityOwnersSDKType } from "./capability";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { DeepPartial } from "../../../helpers";
+import type { DeepPartial } from "../../../helpers";
 export const protobufPackage = "cosmos.capability.v1beta1";
 /**
  * GenesisOwners defines the capability owners with their corresponding index.

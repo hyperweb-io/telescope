@@ -1,8 +1,8 @@
 import { Timestamp, TimestampSDKType } from "../../../google/protobuf/timestamp.js";
-import { Period, PeriodSDKType } from "../../../cosmos/vesting/v1beta1/vesting.js";
+import { Period, type PeriodSDKType } from "../../../cosmos/vesting/v1beta1/vesting.js";
 import { BinaryReader, BinaryWriter } from "../../../binary.js";
-import { toTimestamp, fromTimestamp, isSet, DeepPartial } from "../../../helpers.js";
-import { JsonSafe } from "../../../json-safe.js";
+import { toTimestamp, fromTimestamp, isSet, type DeepPartial } from "../../../helpers.js";
+import type { JsonSafe } from "../../../json-safe.js";
 export const protobufPackage = "evmos.vesting.v1";
 /**
  * MsgCreateClawbackVestingAccount defines a message that enables creating a ClawbackVestingAccount.

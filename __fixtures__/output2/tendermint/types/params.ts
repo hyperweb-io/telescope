@@ -1,9 +1,9 @@
 //@ts-nocheck
 /* eslint-disable */
 import { Duration } from "../../google/protobuf/duration";
-import { Long, isSet, DeepPartial } from "../../helpers";
+import { Long, isSet, type DeepPartial } from "../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../json-safe";
+import type { JsonSafe } from "../../json-safe";
 export const protobufPackage = "tendermint.types";
 /**
  * ConsensusParams contains consensus critical parameters that determine the

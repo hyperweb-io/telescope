@@ -1,6 +1,6 @@
 import { BinaryReader, BinaryWriter } from "../../../../binary.js";
-import { JsonSafe } from "../../../../json-safe.js";
-import { DeepPartial } from "../../../../helpers.js";
+import type { JsonSafe } from "../../../../json-safe.js";
+import type { DeepPartial } from "../../../../helpers.js";
 export const protobufPackage = "cosmos.orm.module.v1alpha1";
 /**
  * Module defines the ORM module which adds providers to the app container for

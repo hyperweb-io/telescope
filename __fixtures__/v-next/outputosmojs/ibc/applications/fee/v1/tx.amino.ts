@@ -1,7 +1,7 @@
 import { Fee, FeeSDKType, PacketFee, PacketFeeSDKType } from "./fee";
-import { AminoMsg } from "@cosmjs/amino";
+import type { AminoMsg } from "@cosmjs/amino";
 import { Coin, CoinSDKType } from "../../../../cosmos/base/v1beta1/coin";
-import { MsgRegisterPayee, MsgRegisterPayeeSDKType, MsgRegisterCounterpartyPayee, MsgRegisterCounterpartyPayeeSDKType, MsgPayPacketFee, MsgPayPacketFeeSDKType, MsgPayPacketFeeAsync, MsgPayPacketFeeAsyncSDKType } from "./tx";
+import { type MsgRegisterPayee, MsgRegisterPayeeSDKType, type MsgRegisterCounterpartyPayee, MsgRegisterCounterpartyPayeeSDKType, type MsgPayPacketFee, MsgPayPacketFeeSDKType, type MsgPayPacketFeeAsync, MsgPayPacketFeeAsyncSDKType } from "./tx";
 export interface MsgRegisterPayeeAminoType extends AminoMsg {
   type: "cosmos-sdk/MsgRegisterPayee";
   value: {

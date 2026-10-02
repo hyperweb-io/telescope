@@ -1,7 +1,7 @@
-import { Params, ParamsSDKType } from "./mint";
+import { Params, type ParamsSDKType } from "./mint";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { JsonSafe } from "../../../json-safe";
-import { DeepPartial, isSet, bytesFromBase64, base64FromBytes } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
+import { type DeepPartial, isSet, bytesFromBase64, base64FromBytes } from "../../../helpers";
 export const protobufPackage = "cosmos.mint.v1beta1";
 /**
  * QueryParamsRequest is the request type for the Query/Params RPC method.

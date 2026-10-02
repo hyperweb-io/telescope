@@ -3,9 +3,9 @@
 import { Duration } from "../../google/protobuf/duration";
 import { Coin } from "../../cosmos/base/v1beta1/coin";
 import { PeriodLock } from "./lock";
-import { Long, isSet, DeepPartial, Rpc } from "../../helpers";
+import { Long, isSet, type DeepPartial, type Rpc } from "../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { JsonSafe } from "../../json-safe";
+import type { JsonSafe } from "../../json-safe";
 export const protobufPackage = "osmosis.lockup";
 export interface MsgLockTokens {
   owner: string;

@@ -1,9 +1,9 @@
-import { SwapAmountInRoute, SwapAmountInRouteSDKType, SwapAmountOutRoute, SwapAmountOutRouteSDKType } from "./swap_route";
-import { Params, ParamsSDKType } from "./genesis";
-import { Any, AnySDKType } from "../../../google/protobuf/any";
+import { SwapAmountInRoute, type SwapAmountInRouteSDKType, SwapAmountOutRoute, type SwapAmountOutRouteSDKType } from "./swap_route";
+import { Params, type ParamsSDKType } from "./genesis";
+import { Any, type AnySDKType } from "../../../google/protobuf/any";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { JsonSafe } from "../../../json-safe";
-import { DeepPartial, isSet } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
+import { type DeepPartial, isSet } from "../../../helpers";
 export const protobufPackage = "osmosis.poolmanager.v1beta1";
 /**
  * =============================== Params

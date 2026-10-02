@@ -1,8 +1,8 @@
 import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../../../cosmos/base/query/v1beta1/pagination.js";
 import { DenomTrace, DenomTraceSDKType, Params, ParamsSDKType } from "./transfer.js";
 import { setPaginationParams } from "../../../../helpers.js";
-import { LCDClient } from "@cosmology/lcd";
-import { QueryDenomTraceRequest, QueryDenomTraceRequestSDKType, QueryDenomTraceResponse, QueryDenomTraceResponseSDKType, QueryDenomTracesRequest, QueryDenomTracesRequestSDKType, QueryDenomTracesResponse, QueryDenomTracesResponseSDKType, QueryParamsRequest, QueryParamsRequestSDKType, QueryParamsResponse, QueryParamsResponseSDKType } from "./query.js";
+import type { LCDClient } from "@cosmology/lcd";
+import { type QueryDenomTraceRequest, QueryDenomTraceRequestSDKType, QueryDenomTraceResponse, type QueryDenomTraceResponseSDKType, type QueryDenomTracesRequest, QueryDenomTracesRequestSDKType, QueryDenomTracesResponse, type QueryDenomTracesResponseSDKType, type QueryParamsRequest, QueryParamsRequestSDKType, QueryParamsResponse, type QueryParamsResponseSDKType } from "./query.js";
 export class LCDQueryClient {
   req: LCDClient;
   constructor({

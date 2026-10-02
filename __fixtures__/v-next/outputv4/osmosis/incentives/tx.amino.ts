@@ -2,9 +2,9 @@
 import { QueryCondition, QueryConditionSDKType, lockQueryTypeFromJSON } from "../lockup/lock.js";
 import { Coin, CoinSDKType } from "../../cosmos/base/v1beta1/coin.js";
 import { Timestamp, TimestampSDKType } from "../../google/protobuf/timestamp.js";
-import { AminoMsg } from "@cosmjs/amino";
+import type { AminoMsg } from "@cosmjs/amino";
 import { Duration, DurationSDKType } from "../../google/protobuf/duration.js";
-import { MsgCreateGauge, MsgCreateGaugeSDKType, MsgAddToGauge, MsgAddToGaugeSDKType } from "./tx.js";
+import { type MsgCreateGauge, MsgCreateGaugeSDKType, type MsgAddToGauge, MsgAddToGaugeSDKType } from "./tx.js";
 export interface MsgCreateGaugeAminoType extends AminoMsg {
   type: "osmosis/incentives/create-gauge";
   value: {

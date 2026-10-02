@@ -4,8 +4,8 @@ import { MetricDescriptor } from "../../api/metric";
 import { Distribution_BucketOptions } from "../../api/distribution";
 import { Timestamp } from "../../protobuf/timestamp";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial, isObject, fromJsonTimestamp, fromTimestamp } from "../../../helpers";
-import { JsonSafe } from "../../../json-safe";
+import { isSet, type DeepPartial, isObject, fromJsonTimestamp, fromTimestamp } from "../../../helpers";
+import type { JsonSafe } from "../../../json-safe";
 export const protobufPackage = "google.logging.v2";
 /** Logging API version. */
 export enum LogMetric_ApiVersion {

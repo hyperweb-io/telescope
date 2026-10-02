@@ -1,6 +1,6 @@
-import { Duration, DurationAmino } from "../../google/protobuf/duration";
+import { Duration, type DurationAmino } from "../../google/protobuf/duration";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { DeepPartial } from "../../helpers";
+import type { DeepPartial } from "../../helpers";
 /**
  * ConsensusParams contains consensus critical parameters that determine the
  * validity of blocks.

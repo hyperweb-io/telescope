@@ -1,9 +1,9 @@
-import { ResourceValue, ResourceValueSDKType } from "./resourcevalue.js";
-import { Attribute, AttributeSDKType } from "./attribute.js";
-import { Endpoint, EndpointSDKType } from "./endpoint.js";
+import { ResourceValue, type ResourceValueSDKType } from "./resourcevalue.js";
+import { Attribute, type AttributeSDKType } from "./attribute.js";
+import { Endpoint, type EndpointSDKType } from "./endpoint.js";
 import { BinaryReader, BinaryWriter } from "../../../binary.js";
-import { isSet, DeepPartial, Exact } from "../../../helpers.js";
-import { JsonSafe } from "../../../json-safe.js";
+import { isSet, type DeepPartial, type Exact } from "../../../helpers.js";
+import type { JsonSafe } from "../../../json-safe.js";
 export const protobufPackage = "akash.base.v1beta1";
 /**
  * CPU stores resource units and cpu config attributes

@@ -1,7 +1,7 @@
-import { Params, ParamsSDKType } from "./params.js";
+import { Params, type ParamsSDKType } from "./params.js";
 import { BinaryReader, BinaryWriter } from "../../../binary.js";
-import { JsonSafe } from "../../../json-safe.js";
-import { DeepPartial, isSet } from "../../../helpers.js";
+import type { JsonSafe } from "../../../json-safe.js";
+import { type DeepPartial, isSet } from "../../../helpers.js";
 export const protobufPackage = "osmosis.ibcratelimit.v1beta1";
 /**
  * QueryParamsRequest is the request type for the Query/Params RPC method.

@@ -1,7 +1,7 @@
-import { LabelDescriptor, LabelDescriptorSDKType } from "./label";
+import { LabelDescriptor, type LabelDescriptorSDKType } from "./label";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { isSet, DeepPartial } from "../../helpers";
-import { JsonSafe } from "../../json-safe";
+import { isSet, type DeepPartial } from "../../helpers";
+import type { JsonSafe } from "../../json-safe";
 export const protobufPackage = "google.api";
 /**
  * A description of a log type. Example in YAML format:

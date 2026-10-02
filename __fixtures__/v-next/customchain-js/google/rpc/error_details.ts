@@ -1,6 +1,6 @@
-import { Duration, DurationAmino } from "../protobuf/duration";
+import { Duration, type DurationAmino } from "../protobuf/duration";
 import { BinaryReader, BinaryWriter } from "../../binary";
-import { DeepPartial } from "../../helpers";
+import type { DeepPartial } from "../../helpers";
 /**
  * Describes when the clients can retry a failed request. Clients could ignore
  * the recommendation here or retry when this information is missing from error

@@ -1,9 +1,9 @@
-import { Params, ParamsAmino, ParamsSDKType } from "./params";
-import { Gauge, GaugeAmino, GaugeSDKType } from "./gauge";
-import { Duration, DurationAmino, DurationSDKType } from "../../google/protobuf/duration";
+import { Params, type ParamsAmino, type ParamsSDKType } from "./params";
+import { Gauge, type GaugeAmino, type GaugeSDKType } from "./gauge";
+import { Duration, type DurationAmino, type DurationSDKType } from "../../google/protobuf/duration";
 import { BinaryReader, BinaryWriter } from "../../binary";
 import { GlobalDecoderRegistry } from "../../registry";
-import { isSet, DeepPartial } from "../../helpers";
+import { isSet, type DeepPartial } from "../../helpers";
 export const protobufPackage = "osmosis.incentives";
 /**
  * GenesisState defines the incentives module's various parameters when first

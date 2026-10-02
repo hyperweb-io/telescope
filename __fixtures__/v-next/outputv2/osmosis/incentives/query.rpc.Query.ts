@@ -1,7 +1,7 @@
 import { PageRequest } from "../../cosmos/base/query/v1beta1/pagination";
 import { grpc } from "@improbable-eng/grpc-web";
-import { UnaryMethodDefinitionish } from "../../grpc-web";
-import { DeepPartial } from "../../helpers";
+import type { UnaryMethodDefinitionish } from "../../grpc-web";
+import type { DeepPartial } from "../../helpers";
 import { BrowserHeaders } from "browser-headers";
 import { ModuleToDistributeCoinsRequest, ModuleToDistributeCoinsResponse, GaugeByIDRequest, GaugeByIDResponse, GaugesRequest, GaugesResponse, ActiveGaugesRequest, ActiveGaugesResponse, ActiveGaugesPerDenomRequest, ActiveGaugesPerDenomResponse, UpcomingGaugesRequest, UpcomingGaugesResponse, UpcomingGaugesPerDenomRequest, UpcomingGaugesPerDenomResponse, RewardsEstRequest, RewardsEstResponse, QueryLockableDurationsRequest, QueryLockableDurationsResponse } from "./query";
 /** Query defines the gRPC querier service */
