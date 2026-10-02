@@ -1,7 +1,7 @@
 {
   "name": "@cosmology/starship-test",
   "private": true,
-  "version": "2.3.0",
+  "version": "2.4.0",
   "description": "E2E tests for telescope with Starship",
   "author": "Constructive <developers@constructive.io>",
   "homepage": "https://github.com/hyperweb-io/telescope",

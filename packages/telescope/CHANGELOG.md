@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/hyperweb-io/telescope/compare/@hyperweb/telescope@2.3.0...@hyperweb/telescope@2.4.0) (2026-10-02)
+
+### Features
+
+- type-only imports/exports, explicit helper types, inquirerer 4 ([b91c5fd](https://github.com/hyperweb-io/telescope/commit/b91c5fd44e310a4ed36cb549e2bde980d43687ec)), closes [#838](https://github.com/hyperweb-io/telescope/issues/838) [#805](https://github.com/hyperweb-io/telescope/issues/805) [#819](https://github.com/hyperweb-io/telescope/issues/819)
+
 # [2.3.0](https://github.com/hyperweb-io/telescope/compare/@hyperweb/telescope@2.2.4...@hyperweb/telescope@2.3.0) (2026-10-02)
 
 ### Bug Fixes
