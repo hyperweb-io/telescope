@@ -1,6 +1,6 @@
 {
   "name": "@cosmology/proto-parser",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "A Parser for Cosmos Protobufs",
   "author": "Constructive <developers@constructive.io>",
   "homepage": "https://github.com/hyperweb-io/telescope",

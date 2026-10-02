@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.17.0](https://github.com/hyperweb-io/telescope/compare/@cosmology/lcd@0.16.0...@cosmology/lcd@0.17.0) (2026-10-02)
+
+**Note:** Version bump only for package @cosmology/lcd
+
 # [0.16.0](https://github.com/hyperweb-io/telescope/compare/@cosmology/lcd@0.15.0...@cosmology/lcd@0.16.0) (2026-02-28)
 
 ### Bug Fixes

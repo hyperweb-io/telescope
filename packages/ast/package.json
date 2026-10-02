@@ -1,6 +1,6 @@
 {
   "name": "@cosmology/ast",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "Cosmos TypeScript AST generation",
   "author": "Constructive <developers@constructive.io>",
   "homepage": "https://github.com/hyperweb-io/telescope",

@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/hyperweb-io/telescope/compare/@hyperweb/telescope@2.2.4...@hyperweb/telescope@2.3.0) (2026-10-02)
+
+### Bug Fixes
+
+- apply restoreExtension on bundle ([9de4c89](https://github.com/hyperweb-io/telescope/commit/9de4c8958937445b2316ba708bcbfc914d7345ac))
+- num64 == "long" no longer generates files with incorrect and missing binary reader/writer imports ([4ae7c6b](https://github.com/hyperweb-io/telescope/commit/4ae7c6b61e880dd03a9caa72071d3b163a8576a6))
+
 ## [2.2.4](https://github.com/hyperweb-io/telescope/compare/@hyperweb/telescope@2.2.3...@hyperweb/telescope@2.2.4) (2026-04-02)
 
 ### Bug Fixes

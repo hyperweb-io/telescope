@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/hyperweb-io/telescope/compare/@cosmology/starship-test@2.2.4...@cosmology/starship-test@2.3.0) (2026-10-02)
+
+**Note:** Version bump only for package @cosmology/starship-test
+
 ## [2.2.4](https://github.com/hyperweb-io/telescope/compare/@cosmology/starship-test@2.2.3...@cosmology/starship-test@2.2.4) (2026-04-02)
 
 **Note:** Version bump only for package @cosmology/starship-test
