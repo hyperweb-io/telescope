@@ -23,7 +23,7 @@
     "@cosmjs/proto-signing": "^0.32.0",
     "@cosmjs/stargate": "^0.32.0",
     "@cosmjs/tendermint-rpc": "^0.32.0",
-    "@interchainjs/cosmos": "1.17.1",
+    "@interchainjs/cosmos": "1.21.0",
     "@interchainjs/encoding": "1.17.1",
     "@interchainjs/math": "1.17.1",
     "@interchainjs/pubkey": "1.17.1",
