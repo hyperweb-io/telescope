@@ -39,7 +39,7 @@ jobs:
       # - Port forward all ports to localhost for next steps to connect
       - name: infra
         id: starship-action
-        uses: cosmology-tech/starship-action@0.5.8
+        uses: cosmology-tech/starship-action@1.1.0
         with:
           config: packages/starship/configs/local-config.yaml
           cli-version: 3.0.0
