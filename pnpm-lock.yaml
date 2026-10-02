@@ -145,8 +145,8 @@ importers:
   packages/lcd:
     dependencies:
       axios:
-        specifier: 1.8.2
-        version: 1.8.2
+        specifier: 1.13.5
+        version: 1.13.5
     devDependencies:
       makage:
         specifier: ^0.1.12
@@ -174,8 +174,8 @@ importers:
         specifier: 8.0.3
         version: 8.0.3
       minimatch:
-        specifier: 5.1.0
-        version: 5.1.0
+        specifier: 5.1.9
+        version: 5.1.9
       mkdirp:
         specifier: 3.0.0
         version: 3.0.0
@@ -303,8 +303,8 @@ importers:
         specifier: 1.17.1
         version: 1.17.1(@chain-registry/v2-types@0.53.146)(@chain-registry/v2@1.71.237)
       js-yaml:
-        specifier: 4.1.0
-        version: 4.1.0
+        specifier: 4.1.1
+        version: 4.1.1
       makage:
         specifier: ^0.1.12
         version: 0.1.12
@@ -391,8 +391,8 @@ importers:
         specifier: ^5.2.1
         version: 5.3.2
       minimatch:
-        specifier: 5.1.0
-        version: 5.1.0
+        specifier: 5.1.9
+        version: 5.1.9
       minimist:
         specifier: 1.2.8
         version: 1.2.8
@@ -470,8 +470,8 @@ importers:
         specifier: 8.0.3
         version: 8.0.3
       minimatch:
-        specifier: 5.1.0
-        version: 5.1.0
+        specifier: 5.1.9
+        version: 5.1.9
     devDependencies:
       jest-in-case:
         specifier: ^1.0.2
@@ -2800,10 +2800,10 @@ packages:
         integrity: sha512-t+yRIyySRTp/wua5xEr+z1q60QmLq8ABsS5O9Me1AsE5dfKqgnCFzwiCZZ/cGNd1lq4/7akDWMxdhVlucjmnOQ==,
       }
 
-  axios@1.13.6:
+  axios@1.13.5:
     resolution:
       {
-        integrity: sha512-ChTCHMouEe2kn713WHbQGcuYrr6fXTBiu460OTwWrWob16g1bXn4vtz07Ope7ewMozJAnEquLk5lWQWtBig9DQ==,
+        integrity: sha512-cz4ur7Vb0xS4/KUN0tPWe44eqxrIu31me+fbang3ijiNscE129POzipJJA6zniq2C/Z6sJCjMimjS8Lc/GAs8Q==,
       }
 
   axios@1.8.2:
@@ -5494,6 +5494,13 @@ packages:
       }
     hasBin: true
 
+  js-yaml@4.1.1:
+    resolution:
+      {
+        integrity: sha512-qQKT4zQxXl8lLwBtHMWwaTcGfFOZviOJet3Oy/xmGk2gZH677CJM9EvtfdSkgWcATZhj/55JZ0rmy3myCT5lsA==,
+      }
+    hasBin: true
+
   jsesc@3.1.0:
     resolution:
       {
@@ -6013,6 +6020,13 @@ packages:
     resolution:
       {
         integrity: sha512-9TPBGGak4nHfGZsPBohm9AWg6NoT7QTCehS3BIJABslyZbzxfV78QM2Y6+i741OPZIafFAaiiEMh5OyIrJPgtg==,
+      }
+    engines: { node: ">=10" }
+
+  minimatch@5.1.9:
+    resolution:
+      {
+        integrity: sha512-7o1wEA2RyMP7Iu7GNba9vc0RWWGACJOCZBJX2GJWip0ikV+wcOsgVuY9uE8CPiyQhkGFSlhuSkZPavN7u1c2Fw==,
       }
     engines: { node: ">=10" }
 
@@ -7518,6 +7532,7 @@ packages:
         integrity: sha512-+dp+o2w67fV6JyVOVkYeM1Ec71aORHc/JrF4VHLlfeGee0nLilooCQLE2u6hUcSGQG2x2/fvzkxYpIN+k1JBvA==,
       }
     engines: { node: ">=22" }
+    deprecated: starknet <10 is end-of-life and no longer receives security fixes. Upgrade to starknet@10 (10.8.0 or later).
 
   starshipjs@3.14.1:
     resolution:
@@ -9166,7 +9181,7 @@ snapshots:
       globals: 13.24.0
       ignore: 5.3.2
       import-fresh: 3.3.1
-      js-yaml: 4.1.0
+      js-yaml: 4.1.1
       minimatch: 3.1.5
       strip-json-comments: 3.1.1
     transitivePeerDependencies:
@@ -10251,7 +10266,7 @@ snapshots:
       chalk: 4.1.2
       deepmerge: 4.3.1
       inquirerer: 1.9.1
-      js-yaml: 4.1.0
+      js-yaml: 4.1.1
       minimist: 1.2.8
     transitivePeerDependencies:
       - debug
@@ -10259,10 +10274,10 @@ snapshots:
   "@starship-ci/client@3.14.1":
     dependencies:
       "@starship-ci/types": 3.14.0
-      axios: 1.8.2
+      axios: 1.13.5
       chalk: 4.1.2
       deepmerge: 4.3.1
-      js-yaml: 4.1.0
+      js-yaml: 4.1.1
       mkdirp: 3.0.1
       shelljs: 0.8.5
     transitivePeerDependencies:
@@ -10532,7 +10547,7 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  axios@1.13.6:
+  axios@1.13.5:
     dependencies:
       follow-redirects: 1.15.11
       form-data: 4.0.5
@@ -10992,7 +11007,7 @@ snapshots:
     dependencies:
       env-paths: 2.2.1
       import-fresh: 3.3.1
-      js-yaml: 4.1.0
+      js-yaml: 4.1.1
       parse-json: 5.2.0
     optionalDependencies:
       typescript: 5.9.3
@@ -11423,7 +11438,7 @@ snapshots:
 
   filelist@1.0.6:
     dependencies:
-      minimatch: 5.1.0
+      minimatch: 5.1.9
 
   fill-range@7.1.1:
     dependencies:
@@ -11865,7 +11880,7 @@ snapshots:
     dependencies:
       chalk: 4.1.2
       deepmerge: 4.3.1
-      js-yaml: 4.1.0
+      js-yaml: 4.1.1
       minimist: 1.2.8
 
   interchainjs@1.17.1(@chain-registry/v2-types@0.53.146)(@chain-registry/v2@1.71.237):
@@ -12390,6 +12405,10 @@ snapshots:
     dependencies:
       argparse: 2.0.1
 
+  js-yaml@4.1.1:
+    dependencies:
+      argparse: 2.0.1
+
   jsesc@3.1.0: {}
 
   json-buffer@3.0.1: {}
@@ -12759,6 +12778,10 @@ snapshots:
     dependencies:
       brace-expansion: 2.0.2
 
+  minimatch@5.1.9:
+    dependencies:
+      brace-expansion: 2.0.2
+
   minimatch@8.0.7:
     dependencies:
       brace-expansion: 2.0.2
@@ -12970,7 +12993,7 @@ snapshots:
       "@yarnpkg/lockfile": 1.1.0
       "@yarnpkg/parsers": 3.0.2
       "@zkochan/js-yaml": 0.0.7
-      axios: 1.13.6
+      axios: 1.13.5
       chalk: 4.1.0
       cli-cursor: 3.1.0
       cli-spinners: 2.6.1
@@ -13711,7 +13734,7 @@ snapshots:
       "@chain-registry/client": 2.0.162(patch_hash=28d5be33d0b2a466f7eb6697e3715ed4a667f432a9dbd010b3eee78b6907cdb0)(encoding@0.1.13)
       "@starship-ci/types": 3.14.0
       bip39: 3.1.0
-      js-yaml: 4.1.0
+      js-yaml: 4.1.1
       node-fetch: 2.7.0(encoding@0.1.13)
     transitivePeerDependencies:
       - encoding
