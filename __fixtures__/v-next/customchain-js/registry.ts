@@ -114,8 +114,7 @@ export class GlobalDecoderRegistry {
     if (Any.is(input)) {
       data = input;
     } else {
-      const reader =
-        input instanceof BinaryReader ? input : new BinaryReader(input);
+      const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
 
       data = Any.decode(reader, reader.uint32());
     }

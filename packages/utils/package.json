@@ -57,6 +57,6 @@
     "case": "1.6.3",
     "dotty": "0.1.2",
     "glob": "8.0.3",
-    "minimatch": "5.1.0"
+    "minimatch": "5.1.9"
   }
 }

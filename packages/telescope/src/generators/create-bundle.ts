@@ -9,6 +9,7 @@ import {
   duplicateImportPathsWithExt,
   makeAliasName,
   makeAliasNameWithPackageAtEnd,
+  restoreExtension,
 } from "@cosmology/utils";
 
 /**
@@ -72,6 +73,8 @@ export const plugin = (builder: TelescopeBuilder, bundler: Bundler) => {
       return;
     }
 
+    const restoreImportExt = builder.options.restoreImportExtension;
+
     // check each of exported identifiers is duplicated
     exportObjs.forEach((exportObj) => {
       const duplicatedTypeNames = exportObj.exportedIdentifiers.filter(
@@ -125,10 +128,11 @@ export const plugin = (builder: TelescopeBuilder, bundler: Bundler) => {
             return { name: identifier, alias: identifier };
           }
         );
-        prog.push(exportTypesWithAlias(typesWithAlias, exportObj.relativePath));
+        const relPath = restoreExtension(exportObj.relativePath, restoreImportExt);
+        prog.push(exportTypesWithAlias(typesWithAlias, relPath));
       } else {
         // export *
-        prog.push(exportAllFromRelPath(exportObj.relativePath));
+        prog.push(exportAllFromRelPath(restoreExtension(exportObj.relativePath, restoreImportExt)));
       }
     });
   }
