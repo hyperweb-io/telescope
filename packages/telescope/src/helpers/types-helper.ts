@@ -1,9 +1,15 @@
 import { TelescopeOptions } from "@cosmology/types";
+import {
+  getBinaryTypesImport,
+  getTypesReaderTypeRef,
+  getTypesWriterTypeRef,
+} from "./binary-runtime";
 
 export const getTypesHelper = (options: TelescopeOptions) => {
-  return `import { IBinaryReader, IBinaryWriter } from "./binary${
-    options.restoreImportExtension ?? ""
-  }";
+  const readerType = getTypesReaderTypeRef(options);
+  const writerType = getTypesWriterTypeRef(options);
+
+  return `${getBinaryTypesImport(options)}
 import { Any } from "./google/protobuf/any${
     options.restoreImportExtension ?? ""
   }";
@@ -42,8 +48,8 @@ export interface TelescopeGeneratedCodec<
   is?(o: unknown): o is T;
   isSDK?(o: unknown): o is SDK;
   isAmino?(o: unknown): o is Amino;
-  encode: (message: T, writer?: IBinaryWriter | any) => IBinaryWriter | any;
-  decode: (input: IBinaryReader | Uint8Array | any, length?: number) => T;
+  encode: (message: T, writer?: ${writerType} | any) => ${writerType} | any;
+  decode: (input: ${readerType} | Uint8Array | any, length?: number) => T;
   fromPartial: (object: any) => T | any;
   fromJSON?: (object: any) => T | any;
   toJSON?: (message: T | any) => any;
