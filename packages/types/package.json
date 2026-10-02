@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "cross-env": "^7.0.2",
-    "makage": "^0.1.12"
+    "makage": "^0.8.0"
   },
   "dependencies": {
     "case": "1.6.3",
