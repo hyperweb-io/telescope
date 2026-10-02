@@ -99,7 +99,7 @@ describe('createCreateProtoType', () => {
     });
 });
 
-describe('createCreateProtoType orginal logic', () => {
+describe('createCreateProtoType original logic', () => {
   const ref = store.findProto('tendermint/types/types.proto');
 
   const options = deepmerge(defaultTelescopeOptions, {
