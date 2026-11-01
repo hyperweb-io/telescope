@@ -11,7 +11,7 @@ export const createTypeUrlProperty = (
     if (!typeUrl) return;
     return t.objectProperty(
         t.identifier('typeUrl'),
-        t.stringLiteral(typeUrl)
+        t.tsAsExpression(t.stringLiteral(typeUrl), t.tsTypeReference(t.identifier('const')))
     )
 };
 
@@ -23,6 +23,6 @@ export const createAminoTypeProperty = (
     if (!str || str.startsWith('/')) return;
     return t.objectProperty(
         t.identifier('aminoType'),
-        t.stringLiteral(str)
+        t.tsAsExpression(t.stringLiteral(str), t.tsTypeReference(t.identifier('const')))
     )
 };

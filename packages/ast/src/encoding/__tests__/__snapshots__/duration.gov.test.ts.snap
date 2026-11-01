@@ -8,8 +8,8 @@ exports[`Duraation: duration DepositParams 1`] = `
  * @see proto type: cosmos.gov.v1beta1.DepositParams
  */
 export const DepositParams = {
-  typeUrl: "/cosmos.gov.v1beta1.DepositParams",
-  aminoType: "cosmos-sdk/DepositParams",
+  typeUrl: "/cosmos.gov.v1beta1.DepositParams" as const,
+  aminoType: "cosmos-sdk/DepositParams" as const,
   is(o: any): o is DepositParams {
     return o && (o.$typeUrl === DepositParams.typeUrl || Array.isArray(o.minDeposit) && (!o.minDeposit.length || Coin.is(o.minDeposit[0])) && typeof o.maxDepositPeriod === "string");
   },
@@ -107,8 +107,8 @@ exports[`Duration: string DepositParams 1`] = `
  * @see proto type: cosmos.gov.v1beta1.DepositParams
  */
 export const DepositParams = {
-  typeUrl: "/cosmos.gov.v1beta1.DepositParams",
-  aminoType: "cosmos-sdk/DepositParams",
+  typeUrl: "/cosmos.gov.v1beta1.DepositParams" as const,
+  aminoType: "cosmos-sdk/DepositParams" as const,
   is(o: any): o is DepositParams {
     return o && (o.$typeUrl === DepositParams.typeUrl || Array.isArray(o.minDeposit) && (!o.minDeposit.length || Coin.is(o.minDeposit[0])) && typeof o.maxDepositPeriod === "string");
   },

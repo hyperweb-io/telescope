@@ -65,7 +65,7 @@ exports[`Duration 1`] = `
  * @see proto type: google.protobuf.Duration
  */
 export const Duration = {
-  typeUrl: "/google.protobuf.Duration",
+  typeUrl: "/google.protobuf.Duration" as const,
   is(o: any): o is Duration {
     return o && (o.$typeUrl === Duration.typeUrl || typeof o.seconds === "bigint" && typeof o.nanos === "number");
   },
@@ -180,8 +180,8 @@ exports[`Height 1`] = `
  * @see proto type: ibc.core.client.v1.Height
  */
 export const Height = {
-  typeUrl: "/ibc.core.client.v1.Height",
-  aminoType: "cosmos-sdk/Height",
+  typeUrl: "/ibc.core.client.v1.Height" as const,
+  aminoType: "cosmos-sdk/Height" as const,
   is(o: any): o is Height {
     return o && (o.$typeUrl === Height.typeUrl || typeof o.revisionNumber === "bigint" && typeof o.revisionHeight === "bigint");
   },
@@ -295,8 +295,8 @@ exports[`MsgCreateValidator 1`] = `
  * @see proto type: cosmos.staking.v1beta1.MsgCreateValidator
  */
 export const MsgCreateValidator = {
-  typeUrl: "/cosmos.staking.v1beta1.MsgCreateValidator",
-  aminoType: "cosmos-sdk/MsgCreateValidator",
+  typeUrl: "/cosmos.staking.v1beta1.MsgCreateValidator" as const,
+  aminoType: "cosmos-sdk/MsgCreateValidator" as const,
   is(o: any): o is MsgCreateValidator {
     return o && (o.$typeUrl === MsgCreateValidator.typeUrl || Description.is(o.description) && CommissionRates.is(o.commission) && typeof o.minSelfDelegation === "string" && typeof o.delegatorAddress === "string" && typeof o.validatorAddress === "string" && Coin.is(o.value));
   },
@@ -494,8 +494,8 @@ exports[`MsgStoreCode 1`] = `
  * @see proto type: cosmwasm.wasm.v1.MsgStoreCode
  */
 export const MsgStoreCode = {
-  typeUrl: "/cosmwasm.wasm.v1.MsgStoreCode",
-  aminoType: "wasm/MsgStoreCode",
+  typeUrl: "/cosmwasm.wasm.v1.MsgStoreCode" as const,
+  aminoType: "wasm/MsgStoreCode" as const,
   is(o: any): o is MsgStoreCode {
     return o && (o.$typeUrl === MsgStoreCode.typeUrl || typeof o.sender === "string" && (o.wasmByteCode instanceof Uint8Array || typeof o.wasmByteCode === "string"));
   },
@@ -634,8 +634,8 @@ exports[`MsgSubmitProposal 1`] = `
  * @see proto type: cosmos.gov.v1beta1.MsgSubmitProposal
  */
 export const MsgSubmitProposal = {
-  typeUrl: "/cosmos.gov.v1beta1.MsgSubmitProposal",
-  aminoType: "cosmos-sdk/MsgSubmitProposal",
+  typeUrl: "/cosmos.gov.v1beta1.MsgSubmitProposal" as const,
+  aminoType: "cosmos-sdk/MsgSubmitProposal" as const,
   is(o: any): o is MsgSubmitProposal {
     return o && (o.$typeUrl === MsgSubmitProposal.typeUrl || Array.isArray(o.initialDeposit) && (!o.initialDeposit.length || Coin.is(o.initialDeposit[0])) && typeof o.proposer === "string");
   },
@@ -795,8 +795,8 @@ exports[`MsgTransfer 1`] = `
  * @see proto type: ibc.applications.transfer.v1.MsgTransfer
  */
 export const MsgTransfer = {
-  typeUrl: "/ibc.applications.transfer.v1.MsgTransfer",
-  aminoType: "cosmos-sdk/MsgTransfer",
+  typeUrl: "/ibc.applications.transfer.v1.MsgTransfer" as const,
+  aminoType: "cosmos-sdk/MsgTransfer" as const,
   is(o: any): o is MsgTransfer {
     return o && (o.$typeUrl === MsgTransfer.typeUrl || typeof o.sourcePort === "string" && typeof o.sourceChannel === "string" && Coin.is(o.token) && typeof o.sender === "string" && typeof o.receiver === "string" && Height.is(o.timeoutHeight) && typeof o.timeoutTimestamp === "bigint");
   },

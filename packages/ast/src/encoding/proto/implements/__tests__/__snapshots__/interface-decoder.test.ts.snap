@@ -37,8 +37,8 @@ exports[`PoolI objects 1`] = `
  * @see proto type: osmosis.gamm.v1beta1.QueryPoolsResponse
  */
 export const QueryPoolsResponse = {
-  typeUrl: "/osmosis.gamm.v1beta1.QueryPoolsResponse",
-  aminoType: "osmosis/gamm/query-pools-response",
+  typeUrl: "/osmosis.gamm.v1beta1.QueryPoolsResponse" as const,
+  aminoType: "osmosis/gamm/query-pools-response" as const,
   is(o: any): o is QueryPoolsResponse {
     return o && (o.$typeUrl === QueryPoolsResponse.typeUrl || Array.isArray(o.pools) && (!o.pools.length || Pool1.is(o.pools[0]) || Pool2.is(o.pools[0]) || Any.is(o.pools[0])));
   },

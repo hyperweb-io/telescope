@@ -35,8 +35,8 @@ exports[`MsgExecuteContract interface 2`] = `
  * @see proto type: cosmwasm.wasm.v1.MsgExecuteContract
  */
 export const MsgExecuteContract = {
-  typeUrl: "/cosmwasm.wasm.v1.MsgExecuteContract",
-  aminoType: "wasm/MsgExecuteContract",
+  typeUrl: "/cosmwasm.wasm.v1.MsgExecuteContract" as const,
+  aminoType: "wasm/MsgExecuteContract" as const,
   is(o: any): o is MsgExecuteContract {
     return o && (o.$typeUrl === MsgExecuteContract.typeUrl || typeof o.sender === "string" && typeof o.contract === "string" && (o.msg instanceof Uint8Array || typeof o.msg === "string") && Array.isArray(o.funds) && (!o.funds.length || Coin.is(o.funds[0])));
   },
