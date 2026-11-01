@@ -20,8 +20,8 @@ exports[`osmosis/lockup/tx duration 2`] = `
  * @see proto type: osmosis.lockup.MsgLockTokens
  */
 export const MsgLockTokens = {
-  typeUrl: "/osmosis.lockup.MsgLockTokens",
-  aminoType: "osmosis/lockup/lock-tokens",
+  typeUrl: "/osmosis.lockup.MsgLockTokens" as const,
+  aminoType: "osmosis/lockup/lock-tokens" as const,
   is(o: any): o is MsgLockTokens {
     return o && (o.$typeUrl === MsgLockTokens.typeUrl || typeof o.owner === "string" && Duration.is(o.duration) && Array.isArray(o.coins) && (!o.coins.length || Coin.is(o.coins[0])));
   },
@@ -234,8 +234,8 @@ exports[`osmosis/lockup/tx string 2`] = `
  * @see proto type: osmosis.lockup.MsgLockTokens
  */
 export const MsgLockTokens = {
-  typeUrl: "/osmosis.lockup.MsgLockTokens",
-  aminoType: "osmosis/lockup/lock-tokens",
+  typeUrl: "/osmosis.lockup.MsgLockTokens" as const,
+  aminoType: "osmosis/lockup/lock-tokens" as const,
   is(o: any): o is MsgLockTokens {
     return o && (o.$typeUrl === MsgLockTokens.typeUrl || typeof o.owner === "string" && typeof o.duration === "string" && Array.isArray(o.coins) && (!o.coins.length || Coin.is(o.coins[0])));
   },

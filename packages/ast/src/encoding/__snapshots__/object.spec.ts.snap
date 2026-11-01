@@ -10,8 +10,8 @@ exports[`cosmos/staking/v1beta1 Delegation 1`] = `
  * @see proto type: cosmos.staking.v1beta1.Delegation
  */
 export const Delegation = {
-  typeUrl: "/cosmos.staking.v1beta1.Delegation",
-  aminoType: "cosmos-sdk/Delegation",
+  typeUrl: "/cosmos.staking.v1beta1.Delegation" as const,
+  aminoType: "cosmos-sdk/Delegation" as const,
   is(o: any): o is Delegation {
     return o && (o.$typeUrl === Delegation.typeUrl || typeof o.delegatorAddress === "string" && typeof o.validatorAddress === "string" && typeof o.shares === "string");
   },
@@ -143,8 +143,8 @@ exports[`cosmos/staking/v1beta1 Delegation useCosmosSDKDec 1`] = `
  * @see proto type: cosmos.staking.v1beta1.Delegation
  */
 export const Delegation = {
-  typeUrl: "/cosmos.staking.v1beta1.Delegation",
-  aminoType: "cosmos-sdk/Delegation",
+  typeUrl: "/cosmos.staking.v1beta1.Delegation" as const,
+  aminoType: "cosmos-sdk/Delegation" as const,
   is(o: any): o is Delegation {
     return o && (o.$typeUrl === Delegation.typeUrl || typeof o.delegatorAddress === "string" && typeof o.validatorAddress === "string" && typeof o.shares === "string");
   },
@@ -277,8 +277,8 @@ exports[`cosmos/tx/signing/v1beta1/signing SignatureDescriptor 1`] = `
  * @see proto type: cosmos.tx.signing.v1beta1.SignatureDescriptor
  */
 export const SignatureDescriptor = {
-  typeUrl: "/cosmos.tx.signing.v1beta1.SignatureDescriptor",
-  aminoType: "cosmos-sdk/SignatureDescriptor",
+  typeUrl: "/cosmos.tx.signing.v1beta1.SignatureDescriptor" as const,
+  aminoType: "cosmos-sdk/SignatureDescriptor" as const,
   is(o: any): o is SignatureDescriptor {
     return o && (o.$typeUrl === SignatureDescriptor.typeUrl || typeof o.sequence === "bigint");
   },
@@ -413,8 +413,8 @@ exports[`cosmos/tx/signing/v1beta1/signing SignatureDescriptors 1`] = `
  * @see proto type: cosmos.tx.signing.v1beta1.SignatureDescriptors
  */
 export const SignatureDescriptors = {
-  typeUrl: "/cosmos.tx.signing.v1beta1.SignatureDescriptors",
-  aminoType: "cosmos-sdk/SignatureDescriptors",
+  typeUrl: "/cosmos.tx.signing.v1beta1.SignatureDescriptors" as const,
+  aminoType: "cosmos-sdk/SignatureDescriptors" as const,
   is(o: any): o is SignatureDescriptors {
     return o && (o.$typeUrl === SignatureDescriptors.typeUrl || Array.isArray(o.signatures) && (!o.signatures.length || SignatureDescriptor.is(o.signatures[0])));
   },
@@ -534,8 +534,8 @@ exports[`cosmos/tx/v1beta1/tx AuxSignerData 1`] = `
  * @see proto type: cosmos.tx.v1beta1.AuxSignerData
  */
 export const AuxSignerData = {
-  typeUrl: "/cosmos.tx.v1beta1.AuxSignerData",
-  aminoType: "cosmos-sdk/AuxSignerData",
+  typeUrl: "/cosmos.tx.v1beta1.AuxSignerData" as const,
+  aminoType: "cosmos-sdk/AuxSignerData" as const,
   is(o: any): o is AuxSignerData {
     return o && (o.$typeUrl === AuxSignerData.typeUrl || typeof o.address === "string" && isSet(o.mode) && (o.sig instanceof Uint8Array || typeof o.sig === "string"));
   },
@@ -685,8 +685,8 @@ exports[`cosmos/tx/v1beta1/tx ModeInfo_Multi 1`] = `
  * @see proto type: cosmos.tx.v1beta1.ModeInfo
  */
 export const ModeInfo_Multi = {
-  typeUrl: "/cosmos.tx.v1beta1.ModeInfo",
-  aminoType: "cosmos-sdk/ModeInfo",
+  typeUrl: "/cosmos.tx.v1beta1.ModeInfo" as const,
+  aminoType: "cosmos-sdk/ModeInfo" as const,
   is(o: any): o is ModeInfo_Multi {
     return o && o.$typeUrl === ModeInfo_Multi.typeUrl;
   },
@@ -808,8 +808,8 @@ exports[`cosmwasm/wasm/v1/proposal 1`] = `
  * @see proto type: cosmwasm.wasm.v1.PinCodesProposal
  */
 export const PinCodesProposal = {
-  typeUrl: "/cosmwasm.wasm.v1.PinCodesProposal",
-  aminoType: "wasm/PinCodesProposal",
+  typeUrl: "/cosmwasm.wasm.v1.PinCodesProposal" as const,
+  aminoType: "wasm/PinCodesProposal" as const,
   is(o: any): o is PinCodesProposal {
     return o && (o.$typeUrl === PinCodesProposal.typeUrl || typeof o.title === "string" && typeof o.description === "string" && Array.isArray(o.codeIds) && (!o.codeIds.length || typeof o.codeIds[0] === "bigint"));
   },
@@ -959,8 +959,8 @@ exports[`cosmwasm/wasm/v1/proposal 2`] = `
  * @see proto type: cosmwasm.wasm.v1.UnpinCodesProposal
  */
 export const UnpinCodesProposal = {
-  typeUrl: "/cosmwasm.wasm.v1.UnpinCodesProposal",
-  aminoType: "wasm/UnpinCodesProposal",
+  typeUrl: "/cosmwasm.wasm.v1.UnpinCodesProposal" as const,
+  aminoType: "wasm/UnpinCodesProposal" as const,
   is(o: any): o is UnpinCodesProposal {
     return o && (o.$typeUrl === UnpinCodesProposal.typeUrl || typeof o.title === "string" && typeof o.description === "string" && Array.isArray(o.codeIds) && (!o.codeIds.length || typeof o.codeIds[0] === "bigint"));
   },
@@ -1110,8 +1110,8 @@ exports[`cosmwasm/wasm/v1/query 1`] = `
  * @see proto type: cosmwasm.wasm.v1.QueryRawContractStateRequest
  */
 export const QueryRawContractStateRequest = {
-  typeUrl: "/cosmwasm.wasm.v1.QueryRawContractStateRequest",
-  aminoType: "wasm/QueryRawContractStateRequest",
+  typeUrl: "/cosmwasm.wasm.v1.QueryRawContractStateRequest" as const,
+  aminoType: "wasm/QueryRawContractStateRequest" as const,
   is(o: any): o is QueryRawContractStateRequest {
     return o && (o.$typeUrl === QueryRawContractStateRequest.typeUrl || typeof o.address === "string" && (o.queryData instanceof Uint8Array || typeof o.queryData === "string"));
   },
@@ -1226,7 +1226,7 @@ exports[`evmos/fees/v1/tx 1`] = `
  * @see proto type: evmos.fees.v1.MsgRegisterDevFeeInfo
  */
 export const MsgRegisterDevFeeInfo = {
-  typeUrl: "/evmos.fees.v1.MsgRegisterDevFeeInfo",
+  typeUrl: "/evmos.fees.v1.MsgRegisterDevFeeInfo" as const,
   is(o: any): o is MsgRegisterDevFeeInfo {
     return o && (o.$typeUrl === MsgRegisterDevFeeInfo.typeUrl || typeof o.contractAddress === "string" && typeof o.deployerAddress === "string" && typeof o.withdrawAddress === "string" && Array.isArray(o.nonces) && (!o.nonces.length || typeof o.nonces[0] === "bigint"));
   },
@@ -1384,7 +1384,7 @@ exports[`google/api/expr/conformance/v1alpha1/conformance_service ParseRequest 1
  * @see proto type: google.api.expr.conformance.v1alpha1.ParseRequest
  */
 export const ParseRequest = {
-  typeUrl: "/google.api.expr.conformance.v1alpha1.ParseRequest",
+  typeUrl: "/google.api.expr.conformance.v1alpha1.ParseRequest" as const,
   is(o: any): o is ParseRequest {
     return o && (o.$typeUrl === ParseRequest.typeUrl || typeof o.celSource === "string" && typeof o.syntaxVersion === "string" && typeof o.sourceLocation === "string" && typeof o.disableMacros === "boolean");
   },
@@ -1532,7 +1532,7 @@ exports[`google/api/expr/v1alpha1/checked Decl_FunctionDecl_Overload MapType 1`]
  * @see proto type: google.api.expr.v1alpha1.Overload
  */
 export const Decl_FunctionDecl_Overload = {
-  typeUrl: "/google.api.expr.v1alpha1.Overload",
+  typeUrl: "/google.api.expr.v1alpha1.Overload" as const,
   is(o: any): o is Decl_FunctionDecl_Overload {
     return o && (o.$typeUrl === Decl_FunctionDecl_Overload.typeUrl || typeof o.overloadId === "string" && Array.isArray(o.params) && (!o.params.length || Type.is(o.params[0])) && Array.isArray(o.typeParams) && (!o.typeParams.length || typeof o.typeParams[0] === "string") && typeof o.isInstanceFunction === "boolean" && typeof o.doc === "string");
   },
@@ -1726,7 +1726,7 @@ exports[`google/api/expr/v1alpha1/checked Type 1`] = `
  * @see proto type: google.api.expr.v1alpha1.Type
  */
 export const Type = {
-  typeUrl: "/google.api.expr.v1alpha1.Type",
+  typeUrl: "/google.api.expr.v1alpha1.Type" as const,
   is(o: any): o is Type {
     return o && o.$typeUrl === Type.typeUrl;
   },
@@ -2010,7 +2010,7 @@ exports[`google/api/expr/v1alpha1/checked nested MapType 1`] = `
  * @see proto type: google.api.expr.v1alpha1.MapType
  */
 export const Type_MapType = {
-  typeUrl: "/google.api.expr.v1alpha1.MapType",
+  typeUrl: "/google.api.expr.v1alpha1.MapType" as const,
   is(o: any): o is Type_MapType {
     return o && o.$typeUrl === Type_MapType.typeUrl;
   },
@@ -2124,7 +2124,7 @@ exports[`google/api/expr/v1alpha1/checked typeHash (Long) CheckedExpr 1`] = `
  * @see proto type: google.api.expr.v1alpha1.CheckedExpr
  */
 export const CheckedExpr = {
-  typeUrl: "/google.api.expr.v1alpha1.CheckedExpr",
+  typeUrl: "/google.api.expr.v1alpha1.CheckedExpr" as const,
   is(o: any): o is CheckedExpr {
     return o && (o.$typeUrl === CheckedExpr.typeUrl || isSet(o.referenceMap) && isSet(o.typeMap) && typeof o.exprVersion === "string");
   },
@@ -2384,7 +2384,7 @@ exports[`google/api/expr/v1alpha1/syntax Constant 1`] = `
  * @see proto type: google.api.expr.v1alpha1.Constant
  */
 export const Constant = {
-  typeUrl: "/google.api.expr.v1alpha1.Constant",
+  typeUrl: "/google.api.expr.v1alpha1.Constant" as const,
   is(o: any): o is Constant {
     return o && o.$typeUrl === Constant.typeUrl;
   },
@@ -2602,7 +2602,7 @@ exports[`google/api/expr/v1alpha1/value Entry 1`] = `
  * @see proto type: google.api.expr.v1alpha1.Entry
  */
 export const Entry = {
-  typeUrl: "/google.api.expr.v1alpha1.Entry",
+  typeUrl: "/google.api.expr.v1alpha1.Entry" as const,
   is(o: any): o is Entry {
     return o && o.$typeUrl === Entry.typeUrl;
   },
@@ -2721,7 +2721,7 @@ exports[`google/api/expr/v1alpha1/value MapValue 1`] = `
  * @see proto type: google.api.expr.v1alpha1.MapValue
  */
 export const MapValue = {
-  typeUrl: "/google.api.expr.v1alpha1.MapValue",
+  typeUrl: "/google.api.expr.v1alpha1.MapValue" as const,
   is(o: any): o is MapValue {
     return o && (o.$typeUrl === MapValue.typeUrl || Array.isArray(o.entries) && (!o.entries.length || MapValue_Entry.is(o.entries[0])));
   },
@@ -2832,7 +2832,7 @@ exports[`google/api/expr/v1beta1/source 1`] = `
  * @see proto type: google.api.expr.v1beta1.SourceInfo
  */
 export const SourceInfo = {
-  typeUrl: "/google.api.expr.v1beta1.SourceInfo",
+  typeUrl: "/google.api.expr.v1beta1.SourceInfo" as const,
   is(o: any): o is SourceInfo {
     return o && (o.$typeUrl === SourceInfo.typeUrl || typeof o.location === "string" && Array.isArray(o.lineOffsets) && (!o.lineOffsets.length || typeof o.lineOffsets[0] === "number") && isSet(o.positions));
   },
@@ -3019,7 +3019,7 @@ exports[`google/api/quota keyType 1`] = `
  * @see proto type: google.api.MetricRule
  */
 export const MetricRule = {
-  typeUrl: "/google.api.MetricRule",
+  typeUrl: "/google.api.MetricRule" as const,
   is(o: any): o is MetricRule {
     return o && (o.$typeUrl === MetricRule.typeUrl || typeof o.selector === "string" && isSet(o.metricCosts));
   },
@@ -3173,7 +3173,7 @@ exports[`google/api/servicecontrol/v1/log_entry LogEntry 1`] = `
  * @see proto type: google.api.servicecontrol.v1.LogEntry
  */
 export const LogEntry = {
-  typeUrl: "/google.api.servicecontrol.v1.LogEntry",
+  typeUrl: "/google.api.servicecontrol.v1.LogEntry" as const,
   is(o: any): o is LogEntry {
     return o && (o.$typeUrl === LogEntry.typeUrl || typeof o.name === "string" && isSet(o.severity) && typeof o.trace === "string" && typeof o.insertId === "string" && isSet(o.labels));
   },
@@ -3505,7 +3505,7 @@ exports[`google/rpc/error_details name collisions 2`] = `
  * @see proto type: google.rpc.PreconditionFailure
  */
 export const PreconditionFailure = {
-  typeUrl: "/google.rpc.PreconditionFailure",
+  typeUrl: "/google.rpc.PreconditionFailure" as const,
   is(o: any): o is PreconditionFailure {
     return o && (o.$typeUrl === PreconditionFailure.typeUrl || Array.isArray(o.violations) && (!o.violations.length || PreconditionFailure_Violation.is(o.violations[0])));
   },
@@ -3614,8 +3614,8 @@ exports[`ibc/core/port/v1/query 1`] = `
  * @see proto type: ibc.core.port.v1.QueryAppVersionRequest
  */
 export const QueryAppVersionRequest = {
-  typeUrl: "/ibc.core.port.v1.QueryAppVersionRequest",
-  aminoType: "cosmos-sdk/QueryAppVersionRequest",
+  typeUrl: "/ibc.core.port.v1.QueryAppVersionRequest" as const,
+  aminoType: "cosmos-sdk/QueryAppVersionRequest" as const,
   is(o: any): o is QueryAppVersionRequest {
     return o && (o.$typeUrl === QueryAppVersionRequest.typeUrl || typeof o.portId === "string" && typeof o.connectionId === "string" && isSet(o.ordering) && typeof o.proposedVersion === "string");
   },
@@ -3888,8 +3888,8 @@ exports[`ibc/core/types/v1/genesis name collisions 2`] = `
  * @see proto type: ibc.core.types.v1.GenesisState
  */
 export const GenesisState = {
-  typeUrl: "/ibc.core.types.v1.GenesisState",
-  aminoType: "cosmos-sdk/GenesisState",
+  typeUrl: "/ibc.core.types.v1.GenesisState" as const,
+  aminoType: "cosmos-sdk/GenesisState" as const,
   is(o: any): o is GenesisState {
     return o && (o.$typeUrl === GenesisState.typeUrl || GenesisState1.is(o.clientGenesis) && GenesisState2.is(o.connectionGenesis) && GenesisState3.is(o.channelGenesis));
   },
@@ -4264,8 +4264,8 @@ exports[`osmosis/gamm/v1beta1/query 1`] = `
  * @see proto type: osmosis.gamm.v1beta1.QueryPoolsResponse
  */
 export const QueryPoolsResponse = {
-  typeUrl: "/osmosis.gamm.v1beta1.QueryPoolsResponse",
-  aminoType: "osmosis/gamm/query-pools-response",
+  typeUrl: "/osmosis.gamm.v1beta1.QueryPoolsResponse" as const,
+  aminoType: "osmosis/gamm/query-pools-response" as const,
   is(o: any): o is QueryPoolsResponse {
     return o && (o.$typeUrl === QueryPoolsResponse.typeUrl || Array.isArray(o.pools) && (!o.pools.length || Pool1.is(o.pools[0]) || Pool2.is(o.pools[0]) || Any.is(o.pools[0])));
   },
@@ -4398,8 +4398,8 @@ exports[`osmosis/gamm/v1beta1/tx MsgJoinPool 1`] = `
  * @see proto type: osmosis.gamm.v1beta1.MsgJoinPool
  */
 export const MsgJoinPool = {
-  typeUrl: "/osmosis.gamm.v1beta1.MsgJoinPool",
-  aminoType: "osmosis/gamm/join-pool",
+  typeUrl: "/osmosis.gamm.v1beta1.MsgJoinPool" as const,
+  aminoType: "osmosis/gamm/join-pool" as const,
   is(o: any): o is MsgJoinPool {
     return o && (o.$typeUrl === MsgJoinPool.typeUrl || typeof o.sender === "string" && typeof o.poolId === "bigint" && typeof o.shareOutAmount === "string" && Array.isArray(o.tokenInMaxs) && (!o.tokenInMaxs.length || Coin.is(o.tokenInMaxs[0])));
   },
@@ -4558,8 +4558,8 @@ exports[`osmosis/gamm/v1beta1/tx MsgSwapExactAmountIn 1`] = `
  * @see proto type: osmosis.gamm.v1beta1.MsgSwapExactAmountIn
  */
 export const MsgSwapExactAmountIn = {
-  typeUrl: "/osmosis.gamm.v1beta1.MsgSwapExactAmountIn",
-  aminoType: "osmosis/gamm/swap-exact-amount-in",
+  typeUrl: "/osmosis.gamm.v1beta1.MsgSwapExactAmountIn" as const,
+  aminoType: "osmosis/gamm/swap-exact-amount-in" as const,
   is(o: any): o is MsgSwapExactAmountIn {
     return o && (o.$typeUrl === MsgSwapExactAmountIn.typeUrl || typeof o.sender === "string" && Array.isArray(o.routes) && (!o.routes.length || SwapAmountInRoute.is(o.routes[0])) && Coin.is(o.tokenIn) && typeof o.tokenOutMinAmount === "string");
   },
@@ -4719,8 +4719,8 @@ exports[`osmosis/gamm/v1beta1/tx MsgSwapExactAmountOut 1`] = `
  * @see proto type: osmosis.gamm.v1beta1.MsgSwapExactAmountOut
  */
 export const MsgSwapExactAmountOut = {
-  typeUrl: "/osmosis.gamm.v1beta1.MsgSwapExactAmountOut",
-  aminoType: "osmosis/gamm/swap-exact-amount-out",
+  typeUrl: "/osmosis.gamm.v1beta1.MsgSwapExactAmountOut" as const,
+  aminoType: "osmosis/gamm/swap-exact-amount-out" as const,
   is(o: any): o is MsgSwapExactAmountOut {
     return o && (o.$typeUrl === MsgSwapExactAmountOut.typeUrl || typeof o.sender === "string" && Array.isArray(o.routes) && (!o.routes.length || SwapAmountOutRoute.is(o.routes[0])) && typeof o.tokenInMaxAmount === "string" && Coin.is(o.tokenOut));
   },

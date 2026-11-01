@@ -425,7 +425,7 @@ exports[`Any interface 2`] = `
  * @see proto type: google.protobuf.Any
  */
 export const Any = {
-  typeUrl: "/google.protobuf.Any",
+  typeUrl: "/google.protobuf.Any" as const,
   is(o: any): o is Any {
     return o && (o.$typeUrl === Any.typeUrl || typeof o.typeUrl === "string" && (o.value instanceof Uint8Array || typeof o.value === "string"));
   },

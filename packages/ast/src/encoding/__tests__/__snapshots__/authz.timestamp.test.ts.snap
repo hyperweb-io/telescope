@@ -28,8 +28,8 @@ exports[`cosmos/authz/v1beta1/authz date 2`] = `
  * @see proto type: cosmos.authz.v1beta1.Grant
  */
 export const Grant = {
-  typeUrl: "/cosmos.authz.v1beta1.Grant",
-  aminoType: "cosmos-sdk/Grant",
+  typeUrl: "/cosmos.authz.v1beta1.Grant" as const,
+  aminoType: "cosmos-sdk/Grant" as const,
   is(o: any): o is Grant {
     return o && o.$typeUrl === Grant.typeUrl;
   },
@@ -218,8 +218,8 @@ exports[`cosmos/authz/v1beta1/authz timestamp 2`] = `
  * @see proto type: cosmos.authz.v1beta1.Grant
  */
 export const Grant = {
-  typeUrl: "/cosmos.authz.v1beta1.Grant",
-  aminoType: "cosmos-sdk/Grant",
+  typeUrl: "/cosmos.authz.v1beta1.Grant" as const,
+  aminoType: "cosmos-sdk/Grant" as const,
   is(o: any): o is Grant {
     return o && o.$typeUrl === Grant.typeUrl;
   },

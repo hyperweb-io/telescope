@@ -7,7 +7,7 @@ exports[`misc/eval_request date 1`] = `
  * @see proto type: misc.EvalRequest
  */
 export const EvalRequest = {
-  typeUrl: "/misc.EvalRequest",
+  typeUrl: "/misc.EvalRequest" as const,
   is(o: any): o is EvalRequest {
     return o && (o.$typeUrl === EvalRequest.typeUrl || isSet(o.bindings) && isSet(o.refs) && typeof o.testNum === "number" && typeof o.testString === "string" && typeof o.testBool === "boolean" && Array.isArray(o.testArray) && (!o.testArray.length || typeof o.testArray[0] === "string") && isSet(o.opt) && typeof o.falseDeprecated === "string");
   },
@@ -387,7 +387,7 @@ exports[`misc/eval_request timestamp 1`] = `
  * @see proto type: misc.EvalRequest
  */
 export const EvalRequest = {
-  typeUrl: "/misc.EvalRequest",
+  typeUrl: "/misc.EvalRequest" as const,
   is(o: any): o is EvalRequest {
     return o && (o.$typeUrl === EvalRequest.typeUrl || isSet(o.bindings) && isSet(o.refs) && typeof o.testNum === "number" && typeof o.testString === "string" && typeof o.testBool === "boolean" && Array.isArray(o.testArray) && (!o.testArray.length || typeof o.testArray[0] === "string") && isSet(o.opt) && typeof o.falseDeprecated === "string");
   },

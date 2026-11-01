@@ -68,8 +68,8 @@ exports[`ibc/lightclients/tendermint/v1/tendermint duration 2`] = `
  * @see proto type: ibc.lightclients.tendermint.v1.ClientState
  */
 export const ClientState = {
-  typeUrl: "/ibc.lightclients.tendermint.v1.ClientState",
-  aminoType: "cosmos-sdk/ClientState",
+  typeUrl: "/ibc.lightclients.tendermint.v1.ClientState" as const,
+  aminoType: "cosmos-sdk/ClientState" as const,
   is(o: any): o is ClientState {
     return o && (o.$typeUrl === ClientState.typeUrl || typeof o.chainId === "string" && Fraction.is(o.trustLevel) && Duration.is(o.trustingPeriod) && Duration.is(o.unbondingPeriod) && Duration.is(o.maxClockDrift) && Height.is(o.frozenHeight) && Height.is(o.latestHeight) && Array.isArray(o.proofSpecs) && (!o.proofSpecs.length || ProofSpec.is(o.proofSpecs[0])) && Array.isArray(o.upgradePath) && (!o.upgradePath.length || typeof o.upgradePath[0] === "string") && typeof o.allowUpdateAfterExpiry === "boolean" && typeof o.allowUpdateAfterMisbehaviour === "boolean");
   },
@@ -580,8 +580,8 @@ exports[`ibc/lightclients/tendermint/v1/tendermint string 2`] = `
  * @see proto type: ibc.lightclients.tendermint.v1.ClientState
  */
 export const ClientState = {
-  typeUrl: "/ibc.lightclients.tendermint.v1.ClientState",
-  aminoType: "cosmos-sdk/ClientState",
+  typeUrl: "/ibc.lightclients.tendermint.v1.ClientState" as const,
+  aminoType: "cosmos-sdk/ClientState" as const,
   is(o: any): o is ClientState {
     return o && (o.$typeUrl === ClientState.typeUrl || typeof o.chainId === "string" && Fraction.is(o.trustLevel) && typeof o.trustingPeriod === "string" && typeof o.unbondingPeriod === "string" && typeof o.maxClockDrift === "string" && Height.is(o.frozenHeight) && Height.is(o.latestHeight) && Array.isArray(o.proofSpecs) && (!o.proofSpecs.length || ProofSpec.is(o.proofSpecs[0])) && Array.isArray(o.upgradePath) && (!o.upgradePath.length || typeof o.upgradePath[0] === "string") && typeof o.allowUpdateAfterExpiry === "boolean" && typeof o.allowUpdateAfterMisbehaviour === "boolean");
   },
