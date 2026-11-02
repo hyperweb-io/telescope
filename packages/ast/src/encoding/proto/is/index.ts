@@ -116,20 +116,22 @@ export const createProtoTypeComparison = (args: {
           type: "string",
         });
       }
+      break;
     case "google.protobuf.Timestamp":
     case "Timestamp":
       const timestampFormat = args.context.pluginValue(
         "prototypes.typingsFormat.timestamp"
       );
 
-      if (timestampFormat === "date") {
-        createInstanceOfTypeComparison({
+      if (timestampFormat === "date" && methodName !== "isAmino") {
+        return createInstanceOfTypeComparison({
           context,
           fieldName,
           field,
           type: "Date",
         });
       }
+      break;
     case "Any":
     case "google.protobuf.Any":
       const lookupInterface =
